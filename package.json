@@ -1,0 +1,12 @@
+{
+    "name": "adh29",
+    "description": "A Node-RED Project",
+    "version": "0.0.1",
+    "dependencies": {},
+    "node-red": {
+        "settings": {
+            "flowFile": "flows_dipe-pi.json",
+            "credentialsFile": "flows_dipe-pi_cred.json"
+        }
+    }
+}
