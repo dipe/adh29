@@ -281,8 +281,7 @@
                 "primary": "indigo",
                 "accents": "blue",
                 "warn": "red",
-                "background": "grey",
-                "palette": "dark"
+                "background": "grey"
             }
         },
         "site": {
@@ -2483,8 +2482,7 @@
             [
                 "cc8a785f.672de8",
                 "dcf63c7b.141a4",
-                "e84fc5c1.8ed998",
-                "3e8bd40f.404dac"
+                "e84fc5c1.8ed998"
             ]
         ]
     },
@@ -2503,8 +2501,7 @@
             [
                 "bde9abd8.0c36d8",
                 "f4d7446c.fa6498",
-                "dae7b288.e2b84",
-                "8d798950.dbc948"
+                "dae7b288.e2b84"
             ]
         ]
     },
@@ -4573,8 +4570,7 @@
             [
                 "7eaeb90e.d5fca8",
                 "e4621baa.7a9d48",
-                "db5109c6.331428",
-                "1bc6ee94.b27721"
+                "db5109c6.331428"
             ]
         ]
     },
@@ -4593,8 +4589,7 @@
             [
                 "27d81638.21a83a",
                 "32996bf9.41dac4",
-                "cc3d9bdb.0620b8",
-                "9e22db22.9a10e8"
+                "cc3d9bdb.0620b8"
             ]
         ]
     },
@@ -4816,8 +4811,7 @@
             [
                 "e0886731.7dad88",
                 "dfd242ca.c3642",
-                "83f71363.85d2f",
-                "82474c2a.6e79d"
+                "83f71363.85d2f"
             ]
         ]
     },
@@ -4983,9 +4977,8 @@
         "wires": [
             [
                 "1265b14d.4399bf",
-                "63c048bc.d2f968",
                 "3f1930a3.711a4",
-                "551ea888.22c4f8"
+                "4265433f.286fcc"
             ]
         ]
     },
@@ -5005,8 +4998,8 @@
                 "ea8ce2c6.69dcd",
                 "63862f71.4caa5",
                 "94ccc1c9.62b1d",
-                "6caa0c88.a7b3f4",
-                "b56cd25f.124c9"
+                "b56cd25f.124c9",
+                "f24eda7c.102788"
             ]
         ]
     },
@@ -5062,22 +5055,6 @@
         ]
     },
     {
-        "id": "63c048bc.d2f968",
-        "type": "function",
-        "z": "4d90b497.b5b2ac",
-        "name": "",
-        "func": "var val = parseFloat(msg.payload);\n\nflow.set(\"waschkueche_temperatur\", val);\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 580,
-        "y": 160,
-        "wires": [
-            []
-        ]
-    },
-    {
         "id": "63862f71.4caa5",
         "type": "function",
         "z": "4d90b497.b5b2ac",
@@ -5100,7 +5077,7 @@
         "type": "function",
         "z": "4d90b497.b5b2ac",
         "name": "",
-        "func": "const mw = 18.01534;    // molar mass of water g/mol\nconst r = 8.31447215;   // Universal gas constant J/mol/K\n\nvar a_abs_humidity = global.get(\"aussen_absolute_luftfeuchtigkeit\");\nvar wk_temperature = flow.get(\"waschkueche_temperatur\");\nvar wk_humidity = flow.get(\"waschkueche_luftfeuchtigkeit\");\n\nvar wk_abs_humidity = (6.112 * Math.pow(2.718281828, (17.67 * wk_temperature) /\n    (wk_temperature + 243.5)) * wk_humidity * mw) /\n    ((273.15 + wk_temperature) * r); // in grams/m^3\n\nvar washroom_fan_switch = flow.get(\"washroom_fan_switch\");\nvar washroom_fan_control = flow.get(\"washroom_fan_control\");\n\nif (washroom_fan_control == \"ON\") {\n    washroom_fan_switch = (wk_humidity > 65 && wk_abs_humidity > a_abs_humidity) ? \"ON\" : \"OFF\";\n}\n\nmsg = [\n    {topic: \"Waschküche g/m³\", payload: wk_abs_humidity},\n    {topic: \"Außen g/m³\", payload: a_abs_humidity},\n    (washroom_fan_switch) ? {topic: \"luefter_sw\", payload: washroom_fan_switch} : undefined\n];\n\nreturn msg;",
+        "func": "const mw = 18.01534;    // molar mass of water g/mol\nconst r = 8.31447215;   // Universal gas constant J/mol/K\n\nvar a_abs_humidity = global.get(\"aussen_absolute_luftfeuchtigkeit\");\nvar wk_temperature = global.get(\"Waschküche-Temperatur\");\nvar wk_humidity = global.get(\"Waschküche-Luftfeuchtigkeit\");\n\nvar wk_abs_humidity = (6.112 * Math.pow(2.718281828, (17.67 * wk_temperature) /\n    (wk_temperature + 243.5)) * wk_humidity * mw) /\n    ((273.15 + wk_temperature) * r); // in grams/m^3\n\nvar washroom_fan_switch = flow.get(\"washroom_fan_switch\");\nvar washroom_fan_control = flow.get(\"washroom_fan_control\");\n\nif (washroom_fan_control == \"ON\") {\n    washroom_fan_switch = (wk_humidity > 65 && wk_abs_humidity > a_abs_humidity) ? \"ON\" : \"OFF\";\n}\n\nmsg = [\n    {topic: \"Waschküche g/m³\", payload: wk_abs_humidity},\n    {topic: \"Außen g/m³\", payload: a_abs_humidity},\n    (washroom_fan_switch) ? {topic: \"luefter_sw\", payload: washroom_fan_switch} : undefined\n];\n\nreturn msg;",
         "outputs": 3,
         "noerr": 0,
         "initialize": "",
@@ -5229,8 +5206,8 @@
         "interpolate": "linear",
         "nodata": "",
         "dot": false,
-        "ymin": "0",
-        "ymax": "20",
+        "ymin": "",
+        "ymax": "",
         "removeOlder": 1,
         "removeOlderPoints": "",
         "removeOlderUnit": "86400",
@@ -5278,8 +5255,8 @@
         "type": "hangoutChatBot",
         "z": "4d90b497.b5b2ac",
         "hangoutsCertificate": "10925253.f46f4e",
-        "roomid": "spaces/-fp3jQAAAAE",
-        "roomname": "spaces/-fp3jQAAAAE",
+        "roomid": "spaces/AAAAl9wJJ_0",
+        "roomname": "spaces/AAAAl9wJJ_0",
         "contentproperty": "Waschmaschiene ist fertig!",
         "contenttype": "str",
         "x": 800,
@@ -5963,7 +5940,7 @@
             [
                 "1607a7e2.b331e8",
                 "64780b25.0ebc64",
-                "ba47da19.b2e468"
+                "5c0c1fcf.77b39"
             ]
         ]
     },
@@ -5982,7 +5959,7 @@
             [
                 "493a66fe.df57b8",
                 "b33b97f.ec79f68",
-                "7dbe9f4d.c3119"
+                "4ce5a213.c4124c"
             ]
         ]
     },
@@ -6934,231 +6911,6 @@
         ]
     },
     {
-        "id": "ba47da19.b2e468",
-        "type": "change",
-        "z": "fc81a32b.bb6db",
-        "name": "",
-        "rules": [
-            {
-                "t": "move",
-                "p": "payload",
-                "pt": "msg",
-                "to": "Gäste-WC-Temperatur",
-                "tot": "global"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 620,
-        "y": 100,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "7dbe9f4d.c3119",
-        "type": "change",
-        "z": "fc81a32b.bb6db",
-        "name": "",
-        "rules": [
-            {
-                "t": "move",
-                "p": "payload",
-                "pt": "msg",
-                "to": "Gäste-WC-Luftfeuchtigkeit",
-                "tot": "global"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 620,
-        "y": 260,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "551ea888.22c4f8",
-        "type": "change",
-        "z": "4d90b497.b5b2ac",
-        "name": "",
-        "rules": [
-            {
-                "t": "move",
-                "p": "payload",
-                "pt": "msg",
-                "to": "Wachküche-Temperatur",
-                "tot": "global"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 620,
-        "y": 40,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "6caa0c88.a7b3f4",
-        "type": "change",
-        "z": "4d90b497.b5b2ac",
-        "name": "",
-        "rules": [
-            {
-                "t": "move",
-                "p": "payload",
-                "pt": "msg",
-                "to": "Waschküche-Luftfeuchtigkeit",
-                "tot": "global"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 620,
-        "y": 200,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "3e8bd40f.404dac",
-        "type": "change",
-        "z": "293bb437.fa00bc",
-        "name": "",
-        "rules": [
-            {
-                "t": "move",
-                "p": "payload",
-                "pt": "msg",
-                "to": "topic",
-                "tot": "global"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 680,
-        "y": 60,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "1bc6ee94.b27721",
-        "type": "change",
-        "z": "293bb437.fa00bc",
-        "name": "",
-        "rules": [
-            {
-                "t": "move",
-                "p": "payload",
-                "pt": "msg",
-                "to": "topic",
-                "tot": "global"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 680,
-        "y": 220,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "8d798950.dbc948",
-        "type": "change",
-        "z": "293bb437.fa00bc",
-        "name": "",
-        "rules": [
-            {
-                "t": "move",
-                "p": "payload",
-                "pt": "msg",
-                "to": "topic",
-                "tot": "global"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 680,
-        "y": 360,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "82474c2a.6e79d",
-        "type": "change",
-        "z": "293bb437.fa00bc",
-        "name": "",
-        "rules": [
-            {
-                "t": "move",
-                "p": "payload",
-                "pt": "msg",
-                "to": "topic",
-                "tot": "global"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 680,
-        "y": 500,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "9e22db22.9a10e8",
-        "type": "change",
-        "z": "293bb437.fa00bc",
-        "name": "",
-        "rules": [
-            {
-                "t": "move",
-                "p": "payload",
-                "pt": "msg",
-                "to": "topic",
-                "tot": "global"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 680,
-        "y": 640,
-        "wires": [
-            []
-        ]
-    },
-    {
         "id": "12ebb575.a874db",
         "type": "ui_template",
         "z": "2788b93b.8a2f56",
@@ -7167,13 +6919,13 @@
         "order": 2,
         "width": 0,
         "height": 0,
-        "format": "<md-card ui-card-size=\"6x1\" \n    layout=\"row\" \n    layout-align=\"space-between center\" \n    class=\"nr-dashboard-text _md layout-row layout-align-center-center nr-dashboard-widget-text visible\" \n    style=\"background-color: {{msg.payload.color}}; color: black; left: 0px; top: 54px; width: 318px; height: 48px;\">\n    <p class=\"label\">{{msg.payload.room}}</p> <p class=\"value\">{{msg.payload.hint}}</p>\n</md-card>\n",
+        "format": "<md-card ui-card-size=\"6x2\" \n    class=\"_md nr-dashboard-text layout-align-center-center nr-dashboard-widget-text visible\" \n    style=\"background-color: {{msg.payload.color}}; color: black; left: 0px; top: 54px; width: 300px; height: 96px;\">\n    <p class=\"label\">{{msg.payload.room}}</p> <p class=\"value\">{{msg.payload.hint}}</p>\n</md-card>\n",
         "storeOutMessages": true,
         "fwdInMessages": true,
         "resendOnRefresh": true,
         "templateScope": "local",
-        "x": 700,
-        "y": 200,
+        "x": 760,
+        "y": 160,
         "wires": [
             []
         ]
@@ -7183,16 +6935,18 @@
         "type": "function",
         "z": "2788b93b.8a2f56",
         "name": "Lüftungsempfehlung",
-        "func": "var room = msg.topic;\n\nvar room_temperature = global.get(msg.topic + \"Temperatur\");\nvar room_humidity = global.get(msg.topic + \"Luftfeuchtigkeit\");\n\nvar outside_abs_humidity = global.get(\"aussen_absolute_luftfeuchtigkeit\");\n\nconst mw = 18.01534;    // molar mass of water g/mol\nconst r = 8.31447215;   // Universal gas constant J/mol/K\nconst threashold = 1.1; // Abs. outside humidity must 10% less then inside\n\nvar room_abs_humidity = (6.112 * Math.pow(2.718281828, (17.67 * room_temperature) /\n    (room_temperature + 243.5)) * room_humidity * mw) /\n    ((273.15 + room_temperature) * r); // in grams/m^3\n\nif (room_abs_humidity > outside_abs_humidity * threashold) {\n    if (room_humidity > 65) {\n        return {payload: {color: \"yellow\", hint: \"Lüften\", room: room}};\n    } else {\n        return {payload: {color: \"limegreen\", hint: \"Lüften möglich\", room: room}};\n    }\n} else {\n    if (room_humidity > 65) {\n        return {payload: {color: \"red\", hint: \"Schwül draußen! Fenster geschlossen halten \", room: room}};\n    } else {\n        return {payload: {color: \"white\", hint: \"Lüften nicht sinnvoll\", room: room}};\n    }\n}\n",
+        "func": "const room = msg.topic;\n\nconst room_temperature = global.get(room + \"-Temperatur\");\nconst room_humidity = global.get(room + \"-Luftfeuchtigkeit\");\n\nconst outside_abs_humidity = global.get(\"aussen_absolute_luftfeuchtigkeit\");\n\nconst mw = 18.01534;    // molar mass of water g/mol\nconst r = 8.31447215;   // Universal gas constant J/mol/K\n\nconst room_abs_humidity = (6.112 * Math.pow(2.718281828, (17.67 * room_temperature) /\n    (room_temperature + 243.5)) * room_humidity * mw) /\n    ((273.15 + room_temperature) * r); // in grams/m^3\n\nif (room_abs_humidity > outside_abs_humidity) {\n    if (room_humidity > 65) {\n        return {payload: {color: \"yellow\", hint: \"Raum feucht, lüften\", room: room}};\n    } else {\n        return {payload: {color: \"limegreen\", hint: \"Raum ausreichend trocken\", room: room}};\n    }\n} else {\n    return {payload: {color: \"red\", hint: \"Draußen feuchte Luft! Nicht lüften\", room: room}};\n}\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 500,
-        "y": 200,
+        "x": 520,
+        "y": 160,
         "wires": [
             [
-                "12ebb575.a874db"
+                "12ebb575.a874db",
+                "8f4a8f67.f0316",
+                "86d0d2.678a7f3"
             ]
         ]
     },
@@ -8413,7 +8167,7 @@
             [
                 "6bde71f3.dee21",
                 "62ed456.b70bdbc",
-                "462c17ff.573b18"
+                "dbe4e3f1.7a62f"
             ]
         ]
     },
@@ -8432,7 +8186,7 @@
             [
                 "c6b9d2dd.33b2e",
                 "cbb82dd4.c7828",
-                "60ba7231.5f50ac"
+                "f2e74797.9e4948"
             ]
         ]
     },
@@ -8655,56 +8409,6 @@
         "wires": []
     },
     {
-        "id": "462c17ff.573b18",
-        "type": "change",
-        "z": "fc81a32b.bb6db",
-        "name": "",
-        "rules": [
-            {
-                "t": "move",
-                "p": "payload",
-                "pt": "msg",
-                "to": "Bad-Temperatur",
-                "tot": "global"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 620,
-        "y": 480,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "60ba7231.5f50ac",
-        "type": "change",
-        "z": "fc81a32b.bb6db",
-        "name": "",
-        "rules": [
-            {
-                "t": "move",
-                "p": "payload",
-                "pt": "msg",
-                "to": "Bad-Luftfeuchtigkeit",
-                "tot": "global"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 620,
-        "y": 640,
-        "wires": [
-            []
-        ]
-    },
-    {
         "id": "fc831115.7e04a",
         "type": "mqtt in",
         "z": "d0173d54.941d7",
@@ -8744,7 +8448,7 @@
         "type": "function",
         "z": "d0173d54.941d7",
         "name": "ESPHOME to InfluxDB",
-        "func": "var value;\nif(/^(\\-|\\+)?([0-9]+(\\.[0-9]+)?)$/.test(msg.payload)) {\n  value = Number(msg.payload);\n} else {\n  value = msg.payload;\n}\n\nvar tokens = msg.topic.split(\"/\");\nvar location = tokens[0];\n\nmsg.measurement = tokens[0];\nmsg.payload = {};\nmsg.payload[tokens[2]] = value;\n\nreturn msg;",
+        "func": "var tokens = msg.topic.split(\"/\");\n\nif (tokens[1] == \"debug\") {\n    return;\n}\n\nvar value;\nif(/^(\\-|\\+)?([0-9]+(\\.[0-9]+)?)$/.test(msg.payload)) {\n  value = Number(msg.payload);\n} else {\n  value = msg.payload;\n}\n\nvar location = tokens[0];\n\nmsg.measurement = tokens[0];\nmsg.payload = {};\nmsg.payload[tokens[2]] = value;\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -9136,8 +8840,8 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 300,
-        "y": 200,
+        "x": 320,
+        "y": 160,
         "wires": [
             [
                 "3825ae1b.6847c2"
@@ -9165,7 +8869,7 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 110,
+        "x": 130,
         "y": 200,
         "wires": [
             [
@@ -9180,16 +8884,18 @@
         "type": "function",
         "z": "2788b93b.8a2f56",
         "name": "Lüftungsempfehlung",
-        "func": "var room = msg.topic;\n\nvar room_temperature = global.get(msg.topic + \"Temperatur\");\nvar room_humidity = global.get(msg.topic + \"Luftfeuchtigkeit\");\n\nvar outside_abs_humidity = global.get(\"aussen_absolute_luftfeuchtigkeit\");\n\nconst mw = 18.01534;    // molar mass of water g/mol\nconst r = 8.31447215;   // Universal gas constant J/mol/K\nconst threashold = 1.1; // Abs. outside humidity must 10% less then inside\n\nvar room_abs_humidity = (6.112 * Math.pow(2.718281828, (17.67 * room_temperature) /\n    (room_temperature + 243.5)) * room_humidity * mw) /\n    ((273.15 + room_temperature) * r); // in grams/m^3\n\nif (room_abs_humidity > outside_abs_humidity * threashold) {\n    if (room_humidity > 65) {\n        return {payload: {color: \"yellow\", hint: \"Lüften\", room: room}};\n    } else {\n        return {payload: {color: \"limegreen\", hint: \"Lüften möglich\", room: room}};\n    }\n} else {\n    if (room_humidity > 65) {\n        return {payload: {color: \"red\", hint: \"Schwül draußen! Fenster geschlossen halten \", room: room}};\n    } else {\n        return {payload: {color: \"white\", hint: \"Lüften nicht sinnvoll\", room: room}};\n    }\n}\n",
+        "func": "const room = msg.topic;\n\nconst room_temperature = global.get(room + \"-Temperatur\");\nconst room_humidity = global.get(room + \"-Luftfeuchtigkeit\");\n\nconst outside_abs_humidity = global.get(\"aussen_absolute_luftfeuchtigkeit\");\n\nconst mw = 18.01534;    // molar mass of water g/mol\nconst r = 8.31447215;   // Universal gas constant J/mol/K\n\nconst room_abs_humidity = (6.112 * Math.pow(2.718281828, (17.67 * room_temperature) /\n    (room_temperature + 243.5)) * room_humidity * mw) /\n    ((273.15 + room_temperature) * r); // in grams/m^3\n\nif (room_abs_humidity > outside_abs_humidity) {\n    if (room_humidity > 65) {\n        return {payload: {color: \"yellow\", hint: \"Raum feucht, lüften\", room: room}};\n    } else {\n        return {payload: {color: \"limegreen\", hint: \"Raum ausreichend trocken\", room: room}};\n    }\n} else {\n    return {payload: {color: \"red\", hint: \"Draußen feuchte Luft! Nicht lüften\", room: room}};\n}\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 500,
-        "y": 260,
+        "x": 520,
+        "y": 200,
         "wires": [
             [
-                "89e98409.0b1d08"
+                "89e98409.0b1d08",
+                "8f4a8f67.f0316",
+                "13efdb76.56ce25"
             ]
         ]
     },
@@ -9203,8 +8909,8 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 300,
-        "y": 260,
+        "x": 320,
+        "y": 200,
         "wires": [
             [
                 "d9f0ac3c.19132"
@@ -9216,16 +8922,18 @@
         "type": "function",
         "z": "2788b93b.8a2f56",
         "name": "Lüftungsempfehlung",
-        "func": "var room = msg.topic;\n\nvar room_temperature = global.get(msg.topic + \"Temperatur\");\nvar room_humidity = global.get(msg.topic + \"Luftfeuchtigkeit\");\n\nvar outside_abs_humidity = global.get(\"aussen_absolute_luftfeuchtigkeit\");\n\nconst mw = 18.01534;    // molar mass of water g/mol\nconst r = 8.31447215;   // Universal gas constant J/mol/K\nconst threashold = 1.1; // Abs. outside humidity must 10% less then inside\n\nvar room_abs_humidity = (6.112 * Math.pow(2.718281828, (17.67 * room_temperature) /\n    (room_temperature + 243.5)) * room_humidity * mw) /\n    ((273.15 + room_temperature) * r); // in grams/m^3\n\nif (room_abs_humidity > outside_abs_humidity * threashold) {\n    if (room_humidity > 65) {\n        return {payload: {color: \"yellow\", hint: \"Lüften\", room: room}};\n    } else {\n        return {payload: {color: \"limegreen\", hint: \"Lüften möglich\", room: room}};\n    }\n} else {\n    if (room_humidity > 65) {\n        return {payload: {color: \"red\", hint: \"Schwül draußen! Fenster geschlossen halten \", room: room}};\n    } else {\n        return {payload: {color: \"white\", hint: \"Lüften nicht sinnvoll\", room: room}};\n    }\n}\n",
+        "func": "const room = msg.topic;\n\nconst room_temperature = global.get(room + \"-Temperatur\");\nconst room_humidity = global.get(room + \"-Luftfeuchtigkeit\");\n\nconst outside_abs_humidity = global.get(\"aussen_absolute_luftfeuchtigkeit\");\n\nconst mw = 18.01534;    // molar mass of water g/mol\nconst r = 8.31447215;   // Universal gas constant J/mol/K\n\nconst room_abs_humidity = (6.112 * Math.pow(2.718281828, (17.67 * room_temperature) /\n    (room_temperature + 243.5)) * room_humidity * mw) /\n    ((273.15 + room_temperature) * r); // in grams/m^3\n\nif (room_abs_humidity > outside_abs_humidity) {\n    if (room_humidity > 65) {\n        return {payload: {color: \"yellow\", hint: \"Raum feucht, lüften\", room: room}};\n    } else {\n        return {payload: {color: \"limegreen\", hint: \"Raum ausreichend trocken\", room: room}};\n    }\n} else {\n    return {payload: {color: \"red\", hint: \"Draußen feuchter! Nicht lüften\", room: room}};\n}\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 500,
-        "y": 320,
+        "x": 520,
+        "y": 240,
         "wires": [
             [
-                "8fc7d555.415c28"
+                "8fc7d555.415c28",
+                "8f4a8f67.f0316",
+                "9dfbd03.4c4523"
             ]
         ]
     },
@@ -9239,8 +8947,8 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 300,
-        "y": 320,
+        "x": 320,
+        "y": 240,
         "wires": [
             [
                 "a2db3feb.1710a"
@@ -9256,13 +8964,13 @@
         "order": 1,
         "width": 0,
         "height": 0,
-        "format": "<md-card ui-card-size=\"6x1\" \n    layout=\"row\" \n    layout-align=\"space-between center\" \n    class=\"nr-dashboard-text _md layout-row layout-align-center-center nr-dashboard-widget-text visible\" \n    style=\"background-color: {{msg.payload.color}}; color: black; left: 0px; top: 54px; width: 318px; height: 48px;\">\n    <p class=\"label\">{{msg.payload.room}}</p> <p class=\"value\">{{msg.payload.hint}}</p>\n</md-card>\n",
+        "format": "<md-card ui-card-size=\"6x2\" \n    class=\"_md nr-dashboard-text layout-align-center-center nr-dashboard-widget-text visible\" \n    style=\"background-color: {{msg.payload.color}}; color: black; left: 0px; top: 54px; width: 300px; height: 96px;\">\n    <p class=\"label\">{{msg.payload.room}}</p> <p class=\"value\">{{msg.payload.hint}}</p>\n</md-card>\n",
         "storeOutMessages": true,
         "fwdInMessages": true,
         "resendOnRefresh": true,
         "templateScope": "local",
-        "x": 700,
-        "y": 260,
+        "x": 760,
+        "y": 200,
         "wires": [
             []
         ]
@@ -9276,15 +8984,595 @@
         "order": 3,
         "width": 0,
         "height": 0,
-        "format": "<md-card ui-card-size=\"6x1\" \n    layout=\"row\" \n    layout-align=\"space-between center\" \n    class=\"nr-dashboard-text _md layout-row layout-align-center-center nr-dashboard-widget-text visible\" \n    style=\"background-color: {{msg.payload.color}}; color: black; left: 0px; top: 54px; width: 318px; height: 48px;\">\n    <p class=\"label\">{{msg.payload.room}}</p> <p class=\"value\">{{msg.payload.hint}}</p>\n</md-card>\n",
+        "format": "<md-card ui-card-size=\"6x2\" \n    class=\"_md nr-dashboard-text layout-align-center-center nr-dashboard-widget-text visible\" \n    style=\"background-color: {{msg.payload.color}}; color: black; left: 0px; top: 54px; width: 300px; height: 96px;\">\n    <p class=\"label\">{{msg.payload.room}}</p> <p class=\"value\">{{msg.payload.hint}}</p>\n</md-card>\n",
         "storeOutMessages": true,
         "fwdInMessages": true,
         "resendOnRefresh": true,
         "templateScope": "local",
-        "x": 700,
-        "y": 320,
+        "x": 760,
+        "y": 240,
         "wires": [
             []
         ]
+    },
+    {
+        "id": "a6b742da.b11dd",
+        "type": "openweathermap in",
+        "z": "293bb437.fa00bc",
+        "name": "Wetter",
+        "wtype": "current",
+        "lon": "10.01239",
+        "lat": "53.50597",
+        "city": "",
+        "country": "",
+        "language": "de",
+        "x": 190,
+        "y": 1220,
+        "wires": [
+            [
+                "83f546ec.89d968",
+                "614711dc.67cff",
+                "124173f7.bde06c",
+                "f562ddab.6a9d3"
+            ]
+        ]
+    },
+    {
+        "id": "83f546ec.89d968",
+        "type": "debug",
+        "z": "293bb437.fa00bc",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 390,
+        "y": 1160,
+        "wires": []
+    },
+    {
+        "id": "3a646168.a2eebe",
+        "type": "ui_gauge",
+        "z": "293bb437.fa00bc",
+        "name": "Windrichtung",
+        "group": "d32aa509.f54168",
+        "order": 7,
+        "width": 0,
+        "height": 0,
+        "gtype": "compass",
+        "title": "Windrichtung",
+        "label": "°",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "360",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 570,
+        "y": 1200,
+        "wires": []
+    },
+    {
+        "id": "614711dc.67cff",
+        "type": "function",
+        "z": "293bb437.fa00bc",
+        "name": "",
+        "func": "msg.payload = msg.payload.winddirection;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 380,
+        "y": 1200,
+        "wires": [
+            [
+                "3a646168.a2eebe"
+            ]
+        ]
+    },
+    {
+        "id": "da448ad1.cec928",
+        "type": "ui_gauge",
+        "z": "293bb437.fa00bc",
+        "name": "Windgeschwindigkeit",
+        "group": "d32aa509.f54168",
+        "order": 7,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Windgeschwindigkeit",
+        "label": "km/h",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "20",
+        "seg2": "40",
+        "x": 600,
+        "y": 1240,
+        "wires": []
+    },
+    {
+        "id": "124173f7.bde06c",
+        "type": "function",
+        "z": "293bb437.fa00bc",
+        "name": "",
+        "func": "msg.payload = Math.round(msg.payload.windspeed * 3.6); // m/s -> km/h\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 380,
+        "y": 1240,
+        "wires": [
+            [
+                "da448ad1.cec928"
+            ]
+        ]
+    },
+    {
+        "id": "d7a58b62.d342b8",
+        "type": "function",
+        "z": "d0173d54.941d7",
+        "name": "openweather to InfluxDB",
+        "func": "msg.measurement = \"OpenWeather\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 610,
+        "y": 800,
+        "wires": [
+            [
+                "faa25f7f.0777",
+                "870f3ce6.bfd9"
+            ]
+        ]
+    },
+    {
+        "id": "9b9574d4.b3d108",
+        "type": "link in",
+        "z": "d0173d54.941d7",
+        "name": "openweather",
+        "links": [
+            "f562ddab.6a9d3"
+        ],
+        "x": 435,
+        "y": 800,
+        "wires": [
+            [
+                "d7a58b62.d342b8"
+            ]
+        ]
+    },
+    {
+        "id": "f562ddab.6a9d3",
+        "type": "link out",
+        "z": "293bb437.fa00bc",
+        "name": "openweather",
+        "links": [
+            "9b9574d4.b3d108"
+        ],
+        "x": 335,
+        "y": 1280,
+        "wires": []
+    },
+    {
+        "id": "870f3ce6.bfd9",
+        "type": "debug",
+        "z": "d0173d54.941d7",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 890,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "4265433f.286fcc",
+        "type": "function",
+        "z": "4d90b497.b5b2ac",
+        "name": "",
+        "func": "var val = parseFloat(msg.payload);\nglobal.set(\"Waschküche-Temperatur\", val);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 580,
+        "y": 60,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f24eda7c.102788",
+        "type": "function",
+        "z": "4d90b497.b5b2ac",
+        "name": "",
+        "func": "var val = parseFloat(msg.payload);\nglobal.set(\"Waschküche-Luftfeuchtigkeit\", val);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 580,
+        "y": 220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5c0c1fcf.77b39",
+        "type": "function",
+        "z": "fc81a32b.bb6db",
+        "name": "",
+        "func": "var val = parseFloat(msg.payload);\nglobal.set(\"Gäste-WC-Temperatur\", val);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 580,
+        "y": 220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4ce5a213.c4124c",
+        "type": "function",
+        "z": "fc81a32b.bb6db",
+        "name": "",
+        "func": "var val = parseFloat(msg.payload);\nglobal.set(\"Gäste-WC-Luftfeuchtigkeit\", val);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 580,
+        "y": 380,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "dbe4e3f1.7a62f",
+        "type": "function",
+        "z": "fc81a32b.bb6db",
+        "name": "",
+        "func": "var val = parseFloat(msg.payload);\nglobal.set(\"Bad-Temperatur\", val);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 580,
+        "y": 600,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f2e74797.9e4948",
+        "type": "function",
+        "z": "fc81a32b.bb6db",
+        "name": "",
+        "func": "var val = parseFloat(msg.payload);\nglobal.set(\"Bad-Luftfeuchtigkeit\", val);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 580,
+        "y": 760,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8f4a8f67.f0316",
+        "type": "function",
+        "z": "2788b93b.8a2f56",
+        "name": "",
+        "func": "const room = msg.payload.room;\nconst hint = msg.payload.hint;\n\nconst l = flow.get(\"lueftungsempfehlungen\") || {};\n\nif (l[room] != hint) {\n    l[room] = hint;\n    flow.set(\"lueftungsempfehlungen\", l);\n    return {payload: `${room}: ${hint}`};\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 760,
+        "y": 280,
+        "wires": [
+            [
+                "92221171.b4219"
+            ]
+        ]
+    },
+    {
+        "id": "bea87736.5db2d8",
+        "type": "hangoutChatBot",
+        "z": "2788b93b.8a2f56",
+        "d": true,
+        "hangoutsCertificate": "10925253.f46f4e",
+        "roomid": "spaces/-fp3jQAAAAE",
+        "roomname": "spaces/-fp3jQAAAAE",
+        "contentproperty": "payload",
+        "contenttype": "msg",
+        "x": 760,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "92221171.b4219",
+        "type": "delay",
+        "z": "2788b93b.8a2f56",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "3",
+        "nbRateUnits": "1",
+        "rateUnits": "hour",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 770,
+        "y": 320,
+        "wires": [
+            [
+                "bea87736.5db2d8"
+            ]
+        ]
+    },
+    {
+        "id": "18b4acd.1269553",
+        "type": "ui_chart",
+        "z": "2788b93b.8a2f56",
+        "name": "Lüftung Gäste-WC",
+        "group": "245ec0f9.12765",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "label": "Lüftung Gäste-WC",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "2",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "86400",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#d6270e",
+            "#2ca02c",
+            "#e6e600",
+            "#2c39a0",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "x": 790,
+        "y": 480,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "86d0d2.678a7f3",
+        "type": "function",
+        "z": "2788b93b.8a2f56",
+        "name": "",
+        "func": "const color = msg.payload.color;\nvar val;\n\nif (color == \"red\") {\n    val = 0;\n} else if (color == \"yellow\") {\n    val = 1;\n} else if (color == \"limegreen\") {\n    val = 2;\n}\n\nreturn {\n        topic: color,\n        payload: val\n    };",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 760,
+        "y": 440,
+        "wires": [
+            [
+                "af763f25.70469",
+                "18b4acd.1269553"
+            ]
+        ]
+    },
+    {
+        "id": "a513c7a2.41dc48",
+        "type": "ui_chart",
+        "z": "2788b93b.8a2f56",
+        "name": "Lüftung Bad",
+        "group": "245ec0f9.12765",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "label": "Lüftung Bad",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "2",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "86400",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#d6270e",
+            "#2ca02c",
+            "#e6e600",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "x": 770,
+        "y": 560,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "13efdb76.56ce25",
+        "type": "function",
+        "z": "2788b93b.8a2f56",
+        "name": "",
+        "func": "const color = msg.payload.color;\nvar val;\n\nif (color == \"red\") {\n    val = 0;\n} else if (color == \"yellow\") {\n    val = 1;\n} else if (color == \"limegreen\") {\n    val = 2;\n}\n\nreturn {\n        topic: color,\n        payload: val\n    };",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 760,
+        "y": 520,
+        "wires": [
+            [
+                "a513c7a2.41dc48",
+                "35c66aa6.88dbe6"
+            ]
+        ]
+    },
+    {
+        "id": "9b1b305c.33d4b",
+        "type": "ui_chart",
+        "z": "2788b93b.8a2f56",
+        "name": "Lüftung Waschküche",
+        "group": "245ec0f9.12765",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "label": "Lüftung Waschküche",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "2",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "86400",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#d6270e",
+            "#2ca02c",
+            "#e6e600",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "x": 800,
+        "y": 640,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9dfbd03.4c4523",
+        "type": "function",
+        "z": "2788b93b.8a2f56",
+        "name": "",
+        "func": "const color = msg.payload.color;\nvar val;\n\nif (color == \"red\") {\n    val = 0;\n} else if (color == \"yellow\") {\n    val = 1;\n} else if (color == \"limegreen\") {\n    val = 2;\n}\n\nreturn {\n        topic: color,\n        payload: val\n    };",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 760,
+        "y": 600,
+        "wires": [
+            [
+                "9b1b305c.33d4b",
+                "40462fb6.ac289"
+            ]
+        ]
+    },
+    {
+        "id": "af763f25.70469",
+        "type": "debug",
+        "z": "2788b93b.8a2f56",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1010,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "35c66aa6.88dbe6",
+        "type": "debug",
+        "z": "2788b93b.8a2f56",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1010,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "40462fb6.ac289",
+        "type": "debug",
+        "z": "2788b93b.8a2f56",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1010,
+        "y": 580,
+        "wires": []
     }
 ]
