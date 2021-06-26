@@ -281,7 +281,8 @@
                 "primary": "indigo",
                 "accents": "blue",
                 "warn": "red",
-                "background": "grey"
+                "background": "grey",
+                "palette": "dark"
             }
         },
         "site": {
@@ -711,20 +712,6 @@
         "disp": true,
         "width": "6",
         "collapse": false
-    },
-    {
-        "id": "7b39a42d.e9e52c",
-        "type": "hue-bridge-node",
-        "z": "37daec28.284ee4",
-        "name": "dipe",
-        "bridge": "9c55ddd0.25baf",
-        "autoupdates": true,
-        "skipglobalevents": false,
-        "x": 150,
-        "y": 80,
-        "wires": [
-            []
-        ]
     },
     {
         "id": "f01a88f1.841248",
@@ -1725,7 +1712,7 @@
         "type": "function",
         "z": "37daec28.284ee4",
         "name": "initialize Scenes",
-        "func": "flow.set(\"current_scene_idx\", 0)\nflow.set(\"max_scene_idx\", 4)\nflow.set(\"scenes\", [\n        {   scene_idx: 0,\n            scene_name: \"aus\",\n            devices: [\n                {   device_idx: 1,\n                    name: \"Tiffany\",\n                    on: false\n                },\n                {   device_idx: 2,\n                    name: \"Fensterbank\",\n                    state: \"off\"\n                },\n                {   device_idx: 3,\n                    name: \"Klavierlampe\",\n                    state: \"off\"\n                },\n                {   device_idx: 4,\n                    name: \"Leuchter\",\n                    on: false\n                }\n            ]\n        },\n        {   scene_idx: 1,\n            scene_name: \"ambiente\",\n            devices: [\n                {   device_idx: 1,\n                    name: \"Tiffany\",\n                    brightness: 70,\n                    on: true\n                },\n                {   device_idx: 2,\n                    name: \"Fensterbank\",\n                    brightness: 70,\n                    state: \"on\"\n                },\n                {   device_idx: 3,\n                    name: \"Klavierlampe\",\n                    state: \"on\"\n                },\n                {   device_idx: 4,\n                    name: \"Leuchter\",\n                    on: false\n                }\n            ]\n        },\n          {   scene_idx: 2,\n            scene_name: \"cosy\",\n            devices: [\n                {   device_idx: 1,\n                    name: \"Tiffany\",\n                    brightness: 100,\n                    on: true\n                },\n                {   device_idx: 2,\n                    name: \"Fensterbank\",\n                    brightness: 100,\n                    state: \"on\"\n                },\n                {   device_idx: 3,\n                    name: \"Klavierlampe\",\n                    state: \"on\"\n                },\n                {   device_idx: 4,\n                    name: \"Leuchter\",\n                    on: false\n                }\n            ]\n        },\n        {   scene_idx: 3,\n            scene_name: \"sofa_read\",\n            devices: [\n                {   device_idx: 1,\n                    name: \"Tiffany\",\n                    brightness: 100,\n                    on: true\n                },\n                {   device_idx: 2,\n                    name: \"Fensterbank\",\n                    brightness: 255,\n                    state: \"on\"\n                },\n                {   device_idx: 3,\n                    name: \"Klavierlampe\",\n                    state: \"on\"\n                },\n                {   device_idx: 4,\n                    name: \"Leuchter\",\n                    on: false\n                }\n            ]\n        },\n      {   scene_idx: 4,\n            scene_name: \"bright\",\n            devices: [\n                {   device_idx: 1,\n                    name: \"Tiffany\",\n                    brightness: 100,\n                    on: true\n                },\n                {   device_idx: 2,\n                    name: \"Fensterbank\",\n                    brightness: 255,\n                    state: \"on\"\n                },\n                {   device_idx: 3,\n                    name: \"Klavierlampe\",\n                    state: \"on\"\n                },\n                {   device_idx: 4,\n                    name: \"Leuchter\",\n                    brightness: 100,\n                    on: true\n                }\n            ]\n        }\n    ]\n)\n\nreturn msg;",
+        "func": "flow.set(\"current_scene_idx\", 0)\nflow.set(\"max_scene_idx\", 4)\nflow.set(\"scenes\", [\n        {   scene_idx: 0,\n            scene_name: \"aus\",\n            devices: [\n                {   device_idx: 1,\n                    name: \"Tiffany\",\n                    state: \"off\"\n                },\n                {   device_idx: 2,\n                    name: \"Fensterbank\",\n                    state: \"off\"\n                },\n                {   device_idx: 3,\n                    name: \"Klavierlampe\",\n                    state: \"off\"\n                },\n                {   device_idx: 4,\n                    name: \"Leuchter\",\n                    state: \"off\"\n                }\n            ]\n        },\n        {   scene_idx: 1,\n            scene_name: \"ambiente\",\n            devices: [\n                {   device_idx: 1,\n                    name: \"Tiffany\",\n                    brightness: 70,\n                    state: \"on\"\n                },\n                {   device_idx: 2,\n                    name: \"Fensterbank\",\n                    brightness: 70,\n                    state: \"on\"\n                },\n                {   device_idx: 3,\n                    name: \"Klavierlampe\",\n                    state: \"on\"\n                },\n                {   device_idx: 4,\n                    name: \"Leuchter\",\n                    state: \"off\"\n                }\n            ]\n        },\n          {   scene_idx: 2,\n            scene_name: \"cosy\",\n            devices: [\n                {   device_idx: 1,\n                    name: \"Tiffany\",\n                    brightness: 100,\n                    state: \"on\"\n                },\n                {   device_idx: 2,\n                    name: \"Fensterbank\",\n                    brightness: 100,\n                    state: \"on\"\n                },\n                {   device_idx: 3,\n                    name: \"Klavierlampe\",\n                    state: \"on\"\n                },\n                {   device_idx: 4,\n                    name: \"Leuchter\",\n                    state: \"off\"\n                }\n            ]\n        },\n        {   scene_idx: 3,\n            scene_name: \"sofa_read\",\n            devices: [\n                {   device_idx: 1,\n                    name: \"Tiffany\",\n                    brightness: 100,\n                    state: \"on\"\n                },\n                {   device_idx: 2,\n                    name: \"Fensterbank\",\n                    brightness: 255,\n                    state: \"on\"\n                },\n                {   device_idx: 3,\n                    name: \"Klavierlampe\",\n                    state: \"on\"\n                },\n                {   device_idx: 4,\n                    name: \"Leuchter\",\n                    state: \"off\"\n                }\n            ]\n        },\n      {   scene_idx: 4,\n            scene_name: \"bright\",\n            devices: [\n                {   device_idx: 1,\n                    name: \"Tiffany\",\n                    brightness: 100,\n                    state: \"on\"\n                },\n                {   device_idx: 2,\n                    name: \"Fensterbank\",\n                    brightness: 255,\n                    state: \"on\"\n                },\n                {   device_idx: 3,\n                    name: \"Klavierlampe\",\n                    state: \"on\"\n                },\n                {   device_idx: 4,\n                    name: \"Leuchter\",\n                    brightness: 100,\n                    state: \"on\"\n                }\n            ]\n        }\n    ]\n)\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -2548,127 +2535,6 @@
         ]
     },
     {
-        "id": "e6c794ed.5470a8",
-        "type": "template",
-        "z": "37daec28.284ee4",
-        "name": "on false",
-        "field": "payload",
-        "fieldType": "msg",
-        "format": "json",
-        "syntax": "mustache",
-        "template": "{\"on\": false}",
-        "output": "json",
-        "x": 460,
-        "y": 2840,
-        "wires": [
-            [
-                "ce98e97f.2d4668"
-            ]
-        ]
-    },
-    {
-        "id": "9722aae9.eb01a8",
-        "type": "template",
-        "z": "37daec28.284ee4",
-        "name": "on true",
-        "field": "payload",
-        "fieldType": "msg",
-        "format": "json",
-        "syntax": "mustache",
-        "template": "{\"on\": true}",
-        "output": "json",
-        "x": 460,
-        "y": 2800,
-        "wires": [
-            [
-                "ce98e97f.2d4668"
-            ]
-        ]
-    },
-    {
-        "id": "ce98e97f.2d4668",
-        "type": "hue-light",
-        "z": "37daec28.284ee4",
-        "name": "Leuchter",
-        "bridge": "9c55ddd0.25baf",
-        "lightid": "5",
-        "colornamer": true,
-        "skipevents": false,
-        "universalevents": false,
-        "x": 820,
-        "y": 2800,
-        "wires": [
-            [
-                "8d2011a9.a7dd9"
-            ]
-        ]
-    },
-    {
-        "id": "8d2011a9.a7dd9",
-        "type": "change",
-        "z": "37daec28.284ee4",
-        "name": "save leuchter state",
-        "rules": [
-            {
-                "t": "set",
-                "p": "leuchter",
-                "pt": "flow",
-                "to": "{'state': payload.on ? 'on' : 'off', 'brightness': payload.brightness}\t",
-                "tot": "jsonata"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 1010,
-        "y": 2800,
-        "wires": [
-            [
-                "e0ebb97d.f4bbc8",
-                "1eb0e90c.a080c7",
-                "5c73e284.ae189c"
-            ]
-        ]
-    },
-    {
-        "id": "6ec2c05b.85702",
-        "type": "function",
-        "z": "37daec28.284ee4",
-        "name": "increment leuchter brightness",
-        "func": "var leuchter = flow.get(\"leuchter\")\n\nleuchter[\"brightness\"] += 5;\nif (leuchter[\"brightness\"] > 100) {\n    leuchter[\"brightness\"] = 100;\n}\n\nflow.set(\"leuchter\", leuchter);\n\nmsg.payload = {\"brightness\": leuchter[\"brightness\"]};\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 530,
-        "y": 2880,
-        "wires": [
-            [
-                "ce98e97f.2d4668"
-            ]
-        ]
-    },
-    {
-        "id": "1fb219f9.81c1a6",
-        "type": "function",
-        "z": "37daec28.284ee4",
-        "name": "decrement leuchter brightness",
-        "func": "var leuchter = flow.get(\"leuchter\")\n\nleuchter[\"brightness\"] -= 5;\nif (leuchter[\"brightness\"] < 0) {\n    leuchter[\"brightness\"] = 0;\n}\nflow.set(\"leuchter\", leuchter);\n\nif (leuchter[\"brightness\"] >= 0) {\n    msg.payload = {\"brightness\": leuchter[\"brightness\"]};\n}\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 530,
-        "y": 2920,
-        "wires": [
-            [
-                "ce98e97f.2d4668"
-            ]
-        ]
-    },
-    {
         "id": "90f805c3.80d1a8",
         "type": "link in",
         "z": "37daec28.284ee4",
@@ -2679,141 +2545,13 @@
             "45a22aec.0fb0a4",
             "a8224012.cff9a"
         ],
-        "x": 175,
-        "y": 2900,
+        "x": 335,
+        "y": 2000,
         "wires": [
             [
-                "c5eae895.7b7b68"
+                "da091852.405428"
             ]
         ]
-    },
-    {
-        "id": "c5eae895.7b7b68",
-        "type": "switch",
-        "z": "37daec28.284ee4",
-        "name": "Action",
-        "property": "payload.action",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "on",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "off",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "brightness_up",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "brightness_down",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "brightness_max",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "brightness_min",
-                "vt": "str"
-            }
-        ],
-        "checkall": "false",
-        "repair": false,
-        "outputs": 6,
-        "x": 270,
-        "y": 2900,
-        "wires": [
-            [
-                "9722aae9.eb01a8"
-            ],
-            [
-                "e6c794ed.5470a8"
-            ],
-            [
-                "6ec2c05b.85702"
-            ],
-            [
-                "1fb219f9.81c1a6"
-            ],
-            [
-                "1ac336a0.891fa9"
-            ],
-            [
-                "44c27338.92c2dc"
-            ]
-        ],
-        "outputLabels": [
-            "brightness_up_click",
-            "brightness_down_click",
-            "",
-            "",
-            "",
-            ""
-        ]
-    },
-    {
-        "id": "1ac336a0.891fa9",
-        "type": "template",
-        "z": "37daec28.284ee4",
-        "name": "brightness 100",
-        "field": "payload",
-        "fieldType": "msg",
-        "format": "json",
-        "syntax": "mustache",
-        "template": "{\"brightness\": 100}",
-        "output": "json",
-        "x": 480,
-        "y": 2960,
-        "wires": [
-            [
-                "ce98e97f.2d4668"
-            ]
-        ]
-    },
-    {
-        "id": "44c27338.92c2dc",
-        "type": "template",
-        "z": "37daec28.284ee4",
-        "name": "brightness 1",
-        "field": "payload",
-        "fieldType": "msg",
-        "format": "json",
-        "syntax": "mustache",
-        "template": "{\"brightness\": 1}",
-        "output": "json",
-        "x": 470,
-        "y": 3000,
-        "wires": [
-            [
-                "ce98e97f.2d4668"
-            ]
-        ]
-    },
-    {
-        "id": "e0ebb97d.f4bbc8",
-        "type": "debug",
-        "z": "37daec28.284ee4",
-        "name": "Leuchter",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 980,
-        "y": 2840,
-        "wires": []
     },
     {
         "id": "6bade79f.9d5208",
@@ -2826,8 +2564,8 @@
         "syntax": "mustache",
         "template": "{\"state\": \"OFF\"}",
         "output": "json",
-        "x": 470,
-        "y": 2500,
+        "x": 630,
+        "y": 1600,
         "wires": [
             [
                 "5d0fee20.ccd4d"
@@ -2845,8 +2583,8 @@
         "syntax": "mustache",
         "template": "{\"state\": \"ON\"}",
         "output": "json",
-        "x": 470,
-        "y": 2460,
+        "x": 630,
+        "y": 1560,
         "wires": [
             [
                 "5d0fee20.ccd4d"
@@ -2862,8 +2600,8 @@
         "qos": "1",
         "retain": "",
         "broker": "c349b9ff.9dc4c8",
-        "x": 830,
-        "y": 2460,
+        "x": 990,
+        "y": 1560,
         "wires": []
     },
     {
@@ -2875,8 +2613,8 @@
         "qos": "2",
         "datatype": "auto",
         "broker": "c349b9ff.9dc4c8",
-        "x": 1010,
-        "y": 2460,
+        "x": 1170,
+        "y": 1560,
         "wires": [
             [
                 "2a4ae50f.d0a24a"
@@ -2891,8 +2629,8 @@
         "property": "payload",
         "action": "obj",
         "pretty": false,
-        "x": 1150,
-        "y": 2460,
+        "x": 1310,
+        "y": 1560,
         "wires": [
             [
                 "c47da63c.598c78",
@@ -2933,8 +2671,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1190,
-        "y": 2500,
+        "x": 1350,
+        "y": 1600,
         "wires": [
             [
                 "31d2f239.bb705e"
@@ -2954,8 +2692,8 @@
             "6b660054.35552",
             "bf127571.8796f8"
         ],
-        "x": 175,
-        "y": 2560,
+        "x": 335,
+        "y": 1660,
         "wires": [
             [
                 "36288578.3ef92a"
@@ -3004,8 +2742,8 @@
         "checkall": "false",
         "repair": false,
         "outputs": 6,
-        "x": 270,
-        "y": 2560,
+        "x": 430,
+        "y": 1660,
         "wires": [
             [
                 "26b6dd5c.bad522"
@@ -3042,8 +2780,8 @@
         "syntax": "mustache",
         "template": "{\"brightness\": 254}",
         "output": "json",
-        "x": 480,
-        "y": 2620,
+        "x": 640,
+        "y": 1720,
         "wires": [
             [
                 "5d0fee20.ccd4d"
@@ -3061,8 +2799,8 @@
         "syntax": "mustache",
         "template": "{\"brightness\": 1}",
         "output": "json",
-        "x": 470,
-        "y": 2660,
+        "x": 630,
+        "y": 1760,
         "wires": [
             [
                 "5d0fee20.ccd4d"
@@ -3082,119 +2820,9 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1160,
-        "y": 2540,
+        "x": 1320,
+        "y": 1640,
         "wires": []
-    },
-    {
-        "id": "e2eef248.b5cb4",
-        "type": "ui_switch",
-        "z": "37daec28.284ee4",
-        "name": "An/Aus Leuchter Fernsehzimmer",
-        "label": "An/Aus",
-        "tooltip": "",
-        "group": "b4675dbc.146e1",
-        "order": 1,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "decouple": "true",
-        "topic": "",
-        "style": "",
-        "onvalue": "{\"on\": true}",
-        "onvalueType": "json",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "{\"on\": false}",
-        "offvalueType": "json",
-        "officon": "",
-        "offcolor": "",
-        "x": 900,
-        "y": 2940,
-        "wires": [
-            [
-                "ce98e97f.2d4668"
-            ]
-        ]
-    },
-    {
-        "id": "9ba97e91.8e85",
-        "type": "ui_slider",
-        "z": "37daec28.284ee4",
-        "name": "Helligkeit Leuchter Fernsehzimmer",
-        "label": "Helligkeit",
-        "tooltip": "",
-        "group": "b4675dbc.146e1",
-        "order": 2,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "outs": "all",
-        "topic": "",
-        "min": "5",
-        "max": "100",
-        "step": "10",
-        "x": 900,
-        "y": 3020,
-        "wires": [
-            [
-                "c642f4.031f0d1"
-            ]
-        ]
-    },
-    {
-        "id": "c642f4.031f0d1",
-        "type": "function",
-        "z": "37daec28.284ee4",
-        "name": "brightness",
-        "func": "msg.payload = {\"brightness\": msg.payload};\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 1150,
-        "y": 3020,
-        "wires": [
-            [
-                "ce98e97f.2d4668"
-            ]
-        ]
-    },
-    {
-        "id": "1eb0e90c.a080c7",
-        "type": "function",
-        "z": "37daec28.284ee4",
-        "name": "on",
-        "func": "msg.payload = {\"on\": msg.payload.on};\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 810,
-        "y": 2900,
-        "wires": [
-            [
-                "e2eef248.b5cb4"
-            ]
-        ]
-    },
-    {
-        "id": "5c73e284.ae189c",
-        "type": "function",
-        "z": "37daec28.284ee4",
-        "name": "brightness",
-        "func": "msg.payload = msg.payload.brightness;\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 830,
-        "y": 2980,
-        "wires": [
-            [
-                "9ba97e91.8e85"
-            ]
-        ]
     },
     {
         "id": "7eb17679.660788",
@@ -3206,8 +2834,8 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 810,
-        "y": 2540,
+        "x": 970,
+        "y": 1640,
         "wires": [
             [
                 "a491d10d.02174"
@@ -3237,8 +2865,8 @@
         "offvalueType": "json",
         "officon": "",
         "offcolor": "",
-        "x": 910,
-        "y": 2580,
+        "x": 1070,
+        "y": 1680,
         "wires": [
             [
                 "5d0fee20.ccd4d"
@@ -3255,8 +2883,8 @@
             "773f6fe1.26d11",
             "8bc43dda.f5f76"
         ],
-        "x": 715,
-        "y": 2420,
+        "x": 875,
+        "y": 1520,
         "wires": [
             [
                 "5d0fee20.ccd4d"
@@ -3273,11 +2901,11 @@
             "d0971035.fd6cc",
             "9e89c97e.5c7568"
         ],
-        "x": 715,
-        "y": 2760,
+        "x": 875,
+        "y": 1860,
         "wires": [
             [
-                "ce98e97f.2d4668"
+                "82751974.3c5238"
             ]
         ]
     },
@@ -3292,250 +2920,11 @@
             "3a3f3f29.1be49",
             "bd4f1b1d.c1d598"
         ],
-        "x": 695,
-        "y": 2080,
+        "x": 855,
+        "y": 1180,
         "wires": [
             [
                 "3915a3f2.641aac"
-            ]
-        ]
-    },
-    {
-        "id": "cd186040.d20c5",
-        "type": "template",
-        "z": "37daec28.284ee4",
-        "name": "on false",
-        "field": "payload",
-        "fieldType": "msg",
-        "format": "json",
-        "syntax": "mustache",
-        "template": "{\"on\": false}",
-        "output": "json",
-        "x": 460,
-        "y": 1820,
-        "wires": [
-            [
-                "cdac3aae.dbaea8"
-            ]
-        ]
-    },
-    {
-        "id": "57e0baf4.8ddcc4",
-        "type": "template",
-        "z": "37daec28.284ee4",
-        "name": "on true",
-        "field": "payload",
-        "fieldType": "msg",
-        "format": "json",
-        "syntax": "mustache",
-        "template": "{\"on\": true}",
-        "output": "json",
-        "x": 460,
-        "y": 1780,
-        "wires": [
-            [
-                "cdac3aae.dbaea8"
-            ]
-        ]
-    },
-    {
-        "id": "cdac3aae.dbaea8",
-        "type": "hue-light",
-        "z": "37daec28.284ee4",
-        "name": "Tiffany",
-        "bridge": "9c55ddd0.25baf",
-        "lightid": "4",
-        "colornamer": true,
-        "skipevents": false,
-        "universalevents": false,
-        "x": 810,
-        "y": 1780,
-        "wires": [
-            [
-                "c197779a.9be8b8"
-            ]
-        ]
-    },
-    {
-        "id": "44f3abbe.39da34",
-        "type": "switch",
-        "z": "37daec28.284ee4",
-        "name": "Action",
-        "property": "payload.action",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "on",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "off",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "brightness_up",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "brightness_down",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "brightness_max",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "brightness_min",
-                "vt": "str"
-            }
-        ],
-        "checkall": "false",
-        "repair": false,
-        "outputs": 6,
-        "x": 270,
-        "y": 1880,
-        "wires": [
-            [
-                "57e0baf4.8ddcc4"
-            ],
-            [
-                "cd186040.d20c5"
-            ],
-            [
-                "8492401c.16992"
-            ],
-            [
-                "5b1d5d37.9e8fa4"
-            ],
-            [
-                "6ac8a56b.24e67c"
-            ],
-            [
-                "3c5f9e1b.d89dc2"
-            ]
-        ],
-        "outputLabels": [
-            "brightness_up_click",
-            "brightness_down_click",
-            "",
-            "",
-            "",
-            ""
-        ]
-    },
-    {
-        "id": "8492401c.16992",
-        "type": "function",
-        "z": "37daec28.284ee4",
-        "name": "increment tiffany brightness",
-        "func": "var leuchter = flow.get(\"tiffany\")\n\nleuchter[\"brightness\"] += 10;\nif (leuchter[\"brightness\"] > 100) {\n    leuchter[\"brightness\"] = 100;\n}\n\nflow.set(\"tiffany\", leuchter);\n\nmsg.payload = {\"brightness\": leuchter[\"brightness\"]};\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 520,
-        "y": 1860,
-        "wires": [
-            [
-                "cdac3aae.dbaea8"
-            ]
-        ]
-    },
-    {
-        "id": "5b1d5d37.9e8fa4",
-        "type": "function",
-        "z": "37daec28.284ee4",
-        "name": "decrement tiffany brightness",
-        "func": "var leuchter = flow.get(\"tiffany\")\n\nleuchter[\"brightness\"] -= 10;\nif (leuchter[\"brightness\"] < 0) {\n    leuchter[\"brightness\"] = 0;\n}\n\nflow.set(\"tiffany\", leuchter);\n\nmsg.payload = {\"brightness\": leuchter[\"brightness\"]};\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 520,
-        "y": 1900,
-        "wires": [
-            [
-                "cdac3aae.dbaea8"
-            ]
-        ]
-    },
-    {
-        "id": "6ac8a56b.24e67c",
-        "type": "template",
-        "z": "37daec28.284ee4",
-        "name": "brightness 100",
-        "field": "payload",
-        "fieldType": "msg",
-        "format": "json",
-        "syntax": "mustache",
-        "template": "{\"brightness\": 100}",
-        "output": "json",
-        "x": 480,
-        "y": 1940,
-        "wires": [
-            [
-                "cdac3aae.dbaea8"
-            ]
-        ]
-    },
-    {
-        "id": "3c5f9e1b.d89dc2",
-        "type": "template",
-        "z": "37daec28.284ee4",
-        "name": "brightness 1",
-        "field": "payload",
-        "fieldType": "msg",
-        "format": "json",
-        "syntax": "mustache",
-        "template": "{\"brightness\": 1}",
-        "output": "json",
-        "x": 470,
-        "y": 1980,
-        "wires": [
-            [
-                "cdac3aae.dbaea8"
-            ]
-        ]
-    },
-    {
-        "id": "9de80797.604738",
-        "type": "function",
-        "z": "37daec28.284ee4",
-        "name": "on",
-        "func": "msg.payload = {\"on\": msg.payload.on};\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 810,
-        "y": 1860,
-        "wires": [
-            [
-                "7f43d1d9.714f4"
-            ]
-        ]
-    },
-    {
-        "id": "c4827cca.a6e8f",
-        "type": "function",
-        "z": "37daec28.284ee4",
-        "name": "brightness",
-        "func": "msg.payload = msg.payload.brightness;\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 830,
-        "y": 1940,
-        "wires": [
-            [
-                "94d98772.d8f278"
             ]
         ]
     },
@@ -3549,11 +2938,11 @@
             "54c14fb0.1f53d",
             "3a3f3f29.1be49"
         ],
-        "x": 695,
-        "y": 1740,
+        "x": 855,
+        "y": 840,
         "wires": [
             [
-                "cdac3aae.dbaea8"
+                "40e09b5.33b3964"
             ]
         ]
     },
@@ -3571,11 +2960,11 @@
             "6b660054.35552",
             "88abccef.24a7d"
         ],
-        "x": 175,
-        "y": 1880,
+        "x": 335,
+        "y": 980,
         "wires": [
             [
-                "44f3abbe.39da34"
+                "b9e6bfe3.96c8f"
             ]
         ]
     },
@@ -3590,8 +2979,8 @@
         "syntax": "mustache",
         "template": "{\"state\": \"ON\"}",
         "output": "json",
-        "x": 460,
-        "y": 2120,
+        "x": 620,
+        "y": 1220,
         "wires": [
             [
                 "3915a3f2.641aac"
@@ -3607,8 +2996,8 @@
         "qos": "1",
         "retain": "",
         "broker": "c349b9ff.9dc4c8",
-        "x": 830,
-        "y": 2120,
+        "x": 990,
+        "y": 1220,
         "wires": []
     },
     {
@@ -3620,8 +3009,8 @@
         "qos": "2",
         "datatype": "auto",
         "broker": "c349b9ff.9dc4c8",
-        "x": 1010,
-        "y": 2120,
+        "x": 1170,
+        "y": 1220,
         "wires": [
             [
                 "43528aea.e5c924"
@@ -3636,8 +3025,8 @@
         "property": "payload",
         "action": "obj",
         "pretty": false,
-        "x": 1150,
-        "y": 2120,
+        "x": 1310,
+        "y": 1220,
         "wires": [
             [
                 "63507385.c44d5c",
@@ -3657,8 +3046,8 @@
         "syntax": "mustache",
         "template": "{\"state\": \"OFF\"}",
         "output": "json",
-        "x": 460,
-        "y": 2160,
+        "x": 620,
+        "y": 1260,
         "wires": [
             [
                 "3915a3f2.641aac"
@@ -3698,8 +3087,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1180,
-        "y": 2160,
+        "x": 1340,
+        "y": 1260,
         "wires": [
             [
                 "7da55143.813f7"
@@ -3716,8 +3105,8 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 540,
-        "y": 2200,
+        "x": 700,
+        "y": 1300,
         "wires": [
             [
                 "3915a3f2.641aac"
@@ -3734,8 +3123,8 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 540,
-        "y": 2240,
+        "x": 700,
+        "y": 1340,
         "wires": [
             [
                 "3915a3f2.641aac"
@@ -3756,8 +3145,8 @@
             "6b660054.35552",
             "8f1aeeda.1f8c5"
         ],
-        "x": 175,
-        "y": 2220,
+        "x": 335,
+        "y": 1320,
         "wires": [
             [
                 "f9c8e4f3.59c4f8"
@@ -3806,8 +3195,8 @@
         "checkall": "false",
         "repair": false,
         "outputs": 6,
-        "x": 270,
-        "y": 2220,
+        "x": 430,
+        "y": 1320,
         "wires": [
             [
                 "c5aa4ded.daf6d"
@@ -3848,8 +3237,8 @@
         "syntax": "mustache",
         "template": "{\"brightness\": 254}",
         "output": "json",
-        "x": 480,
-        "y": 2280,
+        "x": 640,
+        "y": 1380,
         "wires": [
             [
                 "3915a3f2.641aac"
@@ -3867,8 +3256,8 @@
         "syntax": "mustache",
         "template": "{\"brightness\": 1}",
         "output": "json",
-        "x": 470,
-        "y": 2320,
+        "x": 630,
+        "y": 1420,
         "wires": [
             [
                 "3915a3f2.641aac"
@@ -3888,8 +3277,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1230,
-        "y": 2200,
+        "x": 1390,
+        "y": 1300,
         "wires": []
     },
     {
@@ -3915,8 +3304,8 @@
         "offvalueType": "json",
         "officon": "",
         "offcolor": "",
-        "x": 910,
-        "y": 2220,
+        "x": 1070,
+        "y": 1320,
         "wires": [
             [
                 "7da55143.813f7",
@@ -3941,8 +3330,8 @@
         "min": "20",
         "max": "254",
         "step": "25",
-        "x": 910,
-        "y": 2300,
+        "x": 1070,
+        "y": 1400,
         "wires": [
             [
                 "9ac7d8bf.354318"
@@ -3959,8 +3348,8 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 1150,
-        "y": 2300,
+        "x": 1310,
+        "y": 1400,
         "wires": [
             [
                 "3915a3f2.641aac"
@@ -3977,8 +3366,8 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 810,
-        "y": 2180,
+        "x": 970,
+        "y": 1280,
         "wires": [
             [
                 "8e0a2075.97183"
@@ -3995,131 +3384,11 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 830,
-        "y": 2260,
+        "x": 990,
+        "y": 1360,
         "wires": [
             [
                 "4ba59f70.c989c"
-            ]
-        ]
-    },
-    {
-        "id": "c197779a.9be8b8",
-        "type": "change",
-        "z": "37daec28.284ee4",
-        "name": "save tiffany state",
-        "rules": [
-            {
-                "t": "set",
-                "p": "tiffany",
-                "pt": "flow",
-                "to": "{'state': payload.on ? 'on' : 'off', 'brightness': payload.brightness}\t",
-                "tot": "jsonata"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 990,
-        "y": 1780,
-        "wires": [
-            [
-                "52aca647.36e3b8",
-                "9de80797.604738",
-                "c4827cca.a6e8f"
-            ]
-        ]
-    },
-    {
-        "id": "52aca647.36e3b8",
-        "type": "debug",
-        "z": "37daec28.284ee4",
-        "name": "tiffany",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 990,
-        "y": 1820,
-        "wires": []
-    },
-    {
-        "id": "7f43d1d9.714f4",
-        "type": "ui_switch",
-        "z": "37daec28.284ee4",
-        "name": "An/Aus Tiffany Fernsehzimmer",
-        "label": "An/Aus",
-        "tooltip": "",
-        "group": "1b9713a7.a3a26c",
-        "order": 1,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "decouple": "true",
-        "topic": "",
-        "style": "",
-        "onvalue": "{\"on\": true}",
-        "onvalueType": "json",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "{\"on\": false}",
-        "offvalueType": "json",
-        "officon": "",
-        "offcolor": "",
-        "x": 890,
-        "y": 1900,
-        "wires": [
-            [
-                "cdac3aae.dbaea8"
-            ]
-        ]
-    },
-    {
-        "id": "94d98772.d8f278",
-        "type": "ui_slider",
-        "z": "37daec28.284ee4",
-        "name": "Helligkeit Tiffany Fernsehzimmer",
-        "label": "Helligkeit",
-        "tooltip": "",
-        "group": "1b9713a7.a3a26c",
-        "order": 2,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "outs": "all",
-        "topic": "",
-        "min": "5",
-        "max": "100",
-        "step": "10",
-        "x": 890,
-        "y": 1980,
-        "wires": [
-            [
-                "ae29ec8b.b975a"
-            ]
-        ]
-    },
-    {
-        "id": "ae29ec8b.b975a",
-        "type": "function",
-        "z": "37daec28.284ee4",
-        "name": "brightness",
-        "func": "msg.payload = {\"brightness\": msg.payload};\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 1150,
-        "y": 1980,
-        "wires": [
-            [
-                "cdac3aae.dbaea8"
             ]
         ]
     },
@@ -5077,7 +4346,7 @@
         "type": "function",
         "z": "4d90b497.b5b2ac",
         "name": "",
-        "func": "const mw = 18.01534;    // molar mass of water g/mol\nconst r = 8.31447215;   // Universal gas constant J/mol/K\n\nvar a_abs_humidity = global.get(\"aussen_absolute_luftfeuchtigkeit\");\nvar wk_temperature = global.get(\"Waschküche-Temperatur\");\nvar wk_humidity = global.get(\"Waschküche-Luftfeuchtigkeit\");\n\nvar wk_abs_humidity = (6.112 * Math.pow(2.718281828, (17.67 * wk_temperature) /\n    (wk_temperature + 243.5)) * wk_humidity * mw) /\n    ((273.15 + wk_temperature) * r); // in grams/m^3\n\nvar washroom_fan_switch = flow.get(\"washroom_fan_switch\");\nvar washroom_fan_control = flow.get(\"washroom_fan_control\");\n\nif (washroom_fan_control == \"ON\") {\n    washroom_fan_switch = (wk_humidity > 65 && wk_abs_humidity > a_abs_humidity) ? \"ON\" : \"OFF\";\n}\n\nmsg = [\n    {topic: \"Waschküche g/m³\", payload: wk_abs_humidity},\n    {topic: \"Außen g/m³\", payload: a_abs_humidity},\n    (washroom_fan_switch) ? {topic: \"luefter_sw\", payload: washroom_fan_switch} : undefined\n];\n\nreturn msg;",
+        "func": "const mw = 18.01534;    // molar mass of water g/mol\nconst r = 8.31447215;   // Universal gas constant J/mol/K\n\nvar a_abs_humidity = global.get(\"aussen_absolute_luftfeuchtigkeit\");\nvar wk_temperature = global.get(\"Waschküche-Temperatur\");\nvar wk_humidity = global.get(\"Waschküche-Luftfeuchtigkeit\");\n\nvar wk_abs_humidity = (6.112 * Math.pow(2.718281828, (17.67 * wk_temperature) /\n    (wk_temperature + 243.5)) * wk_humidity * mw) /\n    ((273.15 + wk_temperature) * r); // in grams/m^3\n\nvar washroom_fan_switch = flow.get(\"washroom_fan_switch\");\nvar washroom_fan_control = flow.get(\"washroom_fan_control\");\n\nif (washroom_fan_control == \"ON\") {\n    if (wk_humidity > 65 || wk_temperature > 17) {\n        if (washroom_fan_switch == \"ON\") {\n            washroom_fan_switch = (wk_abs_humidity > a_abs_humidity98) ? \"ON\" : \"OFF\";\n        } else {\n            washroom_fan_switch = (wk_abs_humidity * 0.98 > a_abs_humidity) ? \"ON\" : \"OFF\";\n        }\n    } else {\n        washroom_fan_switch = \"OFF\"\n    }\n}\n\nmsg = [\n    {topic: \"Waschküche g/m³\", payload: wk_abs_humidity},\n    {topic: \"Außen g/m³\", payload: a_abs_humidity},\n    (washroom_fan_switch) ? {topic: \"luefter_sw\", payload: washroom_fan_switch} : undefined\n];\n\nreturn msg;",
         "outputs": 3,
         "noerr": 0,
         "initialize": "",
@@ -6935,7 +6204,7 @@
         "type": "function",
         "z": "2788b93b.8a2f56",
         "name": "Lüftungsempfehlung",
-        "func": "const room = msg.topic;\n\nconst room_temperature = global.get(room + \"-Temperatur\");\nconst room_humidity = global.get(room + \"-Luftfeuchtigkeit\");\n\nconst outside_abs_humidity = global.get(\"aussen_absolute_luftfeuchtigkeit\");\n\nconst mw = 18.01534;    // molar mass of water g/mol\nconst r = 8.31447215;   // Universal gas constant J/mol/K\n\nconst room_abs_humidity = (6.112 * Math.pow(2.718281828, (17.67 * room_temperature) /\n    (room_temperature + 243.5)) * room_humidity * mw) /\n    ((273.15 + room_temperature) * r); // in grams/m^3\n\nif (room_abs_humidity > outside_abs_humidity) {\n    if (room_humidity > 65) {\n        return {payload: {color: \"yellow\", hint: \"Raum feucht, lüften\", room: room}};\n    } else {\n        return {payload: {color: \"limegreen\", hint: \"Raum ausreichend trocken\", room: room}};\n    }\n} else {\n    return {payload: {color: \"red\", hint: \"Draußen feuchte Luft! Nicht lüften\", room: room}};\n}\n",
+        "func": "const room = msg.topic;\n\nconst room_temperature = global.get(room + \"-Temperatur\");\nconst room_humidity = global.get(room + \"-Luftfeuchtigkeit\");\nconst last_room_abs_humidity_gt_outside_abs_humidity = global.get(room + \"-last_room_abs_humidity_gt_outside_abs_humidity\");\n\nconst outside_abs_humidity = global.get(\"aussen_absolute_luftfeuchtigkeit\");\n\nconst mw = 18.01534;    // molar mass of water g/mol\nconst r = 8.31447215;   // Universal gas constant J/mol/K\n\nconst room_abs_humidity = (6.112 * Math.pow(2.718281828, (17.67 * room_temperature) /\n    (room_temperature + 243.5)) * room_humidity * mw) /\n    ((273.15 + room_temperature) * r); // in grams/m^3\n\nconst room_abs_humidity_gt_outside_abs_humidity = (last_room_abs_humidity_gt_outside_abs_humidity) ?\n    room_abs_humidity > outside_abs_humidity * 0.98:\n    room_abs_humidity * 0.98 > outside_abs_humidity;\n\nglobal.set(room + \"-last_room_abs_humidity_gt_outside_abs_humidity\", room_abs_humidity_gt_outside_abs_humidity);\n\nif (room_abs_humidity_gt_outside_abs_humidity) {\n    if (room_humidity > 65) {\n        return {payload: {color: \"yellow\", hint: \"Raum feucht, lüften\", room: room}};\n    } else {\n        return {payload: {color: \"limegreen\", hint: \"Raum ausreichend trocken\", room: room}};\n    }\n} else {\n    return {payload: {color: \"red\", hint: \"Draußen feuchter! Nicht lüften\", room: room}};\n}\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -8439,7 +7708,7 @@
         "retentionPolicyV18Flux": "",
         "org": "dipe",
         "bucket": "dipe-pi",
-        "x": 900,
+        "x": 980,
         "y": 320,
         "wires": []
     },
@@ -8453,7 +7722,7 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 460,
+        "x": 440,
         "y": 180,
         "wires": [
             [
@@ -8472,10 +7741,10 @@
         "datatype": "auto",
         "broker": "c349b9ff.9dc4c8",
         "x": 180,
-        "y": 320,
+        "y": 300,
         "wires": [
             [
-                "fa0231fe.d86ab"
+                "54e7d479.9e81bc"
             ]
         ]
     },
@@ -8489,12 +7758,12 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 480,
+        "x": 660,
         "y": 320,
         "wires": [
             [
-                "faa25f7f.0777",
-                "321ec806.502138"
+                "321ec806.502138",
+                "faa25f7f.0777"
             ]
         ]
     },
@@ -8511,7 +7780,7 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 890,
+        "x": 970,
         "y": 180,
         "wires": []
     },
@@ -8528,7 +7797,7 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 890,
+        "x": 970,
         "y": 220,
         "wires": []
     },
@@ -8618,12 +7887,11 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 580,
+        "x": 560,
         "y": 440,
         "wires": [
             [
-                "faa25f7f.0777",
-                "9196bdf3.b91fe"
+                "faa25f7f.0777"
             ]
         ]
     },
@@ -8637,31 +7905,13 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 580,
-        "y": 500,
+        "x": 560,
+        "y": 480,
         "wires": [
             [
-                "faa25f7f.0777",
-                "9196bdf3.b91fe"
+                "faa25f7f.0777"
             ]
         ]
-    },
-    {
-        "id": "9196bdf3.b91fe",
-        "type": "debug",
-        "z": "d0173d54.941d7",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 890,
-        "y": 460,
-        "wires": []
     },
     {
         "id": "ea99ed95.a6b5f",
@@ -8719,7 +7969,7 @@
         "links": [
             "8452f01b.9b7a2"
         ],
-        "x": 435,
+        "x": 415,
         "y": 440,
         "wires": [
             [
@@ -8735,8 +7985,8 @@
         "links": [
             "ea99ed95.a6b5f"
         ],
-        "x": 435,
-        "y": 500,
+        "x": 415,
+        "y": 480,
         "wires": [
             [
                 "e9ca4023.2c05e"
@@ -8751,8 +8001,8 @@
         "links": [
             "678631ab.fe1bb"
         ],
-        "x": 435,
-        "y": 640,
+        "x": 415,
+        "y": 540,
         "wires": [
             [
                 "18f89cba.858903"
@@ -8767,8 +8017,8 @@
         "links": [
             "9d0190fe.0d3fe"
         ],
-        "x": 435,
-        "y": 680,
+        "x": 415,
+        "y": 580,
         "wires": [
             [
                 "2e920011.62b1e"
@@ -8785,31 +8035,13 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 620,
-        "y": 640,
+        "x": 600,
+        "y": 540,
         "wires": [
             [
-                "faa25f7f.0777",
-                "b54b956c.cc72d8"
+                "faa25f7f.0777"
             ]
         ]
-    },
-    {
-        "id": "b54b956c.cc72d8",
-        "type": "debug",
-        "z": "d0173d54.941d7",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 890,
-        "y": 640,
-        "wires": []
     },
     {
         "id": "2e920011.62b1e",
@@ -8821,12 +8053,11 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 610,
-        "y": 680,
+        "x": 590,
+        "y": 580,
         "wires": [
             [
-                "faa25f7f.0777",
-                "b54b956c.cc72d8"
+                "faa25f7f.0777"
             ]
         ]
     },
@@ -8884,7 +8115,7 @@
         "type": "function",
         "z": "2788b93b.8a2f56",
         "name": "Lüftungsempfehlung",
-        "func": "const room = msg.topic;\n\nconst room_temperature = global.get(room + \"-Temperatur\");\nconst room_humidity = global.get(room + \"-Luftfeuchtigkeit\");\n\nconst outside_abs_humidity = global.get(\"aussen_absolute_luftfeuchtigkeit\");\n\nconst mw = 18.01534;    // molar mass of water g/mol\nconst r = 8.31447215;   // Universal gas constant J/mol/K\n\nconst room_abs_humidity = (6.112 * Math.pow(2.718281828, (17.67 * room_temperature) /\n    (room_temperature + 243.5)) * room_humidity * mw) /\n    ((273.15 + room_temperature) * r); // in grams/m^3\n\nif (room_abs_humidity > outside_abs_humidity) {\n    if (room_humidity > 65) {\n        return {payload: {color: \"yellow\", hint: \"Raum feucht, lüften\", room: room}};\n    } else {\n        return {payload: {color: \"limegreen\", hint: \"Raum ausreichend trocken\", room: room}};\n    }\n} else {\n    return {payload: {color: \"red\", hint: \"Draußen feuchte Luft! Nicht lüften\", room: room}};\n}\n",
+        "func": "const room = msg.topic;\n\nconst room_temperature = global.get(room + \"-Temperatur\");\nconst room_humidity = global.get(room + \"-Luftfeuchtigkeit\");\nconst last_room_abs_humidity_gt_outside_abs_humidity = global.get(room + \"-last_room_abs_humidity_gt_outside_abs_humidity\");\n\nconst outside_abs_humidity = global.get(\"aussen_absolute_luftfeuchtigkeit\");\n\nconst mw = 18.01534;    // molar mass of water g/mol\nconst r = 8.31447215;   // Universal gas constant J/mol/K\n\nconst room_abs_humidity = (6.112 * Math.pow(2.718281828, (17.67 * room_temperature) /\n    (room_temperature + 243.5)) * room_humidity * mw) /\n    ((273.15 + room_temperature) * r); // in grams/m^3\n\nconst room_abs_humidity_gt_outside_abs_humidity = (last_room_abs_humidity_gt_outside_abs_humidity) ?\n    room_abs_humidity > outside_abs_humidity * 0.98:\n    room_abs_humidity * 0.98 > outside_abs_humidity;\n\nglobal.set(room + \"-last_room_abs_humidity_gt_outside_abs_humidity\", room_abs_humidity_gt_outside_abs_humidity);\n\nif (room_abs_humidity_gt_outside_abs_humidity) {\n    if (room_humidity > 65) {\n        return {payload: {color: \"yellow\", hint: \"Raum feucht, lüften\", room: room}};\n    } else {\n        return {payload: {color: \"limegreen\", hint: \"Raum ausreichend trocken\", room: room}};\n    }\n} else {\n    return {payload: {color: \"red\", hint: \"Draußen feuchter! Nicht lüften\", room: room}};\n}\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -8922,7 +8153,7 @@
         "type": "function",
         "z": "2788b93b.8a2f56",
         "name": "Lüftungsempfehlung",
-        "func": "const room = msg.topic;\n\nconst room_temperature = global.get(room + \"-Temperatur\");\nconst room_humidity = global.get(room + \"-Luftfeuchtigkeit\");\n\nconst outside_abs_humidity = global.get(\"aussen_absolute_luftfeuchtigkeit\");\n\nconst mw = 18.01534;    // molar mass of water g/mol\nconst r = 8.31447215;   // Universal gas constant J/mol/K\n\nconst room_abs_humidity = (6.112 * Math.pow(2.718281828, (17.67 * room_temperature) /\n    (room_temperature + 243.5)) * room_humidity * mw) /\n    ((273.15 + room_temperature) * r); // in grams/m^3\n\nif (room_abs_humidity > outside_abs_humidity) {\n    if (room_humidity > 65) {\n        return {payload: {color: \"yellow\", hint: \"Raum feucht, lüften\", room: room}};\n    } else {\n        return {payload: {color: \"limegreen\", hint: \"Raum ausreichend trocken\", room: room}};\n    }\n} else {\n    return {payload: {color: \"red\", hint: \"Draußen feuchter! Nicht lüften\", room: room}};\n}\n",
+        "func": "const room = msg.topic;\n\nconst room_temperature = global.get(room + \"-Temperatur\");\nconst room_humidity = global.get(room + \"-Luftfeuchtigkeit\");\nconst last_room_abs_humidity_gt_outside_abs_humidity = global.get(room + \"-last_room_abs_humidity_gt_outside_abs_humidity\");\n\nconst outside_abs_humidity = global.get(\"aussen_absolute_luftfeuchtigkeit\");\n\nconst mw = 18.01534;    // molar mass of water g/mol\nconst r = 8.31447215;   // Universal gas constant J/mol/K\n\nconst room_abs_humidity = (6.112 * Math.pow(2.718281828, (17.67 * room_temperature) /\n    (room_temperature + 243.5)) * room_humidity * mw) /\n    ((273.15 + room_temperature) * r); // in grams/m^3\n\nconst room_abs_humidity_gt_outside_abs_humidity = (last_room_abs_humidity_gt_outside_abs_humidity) ?\n    room_abs_humidity > outside_abs_humidity * 0.98:\n    room_abs_humidity * 0.98 > outside_abs_humidity;\n\nglobal.set(room + \"-last_room_abs_humidity_gt_outside_abs_humidity\", room_abs_humidity_gt_outside_abs_humidity);\n\nif (room_abs_humidity_gt_outside_abs_humidity) {\n    if (room_humidity > 65) {\n        return {payload: {color: \"yellow\", hint: \"Raum feucht, lüften\", room: room}};\n    } else {\n        return {payload: {color: \"limegreen\", hint: \"Raum ausreichend trocken\", room: room}};\n    }\n} else {\n    return {payload: {color: \"red\", hint: \"Draußen feuchter! Nicht lüften\", room: room}};\n}\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -9131,12 +8362,11 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 610,
-        "y": 800,
+        "x": 590,
+        "y": 640,
         "wires": [
             [
-                "faa25f7f.0777",
-                "870f3ce6.bfd9"
+                "faa25f7f.0777"
             ]
         ]
     },
@@ -9148,8 +8378,8 @@
         "links": [
             "f562ddab.6a9d3"
         ],
-        "x": 435,
-        "y": 800,
+        "x": 415,
+        "y": 640,
         "wires": [
             [
                 "d7a58b62.d342b8"
@@ -9166,23 +8396,6 @@
         ],
         "x": 335,
         "y": 1280,
-        "wires": []
-    },
-    {
-        "id": "870f3ce6.bfd9",
-        "type": "debug",
-        "z": "d0173d54.941d7",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 890,
-        "y": 800,
         "wires": []
     },
     {
@@ -9349,7 +8562,7 @@
         "height": 0,
         "label": "Lüftung Gäste-WC",
         "chartType": "line",
-        "legend": "true",
+        "legend": "false",
         "xformat": "HH:mm:ss",
         "interpolate": "linear",
         "nodata": "",
@@ -9363,7 +8576,7 @@
         "useOneColor": false,
         "useUTC": false,
         "colors": [
-            "#d6270e",
+            "#2ca02c",
             "#2ca02c",
             "#e6e600",
             "#2c39a0",
@@ -9386,7 +8599,7 @@
         "type": "function",
         "z": "2788b93b.8a2f56",
         "name": "",
-        "func": "const color = msg.payload.color;\nvar val;\n\nif (color == \"red\") {\n    val = 0;\n} else if (color == \"yellow\") {\n    val = 1;\n} else if (color == \"limegreen\") {\n    val = 2;\n}\n\nreturn {\n        topic: color,\n        payload: val\n    };",
+        "func": "const color = msg.payload.color;\nvar val;\n\nif (color == \"red\") {\n    val = 2;\n} else if (color == \"yellow\") {\n    val = 1;\n} else if (color == \"limegreen\") {\n    val = 0;\n}\n\nreturn {\n        payload: val\n    };",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -9411,7 +8624,7 @@
         "height": 0,
         "label": "Lüftung Bad",
         "chartType": "line",
-        "legend": "true",
+        "legend": "false",
         "xformat": "HH:mm:ss",
         "interpolate": "linear",
         "nodata": "",
@@ -9425,7 +8638,7 @@
         "useOneColor": false,
         "useUTC": false,
         "colors": [
-            "#d6270e",
+            "#2ca02c",
             "#2ca02c",
             "#e6e600",
             "#2ca02c",
@@ -9448,7 +8661,7 @@
         "type": "function",
         "z": "2788b93b.8a2f56",
         "name": "",
-        "func": "const color = msg.payload.color;\nvar val;\n\nif (color == \"red\") {\n    val = 0;\n} else if (color == \"yellow\") {\n    val = 1;\n} else if (color == \"limegreen\") {\n    val = 2;\n}\n\nreturn {\n        topic: color,\n        payload: val\n    };",
+        "func": "const color = msg.payload.color;\nvar val;\n\nif (color == \"red\") {\n    val = 2;\n} else if (color == \"yellow\") {\n    val = 1;\n} else if (color == \"limegreen\") {\n    val = 0;\n}\n\nreturn {\n        payload: val\n    };",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -9473,7 +8686,7 @@
         "height": 0,
         "label": "Lüftung Waschküche",
         "chartType": "line",
-        "legend": "true",
+        "legend": "false",
         "xformat": "HH:mm:ss",
         "interpolate": "linear",
         "nodata": "",
@@ -9487,7 +8700,7 @@
         "useOneColor": false,
         "useUTC": false,
         "colors": [
-            "#d6270e",
+            "#2ca02c",
             "#2ca02c",
             "#e6e600",
             "#2ca02c",
@@ -9510,7 +8723,7 @@
         "type": "function",
         "z": "2788b93b.8a2f56",
         "name": "",
-        "func": "const color = msg.payload.color;\nvar val;\n\nif (color == \"red\") {\n    val = 0;\n} else if (color == \"yellow\") {\n    val = 1;\n} else if (color == \"limegreen\") {\n    val = 2;\n}\n\nreturn {\n        topic: color,\n        payload: val\n    };",
+        "func": "const color = msg.payload.color;\nvar val;\n\nif (color == \"red\") {\n    val = 2;\n} else if (color == \"yellow\") {\n    val = 1;\n} else if (color == \"limegreen\") {\n    val = 0;\n}\n\nreturn {\n        payload: val\n    };",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -9574,5 +8787,983 @@
         "x": 1010,
         "y": 580,
         "wires": []
+    },
+    {
+        "id": "43093632.8aef48",
+        "type": "template",
+        "z": "37daec28.284ee4",
+        "name": "state ON_",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "json",
+        "syntax": "mustache",
+        "template": "{\"state\": \"ON\"}",
+        "output": "json",
+        "x": 620,
+        "y": 880,
+        "wires": [
+            [
+                "40e09b5.33b3964"
+            ]
+        ]
+    },
+    {
+        "id": "40e09b5.33b3964",
+        "type": "mqtt out",
+        "z": "37daec28.284ee4",
+        "name": "Tiffany",
+        "topic": "zigbee2mqtt/Tiffany/set",
+        "qos": "1",
+        "retain": "",
+        "broker": "c349b9ff.9dc4c8",
+        "x": 970,
+        "y": 880,
+        "wires": []
+    },
+    {
+        "id": "792c807c.de0c7",
+        "type": "mqtt in",
+        "z": "37daec28.284ee4",
+        "name": "Tiffany",
+        "topic": "zigbee2mqtt/Tiffany",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "c349b9ff.9dc4c8",
+        "x": 1150,
+        "y": 880,
+        "wires": [
+            [
+                "61308a38.c34a64"
+            ]
+        ]
+    },
+    {
+        "id": "61308a38.c34a64",
+        "type": "json",
+        "z": "37daec28.284ee4",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 1310,
+        "y": 880,
+        "wires": [
+            [
+                "52aea2ca.07744c",
+                "7e4ae382.f3381c",
+                "9762023d.37de7"
+            ]
+        ]
+    },
+    {
+        "id": "5733229f.07166c",
+        "type": "template",
+        "z": "37daec28.284ee4",
+        "name": "state OFF",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "json",
+        "syntax": "mustache",
+        "template": "{\"state\": \"OFF\"}",
+        "output": "json",
+        "x": 620,
+        "y": 920,
+        "wires": [
+            [
+                "40e09b5.33b3964"
+            ]
+        ]
+    },
+    {
+        "id": "52aea2ca.07744c",
+        "type": "change",
+        "z": "37daec28.284ee4",
+        "name": "save tiffany state",
+        "rules": [
+            {
+                "t": "set",
+                "p": "state",
+                "pt": "msg",
+                "to": "payload.state = 'ON' ? 'on' : 'off'",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "brightness",
+                "pt": "msg",
+                "to": "payload.brightness",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "tiffany",
+                "pt": "flow",
+                "to": "{'state': state, 'brightness': brightness}",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1330,
+        "y": 920,
+        "wires": [
+            [
+                "35891aa8.d828c6"
+            ]
+        ]
+    },
+    {
+        "id": "19c44039.99c12",
+        "type": "function",
+        "z": "37daec28.284ee4",
+        "name": "increment tiffany brightness",
+        "func": "var leuchter = flow.get(\"tiffany\")\n\nleuchter[\"brightness\"] += 25;\nif (leuchter[\"brightness\"] > 254) {\n    leuchter[\"brightness\"] = 254;\n}\n\nflow.set(\"tiffany\", leuchter);\n\nmsg.payload = {\"brightness\": leuchter[\"brightness\"]};\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 680,
+        "y": 960,
+        "wires": [
+            [
+                "40e09b5.33b3964"
+            ]
+        ]
+    },
+    {
+        "id": "518a8c36.6f0c54",
+        "type": "function",
+        "z": "37daec28.284ee4",
+        "name": "decrement tiffany brightness",
+        "func": "var leuchter = flow.get(\"tiffany\")\n\nleuchter[\"brightness\"] -= 10;\nif (leuchter[\"brightness\"] < 0) {\n    leuchter[\"brightness\"] = 0;\n}\nflow.set(\"tiffany\", leuchter);\n\nmsg.payload = {\"brightness\": leuchter[\"brightness\"]};\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 680,
+        "y": 1000,
+        "wires": [
+            [
+                "40e09b5.33b3964"
+            ]
+        ]
+    },
+    {
+        "id": "b9e6bfe3.96c8f",
+        "type": "switch",
+        "z": "37daec28.284ee4",
+        "name": "Action",
+        "property": "payload.action",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "on",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "off",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "brightness_up",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "brightness_down",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "brightness_max",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "brightness_min",
+                "vt": "str"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 6,
+        "x": 430,
+        "y": 980,
+        "wires": [
+            [
+                "43093632.8aef48"
+            ],
+            [
+                "5733229f.07166c"
+            ],
+            [
+                "19c44039.99c12"
+            ],
+            [
+                "518a8c36.6f0c54"
+            ],
+            [
+                "7d753f2a.b57c8"
+            ],
+            [
+                "1cfacdb1.b56382"
+            ]
+        ],
+        "outputLabels": [
+            "brightness_up_click",
+            "brightness_down_click",
+            "",
+            "",
+            "",
+            ""
+        ]
+    },
+    {
+        "id": "7d753f2a.b57c8",
+        "type": "template",
+        "z": "37daec28.284ee4",
+        "name": "brightness 254",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "json",
+        "syntax": "mustache",
+        "template": "{\"brightness\": 254}",
+        "output": "json",
+        "x": 640,
+        "y": 1040,
+        "wires": [
+            [
+                "40e09b5.33b3964"
+            ]
+        ]
+    },
+    {
+        "id": "1cfacdb1.b56382",
+        "type": "template",
+        "z": "37daec28.284ee4",
+        "name": "brightness 1",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "json",
+        "syntax": "mustache",
+        "template": "{\"brightness\": 1}",
+        "output": "json",
+        "x": 630,
+        "y": 1080,
+        "wires": [
+            [
+                "40e09b5.33b3964"
+            ]
+        ]
+    },
+    {
+        "id": "35891aa8.d828c6",
+        "type": "debug",
+        "z": "37daec28.284ee4",
+        "name": "Tiffany",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1370,
+        "y": 960,
+        "wires": []
+    },
+    {
+        "id": "30c5bc34.3c3974",
+        "type": "ui_switch",
+        "z": "37daec28.284ee4",
+        "name": "An/Aus Tiffany",
+        "label": "An/Aus",
+        "tooltip": "",
+        "group": "1b9713a7.a3a26c",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": "true",
+        "topic": "",
+        "topicType": "str",
+        "style": "",
+        "onvalue": "{\"state\": \"ON\"}",
+        "onvalueType": "json",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "{\"state\": \"OFF\"}",
+        "offvalueType": "json",
+        "officon": "",
+        "offcolor": "",
+        "animate": true,
+        "x": 1000,
+        "y": 980,
+        "wires": [
+            [
+                "35891aa8.d828c6",
+                "40e09b5.33b3964"
+            ]
+        ]
+    },
+    {
+        "id": "483d789b.9b7bd8",
+        "type": "ui_slider",
+        "z": "37daec28.284ee4",
+        "name": "Helligkeit Tiffany",
+        "label": "Helligkeit",
+        "tooltip": "",
+        "group": "1b9713a7.a3a26c",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "outs": "all",
+        "topic": "",
+        "topicType": "str",
+        "min": "20",
+        "max": "254",
+        "step": "25",
+        "x": 1000,
+        "y": 1060,
+        "wires": [
+            [
+                "f74f051f.78aca8"
+            ]
+        ]
+    },
+    {
+        "id": "f74f051f.78aca8",
+        "type": "function",
+        "z": "37daec28.284ee4",
+        "name": "brightness",
+        "func": "msg.payload = {\"brightness\": msg.payload};\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 1310,
+        "y": 1060,
+        "wires": [
+            [
+                "40e09b5.33b3964"
+            ]
+        ]
+    },
+    {
+        "id": "7e4ae382.f3381c",
+        "type": "function",
+        "z": "37daec28.284ee4",
+        "name": "state",
+        "func": "msg.payload = {\"state\": msg.payload.state};\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 970,
+        "y": 940,
+        "wires": [
+            [
+                "30c5bc34.3c3974"
+            ]
+        ]
+    },
+    {
+        "id": "9762023d.37de7",
+        "type": "function",
+        "z": "37daec28.284ee4",
+        "name": "brightness",
+        "func": "msg.payload = msg.payload.brightness;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 990,
+        "y": 1020,
+        "wires": [
+            [
+                "483d789b.9b7bd8"
+            ]
+        ]
+    },
+    {
+        "id": "57017096.9ae36",
+        "type": "template",
+        "z": "37daec28.284ee4",
+        "name": "state ON_",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "json",
+        "syntax": "mustache",
+        "template": "{\"state\": \"ON\"}",
+        "output": "json",
+        "x": 620,
+        "y": 1900,
+        "wires": [
+            [
+                "82751974.3c5238"
+            ]
+        ]
+    },
+    {
+        "id": "82751974.3c5238",
+        "type": "mqtt out",
+        "z": "37daec28.284ee4",
+        "name": "Leuchter",
+        "topic": "zigbee2mqtt/Leuchter/set",
+        "qos": "1",
+        "retain": "",
+        "broker": "c349b9ff.9dc4c8",
+        "x": 980,
+        "y": 1900,
+        "wires": []
+    },
+    {
+        "id": "87c6eea5.de14c",
+        "type": "mqtt in",
+        "z": "37daec28.284ee4",
+        "name": "Leuchter",
+        "topic": "zigbee2mqtt/Leuchter",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "c349b9ff.9dc4c8",
+        "x": 1160,
+        "y": 1900,
+        "wires": [
+            [
+                "9b0a2d3d.d8a5f"
+            ]
+        ]
+    },
+    {
+        "id": "9b0a2d3d.d8a5f",
+        "type": "json",
+        "z": "37daec28.284ee4",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 1310,
+        "y": 1900,
+        "wires": [
+            [
+                "7411287e.b145a8",
+                "d2d0266a.cd3ee8",
+                "11d236e2.b42379"
+            ]
+        ]
+    },
+    {
+        "id": "d0098b99.ba82f8",
+        "type": "template",
+        "z": "37daec28.284ee4",
+        "name": "state OFF",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "json",
+        "syntax": "mustache",
+        "template": "{\"state\": \"OFF\"}",
+        "output": "json",
+        "x": 620,
+        "y": 1940,
+        "wires": [
+            [
+                "82751974.3c5238"
+            ]
+        ]
+    },
+    {
+        "id": "7411287e.b145a8",
+        "type": "change",
+        "z": "37daec28.284ee4",
+        "name": "save leuchter state",
+        "rules": [
+            {
+                "t": "set",
+                "p": "state",
+                "pt": "msg",
+                "to": "payload.state = 'ON' ? 'on' : 'off'",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "brightness",
+                "pt": "msg",
+                "to": "payload.brightness",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "leuchter",
+                "pt": "flow",
+                "to": "{'state': state, 'brightness': brightness}",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1330,
+        "y": 1940,
+        "wires": [
+            [
+                "b46d4ee5.72901"
+            ]
+        ]
+    },
+    {
+        "id": "95edc464.547d58",
+        "type": "function",
+        "z": "37daec28.284ee4",
+        "name": "increment leuchter brightness",
+        "func": "var leuchter = flow.get(\"leuchter\")\n\nleuchter[\"brightness\"] += 25;\nif (leuchter[\"brightness\"] > 254) {\n    leuchter[\"brightness\"] = 254;\n}\n\nflow.set(\"leuchter\", leuchter);\n\nmsg.payload = {\"brightness\": leuchter[\"brightness\"]};\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 690,
+        "y": 1980,
+        "wires": [
+            [
+                "82751974.3c5238"
+            ]
+        ]
+    },
+    {
+        "id": "66e98b0e.c34604",
+        "type": "function",
+        "z": "37daec28.284ee4",
+        "name": "decrement leuchter brightness",
+        "func": "var leuchter = flow.get(\"leuchter\")\n\nleuchter[\"brightness\"] -= 10;\nif (leuchter[\"brightness\"] < 0) {\n    leuchter[\"brightness\"] = 0;\n}\nflow.set(\"leuchter\", leuchter);\n\nmsg.payload = {\"brightness\": leuchter[\"brightness\"]};\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 690,
+        "y": 2020,
+        "wires": [
+            [
+                "82751974.3c5238"
+            ]
+        ]
+    },
+    {
+        "id": "da091852.405428",
+        "type": "switch",
+        "z": "37daec28.284ee4",
+        "name": "Action",
+        "property": "payload.action",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "on",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "off",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "brightness_up",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "brightness_down",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "brightness_max",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "brightness_min",
+                "vt": "str"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 6,
+        "x": 430,
+        "y": 2000,
+        "wires": [
+            [
+                "57017096.9ae36"
+            ],
+            [
+                "d0098b99.ba82f8"
+            ],
+            [
+                "95edc464.547d58"
+            ],
+            [
+                "66e98b0e.c34604"
+            ],
+            [
+                "1fbf0b08.248be5"
+            ],
+            [
+                "d941581f.0f0888"
+            ]
+        ],
+        "outputLabels": [
+            "brightness_up_click",
+            "brightness_down_click",
+            "",
+            "",
+            "",
+            ""
+        ]
+    },
+    {
+        "id": "1fbf0b08.248be5",
+        "type": "template",
+        "z": "37daec28.284ee4",
+        "name": "brightness 254",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "json",
+        "syntax": "mustache",
+        "template": "{\"brightness\": 254}",
+        "output": "json",
+        "x": 640,
+        "y": 2060,
+        "wires": [
+            [
+                "82751974.3c5238"
+            ]
+        ]
+    },
+    {
+        "id": "d941581f.0f0888",
+        "type": "template",
+        "z": "37daec28.284ee4",
+        "name": "brightness 1",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "json",
+        "syntax": "mustache",
+        "template": "{\"brightness\": 1}",
+        "output": "json",
+        "x": 630,
+        "y": 2100,
+        "wires": [
+            [
+                "82751974.3c5238"
+            ]
+        ]
+    },
+    {
+        "id": "b46d4ee5.72901",
+        "type": "debug",
+        "z": "37daec28.284ee4",
+        "name": "Fensterbank",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1390,
+        "y": 1980,
+        "wires": []
+    },
+    {
+        "id": "9aca83f0.327cd",
+        "type": "ui_switch",
+        "z": "37daec28.284ee4",
+        "name": "An/Aus Leuchter Fernsehzimmer",
+        "label": "An/Aus",
+        "tooltip": "",
+        "group": "b4675dbc.146e1",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": "true",
+        "topic": "",
+        "topicType": "str",
+        "style": "",
+        "onvalue": "{\"state\": \"ON\"}",
+        "onvalueType": "json",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "{\"state\": \"OFF\"}",
+        "offvalueType": "json",
+        "officon": "",
+        "offcolor": "",
+        "animate": true,
+        "x": 1060,
+        "y": 2000,
+        "wires": [
+            [
+                "b46d4ee5.72901",
+                "82751974.3c5238"
+            ]
+        ]
+    },
+    {
+        "id": "546088f6.3a4488",
+        "type": "ui_slider",
+        "z": "37daec28.284ee4",
+        "name": "Helligkeit Leuchter Fernsehzimmer",
+        "label": "Helligkeit",
+        "tooltip": "",
+        "group": "b4675dbc.146e1",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "outs": "all",
+        "topic": "",
+        "topicType": "str",
+        "min": "20",
+        "max": "254",
+        "step": "25",
+        "x": 1060,
+        "y": 2080,
+        "wires": [
+            [
+                "b3e0dafa.e18c68"
+            ]
+        ]
+    },
+    {
+        "id": "b3e0dafa.e18c68",
+        "type": "function",
+        "z": "37daec28.284ee4",
+        "name": "brightness",
+        "func": "msg.payload = {\"brightness\": msg.payload};\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 1310,
+        "y": 2080,
+        "wires": [
+            [
+                "82751974.3c5238"
+            ]
+        ]
+    },
+    {
+        "id": "d2d0266a.cd3ee8",
+        "type": "function",
+        "z": "37daec28.284ee4",
+        "name": "state",
+        "func": "msg.payload = {\"state\": msg.payload.state};\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 970,
+        "y": 1960,
+        "wires": [
+            [
+                "9aca83f0.327cd"
+            ]
+        ]
+    },
+    {
+        "id": "11d236e2.b42379",
+        "type": "function",
+        "z": "37daec28.284ee4",
+        "name": "brightness",
+        "func": "msg.payload = msg.payload.brightness;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 990,
+        "y": 2040,
+        "wires": [
+            [
+                "546088f6.3a4488"
+            ]
+        ]
+    },
+    {
+        "id": "7ae7fa74.a8aa34",
+        "type": "function",
+        "z": "fc81a32b.bb6db",
+        "name": "add absolute_humidity and dew_point",
+        "func": "const temperature = msg.payload.temperature;\nconst humidity = msg.payload.humidity;\n\nconst mw = 18.01534;    // molar mass of water g/mol\nconst r = 8.31447215;   // Universal gas constant J/mol/K\n\nmsg.payload.absolute_humidity = (6.112 * Math.pow(2.718281828, (17.67 * temperature) /\n    (temperature + 243.5)) * humidity * mw) /\n    ((273.15 + temperature) * r); // in grams/m^3\n\nmsg.payload.dew_point = (243.5*(Math.log(humidity/100)+((17.67*temperature)/\n    (243.5+temperature)))/(17.67-Math.log(humidity/100)-\n    ((17.67*temperature)/(243.5+temperature))));\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 810,
+        "y": 840,
+        "wires": [
+            [
+                "aa7a4964.384d28",
+                "a5f703a7.42833"
+            ]
+        ]
+    },
+    {
+        "id": "4708a180.a07a",
+        "type": "link in",
+        "z": "d0173d54.941d7",
+        "name": "ZIGBEE2MQTT to InfluxDB",
+        "links": [
+            "aa7a4964.384d28"
+        ],
+        "x": 415,
+        "y": 380,
+        "wires": [
+            [
+                "bc2288b2.755178"
+            ]
+        ]
+    },
+    {
+        "id": "aa7a4964.384d28",
+        "type": "link out",
+        "z": "fc81a32b.bb6db",
+        "name": "",
+        "links": [
+            "4708a180.a07a"
+        ],
+        "x": 1015,
+        "y": 840,
+        "wires": []
+    },
+    {
+        "id": "54e7d479.9e81bc",
+        "type": "function",
+        "z": "d0173d54.941d7",
+        "name": "Filter out Aqara Smart",
+        "func": "if (!msg.topic.match(/Aqara Smart/)) {\n    return msg;\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 400,
+        "y": 300,
+        "wires": [
+            [
+                "fa0231fe.d86ab",
+                "1cc6190e.b06487"
+            ]
+        ]
+    },
+    {
+        "id": "1cc6190e.b06487",
+        "type": "debug",
+        "z": "d0173d54.941d7",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 590,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "87c5ced2.7998f",
+        "type": "mqtt in",
+        "z": "fc81a32b.bb6db",
+        "name": "",
+        "topic": "zigbee2mqtt/+",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "c349b9ff.9dc4c8",
+        "x": 140,
+        "y": 840,
+        "wires": [
+            [
+                "d9d02903.582fc8"
+            ]
+        ]
+    },
+    {
+        "id": "d9d02903.582fc8",
+        "type": "function",
+        "z": "fc81a32b.bb6db",
+        "name": "Filter Aqara Smart topics",
+        "func": "if (msg.topic.match(/Aqara Smart/)) {\n    return msg;\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 370,
+        "y": 840,
+        "wires": [
+            [
+                "797f9ce9.fd27e4"
+            ]
+        ]
+    },
+    {
+        "id": "a5f703a7.42833",
+        "type": "debug",
+        "z": "fc81a32b.bb6db",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1000,
+        "y": 900,
+        "wires": []
+    },
+    {
+        "id": "797f9ce9.fd27e4",
+        "type": "json",
+        "z": "fc81a32b.bb6db",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 570,
+        "y": 840,
+        "wires": [
+            [
+                "7ae7fa74.a8aa34"
+            ]
+        ]
+    },
+    {
+        "id": "bc2288b2.755178",
+        "type": "function",
+        "z": "d0173d54.941d7",
+        "name": "JSON to InfluxDB",
+        "func": "var tokens = msg.topic.split(\"/\");\nvar sensor = tokens[1];\nmsg.measurement = sensor;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 570,
+        "y": 380,
+        "wires": [
+            [
+                "faa25f7f.0777"
+            ]
+        ]
     }
 ]
