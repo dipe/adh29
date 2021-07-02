@@ -30,7 +30,7 @@
     {
         "id": "293bb437.fa00bc",
         "type": "tab",
-        "label": "Garten",
+        "label": "Außen",
         "disabled": false,
         "info": ""
     },
@@ -6447,7 +6447,8 @@
         "y": 640,
         "wires": [
             [
-                "faa25f7f.0777"
+                "faa25f7f.0777",
+                "35463b9.854cac4"
             ]
         ]
     },
@@ -7480,8 +7481,7 @@
         "y": 380,
         "wires": [
             [
-                "faa25f7f.0777",
-                "35463b9.854cac4"
+                "faa25f7f.0777"
             ]
         ]
     },
@@ -8351,6 +8351,37 @@
         "statusType": "auto",
         "x": 1000,
         "y": 420,
+        "wires": []
+    },
+    {
+        "id": "a6b742da.b11dd",
+        "type": "openweathermap in",
+        "z": "293bb437.fa00bc",
+        "name": "Wetter",
+        "wtype": "current",
+        "lon": "10.01239",
+        "lat": "53.50597",
+        "city": "",
+        "country": "",
+        "language": "de",
+        "x": 130,
+        "y": 440,
+        "wires": [
+            [
+                "f562ddab.6a9d3"
+            ]
+        ]
+    },
+    {
+        "id": "f562ddab.6a9d3",
+        "type": "link out",
+        "z": "293bb437.fa00bc",
+        "name": "openweather",
+        "links": [
+            "9b9574d4.b3d108"
+        ],
+        "x": 235,
+        "y": 440,
         "wires": []
     }
 ]
