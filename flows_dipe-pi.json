@@ -468,21 +468,11 @@
     {
         "id": "d32aa509.f54168",
         "type": "ui_group",
-        "name": "Aktuell",
+        "name": "Licht",
         "tab": "96087061.c7ebf",
         "order": 1,
         "disp": true,
-        "width": 6,
-        "collapse": false
-    },
-    {
-        "id": "f0967dd4.486f",
-        "type": "ui_group",
-        "name": "Verlauf",
-        "tab": "96087061.c7ebf",
-        "order": 2,
-        "disp": true,
-        "width": 6,
+        "width": "6",
         "collapse": false
     },
     {
@@ -581,19 +571,10 @@
         "influxdbVersion": "1.x"
     },
     {
-        "id": "b903c81d.e4ee18",
-        "type": "ui_tab",
-        "name": "Hausklima",
-        "icon": "dashboard",
-        "order": 5,
-        "disabled": false,
-        "hidden": false
-    },
-    {
         "id": "d63872c3.cf8dc",
         "type": "ui_group",
         "name": "Aktuell",
-        "tab": "b903c81d.e4ee18",
+        "tab": "",
         "order": 1,
         "disp": true,
         "width": "6",
@@ -603,7 +584,7 @@
         "id": "957dd4b7.619928",
         "type": "ui_group",
         "name": "Verlauf",
-        "tab": "b903c81d.e4ee18",
+        "tab": "",
         "order": 2,
         "disp": true,
         "width": "6",
@@ -653,7 +634,7 @@
         "id": "6e72ca89.a4fc04",
         "type": "ui_spacer",
         "name": "spacer",
-        "group": "f0967dd4.486f",
+        "group": "",
         "order": 2,
         "width": "6",
         "height": "2"
@@ -944,7 +925,7 @@
         "type": "mqtt in",
         "z": "37daec28.284ee4",
         "name": "Fernbedienung WoZi",
-        "topic": "zigbee2mqtt/Fernbedienung WoZi",
+        "topic": "zigbee2mqtt/fernbedienung_wozi",
         "qos": "2",
         "datatype": "auto",
         "broker": "c349b9ff.9dc4c8",
@@ -1178,7 +1159,7 @@
         "type": "mqtt in",
         "z": "2ba29887.9266e8",
         "name": "Fernbedienung Esszimmer",
-        "topic": "zigbee2mqtt/Fernbedienung Esszimmer",
+        "topic": "zigbee2mqtt/fernbedienung_esszimmer",
         "qos": "2",
         "datatype": "json",
         "broker": "c349b9ff.9dc4c8",
@@ -1233,7 +1214,7 @@
         "type": "mqtt out",
         "z": "2ba29887.9266e8",
         "name": "Esszimmertisch",
-        "topic": "zigbee2mqtt/Esszimmertisch/set",
+        "topic": "zigbee2mqtt/esszimmertisch/set",
         "qos": "1",
         "retain": "",
         "broker": "c349b9ff.9dc4c8",
@@ -1246,7 +1227,7 @@
         "type": "mqtt in",
         "z": "2ba29887.9266e8",
         "name": "Esszimmertisch",
-        "topic": "zigbee2mqtt/Esszimmertisch",
+        "topic": "zigbee2mqtt/esszimmertisch",
         "qos": "2",
         "datatype": "auto",
         "broker": "c349b9ff.9dc4c8",
@@ -1448,7 +1429,7 @@
         "type": "mqtt out",
         "z": "2ba29887.9266e8",
         "name": "Esszimmer Eckschrank",
-        "topic": "zigbee2mqtt/Esszimmer Eckschrank/set",
+        "topic": "zigbee2mqtt/esszimmer_eckschrank/set",
         "qos": "",
         "retain": "",
         "broker": "c349b9ff.9dc4c8",
@@ -1461,7 +1442,7 @@
         "type": "mqtt in",
         "z": "2ba29887.9266e8",
         "name": "Esszimmer Eckschrank",
-        "topic": "zigbee2mqtt/Esszimmer Eckschrank",
+        "topic": "zigbee2mqtt/esszimmer_eckschrank",
         "qos": "2",
         "datatype": "auto",
         "broker": "c349b9ff.9dc4c8",
@@ -2516,7 +2497,7 @@
         "type": "mqtt out",
         "z": "37daec28.284ee4",
         "name": "Klavierlampe",
-        "topic": "zigbee2mqtt/Klavierlampe/set",
+        "topic": "zigbee2mqtt/klavierlampe/set",
         "qos": "1",
         "retain": "",
         "broker": "c349b9ff.9dc4c8",
@@ -2529,7 +2510,7 @@
         "type": "mqtt in",
         "z": "37daec28.284ee4",
         "name": "Klavierlampe",
-        "topic": "zigbee2mqtt/Klavierlampe",
+        "topic": "zigbee2mqtt/klavierlampe",
         "qos": "2",
         "datatype": "auto",
         "broker": "c349b9ff.9dc4c8",
@@ -2912,7 +2893,7 @@
         "type": "mqtt out",
         "z": "37daec28.284ee4",
         "name": "Fensterbank",
-        "topic": "zigbee2mqtt/Fensterbank/set",
+        "topic": "zigbee2mqtt/fensterbank/set",
         "qos": "1",
         "retain": "",
         "broker": "c349b9ff.9dc4c8",
@@ -2925,7 +2906,7 @@
         "type": "mqtt in",
         "z": "37daec28.284ee4",
         "name": "Fensterbank",
-        "topic": "zigbee2mqtt/Fensterbank",
+        "topic": "zigbee2mqtt/fensterbank",
         "qos": "2",
         "datatype": "auto",
         "broker": "c349b9ff.9dc4c8",
@@ -3514,25 +3495,6 @@
         ]
     },
     {
-        "id": "744d42bb.7684ec",
-        "type": "mqtt in",
-        "z": "4d90b497.b5b2ac",
-        "name": "",
-        "topic": "waschkueche_luefter/sensor/temperature/state",
-        "qos": "2",
-        "datatype": "auto",
-        "broker": "c349b9ff.9dc4c8",
-        "x": 280,
-        "y": 80,
-        "wires": [
-            [
-                "1265b14d.4399bf",
-                "3f1930a3.711a4",
-                "4265433f.286fcc"
-            ]
-        ]
-    },
-    {
         "id": "2f8c3777.ecafb8",
         "type": "mqtt in",
         "z": "4d90b497.b5b2ac",
@@ -3542,83 +3504,12 @@
         "datatype": "auto",
         "broker": "c349b9ff.9dc4c8",
         "x": 230,
-        "y": 240,
+        "y": 180,
         "wires": [
             [
-                "ea8ce2c6.69dcd",
-                "63862f71.4caa5",
-                "94ccc1c9.62b1d",
                 "b56cd25f.124c9",
-                "f24eda7c.102788"
-            ]
-        ]
-    },
-    {
-        "id": "1265b14d.4399bf",
-        "type": "function",
-        "z": "4d90b497.b5b2ac",
-        "name": "",
-        "func": "var temp = parseFloat(msg.payload);\nvar blue = null, green = null, red = null;\n\nif (temp < 21) {\n    blue = temp;\n} else if (temp < 23) {\n    green = temp;\n} else {\n    red = temp;\n}\n\nmsg = [{\n        label: \"Temperatur\",\n        series: \"blue\",\n        payload: blue\n    },\n    {\n        label: \"Temperatur\",\n        series: \"green\",\n        payload: green\n    },\n    {\n        label: \"Temperatur\",\n        series: \"red\",\n        payload: red\n    },\n];\nreturn msg;",
-        "outputs": 3,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 580,
-        "y": 120,
-        "wires": [
-            [
-                "522e1723.99aeb8"
-            ],
-            [
-                "522e1723.99aeb8"
-            ],
-            [
-                "522e1723.99aeb8"
-            ]
-        ]
-    },
-    {
-        "id": "ea8ce2c6.69dcd",
-        "type": "function",
-        "z": "4d90b497.b5b2ac",
-        "name": "",
-        "func": "var val = parseFloat(msg.payload);\n\nvar green = null, yellow = null, red = null;\n\nif (val < 35) {\n    green = val;\n} else if (val < 65) {\n    yellow = val;\n} else {\n    red = val;\n}\n\nmsg = [{\n        label: \"Luftfeuchtigkeit Werkstatt\",\n        series: \"green\",\n        payload: green\n    },\n    {\n        label: \"Luftfeuchtigkeit Werkstatt\",\n        series: \"yellow\",\n        payload: yellow\n    },\n    {\n        label: \"Luftfeuchtigkeit Werkstatt\",\n        series: \"red\",\n        payload: red\n    }\n];\n\nreturn msg;",
-        "outputs": 3,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 580,
-        "y": 280,
-        "wires": [
-            [
-                "923f54e8.66c118",
-                "b2e1e7e.572a118"
-            ],
-            [
-                "923f54e8.66c118",
-                "b2e1e7e.572a118"
-            ],
-            [
-                "923f54e8.66c118",
-                "b2e1e7e.572a118"
-            ]
-        ]
-    },
-    {
-        "id": "63862f71.4caa5",
-        "type": "function",
-        "z": "4d90b497.b5b2ac",
-        "name": "",
-        "func": "var val = parseFloat(msg.payload);\n\nflow.set(\"waschkueche_luftfeuchtigkeit\", val);\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 580,
-        "y": 320,
-        "wires": [
-            [
-                "a8931b52.026628"
+                "f24eda7c.102788",
+                "ea8ce2c6.69dcd"
             ]
         ]
     },
@@ -3626,13 +3517,13 @@
         "id": "a8931b52.026628",
         "type": "function",
         "z": "4d90b497.b5b2ac",
-        "name": "",
-        "func": "const mw = 18.01534;    // molar mass of water g/mol\nconst r = 8.31447215;   // Universal gas constant J/mol/K\n\nvar a_abs_humidity = global.get(\"aussen_absolute_luftfeuchtigkeit\");\nvar wk_temperature = global.get(\"Waschküche-Temperatur\");\nvar wk_humidity = global.get(\"Waschküche-Luftfeuchtigkeit\");\n\nvar wk_abs_humidity = (6.112 * Math.pow(2.718281828, (17.67 * wk_temperature) /\n    (wk_temperature + 243.5)) * wk_humidity * mw) /\n    ((273.15 + wk_temperature) * r); // in grams/m^3\n\nvar washroom_fan_switch = flow.get(\"washroom_fan_switch\");\nvar washroom_fan_control = flow.get(\"washroom_fan_control\");\n\nif (washroom_fan_control == \"ON\") {\n    if (wk_humidity > 65 || wk_temperature > 17) {\n        if (washroom_fan_switch == \"ON\") {\n            washroom_fan_switch = (wk_abs_humidity > a_abs_humidity98) ? \"ON\" : \"OFF\";\n        } else {\n            washroom_fan_switch = (wk_abs_humidity * 0.98 > a_abs_humidity) ? \"ON\" : \"OFF\";\n        }\n    } else {\n        washroom_fan_switch = \"OFF\"\n    }\n}\n\nmsg = [\n    {topic: \"Waschküche g/m³\", payload: wk_abs_humidity},\n    {topic: \"Außen g/m³\", payload: a_abs_humidity},\n    (washroom_fan_switch) ? {topic: \"luefter_sw\", payload: washroom_fan_switch} : undefined\n];\n\nreturn msg;",
+        "name": "fan controller",
+        "func": "const mw = 18.01534;    // molar mass of water g/mol\nconst r = 8.31447215;   // Universal gas constant J/mol/K\n\nconst outside_abs_humidity = global.get(\"aussen-absolute_humidity\");\nconst wk_temperature = global.get(\"waschkueche_luefter-temperature\");\nconst wk_humidity = global.get(\"waschkueche_luefter-humidity\");\nconst wk_abs_humidity = global.get(\"waschkueche_luefter-absolute_humidity\");\n\nconst washroom_fan_control = flow.get(\"washroom_fan_control\");\nconst last_abs_humidity_gt_outside_abs_humidity = global.get(\"washroom-last_abs_humidity_gt_outside_abs_humidity\");\n\nvar washroom_fan_switch = (last_abs_humidity_gt_outside_abs_humidity) ?\n    wk_abs_humidity > outside_abs_humidity :\n    wk_abs_humidity > outside_abs_humidity * 1.1;\n\nglobal.set(\"washroom-last_abs_humidity_gt_outside_abs_humidity\", wk_abs_humidity > outside_abs_humidity);\n\nif (true) {\n    node.warn(\"outside_abs_humidity \" + outside_abs_humidity);   \n    node.warn(\"wk_temperature) \" + wk_temperature);   \n    node.warn(\"wk_humidity \" + wk_humidity);   \n    node.warn(\"wk_abs_humidity \" + wk_abs_humidity);   \n    node.warn(\"washroom_fan_switch \" + washroom_fan_switch);   \n    node.warn(\"washroom_fan_control \" + washroom_fan_control);   \n    node.warn(\"last_abs_humidity_gt_outside_abs_humidity \" + last_abs_humidity_gt_outside_abs_humidity);   \n}\n\nif (washroom_fan_control == \"ON\") {\n    if (washroom_fan_switch == \"ON\") {\n        if (wk_humidity > 65 || wk_temperature > 17) {\n            washroom_fan_switch = \"ON\";\n        } else {\n            washroom_fan_switch = \"OFF\";\n        }\n    } else {\n        washroom_fan_switch = \"OFF\"\n    }\n}\n\nmsg = [\n    {topic: \"Waschküche g/m³\", payload: wk_abs_humidity},\n    {topic: \"Außen g/m³\", payload: outside_abs_humidity},\n    (washroom_fan_switch) ? {topic: \"luefter_sw\", payload: washroom_fan_switch} : undefined\n];\n\nreturn msg;",
         "outputs": 3,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 580,
+        "x": 590,
         "y": 380,
         "wires": [
             [
@@ -3650,6 +3541,7 @@
         "id": "fcc6366f.aa0998",
         "type": "mqtt out",
         "z": "4d90b497.b5b2ac",
+        "d": true,
         "name": "Waschküche Lüfter",
         "topic": "waschkueche_luefter/switch/switch12/command",
         "qos": "",
@@ -3727,7 +3619,7 @@
         "type": "function",
         "z": "4d90b497.b5b2ac",
         "name": "",
-        "func": "var luefter_sw = msg.payload;\n\nmsg = {\n    topic: \"Lüfter\",\n    payload: (luefter_sw == \"ON\") ? 29 : 0\n};\n\nreturn msg;",
+        "func": "var luefter_sw = msg.payload;\n\nconst a = global.get(\"aussen-absolute_humidity\");\nconst b = global.get(\"waschkueche_luefter-absolute_humidity\");\n\nvar h = (a > b) ? a : b;\nvar l = (a < b) ? a : b;\n\nmsg = {\n    topic: \"Lüfter\",\n    payload: (luefter_sw == \"ON\") ? h : l\n};\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -4542,7 +4434,7 @@
         "type": "mqtt in",
         "z": "3a471104.edfbae",
         "name": "Bewegungsmelder Treppenhaus4",
-        "topic": "zigbee2mqtt/Bewegungsmelder Treppenhaus4",
+        "topic": "zigbee2mqtt/bewegungsmelder_treppenhaus4",
         "qos": "2",
         "datatype": "json",
         "broker": "c349b9ff.9dc4c8",
@@ -4628,144 +4520,6 @@
         ]
     },
     {
-        "id": "923f54e8.66c118",
-        "type": "ui_chart",
-        "z": "4d90b497.b5b2ac",
-        "name": "Waschküche Luftfeuchtigkeit",
-        "group": "957dd4b7.619928",
-        "order": 9,
-        "width": 0,
-        "height": 0,
-        "label": "Luftfeuchtigkeit % rel.",
-        "chartType": "line",
-        "legend": "false",
-        "xformat": "HH:mm",
-        "interpolate": "linear",
-        "nodata": "warten auf Daten…",
-        "dot": false,
-        "ymin": "",
-        "ymax": "",
-        "removeOlder": "1",
-        "removeOlderPoints": "",
-        "removeOlderUnit": "86400",
-        "cutout": 0,
-        "useOneColor": false,
-        "useUTC": false,
-        "colors": [
-            "#2ca02c",
-            "#e6e600",
-            "#d62728",
-            "#2ca02c",
-            "#98df8a",
-            "#d62728",
-            "#ff9896",
-            "#9467bd",
-            "#c5b0d5"
-        ],
-        "outputs": 1,
-        "useDifferentColor": false,
-        "x": 860,
-        "y": 280,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "94ccc1c9.62b1d",
-        "type": "ui_gauge",
-        "z": "4d90b497.b5b2ac",
-        "name": "Waschküche Luftfeuchtigkeit",
-        "group": "d63872c3.cf8dc",
-        "order": 9,
-        "width": 0,
-        "height": 0,
-        "gtype": "gage",
-        "title": "Luftfeuchtigkeit",
-        "label": "% rel.",
-        "format": "{{value}}",
-        "min": "20",
-        "max": "100",
-        "colors": [
-            "#00b500",
-            "#e6e600",
-            "#ca3838"
-        ],
-        "seg1": "35",
-        "seg2": "65",
-        "x": 860,
-        "y": 240,
-        "wires": []
-    },
-    {
-        "id": "3f1930a3.711a4",
-        "type": "ui_gauge",
-        "z": "4d90b497.b5b2ac",
-        "name": "Waschküche Temperatur",
-        "group": "d63872c3.cf8dc",
-        "order": 8,
-        "width": 0,
-        "height": 0,
-        "gtype": "gage",
-        "title": "Temperatur",
-        "label": "°C",
-        "format": "{{value}}",
-        "min": "10",
-        "max": "30",
-        "colors": [
-            "#1f77b4",
-            "#00b500",
-            "#ca3838"
-        ],
-        "seg1": "21",
-        "seg2": "23",
-        "x": 850,
-        "y": 80,
-        "wires": []
-    },
-    {
-        "id": "522e1723.99aeb8",
-        "type": "ui_chart",
-        "z": "4d90b497.b5b2ac",
-        "name": "Waschküche Temperatur",
-        "group": "957dd4b7.619928",
-        "order": 8,
-        "width": 0,
-        "height": 0,
-        "label": "Temperatur °C",
-        "chartType": "line",
-        "legend": "false",
-        "xformat": "HH:mm",
-        "interpolate": "linear",
-        "nodata": "warten auf Daten…",
-        "dot": false,
-        "ymin": "",
-        "ymax": "",
-        "removeOlder": "1",
-        "removeOlderPoints": "",
-        "removeOlderUnit": "86400",
-        "cutout": 0,
-        "useOneColor": false,
-        "useUTC": false,
-        "colors": [
-            "#015bb4",
-            "#2ca02c",
-            "#d62c27",
-            "#d62c27",
-            "#98df8a",
-            "#015bb4",
-            "#ff9896",
-            "#9467bd",
-            "#c5b0d5"
-        ],
-        "outputs": 1,
-        "useDifferentColor": false,
-        "x": 850,
-        "y": 120,
-        "wires": [
-            []
-        ]
-    },
-    {
         "id": "2122f69.fdedd0a",
         "type": "mqtt in",
         "z": "29cd7d28.a2bf92",
@@ -4842,7 +4596,7 @@
         "type": "mqtt in",
         "z": "3a471104.edfbae",
         "name": "Bewegungsmelder Treppenhaus3",
-        "topic": "zigbee2mqtt/Bewegungsmelder Treppenhaus3",
+        "topic": "zigbee2mqtt/bewegungsmelder_treppenhaus3",
         "qos": "2",
         "datatype": "json",
         "broker": "c349b9ff.9dc4c8",
@@ -4859,7 +4613,7 @@
         "type": "mqtt in",
         "z": "3a471104.edfbae",
         "name": "Bewegungsmelder Treppenhaus2",
-        "topic": "zigbee2mqtt/Bewegungsmelder Treppenhaus2",
+        "topic": "zigbee2mqtt/bewegungsmelder_treppenhaus2",
         "qos": "2",
         "datatype": "json",
         "broker": "c349b9ff.9dc4c8",
@@ -4876,7 +4630,7 @@
         "type": "mqtt in",
         "z": "3a471104.edfbae",
         "name": "Bewegungsmelder Treppenhaus1",
-        "topic": "zigbee2mqtt/Bewegungsmelder Treppenhaus1",
+        "topic": "zigbee2mqtt/bewegungsmelder_treppenhaus1",
         "qos": "2",
         "datatype": "json",
         "broker": "c349b9ff.9dc4c8",
@@ -4893,7 +4647,7 @@
         "type": "mqtt in",
         "z": "293bb437.fa00bc",
         "name": "Fernbedienung Balkontür",
-        "topic": "zigbee2mqtt/Fernbedienung Balkontür",
+        "topic": "zigbee2mqtt/fernbedienung_balkontuer",
         "qos": "2",
         "datatype": "json",
         "broker": "c349b9ff.9dc4c8",
@@ -5181,13 +4935,13 @@
         "order": 2,
         "width": 0,
         "height": 0,
-        "format": "<md-card ui-card-size=\"6x2\" \n    class=\"_md nr-dashboard-text layout-align-center-center nr-dashboard-widget-text visible\" \n    style=\"background-color: {{msg.payload.color}}; color: black; left: 0px; top: 54px; width: 300px; height: 96px;\">\n    <p class=\"label\">{{msg.payload.room}}</p> <p class=\"value\">{{msg.payload.hint}}</p>\n</md-card>\n",
+        "format": "<md-card ui-card-size=\"6x2\" \n    class=\"_md nr-dashboard-text layout-align-center-center nr-dashboard-widget-text visible\" \n    style=\"background-color: {{msg.payload.color}}; color: black; left: 0px; top: 54px; width: 300px; height: 96px;\">\n    <p class=\"label\">{{msg.payload.room}}</p><p>{{msg.payload.text}}</p> <p class=\"value\">{{msg.payload.hint}}</p>\n</md-card>\n",
         "storeOutMessages": true,
         "fwdInMessages": true,
         "resendOnRefresh": true,
         "templateScope": "local",
-        "x": 760,
-        "y": 160,
+        "x": 1320,
+        "y": 500,
         "wires": [
             []
         ]
@@ -5197,18 +4951,17 @@
         "type": "function",
         "z": "2788b93b.8a2f56",
         "name": "Lüftungsempfehlung",
-        "func": "const room = msg.topic;\n\nconst room_temperature = global.get(room + \"-Temperatur\");\nconst room_humidity = global.get(room + \"-Luftfeuchtigkeit\");\nconst last_room_abs_humidity_gt_outside_abs_humidity = global.get(room + \"-last_room_abs_humidity_gt_outside_abs_humidity\");\n\nconst outside_abs_humidity = global.get(\"aussen_absolute_luftfeuchtigkeit\");\n\nconst mw = 18.01534;    // molar mass of water g/mol\nconst r = 8.31447215;   // Universal gas constant J/mol/K\n\nconst room_abs_humidity = (6.112 * Math.pow(2.718281828, (17.67 * room_temperature) /\n    (room_temperature + 243.5)) * room_humidity * mw) /\n    ((273.15 + room_temperature) * r); // in grams/m^3\n\nconst room_abs_humidity_gt_outside_abs_humidity = (last_room_abs_humidity_gt_outside_abs_humidity) ?\n    room_abs_humidity > outside_abs_humidity * 0.98:\n    room_abs_humidity * 0.98 > outside_abs_humidity;\n\nglobal.set(room + \"-last_room_abs_humidity_gt_outside_abs_humidity\", room_abs_humidity_gt_outside_abs_humidity);\n\nif (room_abs_humidity_gt_outside_abs_humidity) {\n    if (room_humidity > 65) {\n        return {payload: {color: \"yellow\", hint: \"Raum feucht, lüften\", room: room}};\n    } else {\n        return {payload: {color: \"limegreen\", hint: \"Raum ausreichend trocken\", room: room}};\n    }\n} else {\n    return {payload: {color: \"red\", hint: \"Draußen feuchter! Nicht lüften\", room: room}};\n}\n",
+        "func": "const name = msg.payload.name;\n\nconst temperature = global.get(name + \"-temperature\");\nconst humidity = global.get(name + \"-humidity\");\nconst abs_humidity = global.get(name + \"-absolute_humidity\");\nconst last_abs_humidity_gt_outside_abs_humidity = global.get(name + \"-last_abs_humidity_gt_outside_abs_humidity\");\nconst outside_abs_humidity = global.get(\"aussen-absolute_humidity\");\n\nif (false) {\n    node.warn(\"name: \" + name)\n    node.warn(\"temperature: \" + temperature)\n    node.warn(\"humidity: \" + humidity)\n    node.warn(\"abs_humidity: \" + abs_humidity)\n    node.warn(\"last_abs_humidity_gt_outside_abs_humidity: \" + last_abs_humidity_gt_outside_abs_humidity)\n    node.warn(\"outside_abs_humidity: \" + outside_abs_humidity)\n}\n\nconst open_window = (last_abs_humidity_gt_outside_abs_humidity) ?\n    abs_humidity > outside_abs_humidity :\n    abs_humidity > outside_abs_humidity * 1.1;\n\nglobal.set(name + \"-last_abs_humidity_gt_outside_abs_humidity\", abs_humidity > outside_abs_humidity);\n\nconst sprintf = global.get(\"sprintf\");\nconst text = sprintf(\"%2.1f °C, %2.1f %% H, %2.1f mg/m³\", temperature, humidity, abs_humidity)\n\nif (open_window) {\n    if (humidity > 65) {\n        return {payload: {name: name, color: \"red\", hint: \"Raum feucht, lüften\", text: text}};\n    } else {\n        return {payload: {name: name, color: \"limegreen\", hint: \"Raum ausreichend trocken\", text: text}};\n    }\n} else {\n    return {payload: {name: name, color: \"yellow\", hint: \"Draußen feuchter! Nicht lüften\", text: text}};\n}",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 520,
-        "y": 160,
+        "x": 900,
+        "y": 560,
         "wires": [
             [
-                "12ebb575.a874db",
                 "8f4a8f67.f0316",
-                "86d0d2.678a7f3"
+                "dac326a7.c5d638"
             ]
         ]
     },
@@ -5280,52 +5033,9 @@
         ],
         "seg1": "35",
         "seg2": "65",
-        "x": 1140,
-        "y": 240,
+        "x": 860,
+        "y": 180,
         "wires": []
-    },
-    {
-        "id": "b2e1e7e.572a118",
-        "type": "ui_chart",
-        "z": "4d90b497.b5b2ac",
-        "name": "Waschküche Luftfeuchtigkeit",
-        "group": "8240b43a.1094b8",
-        "order": 2,
-        "width": 0,
-        "height": 0,
-        "label": "Luftfeuchtigkeit % rel.",
-        "chartType": "line",
-        "legend": "false",
-        "xformat": "HH:mm",
-        "interpolate": "linear",
-        "nodata": "warten auf Daten…",
-        "dot": false,
-        "ymin": "",
-        "ymax": "",
-        "removeOlder": "1",
-        "removeOlderPoints": "",
-        "removeOlderUnit": "86400",
-        "cutout": 0,
-        "useOneColor": false,
-        "useUTC": false,
-        "colors": [
-            "#2ca02c",
-            "#e6e600",
-            "#d62728",
-            "#2ca02c",
-            "#98df8a",
-            "#d62728",
-            "#ff9896",
-            "#9467bd",
-            "#c5b0d5"
-        ],
-        "outputs": 1,
-        "useDifferentColor": false,
-        "x": 1140,
-        "y": 280,
-        "wires": [
-            []
-        ]
     },
     {
         "id": "a7962ae6.cd51d8",
@@ -6356,7 +6066,7 @@
         "type": "function",
         "z": "d0173d54.941d7",
         "name": "ESPHOME to InfluxDB",
-        "func": "var tokens = msg.topic.split(\"/\");\n\nif (tokens[1] == \"debug\") {\n    return;\n}\n\nvar value;\nif(/^(\\-|\\+)?([0-9]+(\\.[0-9]+)?)$/.test(msg.payload)) {\n  value = Number(msg.payload);\n} else {\n  value = msg.payload;\n}\n\nvar location = tokens[0];\n\nmsg.measurement = tokens[0];\nmsg.payload = {};\nmsg.payload[tokens[2]] = value;\n\nreturn msg;",
+        "func": "const tokens = msg.topic.split(\"/\");\n\nif (tokens[1] == \"debug\") {\n    return;\n}\n\nvar value;\nif(/^(\\-|\\+)?([0-9]+(\\.[0-9]+)?)$/.test(msg.payload)) {\n  value = Number(msg.payload);\n} else {\n  value = msg.payload;\n}\n\nconst measurement = tokens[0];\n\nmsg.measurement = measurement;\nmsg.payload = {};\nmsg.payload[tokens[2]] = value;\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -6392,7 +6102,7 @@
         "type": "function",
         "z": "d0173d54.941d7",
         "name": "ZIGBEE2MQTT to InfluxDB",
-        "func": "function flatItem(base, key, src, dest) {\n     if (typeof src === 'undefined') {\n         return;\n     }\n     const deepKey = base.length ? base + '.' + key : key;\n     // console.log(`base=${base} key=${key} deepKey=${deepKey}`);\n     if (typeof src === 'object') {\n        if (Array.isArray(src)) {\n            src.forEach((val, idx) => flatItem(deepKey, idx, val, dest));\n        } else {\n            Object.entries(src).forEach(([key, val]) => flatItem(deepKey, key, val, dest))\n        }\n     } else {\n        dest[deepKey] = src;\n     }\n}\n\nlet deSerialize = {};\nlet deep = msg.payload;\nlet value; \ntry {\n    deep = JSON.parse(msg.payload);\n    if (typeof deep == 'object') {\n        flatItem('', '', deep, deSerialize);\n    } else {\n       deSerialize.value = deep; \n    }\n} catch (e) {\n}\n\nvar tokens = msg.topic.split(\"/\");\nvar sensor = tokens[1];\nmsg.measurement = sensor;\nmsg.payload = deSerialize;\n\nreturn msg;",
+        "func": "function flatItem(base, key, src, dest) {\n     if (typeof src === 'undefined') {\n         return;\n     }\n     const deepKey = base.length ? base + '.' + key : key;\n     // console.log(`base=${base} key=${key} deepKey=${deepKey}`);\n     if (typeof src === 'object') {\n        if (Array.isArray(src)) {\n            src.forEach((val, idx) => flatItem(deepKey, idx, val, dest));\n        } else {\n            Object.entries(src).forEach(([key, val]) => flatItem(deepKey, key, val, dest))\n        }\n     } else {\n        dest[deepKey] = src;\n     }\n}\n\nlet deSerialize = {};\nlet deep = msg.payload;\nlet value; \ntry {\n    deep = JSON.parse(msg.payload);\n    if (typeof deep == 'object') {\n        flatItem('', '', deep, deSerialize);\n    } else {\n       deSerialize.value = deep; \n    }\n} catch (e) {\n}\n\nconst tokens = msg.topic.split(\"/\");\nconst measurement = tokens[1].replace(/ /g, '_').toLowerCase();\nmsg.measurement = measurement;\nmsg.payload = deSerialize;\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -6401,7 +6111,6 @@
         "y": 300,
         "wires": [
             [
-                "321ec806.502138",
                 "faa25f7f.0777"
             ]
         ]
@@ -6421,23 +6130,6 @@
         "statusType": "auto",
         "x": 970,
         "y": 180,
-        "wires": []
-    },
-    {
-        "id": "321ec806.502138",
-        "type": "debug",
-        "z": "d0173d54.941d7",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 970,
-        "y": 220,
         "wires": []
     },
     {
@@ -6669,7 +6361,7 @@
         "type": "function",
         "z": "d0173d54.941d7",
         "name": "DSL downstream to InfluxDB",
-        "func": "var value = msg.payload;\nmsg.payload = {downstream: value};\nmsg.measurement = \"DSL\";\nreturn msg;",
+        "func": "var value = msg.payload;\nmsg.payload = {downstream: value};\nmsg.measurement = \"dsl\";\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -6687,7 +6379,7 @@
         "type": "function",
         "z": "d0173d54.941d7",
         "name": "DSL upstream to InfluxDB",
-        "func": "var value = msg.payload;\nmsg.payload = {upstream: value};\nmsg.measurement = \"DSL\";\nreturn msg;",
+        "func": "var value = msg.payload;\nmsg.payload = {upstream: value};\nmsg.measurement = \"dsl\";\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -6701,146 +6393,22 @@
         ]
     },
     {
-        "id": "9422d099.261ce",
-        "type": "function",
-        "z": "2788b93b.8a2f56",
-        "name": "",
-        "func": "msg.topic = \"Gäste-WC\";\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 320,
-        "y": 160,
-        "wires": [
-            [
-                "3825ae1b.6847c2"
-            ]
-        ]
-    },
-    {
-        "id": "46707c1.fd33184",
-        "type": "inject",
-        "z": "2788b93b.8a2f56",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "10",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 130,
-        "y": 200,
-        "wires": [
-            [
-                "9422d099.261ce",
-                "2853e6db.efb9aa",
-                "4d262721.05bcc8"
-            ]
-        ]
-    },
-    {
-        "id": "d9f0ac3c.19132",
-        "type": "function",
-        "z": "2788b93b.8a2f56",
-        "name": "Lüftungsempfehlung",
-        "func": "const room = msg.topic;\n\nconst room_temperature = global.get(room + \"-Temperatur\");\nconst room_humidity = global.get(room + \"-Luftfeuchtigkeit\");\nconst last_room_abs_humidity_gt_outside_abs_humidity = global.get(room + \"-last_room_abs_humidity_gt_outside_abs_humidity\");\n\nconst outside_abs_humidity = global.get(\"aussen_absolute_luftfeuchtigkeit\");\n\nconst mw = 18.01534;    // molar mass of water g/mol\nconst r = 8.31447215;   // Universal gas constant J/mol/K\n\nconst room_abs_humidity = (6.112 * Math.pow(2.718281828, (17.67 * room_temperature) /\n    (room_temperature + 243.5)) * room_humidity * mw) /\n    ((273.15 + room_temperature) * r); // in grams/m^3\n\nconst room_abs_humidity_gt_outside_abs_humidity = (last_room_abs_humidity_gt_outside_abs_humidity) ?\n    room_abs_humidity > outside_abs_humidity * 0.98:\n    room_abs_humidity * 0.98 > outside_abs_humidity;\n\nglobal.set(room + \"-last_room_abs_humidity_gt_outside_abs_humidity\", room_abs_humidity_gt_outside_abs_humidity);\n\nif (room_abs_humidity_gt_outside_abs_humidity) {\n    if (room_humidity > 65) {\n        return {payload: {color: \"yellow\", hint: \"Raum feucht, lüften\", room: room}};\n    } else {\n        return {payload: {color: \"limegreen\", hint: \"Raum ausreichend trocken\", room: room}};\n    }\n} else {\n    return {payload: {color: \"red\", hint: \"Draußen feuchter! Nicht lüften\", room: room}};\n}\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 520,
-        "y": 200,
-        "wires": [
-            [
-                "89e98409.0b1d08",
-                "8f4a8f67.f0316",
-                "13efdb76.56ce25"
-            ]
-        ]
-    },
-    {
-        "id": "2853e6db.efb9aa",
-        "type": "function",
-        "z": "2788b93b.8a2f56",
-        "name": "",
-        "func": "msg.topic = \"Bad\";\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 320,
-        "y": 200,
-        "wires": [
-            [
-                "d9f0ac3c.19132"
-            ]
-        ]
-    },
-    {
-        "id": "a2db3feb.1710a",
-        "type": "function",
-        "z": "2788b93b.8a2f56",
-        "name": "Lüftungsempfehlung",
-        "func": "const room = msg.topic;\n\nconst room_temperature = global.get(room + \"-Temperatur\");\nconst room_humidity = global.get(room + \"-Luftfeuchtigkeit\");\nconst last_room_abs_humidity_gt_outside_abs_humidity = global.get(room + \"-last_room_abs_humidity_gt_outside_abs_humidity\");\n\nconst outside_abs_humidity = global.get(\"aussen_absolute_luftfeuchtigkeit\");\n\nconst mw = 18.01534;    // molar mass of water g/mol\nconst r = 8.31447215;   // Universal gas constant J/mol/K\n\nconst room_abs_humidity = (6.112 * Math.pow(2.718281828, (17.67 * room_temperature) /\n    (room_temperature + 243.5)) * room_humidity * mw) /\n    ((273.15 + room_temperature) * r); // in grams/m^3\n\nconst room_abs_humidity_gt_outside_abs_humidity = (last_room_abs_humidity_gt_outside_abs_humidity) ?\n    room_abs_humidity > outside_abs_humidity * 0.98:\n    room_abs_humidity * 0.98 > outside_abs_humidity;\n\nglobal.set(room + \"-last_room_abs_humidity_gt_outside_abs_humidity\", room_abs_humidity_gt_outside_abs_humidity);\n\nif (room_abs_humidity_gt_outside_abs_humidity) {\n    if (room_humidity > 65) {\n        return {payload: {color: \"yellow\", hint: \"Raum feucht, lüften\", room: room}};\n    } else {\n        return {payload: {color: \"limegreen\", hint: \"Raum ausreichend trocken\", room: room}};\n    }\n} else {\n    return {payload: {color: \"red\", hint: \"Draußen feuchter! Nicht lüften\", room: room}};\n}\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 520,
-        "y": 240,
-        "wires": [
-            [
-                "8fc7d555.415c28",
-                "8f4a8f67.f0316",
-                "9dfbd03.4c4523"
-            ]
-        ]
-    },
-    {
-        "id": "4d262721.05bcc8",
-        "type": "function",
-        "z": "2788b93b.8a2f56",
-        "name": "",
-        "func": "msg.topic = \"Waschküche\";\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 320,
-        "y": 240,
-        "wires": [
-            [
-                "a2db3feb.1710a"
-            ]
-        ]
-    },
-    {
         "id": "89e98409.0b1d08",
         "type": "ui_template",
         "z": "2788b93b.8a2f56",
+        "d": true,
         "group": "245ec0f9.12765",
         "name": "",
-        "order": 1,
+        "order": 3,
         "width": 0,
         "height": 0,
-        "format": "<md-card ui-card-size=\"6x2\" \n    class=\"_md nr-dashboard-text layout-align-center-center nr-dashboard-widget-text visible\" \n    style=\"background-color: {{msg.payload.color}}; color: black; left: 0px; top: 54px; width: 300px; height: 96px;\">\n    <p class=\"label\">{{msg.payload.room}}</p> <p class=\"value\">{{msg.payload.hint}}</p>\n</md-card>\n",
+        "format": "<md-card ui-card-size=\"6x2\" \n    class=\"_md nr-dashboard-text layout-align-center-center nr-dashboard-widget-text visible\" \n    style=\"background-color: {{msg.payload.color}}; color: black; left: 0px; top: 54px; width: 300px; height: 96px;\">\n    <p class=\"label\">{{msg.payload.room}}</p><p>{{msg.payload.text}}</p> <p class=\"value\">{{msg.payload.hint}}</p>\n</md-card>\n",
         "storeOutMessages": true,
         "fwdInMessages": true,
         "resendOnRefresh": true,
         "templateScope": "local",
-        "x": 760,
-        "y": 200,
+        "x": 1320,
+        "y": 620,
         "wires": [
             []
         ]
@@ -6851,144 +6419,18 @@
         "z": "2788b93b.8a2f56",
         "group": "245ec0f9.12765",
         "name": "",
-        "order": 3,
+        "order": 4,
         "width": 0,
         "height": 0,
-        "format": "<md-card ui-card-size=\"6x2\" \n    class=\"_md nr-dashboard-text layout-align-center-center nr-dashboard-widget-text visible\" \n    style=\"background-color: {{msg.payload.color}}; color: black; left: 0px; top: 54px; width: 300px; height: 96px;\">\n    <p class=\"label\">{{msg.payload.room}}</p> <p class=\"value\">{{msg.payload.hint}}</p>\n</md-card>\n",
+        "format": "<md-card ui-card-size=\"6x2\" \n    class=\"_md nr-dashboard-text layout-align-center-center nr-dashboard-widget-text visible\" \n    style=\"background-color: {{msg.payload.color}}; color: black; left: 0px; top: 54px; width: 300px; height: 96px;\">\n    <p class=\"label\">{{msg.payload.room}}</p><p>{{msg.payload.text}}</p> <p class=\"value\">{{msg.payload.hint}}</p>\n</md-card>\n",
         "storeOutMessages": true,
         "fwdInMessages": true,
         "resendOnRefresh": true,
         "templateScope": "local",
-        "x": 760,
-        "y": 240,
+        "x": 1320,
+        "y": 660,
         "wires": [
             []
-        ]
-    },
-    {
-        "id": "a6b742da.b11dd",
-        "type": "openweathermap in",
-        "z": "293bb437.fa00bc",
-        "name": "Wetter",
-        "wtype": "current",
-        "lon": "10.01239",
-        "lat": "53.50597",
-        "city": "",
-        "country": "",
-        "language": "de",
-        "x": 130,
-        "y": 460,
-        "wires": [
-            [
-                "83f546ec.89d968",
-                "614711dc.67cff",
-                "124173f7.bde06c",
-                "f562ddab.6a9d3"
-            ]
-        ]
-    },
-    {
-        "id": "83f546ec.89d968",
-        "type": "debug",
-        "z": "293bb437.fa00bc",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 330,
-        "y": 400,
-        "wires": []
-    },
-    {
-        "id": "3a646168.a2eebe",
-        "type": "ui_gauge",
-        "z": "293bb437.fa00bc",
-        "name": "Windrichtung",
-        "group": "d32aa509.f54168",
-        "order": 7,
-        "width": 0,
-        "height": 0,
-        "gtype": "compass",
-        "title": "Windrichtung",
-        "label": "°",
-        "format": "{{value}}",
-        "min": 0,
-        "max": "360",
-        "colors": [
-            "#00b500",
-            "#e6e600",
-            "#ca3838"
-        ],
-        "seg1": "",
-        "seg2": "",
-        "x": 510,
-        "y": 440,
-        "wires": []
-    },
-    {
-        "id": "614711dc.67cff",
-        "type": "function",
-        "z": "293bb437.fa00bc",
-        "name": "",
-        "func": "msg.payload = msg.payload.winddirection;\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 320,
-        "y": 440,
-        "wires": [
-            [
-                "3a646168.a2eebe"
-            ]
-        ]
-    },
-    {
-        "id": "da448ad1.cec928",
-        "type": "ui_gauge",
-        "z": "293bb437.fa00bc",
-        "name": "Windgeschwindigkeit",
-        "group": "d32aa509.f54168",
-        "order": 7,
-        "width": 0,
-        "height": 0,
-        "gtype": "gage",
-        "title": "Windgeschwindigkeit",
-        "label": "km/h",
-        "format": "{{value}}",
-        "min": 0,
-        "max": "100",
-        "colors": [
-            "#00b500",
-            "#e6e600",
-            "#ca3838"
-        ],
-        "seg1": "20",
-        "seg2": "40",
-        "x": 540,
-        "y": 480,
-        "wires": []
-    },
-    {
-        "id": "124173f7.bde06c",
-        "type": "function",
-        "z": "293bb437.fa00bc",
-        "name": "",
-        "func": "msg.payload = Math.round(msg.payload.windspeed * 3.6); // m/s -> km/h\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 320,
-        "y": 480,
-        "wires": [
-            [
-                "da448ad1.cec928"
-            ]
         ]
     },
     {
@@ -6996,7 +6438,7 @@
         "type": "function",
         "z": "d0173d54.941d7",
         "name": "openweather to InfluxDB",
-        "func": "msg.measurement = \"OpenWeather\";\nreturn msg;",
+        "func": "msg.measurement = \"open_weather\";\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -7026,45 +6468,17 @@
         ]
     },
     {
-        "id": "f562ddab.6a9d3",
-        "type": "link out",
-        "z": "293bb437.fa00bc",
-        "name": "openweather",
-        "links": [
-            "9b9574d4.b3d108"
-        ],
-        "x": 275,
-        "y": 520,
-        "wires": []
-    },
-    {
-        "id": "4265433f.286fcc",
-        "type": "function",
-        "z": "4d90b497.b5b2ac",
-        "name": "",
-        "func": "var val = parseFloat(msg.payload);\nglobal.set(\"Waschküche-Temperatur\", val);\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 580,
-        "y": 60,
-        "wires": [
-            []
-        ]
-    },
-    {
         "id": "f24eda7c.102788",
         "type": "function",
         "z": "4d90b497.b5b2ac",
-        "name": "",
-        "func": "var val = parseFloat(msg.payload);\nglobal.set(\"Waschküche-Luftfeuchtigkeit\", val);\nreturn msg;",
+        "name": "store global",
+        "func": "var val = parseFloat(msg.payload);\nglobal.set(\"waschküche-humidity\", val);\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 580,
-        "y": 220,
+        "x": 590,
+        "y": 160,
         "wires": [
             []
         ]
@@ -7079,8 +6493,8 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 760,
-        "y": 280,
+        "x": 900,
+        "y": 620,
         "wires": [
             [
                 "92221171.b4219"
@@ -7097,8 +6511,8 @@
         "roomname": "spaces/-fp3jQAAAAE",
         "contentproperty": "payload",
         "contenttype": "msg",
-        "x": 760,
-        "y": 360,
+        "x": 900,
+        "y": 700,
         "wires": [
             []
         ]
@@ -7118,250 +6532,13 @@
         "randomLast": "5",
         "randomUnits": "seconds",
         "drop": false,
-        "x": 770,
-        "y": 320,
+        "x": 910,
+        "y": 660,
         "wires": [
             [
                 "bea87736.5db2d8"
             ]
         ]
-    },
-    {
-        "id": "18b4acd.1269553",
-        "type": "ui_chart",
-        "z": "2788b93b.8a2f56",
-        "name": "Lüftung Gäste-WC",
-        "group": "245ec0f9.12765",
-        "order": 5,
-        "width": 0,
-        "height": 0,
-        "label": "Lüftung Gäste-WC",
-        "chartType": "line",
-        "legend": "false",
-        "xformat": "HH:mm:ss",
-        "interpolate": "linear",
-        "nodata": "",
-        "dot": false,
-        "ymin": "0",
-        "ymax": "2",
-        "removeOlder": 1,
-        "removeOlderPoints": "",
-        "removeOlderUnit": "86400",
-        "cutout": 0,
-        "useOneColor": false,
-        "useUTC": false,
-        "colors": [
-            "#2ca02c",
-            "#2ca02c",
-            "#e6e600",
-            "#2c39a0",
-            "#98df8a",
-            "#d62728",
-            "#ff9896",
-            "#9467bd",
-            "#c5b0d5"
-        ],
-        "outputs": 1,
-        "useDifferentColor": false,
-        "x": 790,
-        "y": 480,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "86d0d2.678a7f3",
-        "type": "function",
-        "z": "2788b93b.8a2f56",
-        "name": "",
-        "func": "const color = msg.payload.color;\nvar val;\n\nif (color == \"red\") {\n    val = 2;\n} else if (color == \"yellow\") {\n    val = 1;\n} else if (color == \"limegreen\") {\n    val = 0;\n}\n\nreturn {\n        payload: val\n    };",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 760,
-        "y": 440,
-        "wires": [
-            [
-                "af763f25.70469",
-                "18b4acd.1269553"
-            ]
-        ]
-    },
-    {
-        "id": "a513c7a2.41dc48",
-        "type": "ui_chart",
-        "z": "2788b93b.8a2f56",
-        "name": "Lüftung Bad",
-        "group": "245ec0f9.12765",
-        "order": 4,
-        "width": 0,
-        "height": 0,
-        "label": "Lüftung Bad",
-        "chartType": "line",
-        "legend": "false",
-        "xformat": "HH:mm:ss",
-        "interpolate": "linear",
-        "nodata": "",
-        "dot": false,
-        "ymin": "0",
-        "ymax": "2",
-        "removeOlder": 1,
-        "removeOlderPoints": "",
-        "removeOlderUnit": "86400",
-        "cutout": 0,
-        "useOneColor": false,
-        "useUTC": false,
-        "colors": [
-            "#2ca02c",
-            "#2ca02c",
-            "#e6e600",
-            "#2ca02c",
-            "#98df8a",
-            "#d62728",
-            "#ff9896",
-            "#9467bd",
-            "#c5b0d5"
-        ],
-        "outputs": 1,
-        "useDifferentColor": false,
-        "x": 770,
-        "y": 560,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "13efdb76.56ce25",
-        "type": "function",
-        "z": "2788b93b.8a2f56",
-        "name": "",
-        "func": "const color = msg.payload.color;\nvar val;\n\nif (color == \"red\") {\n    val = 2;\n} else if (color == \"yellow\") {\n    val = 1;\n} else if (color == \"limegreen\") {\n    val = 0;\n}\n\nreturn {\n        payload: val\n    };",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 760,
-        "y": 520,
-        "wires": [
-            [
-                "a513c7a2.41dc48",
-                "35c66aa6.88dbe6"
-            ]
-        ]
-    },
-    {
-        "id": "9b1b305c.33d4b",
-        "type": "ui_chart",
-        "z": "2788b93b.8a2f56",
-        "name": "Lüftung Waschküche",
-        "group": "245ec0f9.12765",
-        "order": 6,
-        "width": 0,
-        "height": 0,
-        "label": "Lüftung Waschküche",
-        "chartType": "line",
-        "legend": "false",
-        "xformat": "HH:mm:ss",
-        "interpolate": "linear",
-        "nodata": "",
-        "dot": false,
-        "ymin": "0",
-        "ymax": "2",
-        "removeOlder": 1,
-        "removeOlderPoints": "",
-        "removeOlderUnit": "86400",
-        "cutout": 0,
-        "useOneColor": false,
-        "useUTC": false,
-        "colors": [
-            "#2ca02c",
-            "#2ca02c",
-            "#e6e600",
-            "#2ca02c",
-            "#98df8a",
-            "#d62728",
-            "#ff9896",
-            "#9467bd",
-            "#c5b0d5"
-        ],
-        "outputs": 1,
-        "useDifferentColor": false,
-        "x": 800,
-        "y": 640,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "9dfbd03.4c4523",
-        "type": "function",
-        "z": "2788b93b.8a2f56",
-        "name": "",
-        "func": "const color = msg.payload.color;\nvar val;\n\nif (color == \"red\") {\n    val = 2;\n} else if (color == \"yellow\") {\n    val = 1;\n} else if (color == \"limegreen\") {\n    val = 0;\n}\n\nreturn {\n        payload: val\n    };",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 760,
-        "y": 600,
-        "wires": [
-            [
-                "9b1b305c.33d4b",
-                "40462fb6.ac289"
-            ]
-        ]
-    },
-    {
-        "id": "af763f25.70469",
-        "type": "debug",
-        "z": "2788b93b.8a2f56",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1010,
-        "y": 380,
-        "wires": []
-    },
-    {
-        "id": "35c66aa6.88dbe6",
-        "type": "debug",
-        "z": "2788b93b.8a2f56",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1010,
-        "y": 480,
-        "wires": []
-    },
-    {
-        "id": "40462fb6.ac289",
-        "type": "debug",
-        "z": "2788b93b.8a2f56",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1010,
-        "y": 580,
-        "wires": []
     },
     {
         "id": "43093632.8aef48",
@@ -7387,7 +6564,7 @@
         "type": "mqtt out",
         "z": "37daec28.284ee4",
         "name": "Tiffany",
-        "topic": "zigbee2mqtt/Tiffany/set",
+        "topic": "zigbee2mqtt/tiffany/set",
         "qos": "1",
         "retain": "",
         "broker": "c349b9ff.9dc4c8",
@@ -7400,7 +6577,7 @@
         "type": "mqtt in",
         "z": "37daec28.284ee4",
         "name": "Tiffany",
-        "topic": "zigbee2mqtt/Tiffany",
+        "topic": "zigbee2mqtt/tiffany",
         "qos": "2",
         "datatype": "auto",
         "broker": "c349b9ff.9dc4c8",
@@ -7792,7 +6969,7 @@
         "type": "mqtt out",
         "z": "37daec28.284ee4",
         "name": "Leuchter",
-        "topic": "zigbee2mqtt/Leuchter/set",
+        "topic": "zigbee2mqtt/leuchter/set",
         "qos": "1",
         "retain": "",
         "broker": "c349b9ff.9dc4c8",
@@ -7805,7 +6982,7 @@
         "type": "mqtt in",
         "z": "37daec28.284ee4",
         "name": "Leuchter",
-        "topic": "zigbee2mqtt/Leuchter",
+        "topic": "zigbee2mqtt/leuchter",
         "qos": "2",
         "datatype": "auto",
         "broker": "c349b9ff.9dc4c8",
@@ -8187,7 +7364,7 @@
         "y": 140,
         "wires": [
             [
-                "aa7a4964.384d28"
+                "56169d58.a0dc04"
             ]
         ]
     },
@@ -8215,8 +7392,8 @@
         "links": [
             "4708a180.a07a"
         ],
-        "x": 1015,
-        "y": 140,
+        "x": 1055,
+        "y": 180,
         "wires": []
     },
     {
@@ -8224,7 +7401,7 @@
         "type": "function",
         "z": "d0173d54.941d7",
         "name": "Filter out Aqara Smart",
-        "func": "if (!msg.topic.match(/Aqara Smart/)) {\n    return msg;\n}",
+        "func": "if (!msg.topic.match(/aqara_smart/)) {\n    return msg;\n}",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -8250,7 +7427,8 @@
         "y": 140,
         "wires": [
             [
-                "d9d02903.582fc8"
+                "d9d02903.582fc8",
+                "a1cc7149.c8e29"
             ]
         ]
     },
@@ -8259,7 +7437,7 @@
         "type": "function",
         "z": "fc81a32b.bb6db",
         "name": "Filter Aqara Smart topics",
-        "func": "if (msg.topic.match(/Aqara Smart/)) {\n    return msg;\n}",
+        "func": "if (msg.topic.match(/aqara_smart/)) {\n    return msg;\n}",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -8293,7 +7471,7 @@
         "type": "function",
         "z": "d0173d54.941d7",
         "name": "JSON to InfluxDB",
-        "func": "var tokens = msg.topic.split(\"/\");\nvar sensor = tokens[1];\nmsg.measurement = sensor;\n\nreturn msg;",
+        "func": "const tokens = msg.topic.split(\"/\");\nconst measurement = tokens[1];\nmsg.measurement = measurement.replace(/ /g, '_').toLowerCase();\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -8302,8 +7480,877 @@
         "y": 380,
         "wires": [
             [
-                "faa25f7f.0777"
+                "faa25f7f.0777",
+                "35463b9.854cac4"
             ]
         ]
+    },
+    {
+        "id": "a7ae9a7e.53fb48",
+        "type": "function",
+        "z": "fc81a32b.bb6db",
+        "name": "Aqara Smart to global store",
+        "func": "const name = msg.payload.name;\n\nglobal.set(`${name}-temperature`, msg.payload.temperature);\nglobal.set(`${name}-humidity`, msg.payload.humidity);\nglobal.set(`${name}-absolute_humidity`, msg.payload.absolute_humidity);\nglobal.set(`${name}-dew_point`, msg.payload.dew_point);\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 960,
+        "y": 220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "fb6167b0.b1aeb8",
+        "type": "debug",
+        "z": "fc81a32b.bb6db",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1110,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "f3d8ac5c.06b5d",
+        "type": "mqtt in",
+        "z": "fc81a32b.bb6db",
+        "name": "",
+        "topic": "+/sensor/+/state",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "c349b9ff.9dc4c8",
+        "x": 140,
+        "y": 80,
+        "wires": [
+            [
+                "e9d35454.3632b8"
+            ]
+        ]
+    },
+    {
+        "id": "e9d35454.3632b8",
+        "type": "function",
+        "z": "fc81a32b.bb6db",
+        "name": "ESPHome to global store",
+        "func": "const tokens = msg.topic.split(\"/\");\nconst name = tokens[0].replace(' ', '_');\nconst field = tokens[2].replace(' ', '_');\n\nconst value = (/^(\\-|\\+)?([0-9]+(\\.[0-9]+)?)$/.test(msg.payload))\n    ? Number(msg.payload) : msg.payload;\n\nglobal.set(`${name}-${field}`, value);\n\nreturn {payload: {\n    name: name,\n    field: field,\n    value: value\n}};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 370,
+        "y": 80,
+        "wires": [
+            [
+                "621bc9b5.3e4d28"
+            ]
+        ]
+    },
+    {
+        "id": "2bf53ce9.7aa234",
+        "type": "switch",
+        "z": "2788b93b.8a2f56",
+        "name": "",
+        "property": "payload.name",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "aussen",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "aussen_t",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "zwitscherbox",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "bad",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "luftfeuchtemesser1",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "gaeste_wc",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "waschkueche_luefter",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "fahrradkeller",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "treppenhaus_keller",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "wozi",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "kueche",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "schlafzimmer",
+                "vt": "str"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 12,
+        "x": 1090,
+        "y": 520,
+        "wires": [
+            [
+                "5221a0c4.27e25"
+            ],
+            [
+                "7c8b67aa.6c5b78"
+            ],
+            [
+                "12ebb575.a874db"
+            ],
+            [
+                "db24aeb3.0a5c7"
+            ],
+            [
+                "e950812b.0c7b3"
+            ],
+            [
+                "89e98409.0b1d08"
+            ],
+            [
+                "8fc7d555.415c28"
+            ],
+            [
+                "c91d5cbf.ecc24"
+            ],
+            [
+                "740dd7e9.4e3008"
+            ],
+            [
+                "f1e82e9a.000e8"
+            ],
+            [
+                "961cf428.5c8238"
+            ],
+            [
+                "593cbcc1.6b4944"
+            ]
+        ]
+    },
+    {
+        "id": "c91d5cbf.ecc24",
+        "type": "ui_template",
+        "z": "2788b93b.8a2f56",
+        "group": "245ec0f9.12765",
+        "name": "",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "format": "<md-card ui-card-size=\"6x2\" \n    class=\"_md nr-dashboard-text layout-align-center-center nr-dashboard-widget-text visible\" \n    style=\"background-color: {{msg.payload.color}}; color: black; left: 0px; top: 54px; width: 300px; height: 96px;\">\n    <p class=\"label\">{{msg.payload.room}}</p><p>{{msg.payload.text}}</p> <p class=\"value\">{{msg.payload.hint}}</p>\n</md-card>\n",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "x": 1320,
+        "y": 700,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "740dd7e9.4e3008",
+        "type": "ui_template",
+        "z": "2788b93b.8a2f56",
+        "group": "245ec0f9.12765",
+        "name": "",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "format": "<md-card ui-card-size=\"6x2\" \n    class=\"_md nr-dashboard-text layout-align-center-center nr-dashboard-widget-text visible\" \n    style=\"background-color: {{msg.payload.color}}; color: black; left: 0px; top: 54px; width: 300px; height: 96px;\">\n    <p class=\"label\">{{msg.payload.room}}</p><p>{{msg.payload.text}}</p> <p class=\"value\">{{msg.payload.hint}}</p>\n</md-card>\n",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "x": 1320,
+        "y": 740,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f1e82e9a.000e8",
+        "type": "ui_template",
+        "z": "2788b93b.8a2f56",
+        "group": "245ec0f9.12765",
+        "name": "",
+        "order": 7,
+        "width": 0,
+        "height": 0,
+        "format": "<md-card ui-card-size=\"6x2\" \n    class=\"_md nr-dashboard-text layout-align-center-center nr-dashboard-widget-text visible\" \n    style=\"background-color: {{msg.payload.color}}; color: black; left: 0px; top: 54px; width: 300px; height: 96px;\">\n    <p class=\"label\">{{msg.payload.room}}</p><p>{{msg.payload.text}}</p> <p class=\"value\">{{msg.payload.hint}}</p>\n</md-card>\n",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "x": 1320,
+        "y": 780,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "961cf428.5c8238",
+        "type": "ui_template",
+        "z": "2788b93b.8a2f56",
+        "group": "245ec0f9.12765",
+        "name": "",
+        "order": 8,
+        "width": 0,
+        "height": 0,
+        "format": "<md-card ui-card-size=\"6x2\" \n    class=\"_md nr-dashboard-text layout-align-center-center nr-dashboard-widget-text visible\" \n    style=\"background-color: {{msg.payload.color}}; color: black; left: 0px; top: 54px; width: 300px; height: 96px;\">\n    <p class=\"label\">{{msg.payload.room}}</p><p>{{msg.payload.text}}</p> <p class=\"value\">{{msg.payload.hint}}</p>\n</md-card>\n",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "x": 1320,
+        "y": 820,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5221a0c4.27e25",
+        "type": "ui_template",
+        "z": "2788b93b.8a2f56",
+        "group": "245ec0f9.12765",
+        "name": "",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "format": "<md-card ui-card-size=\"6x2\" \n    class=\"_md nr-dashboard-text layout-align-center-center nr-dashboard-widget-text visible\" \n    style=\"background-color: {{msg.payload.color}}; color: black; left: 0px; top: 54px; width: 300px; height: 96px;\">\n    <p class=\"label\">{{msg.payload.room}}</p><p>{{msg.payload.text}}</p> <p class=\"value\">{{msg.payload.hint}}</p>\n</md-card>\n",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "x": 1320,
+        "y": 420,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d083875c.561678",
+        "type": "function",
+        "z": "2788b93b.8a2f56",
+        "name": "recall klima draußen",
+        "func": "const name = \"aussen\";\n\nconst temperature = global.get(name + \"-temperature\");\nconst humidity = global.get(name + \"-humidity\");\nconst abs_humidity = global.get(name + \"-absolute_humidity\");\nconst last_abs_humidity_gt_outside_abs_humidity = global.get(name + \"-last_abs_humidity_gt_outside_abs_humidity\");\nconst outside_abs_humidity = global.get(\"aussen-absolute_humidity\");\n\n//node.warn(name)\n//node.warn(temperature)\n//node.warn(humidity)\n//node.warn(abs_humidity)\n//node.warn(last_abs_humidity_gt_outside_abs_humidity)\n//node.warn(outside_abs_humidity)\n\nconst sprintf = global.get(\"sprintf\");\nconst text = sprintf(\"%2.1f °C, %2.1f %% H, %2.1f mg/m³\", temperature, humidity, abs_humidity)\n\nif (humidity > 65) {\n    return {payload: {name: name, color: \"red\", hint: \"Draußen ist es feucht\", text: text}};\n} else {\n    return {payload: {name: name, color: \"limegreen\", hint: \"Draußen ist es trocken\", text: text}};\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 400,
+        "y": 340,
+        "wires": [
+            [
+                "dac326a7.c5d638"
+            ]
+        ]
+    },
+    {
+        "id": "593cbcc1.6b4944",
+        "type": "ui_template",
+        "z": "2788b93b.8a2f56",
+        "group": "245ec0f9.12765",
+        "name": "",
+        "order": 8,
+        "width": 0,
+        "height": 0,
+        "format": "<md-card ui-card-size=\"6x2\" \n    class=\"_md nr-dashboard-text layout-align-center-center nr-dashboard-widget-text visible\" \n    style=\"background-color: {{msg.payload.color}}; color: black; left: 0px; top: 54px; width: 300px; height: 96px;\">\n    <p class=\"label\">{{msg.payload.room}}</p><p>{{msg.payload.text}}</p> <p class=\"value\">{{msg.payload.hint}}</p>\n</md-card>\n",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "x": 1320,
+        "y": 860,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e28bca49.e88d18",
+        "type": "mqtt in",
+        "z": "4d90b497.b5b2ac",
+        "name": "",
+        "topic": "waschkueche_luefter/sensor/temperature/state",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "c349b9ff.9dc4c8",
+        "x": 240,
+        "y": 120,
+        "wires": [
+            [
+                "47eed9bd.a41b08"
+            ]
+        ]
+    },
+    {
+        "id": "47eed9bd.a41b08",
+        "type": "function",
+        "z": "4d90b497.b5b2ac",
+        "name": "store global",
+        "func": "var val = parseFloat(msg.payload);\nglobal.set(\"waschküche-temperature\", val);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 590,
+        "y": 120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1547ac.8baef854",
+        "type": "inject",
+        "z": "4d90b497.b5b2ac",
+        "name": "every 20 minutes",
+        "props": [
+            {
+                "p": "topic",
+                "v": "",
+                "vt": "date"
+            }
+        ],
+        "repeat": "1200",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 370,
+        "y": 380,
+        "wires": [
+            [
+                "a8931b52.026628"
+            ]
+        ]
+    },
+    {
+        "id": "db24aeb3.0a5c7",
+        "type": "ui_template",
+        "z": "2788b93b.8a2f56",
+        "d": true,
+        "group": "245ec0f9.12765",
+        "name": "",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "format": "<md-card ui-card-size=\"6x2\" \n    class=\"_md nr-dashboard-text layout-align-center-center nr-dashboard-widget-text visible\" \n    style=\"background-color: {{msg.payload.color}}; color: black; left: 0px; top: 54px; width: 300px; height: 96px;\">\n    <p class=\"label\">{{msg.payload.room}}</p><p>{{msg.payload.text}}</p> <p class=\"value\">{{msg.payload.hint}}</p>\n</md-card>\n",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "x": 1320,
+        "y": 540,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3fc26a03.2a8a06",
+        "type": "function",
+        "z": "2788b93b.8a2f56",
+        "name": "recall zwitscherbox klima",
+        "func": "const name = \"zwitscherbox\";\nreturn {\n    payload: {\n        name: name,\n        humidity: global.get(`${name}-humidity`),\n        absolute_humidity: global.get(`${name}-absolute_humidity`),\n        tempeature: global.get(`${name}-temperature`)\n    }\n};\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 410,
+        "y": 420,
+        "wires": [
+            [
+                "3825ae1b.6847c2"
+            ]
+        ]
+    },
+    {
+        "id": "3bab439b.dca5ec",
+        "type": "inject",
+        "z": "2788b93b.8a2f56",
+        "name": "each 5 minutes",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "300",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 120,
+        "y": 540,
+        "wires": [
+            [
+                "3fc26a03.2a8a06",
+                "d083875c.561678",
+                "1a87dc90.70c533",
+                "7de07eb2.117f4",
+                "19b316c1.d916e9",
+                "da6e34b7.7f6478",
+                "dc465da3.9f075",
+                "1f972c48.e2ab94",
+                "f54e3c81.4c057",
+                "f477863d.bbbe58",
+                "6604bb11.21e7b4",
+                "800e50b3.1cd8f"
+            ]
+        ]
+    },
+    {
+        "id": "621bc9b5.3e4d28",
+        "type": "debug",
+        "z": "fc81a32b.bb6db",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 590,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "40d6912.e35a67",
+        "type": "function",
+        "z": "2788b93b.8a2f56",
+        "name": "initialize names-rooms mapping",
+        "func": "const room = global.set(\"names_rooms\", {\n    \"zwitscherbox\": \"Bad\",\n    \"luftfeuchtemesser1\": \"Gäste-WC\",\n    \"waschkueche_luefter\": \"Waschküche\",\n    \"wozi\": \"Wohnzimmer\",\n    \"gaeste_wc\": \"Gäste-WC Test\",\n    \"kueche\": \"Küche\",\n    \"aussen\": \"Draußen\",\n    \"aussen_t\": \"Test\"\n});\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 430,
+        "y": 220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2fa070d.b96fb9",
+        "type": "inject",
+        "z": "2788b93b.8a2f56",
+        "name": "Reset",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "Started!",
+        "payloadType": "str",
+        "x": 170,
+        "y": 220,
+        "wires": [
+            [
+                "40d6912.e35a67"
+            ]
+        ]
+    },
+    {
+        "id": "56169d58.a0dc04",
+        "type": "function",
+        "z": "fc81a32b.bb6db",
+        "name": "add name",
+        "func": "const name = msg.topic.replace(/^zigbee2mqtt\\/aqara_smart_/, '').replace(' ', '_');\nmsg.payload.name = name;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 900,
+        "y": 180,
+        "wires": [
+            [
+                "a7ae9a7e.53fb48",
+                "aa7a4964.384d28",
+                "fb6167b0.b1aeb8"
+            ]
+        ]
+    },
+    {
+        "id": "dac326a7.c5d638",
+        "type": "function",
+        "z": "2788b93b.8a2f56",
+        "name": "add room",
+        "func": "const name = msg.payload.name;\nconst names_rooms = global.get(\"names_rooms\");\nvar room = names_rooms[name] || name;\nroom = room\n    .split('_')\n    .map(word => word.charAt(0).toUpperCase() + word.slice(1))\n    .join(' ');\n    \nmsg.payload.room = room;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 860,
+        "y": 520,
+        "wires": [
+            [
+                "2bf53ce9.7aa234"
+            ]
+        ]
+    },
+    {
+        "id": "ea8ce2c6.69dcd",
+        "type": "function",
+        "z": "4d90b497.b5b2ac",
+        "name": "",
+        "func": "var val = parseFloat(msg.payload);\n\nvar green = null, yellow = null, red = null;\n\nif (val < 35) {\n    green = val;\n} else if (val < 65) {\n    yellow = val;\n} else {\n    red = val;\n}\n\nmsg = [{\n        label: \"Luftfeuchtigkeit Werkstatt\",\n        series: \"green\",\n        payload: green\n    },\n    {\n        label: \"Luftfeuchtigkeit Werkstatt\",\n        series: \"yellow\",\n        payload: yellow\n    },\n    {\n        label: \"Luftfeuchtigkeit Werkstatt\",\n        series: \"red\",\n        payload: red\n    }\n];\n\nreturn msg;",
+        "outputs": 3,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 580,
+        "y": 220,
+        "wires": [
+            [
+                "b2e1e7e.572a118"
+            ],
+            [
+                "b2e1e7e.572a118"
+            ],
+            [
+                "b2e1e7e.572a118"
+            ]
+        ]
+    },
+    {
+        "id": "b2e1e7e.572a118",
+        "type": "ui_chart",
+        "z": "4d90b497.b5b2ac",
+        "name": "Waschküche Luftfeuchtigkeit",
+        "group": "8240b43a.1094b8",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "label": "Luftfeuchtigkeit % rel.",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm",
+        "interpolate": "linear",
+        "nodata": "warten auf Daten…",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "1",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "86400",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#2ca02c",
+            "#e6e600",
+            "#d62728",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "x": 860,
+        "y": 220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a1cc7149.c8e29",
+        "type": "debug",
+        "z": "fc81a32b.bb6db",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 420,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "e950812b.0c7b3",
+        "type": "ui_template",
+        "z": "2788b93b.8a2f56",
+        "group": "245ec0f9.12765",
+        "name": "",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "format": "<md-card ui-card-size=\"6x2\" \n    class=\"_md nr-dashboard-text layout-align-center-center nr-dashboard-widget-text visible\" \n    style=\"background-color: {{msg.payload.color}}; color: black; left: 0px; top: 54px; width: 300px; height: 96px;\">\n    <p class=\"label\">{{msg.payload.room}}</p><p>{{msg.payload.text}}</p> <p class=\"value\">{{msg.payload.hint}}</p>\n</md-card>\n",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "x": 1320,
+        "y": 580,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7c8b67aa.6c5b78",
+        "type": "ui_template",
+        "z": "2788b93b.8a2f56",
+        "d": true,
+        "group": "245ec0f9.12765",
+        "name": "",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "format": "<md-card ui-card-size=\"6x2\" \n    class=\"_md nr-dashboard-text layout-align-center-center nr-dashboard-widget-text visible\" \n    style=\"background-color: {{msg.payload.color}}; color: black; left: 0px; top: 54px; width: 300px; height: 96px;\">\n    <p class=\"label\">{{msg.payload.room}}</p><p>{{msg.payload.text}}</p> <p class=\"value\">{{msg.payload.hint}}</p>\n</md-card>\n",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "x": 1320,
+        "y": 460,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1a87dc90.70c533",
+        "type": "function",
+        "z": "2788b93b.8a2f56",
+        "name": "recall aussen_t klima",
+        "func": "const name = \"aussen_t\";\nreturn {\n    payload: {\n        name: name,\n        humidity: global.get(`${name}-humidity`),\n        absolute_humidity: global.get(`${name}-absolute_humidity`),\n        tempeature: global.get(`${name}-temperature`)\n    }\n};\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 400,
+        "y": 380,
+        "wires": [
+            [
+                "3825ae1b.6847c2"
+            ]
+        ]
+    },
+    {
+        "id": "7de07eb2.117f4",
+        "type": "function",
+        "z": "2788b93b.8a2f56",
+        "name": "recall bad klima",
+        "func": "const name = \"bad\";\nreturn {\n    payload: {\n        name: name,\n        humidity: global.get(`${name}-humidity`),\n        absolute_humidity: global.get(`${name}-absolute_humidity`),\n        tempeature: global.get(`${name}-temperature`)\n    }\n};\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 380,
+        "y": 460,
+        "wires": [
+            [
+                "3825ae1b.6847c2"
+            ]
+        ]
+    },
+    {
+        "id": "19b316c1.d916e9",
+        "type": "function",
+        "z": "2788b93b.8a2f56",
+        "name": "recall luftfeuchtemesser1 klima",
+        "func": "const name = \"luftfeuchtemesser1\";\nreturn {\n    payload: {\n        name: name,\n        humidity: global.get(`${name}-humidity`),\n        absolute_humidity: global.get(`${name}-absolute_humidity`),\n        tempeature: global.get(`${name}-temperature`)\n    }\n};\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 430,
+        "y": 500,
+        "wires": [
+            [
+                "3825ae1b.6847c2"
+            ]
+        ]
+    },
+    {
+        "id": "da6e34b7.7f6478",
+        "type": "function",
+        "z": "2788b93b.8a2f56",
+        "name": "recall gaeste_wc klima",
+        "func": "const name = \"gaeste_wc\";\nreturn {\n    payload: {\n        name: name,\n        humidity: global.get(`${name}-humidity`),\n        absolute_humidity: global.get(`${name}-absolute_humidity`),\n        tempeature: global.get(`${name}-temperature`)\n    }\n};\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 400,
+        "y": 540,
+        "wires": [
+            [
+                "3825ae1b.6847c2"
+            ]
+        ]
+    },
+    {
+        "id": "dc465da3.9f075",
+        "type": "function",
+        "z": "2788b93b.8a2f56",
+        "name": "recall waschkueche_luefter klima",
+        "func": "const name = \"waschkueche_luefter\";\nreturn {\n    payload: {\n        name: name,\n        humidity: global.get(`${name}-humidity`),\n        absolute_humidity: global.get(`${name}-absolute_humidity`),\n        tempeature: global.get(`${name}-temperature`)\n    }\n};\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 440,
+        "y": 580,
+        "wires": [
+            [
+                "3825ae1b.6847c2"
+            ]
+        ]
+    },
+    {
+        "id": "1f972c48.e2ab94",
+        "type": "function",
+        "z": "2788b93b.8a2f56",
+        "name": "recall fahrradkeller klima",
+        "func": "const name = \"fahrradkeller\";\nreturn {\n    payload: {\n        name: name,\n        humidity: global.get(`${name}-humidity`),\n        absolute_humidity: global.get(`${name}-absolute_humidity`),\n        tempeature: global.get(`${name}-temperature`)\n    }\n};\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 410,
+        "y": 620,
+        "wires": [
+            [
+                "3825ae1b.6847c2"
+            ]
+        ]
+    },
+    {
+        "id": "f54e3c81.4c057",
+        "type": "function",
+        "z": "2788b93b.8a2f56",
+        "name": "recall treppenhaus_keller klima",
+        "func": "const name = \"treppenhaus_keller\";\nreturn {\n    payload: {\n        name: name,\n        humidity: global.get(`${name}-humidity`),\n        absolute_humidity: global.get(`${name}-absolute_humidity`),\n        tempeature: global.get(`${name}-temperature`)\n    }\n};\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 430,
+        "y": 660,
+        "wires": [
+            [
+                "3825ae1b.6847c2"
+            ]
+        ]
+    },
+    {
+        "id": "f477863d.bbbe58",
+        "type": "function",
+        "z": "2788b93b.8a2f56",
+        "name": "recall treppenhaus_keller klima",
+        "func": "const name = \"wozi\";\nreturn {\n    payload: {\n        name: name,\n        humidity: global.get(`${name}-humidity`),\n        absolute_humidity: global.get(`${name}-absolute_humidity`),\n        tempeature: global.get(`${name}-temperature`)\n    }\n};\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 430,
+        "y": 700,
+        "wires": [
+            [
+                "3825ae1b.6847c2"
+            ]
+        ]
+    },
+    {
+        "id": "6604bb11.21e7b4",
+        "type": "function",
+        "z": "2788b93b.8a2f56",
+        "name": "recall kueche klima",
+        "func": "const name = \"kueche\";\nreturn {\n    payload: {\n        name: name,\n        humidity: global.get(`${name}-humidity`),\n        absolute_humidity: global.get(`${name}-absolute_humidity`),\n        tempeature: global.get(`${name}-temperature`)\n    }\n};\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 390,
+        "y": 740,
+        "wires": [
+            [
+                "3825ae1b.6847c2"
+            ]
+        ]
+    },
+    {
+        "id": "800e50b3.1cd8f",
+        "type": "function",
+        "z": "2788b93b.8a2f56",
+        "name": "recall schlafzimmer klima",
+        "func": "const name = \"schlafzimmer\";\nreturn {\n    payload: {\n        name: name,\n        humidity: global.get(`${name}-humidity`),\n        absolute_humidity: global.get(`${name}-absolute_humidity`),\n        tempeature: global.get(`${name}-temperature`)\n    }\n};\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 410,
+        "y": 780,
+        "wires": [
+            [
+                "3825ae1b.6847c2"
+            ]
+        ]
+    },
+    {
+        "id": "35463b9.854cac4",
+        "type": "debug",
+        "z": "d0173d54.941d7",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1000,
+        "y": 420,
+        "wires": []
     }
 ]
