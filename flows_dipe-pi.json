@@ -49,10 +49,10 @@
         "info": ""
     },
     {
-        "id": "29cd7d28.a2bf92",
+        "id": "dac2cb3b.559138",
         "type": "tab",
-        "label": "Testecke",
-        "disabled": true,
+        "label": "Heizung",
+        "disabled": false,
         "info": ""
     },
     {
@@ -67,6 +67,13 @@
         "type": "tab",
         "label": "influxdb",
         "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "29cd7d28.a2bf92",
+        "type": "tab",
+        "label": "Testecke",
+        "disabled": true,
         "info": ""
     },
     {
@@ -146,15 +153,6 @@
         ],
         "env": [],
         "color": "#DDAA99"
-    },
-    {
-        "id": "9c55ddd0.25baf",
-        "type": "hue-bridge",
-        "name": "hue-wohnzimmer",
-        "bridge": "172.28.29.74",
-        "key": "Vu2cP6RdjxBkZHQ8FMu-1QQDfreEQVYcQUwPF3gJ",
-        "interval": "3000",
-        "disableupdates": false
     },
     {
         "id": "c349b9ff.9dc4c8",
@@ -282,7 +280,7 @@
                 "accents": "blue",
                 "warn": "red",
                 "background": "grey",
-                "palette": "dark"
+                "palette": "light"
             }
         },
         "site": {
@@ -339,7 +337,7 @@
         "type": "ui_tab",
         "name": "Esszimmer",
         "icon": "dashboard",
-        "order": 2,
+        "order": 3,
         "disabled": false,
         "hidden": false
     },
@@ -398,7 +396,7 @@
         "type": "ui_tab",
         "name": "Waschküche",
         "icon": "dashboard",
-        "order": 3,
+        "order": 4,
         "disabled": false,
         "hidden": false
     },
@@ -409,7 +407,7 @@
         "tab": "1c76ef79.75b781",
         "order": 2,
         "disp": true,
-        "width": "6",
+        "width": "12",
         "collapse": false
     },
     {
@@ -435,16 +433,6 @@
         "type": "ui_group",
         "name": "Aktuell",
         "tab": "1c76ef79.75b781",
-        "order": 1,
-        "disp": true,
-        "width": "6",
-        "collapse": false
-    },
-    {
-        "id": "6786a4fc.656a2c",
-        "type": "ui_group",
-        "name": "DSL",
-        "tab": "e822c4d8.ce3a88",
         "order": 1,
         "disp": true,
         "width": "6",
@@ -595,7 +583,7 @@
         "type": "ui_tab",
         "name": "Treppenhaus",
         "icon": "dashboard",
-        "order": 4,
+        "order": 5,
         "disabled": false,
         "hidden": false
     },
@@ -644,7 +632,7 @@
         "type": "ui_tab",
         "name": "Lüftungsempfehlungen",
         "icon": "dashboard",
-        "order": 8,
+        "order": 9,
         "disabled": false,
         "hidden": false
     },
@@ -680,12 +668,41 @@
         "type": "ui_tab",
         "name": "Home",
         "icon": "dashboard",
-        "order": 1,
+        "order": 2,
         "disabled": false,
         "hidden": false
     },
     {
         "id": "a8a6836d.1b1cf",
+        "type": "ui_group",
+        "name": "Gas",
+        "tab": "e822c4d8.ce3a88",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "e2d75124.92d37",
+        "type": "ui_tab",
+        "name": "Heizung",
+        "icon": "dashboard",
+        "order": 8,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "85193673.744e38",
+        "type": "ui_group",
+        "name": "Group 1",
+        "tab": "e2d75124.92d37",
+        "order": 1,
+        "disp": false,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "dab59e38.c408e",
         "type": "ui_group",
         "name": "Strom",
         "tab": "e822c4d8.ce3a88",
@@ -2477,14 +2494,14 @@
         "id": "26b6dd5c.bad522",
         "type": "template",
         "z": "37daec28.284ee4",
-        "name": "State ON_",
+        "name": "State ON",
         "field": "payload",
         "fieldType": "msg",
         "format": "json",
         "syntax": "mustache",
         "template": "{\"state\": \"ON\"}",
         "output": "json",
-        "x": 630,
+        "x": 620,
         "y": 1560,
         "wires": [
             [
@@ -3518,7 +3535,7 @@
         "type": "function",
         "z": "4d90b497.b5b2ac",
         "name": "fan controller",
-        "func": "const mw = 18.01534;    // molar mass of water g/mol\nconst r = 8.31447215;   // Universal gas constant J/mol/K\n\nconst outside_abs_humidity = global.get(\"aussen-absolute_humidity\");\nconst wk_temperature = global.get(\"waschkueche_luefter-temperature\");\nconst wk_humidity = global.get(\"waschkueche_luefter-humidity\");\nconst wk_abs_humidity = global.get(\"waschkueche_luefter-absolute_humidity\");\n\nconst washroom_fan_control = flow.get(\"washroom_fan_control\");\nconst last_abs_humidity_gt_outside_abs_humidity = global.get(\"washroom-last_abs_humidity_gt_outside_abs_humidity\");\n\nvar washroom_fan_switch = (last_abs_humidity_gt_outside_abs_humidity) ?\n    wk_abs_humidity > outside_abs_humidity :\n    wk_abs_humidity > outside_abs_humidity * 1.1;\n\nglobal.set(\"washroom-last_abs_humidity_gt_outside_abs_humidity\", wk_abs_humidity > outside_abs_humidity);\n\nif (true) {\n    node.warn(\"outside_abs_humidity \" + outside_abs_humidity);   \n    node.warn(\"wk_temperature) \" + wk_temperature);   \n    node.warn(\"wk_humidity \" + wk_humidity);   \n    node.warn(\"wk_abs_humidity \" + wk_abs_humidity);   \n    node.warn(\"washroom_fan_switch \" + washroom_fan_switch);   \n    node.warn(\"washroom_fan_control \" + washroom_fan_control);   \n    node.warn(\"last_abs_humidity_gt_outside_abs_humidity \" + last_abs_humidity_gt_outside_abs_humidity);   \n}\n\nif (washroom_fan_control == \"ON\") {\n    if (washroom_fan_switch == \"ON\") {\n        if (wk_humidity > 65 || wk_temperature > 17) {\n            washroom_fan_switch = \"ON\";\n        } else {\n            washroom_fan_switch = \"OFF\";\n        }\n    } else {\n        washroom_fan_switch = \"OFF\"\n    }\n}\n\nmsg = [\n    {topic: \"Waschküche g/m³\", payload: wk_abs_humidity},\n    {topic: \"Außen g/m³\", payload: outside_abs_humidity},\n    (washroom_fan_switch) ? {topic: \"luefter_sw\", payload: washroom_fan_switch} : undefined\n];\n\nreturn msg;",
+        "func": "const mw = 18.01534;    // molar mass of water g/mol\nconst r = 8.31447215;   // Universal gas constant J/mol/K\n\nconst outside_abs_humidity = global.get(\"aussen-absolute_humidity\");\nconst wk_temperature = global.get(\"waschkueche_luefter-temperature\");\nconst wk_humidity = global.get(\"waschkueche_luefter-humidity\");\nconst wk_abs_humidity = global.get(\"waschkueche_luefter-absolute_humidity\");\n\nconst washroom_fan_control = flow.get(\"washroom_fan_control\");\nconst last_abs_humidity_gt_outside_abs_humidity = global.get(\"washroom-last_abs_humidity_gt_outside_abs_humidity\");\n\nconst room_abs_humidity_gt_outside_abs_humidity = (last_abs_humidity_gt_outside_abs_humidity) ?\n    wk_abs_humidity > outside_abs_humidity * 1.05:\n    wk_abs_humidity > outside_abs_humidity;\n\nglobal.set(\"washroom-last_abs_humidity_gt_outside_abs_humidity\", wk_abs_humidity > outside_abs_humidity);\n\nvar washroom_fan_on;\nif (washroom_fan_control == \"ON\") {\n    if (room_abs_humidity_gt_outside_abs_humidity) {\n        if (wk_humidity > 65 || wk_temperature > 17) {\n            washroom_fan_on = \"ON\";\n        } else {\n            washroom_fan_on = \"OFF\";\n        }\n    } else {\n        washroom_fan_on = \"OFF\"\n    }\n}\n\nif (false) {\n    node.warn(\"outside_abs_humidity \" + outside_abs_humidity);   \n    node.warn(\"wk_temperature) \" + wk_temperature);   \n    node.warn(\"wk_humidity \" + wk_humidity);   \n    node.warn(\"wk_abs_humidity \" + wk_abs_humidity);   \n    node.warn(\"washroom_fan_on \" + washroom_fan_on);   \n    node.warn(\"washroom_fan_control \" + washroom_fan_control);   \n    node.warn(\"last_abs_humidity_gt_outside_abs_humidity \" + last_abs_humidity_gt_outside_abs_humidity);   \n}\n\n\nmsg = [\n    {topic: \"Waschküche g/m³\", payload: wk_abs_humidity},\n    {topic: \"Außen g/m³\", payload: outside_abs_humidity},\n    (washroom_fan_on) ? {topic: \"luefter_sw\", payload: washroom_fan_on} : undefined\n];\n\nreturn msg;",
         "outputs": 3,
         "noerr": 0,
         "initialize": "",
@@ -3527,10 +3544,12 @@
         "y": 380,
         "wires": [
             [
-                "ea22a8ba.b0c728"
+                "ea22a8ba.b0c728",
+                "9f0ab131.1e302"
             ],
             [
-                "ea22a8ba.b0c728"
+                "ea22a8ba.b0c728",
+                "9f0ab131.1e302"
             ],
             [
                 "74d29041.9a5c4"
@@ -3547,7 +3566,7 @@
         "qos": "",
         "retain": "",
         "broker": "c349b9ff.9dc4c8",
-        "x": 1110,
+        "x": 1150,
         "y": 440,
         "wires": []
     },
@@ -3579,7 +3598,10 @@
         "wires": [
             [
                 "fcc6366f.aa0998",
-                "1875623c.1159de"
+                "1875623c.1159de",
+                "92c6f73d.d38e98",
+                "21f07479.c7da9c",
+                "c8ee7404.bf05b8"
             ]
         ]
     },
@@ -3606,11 +3628,12 @@
         "offvalueType": "str",
         "officon": "",
         "offcolor": "",
-        "x": 860,
-        "y": 480,
+        "x": 820,
+        "y": 640,
         "wires": [
             [
-                "9df23e12.4321d"
+                "9df23e12.4321d",
+                "febc79d8.468048"
             ]
         ]
     },
@@ -3619,7 +3642,7 @@
         "type": "function",
         "z": "4d90b497.b5b2ac",
         "name": "",
-        "func": "var luefter_sw = msg.payload;\n\nconst a = global.get(\"aussen-absolute_humidity\");\nconst b = global.get(\"waschkueche_luefter-absolute_humidity\");\n\nvar h = (a > b) ? a : b;\nvar l = (a < b) ? a : b;\n\nmsg = {\n    topic: \"Lüfter\",\n    payload: (luefter_sw == \"ON\") ? h : l\n};\n\nreturn msg;",
+        "func": "var luefter_sw = msg.payload;\n\nconst a = global.get(\"aussen-absolute_humidity\");\nconst b = global.get(\"waschkueche_luefter-absolute_humidity\");\n\nvar h = (a > b) ? a : b;\nvar l = (a < b) ? a : b;\n\nmsg = {\n    topic: \"Lüfter\",\n    payload: (luefter_sw == \"ON\") ? h * 1.1 : l * 0.9\n};\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -3628,7 +3651,8 @@
         "y": 380,
         "wires": [
             [
-                "ea22a8ba.b0c728"
+                "ea22a8ba.b0c728",
+                "9f0ab131.1e302"
             ]
         ]
     },
@@ -3639,8 +3663,8 @@
         "name": "Waschküche Lüfterautomatik",
         "group": "8240b43a.1094b8",
         "order": 3,
-        "width": 0,
-        "height": 0,
+        "width": "12",
+        "height": "12",
         "label": "Waschküche Lüfterautomatik",
         "chartType": "line",
         "legend": "true",
@@ -3650,9 +3674,9 @@
         "dot": false,
         "ymin": "",
         "ymax": "",
-        "removeOlder": 1,
+        "removeOlder": "10",
         "removeOlderPoints": "",
-        "removeOlderUnit": "86400",
+        "removeOlderUnit": "3600",
         "cutout": 0,
         "useOneColor": false,
         "useUTC": false,
@@ -3684,8 +3708,8 @@
         "qos": "2",
         "datatype": "auto",
         "broker": "c349b9ff.9dc4c8",
-        "x": 280,
-        "y": 580,
+        "x": 340,
+        "y": 900,
         "wires": [
             [
                 "8fd7504b.225ed"
@@ -3701,8 +3725,8 @@
         "roomname": "spaces/AAAAl9wJJ_0",
         "contentproperty": "Waschmaschiene ist fertig!",
         "contenttype": "str",
-        "x": 800,
-        "y": 540,
+        "x": 860,
+        "y": 860,
         "wires": [
             []
         ]
@@ -3716,8 +3740,8 @@
         "qos": "2",
         "datatype": "auto",
         "broker": "c349b9ff.9dc4c8",
-        "x": 260,
-        "y": 720,
+        "x": 320,
+        "y": 1040,
         "wires": [
             [
                 "c7cd3c7f.93d75"
@@ -3733,8 +3757,8 @@
         "roomname": "spaces/-fp3jQAAAAE",
         "contentproperty": "Shelly WaMa ist überhitzt!",
         "contenttype": "str",
-        "x": 800,
-        "y": 700,
+        "x": 860,
+        "y": 1020,
         "wires": [
             []
         ]
@@ -3749,8 +3773,8 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 580,
-        "y": 580,
+        "x": 640,
+        "y": 900,
         "wires": [
             [
                 "15f3325a.1a8f0e"
@@ -3774,8 +3798,8 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 580,
-        "y": 720,
+        "x": 640,
+        "y": 1040,
         "wires": [
             [
                 "7b089f13.f2142"
@@ -3794,8 +3818,8 @@
         "qos": "",
         "retain": "",
         "broker": "c349b9ff.9dc4c8",
-        "x": 930,
-        "y": 740,
+        "x": 990,
+        "y": 1060,
         "wires": []
     },
     {
@@ -3810,8 +3834,8 @@
         "label": "Waschmaschine/Trockner",
         "format": "{{msg.payload}}",
         "layout": "row-spread",
-        "x": 850,
-        "y": 580,
+        "x": 910,
+        "y": 900,
         "wires": []
     },
     {
@@ -3833,8 +3857,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1150,
-        "y": 480,
+        "x": 830,
+        "y": 680,
         "wires": [
             []
         ]
@@ -4247,8 +4271,8 @@
         ],
         "outputs": 1,
         "useDifferentColor": false,
-        "x": 830,
-        "y": 620,
+        "x": 890,
+        "y": 940,
         "wires": [
             []
         ]
@@ -4266,8 +4290,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 790,
-        "y": 660,
+        "x": 850,
+        "y": 980,
         "wires": []
     },
     {
@@ -4372,12 +4396,12 @@
         "type": "mqtt out",
         "z": "3a471104.edfbae",
         "name": "Treppemnhauslicht",
-        "topic": "treppenhaus/switch/relay1/command",
+        "topic": "treppenhaus_gaeste_wc/switch/relay1/command",
         "qos": "",
         "retain": "",
         "broker": "c349b9ff.9dc4c8",
-        "x": 1150,
-        "y": 240,
+        "x": 1170,
+        "y": 220,
         "wires": []
     },
     {
@@ -4385,12 +4409,12 @@
         "type": "mqtt in",
         "z": "3a471104.edfbae",
         "name": "",
-        "topic": "treppenhaus/binary_sensor/taster1/state",
+        "topic": "treppenhaus_gaeste_wc/binary_sensor/button1/state",
         "qos": "2",
         "datatype": "auto",
         "broker": "c349b9ff.9dc4c8",
-        "x": 200,
-        "y": 60,
+        "x": 260,
+        "y": 40,
         "wires": [
             [
                 "dba6f56.3127408"
@@ -4420,8 +4444,8 @@
         "offvalueType": "str",
         "officon": "",
         "offcolor": "",
-        "x": 750,
-        "y": 240,
+        "x": 770,
+        "y": 220,
         "wires": [
             [
                 "4907d5.d804982c",
@@ -4438,8 +4462,8 @@
         "qos": "2",
         "datatype": "json",
         "broker": "c349b9ff.9dc4c8",
-        "x": 170,
-        "y": 240,
+        "x": 190,
+        "y": 220,
         "wires": [
             [
                 "858eda45.27c1d8",
@@ -4457,8 +4481,8 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 540,
-        "y": 240,
+        "x": 560,
+        "y": 220,
         "wires": [
             [
                 "c07473f0.eb252"
@@ -4470,13 +4494,13 @@
         "type": "function",
         "z": "3a471104.edfbae",
         "name": "toggle state",
-        "func": "if (msg.payload != \"OFF\") { // taster is inverted :/\n    return undefined;\n}\n\nvar topic = \"treppenhaustaster\";\nvar current_state = flow.get(topic);\n\nif (current_state === \"OFF\")\n    return {payload: \"ON\"}\nelse\n    return {payload: \"OFF\"};",
+        "func": "if (msg.payload != \"ON\") { // taster is inverted :/\n    return undefined;\n}\n\nvar topic = \"treppenhaustaster\";\nvar current_state = flow.get(topic);\n\nif (current_state === \"OFF\")\n    return {payload: \"ON\"}\nelse\n    return {payload: \"OFF\"};",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 470,
-        "y": 60,
+        "x": 570,
+        "y": 40,
         "wires": [
             [
                 "c07473f0.eb252"
@@ -4493,8 +4517,8 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 580,
-        "y": 340,
+        "x": 600,
+        "y": 320,
         "wires": [
             [
                 "1bf72870.060278"
@@ -4511,8 +4535,8 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 950,
-        "y": 240,
+        "x": 970,
+        "y": 220,
         "wires": [
             [
                 "b529a82a.481848"
@@ -4600,8 +4624,8 @@
         "qos": "2",
         "datatype": "json",
         "broker": "c349b9ff.9dc4c8",
-        "x": 170,
-        "y": 200,
+        "x": 190,
+        "y": 180,
         "wires": [
             [
                 "858eda45.27c1d8"
@@ -4617,8 +4641,8 @@
         "qos": "2",
         "datatype": "json",
         "broker": "c349b9ff.9dc4c8",
-        "x": 170,
-        "y": 160,
+        "x": 190,
+        "y": 140,
         "wires": [
             [
                 "858eda45.27c1d8"
@@ -4634,8 +4658,8 @@
         "qos": "2",
         "datatype": "json",
         "broker": "c349b9ff.9dc4c8",
-        "x": 170,
-        "y": 120,
+        "x": 190,
+        "y": 100,
         "wires": [
             [
                 "858eda45.27c1d8"
@@ -4771,7 +4795,7 @@
         "type": "mqtt in",
         "z": "3a471104.edfbae",
         "name": "",
-        "topic": "treppenhaus_keller/binary_sensor/button1/state",
+        "topic": "treppenhaus_eg/binary_sensor/taster/state",
         "qos": "2",
         "datatype": "auto",
         "broker": "c349b9ff.9dc4c8",
@@ -4779,7 +4803,7 @@
         "y": 440,
         "wires": [
             [
-                "e11fb84e.7887b8"
+                "9e0605ed.8497b8"
             ]
         ]
     },
@@ -4792,27 +4816,9 @@
         "qos": "",
         "retain": "",
         "broker": "c349b9ff.9dc4c8",
-        "x": 1250,
-        "y": 440,
+        "x": 1270,
+        "y": 460,
         "wires": []
-    },
-    {
-        "id": "e11fb84e.7887b8",
-        "type": "function",
-        "z": "3a471104.edfbae",
-        "name": "toggle state",
-        "func": "var topic = \"treppenhaus_kellerlicht\";\nvar current_state = flow.get(topic);\n\nif (current_state === \"OFF\")\n    return {payload: \"ON\"}\nelse\n    return {payload: \"OFF\"};",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 510,
-        "y": 440,
-        "wires": [
-            [
-                "3eb024a5.e9f9bc"
-            ]
-        ]
     },
     {
         "id": "41e39711.b892e8",
@@ -4824,8 +4830,8 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 970,
-        "y": 440,
+        "x": 990,
+        "y": 460,
         "wires": [
             [
                 "b187a14.548406"
@@ -4855,8 +4861,8 @@
         "offvalueType": "str",
         "officon": "",
         "offcolor": "",
-        "x": 770,
-        "y": 440,
+        "x": 790,
+        "y": 460,
         "wires": [
             [
                 "41e39711.b892e8",
@@ -4892,8 +4898,8 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 480,
-        "y": 400,
+        "x": 500,
+        "y": 380,
         "wires": [
             [
                 "3eb024a5.e9f9bc"
@@ -4917,8 +4923,8 @@
         "bytopic": "all",
         "topic": "topic",
         "outputs": 1,
-        "x": 780,
-        "y": 340,
+        "x": 800,
+        "y": 320,
         "wires": [
             [
                 "c07473f0.eb252",
@@ -4941,7 +4947,7 @@
         "resendOnRefresh": true,
         "templateScope": "local",
         "x": 1320,
-        "y": 500,
+        "y": 460,
         "wires": [
             []
         ]
@@ -4951,7 +4957,7 @@
         "type": "function",
         "z": "2788b93b.8a2f56",
         "name": "Lüftungsempfehlung",
-        "func": "const name = msg.payload.name;\n\nconst temperature = global.get(name + \"-temperature\");\nconst humidity = global.get(name + \"-humidity\");\nconst abs_humidity = global.get(name + \"-absolute_humidity\");\nconst last_abs_humidity_gt_outside_abs_humidity = global.get(name + \"-last_abs_humidity_gt_outside_abs_humidity\");\nconst outside_abs_humidity = global.get(\"aussen-absolute_humidity\");\n\nif (false) {\n    node.warn(\"name: \" + name)\n    node.warn(\"temperature: \" + temperature)\n    node.warn(\"humidity: \" + humidity)\n    node.warn(\"abs_humidity: \" + abs_humidity)\n    node.warn(\"last_abs_humidity_gt_outside_abs_humidity: \" + last_abs_humidity_gt_outside_abs_humidity)\n    node.warn(\"outside_abs_humidity: \" + outside_abs_humidity)\n}\n\nconst open_window = (last_abs_humidity_gt_outside_abs_humidity) ?\n    abs_humidity > outside_abs_humidity :\n    abs_humidity > outside_abs_humidity * 1.1;\n\nglobal.set(name + \"-last_abs_humidity_gt_outside_abs_humidity\", abs_humidity > outside_abs_humidity);\n\nconst sprintf = global.get(\"sprintf\");\nconst text = sprintf(\"%2.1f °C, %2.1f %% H, %2.1f mg/m³\", temperature, humidity, abs_humidity)\n\nif (open_window) {\n    if (humidity > 65) {\n        return {payload: {name: name, color: \"red\", hint: \"Raum feucht, lüften\", text: text}};\n    } else {\n        return {payload: {name: name, color: \"limegreen\", hint: \"Raum ausreichend trocken\", text: text}};\n    }\n} else {\n    return {payload: {name: name, color: \"yellow\", hint: \"Draußen feuchter! Nicht lüften\", text: text}};\n}",
+        "func": "const name = msg.payload.name;\n\nconst temperature = global.get(name + \"-temperature\");\nconst humidity = global.get(name + \"-humidity\");\nconst abs_humidity = global.get(name + \"-absolute_humidity\");\nconst last_abs_humidity_gt_outside_abs_humidity = global.get(name + \"-last_abs_humidity_gt_outside_abs_humidity\");\nconst outside_abs_humidity = global.get(\"aussen-absolute_humidity\");\n\nconst room_abs_humidity_gt_outside_abs_humidity = (last_abs_humidity_gt_outside_abs_humidity) ?\n    abs_humidity > outside_abs_humidity * 1.05 :\n    abs_humidity > outside_abs_humidity;\n\nglobal.set(name + \"-last_abs_humidity_gt_outside_abs_humidity\", abs_humidity > outside_abs_humidity);\n\nconst intl = global.get('intl');\nconst format = intl.NumberFormat('de-De',{style:'decimal', maximumFractionDigits: 2}).format;\nconst sprintf = global.get(\"sprintf\");\nconst text = sprintf(\"%s °C, %s %% H, %s g/m³\", format(temperature), format(humidity), format(abs_humidity))\n\nif (false) {\n    node.warn(\"--------------------------------------\")\n    node.warn(\"name: \" + name)\n    node.warn(\"temperature: \" + temperature)\n    node.warn(\"humidity: \" + humidity)\n    node.warn(\"abs_humidity: \" + abs_humidity)\n    node.warn(\"last_abs_humidity_gt_outside_abs_humidity: \" + last_abs_humidity_gt_outside_abs_humidity)\n    node.warn(\"outside_abs_humidity: \" + outside_abs_humidity)\n    node.warn(\"room_abs_humidity_gt_outside_abs_humidity: \" + room_abs_humidity_gt_outside_abs_humidity)\n    node.warn(\"text: \" + text)\n}\n\n\n\nif (room_abs_humidity_gt_outside_abs_humidity) {\n    if (humidity > 65) {\n        return {payload: {name: name, color: \"skyblue\", hint: \"Raum feucht. Lüften!\", text: text}};\n    } else {\n        return {payload: {name: name, color: \"limegreen\", hint: \"Raum ausreichend trocken.\", text: text}};\n    }\n} else {\n    return {payload: {name: name, color: \"red\", hint: \"Draußen feuchter. Nur kurz lüften!\", text: text}};\n}",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -4980,8 +4986,8 @@
         "randomLast": "5",
         "randomUnits": "seconds",
         "drop": false,
-        "x": 460,
-        "y": 180,
+        "x": 480,
+        "y": 160,
         "wires": [
             [
                 "c473a018.46907"
@@ -5003,8 +5009,8 @@
         "randomLast": "5",
         "randomUnits": "seconds",
         "drop": false,
-        "x": 260,
-        "y": 400,
+        "x": 280,
+        "y": 380,
         "wires": [
             [
                 "38bf3abf.87fe76"
@@ -5851,6 +5857,18 @@
         "type": "inject",
         "z": "29cd7d28.a2bf92",
         "name": "boost",
+        "props": [
+            {
+                "p": "payload",
+                "v": "boost",
+                "vt": "str"
+            },
+            {
+                "p": "topic",
+                "v": "",
+                "vt": "string"
+            }
+        ],
         "repeat": "",
         "crontab": "",
         "once": false,
@@ -6022,7 +6040,8 @@
         "y": 360,
         "wires": [
             [
-                "8452f01b.9b7a2"
+                "8452f01b.9b7a2",
+                "137fe45c.47150c"
             ]
         ]
     },
@@ -6180,31 +6199,6 @@
         "wires": [
             [
                 "681998dd.099198"
-            ]
-        ]
-    },
-    {
-        "id": "4f9b07dc.aa9508",
-        "type": "inject",
-        "z": "4d90b497.b5b2ac",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "Test",
-        "payloadType": "str",
-        "x": 590,
-        "y": 520,
-        "wires": [
-            [
-                "15f3325a.1a8f0e"
             ]
         ]
     },
@@ -6396,27 +6390,6 @@
         "id": "89e98409.0b1d08",
         "type": "ui_template",
         "z": "2788b93b.8a2f56",
-        "d": true,
-        "group": "245ec0f9.12765",
-        "name": "",
-        "order": 3,
-        "width": 0,
-        "height": 0,
-        "format": "<md-card ui-card-size=\"6x2\" \n    class=\"_md nr-dashboard-text layout-align-center-center nr-dashboard-widget-text visible\" \n    style=\"background-color: {{msg.payload.color}}; color: black; left: 0px; top: 54px; width: 300px; height: 96px;\">\n    <p class=\"label\">{{msg.payload.room}}</p><p>{{msg.payload.text}}</p> <p class=\"value\">{{msg.payload.hint}}</p>\n</md-card>\n",
-        "storeOutMessages": true,
-        "fwdInMessages": true,
-        "resendOnRefresh": true,
-        "templateScope": "local",
-        "x": 1320,
-        "y": 620,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "8fc7d555.415c28",
-        "type": "ui_template",
-        "z": "2788b93b.8a2f56",
         "group": "245ec0f9.12765",
         "name": "",
         "order": 4,
@@ -6428,7 +6401,27 @@
         "resendOnRefresh": true,
         "templateScope": "local",
         "x": 1320,
-        "y": 660,
+        "y": 500,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8fc7d555.415c28",
+        "type": "ui_template",
+        "z": "2788b93b.8a2f56",
+        "group": "245ec0f9.12765",
+        "name": "",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "format": "<md-card ui-card-size=\"6x2\" \n    class=\"_md nr-dashboard-text layout-align-center-center nr-dashboard-widget-text visible\" \n    style=\"background-color: {{msg.payload.color}}; color: black; left: 0px; top: 54px; width: 300px; height: 96px;\">\n    <p class=\"label\">{{msg.payload.room}}</p><p>{{msg.payload.text}}</p> <p class=\"value\">{{msg.payload.hint}}</p>\n</md-card>\n",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "x": 1320,
+        "y": 540,
         "wires": [
             []
         ]
@@ -7361,7 +7354,7 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 810,
+        "x": 670,
         "y": 140,
         "wires": [
             [
@@ -7373,9 +7366,10 @@
         "id": "4708a180.a07a",
         "type": "link in",
         "z": "d0173d54.941d7",
-        "name": "ZIGBEE2MQTT to InfluxDB",
+        "name": "JSON to InfluxDB",
         "links": [
-            "aa7a4964.384d28"
+            "aa7a4964.384d28",
+            "afb0333e.affc6"
         ],
         "x": 415,
         "y": 380,
@@ -7393,7 +7387,7 @@
         "links": [
             "4708a180.a07a"
         ],
-        "x": 1055,
+        "x": 915,
         "y": 180,
         "wires": []
     },
@@ -7401,13 +7395,13 @@
         "id": "54e7d479.9e81bc",
         "type": "function",
         "z": "d0173d54.941d7",
-        "name": "Filter out Aqara Smart",
-        "func": "if (!msg.topic.match(/aqara_smart/)) {\n    return msg;\n}",
+        "name": "Filter Sensors",
+        "func": "if (!msg.topic.match(/aqara_smart|gas_zaehler/)) {\n    return msg;\n}",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 400,
+        "x": 380,
         "y": 300,
         "wires": [
             [
@@ -7422,7 +7416,7 @@
         "name": "",
         "topic": "zigbee2mqtt/+",
         "qos": "2",
-        "datatype": "auto",
+        "datatype": "json",
         "broker": "c349b9ff.9dc4c8",
         "x": 140,
         "y": 140,
@@ -7444,22 +7438,6 @@
         "initialize": "",
         "finalize": "",
         "x": 370,
-        "y": 140,
-        "wires": [
-            [
-                "797f9ce9.fd27e4"
-            ]
-        ]
-    },
-    {
-        "id": "797f9ce9.fd27e4",
-        "type": "json",
-        "z": "fc81a32b.bb6db",
-        "name": "",
-        "property": "payload",
-        "action": "",
-        "pretty": false,
-        "x": 570,
         "y": 140,
         "wires": [
             [
@@ -7495,7 +7473,7 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 960,
+        "x": 820,
         "y": 220,
         "wires": [
             []
@@ -7514,7 +7492,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1110,
+        "x": 970,
         "y": 140,
         "wires": []
     },
@@ -7568,22 +7546,7 @@
             },
             {
                 "t": "eq",
-                "v": "aussen_t",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "zwitscherbox",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "bad",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "luftfeuchtemesser1",
+                "v": "zwitscherbox_bad",
                 "vt": "str"
             },
             {
@@ -7608,6 +7571,11 @@
             },
             {
                 "t": "eq",
+                "v": "luftfeuchtemesser1",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
                 "v": "wozi",
                 "vt": "str"
             },
@@ -7618,13 +7586,18 @@
             },
             {
                 "t": "eq",
+                "v": "speisekammer",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
                 "v": "schlafzimmer",
                 "vt": "str"
             }
         ],
         "checkall": "false",
         "repair": false,
-        "outputs": 12,
+        "outputs": 11,
         "x": 1090,
         "y": 520,
         "wires": [
@@ -7632,16 +7605,7 @@
                 "5221a0c4.27e25"
             ],
             [
-                "7c8b67aa.6c5b78"
-            ],
-            [
                 "12ebb575.a874db"
-            ],
-            [
-                "db24aeb3.0a5c7"
-            ],
-            [
-                "e950812b.0c7b3"
             ],
             [
                 "89e98409.0b1d08"
@@ -7656,10 +7620,16 @@
                 "740dd7e9.4e3008"
             ],
             [
+                "f9ee87ab.ae2d38"
+            ],
+            [
                 "f1e82e9a.000e8"
             ],
             [
                 "961cf428.5c8238"
+            ],
+            [
+                "668c6b28.38a1c4"
             ],
             [
                 "593cbcc1.6b4944"
@@ -7672,7 +7642,47 @@
         "z": "2788b93b.8a2f56",
         "group": "245ec0f9.12765",
         "name": "",
-        "order": 5,
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "format": "<md-card ui-card-size=\"6x2\" \n    class=\"_md nr-dashboard-text layout-align-center-center nr-dashboard-widget-text visible\" \n    style=\"background-color: {{msg.payload.color}}; color: black; left: 0px; top: 54px; width: 300px; height: 96px;\">\n    <p class=\"label\">{{msg.payload.room}}</p><p>{{msg.payload.text}}</p> <p class=\"value\">{{msg.payload.hint}}</p>\n</md-card>\n",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "x": 1320,
+        "y": 580,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "740dd7e9.4e3008",
+        "type": "ui_template",
+        "z": "2788b93b.8a2f56",
+        "group": "245ec0f9.12765",
+        "name": "",
+        "order": 7,
+        "width": 0,
+        "height": 0,
+        "format": "<md-card ui-card-size=\"6x2\" \n    class=\"_md nr-dashboard-text layout-align-center-center nr-dashboard-widget-text visible\" \n    style=\"background-color: {{msg.payload.color}}; color: black; left: 0px; top: 54px; width: 300px; height: 96px;\">\n    <p class=\"label\">{{msg.payload.room}}</p><p>{{msg.payload.text}}</p> <p class=\"value\">{{msg.payload.hint}}</p>\n</md-card>\n",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "x": 1320,
+        "y": 620,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f1e82e9a.000e8",
+        "type": "ui_template",
+        "z": "2788b93b.8a2f56",
+        "group": "245ec0f9.12765",
+        "name": "",
+        "order": 9,
         "width": 0,
         "height": 0,
         "format": "<md-card ui-card-size=\"6x2\" \n    class=\"_md nr-dashboard-text layout-align-center-center nr-dashboard-widget-text visible\" \n    style=\"background-color: {{msg.payload.color}}; color: black; left: 0px; top: 54px; width: 300px; height: 96px;\">\n    <p class=\"label\">{{msg.payload.room}}</p><p>{{msg.payload.text}}</p> <p class=\"value\">{{msg.payload.hint}}</p>\n</md-card>\n",
@@ -7687,12 +7697,12 @@
         ]
     },
     {
-        "id": "740dd7e9.4e3008",
+        "id": "961cf428.5c8238",
         "type": "ui_template",
         "z": "2788b93b.8a2f56",
         "group": "245ec0f9.12765",
         "name": "",
-        "order": 6,
+        "order": 10,
         "width": 0,
         "height": 0,
         "format": "<md-card ui-card-size=\"6x2\" \n    class=\"_md nr-dashboard-text layout-align-center-center nr-dashboard-widget-text visible\" \n    style=\"background-color: {{msg.payload.color}}; color: black; left: 0px; top: 54px; width: 300px; height: 96px;\">\n    <p class=\"label\">{{msg.payload.room}}</p><p>{{msg.payload.text}}</p> <p class=\"value\">{{msg.payload.hint}}</p>\n</md-card>\n",
@@ -7702,46 +7712,6 @@
         "templateScope": "local",
         "x": 1320,
         "y": 740,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "f1e82e9a.000e8",
-        "type": "ui_template",
-        "z": "2788b93b.8a2f56",
-        "group": "245ec0f9.12765",
-        "name": "",
-        "order": 7,
-        "width": 0,
-        "height": 0,
-        "format": "<md-card ui-card-size=\"6x2\" \n    class=\"_md nr-dashboard-text layout-align-center-center nr-dashboard-widget-text visible\" \n    style=\"background-color: {{msg.payload.color}}; color: black; left: 0px; top: 54px; width: 300px; height: 96px;\">\n    <p class=\"label\">{{msg.payload.room}}</p><p>{{msg.payload.text}}</p> <p class=\"value\">{{msg.payload.hint}}</p>\n</md-card>\n",
-        "storeOutMessages": true,
-        "fwdInMessages": true,
-        "resendOnRefresh": true,
-        "templateScope": "local",
-        "x": 1320,
-        "y": 780,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "961cf428.5c8238",
-        "type": "ui_template",
-        "z": "2788b93b.8a2f56",
-        "group": "245ec0f9.12765",
-        "name": "",
-        "order": 8,
-        "width": 0,
-        "height": 0,
-        "format": "<md-card ui-card-size=\"6x2\" \n    class=\"_md nr-dashboard-text layout-align-center-center nr-dashboard-widget-text visible\" \n    style=\"background-color: {{msg.payload.color}}; color: black; left: 0px; top: 54px; width: 300px; height: 96px;\">\n    <p class=\"label\">{{msg.payload.room}}</p><p>{{msg.payload.text}}</p> <p class=\"value\">{{msg.payload.hint}}</p>\n</md-card>\n",
-        "storeOutMessages": true,
-        "fwdInMessages": true,
-        "resendOnRefresh": true,
-        "templateScope": "local",
-        "x": 1320,
-        "y": 820,
         "wires": [
             []
         ]
@@ -7771,7 +7741,7 @@
         "type": "function",
         "z": "2788b93b.8a2f56",
         "name": "recall klima draußen",
-        "func": "const name = \"aussen\";\n\nconst temperature = global.get(name + \"-temperature\");\nconst humidity = global.get(name + \"-humidity\");\nconst abs_humidity = global.get(name + \"-absolute_humidity\");\nconst last_abs_humidity_gt_outside_abs_humidity = global.get(name + \"-last_abs_humidity_gt_outside_abs_humidity\");\nconst outside_abs_humidity = global.get(\"aussen-absolute_humidity\");\n\n//node.warn(name)\n//node.warn(temperature)\n//node.warn(humidity)\n//node.warn(abs_humidity)\n//node.warn(last_abs_humidity_gt_outside_abs_humidity)\n//node.warn(outside_abs_humidity)\n\nconst sprintf = global.get(\"sprintf\");\nconst text = sprintf(\"%2.1f °C, %2.1f %% H, %2.1f mg/m³\", temperature, humidity, abs_humidity)\n\nif (humidity > 65) {\n    return {payload: {name: name, color: \"red\", hint: \"Draußen ist es feucht\", text: text}};\n} else {\n    return {payload: {name: name, color: \"limegreen\", hint: \"Draußen ist es trocken\", text: text}};\n}\n",
+        "func": "const name = \"aussen\";\n\nconst temperature = global.get(name + \"-temperature\");\nconst humidity = global.get(name + \"-humidity\");\nconst abs_humidity = global.get(name + \"-absolute_humidity\");\nconst last_abs_humidity_gt_outside_abs_humidity = global.get(name + \"-last_abs_humidity_gt_outside_abs_humidity\");\nconst wozi_abs_humidity = global.get(\"wozi-absolute_humidity\");\n\n//node.warn(name)\n//node.warn(temperature)\n//node.warn(humidity)\n//node.warn(abs_humidity)\n//node.warn(last_abs_humidity_gt_outside_abs_humidity)\n//node.warn(outside_abs_humidity)\n\nconst intl = global.get('intl');\nconst format = intl.NumberFormat('de-De',{style:'decimal', maximumFractionDigits: 2}).format;\nconst sprintf = global.get(\"sprintf\");\nconst text = sprintf(\"%s °C, %s %% H, %s g/m³\", format(temperature), format(humidity), format(abs_humidity))\n\nif (abs_humidity > 13) {\n    return {payload: {name: name, color: \"deepskyblue\", hint: \"Draußen ist es sehr feucht.\", text: text}};\n} else if (abs_humidity > 12) {\n    return {payload: {name: name, color: \"skyblue\", hint: \"Draußen ist es feucht.\", text: text}};\n} else if (abs_humidity > 11) {\n    return {payload: {name: name, color: \"limegreen\", hint: \"Draußen ist einigermaßen trocken.\", text: text}};\n} else if (abs_humidity > 10) {\n    return {payload: {name: name, color: \"YellowGreen\", hint: \"Draußen ist es trocken.\", text: text}};\n} else {\n    return {payload: {name: name, color: \"DarkSeaGreen\", hint: \"Draußen ist es sehr trocken.\", text: text}};\n}\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -7790,7 +7760,7 @@
         "z": "2788b93b.8a2f56",
         "group": "245ec0f9.12765",
         "name": "",
-        "order": 8,
+        "order": 12,
         "width": 0,
         "height": 0,
         "format": "<md-card ui-card-size=\"6x2\" \n    class=\"_md nr-dashboard-text layout-align-center-center nr-dashboard-widget-text visible\" \n    style=\"background-color: {{msg.payload.color}}; color: black; left: 0px; top: 54px; width: 300px; height: 96px;\">\n    <p class=\"label\">{{msg.payload.room}}</p><p>{{msg.payload.text}}</p> <p class=\"value\">{{msg.payload.hint}}</p>\n</md-card>\n",
@@ -7799,7 +7769,7 @@
         "resendOnRefresh": true,
         "templateScope": "local",
         "x": 1320,
-        "y": 860,
+        "y": 820,
         "wires": [
             []
         ]
@@ -7854,6 +7824,7 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
+        "payloadType": "str",
         "x": 370,
         "y": 380,
         "wires": [
@@ -7863,32 +7834,11 @@
         ]
     },
     {
-        "id": "db24aeb3.0a5c7",
-        "type": "ui_template",
-        "z": "2788b93b.8a2f56",
-        "d": true,
-        "group": "245ec0f9.12765",
-        "name": "",
-        "order": 2,
-        "width": 0,
-        "height": 0,
-        "format": "<md-card ui-card-size=\"6x2\" \n    class=\"_md nr-dashboard-text layout-align-center-center nr-dashboard-widget-text visible\" \n    style=\"background-color: {{msg.payload.color}}; color: black; left: 0px; top: 54px; width: 300px; height: 96px;\">\n    <p class=\"label\">{{msg.payload.room}}</p><p>{{msg.payload.text}}</p> <p class=\"value\">{{msg.payload.hint}}</p>\n</md-card>\n",
-        "storeOutMessages": true,
-        "fwdInMessages": true,
-        "resendOnRefresh": true,
-        "templateScope": "local",
-        "x": 1320,
-        "y": 540,
-        "wires": [
-            []
-        ]
-    },
-    {
         "id": "3fc26a03.2a8a06",
         "type": "function",
         "z": "2788b93b.8a2f56",
         "name": "recall zwitscherbox klima",
-        "func": "const name = \"zwitscherbox\";\nreturn {\n    payload: {\n        name: name,\n        humidity: global.get(`${name}-humidity`),\n        absolute_humidity: global.get(`${name}-absolute_humidity`),\n        tempeature: global.get(`${name}-temperature`)\n    }\n};\n",
+        "func": "const name = \"zwitscherbox_bad\";\nreturn {\n    payload: {\n        name: name,\n        humidity: global.get(`${name}-humidity`),\n        absolute_humidity: global.get(`${name}-absolute_humidity`),\n        tempeature: global.get(`${name}-temperature`)\n    }\n};\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -7927,13 +7877,14 @@
                 "1a87dc90.70c533",
                 "7de07eb2.117f4",
                 "19b316c1.d916e9",
-                "da6e34b7.7f6478",
                 "dc465da3.9f075",
                 "1f972c48.e2ab94",
                 "f54e3c81.4c057",
                 "f477863d.bbbe58",
                 "6604bb11.21e7b4",
-                "800e50b3.1cd8f"
+                "800e50b3.1cd8f",
+                "d97bb3fb.f95d7",
+                "febd2e38.1a2e1"
             ]
         ]
     },
@@ -7959,7 +7910,7 @@
         "type": "function",
         "z": "2788b93b.8a2f56",
         "name": "initialize names-rooms mapping",
-        "func": "const room = global.set(\"names_rooms\", {\n    \"zwitscherbox\": \"Bad\",\n    \"luftfeuchtemesser1\": \"Gäste-WC\",\n    \"waschkueche_luefter\": \"Waschküche\",\n    \"wozi\": \"Wohnzimmer\",\n    \"gaeste_wc\": \"Gäste-WC Test\",\n    \"kueche\": \"Küche\",\n    \"aussen\": \"Draußen\",\n    \"aussen_t\": \"Test\"\n});\n",
+        "func": "const room = global.set(\"names_rooms\", {\n    \"zwitscherbox_bad\": \"Bad\",\n    \"luftfeuchtemesser1\": \"Werkstatt\",\n    \"gaeste_wc\": \"Gäste-WC\",\n    \"waschkueche_luefter\": \"Waschküche\",\n    \"wozi\": \"Wohnzimmer\",\n    \"kueche\": \"Küche\",\n    \"aussen\": \"Draußen\",\n    \"aussen_t\": \"Test\"\n});\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -8005,7 +7956,7 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 900,
+        "x": 760,
         "y": 180,
         "wires": [
             [
@@ -8117,47 +8068,6 @@
         "wires": []
     },
     {
-        "id": "e950812b.0c7b3",
-        "type": "ui_template",
-        "z": "2788b93b.8a2f56",
-        "group": "245ec0f9.12765",
-        "name": "",
-        "order": 2,
-        "width": 0,
-        "height": 0,
-        "format": "<md-card ui-card-size=\"6x2\" \n    class=\"_md nr-dashboard-text layout-align-center-center nr-dashboard-widget-text visible\" \n    style=\"background-color: {{msg.payload.color}}; color: black; left: 0px; top: 54px; width: 300px; height: 96px;\">\n    <p class=\"label\">{{msg.payload.room}}</p><p>{{msg.payload.text}}</p> <p class=\"value\">{{msg.payload.hint}}</p>\n</md-card>\n",
-        "storeOutMessages": true,
-        "fwdInMessages": true,
-        "resendOnRefresh": true,
-        "templateScope": "local",
-        "x": 1320,
-        "y": 580,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "7c8b67aa.6c5b78",
-        "type": "ui_template",
-        "z": "2788b93b.8a2f56",
-        "d": true,
-        "group": "245ec0f9.12765",
-        "name": "",
-        "order": 1,
-        "width": 0,
-        "height": 0,
-        "format": "<md-card ui-card-size=\"6x2\" \n    class=\"_md nr-dashboard-text layout-align-center-center nr-dashboard-widget-text visible\" \n    style=\"background-color: {{msg.payload.color}}; color: black; left: 0px; top: 54px; width: 300px; height: 96px;\">\n    <p class=\"label\">{{msg.payload.room}}</p><p>{{msg.payload.text}}</p> <p class=\"value\">{{msg.payload.hint}}</p>\n</md-card>\n",
-        "storeOutMessages": true,
-        "fwdInMessages": true,
-        "resendOnRefresh": true,
-        "templateScope": "local",
-        "x": 1320,
-        "y": 460,
-        "wires": [
-            []
-        ]
-    },
-    {
         "id": "1a87dc90.70c533",
         "type": "function",
         "z": "2788b93b.8a2f56",
@@ -8197,24 +8107,6 @@
         "id": "19b316c1.d916e9",
         "type": "function",
         "z": "2788b93b.8a2f56",
-        "name": "recall luftfeuchtemesser1 klima",
-        "func": "const name = \"luftfeuchtemesser1\";\nreturn {\n    payload: {\n        name: name,\n        humidity: global.get(`${name}-humidity`),\n        absolute_humidity: global.get(`${name}-absolute_humidity`),\n        tempeature: global.get(`${name}-temperature`)\n    }\n};\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 430,
-        "y": 500,
-        "wires": [
-            [
-                "3825ae1b.6847c2"
-            ]
-        ]
-    },
-    {
-        "id": "da6e34b7.7f6478",
-        "type": "function",
-        "z": "2788b93b.8a2f56",
         "name": "recall gaeste_wc klima",
         "func": "const name = \"gaeste_wc\";\nreturn {\n    payload: {\n        name: name,\n        humidity: global.get(`${name}-humidity`),\n        absolute_humidity: global.get(`${name}-absolute_humidity`),\n        tempeature: global.get(`${name}-temperature`)\n    }\n};\n",
         "outputs": 1,
@@ -8222,7 +8114,7 @@
         "initialize": "",
         "finalize": "",
         "x": 400,
-        "y": 540,
+        "y": 500,
         "wires": [
             [
                 "3825ae1b.6847c2"
@@ -8240,7 +8132,7 @@
         "initialize": "",
         "finalize": "",
         "x": 440,
-        "y": 580,
+        "y": 540,
         "wires": [
             [
                 "3825ae1b.6847c2"
@@ -8258,7 +8150,7 @@
         "initialize": "",
         "finalize": "",
         "x": 410,
-        "y": 620,
+        "y": 580,
         "wires": [
             [
                 "3825ae1b.6847c2"
@@ -8276,7 +8168,7 @@
         "initialize": "",
         "finalize": "",
         "x": 430,
-        "y": 660,
+        "y": 620,
         "wires": [
             [
                 "3825ae1b.6847c2"
@@ -8287,13 +8179,13 @@
         "id": "f477863d.bbbe58",
         "type": "function",
         "z": "2788b93b.8a2f56",
-        "name": "recall treppenhaus_keller klima",
+        "name": "recall wozi klima",
         "func": "const name = \"wozi\";\nreturn {\n    payload: {\n        name: name,\n        humidity: global.get(`${name}-humidity`),\n        absolute_humidity: global.get(`${name}-absolute_humidity`),\n        tempeature: global.get(`${name}-temperature`)\n    }\n};\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 430,
+        "x": 380,
         "y": 700,
         "wires": [
             [
@@ -8330,7 +8222,7 @@
         "initialize": "",
         "finalize": "",
         "x": 410,
-        "y": 780,
+        "y": 820,
         "wires": [
             [
                 "3825ae1b.6847c2"
@@ -8383,5 +8275,872 @@
         "x": 235,
         "y": 440,
         "wires": []
+    },
+    {
+        "id": "9f0ab131.1e302",
+        "type": "ui_chart",
+        "z": "4d90b497.b5b2ac",
+        "name": "Waschküche Lüfterautomatik",
+        "group": "8240b43a.1094b8",
+        "order": 3,
+        "width": "12",
+        "height": "12",
+        "label": "Waschküche Lüfterautomatik",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "2",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "86400",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#9477bd",
+            "#e6e600",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "x": 860,
+        "y": 280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "febd2e38.1a2e1",
+        "type": "function",
+        "z": "2788b93b.8a2f56",
+        "name": "recall werkstatt (luftfeuchtemesser1) klima",
+        "func": "const name = \"luftfeuchtemesser1\";\nreturn {\n    payload: {\n        name: name,\n        humidity: global.get(`${name}-humidity`),\n        absolute_humidity: global.get(`${name}-absolute_humidity`),\n        tempeature: global.get(`${name}-temperature`)\n    }\n};\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 460,
+        "y": 660,
+        "wires": [
+            [
+                "3825ae1b.6847c2"
+            ]
+        ]
+    },
+    {
+        "id": "d97bb3fb.f95d7",
+        "type": "function",
+        "z": "2788b93b.8a2f56",
+        "name": "recall speisekammer klima",
+        "func": "const name = \"speisekammer\";\nreturn {\n    payload: {\n        name: name,\n        humidity: global.get(`${name}-humidity`),\n        absolute_humidity: global.get(`${name}-absolute_humidity`),\n        tempeature: global.get(`${name}-temperature`)\n    }\n};\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 420,
+        "y": 780,
+        "wires": [
+            [
+                "3825ae1b.6847c2"
+            ]
+        ]
+    },
+    {
+        "id": "668c6b28.38a1c4",
+        "type": "ui_template",
+        "z": "2788b93b.8a2f56",
+        "group": "245ec0f9.12765",
+        "name": "",
+        "order": 11,
+        "width": 0,
+        "height": 0,
+        "format": "<md-card ui-card-size=\"6x2\" \n    class=\"_md nr-dashboard-text layout-align-center-center nr-dashboard-widget-text visible\" \n    style=\"background-color: {{msg.payload.color}}; color: black; left: 0px; top: 54px; width: 300px; height: 96px;\">\n    <p class=\"label\">{{msg.payload.room}}</p><p>{{msg.payload.text}}</p> <p class=\"value\">{{msg.payload.hint}}</p>\n</md-card>\n",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "x": 1320,
+        "y": 780,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f9ee87ab.ae2d38",
+        "type": "ui_template",
+        "z": "2788b93b.8a2f56",
+        "group": "245ec0f9.12765",
+        "name": "",
+        "order": 8,
+        "width": 0,
+        "height": 0,
+        "format": "<md-card ui-card-size=\"6x2\" \n    class=\"_md nr-dashboard-text layout-align-center-center nr-dashboard-widget-text visible\" \n    style=\"background-color: {{msg.payload.color}}; color: black; left: 0px; top: 54px; width: 300px; height: 96px;\">\n    <p class=\"label\">{{msg.payload.room}}</p><p>{{msg.payload.text}}</p> <p class=\"value\">{{msg.payload.hint}}</p>\n</md-card>\n",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "x": 1320,
+        "y": 660,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "33e8db68.d3a814",
+        "type": "mqtt in",
+        "z": "3a471104.edfbae",
+        "name": "",
+        "topic": "treppenhaus_keller/binary_sensor/button1/state",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "c349b9ff.9dc4c8",
+        "x": 240,
+        "y": 480,
+        "wires": [
+            [
+                "9e0605ed.8497b8"
+            ]
+        ]
+    },
+    {
+        "id": "9e0605ed.8497b8",
+        "type": "function",
+        "z": "3a471104.edfbae",
+        "name": "toggle state",
+        "func": "if (msg.payload != \"ON\") {\n    return undefined;\n}\n\nvar topic = \"treppenhaus_kellerlicht\";\nvar current_state = flow.get(topic);\n\nif (current_state === \"OFF\")\n    return {payload: \"ON\"}\nelse\n    return {payload: \"OFF\"};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 530,
+        "y": 440,
+        "wires": [
+            [
+                "3eb024a5.e9f9bc"
+            ]
+        ]
+    },
+    {
+        "id": "8f0a4f28.6f3c4",
+        "type": "mqtt in",
+        "z": "4d90b497.b5b2ac",
+        "name": "",
+        "topic": "test_esp/binary_sensor/lueften/state",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "c349b9ff.9dc4c8",
+        "x": 260,
+        "y": 640,
+        "wires": [
+            [
+                "949c2915.41cbb8"
+            ]
+        ]
+    },
+    {
+        "id": "92c6f73d.d38e98",
+        "type": "mqtt out",
+        "z": "4d90b497.b5b2ac",
+        "name": "",
+        "topic": "test_esp/switch/servo/command",
+        "qos": "",
+        "retain": "",
+        "broker": "c349b9ff.9dc4c8",
+        "x": 1200,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "341192ad.5f46be",
+        "type": "mqtt out",
+        "z": "4d90b497.b5b2ac",
+        "name": "",
+        "topic": "test_esp/switch/red/command",
+        "qos": "",
+        "retain": "",
+        "broker": "c349b9ff.9dc4c8",
+        "x": 1190,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "febc79d8.468048",
+        "type": "mqtt out",
+        "z": "4d90b497.b5b2ac",
+        "name": "",
+        "topic": "test_esp/switch/yellow/command",
+        "qos": "",
+        "retain": "",
+        "broker": "c349b9ff.9dc4c8",
+        "x": 1200,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "c8ee7404.bf05b8",
+        "type": "mqtt out",
+        "z": "4d90b497.b5b2ac",
+        "name": "",
+        "topic": "test_esp/switch/green/command",
+        "qos": "",
+        "retain": "",
+        "broker": "c349b9ff.9dc4c8",
+        "x": 1200,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "3389cd6e.2de5b2",
+        "type": "mqtt in",
+        "z": "4d90b497.b5b2ac",
+        "name": "",
+        "topic": "test_esp/binary_sensor/nicht_lueften/state",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "c349b9ff.9dc4c8",
+        "x": 280,
+        "y": 680,
+        "wires": [
+            [
+                "cf2c65e2.59a078"
+            ]
+        ]
+    },
+    {
+        "id": "949c2915.41cbb8",
+        "type": "function",
+        "z": "4d90b497.b5b2ac",
+        "name": "store flow",
+        "func": "const val = msg.payload;\nflow.set(msg.topic, val);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 520,
+        "y": 640,
+        "wires": [
+            [
+                "aea42133.521d6"
+            ]
+        ]
+    },
+    {
+        "id": "cf2c65e2.59a078",
+        "type": "function",
+        "z": "4d90b497.b5b2ac",
+        "name": "store flow",
+        "func": "const val = msg.payload;\nflow.set(msg.topic, val);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 520,
+        "y": 680,
+        "wires": [
+            [
+                "aea42133.521d6"
+            ]
+        ]
+    },
+    {
+        "id": "aea42133.521d6",
+        "type": "function",
+        "z": "4d90b497.b5b2ac",
+        "name": "",
+        "func": "const lueften = flow.get('test_esp/binary_sensor/lueften/state') == 'ON';\nconst nicht_lueften = flow.get('test_esp/binary_sensor/nicht_lueften/state') == 'ON';\nconst automatic = !lueften && !nicht_lueften;\n\nif (false) {\n    node.warn(`lueften: ${lueften}`);\n    node.warn(`nicht_lueften: ${lueften}`);\n    node.warn(`automatic: ${lueften}`);\n}\n\nreturn [\n    {payload: (lueften) ? 'ON' : 'OFF'},\n    {payload: (automatic) ? 'ON' : 'OFF'}\n];",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 560,
+        "y": 520,
+        "wires": [
+            [
+                "74d29041.9a5c4",
+                "3ed13b86.d374b4"
+            ],
+            [
+                "d5fef74c.c342e8",
+                "6d8574a6.5658ec"
+            ]
+        ]
+    },
+    {
+        "id": "21f07479.c7da9c",
+        "type": "function",
+        "z": "4d90b497.b5b2ac",
+        "name": "not",
+        "func": "return {payload: (msg.payload == 'ON' ? 'OFF' : 'ON')};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 950,
+        "y": 520,
+        "wires": [
+            [
+                "341192ad.5f46be"
+            ]
+        ]
+    },
+    {
+        "id": "3ed13b86.d374b4",
+        "type": "debug",
+        "z": "4d90b497.b5b2ac",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 750,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "6d8574a6.5658ec",
+        "type": "debug",
+        "z": "4d90b497.b5b2ac",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 750,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "5a82383.d4d5ec8",
+        "type": "mqtt in",
+        "z": "2f328ad8.26ca86",
+        "name": "",
+        "topic": "zigbee2mqtt/gas_zaehler",
+        "qos": "2",
+        "datatype": "json",
+        "broker": "c349b9ff.9dc4c8",
+        "x": 290,
+        "y": 560,
+        "wires": [
+            [
+                "6238d883.2f3dd8"
+            ]
+        ]
+    },
+    {
+        "id": "6238d883.2f3dd8",
+        "type": "function",
+        "z": "2f328ad8.26ca86",
+        "name": "",
+        "func": "if (msg.payload.contact) {\n    const topic = msg.topic;\n    var counter = (flow.get(topic) || 0) + 0.01;\n    flow.set(topic, counter);\n    return {topic: topic, payload: {counter: counter}};\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 520,
+        "y": 560,
+        "wires": [
+            [
+                "afb0333e.affc6",
+                "cdbf2a81.584de8"
+            ]
+        ]
+    },
+    {
+        "id": "a945560e.32cd08",
+        "type": "fritz-thermostat",
+        "z": "4d90b497.b5b2ac",
+        "connection": "c2e6322e.33404",
+        "name": "",
+        "action": "getDevice",
+        "x": 510,
+        "y": 1180,
+        "wires": [
+            [
+                "9f6756cf.150c28"
+            ]
+        ]
+    },
+    {
+        "id": "1c2f8beb.29d2a4",
+        "type": "inject",
+        "z": "4d90b497.b5b2ac",
+        "name": "inject heater_id",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "5",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "099950702018",
+        "payload": "",
+        "payloadType": "str",
+        "x": 300,
+        "y": 1140,
+        "wires": [
+            [
+                "a945560e.32cd08"
+            ]
+        ]
+    },
+    {
+        "id": "9f6756cf.150c28",
+        "type": "debug",
+        "z": "4d90b497.b5b2ac",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 740,
+        "y": 1180,
+        "wires": []
+    },
+    {
+        "id": "80e3bdcf.87103",
+        "type": "function",
+        "z": "4d90b497.b5b2ac",
+        "name": "",
+        "func": "return {\n    payload: {hkr: {windowopenactiveendtime: \"1\"}},\n    topic: \"099950702018\"\n};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 280,
+        "y": 1220,
+        "wires": [
+            [
+                "a945560e.32cd08"
+            ]
+        ]
+    },
+    {
+        "id": "b229.b9fe8dd748",
+        "type": "inject",
+        "z": "4d90b497.b5b2ac",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 90,
+        "y": 1200,
+        "wires": [
+            [
+                "80e3bdcf.87103"
+            ]
+        ]
+    },
+    {
+        "id": "afb0333e.affc6",
+        "type": "link out",
+        "z": "2f328ad8.26ca86",
+        "name": "Gas Zähler",
+        "links": [
+            "4708a180.a07a"
+        ],
+        "x": 635,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "d7eb448b.d6abd8",
+        "type": "ui_text",
+        "z": "2f328ad8.26ca86",
+        "group": "a8a6836d.1b1cf",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Zähler",
+        "format": "{{msg.payload.counter}}",
+        "layout": "row-spread",
+        "x": 830,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "b68c509.d70b4b",
+        "type": "mqtt in",
+        "z": "dac2cb3b.559138",
+        "name": "",
+        "topic": "zigbee2mqtt/bewegungsmelder_bad",
+        "qos": "2",
+        "datatype": "json",
+        "broker": "c349b9ff.9dc4c8",
+        "x": 220,
+        "y": 180,
+        "wires": [
+            [
+                "38d9691b.b2f516"
+            ]
+        ]
+    },
+    {
+        "id": "7b56cfeb.46625",
+        "type": "mqtt out",
+        "z": "dac2cb3b.559138",
+        "name": "",
+        "topic": "zigbee2mqtt/zirkulationspumpe/set",
+        "qos": "",
+        "retain": "",
+        "broker": "c349b9ff.9dc4c8",
+        "x": 1100,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "7041ae49.67732",
+        "type": "mqtt in",
+        "z": "dac2cb3b.559138",
+        "name": "",
+        "topic": "zigbee2mqtt/bewegungsmelder_gaeste_wc",
+        "qos": "2",
+        "datatype": "json",
+        "broker": "c349b9ff.9dc4c8",
+        "x": 250,
+        "y": 220,
+        "wires": [
+            [
+                "38d9691b.b2f516"
+            ]
+        ]
+    },
+    {
+        "id": "38d9691b.b2f516",
+        "type": "function",
+        "z": "dac2cb3b.559138",
+        "name": "map occupancy to ON",
+        "func": "if (msg.payload[\"occupancy\"])\n    return {payload: \"ON\"}\nelse \n    return {payload: \"OFF\"};\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 600,
+        "y": 240,
+        "wires": [
+            [
+                "d5f3f736.318c48"
+            ]
+        ]
+    },
+    {
+        "id": "d5f3f736.318c48",
+        "type": "ui_switch",
+        "z": "dac2cb3b.559138",
+        "name": "Zirkulationspumpe",
+        "label": "Zirkulationspumpe",
+        "tooltip": "",
+        "group": "85193673.744e38",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "zirkulationspumpe",
+        "topicType": "str",
+        "style": "",
+        "onvalue": "ON",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "OFF",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "animate": true,
+        "x": 830,
+        "y": 240,
+        "wires": [
+            [
+                "dfc7c2ea.ec43",
+                "7b56cfeb.46625"
+            ]
+        ]
+    },
+    {
+        "id": "5f8f40ff.455c1",
+        "type": "trigger",
+        "z": "dac2cb3b.559138",
+        "name": "5 Minuten-Timer",
+        "op1": "",
+        "op2": "OFF",
+        "op1type": "nul",
+        "op2type": "str",
+        "duration": "5",
+        "extend": true,
+        "overrideDelay": false,
+        "units": "min",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 940,
+        "y": 340,
+        "wires": [
+            [
+                "d5f3f736.318c48"
+            ]
+        ]
+    },
+    {
+        "id": "dfc7c2ea.ec43",
+        "type": "function",
+        "z": "dac2cb3b.559138",
+        "name": "filter ON",
+        "func": "if (msg.payload === \"ON\")\n    return {payload: \"ON\"}\nelse\n    return undefined;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 760,
+        "y": 340,
+        "wires": [
+            [
+                "5f8f40ff.455c1"
+            ]
+        ]
+    },
+    {
+        "id": "1f4ec988.5e9d16",
+        "type": "mqtt in",
+        "z": "dac2cb3b.559138",
+        "name": "",
+        "topic": "zigbee2mqtt/bewegungsmelder_kueche",
+        "qos": "2",
+        "datatype": "json",
+        "broker": "c349b9ff.9dc4c8",
+        "x": 240,
+        "y": 260,
+        "wires": [
+            [
+                "38d9691b.b2f516"
+            ]
+        ]
+    },
+    {
+        "id": "9daf226d.1f43e",
+        "type": "mqtt in",
+        "z": "dac2cb3b.559138",
+        "name": "",
+        "topic": "zigbee2mqtt/bewegungsmelder_bad_dg",
+        "qos": "2",
+        "datatype": "json",
+        "broker": "c349b9ff.9dc4c8",
+        "x": 240,
+        "y": 300,
+        "wires": [
+            [
+                "38d9691b.b2f516"
+            ]
+        ]
+    },
+    {
+        "id": "ff9d667f.fa9df8",
+        "type": "function",
+        "z": "2f328ad8.26ca86",
+        "name": "",
+        "func": "if (msg.payload.counter) {\n    flow.set(msg.topic, msg.payload.counter);\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 500,
+        "y": 640,
+        "wires": [
+            [
+                "cdbf2a81.584de8"
+            ]
+        ]
+    },
+    {
+        "id": "231f1768.7a5958",
+        "type": "inject",
+        "z": "2f328ad8.26ca86",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "zigbee2mqtt/gas_zaehler",
+        "payload": "{\"counter\": 4298.81}",
+        "payloadType": "json",
+        "x": 290,
+        "y": 640,
+        "wires": [
+            [
+                "ff9d667f.fa9df8"
+            ]
+        ]
+    },
+    {
+        "id": "cdbf2a81.584de8",
+        "type": "function",
+        "z": "2f328ad8.26ca86",
+        "name": "",
+        "func": "const intl = global.get('intl');\nmsg.payload.counter = intl.NumberFormat('de-De',{\n        style:'decimal', \n        maximumFractionDigits: 2,\n        minimumFractionDigits: 2\n    }).format(msg.payload.counter);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 680,
+        "y": 600,
+        "wires": [
+            [
+                "d7eb448b.d6abd8"
+            ]
+        ]
+    },
+    {
+        "id": "137fe45c.47150c",
+        "type": "function",
+        "z": "2f328ad8.26ca86",
+        "name": "",
+        "func": "const intl = global.get('intl');\nmsg.payload = intl.NumberFormat('de-De',{\n        style:'decimal', \n        minimumFractionDigits: 2,\n        maximumFractionDigits: 2\n    }).format(msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 640,
+        "y": 400,
+        "wires": [
+            [
+                "a135ae90.6531b"
+            ]
+        ]
+    },
+    {
+        "id": "a135ae90.6531b",
+        "type": "ui_text",
+        "z": "2f328ad8.26ca86",
+        "group": "dab59e38.c408e",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Zähler",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 790,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "3ca20e83.001932",
+        "type": "inject",
+        "z": "2788b93b.8a2f56",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 120,
+        "y": 700,
+        "wires": [
+            [
+                "6604bb11.21e7b4"
+            ]
+        ]
+    },
+    {
+        "id": "d0850296.f2a0f",
+        "type": "thingzi-timer",
+        "z": "293bb437.fa00bc",
+        "name": "Licht aus",
+        "lat": "50.882",
+        "lon": "6.6949",
+        "timerType": "onoff",
+        "startupMessage": true,
+        "ontype": "tod",
+        "ontimesun": "dusk",
+        "ontimetod": "",
+        "onpropertytype": "msg",
+        "onproperty": "payload",
+        "onvaluetype": "str",
+        "onvalue": "ON",
+        "onoffset": "",
+        "onrandomoffset": false,
+        "offtype": "tod",
+        "offtimesun": "dawn",
+        "offtimetod": "23:00",
+        "offpropertytype": "msg",
+        "offproperty": "payload",
+        "offvaluetype": "str",
+        "offvalue": "OFF",
+        "offoffset": "",
+        "offrandomoffset": false,
+        "mon": true,
+        "tue": true,
+        "wed": true,
+        "thu": true,
+        "fri": true,
+        "sat": true,
+        "sun": true,
+        "x": 540,
+        "y": 200,
+        "wires": [
+            [
+                "7e1d2b18.0c9484",
+                "eabff51d.1ce108"
+            ]
+        ]
     }
 ]
