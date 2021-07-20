@@ -77,95 +77,6 @@
         "info": ""
     },
     {
-        "id": "befdc0fb.ac3d3",
-        "type": "subflow",
-        "name": "blink",
-        "info": "",
-        "category": "",
-        "in": [
-            {
-                "x": 160,
-                "y": 120,
-                "wires": [
-                    {
-                        "id": "f01a88f1.841248"
-                    }
-                ]
-            }
-        ],
-        "out": [
-            {
-                "x": 880,
-                "y": 260,
-                "wires": [
-                    {
-                        "id": "f01a88f1.841248",
-                        "port": 0
-                    },
-                    {
-                        "id": "b6139de2.2f87d",
-                        "port": 0
-                    }
-                ]
-            }
-        ],
-        "env": [],
-        "color": "#DDAA99"
-    },
-    {
-        "id": "74074f6d.94c6d",
-        "type": "subflow",
-        "name": "detect short long",
-        "info": "",
-        "category": "",
-        "in": [
-            {
-                "x": 60,
-                "y": 120,
-                "wires": [
-                    {
-                        "id": "d15cd0de.e4d8a"
-                    }
-                ]
-            }
-        ],
-        "out": [
-            {
-                "x": 860,
-                "y": 80,
-                "wires": [
-                    {
-                        "id": "c7393d5d.d251",
-                        "port": 0
-                    }
-                ]
-            },
-            {
-                "x": 860,
-                "y": 160,
-                "wires": [
-                    {
-                        "id": "c7393d5d.d251",
-                        "port": 1
-                    }
-                ]
-            }
-        ],
-        "env": [],
-        "color": "#DDAA99"
-    },
-    {
-        "id": "44f6655c.d047bc",
-        "type": "subflow",
-        "name": "Blink",
-        "info": "",
-        "category": "",
-        "in": [],
-        "out": [],
-        "env": [],
-        "color": "#DDAA99"
-    },
-    {
         "id": "c349b9ff.9dc4c8",
         "type": "mqtt-broker",
         "name": "dipe",
@@ -723,65 +634,6 @@
         "collapse": false
     },
     {
-        "id": "f01a88f1.841248",
-        "type": "template",
-        "z": "befdc0fb.ac3d3",
-        "name": "Action toggle",
-        "field": "payload",
-        "fieldType": "msg",
-        "format": "json",
-        "syntax": "mustache",
-        "template": "{\"action\": \"toggle\"}",
-        "output": "json",
-        "x": 330,
-        "y": 120,
-        "wires": [
-            [
-                "5f7ad033.88514"
-            ]
-        ]
-    },
-    {
-        "id": "b6139de2.2f87d",
-        "type": "template",
-        "z": "befdc0fb.ac3d3",
-        "name": "Action toggle",
-        "field": "payload",
-        "fieldType": "msg",
-        "format": "json",
-        "syntax": "mustache",
-        "template": "{\"action\": \"toggle\"}",
-        "output": "json",
-        "x": 730,
-        "y": 120,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "5f7ad033.88514",
-        "type": "delay",
-        "z": "befdc0fb.ac3d3",
-        "name": "",
-        "pauseType": "delay",
-        "timeout": "500",
-        "timeoutUnits": "milliseconds",
-        "rate": "1",
-        "nbRateUnits": "1",
-        "rateUnits": "second",
-        "randomFirst": "1",
-        "randomLast": "5",
-        "randomUnits": "seconds",
-        "drop": false,
-        "x": 550,
-        "y": 120,
-        "wires": [
-            [
-                "b6139de2.2f87d"
-            ]
-        ]
-    },
-    {
         "id": "664aeec7.e753d",
         "type": "switch",
         "z": "37daec28.284ee4",
@@ -863,35 +715,6 @@
         ]
     },
     {
-        "id": "c7393d5d.d251",
-        "type": "switch",
-        "z": "74074f6d.94c6d",
-        "name": "",
-        "property": "payload",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "short",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "long",
-                "vt": "str"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 2,
-        "x": 730,
-        "y": 120,
-        "wires": [
-            [],
-            []
-        ]
-    },
-    {
         "id": "b878ef06.91fa7",
         "type": "json",
         "z": "37daec28.284ee4",
@@ -904,47 +727,6 @@
         "wires": [
             [
                 "664aeec7.e753d"
-            ]
-        ]
-    },
-    {
-        "id": "500b4e64.84283",
-        "type": "change",
-        "z": "74074f6d.94c6d",
-        "name": "Process delta",
-        "rules": [
-            {
-                "t": "set",
-                "p": "threshold",
-                "pt": "msg",
-                "to": "400",
-                "tot": "num"
-            },
-            {
-                "t": "set",
-                "p": "delta",
-                "pt": "msg",
-                "to": "payload[1].timestamp - payload[0].timestamp",
-                "tot": "jsonata"
-            },
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "delta <= 5000 ? (delta < threshold ? 'short' : 'long') : undefined",
-                "tot": "jsonata"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 560,
-        "y": 120,
-        "wires": [
-            [
-                "c7393d5d.d251"
             ]
         ]
     },
@@ -962,61 +744,6 @@
         "wires": [
             [
                 "b878ef06.91fa7"
-            ]
-        ]
-    },
-    {
-        "id": "113b0178.6ed4ff",
-        "type": "join",
-        "z": "74074f6d.94c6d",
-        "name": "",
-        "mode": "custom",
-        "build": "array",
-        "property": "payload",
-        "propertyType": "msg",
-        "key": "payload.state",
-        "joiner": "\\n",
-        "joinerType": "str",
-        "accumulate": false,
-        "timeout": "5",
-        "count": "2",
-        "reduceRight": false,
-        "reduceExp": "",
-        "reduceInit": "",
-        "reduceInitType": "",
-        "reduceFixup": "",
-        "x": 390,
-        "y": 120,
-        "wires": [
-            [
-                "500b4e64.84283"
-            ]
-        ]
-    },
-    {
-        "id": "d15cd0de.e4d8a",
-        "type": "change",
-        "z": "74074f6d.94c6d",
-        "name": "Add timestamp",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "{'state': payload, 'timestamp': $millis()}",
-                "tot": "jsonata"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 220,
-        "y": 120,
-        "wires": [
-            [
-                "113b0178.6ed4ff"
             ]
         ]
     },
