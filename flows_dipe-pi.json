@@ -155,6 +155,17 @@
         "color": "#DDAA99"
     },
     {
+        "id": "44f6655c.d047bc",
+        "type": "subflow",
+        "name": "Blink",
+        "info": "",
+        "category": "",
+        "in": [],
+        "out": [],
+        "env": [],
+        "color": "#DDAA99"
+    },
+    {
         "id": "c349b9ff.9dc4c8",
         "type": "mqtt-broker",
         "name": "dipe",
@@ -280,7 +291,7 @@
                 "accents": "blue",
                 "warn": "red",
                 "background": "grey",
-                "palette": "light"
+                "palette": "dark"
             }
         },
         "site": {
@@ -3346,8 +3357,8 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 640,
-        "y": 240,
+        "x": 600,
+        "y": 80,
         "wires": [
             [
                 "678631ab.fe1bb"
@@ -3374,8 +3385,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 260,
-        "y": 240,
+        "x": 220,
+        "y": 80,
         "wires": [
             [
                 "3e907215.115b5e"
@@ -3391,8 +3402,8 @@
         "service": "urn:schemas-upnp-org:service:WANCommonInterfaceConfig:1",
         "action": "GetAddonInfos",
         "arguments": "{}",
-        "x": 450,
-        "y": 240,
+        "x": 410,
+        "y": 80,
         "wires": [
             [
                 "267d2e1.40785d2"
@@ -4966,7 +4977,6 @@
         "y": 560,
         "wires": [
             [
-                "8f4a8f67.f0316",
                 "dac326a7.c5d638"
             ]
         ]
@@ -6019,8 +6029,8 @@
         "qos": "2",
         "datatype": "auto",
         "broker": "c349b9ff.9dc4c8",
-        "x": 360,
-        "y": 300,
+        "x": 320,
+        "y": 140,
         "wires": [
             [
                 "ea99ed95.a6b5f"
@@ -6036,8 +6046,8 @@
         "qos": "2",
         "datatype": "auto",
         "broker": "c349b9ff.9dc4c8",
-        "x": 360,
-        "y": 360,
+        "x": 320,
+        "y": 200,
         "wires": [
             [
                 "8452f01b.9b7a2",
@@ -6246,8 +6256,8 @@
         "links": [
             "cf2bd5c4.367d88"
         ],
-        "x": 595,
-        "y": 300,
+        "x": 555,
+        "y": 140,
         "wires": []
     },
     {
@@ -6258,8 +6268,8 @@
         "links": [
             "cbdd2a4.e9dcad8"
         ],
-        "x": 595,
-        "y": 360,
+        "x": 555,
+        "y": 200,
         "wires": []
     },
     {
@@ -6270,8 +6280,8 @@
         "links": [
             "c464d2a1.b031e"
         ],
-        "x": 775,
-        "y": 220,
+        "x": 735,
+        "y": 60,
         "wires": []
     },
     {
@@ -6282,8 +6292,8 @@
         "links": [
             "e94f62b.6a086a"
         ],
-        "x": 775,
-        "y": 260,
+        "x": 735,
+        "y": 100,
         "wires": []
     },
     {
@@ -6482,16 +6492,16 @@
         "type": "function",
         "z": "2788b93b.8a2f56",
         "name": "",
-        "func": "const room = msg.payload.room;\nconst hint = msg.payload.hint;\n\nconst l = flow.get(\"lueftungsempfehlungen\") || {};\n\nif (l[room] != hint) {\n    l[room] = hint;\n    flow.set(\"lueftungsempfehlungen\", l);\n    return {payload: `${room}: ${hint}`};\n}",
+        "func": "const hint = msg.payload.hint;\nconst text = msg.payload.text;\n\nconst lh = flow.get(\"lueftungsempfehlungen_hint\") || {};\n\nif (lh != hint) {\n    flow.set(\"lueftungsempfehlungen_hint\", hint);\n    return {payload: `${hint}\\n${text}\\nmehr: http://dipe-pi:1880/ui/#!/7?socketid=xoYPAh22ZP1gOFpmAAAA`};\n}",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 900,
-        "y": 620,
+        "x": 860,
+        "y": 420,
         "wires": [
             [
-                "92221171.b4219"
+                "bea87736.5db2d8"
             ]
         ]
     },
@@ -6499,14 +6509,13 @@
         "id": "bea87736.5db2d8",
         "type": "hangoutChatBot",
         "z": "2788b93b.8a2f56",
-        "d": true,
         "hangoutsCertificate": "10925253.f46f4e",
         "roomid": "spaces/-fp3jQAAAAE",
         "roomname": "spaces/-fp3jQAAAAE",
         "contentproperty": "payload",
         "contenttype": "msg",
-        "x": 900,
-        "y": 700,
+        "x": 860,
+        "y": 460,
         "wires": [
             []
         ]
@@ -6519,18 +6528,18 @@
         "pauseType": "rate",
         "timeout": "5",
         "timeoutUnits": "seconds",
-        "rate": "3",
-        "nbRateUnits": "1",
+        "rate": "1",
+        "nbRateUnits": "3",
         "rateUnits": "hour",
         "randomFirst": "1",
         "randomLast": "5",
         "randomUnits": "seconds",
         "drop": false,
-        "x": 910,
-        "y": 660,
+        "x": 880,
+        "y": 380,
         "wires": [
             [
-                "bea87736.5db2d8"
+                "8f4a8f67.f0316"
             ]
         ]
     },
@@ -7750,7 +7759,8 @@
         "y": 340,
         "wires": [
             [
-                "dac326a7.c5d638"
+                "dac326a7.c5d638",
+                "95ffdad4.8bfbc8"
             ]
         ]
     },
@@ -8634,8 +8644,8 @@
         "qos": "2",
         "datatype": "json",
         "broker": "c349b9ff.9dc4c8",
-        "x": 290,
-        "y": 560,
+        "x": 250,
+        "y": 400,
         "wires": [
             [
                 "6238d883.2f3dd8"
@@ -8652,8 +8662,8 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 520,
-        "y": 560,
+        "x": 480,
+        "y": 400,
         "wires": [
             [
                 "afb0333e.affc6",
@@ -8776,8 +8786,8 @@
         "links": [
             "4708a180.a07a"
         ],
-        "x": 635,
-        "y": 560,
+        "x": 595,
+        "y": 400,
         "wires": []
     },
     {
@@ -8792,8 +8802,8 @@
         "label": "Zähler",
         "format": "{{msg.payload.counter}}",
         "layout": "row-spread",
-        "x": 830,
-        "y": 600,
+        "x": 790,
+        "y": 440,
         "wires": []
     },
     {
@@ -8806,10 +8816,10 @@
         "datatype": "json",
         "broker": "c349b9ff.9dc4c8",
         "x": 220,
-        "y": 180,
+        "y": 140,
         "wires": [
             [
-                "38d9691b.b2f516"
+                "79b228de.d578d8"
             ]
         ]
     },
@@ -8822,7 +8832,7 @@
         "qos": "",
         "retain": "",
         "broker": "c349b9ff.9dc4c8",
-        "x": 1100,
+        "x": 1040,
         "y": 240,
         "wires": []
     },
@@ -8836,10 +8846,10 @@
         "datatype": "json",
         "broker": "c349b9ff.9dc4c8",
         "x": 250,
-        "y": 220,
+        "y": 180,
         "wires": [
             [
-                "38d9691b.b2f516"
+                "79b228de.d578d8"
             ]
         ]
     },
@@ -8848,13 +8858,13 @@
         "type": "function",
         "z": "dac2cb3b.559138",
         "name": "map occupancy to ON",
-        "func": "if (msg.payload[\"occupancy\"])\n    return {payload: \"ON\"}\nelse \n    return {payload: \"OFF\"};\n",
+        "func": "if (msg.payload[\"occupancy\"])\n    return {payload: \"ON\"};",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 600,
-        "y": 240,
+        "x": 780,
+        "y": 200,
         "wires": [
             [
                 "d5f3f736.318c48"
@@ -8886,7 +8896,7 @@
         "officon": "",
         "offcolor": "",
         "animate": true,
-        "x": 830,
+        "x": 770,
         "y": 240,
         "wires": [
             [
@@ -8912,8 +8922,8 @@
         "bytopic": "all",
         "topic": "topic",
         "outputs": 1,
-        "x": 940,
-        "y": 340,
+        "x": 860,
+        "y": 320,
         "wires": [
             [
                 "d5f3f736.318c48"
@@ -8925,13 +8935,13 @@
         "type": "function",
         "z": "dac2cb3b.559138",
         "name": "filter ON",
-        "func": "if (msg.payload === \"ON\")\n    return {payload: \"ON\"}\nelse\n    return undefined;\n",
+        "func": "if (msg.payload === \"ON\")\n    return {payload: \"ON\"}\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 760,
-        "y": 340,
+        "x": 680,
+        "y": 320,
         "wires": [
             [
                 "5f8f40ff.455c1"
@@ -8948,10 +8958,10 @@
         "datatype": "json",
         "broker": "c349b9ff.9dc4c8",
         "x": 240,
-        "y": 260,
+        "y": 220,
         "wires": [
             [
-                "38d9691b.b2f516"
+                "79b228de.d578d8"
             ]
         ]
     },
@@ -8965,10 +8975,10 @@
         "datatype": "json",
         "broker": "c349b9ff.9dc4c8",
         "x": 240,
-        "y": 300,
+        "y": 260,
         "wires": [
             [
-                "38d9691b.b2f516"
+                "79b228de.d578d8"
             ]
         ]
     },
@@ -8982,8 +8992,8 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 500,
-        "y": 640,
+        "x": 480,
+        "y": 480,
         "wires": [
             [
                 "cdbf2a81.584de8"
@@ -9009,10 +9019,10 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "zigbee2mqtt/gas_zaehler",
-        "payload": "{\"counter\": 4298.81}",
+        "payload": "{\"counter\": 4302.64}",
         "payloadType": "json",
-        "x": 290,
-        "y": 640,
+        "x": 250,
+        "y": 480,
         "wires": [
             [
                 "ff9d667f.fa9df8"
@@ -9024,13 +9034,13 @@
         "type": "function",
         "z": "2f328ad8.26ca86",
         "name": "",
-        "func": "const intl = global.get('intl');\nmsg.payload.counter = intl.NumberFormat('de-De',{\n        style:'decimal', \n        maximumFractionDigits: 2,\n        minimumFractionDigits: 2\n    }).format(msg.payload.counter);\nreturn msg;",
+        "func": "const intl = global.get('intl');\nmsg.payload.counter = intl.NumberFormat('de-De',{\n        style:'decimal', \n        maximumFractionDigits: 2,\n        minimumFractionDigits: 2\n    }).format(msg.payload.counter) + \" m³\";\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 680,
-        "y": 600,
+        "x": 640,
+        "y": 440,
         "wires": [
             [
                 "d7eb448b.d6abd8"
@@ -9042,13 +9052,13 @@
         "type": "function",
         "z": "2f328ad8.26ca86",
         "name": "",
-        "func": "const intl = global.get('intl');\nmsg.payload = intl.NumberFormat('de-De',{\n        style:'decimal', \n        minimumFractionDigits: 2,\n        maximumFractionDigits: 2\n    }).format(msg.payload);\nreturn msg;",
+        "func": "const intl = global.get('intl');\nmsg.payload = intl.NumberFormat('de-De',{\n        style:'decimal', \n        minimumFractionDigits: 2,\n        maximumFractionDigits: 2\n    }).format(msg.payload) + \" kWh\";\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 640,
-        "y": 400,
+        "x": 600,
+        "y": 240,
         "wires": [
             [
                 "a135ae90.6531b"
@@ -9067,8 +9077,8 @@
         "label": "Zähler",
         "format": "{{msg.payload}}",
         "layout": "row-spread",
-        "x": 790,
-        "y": 400,
+        "x": 750,
+        "y": 240,
         "wires": []
     },
     {
@@ -9141,6 +9151,40 @@
                 "7e1d2b18.0c9484",
                 "eabff51d.1ce108"
             ]
+        ]
+    },
+    {
+        "id": "95ffdad4.8bfbc8",
+        "type": "time-of-day",
+        "z": "2788b93b.8a2f56",
+        "name": "",
+        "startTime": "07:30:00",
+        "endTime": "22:30:00",
+        "outputs": 2,
+        "x": 870,
+        "y": 340,
+        "wires": [
+            [
+                "92221171.b4219"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "79b228de.d578d8",
+        "type": "time-of-day",
+        "z": "dac2cb3b.559138",
+        "name": "",
+        "startTime": "05:00:00",
+        "endTime": "22:00:00",
+        "outputs": 2,
+        "x": 570,
+        "y": 200,
+        "wires": [
+            [
+                "38d9691b.b2f516"
+            ],
+            []
         ]
     }
 ]
