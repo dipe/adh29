@@ -51,14 +51,14 @@
     {
         "id": "dac2cb3b.559138",
         "type": "tab",
-        "label": "Heizung",
+        "label": "Warmwasser",
         "disabled": false,
         "info": ""
     },
     {
         "id": "4fa3b184.bc7fb",
         "type": "tab",
-        "label": "Luftgüte",
+        "label": "Luftgütemesser1",
         "disabled": false,
         "info": ""
     },
@@ -266,7 +266,7 @@
         "type": "ui_tab",
         "name": "Esszimmer",
         "icon": "dashboard",
-        "order": 3,
+        "order": 4,
         "disabled": false,
         "hidden": false
     },
@@ -325,7 +325,7 @@
         "type": "ui_tab",
         "name": "Waschküche",
         "icon": "dashboard",
-        "order": 4,
+        "order": 6,
         "disabled": false,
         "hidden": false
     },
@@ -344,7 +344,7 @@
         "type": "ui_tab",
         "name": "Verbrauch",
         "icon": "dashboard",
-        "order": 7,
+        "order": 10,
         "disabled": false,
         "hidden": false
     },
@@ -378,7 +378,7 @@
         "type": "ui_tab",
         "name": "Außen",
         "icon": "dashboard",
-        "order": 6,
+        "order": 9,
         "disabled": false,
         "hidden": false
     },
@@ -512,7 +512,7 @@
         "type": "ui_tab",
         "name": "Treppenhaus",
         "icon": "dashboard",
-        "order": 5,
+        "order": 8,
         "disabled": false,
         "hidden": false
     },
@@ -561,7 +561,7 @@
         "type": "ui_tab",
         "name": "Lüftungsempfehlungen",
         "icon": "dashboard",
-        "order": 9,
+        "order": 12,
         "disabled": false,
         "hidden": false
     },
@@ -597,7 +597,7 @@
         "type": "ui_tab",
         "name": "Home",
         "icon": "dashboard",
-        "order": 2,
+        "order": 3,
         "disabled": false,
         "hidden": false
     },
@@ -614,21 +614,22 @@
     {
         "id": "e2d75124.92d37",
         "type": "ui_tab",
-        "name": "Heizung",
+        "name": "Warmwasser",
         "icon": "dashboard",
-        "order": 8,
+        "order": 11,
         "disabled": false,
         "hidden": false
     },
     {
         "id": "85193673.744e38",
         "type": "ui_group",
-        "name": "Group 1",
+        "name": "Timer",
         "tab": "e2d75124.92d37",
         "order": 1,
-        "disp": false,
+        "disp": true,
         "width": "6",
-        "collapse": false
+        "collapse": false,
+        "className": ""
     },
     {
         "id": "dab59e38.c408e",
@@ -655,7 +656,7 @@
         "type": "ui_tab",
         "name": "GrafanaTest",
         "icon": "dashboard",
-        "order": 37
+        "order": 13
     },
     {
         "id": "fae20a49.af3108",
@@ -694,9 +695,40 @@
         "type": "ui_tab",
         "name": "Main",
         "icon": "dashboard",
-        "order": 1,
+        "order": 2,
         "disabled": false,
         "hidden": false
+    },
+    {
+        "id": "eedc289c.0c0738",
+        "type": "ui_tab",
+        "name": "Werkstatt",
+        "icon": "dashboard",
+        "order": 7,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "d796a540.50d378",
+        "type": "ui_group",
+        "name": "Group 1",
+        "tab": "eedc289c.0c0738",
+        "order": 1,
+        "disp": false,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "10c3f1d2.4cdbde",
+        "type": "ui_group",
+        "name": "Manuel",
+        "tab": "e2d75124.92d37",
+        "order": 4,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
     },
     {
         "id": "664aeec7.e753d",
@@ -3448,8 +3480,8 @@
         "qos": "",
         "retain": "",
         "broker": "c349b9ff.9dc4c8",
-        "x": 1470,
-        "y": 400,
+        "x": 1450,
+        "y": 360,
         "wires": []
     },
     {
@@ -3548,8 +3580,8 @@
         "id": "3f392e15.5cb7d2",
         "type": "ui_switch",
         "z": "293bb437.fa00bc",
-        "name": "Kellertürscheinwerfer autm.",
-        "label": "Kellertürscheinwerfer autm.",
+        "name": "Kellertürscheinwerfer  (1 min)",
+        "label": "Kellertürscheinwerfer  (1 min)",
         "tooltip": "",
         "group": "d32aa509.f54168",
         "order": 4,
@@ -3589,7 +3621,7 @@
         "datatype": "auto",
         "broker": "c349b9ff.9dc4c8",
         "x": 180,
-        "y": 380,
+        "y": 300,
         "wires": [
             [
                 "8a4014a2.999cd8"
@@ -3648,8 +3680,8 @@
         "id": "c07473f0.eb252",
         "type": "ui_switch",
         "z": "3a471104.edfbae",
-        "name": "Treppenhaus",
-        "label": "Treppenhaus",
+        "name": "Treppenhaus  (1 min)",
+        "label": "Treppenhaus  (1 min)",
         "tooltip": "",
         "group": "64b01bd0.e1d1b4",
         "order": 5,
@@ -3658,6 +3690,7 @@
         "passthru": true,
         "decouple": "false",
         "topic": "treppenhaus",
+        "topicType": "str",
         "style": "",
         "onvalue": "ON",
         "onvalueType": "str",
@@ -3667,7 +3700,9 @@
         "offvalueType": "str",
         "officon": "",
         "offcolor": "",
-        "x": 790,
+        "animate": true,
+        "className": "",
+        "x": 820,
         "y": 360,
         "wires": [
             [
@@ -3687,10 +3722,10 @@
         "datatype": "json",
         "broker": "c349b9ff.9dc4c8",
         "x": 210,
-        "y": 660,
+        "y": 560,
         "wires": [
             [
-                "2d02fbe.4c51a04"
+                "38bf3abf.87fe76"
             ]
         ]
     },
@@ -3742,7 +3777,7 @@
         "initialize": "",
         "finalize": "",
         "x": 980,
-        "y": 760,
+        "y": 618,
         "wires": [
             [
                 "1bf72870.060278"
@@ -3777,10 +3812,10 @@
         "datatype": "json",
         "broker": "c349b9ff.9dc4c8",
         "x": 210,
-        "y": 320,
+        "y": 300,
         "wires": [
             [
-                "858eda45.27c1d8"
+                "c473a018.46907"
             ]
         ]
     },
@@ -3794,10 +3829,10 @@
         "datatype": "json",
         "broker": "c349b9ff.9dc4c8",
         "x": 210,
-        "y": 280,
+        "y": 340,
         "wires": [
             [
-                "858eda45.27c1d8"
+                "c473a018.46907"
             ]
         ]
     },
@@ -3811,10 +3846,10 @@
         "datatype": "json",
         "broker": "c349b9ff.9dc4c8",
         "x": 210,
-        "y": 240,
+        "y": 380,
         "wires": [
             [
-                "858eda45.27c1d8"
+                "c473a018.46907"
             ]
         ]
     },
@@ -3919,7 +3954,7 @@
         "template": "ON",
         "output": "str",
         "x": 550,
-        "y": 360,
+        "y": 300,
         "wires": [
             [
                 "eabff51d.1ce108"
@@ -3954,11 +3989,10 @@
         "datatype": "auto",
         "broker": "c349b9ff.9dc4c8",
         "x": 240,
-        "y": 1120,
+        "y": 998,
         "wires": [
             [
-                "b26ffbed.c2c898",
-                "57152044.f2916"
+                "b26ffbed.c2c898"
             ]
         ]
     },
@@ -3967,20 +4001,20 @@
         "type": "mqtt out",
         "z": "3a471104.edfbae",
         "name": "",
-        "topic": "treppenhaus_keller/switch/relay1/command",
+        "topic": "treppenhaus-keller/switch/relay1/command",
         "qos": "",
         "retain": "",
         "broker": "c349b9ff.9dc4c8",
         "x": 1310,
-        "y": 880,
+        "y": 738,
         "wires": []
     },
     {
         "id": "3eb024a5.e9f9bc",
         "type": "ui_switch",
         "z": "3a471104.edfbae",
-        "name": "Treppenhaus Keller autom.",
-        "label": "Treppenhaus Keller autom.",
+        "name": "Treppenhaus Keller (1 min)",
+        "label": "Treppenhaus Keller (1 min)",
         "tooltip": "",
         "group": "64b01bd0.e1d1b4",
         "order": 5,
@@ -4002,7 +4036,7 @@
         "animate": true,
         "className": "",
         "x": 740,
-        "y": 820,
+        "y": 678,
         "wires": [
             [
                 "4907d5.d804982c",
@@ -4039,7 +4073,7 @@
         "initialize": "",
         "finalize": "",
         "x": 560,
-        "y": 700,
+        "y": 560,
         "wires": [
             [
                 "d7f061.1e304fa"
@@ -4050,7 +4084,7 @@
         "id": "1bf72870.060278",
         "type": "trigger",
         "z": "3a471104.edfbae",
-        "name": "Treppenhausautomat",
+        "name": "Treppenhausautomat 1 min",
         "op1": "",
         "op2": "OFF",
         "op1type": "nul",
@@ -4063,8 +4097,8 @@
         "bytopic": "all",
         "topic": "topic",
         "outputs": 1,
-        "x": 1220,
-        "y": 760,
+        "x": 1240,
+        "y": 618,
         "wires": [
             [
                 "3eb024a5.e9f9bc"
@@ -4109,52 +4143,6 @@
             ],
             [
                 "755cd8db.bac358"
-            ]
-        ]
-    },
-    {
-        "id": "858eda45.27c1d8",
-        "type": "delay",
-        "z": "3a471104.edfbae",
-        "name": "",
-        "pauseType": "rate",
-        "timeout": "5",
-        "timeoutUnits": "seconds",
-        "rate": "1",
-        "nbRateUnits": "1",
-        "rateUnits": "minute",
-        "randomFirst": "1",
-        "randomLast": "5",
-        "randomUnits": "seconds",
-        "drop": false,
-        "x": 500,
-        "y": 280,
-        "wires": [
-            [
-                "c473a018.46907"
-            ]
-        ]
-    },
-    {
-        "id": "2d02fbe.4c51a04",
-        "type": "delay",
-        "z": "3a471104.edfbae",
-        "name": "",
-        "pauseType": "rate",
-        "timeout": "5",
-        "timeoutUnits": "seconds",
-        "rate": "1",
-        "nbRateUnits": "1",
-        "rateUnits": "minute",
-        "randomFirst": "1",
-        "randomLast": "5",
-        "randomUnits": "seconds",
-        "drop": false,
-        "x": 540,
-        "y": 660,
-        "wires": [
-            [
-                "38bf3abf.87fe76"
             ]
         ]
     },
@@ -5722,7 +5710,7 @@
             },
             {
                 "t": "eq",
-                "v": "luftfeuchtemesser1",
+                "v": "luftguetemesser1",
                 "vt": "str"
             },
             {
@@ -5744,11 +5732,16 @@
                 "t": "eq",
                 "v": "schlafzimmer",
                 "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "luftfeuchtemesser1",
+                "vt": "str"
             }
         ],
         "checkall": "false",
         "repair": false,
-        "outputs": 11,
+        "outputs": 12,
         "x": 1090,
         "y": 520,
         "wires": [
@@ -5784,6 +5777,9 @@
             ],
             [
                 "593cbcc1.6b4944"
+            ],
+            [
+                "4010afc2.28a54"
             ]
         ]
     },
@@ -5901,8 +5897,7 @@
         "y": 340,
         "wires": [
             [
-                "dac326a7.c5d638",
-                "95ffdad4.8bfbc8"
+                "dac326a7.c5d638"
             ]
         ]
     },
@@ -6009,7 +6004,8 @@
                 "6604bb11.21e7b4",
                 "800e50b3.1cd8f",
                 "d97bb3fb.f95d7",
-                "febd2e38.1a2e1"
+                "febd2e38.1a2e1",
+                "48f55ed2.c2f68"
             ]
         ]
     },
@@ -6035,7 +6031,7 @@
         "type": "function",
         "z": "2788b93b.8a2f56",
         "name": "initialize names-rooms mapping",
-        "func": "const room = global.set(\"names_rooms\", {\n    \"zwitscherbox_bad\": \"Bad\",\n    \"luftfeuchtemesser1\": \"Werkstatt\",\n    \"gaeste_wc\": \"Gäste-WC\",\n    \"waschkueche_luefter\": \"Waschküche\",\n    \"wozi\": \"Wohnzimmer\",\n    \"kueche\": \"Küche\",\n    \"aussen\": \"Draußen\",\n    \"aussen_t\": \"Test\"\n});\n",
+        "func": "const room = global.set(\"names_rooms\", {\n    \"zwitscherbox_bad\": \"Bad\",\n    \"luftguetemesser1\": \"Werkstatt\",\n    \"gaeste_wc\": \"Gäste-WC\",\n    \"waschkueche_luefter\": \"Waschküche\",\n    \"wozi\": \"Wohnzimmer\",\n    \"kueche\": \"Küche\",\n    \"aussen\": \"Draußen\",\n    \"aussen_t\": \"Test\",\n    \"luftfeuchtemesser1\": \"Büro DG\",\n});\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -6297,7 +6293,7 @@
         "country": "",
         "language": "de",
         "x": 130,
-        "y": 720,
+        "y": 620,
         "wires": [
             [
                 "f562ddab.6a9d3"
@@ -6313,15 +6309,15 @@
             "9b9574d4.b3d108"
         ],
         "x": 235,
-        "y": 720,
+        "y": 620,
         "wires": []
     },
     {
         "id": "febd2e38.1a2e1",
         "type": "function",
         "z": "2788b93b.8a2f56",
-        "name": "recall werkstatt (luftfeuchtemesser1) klima",
-        "func": "const name = \"luftfeuchtemesser1\";\nreturn {\n    payload: {\n        name: name,\n        humidity: global.get(`${name}-humidity`),\n        absolute_humidity: global.get(`${name}-absolute_humidity`),\n        tempeature: global.get(`${name}-temperature`)\n    }\n};\n",
+        "name": "recall werkstatt (luftguetemesser1) klima",
+        "func": "const name = \"luftguetemesser1\";\nreturn {\n    payload: {\n        name: name,\n        humidity: global.get(`${name}-humidity`),\n        absolute_humidity: global.get(`${name}-absolute_humidity`),\n        tempeature: global.get(`${name}-temperature`)\n    }\n};\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -6397,12 +6393,12 @@
         "type": "mqtt in",
         "z": "3a471104.edfbae",
         "name": "",
-        "topic": "treppenhaus_keller/binary_sensor/button1/state",
+        "topic": "treppenhaus-keller/binary_sensor/button1/state",
         "qos": "2",
         "datatype": "auto",
         "broker": "c349b9ff.9dc4c8",
         "x": 260,
-        "y": 1160,
+        "y": 1038,
         "wires": [
             [
                 "b26ffbed.c2c898"
@@ -6474,23 +6470,6 @@
         "wires": []
     },
     {
-        "id": "b68c509.d70b4b",
-        "type": "mqtt in",
-        "z": "dac2cb3b.559138",
-        "name": "",
-        "topic": "zigbee2mqtt/bewegungsmelder_bad",
-        "qos": "2",
-        "datatype": "json",
-        "broker": "c349b9ff.9dc4c8",
-        "x": 200,
-        "y": 140,
-        "wires": [
-            [
-                "2c6d0eb5.e40022"
-            ]
-        ]
-    },
-    {
         "id": "7b56cfeb.46625",
         "type": "mqtt out",
         "z": "dac2cb3b.559138",
@@ -6499,55 +6478,19 @@
         "qos": "",
         "retain": "",
         "broker": "c349b9ff.9dc4c8",
-        "x": 1080,
-        "y": 240,
+        "x": 860,
+        "y": 300,
         "wires": []
-    },
-    {
-        "id": "7041ae49.67732",
-        "type": "mqtt in",
-        "z": "dac2cb3b.559138",
-        "name": "",
-        "topic": "zigbee2mqtt/bewegungsmelder_gaeste_wc",
-        "qos": "2",
-        "datatype": "json",
-        "broker": "c349b9ff.9dc4c8",
-        "x": 230,
-        "y": 180,
-        "wires": [
-            [
-                "2c6d0eb5.e40022"
-            ]
-        ]
-    },
-    {
-        "id": "38d9691b.b2f516",
-        "type": "function",
-        "z": "dac2cb3b.559138",
-        "name": "map occupancy to ON",
-        "func": "if (msg.payload.occupancy)\n    return {payload: \"ON\"};",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 780,
-        "y": 200,
-        "wires": [
-            [
-                "d5f3f736.318c48",
-                "dfc7c2ea.ec43"
-            ]
-        ]
     },
     {
         "id": "d5f3f736.318c48",
         "type": "ui_switch",
         "z": "dac2cb3b.559138",
-        "name": "Zirkulationspumpe",
-        "label": "Zirkulationspumpe",
+        "name": "Zirkulationspumpe (1h)",
+        "label": "Zirkulationspumpe (1h)",
         "tooltip": "",
-        "group": "85193673.744e38",
-        "order": 5,
+        "group": "10c3f1d2.4cdbde",
+        "order": 1,
         "width": 0,
         "height": 0,
         "passthru": true,
@@ -6564,88 +6507,13 @@
         "officon": "",
         "offcolor": "",
         "animate": true,
-        "x": 770,
+        "className": "",
+        "x": 560,
         "y": 240,
         "wires": [
             [
+                "db493a7d.62f9b8",
                 "7b56cfeb.46625"
-            ]
-        ]
-    },
-    {
-        "id": "5f8f40ff.455c1",
-        "type": "trigger",
-        "z": "dac2cb3b.559138",
-        "name": "5 Minuten-Timer",
-        "op1": "",
-        "op2": "OFF",
-        "op1type": "nul",
-        "op2type": "str",
-        "duration": "5",
-        "extend": true,
-        "overrideDelay": false,
-        "units": "min",
-        "reset": "",
-        "bytopic": "all",
-        "topic": "topic",
-        "outputs": 1,
-        "x": 1140,
-        "y": 200,
-        "wires": [
-            [
-                "d5f3f736.318c48"
-            ]
-        ]
-    },
-    {
-        "id": "dfc7c2ea.ec43",
-        "type": "function",
-        "z": "dac2cb3b.559138",
-        "name": "filter ON",
-        "func": "if (msg.payload === \"ON\")\n    return msg\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 980,
-        "y": 200,
-        "wires": [
-            [
-                "5f8f40ff.455c1"
-            ]
-        ]
-    },
-    {
-        "id": "1f4ec988.5e9d16",
-        "type": "mqtt in",
-        "z": "dac2cb3b.559138",
-        "name": "",
-        "topic": "zigbee2mqtt/bewegungsmelder_kueche",
-        "qos": "2",
-        "datatype": "json",
-        "broker": "c349b9ff.9dc4c8",
-        "x": 220,
-        "y": 220,
-        "wires": [
-            [
-                "2c6d0eb5.e40022"
-            ]
-        ]
-    },
-    {
-        "id": "9daf226d.1f43e",
-        "type": "mqtt in",
-        "z": "dac2cb3b.559138",
-        "name": "",
-        "topic": "zigbee2mqtt/bewegungsmelder_bad_dg",
-        "qos": "2",
-        "datatype": "json",
-        "broker": "c349b9ff.9dc4c8",
-        "x": 220,
-        "y": 260,
-        "wires": [
-            [
-                "2c6d0eb5.e40022"
             ]
         ]
     },
@@ -6783,11 +6651,10 @@
         "sat": true,
         "sun": true,
         "x": 540,
-        "y": 220,
+        "y": 60,
         "wires": [
             [
-                "7e1d2b18.0c9484",
-                "eabff51d.1ce108"
+                "7e1d2b18.0c9484"
             ]
         ]
     },
@@ -6823,42 +6690,6 @@
         "x": 860,
         "y": 360,
         "wires": [
-            []
-        ]
-    },
-    {
-        "id": "e97e5696.7de488",
-        "type": "delay",
-        "z": "2788b93b.8a2f56",
-        "name": "",
-        "pauseType": "rate",
-        "timeout": "5",
-        "timeoutUnits": "seconds",
-        "rate": "1",
-        "nbRateUnits": "3",
-        "rateUnits": "hour",
-        "randomFirst": "1",
-        "randomLast": "5",
-        "randomUnits": "seconds",
-        "drop": true,
-        "x": 880,
-        "y": 260,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "2c6d0eb5.e40022",
-        "type": "time-of-day",
-        "z": "dac2cb3b.559138",
-        "name": "",
-        "startTime": "05:00:00",
-        "endTime": "23:59:00",
-        "outputs": 2,
-        "x": 570,
-        "y": 200,
-        "wires": [
-            [],
             []
         ]
     },
@@ -6922,7 +6753,7 @@
         "retain": "",
         "broker": "c349b9ff.9dc4c8",
         "x": 930,
-        "y": 620,
+        "y": 520,
         "wires": []
     },
     {
@@ -6935,7 +6766,7 @@
         "datatype": "auto",
         "broker": "c349b9ff.9dc4c8",
         "x": 250,
-        "y": 640,
+        "y": 540,
         "wires": [
             [
                 "7ced6d2d.29ad64",
@@ -6970,7 +6801,7 @@
         "offcolor": "",
         "animate": true,
         "x": 630,
-        "y": 600,
+        "y": 500,
         "wires": [
             [
                 "19fb59d7.6f23e6"
@@ -7003,7 +6834,7 @@
         "offcolor": "",
         "animate": true,
         "x": 630,
-        "y": 640,
+        "y": 540,
         "wires": [
             [
                 "19fb59d7.6f23e6"
@@ -7067,7 +6898,7 @@
         "y": 360,
         "wires": [
             [
-                "c07473f0.eb252"
+                "8a7888b.8497878"
             ]
         ]
     },
@@ -7107,7 +6938,7 @@
         "initialize": "",
         "finalize": "",
         "x": 600,
-        "y": 900,
+        "y": 758,
         "wires": [
             [
                 "24c102d9.3a5e4e"
@@ -7132,7 +6963,7 @@
         "topic": "topic",
         "outputs": 1,
         "x": 780,
-        "y": 900,
+        "y": 758,
         "wires": [
             [
                 "287f131d.1f4cdc"
@@ -7159,7 +6990,7 @@
         "to": "",
         "reg": false,
         "x": 970,
-        "y": 900,
+        "y": 758,
         "wires": [
             []
         ]
@@ -7175,10 +7006,10 @@
         "initialize": "",
         "finalize": "",
         "x": 510,
-        "y": 740,
+        "y": 598,
         "wires": [
             [
-                "3eb024a5.e9f9bc"
+                "c53f0279.79555"
             ]
         ]
     },
@@ -7259,8 +7090,8 @@
         "fri": true,
         "sat": false,
         "sun": false,
-        "x": 550,
-        "y": 240,
+        "x": 330,
+        "y": 160,
         "wires": [
             [
                 "d5f3f736.318c48"
@@ -7278,10 +7109,10 @@
         "initialize": "",
         "finalize": "",
         "x": 620,
-        "y": 680,
+        "y": 580,
         "wires": [
             [
-                "bc54b6b1.153c68"
+                "f6017621.65b638"
             ]
         ]
     },
@@ -7298,51 +7129,9 @@
         "format": "{{msg.payload}}",
         "layout": "row-spread",
         "className": "",
-        "x": 630,
-        "y": 720,
+        "x": 990,
+        "y": 580,
         "wires": []
-    },
-    {
-        "id": "5852b353.272e0c",
-        "type": "thingzi-timer",
-        "z": "dac2cb3b.559138",
-        "name": "",
-        "lat": "50.882",
-        "lon": "6.6949",
-        "timerType": "onoff",
-        "startupMessage": true,
-        "ontype": "tod",
-        "ontimesun": "dusk",
-        "ontimetod": "5:00",
-        "onpropertytype": "msg",
-        "onproperty": "payload",
-        "onvaluetype": "str",
-        "onvalue": "ON",
-        "onoffset": "",
-        "onrandomoffset": false,
-        "offtype": "tod",
-        "offtimesun": "dawn",
-        "offtimetod": "8:00",
-        "offpropertytype": "msg",
-        "offproperty": "payload",
-        "offvaluetype": "str",
-        "offvalue": "OFF",
-        "offoffset": "",
-        "offrandomoffset": false,
-        "mon": false,
-        "tue": true,
-        "wed": false,
-        "thu": false,
-        "fri": false,
-        "sat": false,
-        "sun": false,
-        "x": 550,
-        "y": 280,
-        "wires": [
-            [
-                "d5f3f736.318c48"
-            ]
-        ]
     },
     {
         "id": "b5f77d36.0420c",
@@ -7378,8 +7167,8 @@
         "fri": false,
         "sat": true,
         "sun": true,
-        "x": 550,
-        "y": 320,
+        "x": 330,
+        "y": 220,
         "wires": [
             [
                 "d5f3f736.318c48"
@@ -7396,8 +7185,8 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 1200,
-        "y": 360,
+        "x": 1240,
+        "y": 240,
         "wires": [
             [
                 "cf34ae19.8d29c"
@@ -7408,7 +7197,7 @@
         "id": "cf34ae19.8d29c",
         "type": "trigger",
         "z": "293bb437.fa00bc",
-        "name": "Treppenhausautomat",
+        "name": "Treppenhausautomat 2 min",
         "op1": "",
         "op2": "OFF",
         "op1type": "nul",
@@ -7421,8 +7210,8 @@
         "bytopic": "all",
         "topic": "topic",
         "outputs": 1,
-        "x": 1500,
-        "y": 360,
+        "x": 1499,
+        "y": 240,
         "wires": [
             [
                 "3f392e15.5cb7d2"
@@ -8021,7 +7810,8 @@
                 "92c6f73d.d38e98",
                 "21f07479.c7da9c",
                 "c8ee7404.bf05b8",
-                "6afb2001.139fe"
+                "6afb2001.139fe",
+                "df2fbfc6.75d1b"
             ]
         ]
     },
@@ -8170,7 +7960,7 @@
         "type": "function",
         "z": "4d90b497.b5b2ac",
         "name": "",
-        "func": "const luefter = msg.payload;\nconst wk_temperature = global.get(\"waschkueche_luefter-temperature\");\nconst wk_rel_humidity = global.get(\"waschkueche_luefter-humidity\");\n\nif (luefter === \"ON\") { \n    return {\n        payload: \"off\"\n    };\n} else if (wk_rel_humidity > 65) {\n    return {\n        payload: 21\n    };\n} else {\n    return {\n        payload: 16\n    };\n}\n",
+        "func": "const luefter = msg.payload;\nconst wk_temperature = global.get(\"waschkueche_luefter-temperature\");\nconst wk_rel_humidity = global.get(\"waschkueche_luefter-humidity\");\n\nif (luefter === \"ON\") { \n    return {\n        payload: \"off\"\n    };\n} else if (wk_rel_humidity > 65) {\n    return {\n        payload: 21\n    };\n} else if (wk_rel_humidity > 60) {\n    return {\n        payload: 16\n    };\n} else {\n    return {\n        payload: 14\n    };\n}\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -9642,7 +9432,7 @@
         "upValueType": "str",
         "idleValue": "1",
         "clickedInterval": "200",
-        "pressedInterval": "200",
+        "pressedInterval": "300",
         "debounceInterval": 30,
         "events": [
             {
@@ -9653,7 +9443,7 @@
             }
         ],
         "x": 190,
-        "y": 420,
+        "y": 340,
         "wires": [
             [
                 "3191ad6d.ff0602"
@@ -9667,8 +9457,8 @@
         "id": "b8b75b36.9f0be8",
         "type": "ui_switch",
         "z": "293bb437.fa00bc",
-        "name": "Kellertürscheinwerfer dauernd",
-        "label": "Kellertürscheinwerfer dauernd",
+        "name": "Kellertürscheinwerfer (1h)",
+        "label": "Kellertürscheinwerfer (1h)",
         "tooltip": "",
         "group": "d32aa509.f54168",
         "order": 4,
@@ -9689,11 +9479,12 @@
         "offcolor": "",
         "animate": true,
         "className": "",
-        "x": 970,
-        "y": 460,
+        "x": 950,
+        "y": 400,
         "wires": [
             [
-                "fe5adaf5.ca1d18"
+                "fe5adaf5.ca1d18",
+                "565c0dc9.9aa304"
             ]
         ]
     },
@@ -9709,7 +9500,7 @@
         "template": "ON",
         "output": "str",
         "x": 550,
-        "y": 460,
+        "y": 340,
         "wires": [
             [
                 "fb4f8bf5.c36c98"
@@ -9733,7 +9524,8 @@
                 "9c8ad592.66e0d8"
             ],
             [
-                "cf34ae19.8d29c"
+                "cf34ae19.8d29c",
+                "a8d1c90e.0569d8"
             ],
             [
                 "b8b75b36.9f0be8"
@@ -9751,7 +9543,7 @@
         "initialize": "",
         "finalize": "",
         "x": 730,
-        "y": 460,
+        "y": 400,
         "wires": [
             [
                 "b8b75b36.9f0be8"
@@ -9850,13 +9642,14 @@
         "initialize": "",
         "finalize": "",
         "x": 1210,
-        "y": 460,
+        "y": 400,
         "wires": [
             [
                 "9c8ad592.66e0d8"
             ],
             [
-                "cf34ae19.8d29c"
+                "cf34ae19.8d29c",
+                "a8d1c90e.0569d8"
             ],
             [
                 "3f392e15.5cb7d2"
@@ -10013,7 +9806,7 @@
         "type": "mqtt out",
         "z": "4fa3b184.bc7fb",
         "name": "Green",
-        "topic": "luftguetemesser1/switch/yellow/command",
+        "topic": "luftguetemesser1/switch/green/command",
         "qos": "",
         "retain": "",
         "broker": "c349b9ff.9dc4c8",
@@ -10026,24 +9819,35 @@
         "type": "function",
         "z": "4fa3b184.bc7fb",
         "name": "",
-        "func": "const temp = global.get(\"luftguetemesser1-temperature\");\nconst hum = global.get(\"luftguetemesser1-humidity\");\nconst abs_hum = global.get(\"luftguetemesser1-absolute_humidity\");\nconst press = global.get(\"luftguetemesser1-pressure\");\nconst iaq = global.get(\"luftguetemesser1-iaq\");\nconst co2 = global.get(\"luftguetemesser1-co2\");\nconst voc = global.get(\"luftguetemesser1-voc\");\nconst m10 = global.get(\"luftguetemesser1-m10\");\nconst m25 = global.get(\"luftguetemesser1-m25\");\nconst m100 = global.get(\"luftguetemesser1-m100\");\n\nvar red, yellow, green; \n\nif (iaq < 100 && m25 < 25 && co2 < 700) {\n    green = {payload: \"ON\"}\n} else if (iaq > 200 && m25 > 40 && co2 > 2000) {\n    red = {payload: \"ON\"}\n} else {\n    yellow = {payload: \"ON\"}\n}\n\nreturn [red, yellow, green];",
-        "outputs": 3,
+        "func": "const temp = global.get(\"luftguetemesser1-temperature\");\nconst hum = global.get(\"luftguetemesser1-humidity\");\nconst abs_hum = global.get(\"luftguetemesser1-absolute_humidity\");\nconst press = global.get(\"luftguetemesser1-pressure\");\nconst iaq = global.get(\"luftguetemesser1-iaq\");\nconst co2 = global.get(\"luftguetemesser1-co2\");\nconst voc = global.get(\"luftguetemesser1-voc\");\nconst m10 = global.get(\"luftguetemesser1-10m\");\nconst m25 = global.get(\"luftguetemesser1-25m\");\nconst m100 = global.get(\"luftguetemesser1-100m\");\n\nvar red = {payload: \"OFF\"};\nvar yellow = {payload: \"OFF\"};\nvar green = {payload: \"OFF\"};\n\nif (iaq < 100 && m10 < 25 && m25 < 25 && m100 < 25 && co2 < 700) {\n    green = {payload: \"ON\"};\n} else if (iaq > 200 || m10 > 40 || m25 > 40 || m100 > 40 || co2 > 2000) {\n    red = {payload: \"ON\"};\n} else {\n    yellow = {payload: \"ON\"};\n}\n\nvar debug = {\n    temp: temp,\n    hum: hum,\n    abs_hum: abs_hum,\n    press: press,\n    iaq: iaq,\n    co2: co2,\n    voc: voc,\n    m10: m10,\n    m25: m25,\n    m100: m100,\n    red: red,\n    yellow: yellow,\n    gree: green\n};\n\nconst intl = global.get('intl');\nconst format = intl.NumberFormat('de-De',{style:'decimal', maximumFractionDigits: 2}).format;\nconst sprintf = global.get(\"sprintf\");\n\nvar iaq_status = {payload: {}};\nvar matter_status = {payload: {}};\nvar co2_status = {payload: {}};\n\nif (iaq < 100) {\n    iaq_status.payload = {value: \"Luftgüteindex\", color: \"limegreen\", text: sprintf(\"%s\", format(iaq))};\n} else if (iaq > 200) {\n    iaq_status.payload = {value: \"Luftgüteindex\", color: \"red\", text: sprintf(\"%s\", format(iaq))};\n} else {\n    iaq_status.payload = {value: \"Luftgüteindex\", color: \"yellow\", text: sprintf(\"%s\", format(iaq))};\n}\n\nif (m10 < 100 && m25 < 100 && m100 < 100) {\n    matter_status.payload = {value: \"Feinstaub\", color: \"limegreen\", text1: sprintf(\"1,0 µm: %s ppm\", format(m10)), text2: sprintf(\"2,5 µm: %s ppm\", format(m25)), text3: sprintf(\"10 µm: %s ppm\", format(m100))};\n} else if (m10 > 200 || m25 > 200 || m100 > 200) {\n    matter_status.payload = {value: \"Feinstaub\", color: \"red\", text1: sprintf(\"1,0 µm: %s ppm\", format(m10)), text2: sprintf(\"2,5 µm: %s ppm\", format(m25)), text3: sprintf(\"10 µm: %s ppm\", format(m100))};\n} else {\n    matter_status.payload = {value: \"Feinstaub\", color: \"yellow\", text1: sprintf(\"1,0 µm: %s ppm\", format(m10)), text2: sprintf(\"2,5 µm: %s ppm\", format(m25)), text3: sprintf(\"10 µm: %s ppm\", format(m100))};\n}\n\nif (co2 < 700) {\n    co2_status.payload = {value: \"CO2\", color: \"limegreen\", text: sprintf(\"%s ppm\", format(co2))};\n} else if (iaq > 2000) {\n    co2_status.payload = {value: \"CO2\", color: \"red\", text: sprintf(\"%s ppm\", format(co2))};\n} else {\n    co2_status.payload = {value: \"CO2\", color: \"yellow\", text: sprintf(\"%s ppm\", format(co2))};\n}\n\n\nreturn [red, yellow, green, debug, iaq_status, matter_status, co2_status];\n",
+        "outputs": 7,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "x": 640,
-        "y": 240,
+        "y": 360,
         "wires": [
             [
-                "e8dbd15a.75976",
-                "e1dfe189.ca2fe"
+                "e8dbd15a.75976"
             ],
             [
-                "f1103c8a.63b5b",
-                "e1dfe189.ca2fe"
+                "f1103c8a.63b5b"
             ],
             [
                 "d860fe10.a5025"
+            ],
+            [
+                "5616c163.a87f9"
+            ],
+            [
+                "23f6c6bd.14f54a"
+            ],
+            [
+                "236c8c27.2d41a4",
+                "222f990e.977326"
+            ],
+            [
+                "d7d58dae.c7b95"
             ]
         ]
     },
@@ -10180,8 +9984,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 640,
-        "y": 160,
+        "x": 650,
+        "y": 180,
         "wires": [
             [
                 "6ecf7aad.502114"
@@ -10288,22 +10092,6 @@
         ]
     },
     {
-        "id": "e1dfe189.ca2fe",
-        "type": "debug",
-        "z": "4fa3b184.bc7fb",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 910,
-        "y": 420,
-        "wires": []
-    },
-    {
         "id": "95460152.3f519",
         "type": "function",
         "z": "3a471104.edfbae",
@@ -10314,13 +10102,14 @@
         "initialize": "",
         "finalize": "",
         "x": 970,
-        "y": 820,
+        "y": 678,
         "wires": [
             [
                 "b187a14.548406"
             ],
             [
-                "1bf72870.060278"
+                "1bf72870.060278",
+                "ca630234.003a1"
             ],
             [
                 "ef88d6e2.56a248"
@@ -10339,7 +10128,7 @@
         "template": "ON",
         "output": "str",
         "x": 790,
-        "y": 1160,
+        "y": 1038,
         "wires": [
             [
                 "1f2b83b6.389b8c"
@@ -10358,7 +10147,7 @@
         "template": "ON",
         "output": "str",
         "x": 790,
-        "y": 1120,
+        "y": 998,
         "wires": [
             [
                 "8a94d4bd.10b228"
@@ -10392,15 +10181,13 @@
             }
         ],
         "x": 610,
-        "y": 1140,
+        "y": 1018,
         "wires": [
             [
-                "8bfa8a39.9abf88",
-                "335eb69d.11a10a"
+                "8bfa8a39.9abf88"
             ],
             [
-                "cf2fcfd4.4f42e",
-                "335eb69d.11a10a"
+                "cf2fcfd4.4f42e"
             ]
         ]
     },
@@ -10415,13 +10202,14 @@
         "initialize": "",
         "finalize": "",
         "x": 970,
-        "y": 980,
+        "y": 838,
         "wires": [
             [
                 "b187a14.548406"
             ],
             [
-                "1bf72870.060278"
+                "1bf72870.060278",
+                "ca630234.003a1"
             ],
             [
                 "3eb024a5.e9f9bc"
@@ -10786,7 +10574,7 @@
             "86e17b7b.a2f5d8"
         ],
         "x": 455,
-        "y": 820,
+        "y": 678,
         "wires": [
             [
                 "3eb024a5.e9f9bc",
@@ -10803,15 +10591,15 @@
             "c4c2eff3.b70f"
         ],
         "x": 1075,
-        "y": 1120,
+        "y": 998,
         "wires": []
     },
     {
         "id": "ef88d6e2.56a248",
         "type": "ui_switch",
         "z": "3a471104.edfbae",
-        "name": "Treppenhaus Keller dauernd",
-        "label": "Treppenhaus Keller dauernd",
+        "name": "Treppenhaus Keller (1h)",
+        "label": "Treppenhaus Keller (1h)",
         "tooltip": "",
         "group": "64b01bd0.e1d1b4",
         "order": 5,
@@ -10832,11 +10620,12 @@
         "offcolor": "",
         "animate": true,
         "className": "",
-        "x": 740,
-        "y": 980,
+        "x": 730,
+        "y": 838,
         "wires": [
             [
-                "ad25b69b.70f848"
+                "ad25b69b.70f848",
+                "3ebdc5c5.e2b66a"
             ]
         ]
     },
@@ -10849,7 +10638,7 @@
             "2be218d9.cd0108"
         ],
         "x": 1075,
-        "y": 1160,
+        "y": 1038,
         "wires": []
     },
     {
@@ -10861,28 +10650,12 @@
             "d28aedd4.51206"
         ],
         "x": 455,
-        "y": 980,
+        "y": 838,
         "wires": [
             [
                 "ef88d6e2.56a248"
             ]
         ]
-    },
-    {
-        "id": "335eb69d.11a10a",
-        "type": "debug",
-        "z": "3a471104.edfbae",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 810,
-        "y": 1240,
-        "wires": []
     },
     {
         "id": "8a94d4bd.10b228",
@@ -10895,11 +10668,10 @@
         "initialize": "",
         "finalize": "",
         "x": 950,
-        "y": 1120,
+        "y": 998,
         "wires": [
             [
-                "86e17b7b.a2f5d8",
-                "4eee7029.7fc31"
+                "86e17b7b.a2f5d8"
             ]
         ]
     },
@@ -10914,62 +10686,716 @@
         "initialize": "",
         "finalize": "",
         "x": 950,
-        "y": 1160,
+        "y": 1038,
         "wires": [
             [
-                "d28aedd4.51206",
-                "796187ce.cb0d58"
+                "d28aedd4.51206"
             ]
         ]
     },
     {
-        "id": "4eee7029.7fc31",
+        "id": "5616c163.a87f9",
         "type": "debug",
-        "z": "3a471104.edfbae",
-        "name": "autm",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1200,
-        "y": 1080,
-        "wires": []
-    },
-    {
-        "id": "796187ce.cb0d58",
-        "type": "debug",
-        "z": "3a471104.edfbae",
-        "name": "dauernd",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1220,
-        "y": 1180,
-        "wires": []
-    },
-    {
-        "id": "57152044.f2916",
-        "type": "debug",
-        "z": "3a471104.edfbae",
+        "z": "4fa3b184.bc7fb",
         "name": "",
-        "active": true,
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 870,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "3ebdc5c5.e2b66a",
+        "type": "function",
+        "z": "3a471104.edfbae",
+        "name": "filter ON",
+        "func": "if (msg.payload === \"ON\")\n    return {payload: \"ON\"}\nelse\n    return undefined;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 980,
+        "y": 898,
+        "wires": [
+            [
+                "ca630234.003a1"
+            ]
+        ]
+    },
+    {
+        "id": "ca630234.003a1",
+        "type": "trigger",
+        "z": "3a471104.edfbae",
+        "name": "Treppenhausautomat 1 h",
+        "op1": "",
+        "op2": "OFF",
+        "op1type": "nul",
+        "op2type": "str",
+        "duration": "1",
+        "extend": true,
+        "overrideDelay": false,
+        "units": "hr",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 1230,
+        "y": 898,
+        "wires": [
+            [
+                "ef88d6e2.56a248"
+            ]
+        ]
+    },
+    {
+        "id": "565c0dc9.9aa304",
+        "type": "function",
+        "z": "293bb437.fa00bc",
+        "name": "filter ON",
+        "func": "if (msg.payload === \"ON\")\n    return {payload: \"ON\"}\nelse\n    return undefined;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 1240,
+        "y": 460,
+        "wires": [
+            [
+                "a8d1c90e.0569d8"
+            ]
+        ]
+    },
+    {
+        "id": "a8d1c90e.0569d8",
+        "type": "trigger",
+        "z": "293bb437.fa00bc",
+        "name": "Treppenhausautomat 1 h",
+        "op1": "",
+        "op2": "OFF",
+        "op1type": "nul",
+        "op2type": "str",
+        "duration": "1",
+        "extend": true,
+        "overrideDelay": false,
+        "units": "hr",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 1489,
+        "y": 460,
+        "wires": [
+            [
+                "b8b75b36.9f0be8"
+            ]
+        ]
+    },
+    {
+        "id": "f6017621.65b638",
+        "type": "function",
+        "z": "293bb437.fa00bc",
+        "name": "store in global",
+        "func": "var topic = \"umgebungslicht\";\nglobal.set(topic, msg.payload);\n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 800,
+        "y": 580,
+        "wires": [
+            [
+                "bc54b6b1.153c68"
+            ]
+        ]
+    },
+    {
+        "id": "8a7888b.8497878",
+        "type": "function",
+        "z": "3a471104.edfbae",
+        "name": "dunkel",
+        "func": "const umgebung = global.get('umgebungslicht');\n\nif (umgebung == \"dunkel\")\n    return {payload: \"ON\"}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 610,
+        "y": 360,
+        "wires": [
+            [
+                "c07473f0.eb252"
+            ]
+        ]
+    },
+    {
+        "id": "c53f0279.79555",
+        "type": "function",
+        "z": "3a471104.edfbae",
+        "name": "dunkel",
+        "func": "const umgebung = global.get('umgebungslicht');\n\nif (umgebung == \"dunkel\")\n    return {payload: \"ON\"}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 650,
+        "y": 598,
+        "wires": [
+            [
+                "3eb024a5.e9f9bc"
+            ]
+        ]
+    },
+    {
+        "id": "353ad6f4.8c98ba",
+        "type": "mqtt in",
+        "z": "293bb437.fa00bc",
+        "name": "Bewegungsmelder Kellertür",
+        "topic": "zigbee2mqtt/bewegungsmelder_kellertuer",
+        "qos": "2",
+        "datatype": "json",
+        "broker": "c349b9ff.9dc4c8",
+        "x": 200,
+        "y": 400,
+        "wires": [
+            [
+                "b4b4ec5a.5a982"
+            ]
+        ]
+    },
+    {
+        "id": "b4b4ec5a.5a982",
+        "type": "function",
+        "z": "293bb437.fa00bc",
+        "name": "map occupancy to ON",
+        "func": "if (msg.payload[\"occupancy\"])\n    return {payload: \"ON\"}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 460,
+        "y": 400,
+        "wires": [
+            [
+                "25c855ce.b3b12a"
+            ]
+        ]
+    },
+    {
+        "id": "25c855ce.b3b12a",
+        "type": "function",
+        "z": "293bb437.fa00bc",
+        "name": "dunkel",
+        "func": "const umgebung = global.get('umgebungslicht');\n\nif (umgebung == \"dunkel\")\n    return {payload: \"ON\"}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 730,
+        "y": 340,
+        "wires": [
+            [
+                "3f392e15.5cb7d2"
+            ]
+        ]
+    },
+    {
+        "id": "e2e13ddd.9151f",
+        "type": "mqtt in",
+        "z": "3a471104.edfbae",
+        "name": "Bewegungsmelder Gäste-WC",
+        "topic": "zigbee2mqtt/bewegungsmelder_gaeste_wc",
+        "qos": "2",
+        "datatype": "json",
+        "broker": "c349b9ff.9dc4c8",
+        "x": 200,
+        "y": 260,
+        "wires": [
+            [
+                "c473a018.46907"
+            ]
+        ]
+    },
+    {
+        "id": "23f6c6bd.14f54a",
+        "type": "ui_template",
+        "z": "4fa3b184.bc7fb",
+        "group": "d796a540.50d378",
+        "name": "",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "format": "<md-card ui-card-size=\"6x2\" \n    class=\"_md nr-dashboard-text layout-align-center-center nr-dashboard-widget-text visible\" \n    style=\"background-color: {{msg.payload.color}}; color: black; left: 0px; top: 54px; width: 300px; height: 96px;\">\n    <p class=\"value\">{{msg.payload.value}}</p><p>{{msg.payload.text}}</p>\n</md-card>\n",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 880,
+        "y": 420,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "236c8c27.2d41a4",
+        "type": "ui_template",
+        "z": "4fa3b184.bc7fb",
+        "group": "d796a540.50d378",
+        "name": "",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "format": "<md-card ui-card-size=\"6x2\" \n    class=\"_md nr-dashboard-text layout-align-center-center nr-dashboard-widget-text visible\" \n    style=\"background-color: {{msg.payload.color}}; color: black; left: 0px; top: 54px; width: 300px; height: 96px;\">\n    <p class=\"value\">{{msg.payload.value}}</p><p>{{msg.payload.text1}}<br/>{{msg.payload.text2}}<br/>{{msg.payload.text3}}</p>\n</md-card>\n",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 880,
+        "y": 460,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d7d58dae.c7b95",
+        "type": "ui_template",
+        "z": "4fa3b184.bc7fb",
+        "group": "d796a540.50d378",
+        "name": "",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "format": "<md-card ui-card-size=\"6x2\" \n    class=\"_md nr-dashboard-text layout-align-center-center nr-dashboard-widget-text visible\" \n    style=\"background-color: {{msg.payload.color}}; color: black; left: 0px; top: 54px; width: 300px; height: 96px;\">\n    <p class=\"value\">{{msg.payload.value}}</p><p>{{msg.payload.text}}</p>\n</md-card>\n",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 880,
+        "y": 500,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "222f990e.977326",
+        "type": "debug",
+        "z": "4fa3b184.bc7fb",
+        "name": "",
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 560,
-        "y": 1060,
+        "x": 920,
+        "y": 600,
         "wires": []
+    },
+    {
+        "id": "48f55ed2.c2f68",
+        "type": "function",
+        "z": "2788b93b.8a2f56",
+        "name": "recall Büro DG (luftfeuchtemesser1) klima",
+        "func": "const name = \"luftfeuchtemesser1\";\nreturn {\n    payload: {\n        name: name,\n        humidity: global.get(`${name}-humidity`),\n        absolute_humidity: global.get(`${name}-absolute_humidity`),\n        tempeature: global.get(`${name}-temperature`)\n    }\n};\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 460,
+        "y": 820,
+        "wires": [
+            [
+                "3825ae1b.6847c2"
+            ]
+        ]
+    },
+    {
+        "id": "4010afc2.28a54",
+        "type": "ui_template",
+        "z": "2788b93b.8a2f56",
+        "group": "245ec0f9.12765",
+        "name": "",
+        "order": 12,
+        "width": 0,
+        "height": 0,
+        "format": "<md-card ui-card-size=\"6x2\" \n    class=\"_md nr-dashboard-text layout-align-center-center nr-dashboard-widget-text visible\" \n    style=\"background-color: {{msg.payload.color}}; color: black; left: 0px; top: 54px; width: 300px; height: 96px;\">\n    <p class=\"label\">{{msg.payload.room}}</p><p>{{msg.payload.text}}</p> <p class=\"value\">{{msg.payload.hint}}</p>\n</md-card>\n",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "x": 1300,
+        "y": 840,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "df2fbfc6.75d1b",
+        "type": "debug",
+        "z": "4d90b497.b5b2ac",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1400,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "1ffaa871.848be8",
+        "type": "ui_text_input",
+        "z": "dac2cb3b.559138",
+        "name": "Start",
+        "label": "Start",
+        "tooltip": "",
+        "group": "85193673.744e38",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "mode": "time",
+        "delay": "0",
+        "topic": "start",
+        "sendOnBlur": true,
+        "topicType": "str",
+        "x": 190,
+        "y": 400,
+        "wires": [
+            [
+                "eda3a9b8.dfbd68"
+            ]
+        ]
+    },
+    {
+        "id": "b761a7dd.a77438",
+        "type": "function",
+        "z": "dac2cb3b.559138",
+        "name": "",
+        "func": "function hh_mm_to_ms(hh, mm) {\n    return hh * 3600000 + mm * 60000;\n}\n\nconst timestamp = new Date();\nconst day_index = timestamp.getDay();\nconst ms = hh_mm_to_ms(timestamp.getHours(), timestamp.getMinutes());\nconst timer = flow.get(\"timer\");\n\nif (timer.wdays.includes(day_index) && \n    ms >= timer.start && ms <= timer.start + timer.dauer) {\n    return [{payload: \"ON\"}, {payload: timer}];\n} else {\n    return [{payload: \"OFF\"}, {payload: timer}];\n}\n",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 340,
+        "y": 280,
+        "wires": [
+            [
+                "d5f3f736.318c48"
+            ],
+            [
+                "a3dd6456.ef3838"
+            ]
+        ]
+    },
+    {
+        "id": "4df4dfb9.128f5",
+        "type": "trigger",
+        "z": "dac2cb3b.559138",
+        "name": "Treppenhausautomat",
+        "op1": "",
+        "op2": "OFF",
+        "op1type": "nul",
+        "op2type": "str",
+        "duration": "1",
+        "extend": true,
+        "overrideDelay": false,
+        "units": "hr",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 960,
+        "y": 240,
+        "wires": [
+            [
+                "d5f3f736.318c48"
+            ]
+        ]
+    },
+    {
+        "id": "7c405f66.1d519",
+        "type": "inject",
+        "z": "dac2cb3b.559138",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "60",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 170,
+        "y": 280,
+        "wires": [
+            [
+                "b761a7dd.a77438"
+            ]
+        ]
+    },
+    {
+        "id": "4fc32d25.7772b4",
+        "type": "function",
+        "z": "dac2cb3b.559138",
+        "name": "",
+        "func": "const timer = flow.get(\"timer\") || {start: 0, dauer: 1, wdays: []};\n\ntimer.dauer = msg.payload * 3600000;\n\nreturn {payload: timer};\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 340,
+        "y": 440,
+        "wires": [
+            [
+                "e5f731f4.2d4b5"
+            ]
+        ]
+    },
+    {
+        "id": "fa434a86.5d1958",
+        "type": "ui_dropdown",
+        "z": "dac2cb3b.559138",
+        "name": "Wochentag",
+        "label": "Wochentag",
+        "tooltip": "",
+        "place": "Select option",
+        "group": "85193673.744e38",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "multiple": true,
+        "options": [
+            {
+                "label": "Mo.",
+                "value": "1",
+                "type": "str"
+            },
+            {
+                "label": "Di.",
+                "value": "2",
+                "type": "str"
+            },
+            {
+                "label": "Mi.",
+                "value": "3",
+                "type": "str"
+            },
+            {
+                "label": "Do.",
+                "value": "4",
+                "type": "str"
+            },
+            {
+                "label": "Fr.",
+                "value": "5",
+                "type": "str"
+            },
+            {
+                "label": "Sa.",
+                "value": "6",
+                "type": "str"
+            },
+            {
+                "label": "So.",
+                "value": "0",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "wdays",
+        "topicType": "str",
+        "className": "",
+        "x": 170,
+        "y": 480,
+        "wires": [
+            [
+                "c5b32853.08b2b8"
+            ]
+        ]
+    },
+    {
+        "id": "db493a7d.62f9b8",
+        "type": "function",
+        "z": "dac2cb3b.559138",
+        "name": "filter ON",
+        "func": "if (msg.payload === \"ON\")\n    return {payload: \"ON\"}\nelse\n    return undefined;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 760,
+        "y": 240,
+        "wires": [
+            [
+                "4df4dfb9.128f5"
+            ]
+        ]
+    },
+    {
+        "id": "e5f731f4.2d4b5",
+        "type": "debug",
+        "z": "dac2cb3b.559138",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 530,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "a3dd6456.ef3838",
+        "type": "debug",
+        "z": "dac2cb3b.559138",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 530,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "eda3a9b8.dfbd68",
+        "type": "function",
+        "z": "dac2cb3b.559138",
+        "name": "",
+        "func": "const timer = flow.get(\"timer\") || {start: 0, dauer: 1, wdays: []};\n\ntimer.start = msg.payload;\ntimer.stop = msg.payload + 3600000;\n\nreturn {payload: timer};\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 340,
+        "y": 400,
+        "wires": [
+            [
+                "e5f731f4.2d4b5"
+            ]
+        ]
+    },
+    {
+        "id": "c5b32853.08b2b8",
+        "type": "function",
+        "z": "dac2cb3b.559138",
+        "name": "",
+        "func": "const timer = flow.get(\"timer\") || {start: 0, dauer: 1, wdays: []};\n\ntimer.wdays = msg.payload;\n\nreturn {payload: timer};\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 340,
+        "y": 480,
+        "wires": [
+            [
+                "e5f731f4.2d4b5"
+            ]
+        ]
+    },
+    {
+        "id": "e6c4fadb.49b158",
+        "type": "ui_numeric",
+        "z": "dac2cb3b.559138",
+        "d": true,
+        "name": "",
+        "label": "Dauer (Stunden)",
+        "tooltip": "",
+        "group": "85193673.744e38",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "wrap": false,
+        "passthru": true,
+        "topic": "topic",
+        "topicType": "msg",
+        "format": "{{value}}",
+        "min": "1",
+        "max": "4",
+        "step": "1",
+        "className": "",
+        "x": 160,
+        "y": 440,
+        "wires": [
+            [
+                "4fc32d25.7772b4"
+            ]
+        ]
+    },
+    {
+        "id": "d472b0fb.8234d",
+        "type": "ui_template",
+        "z": "dac2cb3b.559138",
+        "group": "85193673.744e38",
+        "name": "",
+        "order": 12,
+        "width": 0,
+        "height": 0,
+        "format": "<md-card ui-card-size=\"6x2\" \n    class=\"_md nr-dashboard-text layout-align-left-left nr-dashboard-widget-text visible\" \n    style=\"color: white; left: 0px; top: 54px; width: 300px; height: 96px;\">\n    <p>Standardzeiten</p><p>Mo.-Fr.: 07.00-08:00</p><p>Sa.-So.: 08:00-10:00</p>\n</md-card>\n",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 180,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a8361f9.97356e",
+        "type": "inject",
+        "z": "dac2cb3b.559138",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 100,
+        "y": 320,
+        "wires": [
+            [
+                "d472b0fb.8234d"
+            ]
+        ]
     }
 ]
