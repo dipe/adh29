@@ -77,6 +77,14 @@
         "info": ""
     },
     {
+        "id": "caf02dc9a5b73890",
+        "type": "tab",
+        "label": "Nuki",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "29cd7d28.a2bf92",
         "type": "tab",
         "label": "Testecke",
@@ -188,7 +196,7 @@
                 "accents": "blue",
                 "warn": "red",
                 "background": "grey",
-                "palette": "dark"
+                "palette": "light"
             }
         },
         "site": {
@@ -245,7 +253,7 @@
         "type": "ui_tab",
         "name": "Esszimmer",
         "icon": "dashboard",
-        "order": 4,
+        "order": 3,
         "disabled": false,
         "hidden": false
     },
@@ -304,7 +312,7 @@
         "type": "ui_tab",
         "name": "Waschküche",
         "icon": "dashboard",
-        "order": 6,
+        "order": 4,
         "disabled": false,
         "hidden": false
     },
@@ -323,7 +331,7 @@
         "type": "ui_tab",
         "name": "Verbrauch",
         "icon": "dashboard",
-        "order": 10,
+        "order": 8,
         "disabled": false,
         "hidden": false
     },
@@ -357,7 +365,7 @@
         "type": "ui_tab",
         "name": "Außen",
         "icon": "dashboard",
-        "order": 9,
+        "order": 7,
         "disabled": false,
         "hidden": false
     },
@@ -491,7 +499,7 @@
         "type": "ui_tab",
         "name": "Treppenhaus",
         "icon": "dashboard",
-        "order": 8,
+        "order": 6,
         "disabled": false,
         "hidden": false
     },
@@ -540,7 +548,7 @@
         "type": "ui_tab",
         "name": "Lüftungsempfehlungen",
         "icon": "dashboard",
-        "order": 12,
+        "order": 11,
         "disabled": false,
         "hidden": false
     },
@@ -576,7 +584,7 @@
         "type": "ui_tab",
         "name": "Home",
         "icon": "dashboard",
-        "order": 3,
+        "order": 2,
         "disabled": false,
         "hidden": false
     },
@@ -595,7 +603,7 @@
         "type": "ui_tab",
         "name": "Warmwasser",
         "icon": "dashboard",
-        "order": 11,
+        "order": 9,
         "disabled": false,
         "hidden": false
     },
@@ -624,18 +632,11 @@
         "id": "bbc3532f.41ca7",
         "type": "ui_group",
         "name": "Bathroom",
-        "tab": "1ff97cd4.681d5b",
+        "tab": "",
         "order": 1,
         "disp": true,
         "width": "12",
         "collapse": false
-    },
-    {
-        "id": "1ff97cd4.681d5b",
-        "type": "ui_tab",
-        "name": "GrafanaTest",
-        "icon": "dashboard",
-        "order": 13
     },
     {
         "id": "fae20a49.af3108",
@@ -663,27 +664,18 @@
         "id": "5a2c927c.ba1edc",
         "type": "ui_group",
         "name": "test",
-        "tab": "42b914b0.66a0ac",
+        "tab": "",
         "order": null,
         "disp": true,
         "width": "6",
         "collapse": false
     },
     {
-        "id": "42b914b0.66a0ac",
-        "type": "ui_tab",
-        "name": "Main",
-        "icon": "dashboard",
-        "order": 2,
-        "disabled": false,
-        "hidden": false
-    },
-    {
         "id": "eedc289c.0c0738",
         "type": "ui_tab",
         "name": "Werkstatt",
         "icon": "dashboard",
-        "order": 7,
+        "order": 5,
         "disabled": false,
         "hidden": false
     },
@@ -710,19 +702,10 @@
         "className": ""
     },
     {
-        "id": "8ada9c5407b2ae38",
-        "type": "ui_tab",
-        "name": "Test",
-        "icon": "dashboard",
-        "order": 13,
-        "disabled": false,
-        "hidden": false
-    },
-    {
         "id": "f918014f0f66fc36",
         "type": "ui_group",
         "name": "Group 1",
-        "tab": "8ada9c5407b2ae38",
+        "tab": "",
         "order": 1,
         "disp": false,
         "width": "6",
@@ -739,6 +722,65 @@
         "width": "6",
         "collapse": false,
         "className": ""
+    },
+    {
+        "id": "8e519b57f09d9196",
+        "type": "nuki-bridge",
+        "host": "nuki-bridge",
+        "port": "8080",
+        "callbackHost": "http://dipe-pi:1880",
+        "webUpdateTimeout": "30"
+    },
+    {
+        "id": "03f79ee82b15785f",
+        "type": "ui_tab",
+        "name": "Keller",
+        "icon": "dashboard",
+        "order": 10,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "9a105ea86f63c96c",
+        "type": "ui_group",
+        "d": true,
+        "name": "Tür",
+        "tab": "03f79ee82b15785f",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "6e590cb07ba9a85d",
+        "type": "ui_group",
+        "name": "Status",
+        "tab": "03f79ee82b15785f",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "20848d92cc5c464a",
+        "type": "ui_tab",
+        "d": true,
+        "name": "Testecke",
+        "icon": "dashboard",
+        "order": 12,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "302f97937a79e8a7",
+        "type": "ui_group",
+        "name": "Group 1",
+        "tab": "20848d92cc5c464a",
+        "order": 1,
+        "disp": true,
+        "width": 6
     },
     {
         "id": "664aeec7.e753d",
@@ -811,7 +853,8 @@
             [],
             [],
             [
-                "5a9ba8dd.c08758"
+                "4d73c0b1.422e1",
+                "980e2fce14a1fb48"
             ],
             [
                 "49199ea5.7436c"
@@ -853,7 +896,8 @@
         "y": 400,
         "wires": [
             [
-                "b878ef06.91fa7"
+                "b878ef06.91fa7",
+                "aad16a6f8f012eb8"
             ]
         ]
     },
@@ -867,8 +911,8 @@
         "datatype": "auto",
         "broker": "c349b9ff.9dc4c8",
         "inputs": 0,
-        "x": 190,
-        "y": 260,
+        "x": 170,
+        "y": 220,
         "wires": [
             [
                 "5bd1bdfd.b90a34"
@@ -887,8 +931,8 @@
         "nl": false,
         "rap": false,
         "inputs": 0,
-        "x": 180,
-        "y": 220,
+        "x": 160,
+        "y": 260,
         "wires": [
             [
                 "c018a260.a19a4"
@@ -1148,8 +1192,8 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 550,
-        "y": 220,
+        "x": 530,
+        "y": 260,
         "wires": [
             [
                 "5e79d51e.9213dc"
@@ -1166,8 +1210,8 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 550,
-        "y": 260,
+        "x": 530,
+        "y": 220,
         "wires": [
             [
                 "5e79d51e.9213dc"
@@ -2211,8 +2255,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 400,
-        "y": 220,
+        "x": 380,
+        "y": 260,
         "wires": [
             [
                 "4d73c0b1.422e1"
@@ -2236,29 +2280,11 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 400,
-        "y": 260,
+        "x": 380,
+        "y": 220,
         "wires": [
             [
                 "79fb43e2.dda08c"
-            ]
-        ]
-    },
-    {
-        "id": "5a9ba8dd.c08758",
-        "type": "function",
-        "z": "37daec28.284ee4",
-        "name": "3",
-        "func": "msg.payload = 3;\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 550,
-        "y": 300,
-        "wires": [
-            [
-                "5e79d51e.9213dc"
             ]
         ]
     },
@@ -3236,6 +3262,38 @@
                 "d0971035.fd6cc"
             ]
         ]
+    },
+    {
+        "id": "980e2fce14a1fb48",
+        "type": "debug",
+        "z": "37daec28.284ee4",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 640,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "aad16a6f8f012eb8",
+        "type": "debug",
+        "z": "37daec28.284ee4",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 320,
+        "y": 580,
+        "wires": []
     },
     {
         "id": "fb43367b.7b8798",
@@ -4317,13 +4375,15 @@
         "id": "153c328e.15de1d",
         "type": "mqtt in",
         "z": "3a471104.edfbae",
-        "name": "Bewegungsmelder Treppenhaus4",
-        "topic": "zigbee2mqtt/bewegungsmelder_treppenhaus4",
+        "name": "Bewegungsmelder Treppenhaus Keller",
+        "topic": "zigbee2mqtt/bewegungsmelder_treppenhaus_keller",
         "qos": "2",
         "datatype": "json",
         "broker": "c349b9ff.9dc4c8",
+        "nl": false,
+        "rap": false,
         "inputs": 0,
-        "x": 210,
+        "x": 190,
         "y": 620,
         "wires": [
             [
@@ -4409,13 +4469,15 @@
         "id": "1c86fb0b.6322c5",
         "type": "mqtt in",
         "z": "3a471104.edfbae",
-        "name": "Bewegungsmelder Treppenhaus3",
-        "topic": "zigbee2mqtt/bewegungsmelder_treppenhaus3",
+        "name": "Bewegungsmelder Treppenhaus DG",
+        "topic": "zigbee2mqtt/bewegungsmelder_treppenhaus_dg",
         "qos": "2",
         "datatype": "json",
         "broker": "c349b9ff.9dc4c8",
+        "nl": false,
+        "rap": false,
         "inputs": 0,
-        "x": 210,
+        "x": 220,
         "y": 300,
         "wires": [
             [
@@ -4427,13 +4489,15 @@
         "id": "c8229850.b97058",
         "type": "mqtt in",
         "z": "3a471104.edfbae",
-        "name": "Bewegungsmelder Treppenhaus2",
-        "topic": "zigbee2mqtt/bewegungsmelder_treppenhaus2",
+        "name": "Bewegungsmelder Treppenhaus EG",
+        "topic": "zigbee2mqtt/bewegungsmelder_treppenhaus_eg",
         "qos": "2",
         "datatype": "json",
         "broker": "c349b9ff.9dc4c8",
+        "nl": false,
+        "rap": false,
         "inputs": 0,
-        "x": 210,
+        "x": 220,
         "y": 340,
         "wires": [
             [
@@ -4445,15 +4509,15 @@
         "id": "cf66c5f7.71d4e8",
         "type": "mqtt in",
         "z": "3a471104.edfbae",
-        "name": "Bewegungsmelder Treppenhaus1",
-        "topic": "zigbee2mqtt/bewegungsmelder_treppenhaus1",
+        "name": "Bewegungsmelder Treppenhaus OG",
+        "topic": "zigbee2mqtt/bewegungsmelder_treppenhaus_og",
         "qos": "2",
         "datatype": "json",
         "broker": "c349b9ff.9dc4c8",
         "nl": false,
         "rap": false,
         "inputs": 0,
-        "x": 210,
+        "x": 220,
         "y": 380,
         "wires": [
             [
@@ -5785,18 +5849,21 @@
         "type": "function",
         "z": "4d90b497.b5b2ac",
         "name": "fan controller",
-        "func": "const mw = 18.01534;    // molar mass of water g/mol\nconst r = 8.31447215;   // Universal gas constant J/mol/K\n\nconst outside_abs_humidity = global.get(\"aussen-absolute_humidity\");\nconst wk_temperature = global.get(\"waschkueche_luefter-temperature\");\nconst wk_humidity = global.get(\"waschkueche_luefter-humidity\");\nconst wk_abs_humidity = global.get(\"waschkueche_luefter-absolute_humidity\");\n\nconst washroom_fan_control = flow.get(\"washroom_fan_control\");\nconst last_abs_humidity_gt_outside_abs_humidity = global.get(\"washroom-last_abs_humidity_gt_outside_abs_humidity\");\n\nconst room_abs_humidity_gt_outside_abs_humidity = (last_abs_humidity_gt_outside_abs_humidity) ?\n    wk_abs_humidity > outside_abs_humidity * 1.10 :\n    wk_abs_humidity > outside_abs_humidity * 1.15 ;\n\nglobal.set(\"washroom-last_abs_humidity_gt_outside_abs_humidity\", wk_abs_humidity > outside_abs_humidity);\n\nvar washroom_fan_on;\nif (washroom_fan_control == \"ON\") {\n    if (room_abs_humidity_gt_outside_abs_humidity) {\n        if (wk_humidity > 65) { // || wk_temperature > 17) {\n            washroom_fan_on = \"ON\";\n        } else {\n            washroom_fan_on = \"OFF\";\n        }\n    } else {\n        washroom_fan_on = \"OFF\";\n    }\n} else {\n    washroom_fan_on = \"OFF\";\n}\n\nmsg = [\n    (washroom_fan_on) ? {topic: \"luefter_sw\", payload: washroom_fan_on} : undefined,\n    {topic: \"Debug\", payload: {\n            outside_abs_humidity: outside_abs_humidity,\n            wk_temperature: wk_temperature,\n            wk_humidity: wk_humidity,\n            wk_abs_humidity: wk_abs_humidity,\n            washroom_fan_on: washroom_fan_on,\n            washroom_fan_control: washroom_fan_control,\n            last_abs_humidity_gt_outside_abs_humidity: last_abs_humidity_gt_outside_abs_humidity\n    }   }\n];\n\nreturn msg;",
+        "func": "const mw = 18.01534;    // molar mass of water g/mol\nconst r = 8.31447215;   // Universal gas constant J/mol/K\n\nconst outside_abs_humidity = global.get(\"aussen-absolute_humidity\");\nconst wk_temperature = global.get(\"waschkueche_luefter-temperature\");\nconst wk_humidity = global.get(\"waschkueche_luefter-humidity\");\nconst wk_abs_humidity = global.get(\"waschkueche_luefter-absolute_humidity\");\n\nconst washroom_fan_control = flow.get(\"washroom_fan_control\");\nconst last_abs_humidity_gt_outside_abs_humidity = global.get(\"washroom-last_abs_humidity_gt_outside_abs_humidity\");\n\nconst room_abs_humidity_gt_outside_abs_humidity = (last_abs_humidity_gt_outside_abs_humidity) ?\n    wk_abs_humidity > outside_abs_humidity * 1.15 :\n    wk_abs_humidity > outside_abs_humidity * 1.20 ;\n\nglobal.set(\"washroom-last_abs_humidity_gt_outside_abs_humidity\", wk_abs_humidity > outside_abs_humidity);\n\nvar washroom_fan_on;\nif (washroom_fan_control == \"ON\") {\n    if (room_abs_humidity_gt_outside_abs_humidity) {\n        if (wk_humidity > 65) { // || wk_temperature > 17) {\n            washroom_fan_on = \"ON\";\n        } else {\n            washroom_fan_on = \"OFF\";\n        }\n    } else {\n        washroom_fan_on = \"OFF\";\n    }\n} else {\n    washroom_fan_on = \"OFF\";\n}\n\nmsg = [\n    (washroom_fan_on) ? {topic: \"luefter_sw\", payload: washroom_fan_on} : undefined,\n    {topic: \"Debug\", payload: {\n            outside_abs_humidity: outside_abs_humidity,\n            wk_temperature: wk_temperature,\n            wk_humidity: wk_humidity,\n            wk_abs_humidity: wk_abs_humidity,\n            washroom_fan_on: washroom_fan_on,\n            washroom_fan_control: washroom_fan_control,\n            last_abs_humidity_gt_outside_abs_humidity: last_abs_humidity_gt_outside_abs_humidity\n    }   }\n];\n\nreturn msg;",
         "outputs": 2,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
+        "libs": [],
         "x": 670,
         "y": 380,
         "wires": [
             [
                 "74d29041.9a5c4"
             ],
-            []
+            [
+                "9b925dad22426b25"
+            ]
         ]
     },
     {
@@ -5872,6 +5939,7 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
+        "libs": [],
         "x": 840,
         "y": 540,
         "wires": [
@@ -6273,6 +6341,22 @@
         ],
         "x": 2095,
         "y": 380,
+        "wires": []
+    },
+    {
+        "id": "9b925dad22426b25",
+        "type": "debug",
+        "z": "4d90b497.b5b2ac",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 810,
+        "y": 420,
         "wires": []
     },
     {
@@ -7143,11 +7227,11 @@
         "links": [
             "89dc73d808e84b6b"
         ],
-        "x": 635,
-        "y": 60,
+        "x": 755,
+        "y": 40,
         "wires": [
             [
-                "7e1d2b18.0c9484"
+                "6c60716b.1a609"
             ]
         ]
     },
@@ -7843,44 +7927,9 @@
         "correl": "",
         "expiry": "",
         "broker": "c349b9ff.9dc4c8",
-        "x": 1140,
-        "y": 300,
+        "x": 960,
+        "y": 400,
         "wires": []
-    },
-    {
-        "id": "d5f3f736.318c48",
-        "type": "ui_switch",
-        "z": "dac2cb3b.559138",
-        "name": "Zirkulationspumpe (1h)",
-        "label": "Zirkulationspumpe (1h)",
-        "tooltip": "",
-        "group": "10c3f1d2.4cdbde",
-        "order": 1,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "decouple": "false",
-        "topic": "zirkulationspumpe",
-        "topicType": "str",
-        "style": "",
-        "onvalue": "ON",
-        "onvalueType": "str",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "OFF",
-        "offvalueType": "str",
-        "officon": "",
-        "offcolor": "",
-        "animate": true,
-        "className": "",
-        "x": 620,
-        "y": 260,
-        "wires": [
-            [
-                "db493a7d.62f9b8",
-                "a54dfc09.5116b"
-            ]
-        ]
     },
     {
         "id": "e1310c63.42996",
@@ -7916,8 +7965,8 @@
         "fri": true,
         "sat": false,
         "sun": false,
-        "x": 210,
-        "y": 260,
+        "x": 150,
+        "y": 480,
         "wires": [
             [
                 "4d0ea0476f9b4e31"
@@ -7958,8 +8007,8 @@
         "fri": false,
         "sat": true,
         "sun": true,
-        "x": 230,
-        "y": 360,
+        "x": 170,
+        "y": 580,
         "wires": [
             [
                 "e96d4ab170b53532"
@@ -7970,6 +8019,7 @@
         "id": "1ffaa871.848be8",
         "type": "ui_text_input",
         "z": "dac2cb3b.559138",
+        "d": true,
         "name": "Start",
         "label": "Start",
         "tooltip": "",
@@ -7984,8 +8034,8 @@
         "sendOnBlur": true,
         "className": "",
         "topicType": "str",
-        "x": 250,
-        "y": 620,
+        "x": 190,
+        "y": 840,
         "wires": [
             [
                 "eda3a9b8.dfbd68"
@@ -7997,45 +8047,18 @@
         "type": "function",
         "z": "dac2cb3b.559138",
         "name": "",
-        "func": "function hh_mm_to_ms(hh, mm) {\n    return hh * 3600000 + mm * 60000;\n}\n\nconst last_state = flow.get(\"zirkulationspumpe\");\n\nconst timestamp = new Date();\nconst day_index = timestamp.getDay();\nconst ms = hh_mm_to_ms(timestamp.getHours(), timestamp.getMinutes());\nconst timer = flow.get(\"timer\");\n\nif (timer.wdays.includes(day_index) \n    && ms >= timer.start \n    && ms <= timer.start + 6*60*1000\n    && last_state != \"ON\") {\n    return [{payload: \"ON\"}, {payload: timer}];\n}\n",
+        "func": "function hh_mm_to_ms(hh, mm) {\n    return hh * 3600000 + mm * 60000;\n}\n\nconst last_state = flow.get(\"zirkulationspumpe\");\n\nconst timestamp = new Date();\nconst day_index = timestamp.getDay();\nconst ms = hh_mm_to_ms(timestamp.getHours(), timestamp.getMinutes());\nconst timer = flow.get(\"timer\");\n\nif (timer.wdays.includes(day_index) \n    && ms >= timer.start \n    && ms <= timer.start + 6*60*1000\n    && last_state != \"ON\") {\n    return [{payload: \"ON\"}, {payload: timer}];\n} else\n    return [undefined, {payload: timer}];\n\n",
         "outputs": 2,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 220,
-        "y": 180,
+        "x": 160,
+        "y": 400,
         "wires": [
-            [
-                "d5f3f736.318c48"
-            ],
+            [],
             [
                 "a3dd6456.ef3838"
-            ]
-        ]
-    },
-    {
-        "id": "4df4dfb9.128f5",
-        "type": "trigger",
-        "z": "dac2cb3b.559138",
-        "name": "Treppenhausautomat 1h",
-        "op1": "",
-        "op2": "OFF",
-        "op1type": "nul",
-        "op2type": "str",
-        "duration": "1",
-        "extend": true,
-        "overrideDelay": false,
-        "units": "hr",
-        "reset": "",
-        "bytopic": "all",
-        "topic": "topic",
-        "outputs": 1,
-        "x": 790,
-        "y": 200,
-        "wires": [
-            [
-                "d5f3f736.318c48"
             ]
         ]
     },
@@ -8054,10 +8077,9 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "payload": "",
         "payloadType": "date",
-        "x": 210,
-        "y": 140,
+        "x": 150,
+        "y": 360,
         "wires": [
             [
                 "b761a7dd.a77438"
@@ -8068,6 +8090,7 @@
         "id": "fa434a86.5d1958",
         "type": "ui_dropdown",
         "z": "dac2cb3b.559138",
+        "d": true,
         "name": "Wochentage",
         "label": "Wochentage",
         "tooltip": "",
@@ -8119,29 +8142,11 @@
         "topic": "wdays",
         "topicType": "str",
         "className": "",
-        "x": 230,
-        "y": 660,
+        "x": 170,
+        "y": 880,
         "wires": [
             [
                 "c5b32853.08b2b8"
-            ]
-        ]
-    },
-    {
-        "id": "db493a7d.62f9b8",
-        "type": "function",
-        "z": "dac2cb3b.559138",
-        "name": "filter ON",
-        "func": "if (msg.payload === \"ON\")\n    return {payload: \"ON\"}\nelse\n    return undefined;\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 580,
-        "y": 200,
-        "wires": [
-            [
-                "4df4dfb9.128f5"
             ]
         ]
     },
@@ -8150,7 +8155,7 @@
         "type": "debug",
         "z": "dac2cb3b.559138",
         "name": "",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -8158,8 +8163,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 590,
-        "y": 640,
+        "x": 530,
+        "y": 860,
         "wires": []
     },
     {
@@ -8167,7 +8172,7 @@
         "type": "debug",
         "z": "dac2cb3b.559138",
         "name": "",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -8175,8 +8180,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 210,
-        "y": 220,
+        "x": 150,
+        "y": 440,
         "wires": []
     },
     {
@@ -8190,8 +8195,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 400,
-        "y": 620,
+        "x": 340,
+        "y": 840,
         "wires": [
             [
                 "e5f731f4.2d4b5"
@@ -8209,8 +8214,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 400,
-        "y": 660,
+        "x": 340,
+        "y": 880,
         "wires": [
             [
                 "e5f731f4.2d4b5"
@@ -8221,6 +8226,7 @@
         "id": "d472b0fb.8234d",
         "type": "ui_template",
         "z": "dac2cb3b.559138",
+        "d": true,
         "group": "85193673.744e38",
         "name": "",
         "order": 2,
@@ -8232,8 +8238,8 @@
         "resendOnRefresh": true,
         "templateScope": "local",
         "className": "",
-        "x": 220,
-        "y": 480,
+        "x": 160,
+        "y": 700,
         "wires": [
             []
         ]
@@ -8258,8 +8264,8 @@
         "onceDelay": 0.1,
         "topic": "",
         "payloadType": "date",
-        "x": 220,
-        "y": 440,
+        "x": 160,
+        "y": 660,
         "wires": [
             [
                 "d472b0fb.8234d"
@@ -8277,8 +8283,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 240,
-        "y": 580,
+        "x": 180,
+        "y": 800,
         "wires": [
             [
                 "1ffaa871.848be8"
@@ -8305,8 +8311,8 @@
         "onceDelay": 0.1,
         "topic": "",
         "payloadType": "date",
-        "x": 230,
-        "y": 540,
+        "x": 170,
+        "y": 760,
         "wires": [
             [
                 "31dbebd8.46ea94"
@@ -8314,138 +8320,10 @@
         ]
     },
     {
-        "id": "447d59fc.c32558",
-        "type": "function",
-        "z": "dac2cb3b.559138",
-        "name": "store in flow",
-        "func": "const topic = \"zirkulationspumpe\";\nconst last_state = flow.get(topic);\n\nif (last_state === \"ON\")\n    if (msg.payload === \"ON\") {\n        flow.set(topic + \"-exor\", true);\n        flow.set(topic, msg.payload);\n        return [{payload: \"ON\"}, undefined, {payload: \"OFF\"}]\n    } else {\n        if (flow.get(topic + \"-exor\")) {\n            flow.set(topic + \"-exor\", false);\n            return;\n        }\n        flow.set(topic, msg.payload);\n        return [{payload: \"OFF\"}, {reset: \"RESET\"}, undefined];\n    }\nelse {\n    if (msg.payload === \"ON\") {\n        flow.set(topic, msg.payload);\n        return [{payload: \"ON\"}, undefined, undefined];\n    }\n}",
-        "outputs": 3,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 850,
-        "y": 340,
-        "wires": [
-            [
-                "7b56cfeb.46625"
-            ],
-            [
-                "b53d08a.47bf0f8"
-            ],
-            [
-                "d5f3f736.318c48"
-            ]
-        ]
-    },
-    {
-        "id": "e2d77d4f.961bf",
-        "type": "ui_switch",
-        "z": "dac2cb3b.559138",
-        "name": "Zirkulationspumpe (2h)",
-        "label": "Zirkulationspumpe (2h)",
-        "tooltip": "",
-        "group": "10c3f1d2.4cdbde",
-        "order": 1,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "decouple": "false",
-        "topic": "zirkulationspumpe",
-        "topicType": "str",
-        "style": "",
-        "onvalue": "ON",
-        "onvalueType": "str",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "OFF",
-        "offvalueType": "str",
-        "officon": "",
-        "offcolor": "",
-        "animate": true,
-        "className": "",
-        "x": 620,
-        "y": 340,
-        "wires": [
-            [
-                "447d59fc.c32558",
-                "e14b661.a7e4398"
-            ]
-        ]
-    },
-    {
-        "id": "a54dfc09.5116b",
-        "type": "function",
-        "z": "dac2cb3b.559138",
-        "name": "store in flow",
-        "func": "const topic = \"zirkulationspumpe\";\nconst last_state = flow.get(topic);\n\nif (last_state === \"ON\")\n    if (msg.payload === \"ON\") {\n        flow.set(topic + \"-exor\", true);\n        flow.set(topic, msg.payload);\n        return [{payload: \"ON\"}, undefined, {payload: \"OFF\"}]\n    } else {\n        if (flow.get(topic + \"-exor\")) {\n            flow.set(topic + \"-exor\", false);\n            return;\n        }\n        flow.set(topic, msg.payload);\n        return [{payload: \"OFF\"}, {reset: \"RESET\"}, undefined];\n    }\nelse {\n    if (msg.payload === \"ON\") {\n        flow.set(topic, msg.payload);\n        return [{payload: \"ON\"}, undefined, undefined];\n    }\n}",
-        "outputs": 3,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 850,
-        "y": 260,
-        "wires": [
-            [
-                "7b56cfeb.46625"
-            ],
-            [
-                "4df4dfb9.128f5"
-            ],
-            [
-                "e2d77d4f.961bf"
-            ]
-        ]
-    },
-    {
-        "id": "e14b661.a7e4398",
-        "type": "function",
-        "z": "dac2cb3b.559138",
-        "name": "filter ON",
-        "func": "if (msg.payload === \"ON\")\n    return {payload: \"ON\"}\nelse\n    return undefined;\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 580,
-        "y": 400,
-        "wires": [
-            [
-                "b53d08a.47bf0f8"
-            ]
-        ]
-    },
-    {
-        "id": "b53d08a.47bf0f8",
-        "type": "trigger",
-        "z": "dac2cb3b.559138",
-        "name": "Treppenhausautomat 2h",
-        "op1": "",
-        "op2": "OFF",
-        "op1type": "nul",
-        "op2type": "str",
-        "duration": "2",
-        "extend": true,
-        "overrideDelay": false,
-        "units": "hr",
-        "reset": "",
-        "bytopic": "all",
-        "topic": "topic",
-        "outputs": 1,
-        "x": 790,
-        "y": 400,
-        "wires": [
-            [
-                "e2d77d4f.961bf"
-            ]
-        ]
-    },
-    {
         "id": "d0ebd5ddad78c021",
         "type": "ui_dropdown",
         "z": "dac2cb3b.559138",
+        "d": true,
         "name": "Modus",
         "label": "Modus",
         "tooltip": "",
@@ -8477,7 +8355,7 @@
         "topic": "mode",
         "topicType": "str",
         "className": "",
-        "x": 180,
+        "x": 110,
         "y": 80,
         "wires": [
             [
@@ -8496,12 +8374,10 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 400,
-        "y": 260,
+        "x": 340,
+        "y": 480,
         "wires": [
-            [
-                "d5f3f736.318c48"
-            ]
+            []
         ]
     },
     {
@@ -8515,12 +8391,10 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 400,
-        "y": 360,
+        "x": 340,
+        "y": 580,
         "wires": [
-            [
-                "e2d77d4f.961bf"
-            ]
+            []
         ]
     },
     {
@@ -8557,8 +8431,8 @@
         "fri": true,
         "sat": false,
         "sun": false,
-        "x": 210,
-        "y": 320,
+        "x": 150,
+        "y": 540,
         "wires": [
             [
                 "846c18c3ac28e800"
@@ -8576,12 +8450,10 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 400,
-        "y": 320,
+        "x": 340,
+        "y": 540,
         "wires": [
-            [
-                "e2d77d4f.961bf"
-            ]
+            []
         ]
     },
     {
@@ -8595,7 +8467,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 500,
+        "x": 430,
         "y": 80,
         "wires": [
             [
@@ -8612,11 +8484,147 @@
         "tosidebar": true,
         "console": false,
         "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 600,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "5428f2e53de25092",
+        "type": "mqtt in",
+        "z": "dac2cb3b.559138",
+        "name": "",
+        "topic": "zigbee2mqtt/fernbedienung_bad",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "c349b9ff.9dc4c8",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 190,
+        "y": 300,
+        "wires": [
+            [
+                "df199e6fb3a59d4f"
+            ]
+        ]
+    },
+    {
+        "id": "df199e6fb3a59d4f",
+        "type": "template",
+        "z": "dac2cb3b.559138",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "ON",
+        "output": "str",
+        "x": 340,
+        "y": 340,
+        "wires": [
+            [
+                "df2bfb8e940b1768"
+            ]
+        ]
+    },
+    {
+        "id": "df2bfb8e940b1768",
+        "type": "ui_switch",
+        "z": "dac2cb3b.559138",
+        "name": "Zirkulationspumpe (10min)",
+        "label": "Zirkulationspumpe (10min)",
+        "tooltip": "",
+        "group": "10c3f1d2.4cdbde",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "zirkulationspumpe_10min",
+        "topicType": "str",
+        "style": "",
+        "onvalue": "ON",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "OFF",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "animate": true,
+        "className": "",
+        "x": 640,
+        "y": 440,
+        "wires": [
+            [
+                "7b56cfeb.46625",
+                "2e8b20cfb2c1a46d",
+                "1bd61820f04bb24e"
+            ]
+        ]
+    },
+    {
+        "id": "351c32062e77392a",
+        "type": "trigger",
+        "z": "dac2cb3b.559138",
+        "name": "Treppenhausautomat 10min",
+        "op1": "",
+        "op2": "OFF",
+        "op1type": "nul",
+        "op2type": "str",
+        "duration": "10",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "min",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 1080,
+        "y": 440,
+        "wires": [
+            [
+                "df2bfb8e940b1768"
+            ]
+        ]
+    },
+    {
+        "id": "2e8b20cfb2c1a46d",
+        "type": "function",
+        "z": "dac2cb3b.559138",
+        "name": "filter ON",
+        "func": "if (msg.payload === \"ON\")\n    return {payload: \"ON\"}\nelse\n    return undefined;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 880,
+        "y": 440,
+        "wires": [
+            [
+                "351c32062e77392a"
+            ]
+        ]
+    },
+    {
+        "id": "1bd61820f04bb24e",
+        "type": "debug",
+        "z": "dac2cb3b.559138",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 670,
-        "y": 80,
+        "x": 890,
+        "y": 360,
         "wires": []
     },
     {
@@ -8755,6 +8763,11 @@
         "topic": "luftguetemesser1/switch/red/command",
         "qos": "",
         "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
         "broker": "c349b9ff.9dc4c8",
         "x": 870,
         "y": 180,
@@ -8768,8 +8781,13 @@
         "topic": "luftguetemesser1/switch/yellow/command",
         "qos": "",
         "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
         "broker": "c349b9ff.9dc4c8",
-        "x": 870,
+        "x": 1030,
         "y": 240,
         "wires": []
     },
@@ -8781,8 +8799,13 @@
         "topic": "luftguetemesser1/switch/green/command",
         "qos": "",
         "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
         "broker": "c349b9ff.9dc4c8",
-        "x": 870,
+        "x": 1030,
         "y": 300,
         "wires": []
     },
@@ -8804,10 +8827,10 @@
                 "e8dbd15a.75976"
             ],
             [
-                "f1103c8a.63b5b"
+                "d67cb16c5cf02b8f"
             ],
             [
-                "d860fe10.a5025"
+                "f4308c6efa877591"
             ],
             [
                 "5616c163.a87f9"
@@ -8957,8 +8980,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 650,
-        "y": 180,
+        "x": 430,
+        "y": 120,
         "wires": [
             [
                 "6ecf7aad.502114"
@@ -9212,6 +9235,56 @@
         "y": 600,
         "wires": [
             []
+        ]
+    },
+    {
+        "id": "f4308c6efa877591",
+        "type": "delay",
+        "z": "4fa3b184.bc7fb",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "0.6",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 890,
+        "y": 300,
+        "wires": [
+            [
+                "d860fe10.a5025"
+            ]
+        ]
+    },
+    {
+        "id": "d67cb16c5cf02b8f",
+        "type": "delay",
+        "z": "4fa3b184.bc7fb",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "0.3",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 890,
+        "y": 240,
+        "wires": [
+            [
+                "f1103c8a.63b5b"
+            ]
         ]
     },
     {
@@ -10484,6 +10557,347 @@
         "wires": []
     },
     {
+        "id": "f06ae9a911e8a137",
+        "type": "inject",
+        "z": "caf02dc9a5b73890",
+        "name": "",
+        "props": [
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "20",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "lockStatus",
+        "x": 210,
+        "y": 540,
+        "wires": [
+            [
+                "e9c32823858e01b0",
+                "bcaee79e2f0da1b2"
+            ]
+        ]
+    },
+    {
+        "id": "5491f3b7aa1d4a3f",
+        "type": "nuki-lock-control",
+        "z": "caf02dc9a5b73890",
+        "name": "Kellertür-Riegel",
+        "nuki": "664478908",
+        "bridge": "8e519b57f09d9196",
+        "x": 740,
+        "y": 440,
+        "wires": [
+            [
+                "dfb3d5db711050dd"
+            ]
+        ]
+    },
+    {
+        "id": "ebe65eae65335e8d",
+        "type": "nuki-lock-control",
+        "z": "caf02dc9a5b73890",
+        "name": "Kellertür-Schloss",
+        "nuki": "439053421",
+        "bridge": "8e519b57f09d9196",
+        "x": 750,
+        "y": 340,
+        "wires": [
+            [
+                "5d08975286bdb9a8"
+            ]
+        ]
+    },
+    {
+        "id": "5d08975286bdb9a8",
+        "type": "function",
+        "z": "caf02dc9a5b73890",
+        "name": "",
+        "func": "const tandem_nuki = \"kellertuer_riegel\";\nconst state_name = msg.payload.stateName;\nconst last_state = flow.get(tandem_nuki);\n\nif (state_name === last_state) return;\n\nif (state_name === \"locked\") {\n    flow.set(tandem_nuki, \"locked\");\n    msg.payload = \"LOCK\";\n    msg.topic = \"lockAction\";\n    return msg;\n} else if (state_name === \"unlocked\") {\n    flow.set(tandem_nuki, \"unlocked\");\n    msg.payload = \"UNLOCK\";\n    msg.topic = \"lockAction\";\n    return msg;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 960,
+        "y": 340,
+        "wires": [
+            [
+                "5491f3b7aa1d4a3f"
+            ]
+        ]
+    },
+    {
+        "id": "dfb3d5db711050dd",
+        "type": "function",
+        "z": "caf02dc9a5b73890",
+        "name": "",
+        "func": "const tandem_nuki = \"kellertuer_schloss\";\nconst state_name = msg.payload.stateNname;\nconst last_state = flow.get(tandem_nuki);\n\nif (state_name === last_state) return;\n\nif (state_name === \"locked\") {\n    flow.set(tandem_nuki, \"locked\");\n    msg.payload = \"LOCK\";\n    msg.topic = \"lockAction\";\n    return msg;\n} else if (state_name === \"unlocked\") {\n    flow.set(tandem_nuki, \"unlocked\");\n    msg.payload = \"UNLOCK\";\n    msg.topic = \"lockAction\";\n    return msg;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 960,
+        "y": 440,
+        "wires": [
+            [
+                "ebe65eae65335e8d"
+            ]
+        ]
+    },
+    {
+        "id": "7f8d1303f7f66950",
+        "type": "ui_button",
+        "z": "caf02dc9a5b73890",
+        "d": true,
+        "name": "kellertuer_offnen",
+        "group": "9a105ea86f63c96c",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Öffnen",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "ON",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 170,
+        "y": 340,
+        "wires": [
+            [
+                "7113977aa13eb6c9",
+                "13c72d57191e55a0"
+            ]
+        ]
+    },
+    {
+        "id": "09a93640a2177ca6",
+        "type": "ui_button",
+        "z": "caf02dc9a5b73890",
+        "d": true,
+        "name": "kellertuer_schliessen",
+        "group": "9a105ea86f63c96c",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Schließen",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "ON",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 160,
+        "y": 440,
+        "wires": [
+            [
+                "223a267e3f2c72b4"
+            ]
+        ]
+    },
+    {
+        "id": "13c72d57191e55a0",
+        "type": "function",
+        "z": "caf02dc9a5b73890",
+        "d": true,
+        "name": "",
+        "func": "if (msg.payload === \"ON\")\n    return({topic:\"lockAction\", payload: \"UNLOCK\"});",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 380,
+        "wires": [
+            [
+                "5491f3b7aa1d4a3f"
+            ]
+        ]
+    },
+    {
+        "id": "e9c32823858e01b0",
+        "type": "nuki-lock-control",
+        "z": "caf02dc9a5b73890",
+        "name": "Kellertür-Schloss",
+        "nuki": "439053421",
+        "bridge": "8e519b57f09d9196",
+        "x": 410,
+        "y": 520,
+        "wires": [
+            [
+                "8ec33b93377a2edd"
+            ]
+        ]
+    },
+    {
+        "id": "bcaee79e2f0da1b2",
+        "type": "nuki-lock-control",
+        "z": "caf02dc9a5b73890",
+        "name": "Kellertür-Riegel",
+        "nuki": "664478908",
+        "bridge": "8e519b57f09d9196",
+        "x": 400,
+        "y": 560,
+        "wires": [
+            [
+                "6b35d5e316596e6d"
+            ]
+        ]
+    },
+    {
+        "id": "c9e2a024280b0742",
+        "type": "ui_text",
+        "z": "caf02dc9a5b73890",
+        "group": "6e590cb07ba9a85d",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Kellertür-Schloss",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 790,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "57d2ad26b221e581",
+        "type": "ui_text",
+        "z": "caf02dc9a5b73890",
+        "group": "6e590cb07ba9a85d",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Kellertür-Riegel",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 780,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "8ec33b93377a2edd",
+        "type": "function",
+        "z": "caf02dc9a5b73890",
+        "name": "",
+        "func": "if (msg.topic === \"lockStatus\") {\n    const state = msg.payload.state;\n    var state_name;\n    if (state === \"LOCKED\")\n        state_name = \"verriegelt\"\n    else if (state === \"UNLOCKED\")\n        state_name = \"entriegelt\"\n    else\n        state_name = state\n    return({payload: state_name});\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 600,
+        "y": 520,
+        "wires": [
+            [
+                "c9e2a024280b0742"
+            ]
+        ]
+    },
+    {
+        "id": "6b35d5e316596e6d",
+        "type": "function",
+        "z": "caf02dc9a5b73890",
+        "name": "",
+        "func": "if (msg.topic === \"lockStatus\") {\n    const state = msg.payload.state;\n    var state_name;\n    if (state === \"LOCKED\")\n        state_name = \"verriegelt\"\n    else if (state === \"UNLOCKED\")\n        state_name = \"entriegelt\"\n    else\n        state_name = state\n    return({payload: state_name});\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 600,
+        "y": 560,
+        "wires": [
+            [
+                "57d2ad26b221e581"
+            ]
+        ]
+    },
+    {
+        "id": "7113977aa13eb6c9",
+        "type": "function",
+        "z": "caf02dc9a5b73890",
+        "d": true,
+        "name": "",
+        "func": "if (msg.payload === \"ON\")\n    return({topic:\"lockAction\", payload: \"UNLATCH\"});",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 340,
+        "wires": [
+            [
+                "cd4baa5cad4f90fa"
+            ]
+        ]
+    },
+    {
+        "id": "223a267e3f2c72b4",
+        "type": "function",
+        "z": "caf02dc9a5b73890",
+        "d": true,
+        "name": "",
+        "func": "if (msg.payload === \"ON\")\n    return({topic:\"lockAction\", payload: \"LOCK\"});",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 440,
+        "wires": [
+            [
+                "5491f3b7aa1d4a3f",
+                "ebe65eae65335e8d"
+            ]
+        ]
+    },
+    {
+        "id": "cd4baa5cad4f90fa",
+        "type": "delay",
+        "z": "caf02dc9a5b73890",
+        "d": true,
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "1",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 540,
+        "y": 340,
+        "wires": [
+            [
+                "ebe65eae65335e8d"
+            ]
+        ]
+    },
+    {
         "id": "1faf9813.1db958",
         "type": "fritzbox-in",
         "z": "29cd7d28.a2bf92",
@@ -10913,7 +11327,7 @@
         "type": "ui_button",
         "z": "29cd7d28.a2bf92",
         "name": "",
-        "group": "5a2c927c.ba1edc",
+        "group": "302f97937a79e8a7",
         "order": 5,
         "width": 0,
         "height": 0,
@@ -10922,6 +11336,7 @@
         "tooltip": "",
         "color": "",
         "bgcolor": "",
+        "className": "",
         "icon": "",
         "payload": "",
         "payloadType": "date",
@@ -10940,7 +11355,7 @@
         "type": "ui_button",
         "z": "29cd7d28.a2bf92",
         "name": "",
-        "group": "5a2c927c.ba1edc",
+        "group": "302f97937a79e8a7",
         "order": 6,
         "width": 0,
         "height": 0,
@@ -10949,6 +11364,7 @@
         "tooltip": "",
         "color": "",
         "bgcolor": "",
+        "className": "",
         "icon": "",
         "payload": "",
         "payloadType": "date",
@@ -10967,7 +11383,7 @@
         "type": "ui_button",
         "z": "29cd7d28.a2bf92",
         "name": "",
-        "group": "5a2c927c.ba1edc",
+        "group": "302f97937a79e8a7",
         "order": 2,
         "width": 0,
         "height": 0,
@@ -10976,6 +11392,7 @@
         "tooltip": "",
         "color": "",
         "bgcolor": "",
+        "className": "",
         "icon": "",
         "payload": "",
         "payloadType": "date",
@@ -10994,7 +11411,7 @@
         "type": "ui_button",
         "z": "29cd7d28.a2bf92",
         "name": "",
-        "group": "5a2c927c.ba1edc",
+        "group": "302f97937a79e8a7",
         "order": 3,
         "width": 0,
         "height": 0,
@@ -11003,6 +11420,7 @@
         "tooltip": "",
         "color": "",
         "bgcolor": "",
+        "className": "",
         "icon": "",
         "payload": "",
         "payloadType": "date",
@@ -11021,7 +11439,7 @@
         "type": "ui_button",
         "z": "29cd7d28.a2bf92",
         "name": "",
-        "group": "5a2c927c.ba1edc",
+        "group": "302f97937a79e8a7",
         "order": 2,
         "width": 0,
         "height": 0,
