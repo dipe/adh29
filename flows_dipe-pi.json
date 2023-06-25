@@ -863,8 +863,8 @@
         "z": "37daec28.284ee4",
         "name": "Wandtaster rechts",
         "topic": "wandschalter-wozi1/binary_sensor/switch_1/state",
-        "qos": "2",
-        "datatype": "auto",
+        "qos": "0",
+        "datatype": "auto-detect",
         "broker": "c349b9ff.9dc4c8",
         "nl": false,
         "rap": false,
@@ -884,8 +884,8 @@
         "z": "37daec28.284ee4",
         "name": "Wandtaster links",
         "topic": "wandschalter-wozi1/binary_sensor/switch_2/state",
-        "qos": "2",
-        "datatype": "auto",
+        "qos": "0",
+        "datatype": "auto-detect",
         "broker": "c349b9ff.9dc4c8",
         "nl": false,
         "rap": false,
@@ -3435,7 +3435,8 @@
         "y": 180,
         "wires": [
             [
-                "dba6f56.3127408"
+                "dba6f56.3127408",
+                "228e3903f8b991b2"
             ]
         ]
     },
@@ -3899,6 +3900,7 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
+        "libs": [],
         "x": 1040,
         "y": 400,
         "wires": [
@@ -4768,6 +4770,25 @@
             [
                 "3d54164a8aad07af"
             ]
+        ]
+    },
+    {
+        "id": "228e3903f8b991b2",
+        "type": "flogger",
+        "z": "3a471104.edfbae",
+        "name": "gaeste-wc",
+        "logfile": "gaeste-wc",
+        "inputchoice": "fullmsg",
+        "inputobject": "payload",
+        "inputobjectType": "msg",
+        "inputmoustache": "Recieved payload {{payload}} and topic {{topic}}",
+        "loglevel": "INFO",
+        "logconfig": "8929498a4f6d4a2d",
+        "sendpane": "",
+        "x": 630,
+        "y": 120,
+        "wires": [
+            []
         ]
     },
     {
@@ -7254,6 +7275,7 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
+        "libs": [],
         "x": 780,
         "y": 600,
         "wires": [
@@ -7530,6 +7552,7 @@
         "id": "e1310c63.42996",
         "type": "thingzi-timer",
         "z": "dac2cb3b.559138",
+        "d": true,
         "name": "Wochentag normal",
         "lat": "50.882",
         "lon": "6.6949",
@@ -7572,6 +7595,7 @@
         "id": "b5f77d36.0420c",
         "type": "thingzi-timer",
         "z": "dac2cb3b.559138",
+        "d": true,
         "name": "Wochenende",
         "lat": "50.882",
         "lon": "6.6949",
@@ -7749,6 +7773,7 @@
         "id": "e5f731f4.2d4b5",
         "type": "debug",
         "z": "dac2cb3b.559138",
+        "d": true,
         "name": "",
         "active": false,
         "tosidebar": true,
@@ -7783,6 +7808,7 @@
         "id": "eda3a9b8.dfbd68",
         "type": "function",
         "z": "dac2cb3b.559138",
+        "d": true,
         "name": "",
         "func": "const timer = flow.get(\"timer\") || {start: 0, wdays: []};\n\ntimer.start = msg.payload;\n\nflow.set(\"timer\", timer);\n\nreturn {payload: timer};\n",
         "outputs": 1,
@@ -7802,6 +7828,7 @@
         "id": "c5b32853.08b2b8",
         "type": "function",
         "z": "dac2cb3b.559138",
+        "d": true,
         "name": "",
         "func": "const timer = flow.get(\"timer\") || {start: 0, wdays: []};\n\ntimer.wdays = msg.payload;\n\nflow.set(\"timer\", timer);\n\nreturn {payload: timer};\n",
         "outputs": 1,
@@ -7843,6 +7870,7 @@
         "id": "a8361f9.97356e",
         "type": "inject",
         "z": "dac2cb3b.559138",
+        "d": true,
         "name": "",
         "props": [
             {
@@ -7858,6 +7886,7 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
+        "payload": "",
         "payloadType": "date",
         "x": 160,
         "y": 660,
@@ -7871,6 +7900,7 @@
         "id": "31dbebd8.46ea94",
         "type": "function",
         "z": "dac2cb3b.559138",
+        "d": true,
         "name": "",
         "func": "const timer = flow.get(\"timer\") || {mode: 'normal', start: 0, wdays: []};\n\nreturn {payload: timer.start};\n",
         "outputs": 1,
@@ -7890,6 +7920,7 @@
         "id": "9d89bfbf.33214",
         "type": "inject",
         "z": "dac2cb3b.559138",
+        "d": true,
         "name": "",
         "props": [
             {
@@ -7905,6 +7936,7 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
+        "payload": "",
         "payloadType": "date",
         "x": 170,
         "y": 760,
@@ -7996,6 +8028,7 @@
         "id": "292ea6bc48ae4c3c",
         "type": "thingzi-timer",
         "z": "dac2cb3b.559138",
+        "d": true,
         "name": "Wochentag Urlaub",
         "lat": "50.882",
         "lon": "6.6949",
@@ -8055,6 +8088,7 @@
         "id": "431eec62b4a8ced3",
         "type": "function",
         "z": "dac2cb3b.559138",
+        "d": true,
         "name": "",
         "func": "const timer = flow.get(\"timer\") || {mode: 'normal', start: 0, wdays: []};\n\ntimer.mode = msg.payload;\n\nflow.set(\"timer\", timer);\n\nreturn {payload: timer};\n",
         "outputs": 1,
@@ -8074,6 +8108,7 @@
         "id": "7d0a12acabacf60e",
         "type": "debug",
         "z": "dac2cb3b.559138",
+        "d": true,
         "name": "",
         "active": false,
         "tosidebar": true,
@@ -10694,13 +10729,11 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 200,
-        "y": 800,
+        "x": 160,
+        "y": 840,
         "wires": [
             [
-                "6260a7d2e27bbda1",
-                "21b33795391d4ce8",
-                "25f654e171406fb8"
+                "679071b91ca41f8a"
             ]
         ]
     },
@@ -11067,6 +11100,22 @@
         "wires": [
             [
                 "e8dc780272f0a049"
+            ]
+        ]
+    },
+    {
+        "id": "679071b91ca41f8a",
+        "type": "debounce",
+        "z": "caf02dc9a5b73890",
+        "time": "2000",
+        "name": "",
+        "x": 220,
+        "y": 800,
+        "wires": [
+            [
+                "25f654e171406fb8",
+                "6260a7d2e27bbda1",
+                "21b33795391d4ce8"
             ]
         ]
     },
@@ -12464,9 +12513,9 @@
         "type": "function",
         "z": "ff52c0df.f6082",
         "name": "Save Battery",
-        "func": "var battery = msg.payload.battery;\nvar batteryLow = msg.payload.battery_low;\nvar voltage = msg.payload.voltage;\nvar deviceTopic  = msg.topic;\nvar ZigbeeDeviceNames = flow.get(\"ZigbeeDeviceNames\");\n\nvar zigbeeBattery = flow.get(\"zigbeeBattery\");\n\nif(zigbeeBattery === undefined){\n    zigbeeBattery = [];\n}\nif(zigbeeBattery === undefined){\n    zigbeeBattery = [];\n}\n\nvar test = isNaN(battery);\n\n//battery info present\nif(test === false){\n    \n    //get device ID\n    var z1 = /zigbee2mqtt\\/(.*)/.exec(deviceTopic);\n    var id = z1[1];\n    \n    //get name and ID\n    var posName = ZigbeeDeviceNames.map(function(e) { return e.name; }).indexOf(id);\n    node.warn(posName);\n    var deviceId = ZigbeeDeviceNames[posName].device;\n    var deviceName = ZigbeeDeviceNames[posName].name;\n    node.warn(posName);\n    //optional voltage and low batt \n    var testBatt = isNaN(batteryLow);\n    var testVolt = isNaN(voltage);\n    \n    if(testBatt === true){batteryLow = false;}\n    if(testVolt === true){voltage = false;}\n    \n    //get time\n    var time = new Date();\n    \n    var pos = zigbeeBattery.map(function(e) { return e.info.name; }).indexOf(deviceName);\n    node.warn(pos);\n    if(pos === -1){\n        var a = {\"device\": deviceId, \n                  \"info\":{ \n                    \"battery\":    battery,\n                    \"timestamp\":  time,\n                    \"batteryType\": false,\n                    \"batteryETA\":  \"TBD\",\n                    \"battery_low\": false,\n                    \"voltage\": voltage,\n                    \"name\": deviceName}\n                    };\n        zigbeeBattery.push(a);\n        flow.set(\"zigbeeBattery\", zigbeeBattery);\n    }\n    if(pos => 0){\n        var battType = zigbeeBattery[pos].info.batteryType\n        var a = {\"device\": deviceId, \n                  \"info\":{ \n                    \"battery\":    battery,\n                    \"timestamp\":  time,\n                    \"batteryType\": battType,\n                    \"batteryETA\":  \"TBD\",\n                    \"battery_low\": batteryLow,\n                    \"voltage\": voltage,\n                    \"name\": deviceName}\n                    };\n    }\n    zigbeeBattery[pos]= a;\n    flow.set(\"zigbeeBattery\", zigbeeBattery);\n}\n\n\n   \n\nreturn msg;",
+        "func": "var battery = msg.payload.battery;\nvar batteryLow = msg.payload.battery_low;\nvar voltage = msg.payload.voltage;\nvar deviceTopic  = msg.topic;\nvar ZigbeeDeviceNames = flow.get(\"ZigbeeDeviceNames\");\n\nvar zigbeeBattery = flow.get(\"zigbeeBattery\");\n\nif(zigbeeBattery === undefined){\n    zigbeeBattery = [];\n}\nif(zigbeeBattery === undefined){\n    zigbeeBattery = [];\n}\n\nvar test = isNaN(battery);\n\n//battery info present\nif(test === false){\n    \n    //get device ID\n    var z1 = /zigbee2mqtt\\/(.*)/.exec(deviceTopic);\n    var id = z1[1];\n    \n    //get name and ID\n    var posName = ZigbeeDeviceNames.map(function(e) { return e.name; }).indexOf(id);\n    node.warn(posName);\n    var deviceId = ZigbeeDeviceNames[posName].device;\n    var deviceName = ZigbeeDeviceNames[posName].name;\n    node.warn(posName);\n    //optional voltage and low batt \n    var testBatt = isNaN(batteryLow);\n    var testVolt = isNaN(voltage);\n    \n    if(testBatt === true){batteryLow = false;}\n    if(testVolt === true){voltage = false;}\n    \n    //get time\n    var time = new Date();\n    \n    var pos = zigbeeBattery.map(function(e) { return e.info.name; }).indexOf(deviceName);\n    node.warn(pos);\n    var a;\n    if(pos === -1){\n        a = {\"device\": deviceId, \n                  \"info\":{ \n                    \"battery\":    battery,\n                    \"timestamp\":  time,\n                    \"batteryType\": false,\n                    \"batteryETA\":  \"TBD\",\n                    \"battery_low\": false,\n                    \"voltage\": voltage,\n                    \"name\": deviceName}\n                    };\n        zigbeeBattery.push(a);\n        flow.set(\"zigbeeBattery\", zigbeeBattery);\n    }\n    if(pos >= 0){\n        var battType = zigbeeBattery[pos].info.batteryType\n        a = {\"device\": deviceId, \n                  \"info\":{ \n                    \"battery\":    battery,\n                    \"timestamp\":  time,\n                    \"batteryType\": battType,\n                    \"batteryETA\":  \"TBD\",\n                    \"battery_low\": batteryLow,\n                    \"voltage\": voltage,\n                    \"name\": deviceName}\n                    };\n    }\n    zigbeeBattery[pos]= a;\n    flow.set(\"zigbeeBattery\", zigbeeBattery);\n}\n\n\n   \n\nreturn msg;",
         "outputs": 1,
-        "noerr": 5,
+        "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
