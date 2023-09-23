@@ -104,7 +104,7 @@
         "id": "4bb30c72fc55b54d",
         "type": "tab",
         "label": "Flow 1",
-        "disabled": true,
+        "disabled": false,
         "info": "",
         "env": []
     },
@@ -112,7 +112,7 @@
         "id": "ff52c0df.f6082",
         "type": "tab",
         "label": "Zigbee Low Battery Notifications",
-        "disabled": false,
+        "disabled": true,
         "info": "\n![enter image description here](https://notenoughtech.com/wp-content/uploads/2020/01/maxresdefault-4.jpg)\nMonitoring more than a couple Zigbee devices for battery levels can be cumbersome. So I made a system that adds new devices automatically,keeps the battery info as a dashboard and sends you an Android notification when battery needs replacing.\n\n - [Complete instructions](https://notenoughtech.com/home-automation/zigbee-low-battery-warning/)\n\n**Features**:\n-   add devices automatically    \n-   Dashboard chart    \n-   notification for Android    \n-   custom low trigger    \n-   support for battery types and purchase links    \n-   more...\n\n## Requirements\n\n - node-red-contrib-dashboard-average-bars\n - node-red-dashboard\n\nYou will need the following Android Apps:\n\n - [Tasker](https://play.google.com/store/apps/details?id=net.dinglisch.android.taskerm&hl=en)\n - [AutoNotification](https://play.google.com/store/apps/details?id=com.joaomgcd.autonotification&hl=en)\n - [AutoTools](https://play.google.com/store/apps/details?id=com.joaomgcd.autotools&hl=en)\n - [AutoRemote](https://play.google.com/store/apps/details?id=com.joaomgcd.autoremote&hl=en)\n - [AutoApps](https://play.google.com/store/apps/details?id=com.joaomgcd.autoappshub&hl=en)\n \n This Setup leans on the following guides:\n [Perfect Autonotifications](https://notenoughtech.com/tasker/tasker-projects/tasker-perfect-autonotifications/), [Credentials in NodeRED](https://notenoughtech.com/home-automation/nodered-home-automation/serving-credentials-with-nodered/),\n\n# Settings\n\n - **battery** - battery type for your device\n - **name**  - friendly_name from yaml file (or ID)\n - **Notification Device**  - name of AutoRemote device served with credential system\n - **min Value**  - Low battery threshold value for notifications\n \n ## More about me:\n\nIf you want to get the latest updates to this project you can follow me via your preferred social media:\n\n-   [Facebook](https://www.facebook.com/NotEnoughTECH/)\n-   [Twitter](https://twitter.com/NotEnoughTECH)\n-   [Instagram](https://www.instagram.com/notenoughtech/)\n-   [YouTube](https://www.youtube.com/user/Polepositionpage)\n\nAnd if you feeling like buying me a coffee or supporting me in a more continuous way:\n\n-   [Paypal](https://www.paypal.me/notenoughtech)\n-   [Patreon](https://www.patreon.com/NotEnoughTECH)\n\nI hope you have enjoyed the project!\n\n "
     },
     {
@@ -249,7 +249,7 @@
         "id": "c349b9ff.9dc4c8",
         "type": "mqtt-broker",
         "name": "dipe-pi",
-        "broker": "127.0.0.1",
+        "broker": "dipe-pi",
         "port": "1883",
         "clientid": "",
         "autoConnect": true,
@@ -492,8 +492,7 @@
         "name": "",
         "host": "fritz.box",
         "port": "49443",
-        "ssl": true,
-        "user": "nodered"
+        "ssl": true
     },
     {
         "id": "7e092ea0.4f2d9",
@@ -529,20 +528,6 @@
         "disp": true,
         "width": "6",
         "collapse": false
-    },
-    {
-        "id": "eeb221fb.ab27f",
-        "type": "influxdb",
-        "hostname": "127.0.0.1",
-        "port": "8086",
-        "protocol": "http",
-        "database": "test",
-        "name": "InfluxDB",
-        "usetls": true,
-        "tls": "d50d0c9f.31e858",
-        "influxdbVersion": "1.8-flux",
-        "url": "http://localhost:8086",
-        "rejectUnauthorized": false
     },
     {
         "id": "d50d0c9f.31e858",
@@ -788,27 +773,6 @@
         "debounceInterval": 30
     },
     {
-        "id": "6e117ba5.8026e4",
-        "type": "mqtt-broker",
-        "name": "MQTT",
-        "broker": "automation.local",
-        "port": "1883",
-        "clientid": "",
-        "usetls": false,
-        "compatmode": true,
-        "keepalive": "60",
-        "cleansession": true,
-        "birthTopic": "",
-        "birthQos": "0",
-        "birthPayload": "",
-        "closeTopic": "",
-        "closeQos": "0",
-        "closePayload": "",
-        "willTopic": "",
-        "willQos": "0",
-        "willPayload": ""
-    },
-    {
         "id": "e19d291d.da6018",
         "type": "ui_group",
         "name": "Zigbee Battery Status",
@@ -825,6 +789,20 @@
         "icon": "dashboard",
         "disabled": false,
         "hidden": false
+    },
+    {
+        "id": "bf6b9b61f49db1aa",
+        "type": "influxdb",
+        "hostname": "127.0.0.1",
+        "port": "8086",
+        "protocol": "http",
+        "database": "database",
+        "name": "influxdb",
+        "usetls": false,
+        "tls": "d50d0c9f.31e858",
+        "influxdbVersion": "2.0",
+        "url": "http://localhost:8086",
+        "rejectUnauthorized": true
     },
     {
         "id": "8e65b3ed.9f24",
@@ -3613,6 +3591,7 @@
         "id": "cf66c5f7.71d4e8",
         "type": "mqtt in",
         "z": "3a471104.edfbae",
+        "d": true,
         "name": "Bewegungsmelder Treppenhaus OG",
         "topic": "zigbee2mqtt/bewegungsmelder_treppenhaus_og",
         "qos": "2",
@@ -7073,11 +7052,10 @@
         "rap": false,
         "inputs": 0,
         "x": 320,
-        "y": 300,
+        "y": 340,
         "wires": [
             [
-                "ea99ed95.a6b5f",
-                "db817f6714d2a95f"
+                "2da1b2f192911d45"
             ]
         ]
     },
@@ -7095,8 +7073,7 @@
         "y": 260,
         "wires": [
             [
-                "8452f01b.9b7a2",
-                "137fe45c.47150c"
+                "d706024302ec5675"
             ]
         ]
     },
@@ -7105,11 +7082,12 @@
         "type": "link out",
         "z": "2f328ad8.26ca86",
         "name": "Stromaufnahme",
+        "mode": "link",
         "links": [
             "cf2bd5c4.367d88"
         ],
-        "x": 555,
-        "y": 340,
+        "x": 735,
+        "y": 300,
         "wires": []
     },
     {
@@ -7120,7 +7098,7 @@
         "links": [
             "cbdd2a4.e9dcad8"
         ],
-        "x": 555,
+        "x": 735,
         "y": 220,
         "wires": []
     },
@@ -7255,7 +7233,7 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "zigbee2mqtt/gas_zaehler",
-        "payload": "{\"counter\": 7108.929}",
+        "payload": "{\"counter\": 8515.868}",
         "payloadType": "json",
         "x": 400,
         "y": 640,
@@ -7288,14 +7266,14 @@
         "id": "137fe45c.47150c",
         "type": "function",
         "z": "2f328ad8.26ca86",
-        "name": "",
-        "func": "const intl = global.get('intl');\nmsg.payload = intl.NumberFormat('de-De',{\n        style:'decimal', \n        minimumFractionDigits: 2,\n        maximumFractionDigits: 2\n    }).format(msg.payload) + \" kWh\";\nreturn msg;",
+        "name": "format",
+        "func": "const intl = global.get('intl');\nmsg.payload = intl.NumberFormat('de-De',{\n        style:'decimal', \n        minimumFractionDigits: 5,\n        maximumFractionDigits: 5\n    }).format(msg.payload/1000) + \" kWh\";\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 600,
+        "x": 770,
         "y": 260,
         "wires": [
             [
@@ -7315,7 +7293,7 @@
         "label": "Zähler",
         "format": "{{msg.payload}}",
         "layout": "row-spread",
-        "x": 750,
+        "x": 910,
         "y": 260,
         "wires": []
     },
@@ -7438,6 +7416,153 @@
         ]
     },
     {
+        "id": "db817f6714d2a95f",
+        "type": "function",
+        "z": "2f328ad8.26ca86",
+        "name": "format",
+        "func": "const intl = global.get('intl');\n\nmsg.payload = intl.NumberFormat('de-De',{\n        style:'decimal', \n        minimumFractionDigits: 2,\n        maximumFractionDigits: 2\n    }).format(msg.payload) + \" W\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 770,
+        "y": 340,
+        "wires": [
+            [
+                "a50e9312216973f8"
+            ]
+        ]
+    },
+    {
+        "id": "a50e9312216973f8",
+        "type": "ui_text",
+        "z": "2f328ad8.26ca86",
+        "group": "dab59e38.c408e",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Bezug",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 910,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "f7476743a05366c2",
+        "type": "function",
+        "z": "2f328ad8.26ca86",
+        "name": "Store stombezug in flow",
+        "func": "flow.set(\"stombezug\", msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 830,
+        "y": 380,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2da1b2f192911d45",
+        "type": "function",
+        "z": "2f328ad8.26ca86",
+        "name": "to_number",
+        "func": "var value;\nif (/^(\\-|\\+)?([0-9]+(\\.[0-9]+)?)$/.test(msg.payload)) {\n    value = Number(msg.payload);\n} else {\n    value = msg.payload;\n}\n\nreturn {payload: value};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 610,
+        "y": 340,
+        "wires": [
+            [
+                "ea99ed95.a6b5f",
+                "f7476743a05366c2",
+                "db817f6714d2a95f"
+            ]
+        ]
+    },
+    {
+        "id": "d706024302ec5675",
+        "type": "function",
+        "z": "2f328ad8.26ca86",
+        "name": "to_number",
+        "func": "var value;\nif (/^(\\-|\\+)?([0-9]+(\\.[0-9]+)?)$/.test(msg.payload)) {\n    value = Number(msg.payload);\n} else {\n    value = msg.payload;\n}\n\nreturn {payload: value};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 610,
+        "y": 260,
+        "wires": [
+            [
+                "8452f01b.9b7a2",
+                "137fe45c.47150c"
+            ]
+        ]
+    },
+    {
+        "id": "5001caa3ccebc382",
+        "type": "function",
+        "z": "2f328ad8.26ca86",
+        "name": "einspeisung & eigenverbrauch",
+        "func": "const solarertag = msg.payload;\nconst stombezug = flow.get(\"stombezug\");\n\nconst netzbezug = (stombezug > 0) ? stombezug : 0;\nconst einspeisung = (stombezug < 0) ? stombezug : 0; //wie so nicht - ?\nconst eigenverbrauch = solarertag - einspeisung;\nconst stromverbrauch = netzbezug + eigenverbrauch;\n\nreturn { payload: { eigenverbrauch: eigenverbrauch, einspeisung: einspeisung, netzbezug: netzbezug, stromverbrauch: stromverbrauch}};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 870,
+        "y": 460,
+        "wires": [
+            [
+                "4d932a70ca858354",
+                "78bf53bd535db91f"
+            ]
+        ]
+    },
+    {
+        "id": "e3e242d521f1c698",
+        "type": "function",
+        "z": "2f328ad8.26ca86",
+        "name": "Store solarertrag in flow",
+        "func": "flow.set(\"solarertag\", msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 590,
+        "y": 460,
+        "wires": [
+            [
+                "5001caa3ccebc382",
+                "78bf53bd535db91f"
+            ]
+        ]
+    },
+    {
+        "id": "4d932a70ca858354",
+        "type": "link out",
+        "z": "2f328ad8.26ca86",
+        "name": "Einspeisung",
+        "mode": "link",
+        "links": [
+            "49152127e918c9d7"
+        ],
+        "x": 1055,
+        "y": 460,
+        "wires": []
+    },
+    {
         "id": "3e9ebf101b0970f9",
         "type": "mqtt in",
         "z": "2f328ad8.26ca86",
@@ -7451,10 +7576,30 @@
         "rh": 0,
         "inputs": 0,
         "x": 290,
-        "y": 380,
+        "y": 420,
         "wires": [
             [
-                "53201bdb5632cbb7"
+                "53201bdb5632cbb7",
+                "e3e242d521f1c698"
+            ]
+        ]
+    },
+    {
+        "id": "53201bdb5632cbb7",
+        "type": "function",
+        "z": "2f328ad8.26ca86",
+        "name": "format",
+        "func": "const intl = global.get('intl');\nmsg.payload = intl.NumberFormat('de-De',{\n        style:'decimal', \n        minimumFractionDigits: 2,\n        maximumFractionDigits: 2\n    }).format(msg.payload) + \" W\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 770,
+        "y": 420,
+        "wires": [
+            [
+                "72e1ab824861a106"
             ]
         ]
     },
@@ -7471,63 +7616,24 @@
         "format": "{{msg.payload}}",
         "layout": "row-spread",
         "className": "",
-        "x": 770,
-        "y": 380,
+        "x": 930,
+        "y": 420,
         "wires": []
     },
     {
-        "id": "53201bdb5632cbb7",
-        "type": "function",
+        "id": "78bf53bd535db91f",
+        "type": "debug",
         "z": "2f328ad8.26ca86",
-        "name": "",
-        "func": "const intl = global.get('intl');\nmsg.payload = intl.NumberFormat('de-De',{\n        style:'decimal', \n        minimumFractionDigits: 2,\n        maximumFractionDigits: 2\n    }).format(msg.payload) + \" W\";\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 600,
-        "y": 380,
-        "wires": [
-            [
-                "72e1ab824861a106"
-            ]
-        ]
-    },
-    {
-        "id": "db817f6714d2a95f",
-        "type": "function",
-        "z": "2f328ad8.26ca86",
-        "name": "",
-        "func": "const intl = global.get('intl');\n\nmsg.payload = intl.NumberFormat('de-De',{\n        style:'decimal', \n        minimumFractionDigits: 2,\n        maximumFractionDigits: 2\n    }).format(msg.payload) + \" W\";\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 600,
-        "y": 300,
-        "wires": [
-            [
-                "a50e9312216973f8"
-            ]
-        ]
-    },
-    {
-        "id": "a50e9312216973f8",
-        "type": "ui_text",
-        "z": "2f328ad8.26ca86",
-        "group": "dab59e38.c408e",
-        "order": 2,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "Bezug",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "className": "",
-        "x": 750,
-        "y": 300,
+        "name": "debug 5",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1100,
+        "y": 520,
         "wires": []
     },
     {
@@ -8722,6 +8828,11 @@
             },
             {
                 "t": "eq",
+                "v": "ankleidezimmer",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
                 "v": "bad_dg",
                 "vt": "str"
             },
@@ -8738,7 +8849,7 @@
         ],
         "checkall": "false",
         "repair": false,
-        "outputs": 15,
+        "outputs": 16,
         "x": 1090,
         "y": 520,
         "wires": [
@@ -8786,6 +8897,9 @@
             ],
             [
                 "33b1161152456aae"
+            ],
+            [
+                "9e24a05859ccbb80"
             ]
         ]
     },
@@ -8894,7 +9008,7 @@
         "type": "function",
         "z": "2788b93b.8a2f56",
         "name": "recall klima draußen",
-        "func": "const name = \"aussen\";\n\nconst temperature = global.get(name + \"-temperature\");\nconst humidity = global.get(name + \"-humidity\");\nconst abs_humidity = global.get(name + \"-absolute_humidity\");\nconst last_abs_humidity = global.get(name + \"-last_abs_humidity\");\nglobal.set(name + \"-last_abs_humidity\", abs_humidity);\n\n//node.warn(name)\n//node.warn(temperature)\n//node.warn(humidity)\n//node.warn(abs_humidity)\n//node.warn(last_abs_humidity_gt_outside_abs_humidity)\n//node.warn(outside_abs_humidity)\n\nconst intl = global.get('intl');\nconst format = intl.NumberFormat('de-De',{style:'decimal', maximumFractionDigits: 2}).format;\nconst sprintf = global.get(\"sprintf\");\nconst text = sprintf(\"%s °C, %s %% H, %s g/m³\", format(temperature), format(humidity), format(abs_humidity))\n\nif        (last_abs_humidity >= 13 && abs_humidity >= 13 ||\n           last_abs_humidity < 13 && abs_humidity > 13 * 1.10) {\n    return {payload: {name: name, color: \"deepskyblue\", hint: \"Draußen ist es sehr feucht.\", text: text}};\n} else if (last_abs_humidity > 13 && abs_humidity < 13 / 1.10 && abs_humidity > 12 ||\n           last_abs_humidity <= 13 && last_abs_humidity >= 12 && abs_humidity <= 13  && abs_humidity >= 12 ||\n           last_abs_humidity < 12 && abs_humidity > 12 * 1.10 && abs_humidity < 13) {\n    return {payload: {name: name, color: \"skyblue\", hint: \"Draußen ist es feucht.\", text: text}};\n} else if (last_abs_humidity > 12 && abs_humidity < 12 / 1.10 && abs_humidity > 11 ||\n           last_abs_humidity <= 12 && last_abs_humidity >= 11 && abs_humidity <= 12  && abs_humidity >= 11 ||\n           last_abs_humidity < 11 && abs_humidity > 11 * 1.10 && abs_humidity < 12) {\n    return {payload: {name: name, color: \"limegreen\", hint: \"Draußen ist einigermaßen trocken.\", text: text}};\n} else if (last_abs_humidity > 11 && abs_humidity < 11 / 1.10 ||\n           last_abs_humidity <= 11 && abs_humidity <= 11) {\n    return {payload: {name: name, color: \"YellowGreen\", hint: \"Draußen ist es trocken.\", text: text}};\n} else {\n    return {payload: {name: name, color: \"DarkSeaGreen\", hint: \"Draußen ist es sehr trocken.\", text: text}};\n}\n",
+        "func": "const name = \"aussen\";\n\nconst temperature = global.get(name + \"-temperature\");\nconst humidity = global.get(name + \"-humidity\");\nconst abs_humidity = global.get(name + \"-absolute_humidity\");\nconst last_abs_humidity = global.get(name + \"-last_abs_humidity\");\nglobal.set(name + \"-last_abs_humidity\", abs_humidity);\n\n//node.warn(name)\n//node.warn(temperature)\n//node.warn(humidity)\n//node.warn(abs_humidity)\n//node.warn(last_abs_humidity_gt_outside_abs_humidity)\n//node.warn(outside_abs_humidity)\n\nconst intl = global.get('intl');\nconst format = intl.NumberFormat('de-De',{style:'decimal', maximumFractionDigits: 2}).format;\nconst sprintf = global.get(\"sprintf\");\nconst text = sprintf(\"%s °C, %s %% H, %s g/m³\", format(temperature), format(humidity), format(abs_humidity))\n\nif        (abs_humidity >= 13) {\n    return {payload: {name: name, color: \"deepskyblue\", hint: \"Draußen ist es sehr feucht.\", text: text}};\n} else if (abs_humidity >= 12 && abs_humidity < 13) {\n    return {payload: {name: name, color: \"skyblue\", hint: \"Draußen ist es feucht.\", text: text}};\n} else if (abs_humidity >= 11 && abs_humidity < 12) {\n    return {payload: {name: name, color: \"limegreen\", hint: \"Draußen ist einigermaßen trocken.\", text: text}};\n} else if (abs_humidity < 11) {\n    return {payload: {name: name, color: \"YellowGreen\", hint: \"Draußen ist es trocken.\", text: text}};\n} else {\n    return {payload: {name: name, color: \"DarkSeaGreen\", hint: \"Draußen ist es sehr trocken.\", text: text}};\n}\n\n// if (last_abs_humidity >= 13 && abs_humidity >= 13 ||\n//     last_abs_humidity < 13 && abs_humidity > 13 * 1.10) {\n//     return { payload: { name: name, color: \"deepskyblue\", hint: \"Draußen ist es sehr feucht.\", text: text } };\n// } else if (last_abs_humidity > 13 && abs_humidity < 13 / 1.10 && abs_humidity > 12 ||\n//     last_abs_humidity <= 13 && last_abs_humidity >= 12 && abs_humidity <= 13 && abs_humidity >= 12 ||\n//     last_abs_humidity < 12 && abs_humidity > 12 * 1.10 && abs_humidity < 13) {\n//     return { payload: { name: name, color: \"skyblue\", hint: \"Draußen ist es feucht.\", text: text } };\n// } else if (last_abs_humidity > 12 && abs_humidity < 12 / 1.10 && abs_humidity > 11 ||\n//     last_abs_humidity <= 12 && last_abs_humidity >= 11 && abs_humidity <= 12 && abs_humidity >= 11 ||\n//     last_abs_humidity < 11 && abs_humidity > 11 * 1.10 && abs_humidity < 12) {\n//     return { payload: { name: name, color: \"limegreen\", hint: \"Draußen ist einigermaßen trocken.\", text: text } };\n// } else if (last_abs_humidity > 11 && abs_humidity < 11 / 1.10 ||\n//     last_abs_humidity <= 11 && abs_humidity <= 11) {\n//     return { payload: { name: name, color: \"YellowGreen\", hint: \"Draußen ist es trocken.\", text: text } };\n// } else {\n//     return { payload: { name: name, color: \"DarkSeaGreen\", hint: \"Draußen ist es sehr trocken.\", text: text } };\n// }\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -8982,7 +9096,8 @@
                 "48f55ed2.c2f68",
                 "fe0cab1575d624e5",
                 "0b3e08059fd963b5",
-                "7359385faca6d84e"
+                "7359385faca6d84e",
+                "0bed57233aab0d43"
             ]
         ]
     },
@@ -9314,9 +9429,7 @@
         "x": 460,
         "y": 940,
         "wires": [
-            [
-                "3825ae1b.6847c2"
-            ]
+            []
         ]
     },
     {
@@ -9457,6 +9570,46 @@
         ]
     },
     {
+        "id": "0bed57233aab0d43",
+        "type": "function",
+        "z": "2788b93b.8a2f56",
+        "name": "recall Büro DG (luftfeuchtemesser1) klima",
+        "func": "const name = \"ankleidezimmer\";\nreturn {\n    payload: {\n        name: name,\n        humidity: global.get(`${name}-humidity`),\n        absolute_humidity: global.get(`${name}-absolute_humidity`),\n        tempeature: global.get(`${name}-temperature`)\n    }\n};\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 460,
+        "y": 980,
+        "wires": [
+            [
+                "3825ae1b.6847c2"
+            ]
+        ]
+    },
+    {
+        "id": "9e24a05859ccbb80",
+        "type": "ui_template",
+        "z": "2788b93b.8a2f56",
+        "group": "245ec0f9.12765",
+        "name": "",
+        "order": 12,
+        "width": 0,
+        "height": 0,
+        "format": "<md-card ui-card-size=\"6x2\" \n    class=\"_md nr-dashboard-text layout-align-center-center nr-dashboard-widget-text visible\" \n    style=\"background-color: {{msg.payload.color}}; color: black; left: 0px; top: 54px; width: 300px; height: 96px;\">\n    <p class=\"label\">{{msg.payload.room}}</p><p>{{msg.payload.text}}</p> <p class=\"value\">{{msg.payload.hint}}</p>\n</md-card>\n",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 1300,
+        "y": 1000,
+        "wires": [
+            []
+        ]
+    },
+    {
         "id": "fc831115.7e04a",
         "type": "mqtt in",
         "z": "d0173d54.941d7",
@@ -9478,7 +9631,7 @@
         "id": "faa25f7f.0777",
         "type": "influxdb out",
         "z": "d0173d54.941d7",
-        "influxdb": "eeb221fb.ab27f",
+        "influxdb": "bf6b9b61f49db1aa",
         "name": "InfluxDB",
         "measurement": "",
         "precision": "",
@@ -9487,7 +9640,7 @@
         "precisionV18FluxV20": "ms",
         "retentionPolicyV18Flux": "",
         "org": "dipe",
-        "bucket": "dipe-pi",
+        "bucket": "adh29-forever",
         "x": 1020,
         "y": 380,
         "wires": []
@@ -9605,13 +9758,14 @@
         "id": "7c6e00fe.37756",
         "type": "function",
         "z": "d0173d54.941d7",
-        "name": "SDL to InfluxDB",
-        "func": "var value;\nif(/^(\\-|\\+)?([0-9]+(\\.[0-9]+)?)$/.test(msg.payload)) {\n  value = Number(msg.payload);\n} else {\n  value = msg.payload;\n}\n\n\n\nmsg.measurement = \"stromzähler\";\nmsg.payload = {};\nmsg.payload[\"counter\"] = value;\n\nreturn msg;",
+        "name": "SDL counter to InfluxDB",
+        "func": "const value = msg.payload;\nmsg.measurement = \"stromzähler\";\nmsg.payload = {};\nmsg.payload[\"counter\"] = value;\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 560,
+        "libs": [],
+        "x": 590,
         "y": 560,
         "wires": [
             [
@@ -9623,13 +9777,14 @@
         "id": "e9ca4023.2c05e",
         "type": "function",
         "z": "d0173d54.941d7",
-        "name": "SDL to InfluxDB",
-        "func": "var value;\nif(/^(\\-|\\+)?([0-9]+(\\.[0-9]+)?)$/.test(msg.payload)) {\n  value = Number(msg.payload);\n} else {\n  value = msg.payload;\n}\n\n\n\nmsg.measurement = \"stromzähler\";\nmsg.payload = {};\nmsg.payload[\"consumption\"] = value;\n\nreturn msg;",
+        "name": "SDL consumption to InfluxDB",
+        "func": "const value = msg.payload;\nmsg.measurement = \"stromzähler\";\nmsg.payload = {};\nmsg.payload[\"consumption\"] = value;\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 560,
+        "libs": [],
+        "x": 610,
         "y": 600,
         "wires": [
             [
@@ -9678,7 +9833,7 @@
             "678631ab.fe1bb"
         ],
         "x": 415,
-        "y": 660,
+        "y": 700,
         "wires": [
             [
                 "18f89cba.858903"
@@ -9694,7 +9849,7 @@
             "9d0190fe.0d3fe"
         ],
         "x": 415,
-        "y": 700,
+        "y": 740,
         "wires": [
             [
                 "2e920011.62b1e"
@@ -9712,7 +9867,7 @@
         "initialize": "",
         "finalize": "",
         "x": 600,
-        "y": 660,
+        "y": 700,
         "wires": [
             [
                 "faa25f7f.0777"
@@ -9730,7 +9885,7 @@
         "initialize": "",
         "finalize": "",
         "x": 590,
-        "y": 700,
+        "y": 740,
         "wires": [
             [
                 "faa25f7f.0777"
@@ -9749,7 +9904,7 @@
         "finalize": "",
         "libs": [],
         "x": 590,
-        "y": 760,
+        "y": 800,
         "wires": [
             [
                 "faa25f7f.0777"
@@ -9765,7 +9920,7 @@
             "8a37748d46ba0dbf"
         ],
         "x": 415,
-        "y": 760,
+        "y": 800,
         "wires": [
             [
                 "d7a58b62.d342b8"
@@ -9825,27 +9980,9 @@
         "y": 460,
         "wires": [
             [
-                "faa25f7f.0777",
-                "35463b9.854cac4"
+                "faa25f7f.0777"
             ]
         ]
-    },
-    {
-        "id": "35463b9.854cac4",
-        "type": "debug",
-        "z": "d0173d54.941d7",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 980,
-        "y": 500,
-        "wires": []
     },
     {
         "id": "2433e1cc815bb8e6",
@@ -9862,8 +9999,7 @@
         "y": 320,
         "wires": [
             [
-                "faa25f7f.0777",
-                "c8db3f52f5f039da"
+                "faa25f7f.0777"
             ]
         ]
     },
@@ -9924,21 +10060,57 @@
         ]
     },
     {
-        "id": "c8db3f52f5f039da",
-        "type": "debug",
+        "id": "e09cb821aca323d1",
+        "type": "function",
         "z": "d0173d54.941d7",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1020,
-        "y": 240,
-        "wires": []
+        "name": "Solarertrag",
+        "func": "msg.measurement = \"solarertrag\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 670,
+        "y": 640,
+        "wires": [
+            [
+                "faa25f7f.0777"
+            ]
+        ]
+    },
+    {
+        "id": "49152127e918c9d7",
+        "type": "link in",
+        "z": "d0173d54.941d7",
+        "name": "Einspeisung",
+        "links": [
+            "4d932a70ca858354",
+            "1b836d09c69d552f",
+            "e8000a58ec07a97e"
+        ],
+        "x": 415,
+        "y": 640,
+        "wires": [
+            [
+                "e09cb821aca323d1"
+            ]
+        ]
+    },
+    {
+        "id": "1df2986a56225244",
+        "type": "link in",
+        "z": "d0173d54.941d7",
+        "name": "influxdb",
+        "links": [
+            "9a213e7f538e9cae"
+        ],
+        "x": 875,
+        "y": 280,
+        "wires": [
+            [
+                "faa25f7f.0777"
+            ]
+        ]
     },
     {
         "id": "b0c2185455845eab",
@@ -10277,8 +10449,8 @@
         "name": "Kellertür-Riegel",
         "nuki": "439053421",
         "bridge": "b6b292c6a3480048",
-        "x": 500,
-        "y": 380,
+        "x": 540,
+        "y": 560,
         "wires": [
             [
                 "dfb3d5db711050dd",
@@ -10295,8 +10467,8 @@
         "name": "Kellertür-Schloss",
         "nuki": "664478908",
         "bridge": "b6b292c6a3480048",
-        "x": 510,
-        "y": 580,
+        "x": 550,
+        "y": 760,
         "wires": [
             [
                 "5d08975286bdb9a8",
@@ -10317,8 +10489,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 760,
-        "y": 580,
+        "x": 800,
+        "y": 760,
         "wires": [
             [
                 "5491f3b7aa1d4a3f",
@@ -10338,8 +10510,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 760,
-        "y": 380,
+        "x": 800,
+        "y": 560,
         "wires": [
             [
                 "ebe65eae65335e8d",
@@ -10361,8 +10533,8 @@
         "format": "{{msg.payload}}",
         "layout": "row-spread",
         "className": "",
-        "x": 980,
-        "y": 540,
+        "x": 1020,
+        "y": 720,
         "wires": []
     },
     {
@@ -10378,8 +10550,12 @@
         "format": "{{msg.payload}}",
         "layout": "row-spread",
         "className": "",
-        "x": 970,
-        "y": 420,
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
+        "x": 1010,
+        "y": 600,
         "wires": []
     },
     {
@@ -10393,11 +10569,12 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 780,
-        "y": 540,
+        "x": 820,
+        "y": 720,
         "wires": [
             [
-                "c9e2a024280b0742"
+                "c9e2a024280b0742",
+                "462ab2a1dc1a547b"
             ]
         ]
     },
@@ -10412,11 +10589,12 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 770,
-        "y": 420,
+        "x": 810,
+        "y": 600,
         "wires": [
             [
-                "57d2ad26b221e581"
+                "57d2ad26b221e581",
+                "462ab2a1dc1a547b"
             ]
         ]
     },
@@ -10425,7 +10603,7 @@
         "type": "debug",
         "z": "caf02dc9a5b73890",
         "name": "",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": true,
         "tostatus": false,
@@ -10433,8 +10611,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 970,
-        "y": 580,
+        "x": 1010,
+        "y": 760,
         "wires": []
     },
     {
@@ -10442,7 +10620,7 @@
         "type": "debug",
         "z": "caf02dc9a5b73890",
         "name": "",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": true,
         "tostatus": false,
@@ -10450,8 +10628,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 970,
-        "y": 380,
+        "x": 1010,
+        "y": 560,
         "wires": []
     },
     {
@@ -10459,7 +10637,7 @@
         "type": "debug",
         "z": "caf02dc9a5b73890",
         "name": "",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": true,
         "tostatus": false,
@@ -10467,8 +10645,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 730,
-        "y": 620,
+        "x": 770,
+        "y": 800,
         "wires": []
     },
     {
@@ -10476,7 +10654,7 @@
         "type": "debug",
         "z": "caf02dc9a5b73890",
         "name": "",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": true,
         "tostatus": false,
@@ -10484,8 +10662,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 730,
-        "y": 340,
+        "x": 770,
+        "y": 520,
         "wires": []
     },
     {
@@ -10510,7 +10688,7 @@
         "payload": "UNLOCK",
         "payloadType": "str",
         "x": 190,
-        "y": 120,
+        "y": 420,
         "wires": [
             [
                 "acc198f8dc5ea896"
@@ -10539,7 +10717,7 @@
         "payload": "LOCK",
         "payloadType": "str",
         "x": 180,
-        "y": 80,
+        "y": 380,
         "wires": [
             [
                 "acc198f8dc5ea896"
@@ -10563,11 +10741,10 @@
         "onceDelay": 0.1,
         "topic": "setupCallbacks",
         "x": 180,
-        "y": 200,
+        "y": 80,
         "wires": [
             [
-                "acc198f8dc5ea896",
-                "daf7dacd9dca27aa"
+                "14679608625f0446"
             ]
         ]
     },
@@ -10593,7 +10770,7 @@
         "payload": "UNLOCK",
         "payloadType": "str",
         "x": 190,
-        "y": 280,
+        "y": 340,
         "wires": [
             [
                 "daf7dacd9dca27aa"
@@ -10622,7 +10799,7 @@
         "payload": "LOCK",
         "payloadType": "str",
         "x": 180,
-        "y": 320,
+        "y": 300,
         "wires": [
             [
                 "daf7dacd9dca27aa"
@@ -10646,11 +10823,10 @@
         "onceDelay": 0.1,
         "topic": "getCallbacks",
         "x": 170,
-        "y": 240,
+        "y": 120,
         "wires": [
             [
-                "acc198f8dc5ea896",
-                "daf7dacd9dca27aa"
+                "14679608625f0446"
             ]
         ]
     },
@@ -10664,8 +10840,8 @@
             "4708a180.a07a",
             "0b172ea0761e4dbb"
         ],
-        "x": 695,
-        "y": 500,
+        "x": 735,
+        "y": 680,
         "wires": []
     },
     {
@@ -10690,7 +10866,7 @@
         "payload": "UNLATCH",
         "payloadType": "str",
         "x": 200,
-        "y": 160,
+        "y": 460,
         "wires": [
             [
                 "acc198f8dc5ea896"
@@ -10710,8 +10886,8 @@
         "loglevel": "INFO",
         "logconfig": "8929498a4f6d4a2d",
         "sendpane": "",
-        "x": 950,
-        "y": 860,
+        "x": 510,
+        "y": 1340,
         "wires": [
             []
         ]
@@ -10729,8 +10905,8 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 160,
-        "y": 840,
+        "x": 200,
+        "y": 1020,
         "wires": [
             [
                 "679071b91ca41f8a"
@@ -10748,8 +10924,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 500,
-        "y": 720,
+        "x": 540,
+        "y": 900,
         "wires": [
             [
                 "a57ad13c5478facf"
@@ -10764,8 +10940,8 @@
         "links": [
             "86cb329b293bb1f4"
         ],
-        "x": 225,
-        "y": 700,
+        "x": 265,
+        "y": 880,
         "wires": [
             [
                 "e8dc780272f0a049"
@@ -10785,8 +10961,8 @@
         "format": "{{msg.payload}}",
         "layout": "row-spread",
         "className": "",
-        "x": 570,
-        "y": 800,
+        "x": 610,
+        "y": 980,
         "wires": []
     },
     {
@@ -10800,8 +10976,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 430,
-        "y": 800,
+        "x": 470,
+        "y": 980,
         "wires": [
             [
                 "418d8d8e9de2763b"
@@ -10830,8 +11006,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 170,
-        "y": 740,
+        "x": 210,
+        "y": 920,
         "wires": [
             [
                 "e8dc780272f0a049"
@@ -10848,12 +11024,12 @@
             "ebe65eae65335e8d"
         ],
         "uncaught": false,
-        "x": 770,
-        "y": 780,
+        "x": 330,
+        "y": 1260,
         "wires": [
             [
-                "13a2708c18c5fc01",
-                "551ecebbef7355ca"
+                "551ecebbef7355ca",
+                "1941a899e31bb27f"
             ]
         ]
     },
@@ -10863,15 +11039,15 @@
         "z": "caf02dc9a5b73890",
         "group": "6e590cb07ba9a85d",
         "order": 4,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "Störung",
-        "format": "{{msg.payload}}",
+        "width": "6",
+        "height": "6",
+        "name": "Log",
+        "label": "{{msg.payload}}",
+        "format": "",
         "layout": "row-spread",
         "className": "",
-        "x": 960,
-        "y": 720,
+        "x": 690,
+        "y": 1200,
         "wires": []
     },
     {
@@ -10884,7 +11060,7 @@
         "width": 0,
         "height": 0,
         "passthru": false,
-        "label": "Störung löschen",
+        "label": "Log löschen",
         "tooltip": "",
         "color": "",
         "bgcolor": "",
@@ -10894,11 +11070,11 @@
         "payloadType": "str",
         "topic": "",
         "topicType": "str",
-        "x": 980,
-        "y": 760,
+        "x": 530,
+        "y": 1240,
         "wires": [
             [
-                "13a2708c18c5fc01"
+                "a3b59c897713f50e"
             ]
         ]
     },
@@ -10910,8 +11086,8 @@
         "links": [
             "bc763a522d5e7245"
         ],
-        "x": 165,
-        "y": 480,
+        "x": 205,
+        "y": 660,
         "wires": [
             [
                 "5c9d349cfc6dbce2"
@@ -10929,8 +11105,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 280,
-        "y": 480,
+        "x": 320,
+        "y": 660,
         "wires": [
             [
                 "5491f3b7aa1d4a3f"
@@ -10950,7 +11126,7 @@
             "1f5092044763746a"
         ],
         "x": 385,
-        "y": 160,
+        "y": 380,
         "wires": []
     },
     {
@@ -10963,7 +11139,7 @@
             "1fe490d1499dd17b"
         ],
         "x": 385,
-        "y": 240,
+        "y": 340,
         "wires": []
     },
     {
@@ -10975,8 +11151,8 @@
             "acc198f8dc5ea896",
             "a57ad13c5478facf"
         ],
-        "x": 325,
-        "y": 580,
+        "x": 365,
+        "y": 760,
         "wires": [
             [
                 "ebe65eae65335e8d"
@@ -10992,8 +11168,8 @@
             "a57ad13c5478facf",
             "daf7dacd9dca27aa"
         ],
-        "x": 325,
-        "y": 380,
+        "x": 365,
+        "y": 560,
         "wires": [
             [
                 "5491f3b7aa1d4a3f"
@@ -11011,10 +11187,11 @@
             "21b33795391d4ce8",
             "8cb1bd402f011120",
             "0f68dc3afdaa2f7f",
-            "61153b6e98049a2e"
+            "61153b6e98049a2e",
+            "327d039a5a2ffcd2"
         ],
-        "x": 805,
-        "y": 860,
+        "x": 365,
+        "y": 1340,
         "wires": [
             [
                 "551ecebbef7355ca"
@@ -11030,8 +11207,8 @@
         "links": [
             "0b172ea0761e4dbb"
         ],
-        "x": 945,
-        "y": 480,
+        "x": 1055,
+        "y": 660,
         "wires": []
     },
     {
@@ -11043,10 +11220,11 @@
         "links": [
             "1f5092044763746a",
             "1fe490d1499dd17b",
-            "0b172ea0761e4dbb"
+            "0b172ea0761e4dbb",
+            "85461b3c7b54b76f"
         ],
-        "x": 685,
-        "y": 720,
+        "x": 725,
+        "y": 900,
         "wires": []
     },
     {
@@ -11058,8 +11236,8 @@
         "links": [
             "0b172ea0761e4dbb"
         ],
-        "x": 375,
-        "y": 840,
+        "x": 415,
+        "y": 1020,
         "wires": []
     },
     {
@@ -11072,8 +11250,8 @@
             "4708a180.a07a",
             "0b172ea0761e4dbb"
         ],
-        "x": 695,
-        "y": 460,
+        "x": 735,
+        "y": 640,
         "wires": []
     },
     {
@@ -11095,8 +11273,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 500,
-        "y": 760,
+        "x": 540,
+        "y": 940,
         "wires": [
             [
                 "e8dc780272f0a049"
@@ -11107,10 +11285,10 @@
         "id": "679071b91ca41f8a",
         "type": "debounce",
         "z": "caf02dc9a5b73890",
-        "time": "2000",
+        "time": "5000",
         "name": "",
-        "x": 220,
-        "y": 800,
+        "x": 260,
+        "y": 980,
         "wires": [
             [
                 "25f654e171406fb8",
@@ -11120,12 +11298,406 @@
         ]
     },
     {
+        "id": "094c0e53103ca4e6",
+        "type": "template",
+        "z": "caf02dc9a5b73890",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "Tür geschlossen. Tür absperren!\n",
+        "output": "str",
+        "x": 320,
+        "y": 1180,
+        "wires": [
+            [
+                "1941a899e31bb27f"
+            ]
+        ]
+    },
+    {
+        "id": "23b39e867ad3e835",
+        "type": "link in",
+        "z": "caf02dc9a5b73890",
+        "name": "Kellertür öffnen",
+        "links": [
+            "bc763a522d5e7245"
+        ],
+        "x": 215,
+        "y": 1220,
+        "wires": [
+            [
+                "40a7873186f5ed29"
+            ]
+        ]
+    },
+    {
+        "id": "85461b3c7b54b76f",
+        "type": "link in",
+        "z": "caf02dc9a5b73890",
+        "name": " Nuki Kellertür-Riegel",
+        "links": [
+            "a57ad13c5478facf"
+        ],
+        "x": 215,
+        "y": 1180,
+        "wires": [
+            [
+                "094c0e53103ca4e6"
+            ]
+        ]
+    },
+    {
+        "id": "40a7873186f5ed29",
+        "type": "template",
+        "z": "caf02dc9a5b73890",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "Fingerbadruck erkannt. Tür öffnen!",
+        "output": "str",
+        "x": 320,
+        "y": 1220,
+        "wires": [
+            [
+                "1941a899e31bb27f"
+            ]
+        ]
+    },
+    {
+        "id": "946d1f30ab368907",
+        "type": "template",
+        "z": "caf02dc9a5b73890",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "{{topic}} {{payload}}",
+        "output": "str",
+        "x": 320,
+        "y": 1140,
+        "wires": [
+            [
+                "1941a899e31bb27f"
+            ]
+        ]
+    },
+    {
+        "id": "941ca6aa3f7271d7",
+        "type": "link in",
+        "z": "caf02dc9a5b73890",
+        "name": " Nuki Kellertür-Riegel",
+        "links": [
+            "462ab2a1dc1a547b"
+        ],
+        "x": 215,
+        "y": 1140,
+        "wires": [
+            [
+                "946d1f30ab368907"
+            ]
+        ]
+    },
+    {
+        "id": "462ab2a1dc1a547b",
+        "type": "link out",
+        "z": "caf02dc9a5b73890",
+        "name": "link out 10",
+        "mode": "link",
+        "links": [
+            "941ca6aa3f7271d7"
+        ],
+        "x": 975,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "1941a899e31bb27f",
+        "type": "function",
+        "z": "caf02dc9a5b73890",
+        "name": "append to log",
+        "func": "const log = flow.get('log');\nconst timestamp = new Date().toLocaleTimeString('de-DE');\nconst new_entry = timestamp + \": \" + msg.payload;\nconst max_length = 10;\n\nlog.push(new_entry);\nif (log.length > max_length) {\n    log.splice(0, log.length - max_length);\n}\nflow.set('log', log);\n\nreturn { payload: log.join(\"<br>\")};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 1200,
+        "wires": [
+            [
+                "13a2708c18c5fc01"
+            ]
+        ]
+    },
+    {
+        "id": "a3b59c897713f50e",
+        "type": "function",
+        "z": "caf02dc9a5b73890",
+        "name": "clear log",
+        "func": "flow.set('log', []);\nreturn {payload: ''};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 700,
+        "y": 1240,
+        "wires": [
+            [
+                "13a2708c18c5fc01"
+            ]
+        ]
+    },
+    {
+        "id": "b5b92d8b9c38f19c",
+        "type": "inject",
+        "z": "caf02dc9a5b73890",
+        "name": "Öffnen",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 150,
+        "y": 580,
+        "wires": [
+            [
+                "5c9d349cfc6dbce2"
+            ]
+        ]
+    },
+    {
+        "id": "b2bffe229b81a908",
+        "type": "inject",
+        "z": "caf02dc9a5b73890",
+        "name": "Schließen",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 160,
+        "y": 800,
+        "wires": [
+            [
+                "53351be4e1c45aae"
+            ]
+        ]
+    },
+    {
+        "id": "53351be4e1c45aae",
+        "type": "function",
+        "z": "caf02dc9a5b73890",
+        "name": "Tür schließen",
+        "func": "return { topic: \"lockAction\", payload: \"LOCK\" };",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 260,
+        "y": 700,
+        "wires": [
+            [
+                "5491f3b7aa1d4a3f",
+                "ebe65eae65335e8d"
+            ]
+        ]
+    },
+    {
+        "id": "7d89baf2b5fa03a5",
+        "type": "inject",
+        "z": "caf02dc9a5b73890",
+        "name": "",
+        "props": [
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "clearCallbacks",
+        "x": 180,
+        "y": 40,
+        "wires": [
+            [
+                "14679608625f0446"
+            ]
+        ]
+    },
+    {
+        "id": "14679608625f0446",
+        "type": "nuki-bridge-control",
+        "z": "caf02dc9a5b73890",
+        "name": "nuki-bridge:8080",
+        "bridge": "b6b292c6a3480048",
+        "x": 470,
+        "y": 120,
+        "wires": [
+            [
+                "645c78c3640c5827"
+            ]
+        ]
+    },
+    {
+        "id": "645c78c3640c5827",
+        "type": "debug",
+        "z": "caf02dc9a5b73890",
+        "name": "debug 4",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 660,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "82bcfc893e556a35",
+        "type": "inject",
+        "z": "caf02dc9a5b73890",
+        "name": "",
+        "props": [
+            {
+                "p": "topic",
+                "vt": "str"
+            },
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "lockStatus",
+        "payload": "LOCKED",
+        "payloadType": "str",
+        "x": 190,
+        "y": 260,
+        "wires": [
+            [
+                "daf7dacd9dca27aa"
+            ]
+        ]
+    },
+    {
+        "id": "5d625fd936836a58",
+        "type": "inject",
+        "z": "caf02dc9a5b73890",
+        "name": "",
+        "props": [
+            {
+                "p": "topic",
+                "vt": "str"
+            },
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "lockStatus",
+        "payload": "LOCKED",
+        "payloadType": "str",
+        "x": 190,
+        "y": 500,
+        "wires": [
+            [
+                "acc198f8dc5ea896"
+            ]
+        ]
+    },
+    {
+        "id": "b1edf012dd9fdd5d",
+        "type": "inject",
+        "z": "caf02dc9a5b73890",
+        "name": "",
+        "props": [
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "log",
+        "x": 150,
+        "y": 160,
+        "wires": [
+            [
+                "14679608625f0446"
+            ]
+        ]
+    },
+    {
+        "id": "d839b0f99142aff4",
+        "type": "inject",
+        "z": "caf02dc9a5b73890",
+        "name": "",
+        "props": [
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "reset",
+        "x": 150,
+        "y": 200,
+        "wires": [
+            [
+                "14679608625f0446"
+            ]
+        ]
+    },
+    {
         "id": "3f9580dafe32e9bb",
         "type": "ui_button",
         "z": "0133ddc4e63513b7",
         "name": "",
         "group": "c15e3cecb6ae7609",
-        "order": 5,
+        "order": 7,
         "width": 0,
         "height": 0,
         "passthru": false,
@@ -11179,7 +11751,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 240,
-        "y": 940,
+        "y": 1040,
         "wires": [
             [
                 "a0e67b7908ae5add"
@@ -11228,7 +11800,7 @@
         "to": "",
         "reg": false,
         "x": 420,
-        "y": 1060,
+        "y": 1160,
         "wires": [
             []
         ]
@@ -11239,7 +11811,7 @@
         "z": "0133ddc4e63513b7",
         "name": "",
         "group": "c15e3cecb6ae7609",
-        "order": 7,
+        "order": 9,
         "width": 0,
         "height": 0,
         "passthru": false,
@@ -11254,7 +11826,7 @@
         "topic": "topic",
         "topicType": "msg",
         "x": 230,
-        "y": 820,
+        "y": 920,
         "wires": [
             [
                 "30de075bd1f111fb",
@@ -11277,7 +11849,7 @@
         "expiry": "",
         "broker": "c349b9ff.9dc4c8",
         "x": 720,
-        "y": 820,
+        "y": 920,
         "wires": []
     },
     {
@@ -11292,7 +11864,7 @@
         "finalize": "",
         "libs": [],
         "x": 490,
-        "y": 700,
+        "y": 800,
         "wires": [
             [
                 "a7b0725dc592d634",
@@ -11315,7 +11887,7 @@
         "layout": "row-spread",
         "className": "",
         "x": 680,
-        "y": 960,
+        "y": 1060,
         "wires": []
     },
     {
@@ -11332,7 +11904,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 250,
-        "y": 980,
+        "y": 1080,
         "wires": [
             [
                 "2fe2d56f15c3abdc"
@@ -11353,7 +11925,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 250,
-        "y": 580,
+        "y": 680,
         "wires": [
             [
                 "73b8c6b7d4950cbd"
@@ -11381,7 +11953,7 @@
         "topic": "topic",
         "topicType": "msg",
         "x": 220,
-        "y": 1100,
+        "y": 1200,
         "wires": [
             [
                 "2b68d34c5c1a2fa4"
@@ -11403,7 +11975,7 @@
         "expiry": "",
         "broker": "c349b9ff.9dc4c8",
         "x": 620,
-        "y": 1100,
+        "y": 1200,
         "wires": []
     },
     {
@@ -11418,7 +11990,7 @@
         "finalize": "",
         "libs": [],
         "x": 400,
-        "y": 1100,
+        "y": 1200,
         "wires": [
             [
                 "0eb646d574f0db4b"
@@ -11447,7 +12019,7 @@
         "className": "",
         "topicType": "msg",
         "x": 210,
-        "y": 460,
+        "y": 580,
         "wires": [
             [
                 "4b60f74abbc296ce"
@@ -11474,7 +12046,7 @@
         "to": "",
         "reg": false,
         "x": 460,
-        "y": 460,
+        "y": 580,
         "wires": [
             []
         ]
@@ -11491,7 +12063,7 @@
         "finalize": "",
         "libs": [],
         "x": 500,
-        "y": 940,
+        "y": 1040,
         "wires": [
             [
                 "55b427a01688b459",
@@ -11511,7 +12083,7 @@
         "finalize": "",
         "libs": [],
         "x": 520,
-        "y": 980,
+        "y": 1080,
         "wires": [
             [
                 "55b427a01688b459"
@@ -11567,22 +12139,21 @@
         "type": "function",
         "z": "0133ddc4e63513b7",
         "name": "store finger name and id",
-        "func": "const name_to_add = flow.get('name_to_add');\nconst id_to_add = flow.get('id_to_add');\nconst list_of_fingerprints = flow.get('list_of_fingerprints') || {};\n\nlist_of_fingerprints[id_to_add] = name_to_add;\nflow.set('list_of_fingerprints', list_of_fingerprints);\nflow.set('pin', '');\n\nconst sprintf = global.get(\"sprintf\");\nconst text = sprintf(\"%i: %s\", id_to_add, name_to_add);\n\nreturn [{ topic: \"Erfolgreich hinzugefügt:\", payload: text}, {payload: ''}];",
+        "func": "const name_to_add = flow.get('name_to_add');\nconst hand_to_add = flow.get('hand_to_add');\nconst finger_to_add = flow.get('finger_to_add');\nconst id_to_add = flow.get('id_to_add');\nconst list_of_fingerprints = flow.get('list_of_fingerprints') || {};\n\nlist_of_fingerprints[id_to_add] = `${name_to_add}-${finger_to_add}-${hand_to_add}`;\nflow.set('list_of_fingerprints', list_of_fingerprints);\nflow.set('pin', '');\n\nconst sprintf = global.get(\"sprintf\");\nconst text = sprintf(\"%i: %s\", id_to_add, name_to_add);\n\nreturn [{ payload: '' }, { topic: \"Erfolgreich hinzugefügt:\", payload: text}];",
         "outputs": 2,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
         "x": 530,
-        "y": 580,
+        "y": 680,
         "wires": [
             [
-                "166ea28fb4066970",
-                "6aed96f65ecbb9f3"
+                "4d42edd6ee3c272e"
             ],
             [
-                "4d42edd6ee3c272e",
-                "9491802aea11742e"
+                "6aed96f65ecbb9f3",
+                "166ea28fb4066970"
             ]
         ]
     },
@@ -11598,7 +12169,7 @@
         "finalize": "",
         "libs": [],
         "x": 500,
-        "y": 620,
+        "y": 720,
         "wires": [
             [
                 "166ea28fb4066970",
@@ -11620,7 +12191,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 250,
-        "y": 620,
+        "y": 720,
         "wires": [
             [
                 "45b0b3720d097fba"
@@ -11641,7 +12212,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 250,
-        "y": 660,
+        "y": 760,
         "wires": [
             [
                 "95e84c223e344396"
@@ -11660,7 +12231,7 @@
         "finalize": "",
         "libs": [],
         "x": 500,
-        "y": 660,
+        "y": 760,
         "wires": [
             [
                 "166ea28fb4066970",
@@ -11686,7 +12257,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 480,
-        "y": 740,
+        "y": 840,
         "wires": [
             [
                 "2db468fa3dfbf794"
@@ -11705,7 +12276,7 @@
         "finalize": "",
         "libs": [],
         "x": 480,
-        "y": 780,
+        "y": 880,
         "wires": [
             [
                 "166ea28fb4066970"
@@ -11776,7 +12347,7 @@
             "825a65ab717007e7"
         ],
         "x": 775,
-        "y": 580,
+        "y": 680,
         "wires": []
     },
     {
@@ -11784,7 +12355,7 @@
         "type": "ui_text",
         "z": "0133ddc4e63513b7",
         "group": "c15e3cecb6ae7609",
-        "order": 6,
+        "order": 8,
         "width": 0,
         "height": 0,
         "name": "Status",
@@ -11793,7 +12364,7 @@
         "layout": "row-spread",
         "className": "",
         "x": 950,
-        "y": 580,
+        "y": 680,
         "wires": []
     },
     {
@@ -11805,7 +12376,7 @@
             "166ea28fb4066970"
         ],
         "x": 845,
-        "y": 580,
+        "y": 680,
         "wires": [
             [
                 "4269a56a99ca7eab"
@@ -11965,7 +12536,7 @@
         "to": "",
         "reg": false,
         "x": 440,
-        "y": 500,
+        "y": 620,
         "wires": [
             []
         ]
@@ -11989,7 +12560,7 @@
         "className": "",
         "topicType": "msg",
         "x": 210,
-        "y": 500,
+        "y": 620,
         "wires": [
             [
                 "8d25e61dcf29b6a7"
@@ -12004,7 +12575,7 @@
         "label": "Anzahl Scans",
         "tooltip": "",
         "group": "c15e3cecb6ae7609",
-        "order": 4,
+        "order": 6,
         "width": 0,
         "height": 0,
         "wrap": false,
@@ -12085,7 +12656,7 @@
         "className": "",
         "topicType": "msg",
         "x": 210,
-        "y": 1060,
+        "y": 1160,
         "wires": [
             [
                 "ccb35b1aaf0aeec3"
@@ -12107,7 +12678,7 @@
         "expiry": "",
         "broker": "c349b9ff.9dc4c8",
         "x": 900,
-        "y": 680,
+        "y": 780,
         "wires": []
     },
     {
@@ -12122,7 +12693,7 @@
         "finalize": "",
         "libs": [],
         "x": 860,
-        "y": 640,
+        "y": 740,
         "wires": [
             [
                 "86fec2abf6293c44"
@@ -12136,355 +12707,275 @@
         "name": "Finger erkannt",
         "mode": "link",
         "links": [
-            "38c704d3beb148ed"
+            "38c704d3beb148ed",
+            "23b39e867ad3e835",
+            "e0f2ee18f4a3dcc1"
         ],
         "x": 635,
-        "y": 920,
+        "y": 1020,
         "wires": []
     },
     {
-        "id": "fcf06411.0cc3f8",
-        "type": "mqtt in",
-        "z": "4bb30c72fc55b54d",
-        "name": "Luftgüte Temerature",
-        "topic": "luftguetemesser1/sensor/temperature/state",
-        "qos": "2",
-        "datatype": "auto",
-        "broker": "c349b9ff.9dc4c8",
-        "nl": false,
-        "rap": false,
-        "inputs": 0,
-        "x": 270,
-        "y": 120,
-        "wires": [
-            [
-                "8eae9267.48802"
-            ]
-        ]
-    },
-    {
-        "id": "a72f08bb.1a9d78",
-        "type": "mqtt in",
-        "z": "4bb30c72fc55b54d",
-        "name": "Luftgüte Humidity",
-        "topic": "luftguetemesser1/sensor/humidity/state",
-        "qos": "2",
-        "datatype": "auto",
-        "broker": "c349b9ff.9dc4c8",
-        "inputs": 0,
-        "x": 270,
-        "y": 180,
-        "wires": [
-            [
-                "58c4a38c.87ebfc"
-            ]
-        ]
-    },
-    {
-        "id": "d2eddc67.61a2f",
-        "type": "mqtt in",
-        "z": "4bb30c72fc55b54d",
-        "name": "Luftgüte Abs. Humidity",
-        "topic": "luftguetemesser1/sensor/absolute_humidity/state",
-        "qos": "2",
-        "datatype": "auto",
-        "broker": "c349b9ff.9dc4c8",
-        "inputs": 0,
-        "x": 280,
-        "y": 240,
-        "wires": [
-            [
-                "e0ddac8a.74877"
-            ]
-        ]
-    },
-    {
-        "id": "a6db39a6.8cd418",
-        "type": "mqtt in",
-        "z": "4bb30c72fc55b54d",
-        "name": "Luftgüte Pressure",
-        "topic": "luftguetemesser1/sensor/pressure/state",
-        "qos": "2",
-        "datatype": "auto",
-        "broker": "c349b9ff.9dc4c8",
-        "inputs": 0,
-        "x": 260,
-        "y": 300,
-        "wires": [
-            [
-                "2f7d012f.99272e"
-            ]
-        ]
-    },
-    {
-        "id": "8e129bf4.ba7568",
-        "type": "mqtt in",
-        "z": "4bb30c72fc55b54d",
-        "name": "Luftgüte IAQ",
-        "topic": "luftguetemesser1/sensor/iaq/state",
-        "qos": "2",
-        "datatype": "auto",
-        "broker": "c349b9ff.9dc4c8",
-        "inputs": 0,
-        "x": 250,
-        "y": 360,
-        "wires": [
-            [
-                "40771520.6f47ac"
-            ]
-        ]
-    },
-    {
-        "id": "ed40338b.25cb",
-        "type": "mqtt in",
-        "z": "4bb30c72fc55b54d",
-        "name": "Luftgüte CO2",
-        "topic": "luftguetemesser1/sensor/co2/state",
-        "qos": "2",
-        "datatype": "auto",
-        "broker": "c349b9ff.9dc4c8",
-        "inputs": 0,
-        "x": 250,
-        "y": 420,
-        "wires": [
-            [
-                "dc112566.59fc58"
-            ]
-        ]
-    },
-    {
-        "id": "c97fa554.90f9c8",
-        "type": "mqtt in",
-        "z": "4bb30c72fc55b54d",
-        "name": "Luftgüte VOC",
-        "topic": "luftguetemesser1/sensor/breath_voc_equivalent/state",
-        "qos": "2",
-        "datatype": "auto",
-        "broker": "c349b9ff.9dc4c8",
-        "inputs": 0,
-        "x": 250,
-        "y": 480,
-        "wires": [
-            [
-                "91e65c1b.6e5e6"
-            ]
-        ]
-    },
-    {
-        "id": "8eae9267.48802",
-        "type": "function",
-        "z": "4bb30c72fc55b54d",
-        "name": "store global",
-        "func": "var val = parseFloat(msg.payload);\nglobal.set(\"luftguetemesser1-temperature\", val);\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 470,
-        "y": 120,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "58c4a38c.87ebfc",
-        "type": "function",
-        "z": "4bb30c72fc55b54d",
-        "name": "store global",
-        "func": "var val = parseFloat(msg.payload);\nglobal.set(\"luftguetemesser1-humidity\", val);\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 470,
-        "y": 180,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "e0ddac8a.74877",
-        "type": "function",
-        "z": "4bb30c72fc55b54d",
-        "name": "store global",
-        "func": "var val = parseFloat(msg.payload);\nglobal.set(\"luftguetemesser1-absolute_humidity\", val);\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 470,
-        "y": 240,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "2f7d012f.99272e",
-        "type": "function",
-        "z": "4bb30c72fc55b54d",
-        "name": "store global",
-        "func": "var val = parseFloat(msg.payload);\nglobal.set(\"luftguetemesser1-pressure\", val);\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 470,
-        "y": 300,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "40771520.6f47ac",
-        "type": "function",
-        "z": "4bb30c72fc55b54d",
-        "name": "store global",
-        "func": "var val = parseFloat(msg.payload);\nglobal.set(\"luftguetemesser1-iaq\", val);\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 470,
-        "y": 360,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "dc112566.59fc58",
-        "type": "function",
-        "z": "4bb30c72fc55b54d",
-        "name": "store global",
-        "func": "var val = parseFloat(msg.payload);\nglobal.set(\"luftguetemesser1-co2\", val);\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 470,
-        "y": 420,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "91e65c1b.6e5e6",
-        "type": "function",
-        "z": "4bb30c72fc55b54d",
-        "name": "store global",
-        "func": "var val = parseFloat(msg.payload);\nglobal.set(\"luftguetemesser1-voc\", val);\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 470,
-        "y": 480,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "60f997cc.09a098",
-        "type": "mqtt in",
-        "z": "4bb30c72fc55b54d",
-        "name": "Luftgüte 10m",
-        "topic": "luftguetemesser1/sensor/particulate_matter_10m_concentration/state",
-        "qos": "2",
-        "datatype": "auto",
-        "broker": "c349b9ff.9dc4c8",
-        "inputs": 0,
-        "x": 250,
-        "y": 540,
-        "wires": [
-            [
-                "70e34b00.8241e4"
-            ]
-        ]
-    },
-    {
-        "id": "79ac0727.412cf8",
-        "type": "mqtt in",
-        "z": "4bb30c72fc55b54d",
-        "name": "Luftgüte 25m",
-        "topic": "luftguetemesser1/sensor/particulate_matter_25m_concentration/state",
-        "qos": "2",
-        "datatype": "auto",
-        "broker": "c349b9ff.9dc4c8",
-        "inputs": 0,
-        "x": 250,
-        "y": 600,
-        "wires": [
-            [
-                "cf160067.2069e"
-            ]
-        ]
-    },
-    {
-        "id": "7eb33f12.cf8ae",
-        "type": "mqtt in",
-        "z": "4bb30c72fc55b54d",
-        "name": "Luftgüte 100m",
-        "topic": "luftguetemesser1/sensor/particulate_matter_100m_concentration/state",
-        "qos": "2",
-        "datatype": "auto",
-        "broker": "c349b9ff.9dc4c8",
-        "inputs": 0,
-        "x": 260,
-        "y": 660,
-        "wires": [
-            [
-                "436ff75a.ab2b38"
-            ]
-        ]
-    },
-    {
-        "id": "70e34b00.8241e4",
-        "type": "function",
-        "z": "4bb30c72fc55b54d",
-        "name": "store global",
-        "func": "var val = parseFloat(msg.payload);\nglobal.set(\"luftguetemesser1-10m\", val);\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 470,
+        "id": "64feafd00e0a8031",
+        "type": "change",
+        "z": "0133ddc4e63513b7",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "finger_to_add",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 460,
         "y": 540,
         "wires": [
             []
         ]
     },
     {
-        "id": "cf160067.2069e",
-        "type": "function",
-        "z": "4bb30c72fc55b54d",
-        "name": "store global",
-        "func": "var val = parseFloat(msg.payload);\nglobal.set(\"luftguetemesser1-25m\", val);\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 470,
-        "y": 600,
+        "id": "0e71dae562ead704",
+        "type": "change",
+        "z": "0133ddc4e63513b7",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "hand_to_add",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 460,
+        "y": 500,
         "wires": [
             []
         ]
     },
     {
-        "id": "436ff75a.ab2b38",
+        "id": "20e79245e5976a01",
+        "type": "ui_dropdown",
+        "z": "0133ddc4e63513b7",
+        "name": "",
+        "label": "Hand",
+        "tooltip": "",
+        "place": "Select option",
+        "group": "c15e3cecb6ae7609",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "multiple": false,
+        "options": [
+            {
+                "label": "",
+                "value": "links",
+                "type": "str"
+            },
+            {
+                "label": "",
+                "value": "rechts",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "topic",
+        "topicType": "msg",
+        "className": "",
+        "x": 210,
+        "y": 500,
+        "wires": [
+            [
+                "0e71dae562ead704"
+            ]
+        ]
+    },
+    {
+        "id": "4e316cd3f68e90a4",
+        "type": "ui_dropdown",
+        "z": "0133ddc4e63513b7",
+        "name": "",
+        "label": "Finger",
+        "tooltip": "",
+        "place": "Select option",
+        "group": "c15e3cecb6ae7609",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "multiple": false,
+        "options": [
+            {
+                "label": "",
+                "value": "Daumen",
+                "type": "str"
+            },
+            {
+                "label": "",
+                "value": "Zeigefinger",
+                "type": "str"
+            },
+            {
+                "label": "",
+                "value": "Mittelfinger",
+                "type": "str"
+            },
+            {
+                "label": "",
+                "value": "Ringfinger",
+                "type": "str"
+            },
+            {
+                "label": "",
+                "value": "kleiner Finger",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "topic",
+        "topicType": "msg",
+        "className": "",
+        "x": 210,
+        "y": 540,
+        "wires": [
+            [
+                "64feafd00e0a8031"
+            ]
+        ]
+    },
+    {
+        "id": "12691dcd2f6dc957",
         "type": "function",
         "z": "4bb30c72fc55b54d",
-        "name": "store global",
-        "func": "var val = parseFloat(msg.payload);\nglobal.set(\"luftguetemesser1-100m\", val);\nreturn msg;",
+        "name": "einspeisung & eigenverbrauch",
+        "func": "const solarertag = msg.payload.power || flow.get(\"solarertag\") || 0; \nconst stombezug = msg.payload.consumption || flow.get(\"stombezug\") || 0;\nconst timestamp = msg.payload.time;\n\nflow.set(\"solarertag\", solarertag);\nflow.set(\"stombezug\", stombezug)\n\nconst netzbezug = (stombezug > 0) ? stombezug : 0;\nconst einspeisung = (stombezug < 0) ? stombezug : 0;\nconst eigenverbrauch = solarertag - einspeisung;\nconst stromverbrauch = netzbezug + eigenverbrauch;\n\nmsg.measurement = \"solarertrag\";\nmsg.payload = { timestamp: timestamp, eigenverbrauch: eigenverbrauch, einspeisung: einspeisung, netzbezug: netzbezug, stromverbrauch: stromverbrauch};\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 470,
-        "y": 660,
+        "x": 670,
+        "y": 300,
         "wires": [
-            []
+            [
+                "32e6d7bda24e4aec",
+                "9a213e7f538e9cae"
+            ]
         ]
+    },
+    {
+        "id": "525a28e0978998de",
+        "type": "csv",
+        "z": "4bb30c72fc55b54d",
+        "name": "",
+        "sep": ",",
+        "hdrin": true,
+        "hdrout": "none",
+        "multi": "one",
+        "ret": "\\n",
+        "temp": "",
+        "skip": "0",
+        "strings": true,
+        "include_empty_strings": true,
+        "include_null_values": true,
+        "x": 450,
+        "y": 300,
+        "wires": [
+            [
+                "12691dcd2f6dc957"
+            ]
+        ]
+    },
+    {
+        "id": "6e797c35c70cabf9",
+        "type": "file in",
+        "z": "4bb30c72fc55b54d",
+        "name": "",
+        "filename": "/tmp/split_80.csv",
+        "filenameType": "str",
+        "format": "lines",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 290,
+        "y": 300,
+        "wires": [
+            [
+                "525a28e0978998de"
+            ]
+        ]
+    },
+    {
+        "id": "043a5a4c5fe07243",
+        "type": "inject",
+        "z": "4bb30c72fc55b54d",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 100,
+        "y": 300,
+        "wires": [
+            [
+                "6e797c35c70cabf9"
+            ]
+        ]
+    },
+    {
+        "id": "32e6d7bda24e4aec",
+        "type": "debug",
+        "z": "4bb30c72fc55b54d",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 920,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "9a213e7f538e9cae",
+        "type": "link out",
+        "z": "4bb30c72fc55b54d",
+        "name": "link out 11",
+        "mode": "link",
+        "links": [
+            "1df2986a56225244"
+        ],
+        "x": 845,
+        "y": 300,
+        "wires": []
     },
     {
         "id": "a8ef2ce.4a169d",
@@ -12569,6 +13060,7 @@
         "id": "46ffe730.2ce6a8",
         "type": "function",
         "z": "ff52c0df.f6082",
+        "d": true,
         "name": "Android notification",
         "func": "var data = flow.get(\"zigbeeBattery\");\nvar batteryWarning =  flow.get(\"BatteryWarning\");\nvar device = flow.get(\"NotificationDevice\");\n\n\nvar key = global.get(device);\nvar url = \"https://autoremotejoaomgcd.appspot.com/sendmessage\";\nvar command = \"NOT20\";\n\n\n\nvar battPush = [];\nvar buttons = {};\nvar battBuy = [];\nvar battLink = [];\n\nfor (var i=0; i < data.length; i++) {\n    var batt = data[i].info.battery;\n    var battType = data[i].info.batteryType;\n    if(batt <= batteryWarning){\n        var name = data[i].info.name;\n        if(battType === false){\n            var battTypeDisplay = \"battery type configuration.\\ \";\n            \n        }\n        else { var battTypeDisplay = battType;\n                battBuy.push(battType);\n                battLink.push(data[i].info.batteryURL);\n        }\n    var lowBatt = \"<li><strong>\"+name + \":</strong><span style=\\\"color: #ff9900;\\\"> \"+ batt +\"%</span><span style=\\\"color: #333333;\\\"><em> needs </em><strong>\" + battTypeDisplay + \"</strong></span></li>\";\n    battPush.push(lowBatt);\n    }\n}\n\n\nif(battPush.length > 0){\n\nvar reg = battPush.toString();\nvar reg1 = reg.replace(/,/g, \"\");\n\nvar body = {\n  \"text\": {\n    \"text\": \"A number of your Zigbee devices need a new battery\" ,    \n    \"textexpanded\": \"<ul>\"+ reg1 + \"</ul>\"\n  },\n  \"title\": {\n    \"title\": \"Zigbee Low Battery Warning\",\n    \"titleexpanded\": \"Zigbee Low Battery Warning\"\n  },\n  \"icons\": {\n    \"navbaricon\": \"https://raw.githubusercontent.com/google/material-design-icons/master/device/2x_web/ic_battery_alert_black_48dp.png\",\n    \"bigicon\": \"https://raw.githubusercontent.com/google/material-design-icons/master/device/2x_web/ic_battery_alert_black_48dp.png\",\n    \"smallicon\": \"https://raw.githubusercontent.com/google/material-design-icons/master/device/2x_web/ic_battery_alert_black_48dp.png\",\n    \"iconexpanded\": \"https://raw.githubusercontent.com/google/material-design-icons/master/device/2x_web/ic_battery_alert_black_48dp.png\"\n  },\n  \"notificationid\": \"ZigbeeBattery\",\n  \"persistent\": false,\n  \"priority\": 1,\n  \"color\": \"#b9512c\",\n  \"backgroundcolor\": \"#fafafa\",\n  \"picture\": \"pictureurl\",\n  \"buttons\": \"\"\n};\n\n\nvar battBuy1 = [ ...new Set(battBuy) ];\nvar battLink1 = [ ...new Set(battLink) ];\n\nvar objButton ={};\nfor (var a = 0; a <battBuy1.length; a++) {\n    var b = a +1\n    var keyButton = \"button\"+ b;\n    \n    objButton =  {\n        \"icon\": \"iconURL\",\n        \"label\": \"Buy \" + battBuy1[a],\n        \"command\": \"buybattery*-*\" + battLink1[a]\n    };\n    node.warn(objButton);\n    buttons[keyButton] = objButton;\n    node.warn(buttons);\n}\n\nbody[\"buttons\"] = [buttons];\n\n\nmsg.data = body;\nvar x = JSON.stringify(body);\nvar encodedBody = encodeURIComponent(x);\n\nmsg.url = url + \"?key=\" + key + \"&message=\" +command + \"=:=\"+ encodedBody;\nreturn msg;\n}",
         "outputs": 1,
