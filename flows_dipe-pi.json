@@ -101,17 +101,26 @@
         "env": []
     },
     {
-        "id": "ff52c0df.f6082",
+        "id": "cd1e0b0c87b3c825",
         "type": "tab",
-        "label": "Zigbee Low Battery Notifications",
-        "disabled": true,
-        "info": "\n![enter image description here](https://notenoughtech.com/wp-content/uploads/2020/01/maxresdefault-4.jpg)\nMonitoring more than a couple Zigbee devices for battery levels can be cumbersome. So I made a system that adds new devices automatically,keeps the battery info as a dashboard and sends you an Android notification when battery needs replacing.\n\n - [Complete instructions](https://notenoughtech.com/home-automation/zigbee-low-battery-warning/)\n\n**Features**:\n-   add devices automatically    \n-   Dashboard chart    \n-   notification for Android    \n-   custom low trigger    \n-   support for battery types and purchase links    \n-   more...\n\n## Requirements\n\n - node-red-contrib-dashboard-average-bars\n - node-red-dashboard\n\nYou will need the following Android Apps:\n\n - [Tasker](https://play.google.com/store/apps/details?id=net.dinglisch.android.taskerm&hl=en)\n - [AutoNotification](https://play.google.com/store/apps/details?id=com.joaomgcd.autonotification&hl=en)\n - [AutoTools](https://play.google.com/store/apps/details?id=com.joaomgcd.autotools&hl=en)\n - [AutoRemote](https://play.google.com/store/apps/details?id=com.joaomgcd.autoremote&hl=en)\n - [AutoApps](https://play.google.com/store/apps/details?id=com.joaomgcd.autoappshub&hl=en)\n \n This Setup leans on the following guides:\n [Perfect Autonotifications](https://notenoughtech.com/tasker/tasker-projects/tasker-perfect-autonotifications/), [Credentials in NodeRED](https://notenoughtech.com/home-automation/nodered-home-automation/serving-credentials-with-nodered/),\n\n# Settings\n\n - **battery** - battery type for your device\n - **name**  - friendly_name from yaml file (or ID)\n - **Notification Device**  - name of AutoRemote device served with credential system\n - **min Value**  - Low battery threshold value for notifications\n \n ## More about me:\n\nIf you want to get the latest updates to this project you can follow me via your preferred social media:\n\n-   [Facebook](https://www.facebook.com/NotEnoughTECH/)\n-   [Twitter](https://twitter.com/NotEnoughTECH)\n-   [Instagram](https://www.instagram.com/notenoughtech/)\n-   [YouTube](https://www.youtube.com/user/Polepositionpage)\n\nAnd if you feeling like buying me a coffee or supporting me in a more continuous way:\n\n-   [Paypal](https://www.paypal.me/notenoughtech)\n-   [Patreon](https://www.patreon.com/NotEnoughTECH)\n\nI hope you have enjoyed the project!\n\n "
+        "label": "Low Battery Detection",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "7518cde088588ebe",
+        "type": "tab",
+        "label": "Solarstrom-Start",
+        "disabled": false,
+        "info": "",
+        "env": []
     },
     {
         "id": "650e7c81.102bb4",
         "type": "tab",
         "label": "Nuki push state changes",
-        "disabled": false,
+        "disabled": true,
         "info": ""
     },
     {
@@ -565,7 +574,7 @@
         "type": "ui_tab",
         "name": "Lüftungsempfehlungen",
         "icon": "dashboard",
-        "order": 11,
+        "order": 13,
         "disabled": false,
         "hidden": false
     },
@@ -577,7 +586,8 @@
         "order": 1,
         "disp": false,
         "width": "6",
-        "collapse": false
+        "collapse": false,
+        "className": ""
     },
     {
         "id": "c2e6322e.33404",
@@ -601,7 +611,7 @@
         "type": "ui_tab",
         "name": "Warmwasser",
         "icon": "dashboard",
-        "order": 9,
+        "order": 10,
         "disabled": false,
         "hidden": false
     },
@@ -703,7 +713,7 @@
         "type": "ui_tab",
         "name": "IR-Heizungen",
         "icon": "dashboard",
-        "order": 10,
+        "order": 11,
         "disabled": false,
         "hidden": false
     },
@@ -772,24 +782,6 @@
         "debounceInterval": 30
     },
     {
-        "id": "e19d291d.da6018",
-        "type": "ui_group",
-        "name": "Zigbee Battery Status",
-        "tab": "71f75e8f.91051",
-        "order": 1,
-        "disp": true,
-        "width": "20",
-        "collapse": false
-    },
-    {
-        "id": "71f75e8f.91051",
-        "type": "ui_tab",
-        "name": "Home",
-        "icon": "dashboard",
-        "disabled": false,
-        "hidden": false
-    },
-    {
         "id": "bf6b9b61f49db1aa",
         "type": "influxdb",
         "hostname": "127.0.0.1",
@@ -802,6 +794,57 @@
         "influxdbVersion": "2.0",
         "url": "http://localhost:8086",
         "rejectUnauthorized": true
+    },
+    {
+        "id": "f35232155f174921",
+        "type": "ui_tab",
+        "name": "Batterie Status",
+        "icon": "dashboard",
+        "order": 12,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "fb88c1d7fb2d5bc7",
+        "type": "ui_group",
+        "name": "Schwache Batterie",
+        "tab": "f35232155f174921",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "b6281cf3b645a6ba",
+        "type": "ui_group",
+        "name": "Long time not seen",
+        "tab": "f35232155f174921",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "0c36d213a586e544",
+        "type": "ui_tab",
+        "name": "Solarstrom-Start",
+        "icon": "dashboard",
+        "order": 9,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "59ad78e6b49c46bb",
+        "type": "ui_group",
+        "name": "Group 1",
+        "tab": "0c36d213a586e544",
+        "order": 1,
+        "disp": false,
+        "width": "6",
+        "collapse": false,
+        "className": ""
     },
     {
         "id": "8e65b3ed.9f24",
@@ -4886,7 +4929,7 @@
         "type": "function",
         "z": "4d90b497.b5b2ac",
         "name": "",
-        "func": "var val = parseFloat(msg.payload);\n\nvar text, status;\nif (val > 95) {\n    msg = [\n        {payload: \"Überhitzt\"},\n        {payload: \"OFF\"}\n    ];\n} else if (val < 55) {\n    msg = [\n        undefined,\n        {payload: \"ON\"}\n    ];\n} else {\n    msg = [\n        undefined,\n        undefined\n    ];\n}\n\nreturn msg;",
+        "func": "var val = parseFloat(msg.payload);\n\nvar text, status;\nif (val > 95) {\n    msg = [\n        {payload: \"Überhitzt\"},\n        {payload: \"OFF\"}\n    ];\n} else {\n    msg = [\n        undefined,\n        undefined\n    ];\n}\n\nreturn msg;",
         "outputs": 2,
         "noerr": 0,
         "initialize": "",
@@ -5657,6 +5700,11 @@
         "topic": "kellertuer/switch/relay2/command",
         "qos": "",
         "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
         "broker": "c349b9ff.9dc4c8",
         "x": 1270,
         "y": 100,
@@ -7454,14 +7502,14 @@
         "id": "f7476743a05366c2",
         "type": "function",
         "z": "2f328ad8.26ca86",
-        "name": "Store stombezug in flow",
-        "func": "flow.set(\"stombezug\", msg.payload);\nreturn msg;",
+        "name": "Store stombezug in global",
+        "func": "global.set(\"stombezug\", msg.payload);\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 830,
+        "x": 840,
         "y": 380,
         "wires": [
             []
@@ -7513,7 +7561,7 @@
         "type": "function",
         "z": "2f328ad8.26ca86",
         "name": "einspeisung & eigenverbrauch",
-        "func": "const solarertag = msg.payload;\nconst stombezug = flow.get(\"stombezug\");\n\nconst netzbezug = (stombezug > 0) ? stombezug : 0;\nconst einspeisung = (stombezug < 0) ? stombezug : 0; //wie so nicht - ?\nconst eigenverbrauch = solarertag - einspeisung;\nconst stromverbrauch = netzbezug + eigenverbrauch;\n\nreturn { payload: { eigenverbrauch: eigenverbrauch, einspeisung: einspeisung, netzbezug: netzbezug, stromverbrauch: stromverbrauch}};",
+        "func": "const solarertag = msg.payload;\nconst stombezug = global.get(\"stombezug\");\n\nconst netzbezug = (stombezug > 0) ? stombezug : 0;\nconst einspeisung = (stombezug < 0) ? stombezug : 0; //wie so nicht - ?\nconst eigenverbrauch = solarertag - einspeisung;\nconst stromverbrauch = netzbezug + eigenverbrauch;\n\nreturn { payload: { eigenverbrauch: eigenverbrauch, einspeisung: einspeisung, netzbezug: netzbezug, stromverbrauch: stromverbrauch}};",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -7532,8 +7580,8 @@
         "id": "e3e242d521f1c698",
         "type": "function",
         "z": "2f328ad8.26ca86",
-        "name": "Store solarertrag in flow",
-        "func": "flow.set(\"solarertag\", msg.payload);\nreturn msg;",
+        "name": "Store solarertrag in global",
+        "func": "global.set(\"solarertag\", msg.payload);\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -10865,6 +10913,10 @@
         "format": "",
         "layout": "row-spread",
         "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": "12",
+        "color": "#ffffff",
         "x": 1310,
         "y": 1520,
         "wires": []
@@ -11344,7 +11396,7 @@
         "type": "debug",
         "z": "caf02dc9a5b73890",
         "name": "debug 4",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -11775,7 +11827,7 @@
         "y": 1180,
         "wires": [
             [
-                "39b8b4aeb3b0300a"
+                "5f3fc938750c255d"
             ]
         ]
     },
@@ -11835,13 +11887,13 @@
         "type": "function",
         "z": "caf02dc9a5b73890",
         "name": "open with pin",
-        "func": "const pin = flow.get('pin');\nflow.set('pin', '');\n\nif (pin != \"21109\") return;\n\nreturn [{ payload: '' }, { payload: true}];",
+        "func": "const pin = flow.get('pin');\nflow.set('pin', '');\n\nif (pin != msg.pin) return;\n\nreturn [{ payload: '' }, { payload: true}];",
         "outputs": 2,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 340,
+        "x": 480,
         "y": 1180,
         "wires": [
             [
@@ -11861,7 +11913,7 @@
         "links": [
             "38c704d3beb148ed"
         ],
-        "x": 465,
+        "x": 605,
         "y": 1180,
         "wires": []
     },
@@ -11978,7 +12030,7 @@
         "type": "debug",
         "z": "caf02dc9a5b73890",
         "name": "debug 7",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -12007,10 +12059,10 @@
         "payload": "Started!",
         "payloadType": "str",
         "x": 150,
-        "y": 80,
+        "y": 40,
         "wires": [
             [
-                "f541f04b9ff59bf4"
+                "5219158699c90d01"
             ]
         ]
     },
@@ -12022,7 +12074,7 @@
         "method": "GET",
         "ret": "txt",
         "paytoqs": "ignore",
-        "url": "http://nuki-bridge:8080/callback/add?url=http%3A%2F%2Fdipe-pi%3A1880%2Fnuki&token=368902",
+        "url": "",
         "tls": "",
         "persist": false,
         "proxy": "",
@@ -12030,12 +12082,12 @@
         "authType": "",
         "senderr": false,
         "headers": [],
-        "x": 490,
+        "x": 770,
         "y": 200,
         "wires": [
             [
                 "185711cedafd5fe4",
-                "13751a35e9cc7c50"
+                "fe524ee7393f9f6e"
             ]
         ]
     },
@@ -12055,14 +12107,15 @@
         "type": "debug",
         "z": "caf02dc9a5b73890",
         "name": "debug 8",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "false",
+        "complete": "payload",
+        "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 700,
+        "x": 960,
         "y": 240,
         "wires": []
     },
@@ -12074,7 +12127,7 @@
         "method": "GET",
         "ret": "txt",
         "paytoqs": "ignore",
-        "url": "http://nuki-bridge:8080/callback/remove&id=0&token=368902",
+        "url": "",
         "tls": "",
         "persist": false,
         "proxy": "",
@@ -12082,62 +12135,12 @@
         "authType": "",
         "senderr": false,
         "headers": [],
-        "x": 490,
+        "x": 770,
         "y": 80,
         "wires": [
             [
                 "185711cedafd5fe4",
-                "e46a80466f947d5d"
-            ]
-        ]
-    },
-    {
-        "id": "e46a80466f947d5d",
-        "type": "http request",
-        "z": "caf02dc9a5b73890",
-        "name": "",
-        "method": "GET",
-        "ret": "txt",
-        "paytoqs": "ignore",
-        "url": "http://nuki-bridge:8080/callback/remove&id=0&token=368902",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "insecureHTTPParser": false,
-        "authType": "",
-        "senderr": false,
-        "headers": [],
-        "x": 490,
-        "y": 120,
-        "wires": [
-            [
-                "185711cedafd5fe4",
-                "d9c6ea5f4b202c82"
-            ]
-        ]
-    },
-    {
-        "id": "d9c6ea5f4b202c82",
-        "type": "http request",
-        "z": "caf02dc9a5b73890",
-        "name": "",
-        "method": "GET",
-        "ret": "txt",
-        "paytoqs": "ignore",
-        "url": "http://nuki-bridge:8080/callback/remove&id=0&token=368902",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "insecureHTTPParser": false,
-        "authType": "",
-        "senderr": false,
-        "headers": [],
-        "x": 490,
-        "y": 160,
-        "wires": [
-            [
-                "185711cedafd5fe4",
-                "fadc0297633fd69c"
+                "2ad8e95cec850060"
             ]
         ]
     },
@@ -12149,7 +12152,7 @@
         "method": "GET",
         "ret": "txt",
         "paytoqs": "ignore",
-        "url": "http://nuki-bridge:8080/callback/list?token=368902",
+        "url": "",
         "tls": "",
         "persist": false,
         "proxy": "",
@@ -12157,11 +12160,345 @@
         "authType": "",
         "senderr": false,
         "headers": [],
-        "x": 490,
+        "x": 770,
         "y": 240,
         "wires": [
             [
                 "185711cedafd5fe4"
+            ]
+        ]
+    },
+    {
+        "id": "dd11e2e5681c0eee",
+        "type": "comment",
+        "z": "caf02dc9a5b73890",
+        "name": "Workaround wegen Bug in node-red-contrib-nuki",
+        "info": "Der Bug in node-red-contrib-nuki bewirkt, dass \nder von ihr registrierte Callback nach ein paar \nSekunden wieder gelöscht wird.\n\nWorkaround: Wir warten ein paar Sekunden und \nsetzen dann den Callback selber.\n\nBis zu drei Callback können registriet sein, \ndie wir erstmal alle löschen wollen. Danach \nwird der richtige Callback registriert.",
+        "x": 500,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "5f3fc938750c255d",
+        "type": "credentials",
+        "z": "caf02dc9a5b73890",
+        "name": "PIN",
+        "props": [
+            {
+                "value": "pin",
+                "type": "msg"
+            }
+        ],
+        "x": 310,
+        "y": 1180,
+        "wires": [
+            [
+                "39b8b4aeb3b0300a"
+            ]
+        ]
+    },
+    {
+        "id": "5219158699c90d01",
+        "type": "credentials",
+        "z": "caf02dc9a5b73890",
+        "name": "Nuki Bridge Token",
+        "props": [
+            {
+                "value": "token",
+                "type": "msg"
+            }
+        ],
+        "x": 190,
+        "y": 80,
+        "wires": [
+            [
+                "8f6f5329f2966a7c"
+            ]
+        ]
+    },
+    {
+        "id": "8f6f5329f2966a7c",
+        "type": "change",
+        "z": "caf02dc9a5b73890",
+        "name": "Prepare Nuki Bridge Remove Callback 0 URL",
+        "rules": [
+            {
+                "t": "set",
+                "p": "url",
+                "pt": "msg",
+                "to": "\"http://nuki-bridge:8080/callback/remove&id=0&token=\" & msg.token",
+                "tot": "jsonata"
+            },
+            {
+                "t": "delete",
+                "p": "token",
+                "pt": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 490,
+        "y": 80,
+        "wires": [
+            [
+                "f541f04b9ff59bf4"
+            ]
+        ]
+    },
+    {
+        "id": "2ad8e95cec850060",
+        "type": "credentials",
+        "z": "caf02dc9a5b73890",
+        "name": "Nuki Bridge Token",
+        "props": [
+            {
+                "value": "token",
+                "type": "msg"
+            }
+        ],
+        "x": 190,
+        "y": 120,
+        "wires": [
+            [
+                "00047f872fe30830"
+            ]
+        ]
+    },
+    {
+        "id": "00047f872fe30830",
+        "type": "change",
+        "z": "caf02dc9a5b73890",
+        "name": "Prepare Nuki Bridge Remove Callback 0 URL",
+        "rules": [
+            {
+                "t": "set",
+                "p": "url",
+                "pt": "msg",
+                "to": "\"http://nuki-bridge:8080/callback/remove&id=0&token=\" & msg.token",
+                "tot": "jsonata"
+            },
+            {
+                "t": "delete",
+                "p": "token",
+                "pt": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 490,
+        "y": 120,
+        "wires": [
+            [
+                "08970a62c2210619"
+            ]
+        ]
+    },
+    {
+        "id": "08970a62c2210619",
+        "type": "http request",
+        "z": "caf02dc9a5b73890",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 770,
+        "y": 120,
+        "wires": [
+            [
+                "185711cedafd5fe4",
+                "bec5b0fd03df1e33"
+            ]
+        ]
+    },
+    {
+        "id": "bec5b0fd03df1e33",
+        "type": "credentials",
+        "z": "caf02dc9a5b73890",
+        "name": "Nuki Bridge Token",
+        "props": [
+            {
+                "value": "token",
+                "type": "msg"
+            }
+        ],
+        "x": 190,
+        "y": 160,
+        "wires": [
+            [
+                "9c157a69ed806bd0"
+            ]
+        ]
+    },
+    {
+        "id": "9c157a69ed806bd0",
+        "type": "change",
+        "z": "caf02dc9a5b73890",
+        "name": "Prepare Nuki Bridge Remove Callback 0 URL",
+        "rules": [
+            {
+                "t": "set",
+                "p": "url",
+                "pt": "msg",
+                "to": "\"http://nuki-bridge:8080/callback/remove&id=0&token=\" & msg.token",
+                "tot": "jsonata"
+            },
+            {
+                "t": "delete",
+                "p": "token",
+                "pt": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 490,
+        "y": 160,
+        "wires": [
+            [
+                "416b61be64987712"
+            ]
+        ]
+    },
+    {
+        "id": "416b61be64987712",
+        "type": "http request",
+        "z": "caf02dc9a5b73890",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 770,
+        "y": 160,
+        "wires": [
+            [
+                "185711cedafd5fe4",
+                "6f40c1675a983ea9"
+            ]
+        ]
+    },
+    {
+        "id": "6f40c1675a983ea9",
+        "type": "credentials",
+        "z": "caf02dc9a5b73890",
+        "name": "Nuki Bridge Token",
+        "props": [
+            {
+                "value": "token",
+                "type": "msg"
+            }
+        ],
+        "x": 190,
+        "y": 200,
+        "wires": [
+            [
+                "1b316d46d9aa3517"
+            ]
+        ]
+    },
+    {
+        "id": "1b316d46d9aa3517",
+        "type": "change",
+        "z": "caf02dc9a5b73890",
+        "name": "Prepare Nuki Bridge Add Callback URL",
+        "rules": [
+            {
+                "t": "set",
+                "p": "url",
+                "pt": "msg",
+                "to": "\"http://nuki-bridge:8080/callback/add?url=http%3A%2F%2Fdipe-pi%3A1880%2Fnuki&token=\" & msg.token",
+                "tot": "jsonata"
+            },
+            {
+                "t": "delete",
+                "p": "token",
+                "pt": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 480,
+        "y": 200,
+        "wires": [
+            [
+                "fadc0297633fd69c"
+            ]
+        ]
+    },
+    {
+        "id": "fe524ee7393f9f6e",
+        "type": "credentials",
+        "z": "caf02dc9a5b73890",
+        "name": "Nuki Bridge Token",
+        "props": [
+            {
+                "value": "token",
+                "type": "msg"
+            }
+        ],
+        "x": 190,
+        "y": 240,
+        "wires": [
+            [
+                "4932d17fd1e64bc8"
+            ]
+        ]
+    },
+    {
+        "id": "4932d17fd1e64bc8",
+        "type": "change",
+        "z": "caf02dc9a5b73890",
+        "name": "Prepare Nuki Bridge List Callbacks URL",
+        "rules": [
+            {
+                "t": "set",
+                "p": "url",
+                "pt": "msg",
+                "to": "\"http://nuki-bridge:8080/callback/list?token=\" & msg.token",
+                "tot": "jsonata"
+            },
+            {
+                "t": "delete",
+                "p": "token",
+                "pt": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 480,
+        "y": 240,
+        "wires": [
+            [
+                "13751a35e9cc7c50"
             ]
         ]
     },
@@ -13331,450 +13668,112 @@
         ]
     },
     {
-        "id": "a8ef2ce.4a169d",
+        "id": "6ee15c4384f6b44d",
         "type": "mqtt in",
-        "z": "ff52c0df.f6082",
-        "name": "Zigbee Batteries",
+        "z": "cd1e0b0c87b3c825",
+        "name": "Zigbee Devices",
         "topic": "zigbee2mqtt/#",
         "qos": "0",
-        "datatype": "json",
+        "datatype": "auto-detect",
         "broker": "c349b9ff.9dc4c8",
         "nl": false,
         "rap": false,
         "inputs": 0,
         "x": 140,
+        "y": 280,
+        "wires": [
+            [
+                "531a80a94861426e"
+            ]
+        ]
+    },
+    {
+        "id": "531a80a94861426e",
+        "type": "function",
+        "z": "cd1e0b0c87b3c825",
+        "name": "update device",
+        "func": "const battery_level = msg.payload.battery\nif (!battery_level) return;\n\nconst device_name = msg.topic.split(\"/\")[1];\nconst devices = flow.get('devices') || {} ;\n\nconst device = devices[device_name] || {};\nconst update = {};\nupdate.name = device_name;\nupdate.battery_level = battery_level;\nupdate.last_seen = Date.now();\n\n//if (device.battery_level == update.battery_level) return;\n\ndevices[device_name] = update;\nflow.set('devices', devices);\n\nmsg.payload = device;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 280,
+        "wires": [
+            [
+                "6908030a548bf71b",
+                "620edec60bc276d1",
+                "090e6e925f835a4e"
+            ]
+        ]
+    },
+    {
+        "id": "620edec60bc276d1",
+        "type": "function",
+        "z": "cd1e0b0c87b3c825",
+        "name": "filter low battery",
+        "func": "const devices = flow.get('devices') || {};\nconst lowest_battery = Object.values(devices).filter((device) => device.battery_level !== undefined).slice(0, 16).sort((a, b) => (a.battery_level > b.battery_level) ? 1 : -1);\n\nreturn {\n    payload: lowest_battery.map(\n        (device) => `${device.battery_level}\\%:${device.name}`).join(\"<br>\")\n};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 560,
         "y": 260,
         "wires": [
             [
-                "164ed4d4.17b46b",
-                "d7399023.389bd",
-                "bc0f398077257b8c"
+                "0b7a2cf066d51efe"
             ]
         ]
     },
     {
-        "id": "164ed4d4.17b46b",
-        "type": "function",
-        "z": "ff52c0df.f6082",
-        "name": "Save Battery",
-        "func": "var battery = msg.payload.battery;\nvar batteryLow = msg.payload.battery_low;\nvar voltage = msg.payload.voltage;\nvar deviceTopic  = msg.topic;\nvar ZigbeeDeviceNames = flow.get(\"ZigbeeDeviceNames\");\n\nvar zigbeeBattery = flow.get(\"zigbeeBattery\");\n\nif(zigbeeBattery === undefined){\n    zigbeeBattery = [];\n}\nif(zigbeeBattery === undefined){\n    zigbeeBattery = [];\n}\n\nvar test = isNaN(battery);\n\n//battery info present\nif(test === false){\n    \n    //get device ID\n    var z1 = /zigbee2mqtt\\/(.*)/.exec(deviceTopic);\n    var id = z1[1];\n    \n    //get name and ID\n    var posName = ZigbeeDeviceNames.map(function(e) { return e.name; }).indexOf(id);\n    node.warn(posName);\n    var deviceId = ZigbeeDeviceNames[posName].device;\n    var deviceName = ZigbeeDeviceNames[posName].name;\n    node.warn(posName);\n    //optional voltage and low batt \n    var testBatt = isNaN(batteryLow);\n    var testVolt = isNaN(voltage);\n    \n    if(testBatt === true){batteryLow = false;}\n    if(testVolt === true){voltage = false;}\n    \n    //get time\n    var time = new Date();\n    \n    var pos = zigbeeBattery.map(function(e) { return e.info.name; }).indexOf(deviceName);\n    node.warn(pos);\n    var a;\n    if(pos === -1){\n        a = {\"device\": deviceId, \n                  \"info\":{ \n                    \"battery\":    battery,\n                    \"timestamp\":  time,\n                    \"batteryType\": false,\n                    \"batteryETA\":  \"TBD\",\n                    \"battery_low\": false,\n                    \"voltage\": voltage,\n                    \"name\": deviceName}\n                    };\n        zigbeeBattery.push(a);\n        flow.set(\"zigbeeBattery\", zigbeeBattery);\n    }\n    if(pos >= 0){\n        var battType = zigbeeBattery[pos].info.batteryType\n        a = {\"device\": deviceId, \n                  \"info\":{ \n                    \"battery\":    battery,\n                    \"timestamp\":  time,\n                    \"batteryType\": battType,\n                    \"batteryETA\":  \"TBD\",\n                    \"battery_low\": batteryLow,\n                    \"voltage\": voltage,\n                    \"name\": deviceName}\n                    };\n    }\n    zigbeeBattery[pos]= a;\n    flow.set(\"zigbeeBattery\", zigbeeBattery);\n}\n\n\n   \n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 750,
-        "y": 240,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "a6b8166b.c02258",
-        "type": "ui_template",
-        "z": "ff52c0df.f6082",
-        "group": "e19d291d.da6018",
-        "name": "",
-        "order": 1,
-        "width": 20,
-        "height": 8,
-        "format": "<div ng-bind-html=\"msg.payload\"></div>",
-        "storeOutMessages": true,
-        "fwdInMessages": true,
-        "resendOnRefresh": false,
-        "templateScope": "local",
+        "id": "0b7a2cf066d51efe",
+        "type": "ui_text",
+        "z": "cd1e0b0c87b3c825",
+        "group": "fb88c1d7fb2d5bc7",
+        "order": 6,
+        "width": "6",
+        "height": "6",
+        "name": "Log",
+        "label": "{{msg.payload}}",
+        "format": "",
+        "layout": "row-spread",
         "className": "",
-        "x": 780,
-        "y": 480,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "bc7957e.97d16a8",
-        "type": "function",
-        "z": "ff52c0df.f6082",
-        "name": "Update Chart",
-        "func": "var data = flow.get(\"zigbeeBattery\");\n\nvar arr = [];\n\nvar count =  data.length;\n    for (var i=0; i < count; i++){\n        var nmsg = {payload:data[i].info.battery, topic:data[i].info.name};\n        arr.push(nmsg);\n    }\n\nreturn [arr];\n\n\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 490,
-        "y": 400,
-        "wires": [
-            [
-                "228e9800.5ab598"
-            ]
-        ]
-    },
-    {
-        "id": "46ffe730.2ce6a8",
-        "type": "function",
-        "z": "ff52c0df.f6082",
-        "d": true,
-        "name": "Android notification",
-        "func": "var data = flow.get(\"zigbeeBattery\");\nvar batteryWarning =  flow.get(\"BatteryWarning\");\nvar device = flow.get(\"NotificationDevice\");\n\n\nvar key = global.get(device);\nvar url = \"https://autoremotejoaomgcd.appspot.com/sendmessage\";\nvar command = \"NOT20\";\n\n\n\nvar battPush = [];\nvar buttons = {};\nvar battBuy = [];\nvar battLink = [];\n\nfor (var i=0; i < data.length; i++) {\n    var batt = data[i].info.battery;\n    var battType = data[i].info.batteryType;\n    if(batt <= batteryWarning){\n        var name = data[i].info.name;\n        if(battType === false){\n            var battTypeDisplay = \"battery type configuration.\\ \";\n            \n        }\n        else { var battTypeDisplay = battType;\n                battBuy.push(battType);\n                battLink.push(data[i].info.batteryURL);\n        }\n    var lowBatt = \"<li><strong>\"+name + \":</strong><span style=\\\"color: #ff9900;\\\"> \"+ batt +\"%</span><span style=\\\"color: #333333;\\\"><em> needs </em><strong>\" + battTypeDisplay + \"</strong></span></li>\";\n    battPush.push(lowBatt);\n    }\n}\n\n\nif(battPush.length > 0){\n\nvar reg = battPush.toString();\nvar reg1 = reg.replace(/,/g, \"\");\n\nvar body = {\n  \"text\": {\n    \"text\": \"A number of your Zigbee devices need a new battery\" ,    \n    \"textexpanded\": \"<ul>\"+ reg1 + \"</ul>\"\n  },\n  \"title\": {\n    \"title\": \"Zigbee Low Battery Warning\",\n    \"titleexpanded\": \"Zigbee Low Battery Warning\"\n  },\n  \"icons\": {\n    \"navbaricon\": \"https://raw.githubusercontent.com/google/material-design-icons/master/device/2x_web/ic_battery_alert_black_48dp.png\",\n    \"bigicon\": \"https://raw.githubusercontent.com/google/material-design-icons/master/device/2x_web/ic_battery_alert_black_48dp.png\",\n    \"smallicon\": \"https://raw.githubusercontent.com/google/material-design-icons/master/device/2x_web/ic_battery_alert_black_48dp.png\",\n    \"iconexpanded\": \"https://raw.githubusercontent.com/google/material-design-icons/master/device/2x_web/ic_battery_alert_black_48dp.png\"\n  },\n  \"notificationid\": \"ZigbeeBattery\",\n  \"persistent\": false,\n  \"priority\": 1,\n  \"color\": \"#b9512c\",\n  \"backgroundcolor\": \"#fafafa\",\n  \"picture\": \"pictureurl\",\n  \"buttons\": \"\"\n};\n\n\nvar battBuy1 = [ ...new Set(battBuy) ];\nvar battLink1 = [ ...new Set(battLink) ];\n\nvar objButton ={};\nfor (var a = 0; a <battBuy1.length; a++) {\n    var b = a +1\n    var keyButton = \"button\"+ b;\n    \n    objButton =  {\n        \"icon\": \"iconURL\",\n        \"label\": \"Buy \" + battBuy1[a],\n        \"command\": \"buybattery*-*\" + battLink1[a]\n    };\n    node.warn(objButton);\n    buttons[keyButton] = objButton;\n    node.warn(buttons);\n}\n\nbody[\"buttons\"] = [buttons];\n\n\nmsg.data = body;\nvar x = JSON.stringify(body);\nvar encodedBody = encodeURIComponent(x);\n\nmsg.url = url + \"?key=\" + key + \"&message=\" +command + \"=:=\"+ encodedBody;\nreturn msg;\n}",
-        "outputs": 1,
-        "noerr": 1,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 350,
-        "y": 660,
-        "wires": [
-            [
-                "7b41c0bc.eba5d"
-            ]
-        ]
-    },
-    {
-        "id": "34eaea50.91aab6",
-        "type": "subflow:97561555.3ea248",
-        "z": "ff52c0df.f6082",
-        "name": "Add Battery Info",
-        "env": [
-            {
-                "name": "BatteryType",
-                "value": "CR2450",
-                "type": "str"
-            },
-            {
-                "name": "Name",
-                "value": "TUYA_temp_1",
-                "type": "str"
-            }
-        ],
-        "x": 340,
-        "y": 140,
-        "wires": [
-            [
-                "f16ccf23.b206"
-            ]
-        ]
-    },
-    {
-        "id": "82c403c6.93a1b",
-        "type": "inject",
-        "z": "ff52c0df.f6082",
-        "name": "",
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 140,
-        "y": 140,
-        "wires": [
-            [
-                "34eaea50.91aab6"
-            ]
-        ]
-    },
-    {
-        "id": "f16ccf23.b206",
-        "type": "debug",
-        "z": "ff52c0df.f6082",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "x": 530,
-        "y": 140,
-        "wires": []
-    },
-    {
-        "id": "72d828b7.59b208",
-        "type": "subflow:a48db0b1.9dac6",
-        "z": "ff52c0df.f6082",
-        "name": "",
-        "env": [
-            {
-                "name": "NotificationDevice",
-                "value": "ARpixel3",
-                "type": "str"
-            },
-            {
-                "name": "BatteryWarning",
-                "value": "78",
-                "type": "num"
-            },
-            {
-                "name": "Battery warning",
-                "value": "7",
-                "type": "str"
-            }
-        ],
-        "x": 340,
-        "y": 620,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "9f4bf161.ac641",
-        "type": "inject",
-        "z": "ff52c0df.f6082",
-        "name": "",
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 120,
-        "y": 620,
-        "wires": [
-            [
-                "72d828b7.59b208"
-            ]
-        ]
-    },
-    {
-        "id": "e2838269.8935b",
-        "type": "inject",
-        "z": "ff52c0df.f6082",
-        "name": "Update 5min",
-        "repeat": "300",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 160,
-        "y": 400,
-        "wires": [
-            [
-                "bc7957e.97d16a8"
-            ]
-        ]
-    },
-    {
-        "id": "3c764738.1e0d68",
-        "type": "inject",
-        "z": "ff52c0df.f6082",
-        "name": "every 24",
-        "repeat": "",
-        "crontab": "00 12 * * *",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "clear",
-        "payloadType": "str",
-        "x": 140,
-        "y": 480,
-        "wires": [
-            [
-                "bc7957e.97d16a8"
-            ]
-        ]
-    },
-    {
-        "id": "83134a13.58e6b8",
-        "type": "inject",
-        "z": "ff52c0df.f6082",
-        "name": "Once a day",
-        "repeat": "",
-        "crontab": "00 13 * * *",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 130,
-        "y": 660,
-        "wires": [
-            [
-                "46ffe730.2ce6a8"
-            ]
-        ]
-    },
-    {
-        "id": "7b41c0bc.eba5d",
-        "type": "http request",
-        "z": "ff52c0df.f6082",
-        "name": "",
-        "method": "POST",
-        "ret": "txt",
-        "paytoqs": "ignore",
-        "url": "",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "insecureHTTPParser": false,
-        "authType": "",
-        "senderr": false,
-        "headers": [],
-        "x": 590,
-        "y": 660,
-        "wires": [
-            [
-                "2ed9d566.4c7ada"
-            ]
-        ]
-    },
-    {
-        "id": "2ed9d566.4c7ada",
-        "type": "http response",
-        "z": "ff52c0df.f6082",
-        "name": "",
-        "statusCode": "",
-        "headers": {},
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
         "x": 790,
-        "y": 660,
+        "y": 260,
         "wires": []
     },
     {
-        "id": "c8413a30.af4798",
-        "type": "file in",
-        "z": "ff52c0df.f6082",
-        "name": "Zigbee configuration.yaml",
-        "filename": "/opt/zigbee2mqtt/data/configuration.yaml",
-        "format": "utf8",
-        "chunk": false,
-        "sendError": false,
-        "encoding": "none",
-        "x": 570,
-        "y": 320,
-        "wires": [
-            [
-                "efa82fdd.ff49f"
-            ]
-        ]
-    },
-    {
-        "id": "efa82fdd.ff49f",
-        "type": "yaml",
-        "z": "ff52c0df.f6082",
-        "property": "payload",
-        "name": "",
-        "x": 770,
-        "y": 320,
-        "wires": [
-            [
-                "2916361e.d54a3a"
-            ]
-        ]
-    },
-    {
-        "id": "2916361e.d54a3a",
-        "type": "function",
-        "z": "ff52c0df.f6082",
-        "name": "Create Zigbee List",
-        "func": "var x = {\"devices\":msg.payload.devices};\nvar devices = [];\nvar device = Object.keys(x.devices);\nvar name = Object.values(x.devices);\n\nvar arr = Object.entries(x.devices);\n    for ([device,name] of arr) {\n        var n = name.friendly_name;\n        \n        var a = {device, \"name\": n}\n        \n        devices.push(a);\n        flow.set(\"ZigbeeDeviceNames\", devices);\n    }\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 950,
-        "y": 320,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "d7399023.389bd",
-        "type": "switch",
-        "z": "ff52c0df.f6082",
-        "name": "",
-        "property": "payload.battery",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "nnull"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 370,
-        "y": 320,
-        "wires": [
-            [
-                "c8413a30.af4798"
-            ]
-        ]
-    },
-    {
-        "id": "5a186078.f4965",
-        "type": "comment",
-        "z": "ff52c0df.f6082",
-        "name": "Settings",
-        "info": "",
-        "x": 120,
-        "y": 100,
+        "id": "7511140e9ea85182",
+        "type": "ui_text",
+        "z": "cd1e0b0c87b3c825",
+        "group": "b6281cf3b645a6ba",
+        "order": 6,
+        "width": "6",
+        "height": "6",
+        "name": "Log",
+        "label": "{{msg.payload}}",
+        "format": "",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
+        "x": 790,
+        "y": 300,
         "wires": []
     },
     {
-        "id": "e5058bb5.d75808",
-        "type": "comment",
-        "z": "ff52c0df.f6082",
-        "name": "update device list",
-        "info": "",
-        "x": 420,
-        "y": 280,
-        "wires": []
-    },
-    {
-        "id": "be6d1020.eea37",
-        "type": "comment",
-        "z": "ff52c0df.f6082",
-        "name": "Clear Average",
-        "info": "",
-        "x": 390,
-        "y": 460,
-        "wires": []
-    },
-    {
-        "id": "ed27adf4.45fa",
-        "type": "comment",
-        "z": "ff52c0df.f6082",
-        "name": "Android Notification",
-        "info": "",
-        "x": 130,
-        "y": 580,
-        "wires": []
-    },
-    {
-        "id": "228e9800.5ab598",
-        "type": "average-bars",
-        "z": "ff52c0df.f6082",
-        "name": "average-bars2",
-        "title": "Battery %",
-        "period": "topic",
-        "yMin": "0",
-        "yMax": "100",
-        "showBarsValue": true,
-        "showScaleValue": true,
-        "showLastValue": false,
-        "showAverageValue": false,
-        "showMinimumValue": false,
-        "showMaximumValue": false,
-        "maxBar": "50",
-        "topColor": "#d6fa0a",
-        "bottomColor": "#df3d20",
-        "unit": "%",
-        "fontColor": "#ffffff",
-        "barStyle": "Equalizer",
-        "decimal": "0",
-        "x": 600,
-        "y": 480,
-        "wires": [
-            [
-                "a6b8166b.c02258"
-            ]
-        ]
-    },
-    {
-        "id": "bc0f398077257b8c",
+        "id": "6908030a548bf71b",
         "type": "debug",
-        "z": "ff52c0df.f6082",
-        "name": "debug 2",
+        "z": "cd1e0b0c87b3c825",
+        "name": "debug 10",
         "active": false,
         "tosidebar": true,
         "console": false,
@@ -13782,8 +13781,170 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 500,
+        "x": 540,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "090e6e925f835a4e",
+        "type": "function",
+        "z": "cd1e0b0c87b3c825",
+        "name": "filter long time not seen",
+        "func": "const devices = flow.get('devices') || {};\n\nconst long_time_not_seen = Object.values(devices).filter((device) => device.last_seen === undefined || device.last_seen < Date.now() - 86400000).slice(0,16);\n\nreturn {\n    payload: long_time_not_seen.map(\n        (device) => `${device.name}`).join(\"<br>\")\n};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 590,
+        "y": 300,
+        "wires": [
+            [
+                "7511140e9ea85182",
+                "fede9e2e63d21f2f"
+            ]
+        ]
+    },
+    {
+        "id": "fede9e2e63d21f2f",
+        "type": "debug",
+        "z": "cd1e0b0c87b3c825",
+        "name": "debug 12",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 800,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "0354035ff2531b1d",
+        "type": "mqtt out",
+        "z": "7518cde088588ebe",
+        "name": "",
+        "topic": "shellies/shellyplug-s-F1414A/relay/0/command",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "c349b9ff.9dc4c8",
+        "x": 700,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "e4832408d8bc234f",
+        "type": "ui_switch",
+        "z": "7518cde088588ebe",
+        "name": "",
+        "label": "Geschirrspüler",
+        "tooltip": "",
+        "group": "59ad78e6b49c46bb",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "on",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "off",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 400,
+        "y": 180,
+        "wires": [
+            [
+                "0354035ff2531b1d"
+            ]
+        ]
+    },
+    {
+        "id": "3ae25ae08b3a6a47",
+        "type": "function",
+        "z": "7518cde088588ebe",
+        "name": "Erkenne Einspeisung",
+        "func": "const strombezug = global.set(\"stombezug\");\nif (strombezug < -100) \n    return [{ payload: 'on' }, { payload: 'ON' }]\nelse\n    return;\n",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 180,
         "y": 200,
+        "wires": [
+            [
+                "e4832408d8bc234f"
+            ],
+            [
+                "6724acbb962f4ea2"
+            ]
+        ]
+    },
+    {
+        "id": "6724acbb962f4ea2",
+        "type": "ui_switch",
+        "z": "7518cde088588ebe",
+        "name": "",
+        "label": "Waschmaschine",
+        "tooltip": "",
+        "group": "59ad78e6b49c46bb",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "on",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "off",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 400,
+        "y": 220,
+        "wires": [
+            [
+                "37d188186ea7cf74"
+            ]
+        ]
+    },
+    {
+        "id": "37d188186ea7cf74",
+        "type": "mqtt out",
+        "z": "7518cde088588ebe",
+        "name": "",
+        "topic": "waschkueche-wama/switch/switch15/command",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "c349b9ff.9dc4c8",
+        "x": 700,
+        "y": 220,
         "wires": []
     },
     {
