@@ -93,6 +93,13 @@
         "env": []
     },
     {
+        "id": "650e7c81.102bb4",
+        "type": "tab",
+        "label": "Nuki push state changes",
+        "disabled": true,
+        "info": ""
+    },
+    {
         "id": "0133ddc4e63513b7",
         "type": "tab",
         "label": "Fingersensor",
@@ -117,11 +124,12 @@
         "env": []
     },
     {
-        "id": "650e7c81.102bb4",
+        "id": "937c538bb5079218",
         "type": "tab",
-        "label": "Nuki push state changes",
-        "disabled": true,
-        "info": ""
+        "label": "Bad",
+        "disabled": false,
+        "info": "",
+        "env": []
     },
     {
         "id": "a48db0b1.9dac6",
@@ -481,7 +489,7 @@
         "type": "ui_tab",
         "name": "Waschküche",
         "icon": "dashboard",
-        "order": 5,
+        "order": 6,
         "disabled": false,
         "hidden": false
     },
@@ -490,7 +498,7 @@
         "type": "ui_tab",
         "name": "Verbrauch",
         "icon": "dashboard",
-        "order": 8,
+        "order": 9,
         "disabled": false,
         "hidden": false
     },
@@ -523,7 +531,7 @@
         "type": "ui_tab",
         "name": "Außen",
         "icon": "dashboard",
-        "order": 7,
+        "order": 8,
         "disabled": false,
         "hidden": false
     },
@@ -555,26 +563,27 @@
         "type": "ui_tab",
         "name": "Treppenhaus",
         "icon": "dashboard",
-        "order": 3,
+        "order": 4,
         "disabled": false,
         "hidden": false
     },
     {
         "id": "64b01bd0.e1d1b4",
         "type": "ui_group",
-        "name": "Aktuell",
+        "name": "Licht",
         "tab": "c824e9e5.f339c8",
         "order": 1,
         "disp": true,
         "width": "6",
-        "collapse": false
+        "collapse": false,
+        "className": ""
     },
     {
         "id": "da0dc882.b12038",
         "type": "ui_tab",
         "name": "Lüftungsempfehlungen",
         "icon": "dashboard",
-        "order": 13,
+        "order": 14,
         "disabled": false,
         "hidden": false
     },
@@ -611,7 +620,7 @@
         "type": "ui_tab",
         "name": "Warmwasser",
         "icon": "dashboard",
-        "order": 10,
+        "order": 11,
         "disabled": false,
         "hidden": false
     },
@@ -641,7 +650,7 @@
         "type": "ui_tab",
         "name": "Werkstatt",
         "icon": "dashboard",
-        "order": 6,
+        "order": 7,
         "disabled": false,
         "hidden": false
     },
@@ -684,7 +693,7 @@
         "type": "ui_tab",
         "name": "Fahrradkeller",
         "icon": "dashboard",
-        "order": 4,
+        "order": 5,
         "disabled": false,
         "hidden": false
     },
@@ -713,7 +722,7 @@
         "type": "ui_tab",
         "name": "IR-Heizungen",
         "icon": "dashboard",
-        "order": 11,
+        "order": 12,
         "disabled": false,
         "hidden": false
     },
@@ -800,7 +809,7 @@
         "type": "ui_tab",
         "name": "Batterie Status",
         "icon": "dashboard",
-        "order": 12,
+        "order": 13,
         "disabled": false,
         "hidden": false
     },
@@ -818,7 +827,7 @@
     {
         "id": "b6281cf3b645a6ba",
         "type": "ui_group",
-        "name": "Long time not seen",
+        "name": "Long time no see",
         "tab": "f35232155f174921",
         "order": 2,
         "disp": true,
@@ -831,7 +840,7 @@
         "type": "ui_tab",
         "name": "Solar-Start",
         "icon": "dashboard",
-        "order": 9,
+        "order": 10,
         "disabled": false,
         "hidden": false
     },
@@ -842,6 +851,26 @@
         "tab": "0c36d213a586e544",
         "order": 1,
         "disp": false,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "ff6f06b14f53b220",
+        "type": "ui_tab",
+        "name": "Bad",
+        "icon": "dashboard",
+        "order": 3,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "905a9d51a059b04d",
+        "type": "ui_group",
+        "name": "Licht",
+        "tab": "ff6f06b14f53b220",
+        "order": 1,
+        "disp": true,
         "width": "6",
         "collapse": false,
         "className": ""
@@ -2931,7 +2960,8 @@
         "z": "2ba29887.9266e8",
         "name": "",
         "links": [
-            "b42c6c0f.4b835"
+            "b42c6c0f.4b835",
+            "452eaaba2c84b305"
         ],
         "x": 1305,
         "y": 440,
@@ -6480,7 +6510,7 @@
         "wires": [
             [
                 "ea10858a1cba4404",
-                "ac84dab220def119"
+                "0492099edc8b709d"
             ]
         ]
     },
@@ -6498,7 +6528,7 @@
         "correl": "",
         "expiry": "",
         "broker": "c349b9ff.9dc4c8",
-        "x": 920,
+        "x": 1100,
         "y": 640,
         "wires": []
     },
@@ -6848,9 +6878,28 @@
         "correl": "",
         "expiry": "",
         "broker": "c349b9ff.9dc4c8",
-        "x": 960,
+        "x": 1140,
         "y": 680,
         "wires": []
+    },
+    {
+        "id": "0492099edc8b709d",
+        "type": "function",
+        "z": "293bb437.fa00bc",
+        "name": "on/off -> ON/OFF",
+        "func": "if (msg.payload === \"ON\") \n    return { payload: 'on' }\nelse\n    return { payload: 'off' };\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 830,
+        "y": 680,
+        "wires": [
+            [
+                "ac84dab220def119"
+            ]
+        ]
     },
     {
         "id": "7ae7fa74.a8aa34",
@@ -7840,6 +7889,7 @@
         "id": "b761a7dd.a77438",
         "type": "function",
         "z": "dac2cb3b.559138",
+        "d": true,
         "name": "",
         "func": "function hh_mm_to_ms(hh, mm) {\n    return hh * 3600000 + mm * 60000;\n}\n\nconst last_state = flow.get(\"zirkulationspumpe\");\n\nconst timestamp = new Date();\nconst day_index = timestamp.getDay();\nconst ms = hh_mm_to_ms(timestamp.getHours(), timestamp.getMinutes());\nconst timer = flow.get(\"timer\");\n\nif (timer.wdays.includes(day_index) \n    && ms >= timer.start \n    && ms <= timer.start + 6*60*1000\n    && last_state != \"ON\") {\n    return [{payload: \"ON\"}, {payload: timer}];\n} else\n    return [undefined, {payload: timer}];\n\n",
         "outputs": 2,
@@ -7860,6 +7910,7 @@
         "id": "7c405f66.1d519",
         "type": "inject",
         "z": "dac2cb3b.559138",
+        "d": true,
         "name": "",
         "props": [
             {
@@ -7871,6 +7922,7 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
+        "payload": "",
         "payloadType": "date",
         "x": 150,
         "y": 360,
@@ -7966,6 +8018,7 @@
         "id": "a3dd6456.ef3838",
         "type": "debug",
         "z": "dac2cb3b.559138",
+        "d": true,
         "name": "",
         "active": false,
         "tosidebar": true,
@@ -8169,6 +8222,7 @@
         "id": "4d0ea0476f9b4e31",
         "type": "function",
         "z": "dac2cb3b.559138",
+        "d": true,
         "name": "",
         "func": "const timer = flow.get(\"timer\");\n\nif (timer.mode == 'normal') {\n    return msg;\n}",
         "outputs": 1,
@@ -8186,6 +8240,7 @@
         "id": "e96d4ab170b53532",
         "type": "function",
         "z": "dac2cb3b.559138",
+        "d": true,
         "name": "",
         "func": "const timer = flow.get(\"timer\");\n\nif (timer.mode != 'aus') {\n    return msg;\n}",
         "outputs": 1,
@@ -8246,6 +8301,7 @@
         "id": "846c18c3ac28e800",
         "type": "function",
         "z": "dac2cb3b.559138",
+        "d": true,
         "name": "",
         "func": "const timer = flow.get(\"timer\");\n\nif (timer.mode == 'urlaub') {\n    return msg;\n}",
         "outputs": 1,
@@ -12577,6 +12633,310 @@
         ]
     },
     {
+        "id": "4f8e3104.574f1",
+        "type": "switch",
+        "z": "650e7c81.102bb4",
+        "name": "Door unlocked?",
+        "property": "response.state.state",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "2",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "3",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "5",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "7",
+                "vt": "str"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 5,
+        "x": 180,
+        "y": 420,
+        "wires": [
+            [],
+            [],
+            [],
+            [],
+            [
+                "7e70627b.f08c6c"
+            ]
+        ]
+    },
+    {
+        "id": "70048d9c.18f574",
+        "type": "http in",
+        "z": "650e7c81.102bb4",
+        "name": "Nuki Bridge API HTTP Callback Endpoint",
+        "url": "/nukiii",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 240,
+        "y": 100,
+        "wires": [
+            [
+                "b292b974.c942e8"
+            ]
+        ]
+    },
+    {
+        "id": "b292b974.c942e8",
+        "type": "http response",
+        "z": "650e7c81.102bb4",
+        "name": "send empty response",
+        "statusCode": "",
+        "headers": {},
+        "x": 560,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "7565f770.71dfc8",
+        "type": "comment",
+        "z": "650e7c81.102bb4",
+        "name": "Get incoming state changes using the Nuki Callback Bridge API",
+        "info": "",
+        "x": 350,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "fd156475.c77da8",
+        "type": "comment",
+        "z": "650e7c81.102bb4",
+        "name": "Request Nuki lock state via Nuki Web API",
+        "info": "",
+        "x": 580,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "578cd7c0.a07468",
+        "type": "comment",
+        "z": "650e7c81.102bb4",
+        "name": "React on the status change",
+        "info": "",
+        "x": 260,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "2feeeaae.f4a326",
+        "type": "http request",
+        "z": "650e7c81.102bb4",
+        "name": "Send Nuki Web API HTTP Get-Request",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 240,
+        "y": 280,
+        "wires": [
+            [
+                "cbcd5436.7ca548"
+            ]
+        ]
+    },
+    {
+        "id": "ff07ef80.9321c",
+        "type": "change",
+        "z": "650e7c81.102bb4",
+        "name": "Prepare Nuki Web API HTTP Request https://api.nuki.io/smartlock",
+        "rules": [
+            {
+                "t": "set",
+                "p": "url",
+                "pt": "msg",
+                "to": "\"https://api.nuki.io/smartlock/\" & msg.smartlockId",
+                "tot": "jsonata"
+            },
+            {
+                "t": "delete",
+                "p": "token",
+                "pt": "msg"
+            },
+            {
+                "t": "delete",
+                "p": "smartlockId",
+                "pt": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 900,
+        "y": 220,
+        "wires": [
+            [
+                "2feeeaae.f4a326"
+            ]
+        ]
+    },
+    {
+        "id": "cbcd5436.7ca548",
+        "type": "change",
+        "z": "650e7c81.102bb4",
+        "name": "Write Nuki lock state to the payload",
+        "rules": [
+            {
+                "t": "set",
+                "p": "response",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "response.state.state",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 580,
+        "y": 280,
+        "wires": [
+            [
+                "6f81deb7.277cc"
+            ]
+        ]
+    },
+    {
+        "id": "6f81deb7.277cc",
+        "type": "function",
+        "z": "650e7c81.102bb4",
+        "name": "Check whether the state changed or not",
+        "func": "var oldNukiStatus = global.get(\"oldNukiStatus\");\n\nif (msg.payload != oldNukiStatus) {\n    global.set(\"oldNukiStatus\", msg.payload);\n    return msg;\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 900,
+        "y": 280,
+        "wires": [
+            [
+                "4f8e3104.574f1"
+            ]
+        ]
+    },
+    {
+        "id": "7e70627b.f08c6c",
+        "type": "switch",
+        "z": "650e7c81.102bb4",
+        "name": "Door locked?",
+        "property": "response.state.state",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "4",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 380,
+        "y": 500,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "c7413f7e.f51cb",
+        "type": "function",
+        "z": "650e7c81.102bb4",
+        "name": "Request Header set authorization",
+        "func": "msg.headers = {\n    Authorization: \"Bearer \" + msg.token\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 480,
+        "y": 220,
+        "wires": [
+            [
+                "ff07ef80.9321c"
+            ]
+        ]
+    },
+    {
+        "id": "620b3a1.f8968c4",
+        "type": "comment",
+        "z": "650e7c81.102bb4",
+        "name": "Actions to perform when the door gets unlocked",
+        "info": "",
+        "x": 460,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "d179b6dd.dbea38",
+        "type": "comment",
+        "z": "650e7c81.102bb4",
+        "name": "Actions to perform when the door gets locked",
+        "info": "",
+        "x": 650,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "8c2f0346.e870c",
+        "type": "credentials",
+        "z": "650e7c81.102bb4",
+        "name": "Credentials Nuki Web API",
+        "props": [
+            {
+                "value": "smartlockId",
+                "type": "msg"
+            },
+            {
+                "value": "token",
+                "type": "msg"
+            }
+        ],
+        "x": 190,
+        "y": 220,
+        "wires": [
+            [
+                "c7413f7e.f51cb"
+            ]
+        ]
+    },
+    {
         "id": "3f9580dafe32e9bb",
         "type": "ui_button",
         "z": "0133ddc4e63513b7",
@@ -14000,7 +14360,7 @@
         "type": "function",
         "z": "7518cde088588ebe",
         "name": "Erkenne Einspeisung",
-        "func": "if (msg.payload.einspeisung < -250) \n    return [{ payload: 'on' }, { payload: 'ON' }]\nelse\n    return;\n",
+        "func": "if (msg.payload.einspeisung < -150) \n    return [{ payload: 'on' }, { payload: 'ON' }]\nelse\n    return;\n",
         "outputs": 2,
         "noerr": 0,
         "initialize": "",
@@ -14162,306 +14522,216 @@
         ]
     },
     {
-        "id": "4f8e3104.574f1",
-        "type": "switch",
-        "z": "650e7c81.102bb4",
-        "name": "Door unlocked?",
-        "property": "response.state.state",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "2",
-                "vt": "num"
-            },
-            {
-                "t": "eq",
-                "v": "3",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "5",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "7",
-                "vt": "str"
-            },
-            {
-                "t": "else"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 5,
-        "x": 180,
-        "y": 420,
-        "wires": [
-            [],
-            [],
-            [],
-            [],
-            [
-                "7e70627b.f08c6c"
-            ]
-        ]
-    },
-    {
-        "id": "70048d9c.18f574",
-        "type": "http in",
-        "z": "650e7c81.102bb4",
-        "name": "Nuki Bridge API HTTP Callback Endpoint",
-        "url": "/nukiii",
-        "method": "post",
-        "upload": false,
-        "swaggerDoc": "",
-        "x": 240,
-        "y": 100,
-        "wires": [
-            [
-                "b292b974.c942e8"
-            ]
-        ]
-    },
-    {
-        "id": "b292b974.c942e8",
-        "type": "http response",
-        "z": "650e7c81.102bb4",
-        "name": "send empty response",
-        "statusCode": "",
-        "headers": {},
-        "x": 560,
-        "y": 100,
+        "id": "76300692c288857b",
+        "type": "mqtt out",
+        "z": "937c538bb5079218",
+        "name": "",
+        "topic": "shellies/shellyplus1-0cdc7ef53b10/command/switch:0",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "c349b9ff.9dc4c8",
+        "x": 720,
+        "y": 200,
         "wires": []
     },
     {
-        "id": "7565f770.71dfc8",
-        "type": "comment",
-        "z": "650e7c81.102bb4",
-        "name": "Get incoming state changes using the Nuki Callback Bridge API",
-        "info": "",
-        "x": 350,
-        "y": 60,
-        "wires": []
-    },
-    {
-        "id": "fd156475.c77da8",
-        "type": "comment",
-        "z": "650e7c81.102bb4",
-        "name": "Request Nuki lock state via Nuki Web API",
-        "info": "",
-        "x": 580,
-        "y": 180,
-        "wires": []
-    },
-    {
-        "id": "578cd7c0.a07468",
-        "type": "comment",
-        "z": "650e7c81.102bb4",
-        "name": "React on the status change",
-        "info": "",
-        "x": 260,
-        "y": 360,
-        "wires": []
-    },
-    {
-        "id": "2feeeaae.f4a326",
-        "type": "http request",
-        "z": "650e7c81.102bb4",
-        "name": "Send Nuki Web API HTTP Get-Request",
-        "method": "GET",
-        "ret": "obj",
-        "paytoqs": "ignore",
-        "url": "",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "insecureHTTPParser": false,
-        "authType": "",
-        "senderr": false,
-        "headers": [],
-        "x": 240,
-        "y": 280,
+        "id": "c1a08a91ed25445e",
+        "type": "mqtt in",
+        "z": "937c538bb5079218",
+        "name": "",
+        "topic": "shellies/shellydimmer2-C45BBE788CE2/light/0/status",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "c349b9ff.9dc4c8",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 280,
+        "y": 260,
         "wires": [
             [
-                "cbcd5436.7ca548"
+                "f5f99e51f88c3767"
             ]
         ]
     },
     {
-        "id": "ff07ef80.9321c",
-        "type": "change",
-        "z": "650e7c81.102bb4",
-        "name": "Prepare Nuki Web API HTTP Request https://api.nuki.io/smartlock",
-        "rules": [
-            {
-                "t": "set",
-                "p": "url",
-                "pt": "msg",
-                "to": "\"https://api.nuki.io/smartlock/\" & msg.smartlockId",
-                "tot": "jsonata"
-            },
-            {
-                "t": "delete",
-                "p": "token",
-                "pt": "msg"
-            },
-            {
-                "t": "delete",
-                "p": "smartlockId",
-                "pt": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 900,
-        "y": 220,
+        "id": "f5f99e51f88c3767",
+        "type": "json",
+        "z": "937c538bb5079218",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 570,
+        "y": 260,
         "wires": [
             [
-                "2feeeaae.f4a326"
+                "5c250de41e31e343"
             ]
         ]
     },
     {
-        "id": "cbcd5436.7ca548",
-        "type": "change",
-        "z": "650e7c81.102bb4",
-        "name": "Write Nuki lock state to the payload",
-        "rules": [
-            {
-                "t": "set",
-                "p": "response",
-                "pt": "msg",
-                "to": "payload",
-                "tot": "msg"
-            },
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "response.state.state",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 580,
-        "y": 280,
-        "wires": [
-            [
-                "6f81deb7.277cc"
-            ]
-        ]
-    },
-    {
-        "id": "6f81deb7.277cc",
+        "id": "5c250de41e31e343",
         "type": "function",
-        "z": "650e7c81.102bb4",
-        "name": "Check whether the state changed or not",
-        "func": "var oldNukiStatus = global.get(\"oldNukiStatus\");\n\nif (msg.payload != oldNukiStatus) {\n    global.set(\"oldNukiStatus\", msg.payload);\n    return msg;\n}",
+        "z": "937c538bb5079218",
+        "name": "state",
+        "func": "const ison = msg.payload.ison;\nif (ison)\n    return {payload: `on`}\nelse \n    return {payload: `off`};",
         "outputs": 1,
         "noerr": 0,
-        "x": 900,
-        "y": 280,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 710,
+        "y": 260,
         "wires": [
             [
-                "4f8e3104.574f1"
+                "8b3aba5983973888"
             ]
         ]
     },
     {
-        "id": "7e70627b.f08c6c",
-        "type": "switch",
-        "z": "650e7c81.102bb4",
-        "name": "Door locked?",
-        "property": "response.state.state",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "1",
-                "vt": "num"
-            },
-            {
-                "t": "eq",
-                "v": "4",
-                "vt": "str"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 2,
-        "x": 380,
-        "y": 500,
+        "id": "8b3aba5983973888",
+        "type": "ui_switch",
+        "z": "937c538bb5079218",
+        "name": "Deckenlicht",
+        "label": "Deckenlicht",
+        "tooltip": "",
+        "group": "905a9d51a059b04d",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": "true",
+        "topic": "",
+        "topicType": "str",
+        "style": "",
+        "onvalue": "on",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "off",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "animate": true,
+        "className": "",
+        "x": 390,
+        "y": 300,
         "wires": [
-            [],
-            []
+            [
+                "e0c1cf24ff2b7e57"
+            ]
         ]
     },
     {
-        "id": "c7413f7e.f51cb",
+        "id": "e0c1cf24ff2b7e57",
+        "type": "mqtt out",
+        "z": "937c538bb5079218",
+        "name": "",
+        "topic": "shellies/shellydimmer2-C45BBE788CE2/light/0/command",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "c349b9ff.9dc4c8",
+        "x": 710,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "f4c4290da0779ce8",
+        "type": "mqtt in",
+        "z": "937c538bb5079218",
+        "name": "",
+        "topic": "shellies/shellyplus1-0cdc7ef53b10/status/switch:0",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "c349b9ff.9dc4c8",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 270,
+        "y": 160,
+        "wires": [
+            [
+                "f7e97c67e2c6f7e3"
+            ]
+        ]
+    },
+    {
+        "id": "f7e97c67e2c6f7e3",
+        "type": "json",
+        "z": "937c538bb5079218",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 570,
+        "y": 160,
+        "wires": [
+            [
+                "9b4dcc3506a28930"
+            ]
+        ]
+    },
+    {
+        "id": "9b4dcc3506a28930",
         "type": "function",
-        "z": "650e7c81.102bb4",
-        "name": "Request Header set authorization",
-        "func": "msg.headers = {\n    Authorization: \"Bearer \" + msg.token\n}\nreturn msg;",
+        "z": "937c538bb5079218",
+        "name": "state",
+        "func": "const output = msg.payload.output;\nif (output)\n    return {payload: `on`}\nelse \n    return {payload: `off`};",
         "outputs": 1,
         "noerr": 0,
-        "x": 480,
-        "y": 220,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 710,
+        "y": 160,
         "wires": [
             [
-                "ff07ef80.9321c"
+                "be36acd18194951b"
             ]
         ]
     },
     {
-        "id": "620b3a1.f8968c4",
-        "type": "comment",
-        "z": "650e7c81.102bb4",
-        "name": "Actions to perform when the door gets unlocked",
-        "info": "",
-        "x": 460,
-        "y": 420,
-        "wires": []
-    },
-    {
-        "id": "d179b6dd.dbea38",
-        "type": "comment",
-        "z": "650e7c81.102bb4",
-        "name": "Actions to perform when the door gets locked",
-        "info": "",
-        "x": 650,
-        "y": 500,
-        "wires": []
-    },
-    {
-        "id": "8c2f0346.e870c",
-        "type": "credentials",
-        "z": "650e7c81.102bb4",
-        "name": "Credentials Nuki Web API",
-        "props": [
-            {
-                "value": "smartlockId",
-                "type": "msg"
-            },
-            {
-                "value": "token",
-                "type": "msg"
-            }
-        ],
-        "x": 190,
-        "y": 220,
+        "id": "be36acd18194951b",
+        "type": "ui_switch",
+        "z": "937c538bb5079218",
+        "name": "Spiegelschrank",
+        "label": "Spiegelschrank",
+        "tooltip": "",
+        "group": "905a9d51a059b04d",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": "true",
+        "topic": "",
+        "topicType": "str",
+        "style": "",
+        "onvalue": "on",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "off",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "animate": true,
+        "className": "",
+        "x": 400,
+        "y": 200,
         "wires": [
             [
-                "c7413f7e.f51cb"
+                "76300692c288857b"
             ]
         ]
     }
