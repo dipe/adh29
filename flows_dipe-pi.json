@@ -2839,8 +2839,8 @@
         "nl": false,
         "rap": false,
         "inputs": 0,
-        "x": 600,
-        "y": 800,
+        "x": 580,
+        "y": 820,
         "wires": [
             [
                 "811e8564.045d88",
@@ -3098,11 +3098,12 @@
         "offcolor": "",
         "animate": true,
         "className": "",
-        "x": 970,
+        "x": 1010,
         "y": 800,
         "wires": [
             [
-                "13b7ccd6.d98e83"
+                "13b7ccd6.d98e83",
+                "4c63a8ea7a44d9d8"
             ]
         ]
     },
@@ -3167,7 +3168,8 @@
         "y": 840,
         "wires": [
             [
-                "13b7ccd6.d98e83"
+                "13b7ccd6.d98e83",
+                "d30e2ca2408e55c2"
             ]
         ]
     },
@@ -3467,8 +3469,8 @@
         "z": "2ba29887.9266e8",
         "name": "Esszimmertisch",
         "links": [
-            "cd344841.b0ef18",
-            "9648fe4077632af9"
+            "9648fe4077632af9",
+            "cd344841.b0ef18"
         ],
         "x": 1065,
         "y": 520,
@@ -3807,6 +3809,32 @@
                 "734500d1.9d61f"
             ]
         ]
+    },
+    {
+        "id": "d30e2ca2408e55c2",
+        "type": "link out",
+        "z": "2ba29887.9266e8",
+        "name": "link out 13",
+        "mode": "link",
+        "links": [
+            "4fe8938b4e6886d5"
+        ],
+        "x": 1485,
+        "y": 840,
+        "wires": []
+    },
+    {
+        "id": "4c63a8ea7a44d9d8",
+        "type": "link out",
+        "z": "2ba29887.9266e8",
+        "name": "link out 14",
+        "mode": "link",
+        "links": [
+            "619d06769360f805"
+        ],
+        "x": 1185,
+        "y": 800,
+        "wires": []
     },
     {
         "id": "b529a82a.481848",
@@ -15703,9 +15731,9 @@
         "name": "Esszimmertisch; Licht",
         "topic": "",
         "connection": "b425927fca74a6a7",
-        "template": "SWITCH",
-        "retrievable": false,
-        "passthrough": false,
+        "template": "DIMMER_SWITCH",
+        "retrievable": true,
+        "passthrough": true,
         "diff": false,
         "filter": false,
         "filterTopic": false,
@@ -15714,7 +15742,7 @@
         "y": 660,
         "wires": [
             [
-                "62baa6851b1b57f5"
+                "1991d80aa7a7f9c2"
             ]
         ]
     },
@@ -15736,7 +15764,7 @@
         "type": "function",
         "z": "039a8ad4ab697fb3",
         "name": "function 15",
-        "func": "return {payload: msg.payload.powerState == `ON` ? `on` : `off`};",
+        "func": "return {payload: {\n    state: msg.payload.powerState == `ON` ? `on` : `off`,\n    brightness: msg.payload.brightness\n}};",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -15749,22 +15777,6 @@
                 "9648fe4077632af9"
             ]
         ]
-    },
-    {
-        "id": "62baa6851b1b57f5",
-        "type": "debug",
-        "z": "039a8ad4ab697fb3",
-        "name": "debug 19",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 680,
-        "y": 600,
-        "wires": []
     },
     {
         "id": "a8e198ab481e6662",
@@ -16477,77 +16489,72 @@
         ]
     },
     {
-        "id": "1deb9367.51a3fd",
-        "type": "inject",
+        "id": "2b50622881633e11",
+        "type": "function",
         "z": "039a8ad4ab697fb3",
-        "name": "on",
-        "props": [
-            {
-                "p": "payload"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "{\"powerState\":\"ON\"}",
-        "payloadType": "json",
-        "x": 210,
-        "y": 540,
-        "wires": [
-            [
-                "c925e0edfe8a8050"
-            ]
-        ]
-    },
-    {
-        "id": "dab12600.fd0d08",
-        "type": "inject",
-        "z": "039a8ad4ab697fb3",
-        "name": "off",
-        "props": [
-            {
-                "p": "payload"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "{\"powerState\":\"OFF\"}",
-        "payloadType": "json",
-        "x": 210,
-        "y": 580,
-        "wires": [
-            [
-                "c925e0edfe8a8050"
-            ]
-        ]
-    },
-    {
-        "id": "2bb6a27f.f9fd7e",
-        "type": "inject",
-        "z": "039a8ad4ab697fb3",
-        "name": "60%",
-        "props": [
-            {
-                "p": "payload"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "{\"powerState\":\"ON\",\"brightness\":60}",
-        "payloadType": "json",
-        "x": 210,
+        "name": "function 20",
+        "func": "return { payload: { powerState: msg.payload.state == `on` ? `ON` : `OFF`}};\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 230,
         "y": 620,
         "wires": [
             [
                 "c925e0edfe8a8050"
+            ]
+        ]
+    },
+    {
+        "id": "619d06769360f805",
+        "type": "link in",
+        "z": "039a8ad4ab697fb3",
+        "name": "Alexa Esszimmertisch state ",
+        "links": [
+            "4c63a8ea7a44d9d8"
+        ],
+        "x": 105,
+        "y": 620,
+        "wires": [
+            [
+                "2b50622881633e11"
+            ]
+        ]
+    },
+    {
+        "id": "b3562d87baf520ec",
+        "type": "function",
+        "z": "039a8ad4ab697fb3",
+        "name": "function 21",
+        "func": "return { payload: { brightness: msg.payload.brightness }};\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 230,
+        "y": 660,
+        "wires": [
+            [
+                "c925e0edfe8a8050"
+            ]
+        ]
+    },
+    {
+        "id": "4fe8938b4e6886d5",
+        "type": "link in",
+        "z": "039a8ad4ab697fb3",
+        "name": "Alexa Esszimmertisch brigthness",
+        "links": [
+            "d30e2ca2408e55c2"
+        ],
+        "x": 105,
+        "y": 660,
+        "wires": [
+            [
+                "b3562d87baf520ec"
             ]
         ]
     },
