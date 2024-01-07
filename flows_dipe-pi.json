@@ -141,160 +141,88 @@
         "env": []
     },
     {
-        "id": "cc5e999ebedc6270",
-        "type": "tab",
-        "label": "Alexa",
-        "disabled": true,
-        "info": "",
-        "env": []
+        "id": "5212abebc2a62f0b",
+        "type": "junction",
+        "z": "2ba29887.9266e8",
+        "x": 1120,
+        "y": 820,
+        "wires": [
+            [
+                "13b7ccd6.d98e83"
+            ]
+        ]
     },
     {
-        "id": "a48db0b1.9dac6",
-        "type": "subflow",
-        "name": "Zigbee Low Battery Setting",
-        "info": "",
-        "category": "",
-        "in": [
-            {
-                "x": 260,
-                "y": 80,
-                "wires": [
-                    {
-                        "id": "8e65b3ed.9f24"
-                    }
-                ]
-            }
-        ],
-        "out": [
-            {
-                "x": 540,
-                "y": 80,
-                "wires": [
-                    {
-                        "id": "8e65b3ed.9f24",
-                        "port": 0
-                    }
-                ]
-            }
-        ],
-        "env": [
-            {
-                "name": "NotificationDevice",
-                "type": "str",
-                "value": ""
-            },
-            {
-                "name": "BatteryWarning",
-                "type": "num",
-                "value": "",
-                "ui": {
-                    "icon": "font-awesome/fa-battery-0",
-                    "label": {
-                        "en-US": "Min Value"
-                    },
-                    "type": "spinner",
-                    "opts": {
-                        "min": 1,
-                        "max": 25
-                    }
-                }
-            }
-        ],
-        "color": "#DDAA99"
+        "id": "071a4bf6c5fc364a",
+        "type": "junction",
+        "z": "37daec28.284ee4",
+        "x": 940,
+        "y": 740,
+        "wires": [
+            [
+                "40e09b5.33b3964"
+            ]
+        ]
     },
     {
-        "id": "97561555.3ea248",
-        "type": "subflow",
-        "name": "Subflow 1",
-        "info": "",
-        "category": "",
-        "in": [
-            {
-                "x": 300,
-                "y": 100,
-                "wires": [
-                    {
-                        "id": "9b62f1c2.e1c83"
-                    }
-                ]
-            }
-        ],
-        "out": [
-            {
-                "x": 580,
-                "y": 100,
-                "wires": [
-                    {
-                        "id": "9b62f1c2.e1c83",
-                        "port": 0
-                    }
-                ]
-            }
-        ],
-        "env": [
-            {
-                "name": "BatteryType",
-                "type": "str",
-                "value": "CR2032",
-                "ui": {
-                    "icon": "font-awesome/fa-battery-4",
-                    "label": {
-                        "en-US": "CR2450"
-                    },
-                    "type": "select",
-                    "opts": {
-                        "opts": [
-                            {
-                                "l": {
-                                    "en-US": "CR2450"
-                                },
-                                "v": "CR2450"
-                            },
-                            {
-                                "l": {
-                                    "en-US": "CR2032"
-                                },
-                                "v": "CR2032"
-                            }
-                        ]
-                    }
-                }
-            },
-            {
-                "name": "Name",
-                "type": "str",
-                "value": "",
-                "ui": {
-                    "type": "input",
-                    "opts": {
-                        "types": [
-                            "str",
-                            "num"
-                        ]
-                    },
-                    "label": {}
-                }
-            }
-        ],
-        "color": "#DDAA99"
+        "id": "5c7662f3482de838",
+        "type": "junction",
+        "z": "37daec28.284ee4",
+        "x": 940,
+        "y": 920,
+        "wires": [
+            [
+                "3915a3f2.641aac"
+            ]
+        ]
     },
     {
-        "id": "fee8da92.ffe228",
-        "type": "subflow",
-        "name": "An FHEM",
-        "info": "",
-        "in": [
-            {
-                "x": 320,
-                "y": 140,
-                "wires": [
-                    {
-                        "id": "7d4eb671.f86aa8"
-                    }
-                ]
-            }
-        ],
-        "out": []
+        "id": "6861c771c8a292af",
+        "type": "junction",
+        "z": "37daec28.284ee4",
+        "x": 940,
+        "y": 1100,
+        "wires": [
+            [
+                "5d0fee20.ccd4d"
+            ]
+        ]
+    },
+    {
+        "id": "3e8265b731ace8dc",
+        "type": "junction",
+        "z": "37daec28.284ee4",
+        "x": 940,
+        "y": 1300,
+        "wires": [
+            [
+                "82751974.3c5238"
+            ]
+        ]
+    },
+    {
+        "id": "4cf435ec8d6914ea",
+        "type": "junction",
+        "z": "2ba29887.9266e8",
+        "x": 580,
+        "y": 780,
+        "wires": [
+            [
+                "58e6b312940c0def"
+            ]
+        ]
+    },
+    {
+        "id": "032018a08a1fdd54",
+        "type": "junction",
+        "z": "2ba29887.9266e8",
+        "x": 860,
+        "y": 780,
+        "wires": [
+            [
+                "58e6b312940c0def"
+            ]
+        ]
     },
     {
         "id": "c349b9ff.9dc4c8",
@@ -924,35 +852,6 @@
         "className": ""
     },
     {
-        "id": "afa97030.18184",
-        "type": "mqtt-broker",
-        "name": "",
-        "broker": "mqtt",
-        "port": "1883",
-        "clientid": "nodered",
-        "usetls": false,
-        "compatmode": true,
-        "keepalive": "60",
-        "cleansession": true,
-        "birthTopic": "/Service/nodered/status",
-        "birthQos": "0",
-        "birthPayload": "started",
-        "willTopic": "/Service/nodered/status",
-        "willQos": "0",
-        "willPayload": "crashed"
-    },
-    {
-        "id": "dba4384ac7393eb9",
-        "type": "ui_group",
-        "name": "Luftgüte",
-        "tab": "dc07af4f.71ca1",
-        "order": 8,
-        "disp": true,
-        "width": "6",
-        "collapse": false,
-        "className": ""
-    },
-    {
         "id": "224aeff292ec06d7",
         "type": "ui_spacer",
         "z": "4fa3b184.bc7fb",
@@ -973,36 +872,6 @@
         "height": "1"
     },
     {
-        "id": "2d4da5436ec97896",
-        "type": "ui_spacer",
-        "z": "4fa3b184.bc7fb",
-        "name": "spacer",
-        "group": "40385b12652f4481",
-        "order": 8,
-        "width": "0",
-        "height": "0"
-    },
-    {
-        "id": "0ba66b0b48f3f86b",
-        "type": "ui_spacer",
-        "z": "4fa3b184.bc7fb",
-        "name": "spacer",
-        "group": "40385b12652f4481",
-        "order": 8,
-        "width": "0",
-        "height": "0"
-    },
-    {
-        "id": "3a27b34286aabf79",
-        "type": "ui_spacer",
-        "z": "4fa3b184.bc7fb",
-        "name": "spacer",
-        "group": "1f08ad3374cfd5e9",
-        "order": 8,
-        "width": "6",
-        "height": "1"
-    },
-    {
         "id": "b425927fca74a6a7",
         "type": "vsh-connection",
         "name": "pe@dipe.de",
@@ -1013,54 +882,24 @@
         "lwaClientId": "amzn1.application-oa2-client.3f1bb07133854b078261ad43f2484c18"
     },
     {
-        "id": "8e65b3ed.9f24",
-        "type": "function",
-        "z": "a48db0b1.9dac6",
-        "name": "Set Values",
-        "func": "var minBattLevel = env.get(\"BatteryWarning\");\nflow.set(\"$parent.BatteryWarning\", parseInt(minBattLevel, 10));\n\nvar device = env.get(\"NotificationDevice\");\nflow.set(\"$parent.NotificationDevice\", device);\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 390,
-        "y": 80,
-        "wires": [
-            []
-        ]
+        "id": "b8fb397bd580054b",
+        "type": "ui_tab",
+        "name": "Luftgütemesser 2",
+        "icon": "dashboard",
+        "order": 14,
+        "disabled": false,
+        "hidden": false
     },
     {
-        "id": "9b62f1c2.e1c83",
-        "type": "function",
-        "z": "97561555.3ea248",
-        "name": "Update Battery",
-        "func": "var battType = env.get(\"BatteryType\");\nvar name = env.get(\"Name\");\nvar data = flow.get(\"$parent.zigbeeBattery\");\n\n\nvar battTRL = [\n  {\n    \"battery\": \"CR2032\",\n    \"url\": \"https://amzn.to/2RflnOx\"\n  },\n  {\n    \"battery\": \"CR2450\",\n    \"url\": \"https://amzn.to/2Tlaf5n\"\n  }\n];\n\nvar pos = data.map(function(e) { return e.info.name; }).indexOf(name);\nvar bat = battTRL.map(function(e) { return e.battery; }).indexOf(battType);\nif(pos !== -1){\n    if(bat => 0){data[pos].info.batteryURL = battTRL[bat].url;}\n    \n    data[pos].info.batteryType = battType;\n    flow.set(\"$parent.zigbeeBattery\", data);\n    msg.payload = battType +\" saved as default battery for \"+ name;\n}\nelse {\n    msg.payload = \"Check device name\";\n}\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 440,
-        "y": 100,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "7d4eb671.f86aa8",
-        "type": "mqtt out",
-        "z": "fee8da92.ffe228",
-        "d": true,
-        "name": "An FHEM",
-        "topic": "/Service/fhem/cmnd",
-        "qos": "",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "afa97030.18184",
-        "x": 460,
-        "y": 140,
-        "wires": []
+        "id": "69570255a88564b2",
+        "type": "ui_group",
+        "name": "Group 1",
+        "tab": "b8fb397bd580054b",
+        "order": 1,
+        "disp": false,
+        "width": "6",
+        "collapse": false,
+        "className": ""
     },
     {
         "id": "930e92a7.3f378",
@@ -1151,19 +990,19 @@
         "wires": [
             [],
             [
-                "b3e4bb8fe782821f"
+                "3a3f3f29.1be49"
             ],
             [
-                "ecde6efbce017cdd"
+                "bd4f1b1d.c1d598"
             ],
             [
-                "4ee3e653755d72db"
+                "773f6fe1.26d11"
             ],
             [
-                "72f5f0ed0262eb0f"
+                "d0971035.fd6cc"
             ],
             [
-                "b4b1222f21f99952"
+                "8bdbacff7bbffaf0"
             ]
         ]
     },
@@ -1233,8 +1072,8 @@
         "links": [
             "6637cc7f.54ff74"
         ],
-        "x": 795,
-        "y": 320,
+        "x": 615,
+        "y": 300,
         "wires": []
     },
     {
@@ -1246,8 +1085,8 @@
             "a14232cb.a4256",
             "e30a134d.f410a"
         ],
-        "x": 795,
-        "y": 360,
+        "x": 615,
+        "y": 340,
         "wires": []
     },
     {
@@ -1259,8 +1098,8 @@
         "links": [
             "4bbc2b23.ee06a4"
         ],
-        "x": 795,
-        "y": 400,
+        "x": 615,
+        "y": 380,
         "wires": []
     },
     {
@@ -1272,8 +1111,8 @@
             "cd111146.3d5c4",
             "e5d97c3.d1d738"
         ],
-        "x": 795,
-        "y": 440,
+        "x": 615,
+        "y": 420,
         "wires": []
     },
     {
@@ -1372,8 +1211,8 @@
         "correl": "",
         "expiry": "",
         "broker": "c349b9ff.9dc4c8",
-        "x": 250,
-        "y": 1340,
+        "x": 1070,
+        "y": 1140,
         "wires": []
     },
     {
@@ -1383,31 +1222,18 @@
         "name": "Klavierlampe",
         "topic": "zigbee2mqtt/klavierlampe",
         "qos": "2",
-        "datatype": "auto",
+        "datatype": "json",
         "broker": "c349b9ff.9dc4c8",
+        "nl": false,
+        "rap": false,
         "inputs": 0,
-        "x": 430,
-        "y": 1340,
-        "wires": [
-            [
-                "2a4ae50f.d0a24a"
-            ]
-        ]
-    },
-    {
-        "id": "2a4ae50f.d0a24a",
-        "type": "json",
-        "z": "37daec28.284ee4",
-        "name": "",
-        "property": "payload",
-        "action": "obj",
-        "pretty": false,
-        "x": 570,
-        "y": 1340,
+        "x": 150,
+        "y": 1140,
         "wires": [
             [
                 "c47da63c.598c78",
-                "7eb17679.660788"
+                "7eb17679.660788",
+                "cff872e789db0734"
             ]
         ]
     },
@@ -1444,44 +1270,25 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 610,
-        "y": 1380,
+        "x": 390,
+        "y": 1180,
         "wires": [
-            [
-                "31d2f239.bb705e"
-            ]
+            []
         ]
-    },
-    {
-        "id": "31d2f239.bb705e",
-        "type": "debug",
-        "z": "37daec28.284ee4",
-        "name": "Klavierleuchte",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 580,
-        "y": 1420,
-        "wires": []
     },
     {
         "id": "7eb17679.660788",
         "type": "function",
         "z": "37daec28.284ee4",
         "name": "state",
-        "func": "msg.payload = {\"state\": msg.payload.state};\nreturn msg;",
+        "func": "return { payload: { state: msg.payload.state }};",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 230,
-        "y": 1420,
+        "x": 330,
+        "y": 1100,
         "wires": [
             [
                 "a491d10d.02174"
@@ -1502,6 +1309,7 @@
         "passthru": false,
         "decouple": "true",
         "topic": "",
+        "topicType": "str",
         "style": "",
         "onvalue": "{\"state\": \"ON\"}",
         "onvalueType": "json",
@@ -1511,11 +1319,13 @@
         "offvalueType": "json",
         "officon": "",
         "offcolor": "",
-        "x": 330,
-        "y": 1460,
+        "animate": true,
+        "className": "",
+        "x": 610,
+        "y": 1100,
         "wires": [
             [
-                "5d0fee20.ccd4d"
+                "6861c771c8a292af"
             ]
         ]
     },
@@ -1525,13 +1335,11 @@
         "z": "37daec28.284ee4",
         "name": "Set Klavierlampe",
         "links": [
-            "7d2f7d57.122c54",
             "773f6fe1.26d11",
-            "8bc43dda.f5f76",
             "f854ab23be90c932"
         ],
-        "x": 135,
-        "y": 1300,
+        "x": 925,
+        "y": 1180,
         "wires": [
             [
                 "5d0fee20.ccd4d"
@@ -1544,12 +1352,11 @@
         "z": "37daec28.284ee4",
         "name": "Set Leuchter",
         "links": [
-            "4b03e0d9.5ac29",
             "d0971035.fd6cc",
-            "9e89c97e.5c7568"
+            "f7443f20a538ebdd"
         ],
-        "x": 135,
-        "y": 1540,
+        "x": 925,
+        "y": 1380,
         "wires": [
             [
                 "82751974.3c5238"
@@ -1562,12 +1369,10 @@
         "z": "37daec28.284ee4",
         "name": "Set Fensterbank",
         "links": [
-            "54c14fb0.1f53d",
-            "8c16d699.6098e8",
-            "bd4f1b1d.c1d598",
-            "73ac73c881c9adfd"
+            "73ac73c881c9adfd",
+            "bd4f1b1d.c1d598"
         ],
-        "x": 115,
+        "x": 925,
         "y": 1000,
         "wires": [
             [
@@ -1579,15 +1384,13 @@
         "id": "6637cc7f.54ff74",
         "type": "link in",
         "z": "37daec28.284ee4",
-        "name": "Set Tiffany",
+        "name": "Tiffany MQTT",
         "links": [
-            "17daaa56.bbd986",
-            "54c14fb0.1f53d",
-            "3a3f3f29.1be49",
-            "19bb7ceb9cdb5b49"
+            "19bb7ceb9cdb5b49",
+            "3a3f3f29.1be49"
         ],
-        "x": 115,
-        "y": 720,
+        "x": 925,
+        "y": 820,
         "wires": [
             [
                 "40e09b5.33b3964"
@@ -1608,8 +1411,8 @@
         "correl": "",
         "expiry": "",
         "broker": "c349b9ff.9dc4c8",
-        "x": 250,
-        "y": 1040,
+        "x": 1070,
+        "y": 960,
         "wires": []
     },
     {
@@ -1619,32 +1422,19 @@
         "name": "Fensterbank",
         "topic": "zigbee2mqtt/fensterbank",
         "qos": "2",
-        "datatype": "auto",
+        "datatype": "json",
         "broker": "c349b9ff.9dc4c8",
+        "nl": false,
+        "rap": false,
         "inputs": 0,
-        "x": 430,
-        "y": 1040,
+        "x": 150,
+        "y": 960,
         "wires": [
             [
-                "43528aea.e5c924"
-            ]
-        ]
-    },
-    {
-        "id": "43528aea.e5c924",
-        "type": "json",
-        "z": "37daec28.284ee4",
-        "name": "",
-        "property": "payload",
-        "action": "obj",
-        "pretty": false,
-        "x": 570,
-        "y": 1040,
-        "wires": [
-            [
-                "63507385.c44d5c",
                 "bcc690db.8cb87",
-                "b07f212d.4c75a"
+                "b07f212d.4c75a",
+                "63507385.c44d5c",
+                "922ccac0c7046219"
             ]
         ]
     },
@@ -1681,30 +1471,11 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 600,
-        "y": 1080,
+        "x": 380,
+        "y": 1000,
         "wires": [
-            [
-                "7da55143.813f7"
-            ]
+            []
         ]
-    },
-    {
-        "id": "7da55143.813f7",
-        "type": "debug",
-        "z": "37daec28.284ee4",
-        "name": "Fensterbank",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 650,
-        "y": 1120,
-        "wires": []
     },
     {
         "id": "8e0a2075.97183",
@@ -1729,12 +1500,11 @@
         "offvalueType": "json",
         "officon": "",
         "offcolor": "",
-        "x": 330,
-        "y": 1140,
+        "x": 610,
+        "y": 920,
         "wires": [
             [
-                "7da55143.813f7",
-                "3915a3f2.641aac"
+                "5c7662f3482de838"
             ]
         ]
     },
@@ -1749,14 +1519,16 @@
         "order": 2,
         "width": 0,
         "height": 0,
-        "passthru": false,
+        "passthru": true,
         "outs": "all",
         "topic": "",
+        "topicType": "str",
         "min": "20",
         "max": "254",
         "step": "25",
-        "x": 330,
-        "y": 1220,
+        "className": "",
+        "x": 610,
+        "y": 960,
         "wires": [
             [
                 "9ac7d8bf.354318"
@@ -1773,8 +1545,8 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 570,
-        "y": 1220,
+        "x": 870,
+        "y": 960,
         "wires": [
             [
                 "3915a3f2.641aac"
@@ -1792,8 +1564,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 230,
-        "y": 1100,
+        "x": 330,
+        "y": 920,
         "wires": [
             [
                 "8e0a2075.97183"
@@ -1810,8 +1582,8 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 250,
-        "y": 1180,
+        "x": 350,
+        "y": 960,
         "wires": [
             [
                 "4ba59f70.c989c"
@@ -1882,8 +1654,8 @@
         "correl": "",
         "expiry": "",
         "broker": "c349b9ff.9dc4c8",
-        "x": 230,
-        "y": 760,
+        "x": 1050,
+        "y": 780,
         "wires": []
     },
     {
@@ -1893,32 +1665,19 @@
         "name": "Tiffany",
         "topic": "zigbee2mqtt/tiffany",
         "qos": "2",
-        "datatype": "auto",
+        "datatype": "json",
         "broker": "c349b9ff.9dc4c8",
+        "nl": false,
+        "rap": false,
         "inputs": 0,
-        "x": 410,
-        "y": 760,
+        "x": 130,
+        "y": 780,
         "wires": [
             [
-                "61308a38.c34a64"
-            ]
-        ]
-    },
-    {
-        "id": "61308a38.c34a64",
-        "type": "json",
-        "z": "37daec28.284ee4",
-        "name": "",
-        "property": "payload",
-        "action": "obj",
-        "pretty": false,
-        "x": 570,
-        "y": 760,
-        "wires": [
-            [
-                "52aea2ca.07744c",
                 "7e4ae382.f3381c",
-                "9762023d.37de7"
+                "9762023d.37de7",
+                "52aea2ca.07744c",
+                "418f4f02f0ac1e08"
             ]
         ]
     },
@@ -1955,30 +1714,11 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 590,
-        "y": 800,
+        "x": 370,
+        "y": 820,
         "wires": [
-            [
-                "35891aa8.d828c6"
-            ]
+            []
         ]
-    },
-    {
-        "id": "35891aa8.d828c6",
-        "type": "debug",
-        "z": "37daec28.284ee4",
-        "name": "Tiffany",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 630,
-        "y": 840,
-        "wires": []
     },
     {
         "id": "30c5bc34.3c3974",
@@ -2005,12 +1745,12 @@
         "officon": "",
         "offcolor": "",
         "animate": true,
-        "x": 260,
-        "y": 860,
+        "className": "",
+        "x": 540,
+        "y": 740,
         "wires": [
             [
-                "35891aa8.d828c6",
-                "40e09b5.33b3964"
+                "071a4bf6c5fc364a"
             ]
         ]
     },
@@ -2025,15 +1765,16 @@
         "order": 2,
         "width": 0,
         "height": 0,
-        "passthru": false,
+        "passthru": true,
         "outs": "all",
         "topic": "",
         "topicType": "str",
         "min": "20",
         "max": "254",
         "step": "25",
-        "x": 260,
-        "y": 940,
+        "className": "",
+        "x": 540,
+        "y": 780,
         "wires": [
             [
                 "f74f051f.78aca8"
@@ -2050,8 +1791,9 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 570,
-        "y": 940,
+        "libs": [],
+        "x": 870,
+        "y": 780,
         "wires": [
             [
                 "40e09b5.33b3964"
@@ -2068,8 +1810,8 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 230,
-        "y": 820,
+        "x": 330,
+        "y": 740,
         "wires": [
             [
                 "30c5bc34.3c3974"
@@ -2086,8 +1828,8 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 250,
-        "y": 900,
+        "x": 350,
+        "y": 780,
         "wires": [
             [
                 "483d789b.9b7bd8"
@@ -2108,8 +1850,8 @@
         "correl": "",
         "expiry": "",
         "broker": "c349b9ff.9dc4c8",
-        "x": 240,
-        "y": 1580,
+        "x": 1060,
+        "y": 1340,
         "wires": []
     },
     {
@@ -2119,94 +1861,21 @@
         "name": "Leuchter",
         "topic": "zigbee2mqtt/leuchter",
         "qos": "2",
-        "datatype": "auto",
+        "datatype": "json",
         "broker": "c349b9ff.9dc4c8",
         "nl": false,
         "rap": false,
         "inputs": 0,
-        "x": 420,
-        "y": 1580,
+        "x": 140,
+        "y": 1340,
         "wires": [
             [
-                "9b0a2d3d.d8a5f"
-            ]
-        ]
-    },
-    {
-        "id": "9b0a2d3d.d8a5f",
-        "type": "json",
-        "z": "37daec28.284ee4",
-        "name": "",
-        "property": "payload",
-        "action": "obj",
-        "pretty": false,
-        "x": 570,
-        "y": 1580,
-        "wires": [
-            [
-                "7411287e.b145a8",
                 "d2d0266a.cd3ee8",
-                "11d236e2.b42379"
+                "7411287e.b145a8",
+                "11d236e2.b42379",
+                "49386ad2cbcb1f8f"
             ]
         ]
-    },
-    {
-        "id": "7411287e.b145a8",
-        "type": "change",
-        "z": "37daec28.284ee4",
-        "name": "save leuchter state",
-        "rules": [
-            {
-                "t": "set",
-                "p": "state",
-                "pt": "msg",
-                "to": "payload.state = 'ON' ? 'on' : 'off'",
-                "tot": "jsonata"
-            },
-            {
-                "t": "set",
-                "p": "brightness",
-                "pt": "msg",
-                "to": "payload.brightness",
-                "tot": "jsonata"
-            },
-            {
-                "t": "set",
-                "p": "leuchter",
-                "pt": "flow",
-                "to": "{'state': state, 'brightness': brightness}",
-                "tot": "jsonata"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 590,
-        "y": 1620,
-        "wires": [
-            [
-                "b46d4ee5.72901"
-            ]
-        ]
-    },
-    {
-        "id": "b46d4ee5.72901",
-        "type": "debug",
-        "z": "37daec28.284ee4",
-        "name": "Fensterbank",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 650,
-        "y": 1660,
-        "wires": []
     },
     {
         "id": "9aca83f0.327cd",
@@ -2234,12 +1903,11 @@
         "offcolor": "",
         "animate": true,
         "className": "",
-        "x": 320,
-        "y": 1680,
+        "x": 580,
+        "y": 1300,
         "wires": [
             [
-                "b46d4ee5.72901",
-                "82751974.3c5238"
+                "3e8265b731ace8dc"
             ]
         ]
     },
@@ -2254,15 +1922,16 @@
         "order": 2,
         "width": 0,
         "height": 0,
-        "passthru": false,
+        "passthru": true,
         "outs": "all",
         "topic": "",
         "topicType": "str",
         "min": "20",
         "max": "254",
         "step": "25",
-        "x": 320,
-        "y": 1760,
+        "className": "",
+        "x": 580,
+        "y": 1340,
         "wires": [
             [
                 "b3e0dafa.e18c68"
@@ -2279,8 +1948,8 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 570,
-        "y": 1760,
+        "x": 870,
+        "y": 1340,
         "wires": [
             [
                 "82751974.3c5238"
@@ -2298,8 +1967,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 230,
-        "y": 1640,
+        "x": 330,
+        "y": 1300,
         "wires": [
             [
                 "9aca83f0.327cd"
@@ -2316,8 +1985,8 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 250,
-        "y": 1720,
+        "x": 350,
+        "y": 1340,
         "wires": [
             [
                 "546088f6.3a4488"
@@ -2331,7 +2000,6 @@
         "name": "reset",
         "mode": "link",
         "links": [
-            "764add5bf2b847c1",
             "c6ba0a745f4a0cac"
         ],
         "x": 495,
@@ -2343,7 +2011,7 @@
         "type": "function",
         "z": "37daec28.284ee4",
         "name": "initialize Scenes",
-        "func": "flow.set(\"current_scene_idx\", 0)\nflow.set(\"max_scene_idx\", 5)\nflow.set(\"scenes\", [\n        {   scene_idx: 0,\n            scene_name: \"aus\",\n            devices: [\n                {   device_idx: 1,\n                    name: \"Tiffany\",\n                    state: \"off\"\n                },\n                {   device_idx: 2,\n                    name: \"Fensterbank\",\n                    state: \"off\"\n                },\n                {   device_idx: 3,\n                    name: \"Klavierlampe\",\n                    state: \"off\"\n                },\n                {   device_idx: 4,\n                    name: \"Leuchter\",\n                    state: \"off\"\n                },\n                {   device_idx: 5,\n                    name: \"Tizo\",\n                    state: \"off\"\n                }\n            ]\n        },\n        {   scene_idx: 1,\n            scene_name: \"ambiente\",\n            devices: [\n                {   device_idx: 1,\n                    name: \"Tiffany\",\n                    brightness: 70,\n                    state: \"on\"\n                },\n                {   device_idx: 2,\n                    name: \"Fensterbank\",\n                    brightness: 70,\n                    state: \"on\"\n                },\n                {   device_idx: 3,\n                    name: \"Klavierlampe\",\n                    state: \"on\"\n                },\n                {   device_idx: 4,\n                    name: \"Leuchter\",\n                    state: \"off\"\n                },\n                {   device_idx: 5,\n                    name: \"Tizio\",\n                    state: \"off\"\n                }\n            ]\n        },\n          {   scene_idx: 2,\n            scene_name: \"cosy\",\n            devices: [\n                {   device_idx: 1,\n                    name: \"Tiffany\",\n                    brightness: 150,\n                    state: \"on\"\n                },\n                {   device_idx: 2,\n                    name: \"Fensterbank\",\n                    brightness: 150,\n                    state: \"on\"\n                },\n                {   device_idx: 3,\n                    name: \"Klavierlampe\",\n                    state: \"on\"\n                },\n                {   device_idx: 4,\n                    name: \"Leuchter\",\n                    state: \"off\"\n                },\n                {   device_idx: 5,\n                    name: \"Tizio\",\n                    state: \"on\"\n                }\n            ]\n        },\n        {   scene_idx: 3,\n            scene_name: \"sofa_read\",\n            devices: [\n                {   device_idx: 1,\n                    name: \"Tiffany\",\n                    brightness: 100,\n                    state: \"on\"\n                },\n                {   device_idx: 2,\n                    name: \"Fensterbank\",\n                    brightness: 255,\n                    state: \"on\"\n                },\n                {   device_idx: 3,\n                    name: \"Klavierlampe\",\n                    state: \"on\"\n                },\n                {   device_idx: 4,\n                    name: \"Leuchter\",\n                    state: \"off\"\n                },\n                {\n                    device_idx: 5,\n                    name: \"Tizio\",\n                    state: \"on\"\n                }\n            ]\n        },\n      {   scene_idx: 4,\n            scene_name: \"bright\",\n            devices: [\n                {   device_idx: 1,\n                    name: \"Tiffany\",\n                    brightness: 255,\n                    state: \"on\"\n                },\n                {   device_idx: 2,\n                    name: \"Fensterbank\",\n                    brightness: 255,\n                    state: \"on\"\n                },\n                {   device_idx: 3,\n                    name: \"Klavierlampe\",\n                    state: \"on\"\n                },\n                {   device_idx: 4,\n                    name: \"Leuchter\",\n                    brightness: 255,\n                    state: \"on\"\n                },\n                {\n                    device_idx: 5,\n                    name: \"Tizio\",\n                    state: \"on\"\n                }\n            ]\n        }\n    ]\n)\n\nreturn {payload: 0};",
+        "func": "flow.set(\"current_scene_idx\", 0)\nflow.set(\"max_scene_idx\", 5)\nflow.set(\"scenes\", [\n        {   scene_idx: 0,\n            scene_name: \"aus\",\n            devices: [\n                {   device_idx: 1,\n                    name: \"Tiffany\",\n                    state: \"OFF\"\n                },\n                {   device_idx: 2,\n                    name: \"Fensterbank\",\n                    state: \"OFF\"\n                },\n                {   device_idx: 3,\n                    name: \"Klavierlampe\",\n                    state: \"OFF\"\n                },\n                {   device_idx: 4,\n                    name: \"Leuchter\",\n                    state: \"OFF\"\n                },\n                {   device_idx: 5,\n                    name: \"Tizo\",\n                    state: \"OFF\"\n                }\n            ]\n        },\n        {   scene_idx: 1,\n            scene_name: \"ambiente\",\n            devices: [\n                {   device_idx: 1,\n                    name: \"Tiffany\",\n                    brightness: 70,\n                    state: \"ON\"\n                },\n                {   device_idx: 2,\n                    name: \"Fensterbank\",\n                    brightness: 70,\n                    state: \"ON\"\n                },\n                {   device_idx: 3,\n                    name: \"Klavierlampe\",\n                    state: \"ON\"\n                },\n                {   device_idx: 4,\n                    name: \"Leuchter\",\n                    state: \"OFF\"\n                },\n                {   device_idx: 5,\n                    name: \"Tizio\",\n                    state: \"OFF\"\n                }\n            ]\n        },\n          {   scene_idx: 2,\n            scene_name: \"cosy\",\n            devices: [\n                {   device_idx: 1,\n                    name: \"Tiffany\",\n                    brightness: 150,\n                    state: \"ON\"\n                },\n                {   device_idx: 2,\n                    name: \"Fensterbank\",\n                    brightness: 150,\n                    state: \"ON\"\n                },\n                {   device_idx: 3,\n                    name: \"Klavierlampe\",\n                    state: \"ON\"\n                },\n                {   device_idx: 4,\n                    name: \"Leuchter\",\n                    state: \"OFF\"\n                },\n                {   device_idx: 5,\n                    name: \"Tizio\",\n                    state: \"ON\"\n                }\n            ]\n        },\n        {   scene_idx: 3,\n            scene_name: \"sofa_read\",\n            devices: [\n                {   device_idx: 1,\n                    name: \"Tiffany\",\n                    brightness: 100,\n                    state: \"ON\"\n                },\n                {   device_idx: 2,\n                    name: \"Fensterbank\",\n                    brightness: 255,\n                    state: \"ON\"\n                },\n                {   device_idx: 3,\n                    name: \"Klavierlampe\",\n                    state: \"ON\"\n                },\n                {   device_idx: 4,\n                    name: \"Leuchter\",\n                    state: \"OFF\"\n                },\n                {\n                    device_idx: 5,\n                    name: \"Tizio\",\n                    state: \"ON\"\n                }\n            ]\n        },\n      {   scene_idx: 4,\n            scene_name: \"bright\",\n            devices: [\n                {   device_idx: 1,\n                    name: \"Tiffany\",\n                    brightness: 255,\n                    state: \"ON\"\n                },\n                {   device_idx: 2,\n                    name: \"Fensterbank\",\n                    brightness: 255,\n                    state: \"ON\"\n                },\n                {   device_idx: 3,\n                    name: \"Klavierlampe\",\n                    state: \"ON\"\n                },\n                {   device_idx: 4,\n                    name: \"Leuchter\",\n                    brightness: 255,\n                    state: \"ON\"\n                },\n                {\n                    device_idx: 5,\n                    name: \"Tizio\",\n                    state: \"ON\"\n                }\n            ]\n        }\n    ]\n)\n\nreturn {payload: 0};",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -2353,82 +2021,6 @@
         "y": 120,
         "wires": [
             []
-        ]
-    },
-    {
-        "id": "b3e4bb8fe782821f",
-        "type": "function",
-        "z": "37daec28.284ee4",
-        "name": "",
-        "func": "delete msg.payload['name']\ndelete msg.payload['device_idx']\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 680,
-        "y": 320,
-        "wires": [
-            [
-                "3a3f3f29.1be49"
-            ]
-        ]
-    },
-    {
-        "id": "ecde6efbce017cdd",
-        "type": "function",
-        "z": "37daec28.284ee4",
-        "name": "",
-        "func": "delete msg.payload['name']\ndelete msg.payload['device_idx']\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 680,
-        "y": 360,
-        "wires": [
-            [
-                "bd4f1b1d.c1d598"
-            ]
-        ]
-    },
-    {
-        "id": "4ee3e653755d72db",
-        "type": "function",
-        "z": "37daec28.284ee4",
-        "name": "",
-        "func": "delete msg.payload['name']\ndelete msg.payload['device_idx']\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 680,
-        "y": 400,
-        "wires": [
-            [
-                "773f6fe1.26d11"
-            ]
-        ]
-    },
-    {
-        "id": "72f5f0ed0262eb0f",
-        "type": "function",
-        "z": "37daec28.284ee4",
-        "name": "",
-        "func": "delete msg.payload['name']\ndelete msg.payload['device_idx']\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 680,
-        "y": 440,
-        "wires": [
-            [
-                "d0971035.fd6cc"
-            ]
         ]
     },
     {
@@ -2631,8 +2223,8 @@
         "correl": "",
         "expiry": "",
         "broker": "c349b9ff.9dc4c8",
-        "x": 230,
-        "y": 1880,
+        "x": 1050,
+        "y": 1520,
         "wires": []
     },
     {
@@ -2642,17 +2234,18 @@
         "name": "Tizio",
         "topic": "shellies/shellyplusplugs-d4d4dae86590/status/switch:0",
         "qos": "2",
-        "datatype": "auto-detect",
+        "datatype": "json",
         "broker": "c349b9ff.9dc4c8",
         "nl": false,
         "rap": false,
         "inputs": 0,
-        "x": 410,
-        "y": 1880,
+        "x": 130,
+        "y": 1520,
         "wires": [
             [
                 "f9cf2cdb8da8199b",
-                "76caa03df8a96161"
+                "76caa03df8a96161",
+                "5b39c5f2114ceeec"
             ]
         ]
     },
@@ -2682,52 +2275,167 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 620,
-        "y": 1880,
+        "x": 360,
+        "y": 1560,
         "wires": [
-            [
-                "e16595d87723b2c9"
-            ]
+            []
         ]
-    },
-    {
-        "id": "e16595d87723b2c9",
-        "type": "debug",
-        "z": "37daec28.284ee4",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 590,
-        "y": 1920,
-        "wires": []
     },
     {
         "id": "f9cf2cdb8da8199b",
         "type": "function",
         "z": "37daec28.284ee4",
         "name": "state",
-        "func": "return {payload: msg.payload.output ? 'on' : 'off'}\n",
+        "func": "return { payload: { state: msg.payload.output ? 'ON' : 'OFF'}}\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 230,
-        "y": 1940,
+        "x": 330,
+        "y": 1480,
         "wires": [
             [
-                "9304c273560159ab"
+                "40611467056ca26d"
             ]
         ]
     },
     {
-        "id": "9304c273560159ab",
+        "id": "1631c8b0516d3d18",
+        "type": "link in",
+        "z": "37daec28.284ee4",
+        "name": "Set Tizio",
+        "links": [
+            "2433f38433bac4e5",
+            "89b93c352f549ac7"
+        ],
+        "x": 925,
+        "y": 1560,
+        "wires": [
+            [
+                "b409621c39553422"
+            ]
+        ]
+    },
+    {
+        "id": "89b93c352f549ac7",
+        "type": "link out",
+        "z": "37daec28.284ee4",
+        "name": "Control Tizia",
+        "mode": "link",
+        "links": [
+            "1631c8b0516d3d18"
+        ],
+        "x": 755,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "418f4f02f0ac1e08",
+        "type": "link out",
+        "z": "37daec28.284ee4",
+        "name": "Tiffany state & brigthness",
+        "mode": "link",
+        "links": [
+            "af2e9abc6d919f6e"
+        ],
+        "x": 295,
+        "y": 860,
+        "wires": []
+    },
+    {
+        "id": "922ccac0c7046219",
+        "type": "link out",
+        "z": "37daec28.284ee4",
+        "name": "Fensterbanklampe state & brigthness",
+        "mode": "link",
+        "links": [
+            "4b040669774e6723"
+        ],
+        "x": 295,
+        "y": 1040,
+        "wires": []
+    },
+    {
+        "id": "cff872e789db0734",
+        "type": "link out",
+        "z": "37daec28.284ee4",
+        "name": "Klavierlampe state",
+        "mode": "link",
+        "links": [
+            "4ef1fd39ce73b242"
+        ],
+        "x": 295,
+        "y": 1220,
+        "wires": []
+    },
+    {
+        "id": "49386ad2cbcb1f8f",
+        "type": "link out",
+        "z": "37daec28.284ee4",
+        "name": "Leuchter state & brigthness",
+        "mode": "link",
+        "links": [
+            "f29b05b9a7da2ce4"
+        ],
+        "x": 295,
+        "y": 1420,
+        "wires": []
+    },
+    {
+        "id": "5b39c5f2114ceeec",
+        "type": "link out",
+        "z": "37daec28.284ee4",
+        "name": "Tizio state",
+        "mode": "link",
+        "links": [
+            "086cba5cef2c1358"
+        ],
+        "x": 295,
+        "y": 1600,
+        "wires": []
+    },
+    {
+        "id": "7411287e.b145a8",
+        "type": "change",
+        "z": "37daec28.284ee4",
+        "name": "save leuchter state",
+        "rules": [
+            {
+                "t": "set",
+                "p": "state",
+                "pt": "msg",
+                "to": "payload.state = 'ON' ? 'on' : 'off'",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "brightness",
+                "pt": "msg",
+                "to": "payload.brightness",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "leuchter",
+                "pt": "flow",
+                "to": "{'state': state, 'brightness': brightness}",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 370,
+        "y": 1380,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "95c93cd58a79cf5a",
         "type": "ui_switch",
         "z": "37daec28.284ee4",
         "name": "An/Aus Tizio Fernsehzimmer",
@@ -2742,54 +2450,57 @@
         "topic": "",
         "topicType": "str",
         "style": "",
-        "onvalue": "on",
-        "onvalueType": "str",
+        "onvalue": "{\"state\": \"ON\"}",
+        "onvalueType": "json",
         "onicon": "",
         "oncolor": "",
-        "offvalue": "off",
-        "offvalueType": "str",
+        "offvalue": "{\"state\": \"OFF\"}",
+        "offvalueType": "json",
         "officon": "",
         "offcolor": "",
         "animate": true,
         "className": "",
-        "x": 300,
-        "y": 1980,
+        "x": 680,
+        "y": 1480,
         "wires": [
             [
-                "b409621c39553422"
+                "46359d8be7c210a5"
             ]
         ]
     },
     {
-        "id": "1631c8b0516d3d18",
-        "type": "link in",
-        "z": "37daec28.284ee4",
-        "name": "Set Tizio",
-        "links": [
-            "89b93c352f549ac7",
-            "2433f38433bac4e5"
-        ],
-        "x": 135,
-        "y": 1840,
-        "wires": [
-            [
-                "b409621c39553422"
-            ]
-        ]
-    },
-    {
-        "id": "b4b1222f21f99952",
+        "id": "46359d8be7c210a5",
         "type": "function",
         "z": "37daec28.284ee4",
-        "name": "",
-        "func": "return { payload: msg.payload.state}",
+        "name": "state",
+        "func": "return {payload: msg.payload.state == 'ON' ? 'on' : 'off'};\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 680,
-        "y": 480,
+        "x": 890,
+        "y": 1480,
+        "wires": [
+            [
+                "b409621c39553422",
+                "86d7ff2534d71234"
+            ]
+        ]
+    },
+    {
+        "id": "8bdbacff7bbffaf0",
+        "type": "function",
+        "z": "37daec28.284ee4",
+        "name": "state",
+        "func": "return {payload: msg.payload.state == 'ON' ? 'on' : 'off'};\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 650,
+        "y": 460,
         "wires": [
             [
                 "89b93c352f549ac7"
@@ -2797,16 +2508,49 @@
         ]
     },
     {
-        "id": "89b93c352f549ac7",
-        "type": "link out",
+        "id": "86d7ff2534d71234",
+        "type": "debug",
         "z": "37daec28.284ee4",
-        "name": "Control Tizia",
-        "mode": "link",
-        "links": [
-            "1631c8b0516d3d18"
-        ],
-        "x": 795,
-        "y": 480,
+        "name": "debug 16",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1040,
+        "y": 1460,
+        "wires": []
+    },
+    {
+        "id": "40611467056ca26d",
+        "type": "rbe",
+        "z": "37daec28.284ee4",
+        "name": "",
+        "func": "rbe",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "septopics": true,
+        "property": "payload",
+        "topi": "topic",
+        "x": 470,
+        "y": 1480,
+        "wires": [
+            [
+                "95c93cd58a79cf5a"
+            ]
+        ]
+    },
+    {
+        "id": "3b05e280795bfeac",
+        "type": "comment",
+        "z": "37daec28.284ee4",
+        "name": "filter wg. ShellyPlug...",
+        "info": "ShellyPlug sendet Stromverbrauchsdaten. \nDehalb werden viele Nachrichten wiederholt. ",
+        "x": 480,
+        "y": 1440,
         "wires": []
     },
     {
@@ -2824,7 +2568,7 @@
         "expiry": "",
         "broker": "c349b9ff.9dc4c8",
         "x": 1260,
-        "y": 580,
+        "y": 860,
         "wires": []
     },
     {
@@ -2839,14 +2583,14 @@
         "nl": false,
         "rap": false,
         "inputs": 0,
-        "x": 580,
-        "y": 820,
+        "x": 140,
+        "y": 860,
         "wires": [
             [
                 "811e8564.045d88",
                 "6d9790ef.bf03b",
                 "af26ea70.e86bc8",
-                "56fc3a5b83eb3701"
+                "4c63a8ea7a44d9d8"
             ]
         ]
     },
@@ -2883,47 +2627,10 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 840,
-        "y": 760,
+        "x": 400,
+        "y": 900,
         "wires": [
             []
-        ]
-    },
-    {
-        "id": "e2cb5e97.bb6e8",
-        "type": "function",
-        "z": "2ba29887.9266e8",
-        "name": "increment esszimmertisch brightness",
-        "func": "var leuchter = flow.get(\"esszimmertisch\")\n\nleuchter[\"brightness\"] += 5;\nif (leuchter[\"brightness\"] > 100) {\n    leuchter[\"brightness\"] = 100;\n}\n\nflow.set(\"esszimmertisch\", leuchter);\n\nmsg.payload = {\"brightness\": leuchter[\"brightness\"]};\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 930,
-        "y": 560,
-        "wires": [
-            [
-                "13b7ccd6.d98e83"
-            ]
-        ]
-    },
-    {
-        "id": "f0e908ff.7a1918",
-        "type": "function",
-        "z": "2ba29887.9266e8",
-        "name": "decrement esszimmertisch brightness",
-        "func": "var leuchter = flow.get(\"esszimmertisch\")\n\nleuchter[\"brightness\"] -= 5;\nif (leuchter[\"brightness\"] < 10) {\n    leuchter[\"brightness\"] = 20;\n}\nflow.set(\"esszimmertisch\", leuchter);\n\nmsg.payload = {\"brightness\": leuchter[\"brightness\"]};\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 930,
-        "y": 600,
-        "wires": [
-            [
-                "13b7ccd6.d98e83"
-            ]
         ]
     },
     {
@@ -2940,69 +2647,9 @@
         "correl": "",
         "expiry": "",
         "broker": "c349b9ff.9dc4c8",
-        "x": 770,
-        "y": 920,
+        "x": 830,
+        "y": 1020,
         "wires": []
-    },
-    {
-        "id": "5b18f2d2.31ab8c",
-        "type": "mqtt in",
-        "z": "2ba29887.9266e8",
-        "name": "Esszimmer Eckschrank",
-        "topic": "zigbee2mqtt/esszimmer_eckschrank",
-        "qos": "2",
-        "datatype": "json",
-        "broker": "c349b9ff.9dc4c8",
-        "nl": false,
-        "rap": false,
-        "inputs": 0,
-        "x": 1000,
-        "y": 920,
-        "wires": [
-            [
-                "ca4c1378.25b3f",
-                "ddf229af.5ef508"
-            ]
-        ]
-    },
-    {
-        "id": "ca4c1378.25b3f",
-        "type": "change",
-        "z": "2ba29887.9266e8",
-        "name": "save Esszimmer Eckschrank state",
-        "rules": [
-            {
-                "t": "set",
-                "p": "state",
-                "pt": "msg",
-                "to": "payload.state = 'ON' ? 'on' : 'off'",
-                "tot": "jsonata"
-            },
-            {
-                "t": "set",
-                "p": "brightness",
-                "pt": "msg",
-                "to": "payload.brightness",
-                "tot": "jsonata"
-            },
-            {
-                "t": "set",
-                "p": "Esszimmer_eckschrank",
-                "pt": "flow",
-                "to": "{'state': state, 'brightness': brightness}",
-                "tot": "jsonata"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 1280,
-        "y": 920,
-        "wires": [
-            []
-        ]
     },
     {
         "id": "ddf229af.5ef508",
@@ -3014,7 +2661,7 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 790,
+        "x": 330,
         "y": 1000,
         "wires": [
             [
@@ -3036,6 +2683,7 @@
         "passthru": false,
         "decouple": "true",
         "topic": "",
+        "topicType": "str",
         "style": "",
         "onvalue": "{\"state\": \"ON\"}",
         "onvalueType": "json",
@@ -3045,7 +2693,9 @@
         "offvalueType": "json",
         "officon": "",
         "offcolor": "",
-        "x": 1010,
+        "animate": true,
+        "className": "",
+        "x": 550,
         "y": 1000,
         "wires": [
             [
@@ -3058,17 +2708,17 @@
         "type": "function",
         "z": "2ba29887.9266e8",
         "name": "state",
-        "func": "msg.payload = {\"state\": msg.payload.state};\nreturn msg;",
+        "func": "msg.payload = { state: msg.payload.state };\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 770,
-        "y": 800,
+        "x": 330,
+        "y": 820,
         "wires": [
             [
-                "efbb8637.d28188"
+                "0fb8f06ac48fa6ee"
             ]
         ]
     },
@@ -3098,12 +2748,12 @@
         "offcolor": "",
         "animate": true,
         "className": "",
-        "x": 1010,
-        "y": 800,
+        "x": 690,
+        "y": 820,
         "wires": [
             [
-                "13b7ccd6.d98e83",
-                "4c63a8ea7a44d9d8"
+                "5212abebc2a62f0b",
+                "032018a08a1fdd54"
             ]
         ]
     },
@@ -3118,8 +2768,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 790,
-        "y": 840,
+        "x": 350,
+        "y": 860,
         "wires": [
             [
                 "b95edb0e.4e93d8"
@@ -3145,8 +2795,8 @@
         "max": "100",
         "step": "5",
         "className": "",
-        "x": 1070,
-        "y": 840,
+        "x": 750,
+        "y": 860,
         "wires": [
             [
                 "6f2d06af.6b5c88"
@@ -3164,12 +2814,91 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1350,
-        "y": 840,
+        "x": 1050,
+        "y": 860,
         "wires": [
             [
-                "13b7ccd6.d98e83",
-                "d30e2ca2408e55c2"
+                "13b7ccd6.d98e83"
+            ]
+        ]
+    },
+    {
+        "id": "4c63a8ea7a44d9d8",
+        "type": "link out",
+        "z": "2ba29887.9266e8",
+        "name": "Esszimmertisch state & brightnes",
+        "mode": "link",
+        "links": [
+            "4fe8938b4e6886d5"
+        ],
+        "x": 295,
+        "y": 940,
+        "wires": []
+    },
+    {
+        "id": "28a49ad78b750429",
+        "type": "link out",
+        "z": "2ba29887.9266e8",
+        "name": "Eckschrank state",
+        "mode": "link",
+        "links": [
+            "18bac2eda68eaa32"
+        ],
+        "x": 295,
+        "y": 1040,
+        "wires": []
+    },
+    {
+        "id": "b3906410005a4234",
+        "type": "link in",
+        "z": "2ba29887.9266e8",
+        "name": "Eckschrank MQTT",
+        "links": [
+            "25f3da8fc4efe2e9",
+            "3e2f1b8ef0d2c98f"
+        ],
+        "x": 665,
+        "y": 1040,
+        "wires": [
+            [
+                "4db81f06.f5ed8"
+            ]
+        ]
+    },
+    {
+        "id": "e2cb5e97.bb6e8",
+        "type": "function",
+        "z": "2ba29887.9266e8",
+        "name": "increment esszimmertisch brightness",
+        "func": "var leuchter = flow.get(\"esszimmertisch\")\n\nleuchter[\"brightness\"] += 5;\nif (leuchter[\"brightness\"] > 100) {\n    leuchter[\"brightness\"] = 100;\n}\n\nflow.set(\"esszimmertisch\", leuchter);\n\nmsg.payload = {\"brightness\": leuchter[\"brightness\"]};\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 690,
+        "y": 560,
+        "wires": [
+            [
+                "28f7f8af321dac41"
+            ]
+        ]
+    },
+    {
+        "id": "f0e908ff.7a1918",
+        "type": "function",
+        "z": "2ba29887.9266e8",
+        "name": "decrement esszimmertisch brightness",
+        "func": "var leuchter = flow.get(\"esszimmertisch\")\n\nleuchter[\"brightness\"] -= 5;\nif (leuchter[\"brightness\"] < 10) {\n    leuchter[\"brightness\"] = 20;\n}\nflow.set(\"esszimmertisch\", leuchter);\n\nmsg.payload = {\"brightness\": leuchter[\"brightness\"]};\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 690,
+        "y": 640,
+        "wires": [
+            [
+                "28f7f8af321dac41"
             ]
         ]
     },
@@ -3178,7 +2907,7 @@
         "type": "function",
         "z": "2ba29887.9266e8",
         "name": "initialize scenes",
-        "func": "flow.set(\"current_scene_idx\", 0)\nflow.set(\"max_scene_idx\", 4)\nflow.set(\"scenes\", [\n        {   scene_idx: 0,\n            scene_name: \"aus\",\n            devices: [\n                {   device_idx: 1,\n                    name: \"Tisch\",\n                    state: \"off\"\n                },\n                {   device_idx: 2,\n                    name: \"Eckschrank\",\n                    state: \"off\"\n                }\n            ]\n        },\n        {   scene_idx: 1,\n            scene_name: \"Ambiente\",\n            devices: [\n                {   device_idx: 1,\n                    name: \"Tisch\",\n                    brightness: 20,\n                    state: \"on\"\n                },\n                {   device_idx: 2,\n                    name: \"Eckschrank\",\n                    state: \"on\"\n                }\n            ]\n        },\n        {   scene_idx: 2,\n            scene_name: \"Gemütlich\",\n            devices: [\n                {   device_idx: 1,\n                    name: \"Tisch\",\n                    brightness: 50,\n                    state: \"on\"\n                },\n                {   device_idx: 2,\n                    name: \"Eckschrank\",\n                    state: \"on\"\n                }\n            ]\n        },\n        {   scene_idx: 3,\n            scene_name: \"Normal\",\n            devices: [\n                {   device_idx: 1,\n                    name: \"Tisch\",\n                    brightness: 80,\n                    state: \"on\"\n                },\n                {   device_idx: 2,\n                    name: \"Eckschrank\",\n                    state: \"on\"\n                }\n            ]\n        },\n        {   scene_idx: 4,\n            scene_name: \"Hell\",\n            devices: [\n                {   device_idx: 1,\n                    name: \"Tisch\",\n                    brightness: 100,\n                    state: \"on\"\n                },\n                {   device_idx: 2,\n                    name: \"Eckschrank\",\n                    state: \"on\"\n                }\n            ]\n        },\n        {   scene_idx: 5,\n            scene_name: \"an/aus\",\n            devices: [\n                {   device_idx: 1,\n                    name: \"Tisch\",\n                    state: \"on\"\n                },\n                {   device_idx: 2,\n                    name: \"Eckschrank\",\n                    state: \"on\"\n                }\n            ]\n        }\n    ]\n)\n\nreturn msg;",
+        "func": "flow.set(\"current_scene_idx\", 0)\nflow.set(\"max_scene_idx\", 4)\nflow.set(\"scenes\", [\n        {   scene_idx: 0,\n            scene_name: \"aus\",\n            devices: [\n                {   device_idx: 1,\n                    name: \"Tisch\",\n                    state: \"OFF\"\n                },\n                {   device_idx: 2,\n                    name: \"Eckschrank\",\n                    state: \"OFF\"\n                }\n            ]\n        },\n        {   scene_idx: 1,\n            scene_name: \"Ambiente\",\n            devices: [\n                {   device_idx: 1,\n                    name: \"Tisch\",\n                    brightness: 20,\n                    state: \"ON\"\n                },\n                {   device_idx: 2,\n                    name: \"Eckschrank\",\n                    state: \"ON\"\n                }\n            ]\n        },\n        {   scene_idx: 2,\n            scene_name: \"Gemütlich\",\n            devices: [\n                {   device_idx: 1,\n                    name: \"Tisch\",\n                    brightness: 50,\n                    state: \"ON\"\n                },\n                {   device_idx: 2,\n                    name: \"Eckschrank\",\n                    state: \"ON\"\n                }\n            ]\n        },\n        {   scene_idx: 3,\n            scene_name: \"Normal\",\n            devices: [\n                {   device_idx: 1,\n                    name: \"Tisch\",\n                    brightness: 80,\n                    state: \"ON\"\n                },\n                {   device_idx: 2,\n                    name: \"Eckschrank\",\n                    state: \"ON\"\n                }\n            ]\n        },\n        {   scene_idx: 4,\n            scene_name: \"Hell\",\n            devices: [\n                {   device_idx: 1,\n                    name: \"Tisch\",\n                    brightness: 100,\n                    state: \"ON\"\n                },\n                {   device_idx: 2,\n                    name: \"Eckschrank\",\n                    state: \"ON\"\n                }\n            ]\n    },\n    {\n        scene_idx: 5,\n        scene_name: \"Toggle\",\n        devices: [\n            {\n                device_idx: 1,\n                name: \"Tisch\",\n                brightness: 100,\n                state: \"ON\"\n            },\n            {\n                device_idx: 2,\n                name: \"Eckschrank\",\n                state: \"ON\"\n            }\n        ]\n    }\n\n    ]\n)\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -3217,15 +2946,15 @@
         "checkall": "true",
         "repair": false,
         "outputs": 3,
-        "x": 1050,
+        "x": 910,
         "y": 400,
         "wires": [
             [],
             [
-                "268380fb30a88909"
+                "3d9defb2050f98fb"
             ],
             [
-                "405b916573c753a5"
+                "3e2f1b8ef0d2c98f"
             ]
         ]
     },
@@ -3258,8 +2987,8 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 860,
-        "y": 360,
+        "x": 1060,
+        "y": 320,
         "wires": [
             [
                 "f47853f2.a021d"
@@ -3277,38 +3006,13 @@
         "arraySpltType": "len",
         "stream": false,
         "addname": "",
-        "x": 890,
-        "y": 400,
+        "x": 910,
+        "y": 360,
         "wires": [
             [
                 "8e92a889.216c18"
             ]
         ]
-    },
-    {
-        "id": "cd344841.b0ef18",
-        "type": "link out",
-        "z": "2ba29887.9266e8",
-        "name": "",
-        "links": [
-            "91766e4a.6c0a7"
-        ],
-        "x": 1305,
-        "y": 400,
-        "wires": []
-    },
-    {
-        "id": "abb09b26.4d8768",
-        "type": "link out",
-        "z": "2ba29887.9266e8",
-        "name": "",
-        "links": [
-            "b42c6c0f.4b835",
-            "452eaaba2c84b305"
-        ],
-        "x": 1305,
-        "y": 440,
-        "wires": []
     },
     {
         "id": "731caccd.2f8924",
@@ -3446,41 +3150,6 @@
         ]
     },
     {
-        "id": "b42c6c0f.4b835",
-        "type": "link in",
-        "z": "2ba29887.9266e8",
-        "name": "Eckschrank",
-        "links": [
-            "abb09b26.4d8768",
-            "56fc3a5b83eb3701",
-            "25f3da8fc4efe2e9"
-        ],
-        "x": 575,
-        "y": 920,
-        "wires": [
-            [
-                "4db81f06.f5ed8"
-            ]
-        ]
-    },
-    {
-        "id": "91766e4a.6c0a7",
-        "type": "link in",
-        "z": "2ba29887.9266e8",
-        "name": "Esszimmertisch",
-        "links": [
-            "9648fe4077632af9",
-            "cd344841.b0ef18"
-        ],
-        "x": 1065,
-        "y": 520,
-        "wires": [
-            [
-                "13b7ccd6.d98e83"
-            ]
-        ]
-    },
-    {
         "id": "664aeec7.e753d",
         "type": "switch",
         "z": "2ba29887.9266e8",
@@ -3510,12 +3179,12 @@
             },
             {
                 "t": "eq",
-                "v": "brightness_down_click",
+                "v": "brightness_up_hold",
                 "vt": "str"
             },
             {
                 "t": "eq",
-                "v": "brightness_up_hold",
+                "v": "brightness_down_click",
                 "vt": "str"
             },
             {
@@ -3547,8 +3216,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 11,
-        "x": 330,
-        "y": 560,
+        "x": 250,
+        "y": 580,
         "wires": [
             [
                 "9e9ad2ab8e210ec0"
@@ -3563,10 +3232,10 @@
                 "e2cb5e97.bb6e8"
             ],
             [
-                "f0e908ff.7a1918"
+                "f832ecc933544019"
             ],
             [
-                "f832ecc933544019"
+                "f0e908ff.7a1918"
             ],
             [
                 "f54c6757aecd865b"
@@ -3594,7 +3263,7 @@
         "rap": false,
         "inputs": 0,
         "x": 150,
-        "y": 560,
+        "y": 460,
         "wires": [
             [
                 "664aeec7.e753d"
@@ -3606,7 +3275,7 @@
         "type": "function",
         "z": "2ba29887.9266e8",
         "name": "next scene",
-        "func": "var current_scene_idx = flow.get(\"current_scene_idx\");\nvar max_scene_idx = flow.get(\"max_scene_idx\");\n\ncurrent_scene_idx++\nif (current_scene_idx > max_scene_idx) {\n    current_scene_idx = 0\n}\n\nmsg.payload = current_scene_idx;\n\nreturn msg;",
+        "func": "var current_scene_idx = flow.get(\"current_scene_idx\");\nvar max_scene_idx = flow.get(\"max_scene_idx\");\n\ncurrent_scene_idx++\nif (current_scene_idx > max_scene_idx) {\n    current_scene_idx = max_scene_idx;\n}\n\nmsg.payload = current_scene_idx;\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -3625,11 +3294,12 @@
         "type": "function",
         "z": "2ba29887.9266e8",
         "name": "previous scene",
-        "func": "var current_scene_idx = flow.get(\"current_scene_idx\");\nvar max_scene_idx = flow.get(\"max_scene_idx\");\n\ncurrent_scene_idx--\nif (current_scene_idx < 0 ) {\n    current_scene_idx = max_scene_idx\n}\n\nflow.set(\"current_scene_idx\", current_scene_idx);\n\nmsg.payload = current_scene_idx;\n\nreturn msg;",
+        "func": "var current_scene_idx = flow.get(\"current_scene_idx\");\nvar max_scene_idx = flow.get(\"max_scene_idx\");\n\ncurrent_scene_idx--\nif (current_scene_idx < 0 ) {\n    current_scene_idx = 0;\n}\n\nflow.set(\"current_scene_idx\", current_scene_idx);\n\nmsg.payload = current_scene_idx;\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
+        "libs": [],
         "x": 620,
         "y": 520,
         "wires": [
@@ -3648,8 +3318,8 @@
         "maxtimeout": "10",
         "maxtimeoutunits": "Second",
         "name": "Dim",
-        "x": 670,
-        "y": 640,
+        "x": 590,
+        "y": 600,
         "wires": [
             [
                 "e2cb5e97.bb6e8"
@@ -3667,7 +3337,7 @@
         "maxtimeout": "10",
         "maxtimeoutunits": "Second",
         "name": "Dim",
-        "x": 670,
+        "x": 590,
         "y": 680,
         "wires": [
             [
@@ -3687,8 +3357,8 @@
         "syntax": "mustache",
         "template": "STOP",
         "output": "str",
-        "x": 490,
-        "y": 660,
+        "x": 390,
+        "y": 640,
         "wires": [
             [
                 "f832ecc933544019",
@@ -3712,44 +3382,6 @@
         "wires": [
             [
                 "734500d1.9d61f"
-            ]
-        ]
-    },
-    {
-        "id": "268380fb30a88909",
-        "type": "function",
-        "z": "2ba29887.9266e8",
-        "name": "",
-        "func": "delete msg.payload['name']\ndelete msg.payload['device_idx']\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1200,
-        "y": 400,
-        "wires": [
-            [
-                "cd344841.b0ef18"
-            ]
-        ]
-    },
-    {
-        "id": "405b916573c753a5",
-        "type": "function",
-        "z": "2ba29887.9266e8",
-        "name": "",
-        "func": "delete msg.payload['name']\ndelete msg.payload['device_idx']\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1200,
-        "y": 440,
-        "wires": [
-            [
-                "abb09b26.4d8768"
             ]
         ]
     },
@@ -3782,25 +3414,13 @@
         ]
     },
     {
-        "id": "56fc3a5b83eb3701",
-        "type": "link out",
-        "z": "2ba29887.9266e8",
-        "name": "",
-        "links": [
-            "b42c6c0f.4b835",
-            "452eaaba2c84b305"
-        ],
-        "x": 735,
-        "y": 880,
-        "wires": []
-    },
-    {
         "id": "444ce93bb8dcb6d7",
         "type": "link in",
         "z": "2ba29887.9266e8",
         "name": "Set Szene",
         "links": [
-            "a2783a2ee8d68470"
+            "a2783a2ee8d68470",
+            "fbde70a871289cb4"
         ],
         "x": 695,
         "y": 260,
@@ -3811,30 +3431,140 @@
         ]
     },
     {
-        "id": "d30e2ca2408e55c2",
+        "id": "3d9defb2050f98fb",
+        "type": "link out",
+        "z": "2ba29887.9266e8",
+        "name": "Scene Esszimmertisch",
+        "mode": "link",
+        "links": [
+            "8ec33d47b67fdc53",
+            "b99854b9b9143014",
+            "b82b7b7fd49c387a"
+        ],
+        "x": 1025,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "3e2f1b8ef0d2c98f",
+        "type": "link out",
+        "z": "2ba29887.9266e8",
+        "name": "Scene Eckschrank",
+        "mode": "link",
+        "links": [
+            "b3906410005a4234"
+        ],
+        "x": 1025,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "28f7f8af321dac41",
+        "type": "link out",
+        "z": "2ba29887.9266e8",
+        "name": "Scene Esszimmertisch",
+        "mode": "link",
+        "links": [
+            "8ec33d47b67fdc53",
+            "b99854b9b9143014",
+            "b82b7b7fd49c387a"
+        ],
+        "x": 905,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "b99854b9b9143014",
+        "type": "link in",
+        "z": "2ba29887.9266e8",
+        "name": "Esszimmertisch MQTT",
+        "links": [
+            "28f7f8af321dac41",
+            "3d9defb2050f98fb",
+            "9648fe4077632af9"
+        ],
+        "x": 1105,
+        "y": 900,
+        "wires": [
+            [
+                "13b7ccd6.d98e83"
+            ]
+        ]
+    },
+    {
+        "id": "58e6b312940c0def",
+        "type": "function",
+        "z": "2ba29887.9266e8",
+        "name": "function 31",
+        "func": "const scene = msg.payload.state == \"ON\" ? 3 : 0;\nreturn { payload: scene };",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1070,
+        "y": 780,
+        "wires": [
+            [
+                "fbde70a871289cb4"
+            ]
+        ]
+    },
+    {
+        "id": "fbde70a871289cb4",
         "type": "link out",
         "z": "2ba29887.9266e8",
         "name": "link out 13",
         "mode": "link",
         "links": [
-            "4fe8938b4e6886d5"
+            "444ce93bb8dcb6d7"
         ],
-        "x": 1485,
-        "y": 840,
+        "x": 1195,
+        "y": 780,
         "wires": []
     },
     {
-        "id": "4c63a8ea7a44d9d8",
-        "type": "link out",
+        "id": "dad91b3f6079baf0",
+        "type": "mqtt in",
         "z": "2ba29887.9266e8",
-        "name": "link out 14",
-        "mode": "link",
-        "links": [
-            "619d06769360f805"
-        ],
-        "x": 1185,
-        "y": 800,
-        "wires": []
+        "name": "Eckschrank",
+        "topic": "zigbee2mqtt/esszimmer_eckschrank",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "c349b9ff.9dc4c8",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 130,
+        "y": 1000,
+        "wires": [
+            [
+                "ddf229af.5ef508",
+                "28a49ad78b750429"
+            ]
+        ]
+    },
+    {
+        "id": "0fb8f06ac48fa6ee",
+        "type": "rbe",
+        "z": "2ba29887.9266e8",
+        "name": "",
+        "func": "rbe",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "septopics": true,
+        "property": "payload",
+        "topi": "topic",
+        "x": 470,
+        "y": 820,
+        "wires": [
+            [
+                "efbb8637.d28188",
+                "4cf435ec8d6914ea"
+            ]
+        ]
     },
     {
         "id": "b529a82a.481848",
@@ -4322,7 +4052,8 @@
         "y": 620,
         "wires": [
             [
-                "c53f0279.79555"
+                "c53f0279.79555",
+                "3eb024a5.e9f9bc"
             ]
         ]
     },
@@ -4666,12 +4397,14 @@
         "id": "c53f0279.79555",
         "type": "function",
         "z": "3a471104.edfbae",
+        "d": true,
         "name": "dunkel",
         "func": "const umgebung = global.get('umgebungslicht');\n\nif (umgebung == \"dunkel\")\n    return {payload: \"ON\"}\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
+        "libs": [],
         "x": 810,
         "y": 620,
         "wires": [
@@ -5427,8 +5160,10 @@
             "#e6e600",
             "#ca3838"
         ],
-        "seg1": "35",
+        "seg1": "45",
         "seg2": "65",
+        "diff": false,
+        "className": "",
         "x": 620,
         "y": 200,
         "wires": []
@@ -5497,7 +5232,7 @@
         "finalize": "",
         "libs": [],
         "x": 570,
-        "y": 80,
+        "y": 240,
         "wires": [
             []
         ]
@@ -5515,10 +5250,11 @@
         "rap": false,
         "inputs": 0,
         "x": 240,
-        "y": 80,
+        "y": 240,
         "wires": [
             [
-                "4990ce01.e26cf"
+                "4990ce01.e26cf",
+                "dea653c362b0f5af"
             ]
         ]
     },
@@ -5577,7 +5313,7 @@
         "type": "function",
         "z": "4d90b497.b5b2ac",
         "name": "fan controller",
-        "func": "const outside_abs_humidity = global.get(\"aussen-absolute_humidity\");\nconst wk_temperature = global.get(\"waschkueche_luefter-temperature\");\nconst wk_humidity = global.get(\"waschkueche_luefter-humidity\");\nconst wk_abs_humidity = global.get(\"waschkueche_luefter-absolute_humidity\");\n\nconst washroom_fan_control = flow.get(\"washroom_fan_control\");\nconst last_abs_humidity_gt_outside_abs_humidity = global.get(\"washroom-last_abs_humidity_gt_outside_abs_humidity\");\n\nconst room_abs_humidity_gt_outside_abs_humidity = (last_abs_humidity_gt_outside_abs_humidity) ?\n    wk_abs_humidity > outside_abs_humidity * 1.30 :\n    wk_abs_humidity > outside_abs_humidity * 1.35 ;\n\nglobal.set(\"washroom-last_abs_humidity_gt_outside_abs_humidity\", wk_abs_humidity > outside_abs_humidity);\n\nvar washroom_fan_on;\nif (washroom_fan_control == \"ON\") {\n    if (room_abs_humidity_gt_outside_abs_humidity) {\n        if (wk_humidity > 40 && wk_temperature > 12) {\n            washroom_fan_on = \"ON\";\n        } else {\n            washroom_fan_on = \"OFF\";\n        }\n    } else {\n        washroom_fan_on = \"OFF\";\n    }\n} else {\n    washroom_fan_on = undefined;\n}\n\nmsg = [\n    (washroom_fan_on) ? {topic: \"luefter_sw\", payload: washroom_fan_on} : undefined,\n    {topic: \"Debug\", payload: {\n            outside_abs_humidity: outside_abs_humidity,\n            wk_temperature: wk_temperature,\n            wk_humidity: wk_humidity,\n            wk_abs_humidity: wk_abs_humidity,\n            washroom_fan_on: washroom_fan_on,\n            washroom_fan_control: washroom_fan_control,\n            last_abs_humidity_gt_outside_abs_humidity: last_abs_humidity_gt_outside_abs_humidity\n    }   }\n];\n\nreturn msg;",
+        "func": "const outside_abs_humidity = global.get(\"aussen-absolute_humidity\");\nconst wk_temperature = global.get(\"waschkueche_luefter-temperature\");\nconst wk_humidity = global.get(\"waschkueche_luefter-humidity\");\nconst wk_abs_humidity = global.get(\"waschkueche_luefter-absolute_humidity\");\n\nconst washroom_fan_control = flow.get(\"washroom_fan_control\");\nconst last_abs_humidity_gt_outside_abs_humidity = global.get(\"washroom-last_abs_humidity_gt_outside_abs_humidity\");\n\nconst room_abs_humidity_gt_outside_abs_humidity = (last_abs_humidity_gt_outside_abs_humidity) ?\n    wk_abs_humidity > outside_abs_humidity * 1.15 :\n    wk_abs_humidity > outside_abs_humidity * 1.20 ;\n\nglobal.set(\"washroom-last_abs_humidity_gt_outside_abs_humidity\", wk_abs_humidity > outside_abs_humidity);\n\nvar washroom_fan_on;\nif (washroom_fan_control == \"ON\") {\n    if (room_abs_humidity_gt_outside_abs_humidity) {\n        if (wk_humidity > 45 && wk_temperature > 13) {\n            washroom_fan_on = \"ON\";\n        } else {\n            washroom_fan_on = \"OFF\";\n        }\n    } else {\n        washroom_fan_on = \"OFF\";\n    }\n} else {\n    washroom_fan_on = undefined;\n}\n\nmsg = [\n    (washroom_fan_on) ? {topic: \"luefter_sw\", payload: washroom_fan_on} : undefined,\n    {topic: \"Debug\", payload: {\n            outside_abs_humidity: outside_abs_humidity,\n            wk_temperature: wk_temperature,\n            wk_humidity: wk_humidity,\n            wk_abs_humidity: wk_abs_humidity,\n            washroom_fan_on: washroom_fan_on,\n            washroom_fan_control: washroom_fan_control,\n            last_abs_humidity_gt_outside_abs_humidity: last_abs_humidity_gt_outside_abs_humidity\n    }   }\n];\n\nreturn msg;",
         "outputs": 2,
         "noerr": 0,
         "initialize": "",
@@ -5778,7 +5514,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1060,
+        "x": 1040,
         "y": 500,
         "wires": [
             [
@@ -5812,7 +5548,7 @@
         "offcolor": "",
         "animate": true,
         "className": "",
-        "x": 1120,
+        "x": 1100,
         "y": 580,
         "wires": [
             [
@@ -5831,6 +5567,7 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
+        "libs": [],
         "x": 580,
         "y": 500,
         "wires": [
@@ -5843,7 +5580,7 @@
         "id": "7b34d28e.50768c",
         "type": "function",
         "z": "4d90b497.b5b2ac",
-        "name": "filter ON map to LUEFTEN",
+        "name": "filter ON map to AUTOMATIK",
         "func": "if (msg.payload === \"ON\")\n    return {payload: \"AUTOMATIK\"}\nelse\n    return undefined;\n",
         "outputs": 1,
         "noerr": 0,
@@ -5895,7 +5632,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1130,
+        "x": 1450,
         "y": 620,
         "wires": [
             []
@@ -6098,6 +5835,86 @@
         "statusType": "auto",
         "x": 850,
         "y": 420,
+        "wires": []
+    },
+    {
+        "id": "7a19f383331fe357",
+        "type": "inject",
+        "z": "4d90b497.b5b2ac",
+        "name": "Reset",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "Started!",
+        "payloadType": "str",
+        "x": 650,
+        "y": 620,
+        "wires": [
+            [
+                "66173e9252031097"
+            ]
+        ]
+    },
+    {
+        "id": "66173e9252031097",
+        "type": "change",
+        "z": "4d90b497.b5b2ac",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "washroom_fan_control",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 820,
+        "y": 620,
+        "wires": [
+            [
+                "d5fef74c.c342e8"
+            ]
+        ]
+    },
+    {
+        "id": "dea653c362b0f5af",
+        "type": "ui_gauge",
+        "z": "4d90b497.b5b2ac",
+        "name": "Waschküche Luftfeuchtigkeit",
+        "group": "7e092ea0.4f2d9",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Temperatur",
+        "label": "°",
+        "format": "{{value}}",
+        "min": "5",
+        "max": "25",
+        "colors": [
+            "#0000b5",
+            "#00b500",
+            "#ca3838"
+        ],
+        "seg1": "15",
+        "seg2": "20",
+        "diff": false,
+        "className": "",
+        "x": 620,
+        "y": 280,
         "wires": []
     },
     {
@@ -7353,15 +7170,16 @@
         "name": "",
         "topic": "zigbee2mqtt/+",
         "qos": "2",
-        "datatype": "json",
+        "datatype": "auto-detect",
         "broker": "c349b9ff.9dc4c8",
+        "nl": false,
+        "rap": false,
         "inputs": 0,
         "x": 140,
         "y": 140,
         "wires": [
             [
-                "d9d02903.582fc8",
-                "a1cc7149.c8e29"
+                "d9d02903.582fc8"
             ]
         ]
     },
@@ -7491,22 +7309,6 @@
                 "fb6167b0.b1aeb8"
             ]
         ]
-    },
-    {
-        "id": "a1cc7149.c8e29",
-        "type": "debug",
-        "z": "fc81a32b.bb6db",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 420,
-        "y": 220,
-        "wires": []
     },
     {
         "id": "267d2e1.40785d2",
@@ -8804,7 +8606,8 @@
         "y": 280,
         "wires": [
             [
-                "df2bfb8e940b1768"
+                "df2bfb8e940b1768",
+                "53936a862e9e6c08"
             ]
         ]
     },
@@ -8921,6 +8724,36 @@
         "wires": [
             [
                 "df199e6fb3a59d4f"
+            ]
+        ]
+    },
+    {
+        "id": "53936a862e9e6c08",
+        "type": "link out",
+        "z": "dac2cb3b.559138",
+        "name": "Deckenlicht state",
+        "mode": "link",
+        "links": [
+            "0e775ee78efd07c4"
+        ],
+        "x": 575,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "c0c28364952dec04",
+        "type": "link in",
+        "z": "dac2cb3b.559138",
+        "name": "Set Deckenlicht Bad",
+        "links": [
+            "35ae68a760d0d2e2"
+        ],
+        "x": 785,
+        "y": 380,
+        "wires": [
+            [
+                "7b56cfeb.46625",
+                "2e8b20cfb2c1a46d"
             ]
         ]
     },
@@ -9257,8 +9090,8 @@
         "id": "ca1cdd1f66d2e89b",
         "type": "ui_template",
         "z": "59d7b954e676768e",
-        "group": "dba4384ac7393eb9",
-        "name": "",
+        "group": "69570255a88564b2",
+        "name": "1",
         "order": 1,
         "width": 0,
         "height": 0,
@@ -9268,7 +9101,7 @@
         "resendOnRefresh": true,
         "templateScope": "local",
         "className": "",
-        "x": 560,
+        "x": 550,
         "y": 180,
         "wires": [
             []
@@ -9278,9 +9111,9 @@
         "id": "c5510ce75591cbc3",
         "type": "ui_template",
         "z": "59d7b954e676768e",
-        "group": "dba4384ac7393eb9",
-        "name": "",
-        "order": 3,
+        "group": "69570255a88564b2",
+        "name": "2",
+        "order": 2,
         "width": 0,
         "height": 0,
         "format": "<md-card ui-card-size=\"6x2\" \n    class=\"_md nr-dashboard-text layout-align-center-center nr-dashboard-widget-text visible\" \n    style=\"background-color: {{msg.payload.color}}; color: black; left: 0px; top: 54px; width: 300px; height: 96px;\">\n    <p class=\"value\">{{msg.payload.value}}</p><p>{{msg.payload.text1}}<br/>{{msg.payload.text2}}<br/>{{msg.payload.text3}}</p>\n</md-card>\n",
@@ -9289,7 +9122,7 @@
         "resendOnRefresh": true,
         "templateScope": "local",
         "className": "",
-        "x": 560,
+        "x": 550,
         "y": 220,
         "wires": [
             []
@@ -9299,9 +9132,9 @@
         "id": "b2322b5222948b72",
         "type": "ui_template",
         "z": "59d7b954e676768e",
-        "group": "dba4384ac7393eb9",
-        "name": "",
-        "order": 4,
+        "group": "69570255a88564b2",
+        "name": "3",
+        "order": 3,
         "width": 0,
         "height": 0,
         "format": "<md-card ui-card-size=\"6x2\" \n    class=\"_md nr-dashboard-text layout-align-center-center nr-dashboard-widget-text visible\" \n    style=\"background-color: {{msg.payload.color}}; color: black; left: 0px; top: 54px; width: 300px; height: 96px;\">\n    <p class=\"value\">{{msg.payload.value}}</p><p>{{msg.payload.text}}</p>\n</md-card>\n",
@@ -9310,7 +9143,7 @@
         "resendOnRefresh": true,
         "templateScope": "local",
         "className": "",
-        "x": 560,
+        "x": 550,
         "y": 260,
         "wires": [
             []
@@ -9323,7 +9156,7 @@
         "name": "",
         "label": "Ampel LEDs",
         "tooltip": "",
-        "group": "dba4384ac7393eb9",
+        "group": "69570255a88564b2",
         "order": 5,
         "width": 0,
         "height": 0,
@@ -9372,9 +9205,9 @@
         "id": "b30af5915352bee5",
         "type": "ui_template",
         "z": "59d7b954e676768e",
-        "group": "dba4384ac7393eb9",
-        "name": "",
-        "order": 2,
+        "group": "69570255a88564b2",
+        "name": "4",
+        "order": 4,
         "width": 0,
         "height": 0,
         "format": "<md-card ui-card-size=\"6x2\" \n    class=\"_md nr-dashboard-text layout-align-center-center nr-dashboard-widget-text visible\" \n    style=\"background-color: {{msg.payload.color}}; color: black; left: 0px; top: 54px; width: 300px; height: 96px;\">\n    <p class=\"value\">{{msg.payload.value}}</p><p>{{msg.payload.text}}</p>\n</md-card>\n",
@@ -9383,7 +9216,7 @@
         "resendOnRefresh": true,
         "templateScope": "local",
         "className": "",
-        "x": 560,
+        "x": 550,
         "y": 300,
         "wires": [
             []
@@ -11365,7 +11198,7 @@
         "type": "function",
         "z": "caf02dc9a5b73890",
         "name": "Status-Text",
-        "func": "if (msg.topic !== \"lockStatus\") return;\n\nconst state_name_de = {\n    UNCALIBRATED: \"uncalibriert\",\n    LOCKED: \"verriegelt\",\n    UNLOCKING: \"entriegeln\",\n    UNLOCKED: \"entriegelt\",\n    LOCKING: \"verriegeln\",\n    UNLATCHED: \"geöffnet\",\n    UNLOCKED_LOCK_N_GO: \"entriegelt und gehen\",\n    UNLATCHING: \"öffnen\",\n    MOTOR_BLOCKED: \"Motor blockiert\",\n    UNDEFINED: \"undefiniert\"\n}[msg.payload.state];\n\nreturn({payload: state_name_de});",
+        "func": "if (msg.topic !== \"lockStatus\") return;\n\nconst state_name_de = {\n    UNCALIBRATED: \"uncalibriert\",\n    LOCKED: \"verriegelt\",\n    UNLOCKING: \"entriegeln\",\n    UNLOCKED: \"entriegelt\",\n    LOCKING: \"verriegeln\",\n    UNLATCHED: \"geöffnet\",\n    UNLOCKED_LOCK_N_GO: \"entriegelt und gehen\",\n    UNLATCHING: \"öffnen\",\n    MOTOR_BLOCKED: \"Motor blockiert\",\n    UNDEFINED: \"undefiniert\"\n}[msg.payload.state];\n\nreturn ({payload: state_name_de || msg.payload.state});",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -11988,41 +11821,6 @@
         ]
     },
     {
-        "id": "946d1f30ab368907",
-        "type": "template",
-        "z": "caf02dc9a5b73890",
-        "name": "",
-        "field": "payload",
-        "fieldType": "msg",
-        "format": "handlebars",
-        "syntax": "mustache",
-        "template": "{{topic}} {{payload}}",
-        "output": "str",
-        "x": 940,
-        "y": 1460,
-        "wires": [
-            [
-                "1941a899e31bb27f"
-            ]
-        ]
-    },
-    {
-        "id": "941ca6aa3f7271d7",
-        "type": "link in",
-        "z": "caf02dc9a5b73890",
-        "name": " Nuki Kellertür-Riegel",
-        "links": [
-            "462ab2a1dc1a547b"
-        ],
-        "x": 835,
-        "y": 1460,
-        "wires": [
-            [
-                "946d1f30ab368907"
-            ]
-        ]
-    },
-    {
         "id": "462ab2a1dc1a547b",
         "type": "link out",
         "z": "caf02dc9a5b73890",
@@ -12030,7 +11828,8 @@
         "mode": "link",
         "links": [
             "19c3635367e1d357",
-            "941ca6aa3f7271d7"
+            "941ca6aa3f7271d7",
+            "874dfff3aa6fa109"
         ],
         "x": 1275,
         "y": 1280,
@@ -12495,24 +12294,6 @@
         ]
     },
     {
-        "id": "afa506d5c1267a98",
-        "type": "function",
-        "z": "caf02dc9a5b73890",
-        "d": true,
-        "name": "Trigger Schloss",
-        "func": "if (msg.topic !== \"lockCallback\") return;\n\nconst tandem_action_from_state = {\n    \"locked\": \"LOCK\",\n    \"unlocked\": \"UNLATCH\",\n    \"motor blocked\": \"LOCK\",\n    \"unlocked (lock 'n' go)\":  \"LOCK\"\n};\nconst tandem_nuki_name = \"kellertuer_schloss\";\nconst state_name = msg.payload.stateName;\nconst tandem_state_name = flow.get(tandem_nuki_name);\n\nif (state_name && state_name !== tandem_state_name)\n    return {payload: tandem_action_from_state[state_name], topic: \"lockAction\"};\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1020,
-        "y": 1020,
-        "wires": [
-            []
-        ]
-    },
-    {
         "id": "0be5be39aa68669b",
         "type": "nuki-lock-control",
         "z": "caf02dc9a5b73890",
@@ -12587,7 +12368,7 @@
         "type": "function",
         "z": "caf02dc9a5b73890",
         "name": "Status-Text",
-        "func": "if (msg.topic !== \"lockStatus\") return;\n\nconst state_name_de = {\n    UNCALIBRATED: \"uncalibriert\",\n    LOCKED: \"verriegelt\",\n    UNLOCKING: \"entriegeln\",\n    UNLOCKED: \"entriegelt\",\n    LOCKING: \"verriegeln\",\n    UNLATCHED: \"geöffnet\",\n    UNLOCKED_LOCK_N_GO: \"entriegelt und gehen\",\n    UNLATCHING: \"öffnen\",\n    MOTOR_BLOCKED: \"Motor blockiert\",\n    UNDEFINED: \"undefiniert\"\n}[msg.payload.state];\n\nreturn({payload: state_name_de});",
+        "func": "if (msg.topic !== \"lockStatus\") return;\n\nconst state_name_de = {\n    UNCALIBRATED: \"uncalibriert\",\n    LOCKED: \"verriegelt\",\n    UNLOCKING: \"entriegeln\",\n    UNLOCKED: \"entriegelt\",\n    LOCKING: \"verriegeln\",\n    UNLATCHED: \"geöffnet\",\n    UNLOCKED_LOCK_N_GO: \"entriegelt und gehen\",\n    UNLATCHING: \"öffnen\",\n    MOTOR_BLOCKED: \"Motor blockiert\",\n    UNDEFINED: \"undefiniert\"\n}[msg.payload.state];\n\nreturn ({payload: state_name_de || msg.payload.state});",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -12851,7 +12632,7 @@
             }
         ],
         "repeat": "",
-        "crontab": "",
+        "crontab": "00 05 * * *",
         "once": true,
         "onceDelay": "10",
         "topic": "",
@@ -12914,8 +12695,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 960,
-        "y": 240,
+        "x": 1080,
+        "y": 80,
         "wires": []
     },
     {
@@ -12963,7 +12744,8 @@
         "y": 240,
         "wires": [
             [
-                "185711cedafd5fe4"
+                "185711cedafd5fe4",
+                "4eb7997d0fd3e559"
             ]
         ]
     },
@@ -13300,6 +13082,99 @@
                 "13751a35e9cc7c50"
             ]
         ]
+    },
+    {
+        "id": "4eb7997d0fd3e559",
+        "type": "function",
+        "z": "caf02dc9a5b73890",
+        "name": "check",
+        "func": "if (msg.payload != '{\"callbacks\": [{\"id\": 0, \"url\": \"http://dipe-pi:1880/nuki\"}]}') {\n    return { payload: \"Neuverbindung Nuki-Bridge\" }\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 750,
+        "y": 280,
+        "wires": [
+            [
+                "91e9b5b30aa75dca",
+                "654a244c622d13f2",
+                "185711cedafd5fe4",
+                "21b4b0f43e4cf0d3"
+            ]
+        ]
+    },
+    {
+        "id": "91e9b5b30aa75dca",
+        "type": "delay",
+        "z": "caf02dc9a5b73890",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "1",
+        "timeoutUnits": "minutes",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 900,
+        "y": 280,
+        "wires": [
+            [
+                "5219158699c90d01"
+            ]
+        ]
+    },
+    {
+        "id": "874dfff3aa6fa109",
+        "type": "link in",
+        "z": "caf02dc9a5b73890",
+        "name": "NukiLog",
+        "links": [
+            "654a244c622d13f2",
+            "462ab2a1dc1a547b"
+        ],
+        "x": 985,
+        "y": 1460,
+        "wires": [
+            [
+                "1941a899e31bb27f"
+            ]
+        ]
+    },
+    {
+        "id": "654a244c622d13f2",
+        "type": "link out",
+        "z": "caf02dc9a5b73890",
+        "name": "link out 14",
+        "mode": "link",
+        "links": [
+            "874dfff3aa6fa109"
+        ],
+        "x": 855,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "21b4b0f43e4cf0d3",
+        "type": "debug",
+        "z": "caf02dc9a5b73890",
+        "name": "debug 17",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 920,
+        "y": 380,
+        "wires": []
     },
     {
         "id": "3f9580dafe32e9bb",
@@ -14900,7 +14775,7 @@
         "correl": "",
         "expiry": "",
         "broker": "c349b9ff.9dc4c8",
-        "x": 700,
+        "x": 780,
         "y": 160,
         "wires": []
     },
@@ -14916,12 +14791,12 @@
         "nl": false,
         "rap": false,
         "inputs": 0,
-        "x": 240,
+        "x": 300,
         "y": 220,
         "wires": [
             [
                 "8b3aba5983973888",
-                "f07ba29f294b195b"
+                "8bbb8be99a554c57"
             ]
         ]
     },
@@ -14951,12 +14826,11 @@
         "offcolor": "",
         "animate": true,
         "className": "",
-        "x": 450,
+        "x": 530,
         "y": 220,
         "wires": [
             [
-                "e0c1cf24ff2b7e57",
-                "dfde771f8434f8ca"
+                "e0c1cf24ff2b7e57"
             ]
         ]
     },
@@ -14974,7 +14848,7 @@
         "correl": "",
         "expiry": "",
         "broker": "c349b9ff.9dc4c8",
-        "x": 700,
+        "x": 780,
         "y": 220,
         "wires": []
     },
@@ -14990,11 +14864,12 @@
         "nl": false,
         "rap": false,
         "inputs": 0,
-        "x": 240,
+        "x": 300,
         "y": 160,
         "wires": [
             [
-                "be36acd18194951b"
+                "be36acd18194951b",
+                "c9d084d9188e034d"
             ]
         ]
     },
@@ -15024,7 +14899,7 @@
         "offcolor": "",
         "animate": true,
         "className": "",
-        "x": 460,
+        "x": 540,
         "y": 160,
         "wires": [
             [
@@ -15038,13 +14913,14 @@
         "z": "937c538bb5079218",
         "name": "Set Spiegelschrank Bad",
         "links": [
-            "d79734f22fc84a48"
+            "d79734f22fc84a48",
+            "35ae68a760d0d2e2"
         ],
-        "x": 315,
+        "x": 595,
         "y": 120,
         "wires": [
             [
-                "be36acd18194951b"
+                "76300692c288857b"
             ]
         ]
     },
@@ -15056,61 +14932,56 @@
         "links": [
             "5895f61d99a0f697"
         ],
-        "x": 315,
+        "x": 585,
         "y": 260,
         "wires": [
             [
-                "8b3aba5983973888"
+                "e0c1cf24ff2b7e57"
             ]
         ]
     },
     {
-        "id": "dfde771f8434f8ca",
-        "type": "debug",
+        "id": "c9d084d9188e034d",
+        "type": "link out",
         "z": "937c538bb5079218",
-        "name": "debug 17",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 660,
-        "y": 320,
+        "name": "Spiegelschrank state",
+        "mode": "link",
+        "links": [
+            "57cd850ad65917cf",
+            "0e775ee78efd07c4"
+        ],
+        "x": 475,
+        "y": 120,
         "wires": []
     },
     {
-        "id": "f07ba29f294b195b",
-        "type": "debug",
+        "id": "8bbb8be99a554c57",
+        "type": "link out",
         "z": "937c538bb5079218",
-        "name": "debug 18",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 540,
-        "y": 380,
+        "name": "Deckenlicht state",
+        "mode": "link",
+        "links": [
+            "1d5f9e357c8dd2a8"
+        ],
+        "x": 475,
+        "y": 260,
         "wires": []
     },
     {
         "id": "b3429e540f297cef",
         "type": "vsh-virtual-device",
         "z": "039a8ad4ab697fb3",
-        "name": "Deckenlicht; helles Licht",
+        "name": "Deckenlicht",
         "topic": "",
         "connection": "b425927fca74a6a7",
         "template": "SWITCH",
-        "retrievable": false,
+        "retrievable": true,
         "passthrough": false,
         "diff": false,
         "filter": false,
         "filterTopic": false,
         "plan": "free",
-        "x": 470,
+        "x": 430,
         "y": 1100,
         "wires": [
             [
@@ -15122,17 +14993,17 @@
         "id": "2e72d1d986ec673c",
         "type": "vsh-virtual-device",
         "z": "039a8ad4ab697fb3",
-        "name": "Spiegelschranklicht; Spiegellicht; Licht",
+        "name": "Spiegelschranklicht",
         "topic": "",
         "connection": "b425927fca74a6a7",
         "template": "SWITCH",
-        "retrievable": false,
+        "retrievable": true,
         "passthrough": false,
         "diff": false,
         "filter": false,
         "filterTopic": false,
         "plan": "free",
-        "x": 510,
+        "x": 450,
         "y": 1140,
         "wires": [
             [
@@ -15144,17 +15015,17 @@
         "id": "2fc96424f7f1e7ca",
         "type": "vsh-virtual-device",
         "z": "039a8ad4ab697fb3",
-        "name": "Tizio; Leselampe Peter",
+        "name": "Tizio",
         "topic": "",
         "connection": "b425927fca74a6a7",
         "template": "SWITCH",
-        "retrievable": false,
+        "retrievable": true,
         "passthrough": false,
         "diff": false,
         "filter": false,
         "filterTopic": false,
         "plan": "free",
-        "x": 460,
+        "x": 550,
         "y": 120,
         "wires": [
             [
@@ -15166,9 +15037,10 @@
         "id": "2433f38433bac4e5",
         "type": "link out",
         "z": "039a8ad4ab697fb3",
-        "name": "Alexa Leselampe Peter",
+        "name": "Tizio",
         "mode": "link",
         "links": [
+            "ccb51c58de1b3ee4",
             "1631c8b0516d3d18"
         ],
         "x": 885,
@@ -15275,14 +15147,14 @@
         "name": "WoZi",
         "info": "",
         "x": 410,
-        "y": 80,
+        "y": 40,
         "wires": []
     },
     {
         "id": "32a8c2dbb3e36cf9",
         "type": "vsh-virtual-device",
         "z": "039a8ad4ab697fb3",
-        "name": "Hell; Helles Licht",
+        "name": "Helles Licht",
         "topic": "",
         "connection": "b425927fca74a6a7",
         "template": "SCENE",
@@ -15292,8 +15164,8 @@
         "filter": false,
         "filterTopic": false,
         "plan": "free",
-        "x": 450,
-        "y": 320,
+        "x": 430,
+        "y": 360,
         "wires": [
             [
                 "8f26a45044793c96"
@@ -15312,7 +15184,7 @@
         "finalize": "",
         "libs": [],
         "x": 760,
-        "y": 320,
+        "y": 360,
         "wires": [
             [
                 "060501f15b873814"
@@ -15329,14 +15201,14 @@
             "c6ba0a745f4a0cac"
         ],
         "x": 915,
-        "y": 400,
+        "y": 440,
         "wires": []
     },
     {
         "id": "1cbde5171b2bb7c4",
         "type": "vsh-virtual-device",
         "z": "039a8ad4ab697fb3",
-        "name": "Sofa lesen",
+        "name": "Leselicht",
         "topic": "",
         "connection": "b425927fca74a6a7",
         "template": "SCENE",
@@ -15346,8 +15218,8 @@
         "filter": false,
         "filterTopic": false,
         "plan": "free",
-        "x": 430,
-        "y": 360,
+        "x": 420,
+        "y": 400,
         "wires": [
             [
                 "ece9ac680bb8e01f"
@@ -15358,7 +15230,7 @@
         "id": "739c0bf7e22d8094",
         "type": "vsh-virtual-device",
         "z": "039a8ad4ab697fb3",
-        "name": "Gemütlich; Gemütliches Licht; Licht",
+        "name": "Gemütlich",
         "topic": "",
         "connection": "b425927fca74a6a7",
         "template": "SCENE",
@@ -15368,8 +15240,8 @@
         "filter": false,
         "filterTopic": false,
         "plan": "free",
-        "x": 500,
-        "y": 400,
+        "x": 430,
+        "y": 440,
         "wires": [
             [
                 "46b2311575ac9336"
@@ -15380,7 +15252,7 @@
         "id": "370da55f8ab177a3",
         "type": "vsh-virtual-device",
         "z": "039a8ad4ab697fb3",
-        "name": "Ambiente; Ambiente Licht",
+        "name": "Ambientelicht",
         "topic": "",
         "connection": "b425927fca74a6a7",
         "template": "SCENE",
@@ -15390,8 +15262,8 @@
         "filter": false,
         "filterTopic": false,
         "plan": "free",
-        "x": 470,
-        "y": 440,
+        "x": 440,
+        "y": 480,
         "wires": [
             [
                 "56ed89f4d0ce8cdd"
@@ -15413,7 +15285,7 @@
         "filterTopic": false,
         "plan": "free",
         "x": 410,
-        "y": 480,
+        "y": 520,
         "wires": [
             [
                 "02a579ca16743c65"
@@ -15432,7 +15304,7 @@
         "finalize": "",
         "libs": [],
         "x": 760,
-        "y": 360,
+        "y": 400,
         "wires": [
             [
                 "060501f15b873814"
@@ -15451,7 +15323,7 @@
         "finalize": "",
         "libs": [],
         "x": 760,
-        "y": 400,
+        "y": 440,
         "wires": [
             [
                 "060501f15b873814"
@@ -15470,7 +15342,7 @@
         "finalize": "",
         "libs": [],
         "x": 760,
-        "y": 440,
+        "y": 480,
         "wires": [
             [
                 "060501f15b873814"
@@ -15489,7 +15361,7 @@
         "finalize": "",
         "libs": [],
         "x": 760,
-        "y": 480,
+        "y": 520,
         "wires": [
             [
                 "060501f15b873814"
@@ -15500,7 +15372,7 @@
         "id": "c254f44086636ef3",
         "type": "vsh-virtual-device",
         "z": "039a8ad4ab697fb3",
-        "name": "Hell; Helles Licht",
+        "name": "Hell",
         "topic": "",
         "connection": "b425927fca74a6a7",
         "template": "SCENE",
@@ -15510,7 +15382,7 @@
         "filter": false,
         "filterTopic": false,
         "plan": "free",
-        "x": 450,
+        "x": 410,
         "y": 780,
         "wires": [
             [
@@ -15529,7 +15401,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 760,
+        "x": 770,
         "y": 780,
         "wires": [
             [
@@ -15546,7 +15418,7 @@
         "links": [
             "444ce93bb8dcb6d7"
         ],
-        "x": 925,
+        "x": 935,
         "y": 860,
         "wires": []
     },
@@ -15554,7 +15426,7 @@
         "id": "6b1ed643e8420464",
         "type": "vsh-virtual-device",
         "z": "039a8ad4ab697fb3",
-        "name": "Normal; das Licht",
+        "name": "Normal",
         "topic": "",
         "connection": "b425927fca74a6a7",
         "template": "SCENE",
@@ -15564,7 +15436,7 @@
         "filter": false,
         "filterTopic": false,
         "plan": "free",
-        "x": 450,
+        "x": 420,
         "y": 820,
         "wires": [
             [
@@ -15576,7 +15448,7 @@
         "id": "f4da058fe8b4659e",
         "type": "vsh-virtual-device",
         "z": "039a8ad4ab697fb3",
-        "name": "Gemütlich; Gemütliches Licht;",
+        "name": "Gemütlich",
         "topic": "",
         "connection": "b425927fca74a6a7",
         "template": "SCENE",
@@ -15586,7 +15458,7 @@
         "filter": false,
         "filterTopic": false,
         "plan": "free",
-        "x": 490,
+        "x": 430,
         "y": 860,
         "wires": [
             [
@@ -15598,7 +15470,7 @@
         "id": "81a51553c17a2e30",
         "type": "vsh-virtual-device",
         "z": "039a8ad4ab697fb3",
-        "name": "Ambiente; Ambiente Licht",
+        "name": "Ambiente",
         "topic": "",
         "connection": "b425927fca74a6a7",
         "template": "SCENE",
@@ -15608,7 +15480,7 @@
         "filter": false,
         "filterTopic": false,
         "plan": "free",
-        "x": 470,
+        "x": 420,
         "y": 900,
         "wires": [
             [
@@ -15649,7 +15521,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 760,
+        "x": 770,
         "y": 820,
         "wires": [
             [
@@ -15668,7 +15540,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 760,
+        "x": 770,
         "y": 860,
         "wires": [
             [
@@ -15687,7 +15559,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 760,
+        "x": 770,
         "y": 900,
         "wires": [
             [
@@ -15706,7 +15578,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 760,
+        "x": 770,
         "y": 940,
         "wires": [
             [
@@ -15728,17 +15600,17 @@
         "id": "c925e0edfe8a8050",
         "type": "vsh-virtual-device",
         "z": "039a8ad4ab697fb3",
-        "name": "Esszimmertisch; Licht",
+        "name": "Esszimmertisch",
         "topic": "",
         "connection": "b425927fca74a6a7",
         "template": "DIMMER_SWITCH",
         "retrievable": true,
-        "passthrough": true,
+        "passthrough": false,
         "diff": false,
         "filter": false,
         "filterTopic": false,
         "plan": "free",
-        "x": 460,
+        "x": 440,
         "y": 660,
         "wires": [
             [
@@ -15750,12 +15622,13 @@
         "id": "9648fe4077632af9",
         "type": "link out",
         "z": "039a8ad4ab697fb3",
-        "name": "Alexa Leselampe Peter",
+        "name": "Alexa Esszimmertisch state & brigthness",
         "mode": "link",
         "links": [
-            "91766e4a.6c0a7"
+            "b99854b9b9143014",
+            "b82b7b7fd49c387a"
         ],
-        "x": 875,
+        "x": 885,
         "y": 660,
         "wires": []
     },
@@ -15764,13 +15637,13 @@
         "type": "function",
         "z": "039a8ad4ab697fb3",
         "name": "function 15",
-        "func": "return {payload: {\n    state: msg.payload.powerState == `ON` ? `on` : `off`,\n    brightness: msg.payload.brightness\n}};",
+        "func": "return {payload: {\n    state: msg.payload.powerState,\n    brightness: msg.payload.brightness\n}};",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 760,
+        "x": 770,
         "y": 660,
         "wires": [
             [
@@ -15786,7 +15659,7 @@
         "topic": "",
         "connection": "b425927fca74a6a7",
         "template": "SWITCH",
-        "retrievable": false,
+        "retrievable": true,
         "passthrough": false,
         "diff": false,
         "filter": false,
@@ -15804,7 +15677,7 @@
         "id": "f854ab23be90c932",
         "type": "link out",
         "z": "039a8ad4ab697fb3",
-        "name": "Alexa Leselampe Peter",
+        "name": "Klavierlampe",
         "mode": "link",
         "links": [
             "4bbc2b23.ee06a4"
@@ -15818,7 +15691,7 @@
         "type": "function",
         "z": "039a8ad4ab697fb3",
         "name": "function 16",
-        "func": "return {payload: msg.payload.powerState == `ON` ? `on` : `off`};",
+        "func": "return {payload: { state: msg.payload.powerState }};",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -15839,8 +15712,8 @@
         "name": "Fensterbanklampe",
         "topic": "",
         "connection": "b425927fca74a6a7",
-        "template": "SWITCH",
-        "retrievable": false,
+        "template": "DIMMABLE_LIGHT_BULB",
+        "retrievable": true,
         "passthrough": false,
         "diff": false,
         "filter": false,
@@ -15858,9 +15731,10 @@
         "id": "73ac73c881c9adfd",
         "type": "link out",
         "z": "039a8ad4ab697fb3",
-        "name": "Alexa Leselampe Peter",
+        "name": "Fensterbanklampe",
         "mode": "link",
         "links": [
+            "b3586697977851cb",
             "e30a134d.f410a"
         ],
         "x": 885,
@@ -15872,7 +15746,7 @@
         "type": "function",
         "z": "039a8ad4ab697fb3",
         "name": "function 17",
-        "func": "return {payload: msg.payload.powerState == `ON` ? `on` : `off`};",
+        "func": "return {\n    payload: {\n        state: msg.payload.powerState,\n        brightness: msg.payload.brightness / 100.0 * 255.0\n    }\n};",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -15893,8 +15767,8 @@
         "name": "Tiffany",
         "topic": "",
         "connection": "b425927fca74a6a7",
-        "template": "SWITCH",
-        "retrievable": false,
+        "template": "DIMMABLE_LIGHT_BULB",
+        "retrievable": true,
         "passthrough": false,
         "diff": false,
         "filter": false,
@@ -15912,7 +15786,7 @@
         "id": "19bb7ceb9cdb5b49",
         "type": "link out",
         "z": "039a8ad4ab697fb3",
-        "name": "Alexa Leselampe Peter",
+        "name": "Tiffany",
         "mode": "link",
         "links": [
             "6637cc7f.54ff74"
@@ -15926,7 +15800,7 @@
         "type": "function",
         "z": "039a8ad4ab697fb3",
         "name": "function 18",
-        "func": "return {payload: msg.payload.powerState == `ON` ? `on` : `off`};",
+        "func": "return {\n    payload: {\n        state: msg.payload.powerState,\n        brightness: msg.payload.brightness / 100.0 * 255.0\n    }\n};",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -15948,7 +15822,7 @@
         "topic": "",
         "connection": "b425927fca74a6a7",
         "template": "SWITCH",
-        "retrievable": false,
+        "retrievable": true,
         "passthrough": false,
         "diff": false,
         "filter": false,
@@ -15966,12 +15840,12 @@
         "id": "25f3da8fc4efe2e9",
         "type": "link out",
         "z": "039a8ad4ab697fb3",
-        "name": "Alexa Leselampe Peter",
+        "name": "Alexa Eckschrank state",
         "mode": "link",
         "links": [
-            "b42c6c0f.4b835"
+            "b3906410005a4234"
         ],
-        "x": 875,
+        "x": 885,
         "y": 700,
         "wires": []
     },
@@ -15986,7 +15860,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 760,
+        "x": 770,
         "y": 700,
         "wires": [
             [
@@ -16489,52 +16363,17 @@
         ]
     },
     {
-        "id": "2b50622881633e11",
-        "type": "function",
-        "z": "039a8ad4ab697fb3",
-        "name": "function 20",
-        "func": "return { payload: { powerState: msg.payload.state == `on` ? `ON` : `OFF`}};\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 230,
-        "y": 620,
-        "wires": [
-            [
-                "c925e0edfe8a8050"
-            ]
-        ]
-    },
-    {
-        "id": "619d06769360f805",
-        "type": "link in",
-        "z": "039a8ad4ab697fb3",
-        "name": "Alexa Esszimmertisch state ",
-        "links": [
-            "4c63a8ea7a44d9d8"
-        ],
-        "x": 105,
-        "y": 620,
-        "wires": [
-            [
-                "2b50622881633e11"
-            ]
-        ]
-    },
-    {
         "id": "b3562d87baf520ec",
         "type": "function",
         "z": "039a8ad4ab697fb3",
         "name": "function 21",
-        "func": "return { payload: { brightness: msg.payload.brightness }};\n",
+        "func": "const payload = {};\nif (msg.payload.state) {\n    payload.powerState = msg.payload.state;\n};\nif (msg.payload.brightness) {\n    payload.brightness = msg.payload.brightness;\n};\nreturn { payload };\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 230,
+        "x": 250,
         "y": 660,
         "wires": [
             [
@@ -16546,11 +16385,11 @@
         "id": "4fe8938b4e6886d5",
         "type": "link in",
         "z": "039a8ad4ab697fb3",
-        "name": "Alexa Esszimmertisch brigthness",
+        "name": "Alexa Esszimmertisch state & brigthness",
         "links": [
-            "d30e2ca2408e55c2"
+            "4c63a8ea7a44d9d8"
         ],
-        "x": 105,
+        "x": 125,
         "y": 660,
         "wires": [
             [
@@ -16559,1251 +16398,459 @@
         ]
     },
     {
-        "id": "97d22dc60c6b49db",
-        "type": "http in",
-        "z": "cc5e999ebedc6270",
-        "name": "Alexa",
-        "url": "/alexa",
-        "method": "post",
-        "upload": false,
-        "swaggerDoc": "",
-        "x": 150,
-        "y": 220,
-        "wires": [
-            [
-                "dcb80f85556d1df8"
-            ]
-        ]
-    },
-    {
-        "id": "ba4f5a16b55c47e1",
-        "type": "http response",
-        "z": "cc5e999ebedc6270",
-        "name": "Alexa",
-        "statusCode": "",
-        "headers": {},
-        "x": 610,
-        "y": 500,
-        "wires": []
-    },
-    {
-        "id": "4a87b1d11b2f8b60",
-        "type": "json",
-        "z": "cc5e999ebedc6270",
-        "name": "zu JSON",
-        "property": "payload",
-        "action": "",
-        "pretty": false,
-        "x": 460,
-        "y": 500,
-        "wires": [
-            [
-                "ba4f5a16b55c47e1"
-            ]
-        ]
-    },
-    {
-        "id": "1f21eda06631ac9c",
-        "type": "template",
-        "z": "cc5e999ebedc6270",
-        "name": "Nicht verstanden",
-        "field": "payload",
-        "fieldType": "msg",
-        "format": "json",
-        "syntax": "plain",
-        "template": "{\n    \"version\": \"1.0\",\n    \"response\": {\n        \"outputSpeech\": {\n            \"type\": \"SSML\",\n            \"ssml\": \"<speak>Das habe ich nicht verstanden. <amazon:effect name=\\\"whispered\\\">ist wohl blöd programmiert</amazon:effect></speak>\"\n        },\n        \"shouldEndSession\": true\n    }\n}",
+        "id": "c9e354c7cbf9d4ca",
+        "type": "function",
+        "z": "039a8ad4ab697fb3",
+        "name": "function 22",
+        "func": "return { payload: { powerState: msg.payload}};\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
         "x": 250,
-        "y": 540,
-        "wires": [
-            [
-                "4a87b1d11b2f8b60"
-            ]
-        ]
-    },
-    {
-        "id": "dcb80f85556d1df8",
-        "type": "switch",
-        "z": "cc5e999ebedc6270",
-        "name": "Request Type",
-        "property": "payload.request.type",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "LaunchRequest",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "IntentRequest",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "SessionEndedRequest",
-                "vt": "str"
-            }
-        ],
-        "checkall": "false",
-        "repair": false,
-        "outputs": 3,
-        "x": 320,
-        "y": 220,
-        "wires": [
-            [
-                "8d876015f0568192"
-            ],
-            [
-                "fc2f13de69cc07d0"
-            ],
-            [
-                "59ac988dbda8dc8b"
-            ]
-        ]
-    },
-    {
-        "id": "fc2f13de69cc07d0",
-        "type": "switch",
-        "z": "cc5e999ebedc6270",
-        "name": "Intents",
-        "property": "payload.request.intent.name",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "GetTemperatureInside",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "GetTemperatureOutside",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "SwitchLight",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "WakeUp",
-                "vt": "str"
-            },
-            {
-                "t": "else"
-            }
-        ],
-        "checkall": "false",
-        "repair": false,
-        "outputs": 5,
-        "x": 610,
-        "y": 220,
-        "wires": [
-            [
-                "a853c09114831797"
-            ],
-            [
-                "84518d7e7cf28cad"
-            ],
-            [
-                "c16089b7c85656b4"
-            ],
-            [
-                "5daec1e5b2cccaad"
-            ],
-            [
-                "98581341d9262060"
-            ]
-        ]
-    },
-    {
-        "id": "8879de3cd422f977",
-        "type": "template",
-        "z": "cc5e999ebedc6270",
-        "name": "Temperatur Raum (in der)",
-        "field": "payload",
-        "fieldType": "msg",
-        "format": "json",
-        "syntax": "mustache",
-        "template": "{\n    \"version\": \"1.0\",\n    \"response\": {\n        \"outputSpeech\": {\n            \"type\": \"PlainText\",\n            \"text\": \"In der {{room}} sind {{temperature}}°C\"\n        },\n        \"shouldEndSession\": true\n    }\n}",
-        "x": 1070,
-        "y": 740,
-        "wires": [
-            [
-                "5afa2a4dedc4a6dc"
-            ]
-        ]
-    },
-    {
-        "id": "651513d3bc5db81a",
-        "type": "switch",
-        "z": "cc5e999ebedc6270",
-        "name": "Welcher Raum?",
-        "property": "payload.request.intent.slots.room.value",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "schlafzimmer",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "wohnzimmer",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "arbeitszimmer",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "büro",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "badezimmer",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "bad",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "küche",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "esszimmer",
-                "vt": "str"
-            },
-            {
-                "t": "else"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 9,
-        "x": 380,
-        "y": 700,
-        "wires": [
-            [
-                "0d140417352c569d"
-            ],
-            [
-                "9335f93074e7c307"
-            ],
-            [
-                "4d2010979a75fb41"
-            ],
-            [
-                "4d2010979a75fb41"
-            ],
-            [
-                "ef7cc9a88d133a5d"
-            ],
-            [
-                "ef7cc9a88d133a5d"
-            ],
-            [
-                "92ecacac4fe9e010"
-            ],
-            [
-                "92ecacac4fe9e010"
-            ],
-            [
-                "98a003118d7c3f6c"
-            ]
-        ]
-    },
-    {
-        "id": "92ecacac4fe9e010",
-        "type": "function",
-        "z": "cc5e999ebedc6270",
-        "name": "Temperatur küche",
-        "func": "msg.room = msg.payload.request.intent.slots.room.value;\nmsg.temperature = parseInt(global.get('kueche-temperature'));\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 610,
-        "y": 760,
-        "wires": [
-            [
-                "5531b86061fd2013"
-            ]
-        ]
-    },
-    {
-        "id": "a853c09114831797",
-        "type": "link out",
-        "z": "cc5e999ebedc6270",
-        "name": "Alexa: Temperatur Innen",
-        "links": [
-            "1bb46097732c73d1"
-        ],
-        "x": 835,
-        "y": 100,
-        "wires": []
-    },
-    {
-        "id": "1b78c3c8efed4ef7",
-        "type": "comment",
-        "z": "cc5e999ebedc6270",
-        "name": "Temperatur innen",
-        "info": "",
-        "x": 940,
-        "y": 100,
-        "wires": []
-    },
-    {
-        "id": "9eacb0111000194b",
-        "type": "link in",
-        "z": "cc5e999ebedc6270",
-        "name": "Alexa: RESPONSE",
-        "links": [
-            "5afa2a4dedc4a6dc",
-            "5f808af57f2c403c",
-            "b1c17e8e4aeb9546",
-            "355f4c1b607ff4f8",
-            "6ac42af2f0d981f0",
-            "7667339b7190e1b2"
-        ],
-        "x": 115,
-        "y": 500,
-        "wires": [
-            [
-                "4a87b1d11b2f8b60"
-            ]
-        ]
-    },
-    {
-        "id": "1bb46097732c73d1",
-        "type": "link in",
-        "z": "cc5e999ebedc6270",
-        "name": "Alexa: Temperatur innen",
-        "links": [
-            "a853c09114831797"
-        ],
-        "x": 115,
-        "y": 700,
-        "wires": [
-            [
-                "651513d3bc5db81a"
-            ]
-        ]
-    },
-    {
-        "id": "856f229a7138bbb2",
-        "type": "link in",
-        "z": "cc5e999ebedc6270",
-        "name": "Alexa: NICHT VERSTANDEN",
-        "links": [
-            "98a003118d7c3f6c",
-            "98581341d9262060",
-            "3d5cdd5e5756e2d3",
-            "59ac988dbda8dc8b"
-        ],
-        "x": 115,
-        "y": 540,
-        "wires": [
-            [
-                "1f21eda06631ac9c"
-            ]
-        ]
-    },
-    {
-        "id": "fafa2f221d50f5e5",
-        "type": "comment",
-        "z": "cc5e999ebedc6270",
-        "name": "Request",
-        "info": "https://developer.amazon.com/de/docs/custom-skills/request-and-response-json-reference.html",
-        "x": 160,
-        "y": 180,
-        "wires": []
-    },
-    {
-        "id": "7762f7cbd23d2996",
-        "type": "comment",
-        "z": "cc5e999ebedc6270",
-        "name": "Response",
-        "info": "https://developer.amazon.com/de/docs/custom-skills/request-and-response-json-reference.html",
-        "x": 160,
-        "y": 460,
-        "wires": []
-    },
-    {
-        "id": "de3982f380b73e8d",
-        "type": "comment",
-        "z": "cc5e999ebedc6270",
-        "name": "Temperatur innen",
-        "info": "",
-        "x": 180,
-        "y": 660,
-        "wires": []
-    },
-    {
-        "id": "ef7cc9a88d133a5d",
-        "type": "function",
-        "z": "cc5e999ebedc6270",
-        "name": "Temperatur bad",
-        "func": "msg.room = msg.payload.request.intent.slots.room.value;\nmsg.temperature = parseInt(global.get('zwitscherbox-bad-temperature'));\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 600,
-        "y": 720,
-        "wires": [
-            [
-                "54cf8f760f089c41"
-            ]
-        ]
-    },
-    {
-        "id": "4d2010979a75fb41",
-        "type": "function",
-        "z": "cc5e999ebedc6270",
-        "name": "Temperatur arbeitszimmer",
-        "func": "msg.room = msg.payload.request.intent.slots.room.value;\nmsg.temperature = parseInt(global.get('büro_og-temperature'));\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 630,
-        "y": 680,
-        "wires": [
-            [
-                "54cf8f760f089c41"
-            ]
-        ]
-    },
-    {
-        "id": "9335f93074e7c307",
-        "type": "function",
-        "z": "cc5e999ebedc6270",
-        "name": "Temperatur wohnzimmer",
-        "func": "msg.room = msg.payload.request.intent.slots.room.value;\nmsg.temperature = parseInt(global.get('wozi-temperature'));\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 630,
-        "y": 640,
-        "wires": [
-            [
-                "54cf8f760f089c41"
-            ]
-        ]
-    },
-    {
-        "id": "0d140417352c569d",
-        "type": "function",
-        "z": "cc5e999ebedc6270",
-        "name": "Temperatur schlafzimmer",
-        "func": "msg.room = msg.payload.request.intent.slots.room.value;\nmsg.temperature = parseInt(global.get('schlafzimmer-temperature'));\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 630,
-        "y": 600,
-        "wires": [
-            [
-                "54cf8f760f089c41"
-            ]
-        ]
-    },
-    {
-        "id": "98a003118d7c3f6c",
-        "type": "link out",
-        "z": "cc5e999ebedc6270",
-        "name": "Alexa: Raum nicht verstanden",
-        "links": [
-            "856f229a7138bbb2"
-        ],
-        "x": 535,
-        "y": 800,
-        "wires": []
-    },
-    {
-        "id": "5afa2a4dedc4a6dc",
-        "type": "link out",
-        "z": "cc5e999ebedc6270",
-        "name": "Alexa: Raum Antwort",
-        "links": [
-            "9eacb0111000194b"
-        ],
-        "x": 1295,
-        "y": 700,
-        "wires": []
-    },
-    {
-        "id": "9255eaed5a294d7b",
-        "type": "template",
-        "z": "cc5e999ebedc6270",
-        "name": "Temperatur Raum (im)",
-        "field": "payload",
-        "fieldType": "msg",
-        "format": "json",
-        "syntax": "mustache",
-        "template": "{\n    \"version\": \"1.0\",\n    \"response\": {\n        \"outputSpeech\": {\n            \"type\": \"PlainText\",\n            \"text\": \"Im {{room}} sind {{temperature}}°C\"\n        },\n        \"shouldEndSession\": true\n    }\n}",
-        "x": 1060,
-        "y": 660,
-        "wires": [
-            [
-                "5afa2a4dedc4a6dc"
-            ]
-        ]
-    },
-    {
-        "id": "84518d7e7cf28cad",
-        "type": "link out",
-        "z": "cc5e999ebedc6270",
-        "name": "Alexa: Temperatur außen",
-        "links": [
-            "303dfd749a8fa9fb"
-        ],
-        "x": 835,
-        "y": 140,
-        "wires": []
-    },
-    {
-        "id": "98581341d9262060",
-        "type": "link out",
-        "z": "cc5e999ebedc6270",
-        "name": "Alexa: Intent nicht verstanden",
-        "links": [
-            "856f229a7138bbb2"
-        ],
-        "x": 835,
-        "y": 300,
-        "wires": []
-    },
-    {
-        "id": "43202386aa9b60a4",
-        "type": "comment",
-        "z": "cc5e999ebedc6270",
-        "name": "Temperatur außen",
-        "info": "",
-        "x": 950,
-        "y": 140,
-        "wires": []
-    },
-    {
-        "id": "bc3c3462a1127ad7",
-        "type": "comment",
-        "z": "cc5e999ebedc6270",
-        "name": "Nicht verstanden",
-        "info": "",
-        "x": 940,
-        "y": 300,
-        "wires": []
-    },
-    {
-        "id": "c16089b7c85656b4",
-        "type": "link out",
-        "z": "cc5e999ebedc6270",
-        "name": "Alexa: Licht schalten",
-        "links": [
-            "28e86debf3424374"
-        ],
-        "x": 835,
-        "y": 180,
-        "wires": []
-    },
-    {
-        "id": "c4c0c2c3df826add",
-        "type": "comment",
-        "z": "cc5e999ebedc6270",
-        "name": "Licht schalten",
-        "info": "",
-        "x": 930,
-        "y": 180,
-        "wires": []
-    },
-    {
-        "id": "28e86debf3424374",
-        "type": "link in",
-        "z": "cc5e999ebedc6270",
-        "name": "Alexa: Licht schalten",
-        "links": [
-            "c16089b7c85656b4"
-        ],
-        "x": 115,
-        "y": 1080,
-        "wires": [
-            [
-                "18e3f6ed6836b4db"
-            ]
-        ]
-    },
-    {
-        "id": "7898af3104c48293",
-        "type": "comment",
-        "z": "cc5e999ebedc6270",
-        "name": "Licht schalten",
-        "info": "",
-        "x": 170,
-        "y": 1040,
-        "wires": []
-    },
-    {
-        "id": "18e3f6ed6836b4db",
-        "type": "switch",
-        "z": "cc5e999ebedc6270",
-        "name": "An oder aus?",
-        "property": "payload.request.intent.slots.status.resolutions.resolutionsPerAuthority[0].values[0].value.name",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "an",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "aus",
-                "vt": "str"
-            },
-            {
-                "t": "else"
-            }
-        ],
-        "checkall": "false",
-        "repair": false,
-        "outputs": 3,
-        "x": 370,
-        "y": 1080,
-        "wires": [
-            [
-                "89c70eeb74e61f14",
-                "34ab94762e950d31"
-            ],
-            [
-                "557f8cd61918d721",
-                "3a7d0e94b7f802f3"
-            ],
-            [
-                "3d5cdd5e5756e2d3"
-            ]
-        ]
-    },
-    {
-        "id": "3d5cdd5e5756e2d3",
-        "type": "link out",
-        "z": "cc5e999ebedc6270",
-        "name": "Alexa: Licht nicht verstanden",
-        "links": [
-            "856f229a7138bbb2"
-        ],
-        "x": 595,
-        "y": 1180,
-        "wires": []
-    },
-    {
-        "id": "89c70eeb74e61f14",
-        "type": "template",
-        "z": "cc5e999ebedc6270",
-        "name": "Licht an",
-        "field": "payload",
-        "fieldType": "msg",
-        "format": "json",
-        "syntax": "mustache",
-        "template": "{\n    \"version\": \"1.0\",\n    \"response\": {\n        \"outputSpeech\": {\n            \"type\": \"PlainText\",\n            \"text\": \"Es werde Licht\"\n        },\n        \"shouldEndSession\": true\n    }\n}",
-        "x": 640,
-        "y": 1040,
-        "wires": [
-            [
-                "5f808af57f2c403c"
-            ]
-        ]
-    },
-    {
-        "id": "5f808af57f2c403c",
-        "type": "link out",
-        "z": "cc5e999ebedc6270",
-        "name": "Alexa: Licht Antwort",
-        "links": [
-            "9eacb0111000194b"
-        ],
-        "x": 815,
-        "y": 1060,
-        "wires": []
-    },
-    {
-        "id": "557f8cd61918d721",
-        "type": "template",
-        "z": "cc5e999ebedc6270",
-        "name": "Licht an",
-        "field": "payload",
-        "fieldType": "msg",
-        "format": "json",
-        "syntax": "mustache",
-        "template": "{\n    \"version\": \"1.0\",\n    \"response\": {\n        \"outputSpeech\": {\n            \"type\": \"PlainText\",\n            \"text\": \"Ok. Jetzt sitzt Du im dunkeln\"\n        },\n        \"shouldEndSession\": true\n    }\n}",
-        "x": 640,
-        "y": 1080,
-        "wires": [
-            [
-                "5f808af57f2c403c"
-            ]
-        ]
-    },
-    {
-        "id": "a8c1d409dfccdfbf",
-        "type": "change",
-        "z": "cc5e999ebedc6270",
-        "name": "Lampen",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "set NAME=WZ_.*Licht:FILTER=a:weihnachtsautomatik!=ja on",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 960,
-        "y": 980,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "8ab40abd6d507cce",
-        "type": "change",
-        "z": "cc5e999ebedc6270",
-        "name": "Wohnwand",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "set WZ_WohnwandSonoff cmd Color 0000003300",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 970,
-        "y": 1020,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "7f5ddbd50035e52f",
-        "type": "change",
-        "z": "cc5e999ebedc6270",
-        "name": "Lampen",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "set NAME=WZ_.*Licht:FILTER=a:weihnachtsautomatik!=ja off",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 960,
-        "y": 1140,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "e1c5af49ae83b448",
-        "type": "change",
-        "z": "cc5e999ebedc6270",
-        "name": "Wohnwand",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "set WZ_WohnwandSonoff off",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 970,
         "y": 1100,
         "wires": [
-            []
-        ]
-    },
-    {
-        "id": "54cf8f760f089c41",
-        "type": "switch",
-        "z": "cc5e999ebedc6270",
-        "name": "",
-        "property": "temperature",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "gt",
-                "v": "0",
-                "vt": "num"
-            },
-            {
-                "t": "else"
-            }
-        ],
-        "checkall": "false",
-        "repair": false,
-        "outputs": 2,
-        "x": 870,
-        "y": 680,
-        "wires": [
             [
-                "9255eaed5a294d7b"
-            ],
-            [
-                "f95ea9116f1529ae"
+                "b3429e540f297cef"
             ]
         ]
     },
     {
-        "id": "5531b86061fd2013",
-        "type": "switch",
-        "z": "cc5e999ebedc6270",
-        "name": "",
-        "property": "temperature",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "gt",
-                "v": "0",
-                "vt": "num"
-            },
-            {
-                "t": "else"
-            }
+        "id": "1d5f9e357c8dd2a8",
+        "type": "link in",
+        "z": "039a8ad4ab697fb3",
+        "name": "Alexa Deckenlicht ",
+        "links": [
+            "8bbb8be99a554c57"
         ],
-        "checkall": "false",
-        "repair": false,
-        "outputs": 2,
-        "x": 870,
-        "y": 760,
+        "x": 125,
+        "y": 1100,
         "wires": [
             [
-                "8879de3cd422f977"
-            ],
-            [
-                "406906ed4e766fa3"
+                "c9e354c7cbf9d4ca"
             ]
         ]
     },
     {
-        "id": "f95ea9116f1529ae",
-        "type": "template",
-        "z": "cc5e999ebedc6270",
-        "name": "Keine Temperatur (das)",
-        "field": "payload",
-        "fieldType": "msg",
-        "format": "json",
-        "syntax": "mustache",
-        "template": "{\n    \"version\": \"1.0\",\n    \"response\": {\n        \"outputSpeech\": {\n            \"type\": \"PlainText\",\n            \"text\": \"Aktuell sind für das {{room}} keine Temperaturdaten hinterlegt\"\n        },\n        \"shouldEndSession\": true\n    }\n}",
-        "x": 1070,
+        "id": "57cd850ad65917cf",
+        "type": "link in",
+        "z": "039a8ad4ab697fb3",
+        "name": "Alexa Spiegelschrank ",
+        "links": [
+            "c9d084d9188e034d"
+        ],
+        "x": 125,
+        "y": 1140,
+        "wires": [
+            [
+                "1d55d0664472f1b1"
+            ]
+        ]
+    },
+    {
+        "id": "1d55d0664472f1b1",
+        "type": "function",
+        "z": "039a8ad4ab697fb3",
+        "name": "function 23",
+        "func": "return { payload: { powerState: msg.payload}};\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 250,
+        "y": 1140,
+        "wires": [
+            [
+                "2e72d1d986ec673c"
+            ]
+        ]
+    },
+    {
+        "id": "e02642cdd10be6e0",
+        "type": "function",
+        "z": "039a8ad4ab697fb3",
+        "name": "function 24",
+        "func": "return { payload: { powerState: msg.payload.state}};\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 250,
         "y": 700,
         "wires": [
             [
-                "5afa2a4dedc4a6dc"
+                "22742c389172b85c"
             ]
         ]
     },
     {
-        "id": "406906ed4e766fa3",
-        "type": "template",
-        "z": "cc5e999ebedc6270",
-        "name": "Keine Temperatur (die)",
-        "field": "payload",
-        "fieldType": "msg",
-        "format": "json",
-        "syntax": "mustache",
-        "template": "{\n    \"version\": \"1.0\",\n    \"response\": {\n        \"outputSpeech\": {\n            \"type\": \"PlainText\",\n            \"text\": \"Aktuell sind für die {{room}} keine Temperaturdaten hinterlegt\"\n        },\n        \"shouldEndSession\": true\n    }\n}",
-        "x": 1060,
-        "y": 780,
-        "wires": [
-            [
-                "5afa2a4dedc4a6dc"
-            ]
-        ]
-    },
-    {
-        "id": "34ab94762e950d31",
-        "type": "switch",
-        "z": "cc5e999ebedc6270",
-        "name": "Welcher Raum?",
-        "property": "payload.context.System.device.deviceId",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "amzn1.ask.device.AEVPCR6Z3G7LG4XBYF245CIKF7XYLAI7OVCR4GXLVX4LKVOCM7POQUEGM2CIL6TSVMBLD24S5AT2RD53E7S5T72WVEVBVHAQOJB5TKYZ5RHC3HNPM6L4SWZLXN4OI6UYHQQPTUZYJN6SADRAUTOBC6SMIRGQ",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "amzn1.ask.device.AEVPCR6Z3G7LG4XBYF245CIKF7X52FVCMQMDR3VEODYD4ZI7C4HUQXX5ZXOYVFA3EFYMAZI7HDM5ZGMM5OYF5G4E2HOE3HIYI2PDCV4BYDYATAEAVVSDE3OXYKLT2ACQ22UUU7IKGM74BEHTYKCBO2KOTJ4L5GGPQS4SFZUENBCWRQ6CRIEBE",
-                "vt": "str"
-            }
-        ],
-        "checkall": "false",
-        "repair": false,
-        "outputs": 2,
-        "x": 660,
-        "y": 1000,
-        "wires": [
-            [
-                "3a3ad0abc86da23c"
-            ],
-            [
-                "a8c1d409dfccdfbf",
-                "8ab40abd6d507cce"
-            ]
-        ],
-        "outputLabels": [
-            "Büro",
-            "Wohnzimmer"
-        ]
-    },
-    {
-        "id": "3a7d0e94b7f802f3",
-        "type": "switch",
-        "z": "cc5e999ebedc6270",
-        "name": "Welcher Raum?",
-        "property": "payload.context.System.device.deviceId",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "amzn1.ask.device.AEVPCR6Z3G7LG4XBYF245CIKF7X52FVCMQMDR3VEODYD4ZI7C4HUQXX5ZXOYVFA3EFYMAZI7HDM5ZGMM5OYF5G4E2HOE3HIYI2PDCV4BYDYATAEAVVSDE3OXYKLT2ACQ22UUU7IKGM74BEHTYKCBO2KOTJ4L5GGPQS4SFZUENBCWRQ6CRIEBE",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "amzn1.ask.device.AEVPCR6Z3G7LG4XBYF245CIKF7XYLAI7OVCR4GXLVX4LKVOCM7POQUEGM2CIL6TSVMBLD24S5AT2RD53E7S5T72WVEVBVHAQOJB5TKYZ5RHC3HNPM6L4SWZLXN4OI6UYHQQPTUZYJN6SADRAUTOBC6SMIRGQ",
-                "vt": "str"
-            }
-        ],
-        "checkall": "false",
-        "repair": false,
-        "outputs": 2,
-        "x": 660,
-        "y": 1120,
-        "wires": [
-            [
-                "7f5ddbd50035e52f",
-                "e1c5af49ae83b448"
-            ],
-            [
-                "61be40d4eae686e1"
-            ]
-        ],
-        "outputLabels": [
-            "Wohnzimmer",
-            "Büro"
-        ]
-    },
-    {
-        "id": "3a3ad0abc86da23c",
-        "type": "change",
-        "z": "cc5e999ebedc6270",
-        "name": "Deckenlicht",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "set BU_Deckenlicht on",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 970,
-        "y": 940,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "61be40d4eae686e1",
-        "type": "change",
-        "z": "cc5e999ebedc6270",
-        "name": "Deckenlicht",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "set BU_Deckenlicht off",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 970,
-        "y": 1180,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "59ac988dbda8dc8b",
-        "type": "link out",
-        "z": "cc5e999ebedc6270",
-        "name": "Alexa: Type nicht verstanden",
+        "id": "18bac2eda68eaa32",
+        "type": "link in",
+        "z": "039a8ad4ab697fb3",
+        "name": "Alexa Eckschrank state ",
         "links": [
-            "856f229a7138bbb2"
+            "28a49ad78b750429"
         ],
-        "x": 575,
+        "x": 125,
+        "y": 700,
+        "wires": [
+            [
+                "e02642cdd10be6e0"
+            ]
+        ]
+    },
+    {
+        "id": "086cba5cef2c1358",
+        "type": "link in",
+        "z": "039a8ad4ab697fb3",
+        "name": "Tizio ",
+        "links": [
+            "5b39c5f2114ceeec"
+        ],
+        "x": 125,
+        "y": 120,
+        "wires": [
+            [
+                "55628f0196be5f3b"
+            ]
+        ]
+    },
+    {
+        "id": "55628f0196be5f3b",
+        "type": "function",
+        "z": "039a8ad4ab697fb3",
+        "name": "function 25",
+        "func": "return { payload: { powerState: msg.payload.output ? 'ON' : 'OFF' }};\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 250,
+        "y": 120,
+        "wires": [
+            [
+                "4f8015394cdf3ae6"
+            ]
+        ]
+    },
+    {
+        "id": "4ef1fd39ce73b242",
+        "type": "link in",
+        "z": "039a8ad4ab697fb3",
+        "name": "Klavierlampe ",
+        "links": [
+            "cff872e789db0734"
+        ],
+        "x": 125,
+        "y": 160,
+        "wires": [
+            [
+                "e156398f892eddf4"
+            ]
+        ]
+    },
+    {
+        "id": "e156398f892eddf4",
+        "type": "function",
+        "z": "039a8ad4ab697fb3",
+        "name": "function 26",
+        "func": "return { payload: { powerState: msg.payload.state}};\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 250,
+        "y": 160,
+        "wires": [
+            [
+                "a8e198ab481e6662"
+            ]
+        ]
+    },
+    {
+        "id": "4b040669774e6723",
+        "type": "link in",
+        "z": "039a8ad4ab697fb3",
+        "name": "Fensterbanklampe ",
+        "links": [
+            "922ccac0c7046219"
+        ],
+        "x": 125,
+        "y": 200,
+        "wires": [
+            [
+                "6a41ecd96feed5af"
+            ]
+        ]
+    },
+    {
+        "id": "6a41ecd96feed5af",
+        "type": "function",
+        "z": "039a8ad4ab697fb3",
+        "name": "function 27",
+        "func": "const payload = {};\nif (msg.payload.state) {\n    payload.powerState = msg.payload.state;\n};\nif (msg.payload.brightness) {\n    payload.brightness = parseInt(msg.payload.brightness / 255.0 * 100);\n};\nreturn { payload };\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 250,
+        "y": 200,
+        "wires": [
+            [
+                "22cd1de9fa65b79c"
+            ]
+        ]
+    },
+    {
+        "id": "af2e9abc6d919f6e",
+        "type": "link in",
+        "z": "039a8ad4ab697fb3",
+        "name": "Tiffany ",
+        "links": [
+            "418f4f02f0ac1e08"
+        ],
+        "x": 125,
+        "y": 240,
+        "wires": [
+            [
+                "1399c9856121fe6b"
+            ]
+        ]
+    },
+    {
+        "id": "1399c9856121fe6b",
+        "type": "function",
+        "z": "039a8ad4ab697fb3",
+        "name": "function 28",
+        "func": "const payload = {};\nif (msg.payload.state) {\n    payload.powerState = msg.payload.state;\n};\nif (msg.payload.brightness) {\n    payload.brightness = parseInt(msg.payload.brightness / 255.0 * 100);\n};\nreturn { payload };\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 250,
+        "y": 240,
+        "wires": [
+            [
+                "f4989606f2db428d"
+            ]
+        ]
+    },
+    {
+        "id": "c3a62fe6268dc0be",
+        "type": "vsh-virtual-device",
+        "z": "039a8ad4ab697fb3",
+        "name": "Leuchter",
+        "topic": "",
+        "connection": "b425927fca74a6a7",
+        "template": "DIMMABLE_LIGHT_BULB",
+        "retrievable": true,
+        "passthrough": false,
+        "diff": false,
+        "filter": false,
+        "filterTopic": false,
+        "plan": "free",
+        "x": 420,
+        "y": 280,
+        "wires": [
+            [
+                "888c59c1128e972b"
+            ]
+        ]
+    },
+    {
+        "id": "f7443f20a538ebdd",
+        "type": "link out",
+        "z": "039a8ad4ab697fb3",
+        "name": "Leuchter",
+        "mode": "link",
+        "links": [
+            "e1fa7075090543a1",
+            "e5d97c3.d1d738"
+        ],
+        "x": 885,
         "y": 280,
         "wires": []
     },
     {
-        "id": "9cc1cde94bb589b4",
-        "type": "comment",
-        "z": "cc5e999ebedc6270",
-        "name": "Temperatur außen",
-        "info": "",
-        "x": 190,
-        "y": 860,
-        "wires": []
-    },
-    {
-        "id": "303dfd749a8fa9fb",
-        "type": "link in",
-        "z": "cc5e999ebedc6270",
-        "name": "Alexa: Temperatur außen",
-        "links": [
-            "84518d7e7cf28cad"
-        ],
-        "x": 115,
-        "y": 900,
-        "wires": [
-            [
-                "43869226002338af"
-            ]
-        ]
-    },
-    {
-        "id": "2ffdf38f1a1daff3",
-        "type": "template",
-        "z": "cc5e999ebedc6270",
-        "name": "Temperatur außen",
-        "field": "payload",
-        "fieldType": "msg",
-        "format": "json",
-        "syntax": "mustache",
-        "template": "{\n    \"version\": \"1.0\",\n    \"response\": {\n        \"outputSpeech\": {\n            \"type\": \"PlainText\",\n            \"text\": \"Draußen sind {{temperature}}°C\"\n        },\n        \"shouldEndSession\": true\n    }\n}",
-        "x": 510,
-        "y": 900,
-        "wires": [
-            [
-                "b1c17e8e4aeb9546"
-            ]
-        ]
-    },
-    {
-        "id": "b1c17e8e4aeb9546",
-        "type": "link out",
-        "z": "cc5e999ebedc6270",
-        "name": "Alexa: Temperatur außen Antwort",
-        "links": [
-            "9eacb0111000194b"
-        ],
-        "x": 655,
-        "y": 900,
-        "wires": []
-    },
-    {
-        "id": "43869226002338af",
+        "id": "888c59c1128e972b",
         "type": "function",
-        "z": "cc5e999ebedc6270",
-        "name": "Temperatur draußen",
-        "func": "msg.temperature = parseInt(global.get('aussen-temperature'));\nreturn msg;",
+        "z": "039a8ad4ab697fb3",
+        "name": "function 29",
+        "func": "return {\n    payload: {\n        state: msg.payload.powerState,\n        brightness: msg.payload.brightness / 100.0 * 255.0\n    }\n};",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 280,
-        "y": 900,
+        "x": 770,
+        "y": 280,
         "wires": [
             [
-                "2ffdf38f1a1daff3"
+                "f7443f20a538ebdd"
             ]
         ]
     },
     {
-        "id": "5daec1e5b2cccaad",
-        "type": "link out",
-        "z": "cc5e999ebedc6270",
-        "name": "Alexa: Weck mich",
+        "id": "f29b05b9a7da2ce4",
+        "type": "link in",
+        "z": "039a8ad4ab697fb3",
+        "name": "Leuchter ",
         "links": [
-            "f5f58276ad695d68"
+            "49386ad2cbcb1f8f"
         ],
-        "x": 835,
-        "y": 220,
-        "wires": []
+        "x": 125,
+        "y": 280,
+        "wires": [
+            [
+                "26026b6957d53499"
+            ]
+        ]
     },
     {
-        "id": "f17e11e39a8a940b",
+        "id": "26026b6957d53499",
+        "type": "function",
+        "z": "039a8ad4ab697fb3",
+        "name": "function 30",
+        "func": "const payload = {};\nif (msg.payload.state) {\n    payload.powerState = msg.payload.state;\n};\nif (msg.payload.brightness) {\n    payload.brightness = parseInt(msg.payload.brightness / 255.0 * 100);\n};\nreturn { payload };\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 250,
+        "y": 280,
+        "wires": [
+            [
+                "c3a62fe6268dc0be"
+            ]
+        ]
+    },
+    {
+        "id": "4f8015394cdf3ae6",
+        "type": "rbe",
+        "z": "039a8ad4ab697fb3",
+        "name": "",
+        "func": "rbe",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "septopics": true,
+        "property": "payload",
+        "topi": "topic",
+        "x": 410,
+        "y": 120,
+        "wires": [
+            [
+                "2fc96424f7f1e7ca"
+            ]
+        ]
+    },
+    {
+        "id": "2072d6d55c0ddb6d",
         "type": "comment",
-        "z": "cc5e999ebedc6270",
-        "name": "Wecker stellen",
-        "info": "",
-        "x": 940,
-        "y": 220,
+        "z": "039a8ad4ab697fb3",
+        "name": "filter wg. ShellyPlug...",
+        "info": "ShellyPlug sendet Stromverbrauchsdaten. \nDehalb werden viele Nachrichten wiederholt. ",
+        "x": 460,
+        "y": 80,
         "wires": []
     },
     {
-        "id": "4b5d1053de283008",
-        "type": "catch",
-        "z": "cc5e999ebedc6270",
-        "name": "Fehler",
-        "scope": null,
-        "uncaught": false,
-        "x": 150,
-        "y": 100,
+        "id": "f7969a04832b9de0",
+        "type": "vsh-virtual-device",
+        "z": "039a8ad4ab697fb3",
+        "name": "Warmwasser;Zirkulation",
+        "topic": "",
+        "connection": "b425927fca74a6a7",
+        "template": "SWITCH",
+        "retrievable": true,
+        "passthrough": false,
+        "diff": false,
+        "filter": false,
+        "filterTopic": false,
+        "plan": "free",
+        "x": 470,
+        "y": 1180,
         "wires": [
             [
-                "d47864d66890982e"
+                "7002bf73826f37fc"
             ]
         ]
     },
     {
-        "id": "d47864d66890982e",
-        "type": "template",
-        "z": "cc5e999ebedc6270",
-        "name": "Fehlertext",
-        "field": "payload",
-        "fieldType": "msg",
-        "format": "json",
-        "syntax": "mustache",
-        "template": "{\n    \"version\": \"1.0\",\n    \"response\": {\n        \"outputSpeech\": {\n            \"type\": \"PlainText\",\n            \"text\": \"Fehler - \"\n        },\n        \"shouldEndSession\": true\n    }\n}",
-        "x": 320,
-        "y": 100,
+        "id": "7002bf73826f37fc",
+        "type": "function",
+        "z": "039a8ad4ab697fb3",
+        "name": "function 32",
+        "func": "return {payload: msg.payload.powerState};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 760,
+        "y": 1180,
         "wires": [
             [
-                "6ac42af2f0d981f0"
+                "35ae68a760d0d2e2"
             ]
         ]
     },
     {
-        "id": "6ac42af2f0d981f0",
+        "id": "35ae68a760d0d2e2",
         "type": "link out",
-        "z": "cc5e999ebedc6270",
-        "name": "Alexa: Fehler Antwort",
-        "links": [
-            "9eacb0111000194b"
-        ],
-        "x": 435,
-        "y": 100,
-        "wires": []
-    },
-    {
-        "id": "8d876015f0568192",
-        "type": "link out",
-        "z": "cc5e999ebedc6270",
-        "name": "Alexa: LaunchRequest",
+        "z": "039a8ad4ab697fb3",
+        "name": "Alexa Warmwasser",
         "mode": "link",
         "links": [
-            "4f90909d416960ca"
+            "f8213aca590fd54b",
+            "c0c28364952dec04"
         ],
-        "x": 575,
-        "y": 160,
+        "x": 885,
+        "y": 1180,
         "wires": []
     },
     {
-        "id": "4f90909d416960ca",
+        "id": "0e775ee78efd07c4",
         "type": "link in",
-        "z": "cc5e999ebedc6270",
-        "name": "Alexa: Launch Request",
+        "z": "039a8ad4ab697fb3",
+        "name": "Alexa Warmwasser ",
         "links": [
-            "8d876015f0568192"
+            "c9d084d9188e034d",
+            "53936a862e9e6c08"
         ],
-        "x": 115,
-        "y": 360,
+        "x": 125,
+        "y": 1180,
         "wires": [
             [
-                "5adf5cb03be2b31b"
+                "2310086e281e17df"
             ]
         ]
     },
     {
-        "id": "a69a3bd46d35daa7",
-        "type": "comment",
-        "z": "cc5e999ebedc6270",
-        "name": "Launch Request",
-        "info": "https://developer.amazon.com/de/docs/custom-skills/request-and-response-json-reference.html",
-        "x": 180,
-        "y": 320,
-        "wires": []
-    },
-    {
-        "id": "5adf5cb03be2b31b",
-        "type": "template",
-        "z": "cc5e999ebedc6270",
-        "name": "Welcome",
-        "field": "payload",
-        "fieldType": "msg",
-        "format": "json",
-        "syntax": "mustache",
-        "template": "{\n    \"version\": \"1.0\",\n    \"response\": {\n        \"outputSpeech\": {\n            \"type\": \"PlainText\",\n            \"text\": \"Hier ist dein Haus. Wie kann ich dir helfen?\"\n        },\n        \"shouldEndSession\": true\n    }\n}",
-        "x": 240,
-        "y": 360,
+        "id": "2310086e281e17df",
+        "type": "function",
+        "z": "039a8ad4ab697fb3",
+        "name": "function 33",
+        "func": "return { payload: { powerState: msg.payload}};\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 250,
+        "y": 1180,
         "wires": [
             [
-                "7667339b7190e1b2"
+                "f7969a04832b9de0"
             ]
         ]
-    },
-    {
-        "id": "7667339b7190e1b2",
-        "type": "link out",
-        "z": "cc5e999ebedc6270",
-        "name": "Alexa: Raum Antwort",
-        "links": [
-            "9eacb0111000194b"
-        ],
-        "x": 445,
-        "y": 360,
-        "wires": []
     }
 ]
