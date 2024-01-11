@@ -157,7 +157,7 @@
         "type": "junction",
         "z": "37daec28.284ee4",
         "x": 940,
-        "y": 740,
+        "y": 680,
         "wires": [
             [
                 "40e09b5.33b3964"
@@ -169,7 +169,7 @@
         "type": "junction",
         "z": "37daec28.284ee4",
         "x": 940,
-        "y": 920,
+        "y": 900,
         "wires": [
             [
                 "3915a3f2.641aac"
@@ -221,6 +221,55 @@
         "wires": [
             [
                 "58e6b312940c0def"
+            ]
+        ]
+    },
+    {
+        "id": "fc981677cf6642bf",
+        "type": "junction",
+        "z": "cd1e0b0c87b3c825",
+        "x": 500,
+        "y": 340,
+        "wires": [
+            [
+                "6fbe191dd2093f9d",
+                "090e6e925f835a4e"
+            ]
+        ]
+    },
+    {
+        "id": "7925a6a710f06185",
+        "type": "junction",
+        "z": "37daec28.284ee4",
+        "x": 940,
+        "y": 1880,
+        "wires": [
+            [
+                "c5c764bba2c5634b"
+            ]
+        ]
+    },
+    {
+        "id": "3faa223976b105a1",
+        "type": "junction",
+        "z": "37daec28.284ee4",
+        "x": 280,
+        "y": 1680,
+        "wires": [
+            [
+                "18e24a3aa31ea2fc"
+            ]
+        ]
+    },
+    {
+        "id": "8f66933c6d3d372d",
+        "type": "junction",
+        "z": "37daec28.284ee4",
+        "x": 940,
+        "y": 1680,
+        "wires": [
+            [
+                "9aa43a713a9b1028"
             ]
         ]
     },
@@ -363,7 +412,7 @@
         "type": "ui_group",
         "name": "Tiffany",
         "tab": "dc07af4f.71ca1",
-        "order": 3,
+        "order": 4,
         "disp": true,
         "width": "6",
         "collapse": false
@@ -402,7 +451,7 @@
         "type": "ui_group",
         "name": "Fensterbank",
         "tab": "dc07af4f.71ca1",
-        "order": 4,
+        "order": 8,
         "disp": true,
         "width": "6",
         "collapse": false
@@ -412,7 +461,7 @@
         "type": "ui_group",
         "name": "Klavierlampe",
         "tab": "dc07af4f.71ca1",
-        "order": 5,
+        "order": 7,
         "disp": true,
         "width": "6",
         "collapse": false,
@@ -845,7 +894,7 @@
         "type": "ui_group",
         "name": "Tizio",
         "tab": "dc07af4f.71ca1",
-        "order": 6,
+        "order": 5,
         "disp": true,
         "width": "6",
         "collapse": false,
@@ -867,7 +916,7 @@
         "z": "4fa3b184.bc7fb",
         "name": "spacer",
         "group": "4cb7d08eef74e7ad",
-        "order": 7,
+        "order": 2,
         "width": "6",
         "height": "1"
     },
@@ -900,6 +949,38 @@
         "width": "6",
         "collapse": false,
         "className": ""
+    },
+    {
+        "id": "ec1c4f819cdc25fd",
+        "type": "ui_group",
+        "name": "Tolomeo",
+        "tab": "dc07af4f.71ca1",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "7fd2dc4a9ee46617",
+        "type": "ui_group",
+        "name": "Tizio Standsäule",
+        "tab": "dc07af4f.71ca1",
+        "order": 6,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "2cd53579c72761c2",
+        "type": "ui_spacer",
+        "z": "37daec28.284ee4",
+        "name": "spacer",
+        "group": "7fd2dc4a9ee46617",
+        "order": 8,
+        "width": "6",
+        "height": "1"
     },
     {
         "id": "930e92a7.3f378",
@@ -980,13 +1061,23 @@
                 "t": "eq",
                 "v": "5",
                 "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "6",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "7",
+                "vt": "num"
             }
         ],
         "checkall": "true",
         "repair": false,
-        "outputs": 6,
+        "outputs": 8,
         "x": 450,
-        "y": 380,
+        "y": 360,
         "wires": [
             [],
             [
@@ -1003,6 +1094,10 @@
             ],
             [
                 "8bdbacff7bbffaf0"
+            ],
+            [],
+            [
+                "0f2dc33b75d60630"
             ]
         ]
     },
@@ -1018,7 +1113,7 @@
         "finalize": "",
         "libs": [],
         "x": 260,
-        "y": 300,
+        "y": 280,
         "wires": [
             [
                 "a7dbd651.4467b8"
@@ -1037,7 +1132,7 @@
         "finalize": "",
         "libs": [],
         "x": 260,
-        "y": 340,
+        "y": 320,
         "wires": [
             [
                 "9cfaf9a.449b908"
@@ -1056,7 +1151,7 @@
         "stream": false,
         "addname": "",
         "x": 230,
-        "y": 380,
+        "y": 360,
         "wires": [
             [
                 "dd76d72f.e06798"
@@ -1069,11 +1164,9 @@
         "z": "37daec28.284ee4",
         "name": "",
         "mode": "link",
-        "links": [
-            "6637cc7f.54ff74"
-        ],
+        "links": [],
         "x": 615,
-        "y": 300,
+        "y": 280,
         "wires": []
     },
     {
@@ -1082,11 +1175,10 @@
         "z": "37daec28.284ee4",
         "name": "",
         "links": [
-            "a14232cb.a4256",
-            "e30a134d.f410a"
+            "a14232cb.a4256"
         ],
         "x": 615,
-        "y": 340,
+        "y": 320,
         "wires": []
     },
     {
@@ -1095,11 +1187,9 @@
         "z": "37daec28.284ee4",
         "name": "",
         "mode": "link",
-        "links": [
-            "4bbc2b23.ee06a4"
-        ],
+        "links": [],
         "x": 615,
-        "y": 380,
+        "y": 360,
         "wires": []
     },
     {
@@ -1108,11 +1198,10 @@
         "z": "37daec28.284ee4",
         "name": "",
         "links": [
-            "cd111146.3d5c4",
-            "e5d97c3.d1d738"
+            "cd111146.3d5c4"
         ],
         "x": 615,
-        "y": 420,
+        "y": 400,
         "wires": []
     },
     {
@@ -1227,7 +1316,7 @@
         "nl": false,
         "rap": false,
         "inputs": 0,
-        "x": 150,
+        "x": 130,
         "y": 1140,
         "wires": [
             [
@@ -1335,7 +1424,6 @@
         "z": "37daec28.284ee4",
         "name": "Set Klavierlampe",
         "links": [
-            "773f6fe1.26d11",
             "f854ab23be90c932"
         ],
         "x": 925,
@@ -1352,8 +1440,8 @@
         "z": "37daec28.284ee4",
         "name": "Set Leuchter",
         "links": [
-            "d0971035.fd6cc",
-            "f7443f20a538ebdd"
+            "f7443f20a538ebdd",
+            "cf216420654a94ca"
         ],
         "x": 925,
         "y": 1380,
@@ -1369,11 +1457,10 @@
         "z": "37daec28.284ee4",
         "name": "Set Fensterbank",
         "links": [
-            "73ac73c881c9adfd",
-            "bd4f1b1d.c1d598"
+            "73ac73c881c9adfd"
         ],
         "x": 925,
-        "y": 1000,
+        "y": 980,
         "wires": [
             [
                 "3915a3f2.641aac"
@@ -1386,11 +1473,10 @@
         "z": "37daec28.284ee4",
         "name": "Tiffany MQTT",
         "links": [
-            "19bb7ceb9cdb5b49",
-            "3a3f3f29.1be49"
+            "19bb7ceb9cdb5b49"
         ],
         "x": 925,
-        "y": 820,
+        "y": 760,
         "wires": [
             [
                 "40e09b5.33b3964"
@@ -1412,7 +1498,7 @@
         "expiry": "",
         "broker": "c349b9ff.9dc4c8",
         "x": 1070,
-        "y": 960,
+        "y": 940,
         "wires": []
     },
     {
@@ -1427,14 +1513,14 @@
         "nl": false,
         "rap": false,
         "inputs": 0,
-        "x": 150,
-        "y": 960,
+        "x": 130,
+        "y": 940,
         "wires": [
             [
                 "bcc690db.8cb87",
-                "b07f212d.4c75a",
                 "63507385.c44d5c",
-                "922ccac0c7046219"
+                "922ccac0c7046219",
+                "b07f212d.4c75a"
             ]
         ]
     },
@@ -1472,7 +1558,7 @@
         "to": "",
         "reg": false,
         "x": 380,
-        "y": 1000,
+        "y": 980,
         "wires": [
             []
         ]
@@ -1501,7 +1587,7 @@
         "officon": "",
         "offcolor": "",
         "x": 610,
-        "y": 920,
+        "y": 900,
         "wires": [
             [
                 "5c7662f3482de838"
@@ -1519,16 +1605,16 @@
         "order": 2,
         "width": 0,
         "height": 0,
-        "passthru": true,
+        "passthru": false,
         "outs": "all",
         "topic": "",
         "topicType": "str",
-        "min": "20",
+        "min": "4",
         "max": "254",
-        "step": "25",
+        "step": "10",
         "className": "",
         "x": 610,
-        "y": 960,
+        "y": 940,
         "wires": [
             [
                 "9ac7d8bf.354318"
@@ -1546,7 +1632,7 @@
         "initialize": "",
         "finalize": "",
         "x": 870,
-        "y": 960,
+        "y": 940,
         "wires": [
             [
                 "3915a3f2.641aac"
@@ -1565,7 +1651,7 @@
         "finalize": "",
         "libs": [],
         "x": 330,
-        "y": 920,
+        "y": 900,
         "wires": [
             [
                 "8e0a2075.97183"
@@ -1583,7 +1669,7 @@
         "initialize": "",
         "finalize": "",
         "x": 350,
-        "y": 960,
+        "y": 940,
         "wires": [
             [
                 "4ba59f70.c989c"
@@ -1655,7 +1741,7 @@
         "expiry": "",
         "broker": "c349b9ff.9dc4c8",
         "x": 1050,
-        "y": 780,
+        "y": 720,
         "wires": []
     },
     {
@@ -1670,14 +1756,14 @@
         "nl": false,
         "rap": false,
         "inputs": 0,
-        "x": 130,
-        "y": 780,
+        "x": 150,
+        "y": 720,
         "wires": [
             [
                 "7e4ae382.f3381c",
-                "9762023d.37de7",
                 "52aea2ca.07744c",
-                "418f4f02f0ac1e08"
+                "418f4f02f0ac1e08",
+                "9762023d.37de7"
             ]
         ]
     },
@@ -1715,7 +1801,7 @@
         "to": "",
         "reg": false,
         "x": 370,
-        "y": 820,
+        "y": 760,
         "wires": [
             []
         ]
@@ -1747,7 +1833,7 @@
         "animate": true,
         "className": "",
         "x": 540,
-        "y": 740,
+        "y": 680,
         "wires": [
             [
                 "071a4bf6c5fc364a"
@@ -1765,16 +1851,16 @@
         "order": 2,
         "width": 0,
         "height": 0,
-        "passthru": true,
+        "passthru": false,
         "outs": "all",
         "topic": "",
         "topicType": "str",
-        "min": "20",
+        "min": "4",
         "max": "254",
-        "step": "25",
+        "step": "10",
         "className": "",
         "x": 540,
-        "y": 780,
+        "y": 720,
         "wires": [
             [
                 "f74f051f.78aca8"
@@ -1793,7 +1879,7 @@
         "finalize": "",
         "libs": [],
         "x": 870,
-        "y": 780,
+        "y": 720,
         "wires": [
             [
                 "40e09b5.33b3964"
@@ -1811,7 +1897,7 @@
         "initialize": "",
         "finalize": "",
         "x": 330,
-        "y": 740,
+        "y": 680,
         "wires": [
             [
                 "30c5bc34.3c3974"
@@ -1829,7 +1915,7 @@
         "initialize": "",
         "finalize": "",
         "x": 350,
-        "y": 780,
+        "y": 720,
         "wires": [
             [
                 "483d789b.9b7bd8"
@@ -1922,13 +2008,13 @@
         "order": 2,
         "width": 0,
         "height": 0,
-        "passthru": true,
+        "passthru": false,
         "outs": "all",
         "topic": "",
         "topicType": "str",
-        "min": "20",
+        "min": "4",
         "max": "254",
-        "step": "25",
+        "step": "10",
         "className": "",
         "x": 580,
         "y": 1340,
@@ -2011,7 +2097,7 @@
         "type": "function",
         "z": "37daec28.284ee4",
         "name": "initialize Scenes",
-        "func": "flow.set(\"current_scene_idx\", 0)\nflow.set(\"max_scene_idx\", 5)\nflow.set(\"scenes\", [\n        {   scene_idx: 0,\n            scene_name: \"aus\",\n            devices: [\n                {   device_idx: 1,\n                    name: \"Tiffany\",\n                    state: \"OFF\"\n                },\n                {   device_idx: 2,\n                    name: \"Fensterbank\",\n                    state: \"OFF\"\n                },\n                {   device_idx: 3,\n                    name: \"Klavierlampe\",\n                    state: \"OFF\"\n                },\n                {   device_idx: 4,\n                    name: \"Leuchter\",\n                    state: \"OFF\"\n                },\n                {   device_idx: 5,\n                    name: \"Tizo\",\n                    state: \"OFF\"\n                }\n            ]\n        },\n        {   scene_idx: 1,\n            scene_name: \"ambiente\",\n            devices: [\n                {   device_idx: 1,\n                    name: \"Tiffany\",\n                    brightness: 70,\n                    state: \"ON\"\n                },\n                {   device_idx: 2,\n                    name: \"Fensterbank\",\n                    brightness: 70,\n                    state: \"ON\"\n                },\n                {   device_idx: 3,\n                    name: \"Klavierlampe\",\n                    state: \"ON\"\n                },\n                {   device_idx: 4,\n                    name: \"Leuchter\",\n                    state: \"OFF\"\n                },\n                {   device_idx: 5,\n                    name: \"Tizio\",\n                    state: \"OFF\"\n                }\n            ]\n        },\n          {   scene_idx: 2,\n            scene_name: \"cosy\",\n            devices: [\n                {   device_idx: 1,\n                    name: \"Tiffany\",\n                    brightness: 150,\n                    state: \"ON\"\n                },\n                {   device_idx: 2,\n                    name: \"Fensterbank\",\n                    brightness: 150,\n                    state: \"ON\"\n                },\n                {   device_idx: 3,\n                    name: \"Klavierlampe\",\n                    state: \"ON\"\n                },\n                {   device_idx: 4,\n                    name: \"Leuchter\",\n                    state: \"OFF\"\n                },\n                {   device_idx: 5,\n                    name: \"Tizio\",\n                    state: \"ON\"\n                }\n            ]\n        },\n        {   scene_idx: 3,\n            scene_name: \"sofa_read\",\n            devices: [\n                {   device_idx: 1,\n                    name: \"Tiffany\",\n                    brightness: 100,\n                    state: \"ON\"\n                },\n                {   device_idx: 2,\n                    name: \"Fensterbank\",\n                    brightness: 255,\n                    state: \"ON\"\n                },\n                {   device_idx: 3,\n                    name: \"Klavierlampe\",\n                    state: \"ON\"\n                },\n                {   device_idx: 4,\n                    name: \"Leuchter\",\n                    state: \"OFF\"\n                },\n                {\n                    device_idx: 5,\n                    name: \"Tizio\",\n                    state: \"ON\"\n                }\n            ]\n        },\n      {   scene_idx: 4,\n            scene_name: \"bright\",\n            devices: [\n                {   device_idx: 1,\n                    name: \"Tiffany\",\n                    brightness: 255,\n                    state: \"ON\"\n                },\n                {   device_idx: 2,\n                    name: \"Fensterbank\",\n                    brightness: 255,\n                    state: \"ON\"\n                },\n                {   device_idx: 3,\n                    name: \"Klavierlampe\",\n                    state: \"ON\"\n                },\n                {   device_idx: 4,\n                    name: \"Leuchter\",\n                    brightness: 255,\n                    state: \"ON\"\n                },\n                {\n                    device_idx: 5,\n                    name: \"Tizio\",\n                    state: \"ON\"\n                }\n            ]\n        }\n    ]\n)\n\nreturn {payload: 0};",
+        "func": "flow.set(\"current_scene_idx\", 0)\nflow.set(\"max_scene_idx\", 5)\nflow.set(\"scenes\", [\n        {   scene_idx: 0,\n            scene_name: \"aus\",\n            devices: [\n                {   device_idx: 1,\n                    name: \"Tiffany\",\n                    state: \"OFF\"\n                },\n                {   device_idx: 2,\n                    name: \"Fensterbank\",\n                    state: \"OFF\"\n                },\n                {   device_idx: 3,\n                    name: \"Klavierlampe\",\n                    state: \"OFF\"\n                },\n                {   device_idx: 4,\n                    name: \"Leuchter\",\n                    state: \"OFF\"\n                },\n                {\n                    device_idx: 5,\n                    name: \"Tizo\",\n                    state: \"OFF\"\n                },\n                {\n                    device_idx: 6,\n                    name: \"Tizo Standsäule\",\n                    state: \"OFF\"\n                },\n                {\n                    device_idx: 7,\n                    name: \"Tolomeo \",\n                    state: \"OFF\"\n                }\n            ]\n        },\n        {   scene_idx: 1,\n            scene_name: \"ambiente\",\n            devices: [\n                {   device_idx: 1,\n                    name: \"Tiffany\",\n                    brightness: 70,\n                    state: \"ON\"\n                },\n                {   device_idx: 2,\n                    name: \"Fensterbank\",\n                    brightness: 70,\n                    state: \"ON\"\n                },\n                {   device_idx: 3,\n                    name: \"Klavierlampe\",\n                    state: \"ON\"\n                },\n                {   device_idx: 4,\n                    name: \"Leuchter\",\n                    state: \"OFF\"\n                },\n                {   device_idx: 5,\n                    name: \"Tizio\",\n                    state: \"OFF\"\n                },\n                {\n                    device_idx: 6,\n                    name: \"Tizo Standsäule\",\n                    state: \"OFF\"\n                },\n                {\n                    device_idx: 7,\n                    name: \"Tolomeo \",\n                    state: \"OFF\"\n                }\n            ]\n        },\n        {   scene_idx: 2,\n            scene_name: \"cosy\",\n            devices: [\n                {   device_idx: 1,\n                    name: \"Tiffany\",\n                    brightness: 150,\n                    state: \"ON\"\n                },\n                {   device_idx: 2,\n                    name: \"Fensterbank\",\n                    brightness: 150,\n                    state: \"ON\"\n                },\n                {   device_idx: 3,\n                    name: \"Klavierlampe\",\n                    state: \"ON\"\n                },\n                {   device_idx: 4,\n                    name: \"Leuchter\",\n                    state: \"OFF\"\n                },\n                {   device_idx: 5,\n                    name: \"Tizio\",\n                    state: \"ON\"\n                },\n                {\n                    device_idx: 6,\n                    name: \"Tizo Standsäule\",\n                    state: \"ON\"\n                },\n                {\n                    device_idx: 7,\n                    name: \"Tolomeo \",\n                    brightness: 150,\n                    state: \"ON\"\n                }\n            ]\n        },\n        {   scene_idx: 3,\n            scene_name: \"sofa_read\",\n            devices: [\n                {   device_idx: 1,\n                    name: \"Tiffany\",\n                    brightness: 100,\n                    state: \"ON\"\n                },\n                {   device_idx: 2,\n                    name: \"Fensterbank\",\n                    brightness: 255,\n                    state: \"ON\"\n                },\n                {   device_idx: 3,\n                    name: \"Klavierlampe\",\n                    state: \"ON\"\n                },\n                {   device_idx: 4,\n                    name: \"Leuchter\",\n                    state: \"OFF\"\n                },\n                {\n                    device_idx: 5,\n                    name: \"Tizio\",\n                    state: \"ON\"\n                },\n                {\n                    device_idx: 6,\n                    name: \"Tizo Standsäule\",\n                    state: \"ON\"\n                },\n                {\n                    device_idx: 7,\n                    name: \"Tolomeo \",\n                    brightness: 170,\n                    state: \"ON\"\n                }\n            ]\n        },\n      {   scene_idx: 4,\n            scene_name: \"bright\",\n            devices: [\n                {   device_idx: 1,\n                    name: \"Tiffany\",\n                    brightness: 255,\n                    state: \"ON\"\n                },\n                {   device_idx: 2,\n                    name: \"Fensterbank\",\n                    brightness: 255,\n                    state: \"ON\"\n                },\n                {   device_idx: 3,\n                    name: \"Klavierlampe\",\n                    state: \"ON\"\n                },\n                {   device_idx: 4,\n                    name: \"Leuchter\",\n                    brightness: 255,\n                    state: \"ON\"\n                },\n                {\n                    device_idx: 5,\n                    name: \"Tizio\",\n                    state: \"ON\"\n                },\n                {\n                    device_idx: 6,\n                    name: \"Tizo Standsäule\",\n                    state: \"ON\"\n                },\n                {\n                    device_idx: 7,\n                    name: \"Tolomeo \",\n                    brightness: 255,\n                    state: \"ON\"\n                }\n            ]\n        }\n    ]\n)\n\nreturn {payload: 0};",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -2183,7 +2269,7 @@
             "83a9e308596bab08"
         ],
         "x": 95,
-        "y": 300,
+        "y": 280,
         "wires": [
             [
                 "ed1e9ea1.c5e59"
@@ -2239,7 +2325,7 @@
         "nl": false,
         "rap": false,
         "inputs": 0,
-        "x": 130,
+        "x": 150,
         "y": 1520,
         "wires": [
             [
@@ -2321,13 +2407,13 @@
         "id": "89b93c352f549ac7",
         "type": "link out",
         "z": "37daec28.284ee4",
-        "name": "Control Tizia",
+        "name": "Scene",
         "mode": "link",
         "links": [
             "1631c8b0516d3d18"
         ],
         "x": 755,
-        "y": 460,
+        "y": 440,
         "wires": []
     },
     {
@@ -2340,7 +2426,7 @@
             "af2e9abc6d919f6e"
         ],
         "x": 295,
-        "y": 860,
+        "y": 800,
         "wires": []
     },
     {
@@ -2353,7 +2439,7 @@
             "4b040669774e6723"
         ],
         "x": 295,
-        "y": 1040,
+        "y": 1020,
         "wires": []
     },
     {
@@ -2376,7 +2462,8 @@
         "name": "Leuchter state & brigthness",
         "mode": "link",
         "links": [
-            "f29b05b9a7da2ce4"
+            "f29b05b9a7da2ce4",
+            "5f2e9f30beed284b"
         ],
         "x": 295,
         "y": 1420,
@@ -2483,8 +2570,7 @@
         "y": 1480,
         "wires": [
             [
-                "b409621c39553422",
-                "86d7ff2534d71234"
+                "b409621c39553422"
             ]
         ]
     },
@@ -2500,28 +2586,12 @@
         "finalize": "",
         "libs": [],
         "x": 650,
-        "y": 460,
+        "y": 440,
         "wires": [
             [
                 "89b93c352f549ac7"
             ]
         ]
-    },
-    {
-        "id": "86d7ff2534d71234",
-        "type": "debug",
-        "z": "37daec28.284ee4",
-        "name": "debug 16",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1040,
-        "y": 1460,
-        "wires": []
     },
     {
         "id": "40611467056ca26d",
@@ -2551,6 +2621,434 @@
         "info": "ShellyPlug sendet Stromverbrauchsdaten. \nDehalb werden viele Nachrichten wiederholt. ",
         "x": 480,
         "y": 1440,
+        "wires": []
+    },
+    {
+        "id": "10b5f2f821fb2314",
+        "type": "link in",
+        "z": "37daec28.284ee4",
+        "name": "Tolomeo  MQTT",
+        "links": [
+            "cf216420654a94ca",
+            "b8226efddc3dde41"
+        ],
+        "x": 925,
+        "y": 1960,
+        "wires": [
+            [
+                "c5c764bba2c5634b"
+            ]
+        ]
+    },
+    {
+        "id": "c5c764bba2c5634b",
+        "type": "mqtt out",
+        "z": "37daec28.284ee4",
+        "name": "Tolomeo",
+        "topic": "zigbee2mqtt/tolomeo/set",
+        "qos": "1",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "c349b9ff.9dc4c8",
+        "x": 1060,
+        "y": 1920,
+        "wires": []
+    },
+    {
+        "id": "c069046ed40e0a45",
+        "type": "mqtt in",
+        "z": "37daec28.284ee4",
+        "name": "Tolomeo",
+        "topic": "zigbee2mqtt/tolomeo",
+        "qos": "2",
+        "datatype": "json",
+        "broker": "c349b9ff.9dc4c8",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 140,
+        "y": 1920,
+        "wires": [
+            [
+                "a4d8693e5e4113ae",
+                "60e1c79f97947074",
+                "8bbdb296a860acab",
+                "fe9452d8b91bd237"
+            ]
+        ]
+    },
+    {
+        "id": "60e1c79f97947074",
+        "type": "change",
+        "z": "37daec28.284ee4",
+        "name": "save tolomeo state",
+        "rules": [
+            {
+                "t": "set",
+                "p": "state",
+                "pt": "msg",
+                "to": "payload.state = 'ON' ? 'on' : 'off'",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "brightness",
+                "pt": "msg",
+                "to": "payload.brightness",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "tolomeo",
+                "pt": "flow",
+                "to": "{'state': state, 'brightness': brightness}",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 370,
+        "y": 1960,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "fe25f29f83b8709d",
+        "type": "ui_switch",
+        "z": "37daec28.284ee4",
+        "name": "An/Aus Tolomeo Basculante Lettura",
+        "label": "An/Aus",
+        "tooltip": "",
+        "group": "ec1c4f819cdc25fd",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": "true",
+        "topic": "",
+        "topicType": "str",
+        "style": "",
+        "onvalue": "{\"state\": \"ON\"}",
+        "onvalueType": "json",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "{\"state\": \"OFF\"}",
+        "offvalueType": "json",
+        "officon": "",
+        "offcolor": "",
+        "animate": true,
+        "className": "",
+        "x": 610,
+        "y": 1880,
+        "wires": [
+            [
+                "7925a6a710f06185"
+            ]
+        ]
+    },
+    {
+        "id": "e95452d2b5178b70",
+        "type": "ui_slider",
+        "z": "37daec28.284ee4",
+        "name": "Helligkeit Tolomeo Basculante Lettura",
+        "label": "Helligkeit",
+        "tooltip": "",
+        "group": "ec1c4f819cdc25fd",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "outs": "all",
+        "topic": "",
+        "topicType": "str",
+        "min": "4",
+        "max": "254",
+        "step": "10",
+        "className": "",
+        "x": 610,
+        "y": 1920,
+        "wires": [
+            [
+                "5582ebe881e2bbef"
+            ]
+        ]
+    },
+    {
+        "id": "5582ebe881e2bbef",
+        "type": "function",
+        "z": "37daec28.284ee4",
+        "name": "brightness",
+        "func": "msg.payload = {\"brightness\": msg.payload};\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 870,
+        "y": 1920,
+        "wires": [
+            [
+                "c5c764bba2c5634b"
+            ]
+        ]
+    },
+    {
+        "id": "a4d8693e5e4113ae",
+        "type": "function",
+        "z": "37daec28.284ee4",
+        "name": "state",
+        "func": "msg.payload = {\"state\": msg.payload.state};\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 330,
+        "y": 1880,
+        "wires": [
+            [
+                "fe25f29f83b8709d"
+            ]
+        ]
+    },
+    {
+        "id": "fe9452d8b91bd237",
+        "type": "function",
+        "z": "37daec28.284ee4",
+        "name": "brightness",
+        "func": "msg.payload = msg.payload.brightness;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 350,
+        "y": 1920,
+        "wires": [
+            [
+                "e95452d2b5178b70"
+            ]
+        ]
+    },
+    {
+        "id": "8bbdb296a860acab",
+        "type": "link out",
+        "z": "37daec28.284ee4",
+        "name": "Tolomeo state & brigthness",
+        "mode": "link",
+        "links": [
+            "5f2e9f30beed284b"
+        ],
+        "x": 295,
+        "y": 2000,
+        "wires": []
+    },
+    {
+        "id": "9aa43a713a9b1028",
+        "type": "mqtt out",
+        "z": "37daec28.284ee4",
+        "name": "Tizio Standsäule",
+        "topic": "shellies/shellyplug-s-2219EE/relay/0/command",
+        "qos": "1",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "c349b9ff.9dc4c8",
+        "x": 1080,
+        "y": 1720,
+        "wires": []
+    },
+    {
+        "id": "94da1c782be8aa8d",
+        "type": "mqtt in",
+        "z": "37daec28.284ee4",
+        "name": "Tizio Standsäule",
+        "topic": "shellies/shellyplug-s-2219EE/relay/0",
+        "qos": "2",
+        "datatype": "utf8",
+        "broker": "c349b9ff.9dc4c8",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 120,
+        "y": 1720,
+        "wires": [
+            [
+                "6315b05410333da7",
+                "88a124d82c1bfa92",
+                "3faa223976b105a1"
+            ]
+        ]
+    },
+    {
+        "id": "6315b05410333da7",
+        "type": "change",
+        "z": "37daec28.284ee4",
+        "name": "save Tizio Standsäule state",
+        "rules": [
+            {
+                "t": "set",
+                "p": "state",
+                "pt": "msg",
+                "to": "payload.output ? 'on' : 'off'",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "tizio-standsäule",
+                "pt": "flow",
+                "to": "{'state': state, 'brightness': brightness}",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 400,
+        "y": 1760,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6f44eabb6a272d2b",
+        "type": "link in",
+        "z": "37daec28.284ee4",
+        "name": "Set Tizio Standsäule",
+        "links": [
+            "2433f38433bac4e5",
+            "0ef6939b6651ce92",
+            "df9db0f63359f13a"
+        ],
+        "x": 925,
+        "y": 1760,
+        "wires": [
+            [
+                "9aa43a713a9b1028"
+            ]
+        ]
+    },
+    {
+        "id": "88a124d82c1bfa92",
+        "type": "link out",
+        "z": "37daec28.284ee4",
+        "name": "Tizio Standsäule state",
+        "mode": "link",
+        "links": [
+            "086cba5cef2c1358",
+            "d9e6f3ca8e9fc365"
+        ],
+        "x": 295,
+        "y": 1800,
+        "wires": []
+    },
+    {
+        "id": "18e24a3aa31ea2fc",
+        "type": "ui_switch",
+        "z": "37daec28.284ee4",
+        "name": "An/Aus Tizio Standsäule",
+        "label": "An/Aus",
+        "tooltip": "",
+        "group": "7fd2dc4a9ee46617",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": "true",
+        "topic": "",
+        "topicType": "str",
+        "style": "",
+        "onvalue": "on",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "off",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "animate": true,
+        "className": "",
+        "x": 670,
+        "y": 1680,
+        "wires": [
+            [
+                "8f66933c6d3d372d"
+            ]
+        ]
+    },
+    {
+        "id": "5e9c71249a120fe4",
+        "type": "function",
+        "z": "37daec28.284ee4",
+        "name": "state",
+        "func": "return {payload: msg.payload.state == 'ON' ? 'on' : 'off'};\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 650,
+        "y": 480,
+        "wires": [
+            [
+                "df9db0f63359f13a"
+            ]
+        ]
+    },
+    {
+        "id": "df9db0f63359f13a",
+        "type": "link out",
+        "z": "37daec28.284ee4",
+        "name": "Scene",
+        "mode": "link",
+        "links": [
+            "6f44eabb6a272d2b"
+        ],
+        "x": 755,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "0f2dc33b75d60630",
+        "type": "function",
+        "z": "37daec28.284ee4",
+        "name": "state",
+        "func": "return {payload: msg.payload.state == 'ON' ? 'on' : 'off'};\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 650,
+        "y": 520,
+        "wires": [
+            [
+                "b8226efddc3dde41"
+            ]
+        ]
+    },
+    {
+        "id": "b8226efddc3dde41",
+        "type": "link out",
+        "z": "37daec28.284ee4",
+        "name": "Scene",
+        "mode": "link",
+        "links": [
+            "10b5f2f821fb2314"
+        ],
+        "x": 755,
+        "y": 520,
         "wires": []
     },
     {
@@ -4379,13 +4877,14 @@
         "id": "8a7888b.8497878",
         "type": "function",
         "z": "3a471104.edfbae",
-        "name": "dunkel",
+        "name": "dunkel?",
         "func": "const umgebung = global.get('umgebungslicht');\n\nif (umgebung == \"dunkel\")\n    return {payload: \"ON\"}\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 610,
+        "libs": [],
+        "x": 620,
         "y": 360,
         "wires": [
             [
@@ -4961,6 +5460,26 @@
         ]
     },
     {
+        "id": "639e1e682e138ba4",
+        "type": "comment",
+        "z": "3a471104.edfbae",
+        "name": "",
+        "info": "Alle Treppenhaus-Taster sind hier aufgeschlatet (nur die für den Keller nicht)",
+        "x": 140,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "9d59762f211b8663",
+        "type": "comment",
+        "z": "3a471104.edfbae",
+        "name": "",
+        "info": "Taster an der Kellertreppe im EG und im Keller",
+        "x": 140,
+        "y": 960,
+        "wires": []
+    },
+    {
         "id": "2f8c3777.ecafb8",
         "type": "mqtt in",
         "z": "4d90b497.b5b2ac",
@@ -5144,7 +5663,7 @@
         "id": "b56cd25f.124c9",
         "type": "ui_gauge",
         "z": "4d90b497.b5b2ac",
-        "name": "Waschküche Luftfeuchtigkeit",
+        "name": "",
         "group": "7e092ea0.4f2d9",
         "order": 1,
         "width": 0,
@@ -5164,7 +5683,7 @@
         "seg2": "65",
         "diff": false,
         "className": "",
-        "x": 620,
+        "x": 580,
         "y": 200,
         "wires": []
     },
@@ -5313,7 +5832,7 @@
         "type": "function",
         "z": "4d90b497.b5b2ac",
         "name": "fan controller",
-        "func": "const outside_abs_humidity = global.get(\"aussen-absolute_humidity\");\nconst wk_temperature = global.get(\"waschkueche_luefter-temperature\");\nconst wk_humidity = global.get(\"waschkueche_luefter-humidity\");\nconst wk_abs_humidity = global.get(\"waschkueche_luefter-absolute_humidity\");\n\nconst washroom_fan_control = flow.get(\"washroom_fan_control\");\nconst last_abs_humidity_gt_outside_abs_humidity = global.get(\"washroom-last_abs_humidity_gt_outside_abs_humidity\");\n\nconst room_abs_humidity_gt_outside_abs_humidity = (last_abs_humidity_gt_outside_abs_humidity) ?\n    wk_abs_humidity > outside_abs_humidity * 1.15 :\n    wk_abs_humidity > outside_abs_humidity * 1.20 ;\n\nglobal.set(\"washroom-last_abs_humidity_gt_outside_abs_humidity\", wk_abs_humidity > outside_abs_humidity);\n\nvar washroom_fan_on;\nif (washroom_fan_control == \"ON\") {\n    if (room_abs_humidity_gt_outside_abs_humidity) {\n        if (wk_humidity > 45 && wk_temperature > 13) {\n            washroom_fan_on = \"ON\";\n        } else {\n            washroom_fan_on = \"OFF\";\n        }\n    } else {\n        washroom_fan_on = \"OFF\";\n    }\n} else {\n    washroom_fan_on = undefined;\n}\n\nmsg = [\n    (washroom_fan_on) ? {topic: \"luefter_sw\", payload: washroom_fan_on} : undefined,\n    {topic: \"Debug\", payload: {\n            outside_abs_humidity: outside_abs_humidity,\n            wk_temperature: wk_temperature,\n            wk_humidity: wk_humidity,\n            wk_abs_humidity: wk_abs_humidity,\n            washroom_fan_on: washroom_fan_on,\n            washroom_fan_control: washroom_fan_control,\n            last_abs_humidity_gt_outside_abs_humidity: last_abs_humidity_gt_outside_abs_humidity\n    }   }\n];\n\nreturn msg;",
+        "func": "const outside_abs_humidity = global.get(\"aussen-absolute_humidity\");\nconst wk_temperature = global.get(\"waschkueche_luefter-temperature\");\nconst wk_humidity = global.get(\"waschkueche_luefter-humidity\");\nconst wk_abs_humidity = global.get(\"waschkueche_luefter-absolute_humidity\");\n\nconst washroom_fan_control = flow.get(\"washroom_fan_control\");\nconst last_abs_humidity_gt_outside_abs_humidity = global.get(\"washroom-last_abs_humidity_gt_outside_abs_humidity\");\n\nconst room_abs_humidity_gt_outside_abs_humidity = (last_abs_humidity_gt_outside_abs_humidity) ?\n    wk_abs_humidity > outside_abs_humidity * 1.30 :\n    wk_abs_humidity > outside_abs_humidity * 1.35 ;\n\nglobal.set(\"washroom-last_abs_humidity_gt_outside_abs_humidity\", wk_abs_humidity > outside_abs_humidity);\n\nvar washroom_fan_on;\nif (washroom_fan_control == \"ON\") {\n    if (room_abs_humidity_gt_outside_abs_humidity) {\n        if (wk_humidity > 45 && wk_temperature > 15) {\n            washroom_fan_on = \"ON\";\n        } else {\n            washroom_fan_on = \"OFF\";\n        }\n    } else {\n        washroom_fan_on = \"OFF\";\n    }\n} else {\n    washroom_fan_on = undefined;\n}\n\nmsg = [\n    (washroom_fan_on) ? {topic: \"luefter_sw\", payload: washroom_fan_on} : undefined,\n    {topic: \"Debug\", payload: {\n            outside_abs_humidity: outside_abs_humidity,\n            wk_temperature: wk_temperature,\n            wk_humidity: wk_humidity,\n            wk_abs_humidity: wk_abs_humidity,\n            washroom_fan_on: washroom_fan_on,\n            washroom_fan_control: washroom_fan_control,\n            last_abs_humidity_gt_outside_abs_humidity: last_abs_humidity_gt_outside_abs_humidity\n    }   }\n];\n\nreturn msg;",
         "outputs": 2,
         "noerr": 0,
         "initialize": "",
@@ -5893,14 +6412,14 @@
         "id": "dea653c362b0f5af",
         "type": "ui_gauge",
         "z": "4d90b497.b5b2ac",
-        "name": "Waschküche Luftfeuchtigkeit",
+        "name": "",
         "group": "7e092ea0.4f2d9",
         "order": 1,
         "width": 0,
         "height": 0,
         "gtype": "gage",
         "title": "Temperatur",
-        "label": "°",
+        "label": "° Celsius",
         "format": "{{value}}",
         "min": "5",
         "max": "25",
@@ -5913,7 +6432,7 @@
         "seg2": "20",
         "diff": false,
         "className": "",
-        "x": 620,
+        "x": 570,
         "y": 280,
         "wires": []
     },
@@ -7336,20 +7855,20 @@
         "id": "a29449a0.411b18",
         "type": "inject",
         "z": "2f328ad8.26ca86",
-        "name": "Every 5s",
+        "name": "Every 60s",
         "props": [
             {
                 "p": "payload"
             }
         ],
-        "repeat": "5",
+        "repeat": "60",
         "crontab": "",
         "once": true,
-        "onceDelay": "5",
+        "onceDelay": "30",
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 220,
+        "x": 230,
         "y": 80,
         "wires": [
             [
@@ -7477,8 +7996,8 @@
         "y": 560,
         "wires": [
             [
-                "9e8d969fa2e830fa",
-                "6238d883.2f3dd8"
+                "6238d883.2f3dd8",
+                "9e8d969fa2e830fa"
             ]
         ]
     },
@@ -7736,21 +8255,6 @@
         ]
     },
     {
-        "id": "9e8d969fa2e830fa",
-        "type": "debounce",
-        "z": "2f328ad8.26ca86",
-        "d": true,
-        "time": "2000",
-        "name": "",
-        "x": 460,
-        "y": 500,
-        "wires": [
-            [
-                "6238d883.2f3dd8"
-            ]
-        ]
-    },
-    {
         "id": "db817f6714d2a95f",
         "type": "function",
         "z": "2f328ad8.26ca86",
@@ -7970,6 +8474,21 @@
         "x": 1100,
         "y": 500,
         "wires": []
+    },
+    {
+        "id": "9e8d969fa2e830fa",
+        "type": "debounce",
+        "z": "2f328ad8.26ca86",
+        "d": true,
+        "time": "2000",
+        "name": "",
+        "x": 460,
+        "y": 500,
+        "wires": [
+            [
+                "6238d883.2f3dd8"
+            ]
+        ]
     },
     {
         "id": "7b56cfeb.46625",
@@ -14427,7 +14946,7 @@
         "type": "ui_text",
         "z": "cd1e0b0c87b3c825",
         "group": "b6281cf3b645a6ba",
-        "order": 6,
+        "order": 1,
         "width": "6",
         "height": "6",
         "name": "Log",
@@ -14474,72 +14993,124 @@
         "y": 300,
         "wires": [
             [
-                "7511140e9ea85182",
-                "fede9e2e63d21f2f"
+                "7511140e9ea85182"
             ]
         ]
     },
     {
-        "id": "fede9e2e63d21f2f",
-        "type": "debug",
+        "id": "64f4137349dd9219",
+        "type": "ui_button",
         "z": "cd1e0b0c87b3c825",
-        "name": "debug 12",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 800,
-        "y": 340,
-        "wires": []
+        "name": "",
+        "group": "b6281cf3b645a6ba",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Aus Liste löschen",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 830,
+        "y": 380,
+        "wires": [
+            [
+                "34c0342994be6440"
+            ]
+        ]
     },
     {
-        "id": "73e0a831a08f80f4",
-        "type": "function",
+        "id": "79573436b9520403",
+        "type": "ui_text_input",
         "z": "cd1e0b0c87b3c825",
-        "d": true,
-        "name": "function 1",
-        "func": "const devices = flow.get('devices') || {};\n\ndelete devices.fernbedienung_bad_dg;\n\nflow.set('devices', devices);\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 320,
-        "y": 500,
+        "name": "",
+        "label": "Gerätename",
+        "tooltip": "",
+        "group": "b6281cf3b645a6ba",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "mode": "text",
+        "delay": 300,
+        "topic": "topic",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "msg",
+        "x": 810,
+        "y": 340,
+        "wires": [
+            [
+                "93ccfa92508f5e1f"
+            ]
+        ]
+    },
+    {
+        "id": "93ccfa92508f5e1f",
+        "type": "change",
+        "z": "cd1e0b0c87b3c825",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "delete_from_seen_devices",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1060,
+        "y": 340,
         "wires": [
             []
         ]
     },
     {
-        "id": "505856e4ec3dce9a",
-        "type": "inject",
+        "id": "34c0342994be6440",
+        "type": "function",
         "z": "cd1e0b0c87b3c825",
-        "d": true,
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 120,
-        "y": 500,
+        "name": "function 34",
+        "func": "const devices = flow.get('devices');\nconst delete_from_seen_devices = flow.get('delete_from_seen_devices');\ndelete devices[delete_from_seen_devices];\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1030,
+        "y": 380,
         "wires": [
             [
-                "73e0a831a08f80f4"
+                "fc981677cf6642bf"
+            ]
+        ]
+    },
+    {
+        "id": "6fbe191dd2093f9d",
+        "type": "function",
+        "z": "cd1e0b0c87b3c825",
+        "name": "clear data",
+        "func": "return({payload: ''});\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 640,
+        "y": 340,
+        "wires": [
+            [
+                "79573436b9520403"
             ]
         ]
     },
@@ -14572,7 +15143,7 @@
         "order": 0,
         "width": 0,
         "height": 0,
-        "passthru": true,
+        "passthru": false,
         "decouple": "false",
         "topic": "topic",
         "topicType": "msg",
@@ -14606,16 +15177,14 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 460,
+        "x": 640,
         "y": 300,
         "wires": [
             [
-                "e4832408d8bc234f",
-                "ef552f4dd741bd8d"
+                "0354035ff2531b1d"
             ],
             [
-                "6724acbb962f4ea2",
-                "62cecfa53a2c877e"
+                "37d188186ea7cf74"
             ]
         ]
     },
@@ -14630,7 +15199,7 @@
         "order": 0,
         "width": 0,
         "height": 0,
-        "passthru": true,
+        "passthru": false,
         "decouple": "false",
         "topic": "topic",
         "topicType": "msg",
@@ -14672,38 +15241,6 @@
         "wires": []
     },
     {
-        "id": "ef552f4dd741bd8d",
-        "type": "debug",
-        "z": "7518cde088588ebe",
-        "name": "debug 13",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 700,
-        "y": 280,
-        "wires": []
-    },
-    {
-        "id": "62cecfa53a2c877e",
-        "type": "debug",
-        "z": "7518cde088588ebe",
-        "name": "debug 14",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 700,
-        "y": 320,
-        "wires": []
-    },
-    {
         "id": "8dd66c9be3547aa2",
         "type": "link in",
         "z": "7518cde088588ebe",
@@ -14711,7 +15248,7 @@
         "links": [
             "4d932a70ca858354"
         ],
-        "x": 315,
+        "x": 495,
         "y": 300,
         "wires": [
             [
@@ -15041,7 +15578,9 @@
         "mode": "link",
         "links": [
             "ccb51c58de1b3ee4",
-            "1631c8b0516d3d18"
+            "1631c8b0516d3d18",
+            "3158fabb72429a4d",
+            "6f44eabb6a272d2b"
         ],
         "x": 885,
         "y": 120,
@@ -15165,7 +15704,7 @@
         "filterTopic": false,
         "plan": "free",
         "x": 430,
-        "y": 360,
+        "y": 420,
         "wires": [
             [
                 "8f26a45044793c96"
@@ -15184,7 +15723,7 @@
         "finalize": "",
         "libs": [],
         "x": 760,
-        "y": 360,
+        "y": 420,
         "wires": [
             [
                 "060501f15b873814"
@@ -15201,7 +15740,7 @@
             "c6ba0a745f4a0cac"
         ],
         "x": 915,
-        "y": 440,
+        "y": 500,
         "wires": []
     },
     {
@@ -15219,7 +15758,7 @@
         "filterTopic": false,
         "plan": "free",
         "x": 420,
-        "y": 400,
+        "y": 460,
         "wires": [
             [
                 "ece9ac680bb8e01f"
@@ -15241,7 +15780,7 @@
         "filterTopic": false,
         "plan": "free",
         "x": 430,
-        "y": 440,
+        "y": 500,
         "wires": [
             [
                 "46b2311575ac9336"
@@ -15263,7 +15802,7 @@
         "filterTopic": false,
         "plan": "free",
         "x": 440,
-        "y": 480,
+        "y": 540,
         "wires": [
             [
                 "56ed89f4d0ce8cdd"
@@ -15285,7 +15824,7 @@
         "filterTopic": false,
         "plan": "free",
         "x": 410,
-        "y": 520,
+        "y": 580,
         "wires": [
             [
                 "02a579ca16743c65"
@@ -15304,7 +15843,7 @@
         "finalize": "",
         "libs": [],
         "x": 760,
-        "y": 400,
+        "y": 460,
         "wires": [
             [
                 "060501f15b873814"
@@ -15323,7 +15862,7 @@
         "finalize": "",
         "libs": [],
         "x": 760,
-        "y": 440,
+        "y": 500,
         "wires": [
             [
                 "060501f15b873814"
@@ -15342,7 +15881,7 @@
         "finalize": "",
         "libs": [],
         "x": 760,
-        "y": 480,
+        "y": 540,
         "wires": [
             [
                 "060501f15b873814"
@@ -15361,7 +15900,7 @@
         "finalize": "",
         "libs": [],
         "x": 760,
-        "y": 520,
+        "y": 580,
         "wires": [
             [
                 "060501f15b873814"
@@ -15666,7 +16205,7 @@
         "filterTopic": false,
         "plan": "free",
         "x": 430,
-        "y": 160,
+        "y": 200,
         "wires": [
             [
                 "4d145d5230f59df9"
@@ -15683,7 +16222,7 @@
             "4bbc2b23.ee06a4"
         ],
         "x": 885,
-        "y": 160,
+        "y": 200,
         "wires": []
     },
     {
@@ -15698,7 +16237,7 @@
         "finalize": "",
         "libs": [],
         "x": 770,
-        "y": 160,
+        "y": 200,
         "wires": [
             [
                 "f854ab23be90c932"
@@ -15720,7 +16259,7 @@
         "filterTopic": false,
         "plan": "free",
         "x": 450,
-        "y": 200,
+        "y": 240,
         "wires": [
             [
                 "01144cded3da1e48"
@@ -15738,7 +16277,7 @@
             "e30a134d.f410a"
         ],
         "x": 885,
-        "y": 200,
+        "y": 240,
         "wires": []
     },
     {
@@ -15753,7 +16292,7 @@
         "finalize": "",
         "libs": [],
         "x": 770,
-        "y": 200,
+        "y": 240,
         "wires": [
             [
                 "73ac73c881c9adfd"
@@ -15775,7 +16314,7 @@
         "filterTopic": false,
         "plan": "free",
         "x": 410,
-        "y": 240,
+        "y": 280,
         "wires": [
             [
                 "01ae7ad4c4849d4e"
@@ -15792,7 +16331,7 @@
             "6637cc7f.54ff74"
         ],
         "x": 885,
-        "y": 240,
+        "y": 280,
         "wires": []
     },
     {
@@ -15807,7 +16346,7 @@
         "finalize": "",
         "libs": [],
         "x": 770,
-        "y": 240,
+        "y": 280,
         "wires": [
             [
                 "19bb7ceb9cdb5b49"
@@ -16508,7 +17047,9 @@
         "z": "039a8ad4ab697fb3",
         "name": "Tizio ",
         "links": [
-            "5b39c5f2114ceeec"
+            "5b39c5f2114ceeec",
+            "0ed63df895988561",
+            "88a124d82c1bfa92"
         ],
         "x": 125,
         "y": 120,
@@ -16546,7 +17087,7 @@
             "cff872e789db0734"
         ],
         "x": 125,
-        "y": 160,
+        "y": 200,
         "wires": [
             [
                 "e156398f892eddf4"
@@ -16565,7 +17106,7 @@
         "finalize": "",
         "libs": [],
         "x": 250,
-        "y": 160,
+        "y": 200,
         "wires": [
             [
                 "a8e198ab481e6662"
@@ -16581,7 +17122,7 @@
             "922ccac0c7046219"
         ],
         "x": 125,
-        "y": 200,
+        "y": 240,
         "wires": [
             [
                 "6a41ecd96feed5af"
@@ -16600,7 +17141,7 @@
         "finalize": "",
         "libs": [],
         "x": 250,
-        "y": 200,
+        "y": 240,
         "wires": [
             [
                 "22cd1de9fa65b79c"
@@ -16616,7 +17157,7 @@
             "418f4f02f0ac1e08"
         ],
         "x": 125,
-        "y": 240,
+        "y": 280,
         "wires": [
             [
                 "1399c9856121fe6b"
@@ -16635,7 +17176,7 @@
         "finalize": "",
         "libs": [],
         "x": 250,
-        "y": 240,
+        "y": 280,
         "wires": [
             [
                 "f4989606f2db428d"
@@ -16657,7 +17198,7 @@
         "filterTopic": false,
         "plan": "free",
         "x": 420,
-        "y": 280,
+        "y": 320,
         "wires": [
             [
                 "888c59c1128e972b"
@@ -16675,7 +17216,7 @@
             "e5d97c3.d1d738"
         ],
         "x": 885,
-        "y": 280,
+        "y": 320,
         "wires": []
     },
     {
@@ -16690,7 +17231,7 @@
         "finalize": "",
         "libs": [],
         "x": 770,
-        "y": 280,
+        "y": 320,
         "wires": [
             [
                 "f7443f20a538ebdd"
@@ -16706,7 +17247,7 @@
             "49386ad2cbcb1f8f"
         ],
         "x": 125,
-        "y": 280,
+        "y": 320,
         "wires": [
             [
                 "26026b6957d53499"
@@ -16725,7 +17266,7 @@
         "finalize": "",
         "libs": [],
         "x": 250,
-        "y": 280,
+        "y": 320,
         "wires": [
             [
                 "c3a62fe6268dc0be"
@@ -16850,6 +17391,206 @@
         "wires": [
             [
                 "f7969a04832b9de0"
+            ]
+        ]
+    },
+    {
+        "id": "81ae9e3cf87ff918",
+        "type": "vsh-virtual-device",
+        "z": "039a8ad4ab697fb3",
+        "name": "Tolomeo ",
+        "topic": "",
+        "connection": "b425927fca74a6a7",
+        "template": "DIMMABLE_LIGHT_BULB",
+        "retrievable": true,
+        "passthrough": false,
+        "diff": false,
+        "filter": false,
+        "filterTopic": false,
+        "plan": "free",
+        "x": 420,
+        "y": 360,
+        "wires": [
+            [
+                "599cf42073808434"
+            ]
+        ]
+    },
+    {
+        "id": "cf216420654a94ca",
+        "type": "link out",
+        "z": "039a8ad4ab697fb3",
+        "name": "Tolomeo ",
+        "mode": "link",
+        "links": [
+            "e5d97c3.d1d738",
+            "10b5f2f821fb2314"
+        ],
+        "x": 885,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "599cf42073808434",
+        "type": "function",
+        "z": "039a8ad4ab697fb3",
+        "name": "function 35",
+        "func": "return {\n    payload: {\n        state: msg.payload.powerState,\n        brightness: msg.payload.brightness / 100.0 * 255.0\n    }\n};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 770,
+        "y": 360,
+        "wires": [
+            [
+                "cf216420654a94ca"
+            ]
+        ]
+    },
+    {
+        "id": "5f2e9f30beed284b",
+        "type": "link in",
+        "z": "039a8ad4ab697fb3",
+        "name": "Tolomeo ",
+        "links": [
+            "49386ad2cbcb1f8f",
+            "8bbdb296a860acab"
+        ],
+        "x": 125,
+        "y": 360,
+        "wires": [
+            [
+                "32de37f24c07ec7a"
+            ]
+        ]
+    },
+    {
+        "id": "32de37f24c07ec7a",
+        "type": "function",
+        "z": "039a8ad4ab697fb3",
+        "name": "function 36",
+        "func": "const payload = {};\nif (msg.payload.state) {\n    payload.powerState = msg.payload.state;\n};\nif (msg.payload.brightness) {\n    payload.brightness = parseInt(msg.payload.brightness / 255.0 * 100);\n};\nreturn { payload };\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 250,
+        "y": 360,
+        "wires": [
+            [
+                "81ae9e3cf87ff918"
+            ]
+        ]
+    },
+    {
+        "id": "5e24b6f05b806f22",
+        "type": "vsh-virtual-device",
+        "z": "039a8ad4ab697fb3",
+        "name": "Tizio Standsäule",
+        "topic": "",
+        "connection": "b425927fca74a6a7",
+        "template": "SWITCH",
+        "retrievable": true,
+        "passthrough": false,
+        "diff": false,
+        "filter": false,
+        "filterTopic": false,
+        "plan": "free",
+        "x": 580,
+        "y": 160,
+        "wires": [
+            [
+                "11882b3ded06f3ae"
+            ]
+        ]
+    },
+    {
+        "id": "0ef6939b6651ce92",
+        "type": "link out",
+        "z": "039a8ad4ab697fb3",
+        "name": "Tizio",
+        "mode": "link",
+        "links": [
+            "6f44eabb6a272d2b"
+        ],
+        "x": 885,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "11882b3ded06f3ae",
+        "type": "function",
+        "z": "039a8ad4ab697fb3",
+        "name": "function 37",
+        "func": "return {payload: msg.payload.powerState == `ON` ? `on` : `off`};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 760,
+        "y": 160,
+        "wires": [
+            [
+                "0ef6939b6651ce92"
+            ]
+        ]
+    },
+    {
+        "id": "d9e6f3ca8e9fc365",
+        "type": "link in",
+        "z": "039a8ad4ab697fb3",
+        "name": "Tizio ",
+        "links": [
+            "88a124d82c1bfa92"
+        ],
+        "x": 125,
+        "y": 160,
+        "wires": [
+            [
+                "dbd0181e7019cb34"
+            ]
+        ]
+    },
+    {
+        "id": "dbd0181e7019cb34",
+        "type": "function",
+        "z": "039a8ad4ab697fb3",
+        "name": "function 38",
+        "func": "return { payload: { powerState: msg.payload.output ? 'ON' : 'OFF' }};\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 250,
+        "y": 160,
+        "wires": [
+            [
+                "5cbc84c0d02568de"
+            ]
+        ]
+    },
+    {
+        "id": "5cbc84c0d02568de",
+        "type": "rbe",
+        "z": "039a8ad4ab697fb3",
+        "name": "",
+        "func": "rbe",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "septopics": true,
+        "property": "payload",
+        "topi": "topic",
+        "x": 410,
+        "y": 160,
+        "wires": [
+            [
+                "5e24b6f05b806f22"
             ]
         ]
     }
