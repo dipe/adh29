@@ -141,6 +141,14 @@
         "env": []
     },
     {
+        "id": "68fa2cc37e97fc23",
+        "type": "tab",
+        "label": "Büro DG",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "5212abebc2a62f0b",
         "type": "junction",
         "z": "2ba29887.9266e8",
@@ -270,6 +278,25 @@
         "wires": [
             [
                 "9aa43a713a9b1028"
+            ]
+        ]
+    },
+    {
+        "id": "52c9a545070804da",
+        "type": "junction",
+        "z": "68fa2cc37e97fc23",
+        "x": 140,
+        "y": 180,
+        "wires": [
+            [
+                "0a854737a7a864fa",
+                "34a740e3943c3931",
+                "bd3c43b4230d5784",
+                "2b031eee6e0adb99",
+                "5b3107b181d72a8c",
+                "3aededb277467e1d",
+                "b0bb85f8cfb08f5c",
+                "6538b49e7f341b28"
             ]
         ]
     },
@@ -597,7 +624,7 @@
         "type": "ui_tab",
         "name": "Lüftungsempfehlungen",
         "icon": "dashboard",
-        "order": 15,
+        "order": 16,
         "disabled": false,
         "hidden": false
     },
@@ -983,6 +1010,26 @@
         "height": "1"
     },
     {
+        "id": "482f6aac9d63d29c",
+        "type": "ui_tab",
+        "name": "Büro DG",
+        "icon": "dashboard",
+        "order": 15,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "2a035fef893e8cd2",
+        "type": "ui_group",
+        "name": "Group 1",
+        "tab": "482f6aac9d63d29c",
+        "order": 1,
+        "disp": false,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
         "id": "930e92a7.3f378",
         "type": "mqtt in",
         "z": "37daec28.284ee4",
@@ -998,8 +1045,7 @@
         "y": 180,
         "wires": [
             [
-                "5bd1bdfd.b90a34",
-                "3fb99550d3adcdae"
+                "5bd1bdfd.b90a34"
             ]
         ]
     },
@@ -1019,8 +1065,7 @@
         "y": 220,
         "wires": [
             [
-                "c018a260.a19a4",
-                "3fb99550d3adcdae"
+                "c018a260.a19a4"
             ]
         ]
     },
@@ -1076,7 +1121,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 8,
-        "x": 450,
+        "x": 430,
         "y": 360,
         "wires": [
             [],
@@ -1095,9 +1140,11 @@
             [
                 "8bdbacff7bbffaf0"
             ],
-            [],
             [
-                "0f2dc33b75d60630"
+                "5e9c71249a120fe4"
+            ],
+            [
+                "b8226efddc3dde41"
             ]
         ]
     },
@@ -1164,8 +1211,10 @@
         "z": "37daec28.284ee4",
         "name": "",
         "mode": "link",
-        "links": [],
-        "x": 615,
+        "links": [
+            "6637cc7f.54ff74"
+        ],
+        "x": 575,
         "y": 280,
         "wires": []
     },
@@ -1175,9 +1224,10 @@
         "z": "37daec28.284ee4",
         "name": "",
         "links": [
-            "a14232cb.a4256"
+            "a14232cb.a4256",
+            "e30a134d.f410a"
         ],
-        "x": 615,
+        "x": 575,
         "y": 320,
         "wires": []
     },
@@ -1187,8 +1237,10 @@
         "z": "37daec28.284ee4",
         "name": "",
         "mode": "link",
-        "links": [],
-        "x": 615,
+        "links": [
+            "4bbc2b23.ee06a4"
+        ],
+        "x": 575,
         "y": 360,
         "wires": []
     },
@@ -1198,9 +1250,10 @@
         "z": "37daec28.284ee4",
         "name": "",
         "links": [
-            "cd111146.3d5c4"
+            "cd111146.3d5c4",
+            "e5d97c3.d1d738"
         ],
-        "x": 615,
+        "x": 575,
         "y": 400,
         "wires": []
     },
@@ -1424,7 +1477,8 @@
         "z": "37daec28.284ee4",
         "name": "Set Klavierlampe",
         "links": [
-            "f854ab23be90c932"
+            "f854ab23be90c932",
+            "773f6fe1.26d11"
         ],
         "x": 925,
         "y": 1180,
@@ -1441,7 +1495,7 @@
         "name": "Set Leuchter",
         "links": [
             "f7443f20a538ebdd",
-            "cf216420654a94ca"
+            "d0971035.fd6cc"
         ],
         "x": 925,
         "y": 1380,
@@ -1457,7 +1511,8 @@
         "z": "37daec28.284ee4",
         "name": "Set Fensterbank",
         "links": [
-            "73ac73c881c9adfd"
+            "73ac73c881c9adfd",
+            "bd4f1b1d.c1d598"
         ],
         "x": 925,
         "y": 980,
@@ -1473,7 +1528,8 @@
         "z": "37daec28.284ee4",
         "name": "Tiffany MQTT",
         "links": [
-            "19bb7ceb9cdb5b49"
+            "19bb7ceb9cdb5b49",
+            "3a3f3f29.1be49"
         ],
         "x": 925,
         "y": 760,
@@ -1989,7 +2045,7 @@
         "offcolor": "",
         "animate": true,
         "className": "",
-        "x": 580,
+        "x": 600,
         "y": 1300,
         "wires": [
             [
@@ -2016,7 +2072,7 @@
         "max": "254",
         "step": "10",
         "className": "",
-        "x": 580,
+        "x": 600,
         "y": 1340,
         "wires": [
             [
@@ -2097,7 +2153,7 @@
         "type": "function",
         "z": "37daec28.284ee4",
         "name": "initialize Scenes",
-        "func": "flow.set(\"current_scene_idx\", 0)\nflow.set(\"max_scene_idx\", 5)\nflow.set(\"scenes\", [\n        {   scene_idx: 0,\n            scene_name: \"aus\",\n            devices: [\n                {   device_idx: 1,\n                    name: \"Tiffany\",\n                    state: \"OFF\"\n                },\n                {   device_idx: 2,\n                    name: \"Fensterbank\",\n                    state: \"OFF\"\n                },\n                {   device_idx: 3,\n                    name: \"Klavierlampe\",\n                    state: \"OFF\"\n                },\n                {   device_idx: 4,\n                    name: \"Leuchter\",\n                    state: \"OFF\"\n                },\n                {\n                    device_idx: 5,\n                    name: \"Tizo\",\n                    state: \"OFF\"\n                },\n                {\n                    device_idx: 6,\n                    name: \"Tizo Standsäule\",\n                    state: \"OFF\"\n                },\n                {\n                    device_idx: 7,\n                    name: \"Tolomeo \",\n                    state: \"OFF\"\n                }\n            ]\n        },\n        {   scene_idx: 1,\n            scene_name: \"ambiente\",\n            devices: [\n                {   device_idx: 1,\n                    name: \"Tiffany\",\n                    brightness: 70,\n                    state: \"ON\"\n                },\n                {   device_idx: 2,\n                    name: \"Fensterbank\",\n                    brightness: 70,\n                    state: \"ON\"\n                },\n                {   device_idx: 3,\n                    name: \"Klavierlampe\",\n                    state: \"ON\"\n                },\n                {   device_idx: 4,\n                    name: \"Leuchter\",\n                    state: \"OFF\"\n                },\n                {   device_idx: 5,\n                    name: \"Tizio\",\n                    state: \"OFF\"\n                },\n                {\n                    device_idx: 6,\n                    name: \"Tizo Standsäule\",\n                    state: \"OFF\"\n                },\n                {\n                    device_idx: 7,\n                    name: \"Tolomeo \",\n                    state: \"OFF\"\n                }\n            ]\n        },\n        {   scene_idx: 2,\n            scene_name: \"cosy\",\n            devices: [\n                {   device_idx: 1,\n                    name: \"Tiffany\",\n                    brightness: 150,\n                    state: \"ON\"\n                },\n                {   device_idx: 2,\n                    name: \"Fensterbank\",\n                    brightness: 150,\n                    state: \"ON\"\n                },\n                {   device_idx: 3,\n                    name: \"Klavierlampe\",\n                    state: \"ON\"\n                },\n                {   device_idx: 4,\n                    name: \"Leuchter\",\n                    state: \"OFF\"\n                },\n                {   device_idx: 5,\n                    name: \"Tizio\",\n                    state: \"ON\"\n                },\n                {\n                    device_idx: 6,\n                    name: \"Tizo Standsäule\",\n                    state: \"ON\"\n                },\n                {\n                    device_idx: 7,\n                    name: \"Tolomeo \",\n                    brightness: 150,\n                    state: \"ON\"\n                }\n            ]\n        },\n        {   scene_idx: 3,\n            scene_name: \"sofa_read\",\n            devices: [\n                {   device_idx: 1,\n                    name: \"Tiffany\",\n                    brightness: 100,\n                    state: \"ON\"\n                },\n                {   device_idx: 2,\n                    name: \"Fensterbank\",\n                    brightness: 255,\n                    state: \"ON\"\n                },\n                {   device_idx: 3,\n                    name: \"Klavierlampe\",\n                    state: \"ON\"\n                },\n                {   device_idx: 4,\n                    name: \"Leuchter\",\n                    state: \"OFF\"\n                },\n                {\n                    device_idx: 5,\n                    name: \"Tizio\",\n                    state: \"ON\"\n                },\n                {\n                    device_idx: 6,\n                    name: \"Tizo Standsäule\",\n                    state: \"ON\"\n                },\n                {\n                    device_idx: 7,\n                    name: \"Tolomeo \",\n                    brightness: 170,\n                    state: \"ON\"\n                }\n            ]\n        },\n      {   scene_idx: 4,\n            scene_name: \"bright\",\n            devices: [\n                {   device_idx: 1,\n                    name: \"Tiffany\",\n                    brightness: 255,\n                    state: \"ON\"\n                },\n                {   device_idx: 2,\n                    name: \"Fensterbank\",\n                    brightness: 255,\n                    state: \"ON\"\n                },\n                {   device_idx: 3,\n                    name: \"Klavierlampe\",\n                    state: \"ON\"\n                },\n                {   device_idx: 4,\n                    name: \"Leuchter\",\n                    brightness: 255,\n                    state: \"ON\"\n                },\n                {\n                    device_idx: 5,\n                    name: \"Tizio\",\n                    state: \"ON\"\n                },\n                {\n                    device_idx: 6,\n                    name: \"Tizo Standsäule\",\n                    state: \"ON\"\n                },\n                {\n                    device_idx: 7,\n                    name: \"Tolomeo \",\n                    brightness: 255,\n                    state: \"ON\"\n                }\n            ]\n        }\n    ]\n)\n\nreturn {payload: 0};",
+        "func": "flow.set(\"current_scene_idx\", 0)\nflow.set(\"max_scene_idx\", 5)\nflow.set(\"scenes\", [\n        {   scene_idx: 0,\n            scene_name: \"aus\",\n            devices: [\n                {   device_idx: 1,\n                    name: \"Tiffany\",\n                    state: \"OFF\"\n                },\n                {   device_idx: 2,\n                    name: \"Fensterbank\",\n                    state: \"OFF\"\n                },\n                {   device_idx: 3,\n                    name: \"Klavierlampe\",\n                    state: \"OFF\"\n                },\n                {   device_idx: 4,\n                    name: \"Leuchter\",\n                    state: \"OFF\"\n                },\n                {\n                    device_idx: 5,\n                    name: \"Tizo\",\n                    state: \"OFF\"\n                },\n                {\n                    device_idx: 6,\n                    name: \"Tizo Standsäule\",\n                    state: \"OFF\"\n                },\n                {\n                    device_idx: 7,\n                    name: \"Tolomeo \",\n                    state: \"OFF\"\n                }\n            ]\n        },\n        {   scene_idx: 1,\n            scene_name: \"ambiente\",\n            devices: [\n                {   device_idx: 1,\n                    name: \"Tiffany\",\n                    brightness: 70,\n                    state: \"ON\"\n                },\n                {   device_idx: 2,\n                    name: \"Fensterbank\",\n                    brightness: 70,\n                    state: \"ON\"\n                },\n                {   device_idx: 3,\n                    name: \"Klavierlampe\",\n                    state: \"ON\"\n                },\n                {   device_idx: 4,\n                    name: \"Leuchter\",\n                    state: \"OFF\"\n                },\n                {   device_idx: 5,\n                    name: \"Tizio\",\n                    state: \"OFF\"\n                },\n                {\n                    device_idx: 6,\n                    name: \"Tizo Standsäule\",\n                    state: \"OFF\"\n                },\n                {\n                    device_idx: 7,\n                    name: \"Tolomeo \",\n                    brightness: 30,\n                    state: \"ON\"\n                }\n            ]\n        },\n        {   scene_idx: 2,\n            scene_name: \"cosy\",\n            devices: [\n                {   device_idx: 1,\n                    name: \"Tiffany\",\n                    brightness: 150,\n                    state: \"ON\"\n                },\n                {   device_idx: 2,\n                    name: \"Fensterbank\",\n                    brightness: 150,\n                    state: \"ON\"\n                },\n                {   device_idx: 3,\n                    name: \"Klavierlampe\",\n                    state: \"ON\"\n                },\n                {   device_idx: 4,\n                    name: \"Leuchter\",\n                    state: \"OFF\"\n                },\n                {   device_idx: 5,\n                    name: \"Tizio\",\n                    state: \"ON\"\n                },\n                {\n                    device_idx: 6,\n                    name: \"Tizo Standsäule\",\n                    state: \"ON\"\n                },\n                {\n                    device_idx: 7,\n                    name: \"Tolomeo \",\n                    brightness: 60,\n                    state: \"ON\"\n                }\n            ]\n        },\n        {   scene_idx: 3,\n            scene_name: \"sofa_read\",\n            devices: [\n                {   device_idx: 1,\n                    name: \"Tiffany\",\n                    brightness: 100,\n                    state: \"ON\"\n                },\n                {   device_idx: 2,\n                    name: \"Fensterbank\",\n                    brightness: 255,\n                    state: \"ON\"\n                },\n                {   device_idx: 3,\n                    name: \"Klavierlampe\",\n                    state: \"ON\"\n                },\n                {   device_idx: 4,\n                    name: \"Leuchter\",\n                    state: \"OFF\"\n                },\n                {\n                    device_idx: 5,\n                    name: \"Tizio\",\n                    state: \"ON\"\n                },\n                {\n                    device_idx: 6,\n                    name: \"Tizo Standsäule\",\n                    state: \"ON\"\n                },\n                {\n                    device_idx: 7,\n                    name: \"Tolomeo \",\n                    brightness: 100,\n                    state: \"ON\"\n                }\n            ]\n        },\n      {   scene_idx: 4,\n            scene_name: \"bright\",\n            devices: [\n                {   device_idx: 1,\n                    name: \"Tiffany\",\n                    brightness: 255,\n                    state: \"ON\"\n                },\n                {   device_idx: 2,\n                    name: \"Fensterbank\",\n                    brightness: 255,\n                    state: \"ON\"\n                },\n                {   device_idx: 3,\n                    name: \"Klavierlampe\",\n                    state: \"ON\"\n                },\n                {   device_idx: 4,\n                    name: \"Leuchter\",\n                    brightness: 255,\n                    state: \"ON\"\n                },\n                {\n                    device_idx: 5,\n                    name: \"Tizio\",\n                    state: \"ON\"\n                },\n                {\n                    device_idx: 6,\n                    name: \"Tizo Standsäule\",\n                    state: \"ON\"\n                },\n                {\n                    device_idx: 7,\n                    name: \"Tolomeo \",\n                    brightness: 255,\n                    state: \"ON\"\n                }\n            ]\n        }\n    ]\n)\n\nreturn {payload: 0};",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -2277,25 +2333,6 @@
         ]
     },
     {
-        "id": "3fb99550d3adcdae",
-        "type": "flogger",
-        "z": "37daec28.284ee4",
-        "name": "wozi",
-        "logfile": "wozi",
-        "inputchoice": "fullmsg",
-        "inputobject": "payload",
-        "inputobjectType": "msg",
-        "inputmoustache": "Recieved payload {{payload}} and topic {{topic}}",
-        "loglevel": "INFO",
-        "logconfig": "8929498a4f6d4a2d",
-        "sendpane": "",
-        "x": 710,
-        "y": 120,
-        "wires": [
-            []
-        ]
-    },
-    {
         "id": "b409621c39553422",
         "type": "mqtt out",
         "z": "37daec28.284ee4",
@@ -2412,7 +2449,7 @@
         "links": [
             "1631c8b0516d3d18"
         ],
-        "x": 755,
+        "x": 715,
         "y": 440,
         "wires": []
     },
@@ -2462,8 +2499,7 @@
         "name": "Leuchter state & brigthness",
         "mode": "link",
         "links": [
-            "f29b05b9a7da2ce4",
-            "5f2e9f30beed284b"
+            "f29b05b9a7da2ce4"
         ],
         "x": 295,
         "y": 1420,
@@ -2585,7 +2621,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 650,
+        "x": 610,
         "y": 440,
         "wires": [
             [
@@ -2627,10 +2663,10 @@
         "id": "10b5f2f821fb2314",
         "type": "link in",
         "z": "37daec28.284ee4",
-        "name": "Tolomeo  MQTT",
+        "name": "Tolomeo",
         "links": [
-            "cf216420654a94ca",
-            "b8226efddc3dde41"
+            "b8226efddc3dde41",
+            "cf216420654a94ca"
         ],
         "x": 925,
         "y": 1960,
@@ -2715,7 +2751,7 @@
         "to": "",
         "reg": false,
         "x": 370,
-        "y": 1960,
+        "y": 2000,
         "wires": [
             []
         ]
@@ -2828,6 +2864,7 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
+        "libs": [],
         "x": 350,
         "y": 1920,
         "wires": [
@@ -2840,13 +2877,13 @@
         "id": "8bbdb296a860acab",
         "type": "link out",
         "z": "37daec28.284ee4",
-        "name": "Tolomeo state & brigthness",
+        "name": "Tolomeo",
         "mode": "link",
         "links": [
             "5f2e9f30beed284b"
         ],
         "x": 295,
-        "y": 2000,
+        "y": 2040,
         "wires": []
     },
     {
@@ -2979,7 +3016,7 @@
         "offcolor": "",
         "animate": true,
         "className": "",
-        "x": 670,
+        "x": 570,
         "y": 1680,
         "wires": [
             [
@@ -2998,7 +3035,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 650,
+        "x": 610,
         "y": 480,
         "wires": [
             [
@@ -3015,28 +3052,9 @@
         "links": [
             "6f44eabb6a272d2b"
         ],
-        "x": 755,
+        "x": 715,
         "y": 480,
         "wires": []
-    },
-    {
-        "id": "0f2dc33b75d60630",
-        "type": "function",
-        "z": "37daec28.284ee4",
-        "name": "state",
-        "func": "return {payload: msg.payload.state == 'ON' ? 'on' : 'off'};\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 650,
-        "y": 520,
-        "wires": [
-            [
-                "b8226efddc3dde41"
-            ]
-        ]
     },
     {
         "id": "b8226efddc3dde41",
@@ -3047,7 +3065,7 @@
         "links": [
             "10b5f2f821fb2314"
         ],
-        "x": 755,
+        "x": 575,
         "y": 520,
         "wires": []
     },
@@ -4098,8 +4116,7 @@
         "y": 180,
         "wires": [
             [
-                "dba6f56.3127408",
-                "228e3903f8b991b2"
+                "dba6f56.3127408"
             ]
         ]
     },
@@ -5438,25 +5455,6 @@
             [
                 "3d54164a8aad07af"
             ]
-        ]
-    },
-    {
-        "id": "228e3903f8b991b2",
-        "type": "flogger",
-        "z": "3a471104.edfbae",
-        "name": "gaeste-wc",
-        "logfile": "gaeste-wc",
-        "inputchoice": "fullmsg",
-        "inputobject": "payload",
-        "inputobjectType": "msg",
-        "inputmoustache": "Recieved payload {{payload}} and topic {{topic}}",
-        "loglevel": "INFO",
-        "logconfig": "8929498a4f6d4a2d",
-        "sendpane": "",
-        "x": 630,
-        "y": 120,
-        "wires": [
-            []
         ]
     },
     {
@@ -17212,7 +17210,6 @@
         "name": "Leuchter",
         "mode": "link",
         "links": [
-            "e1fa7075090543a1",
             "e5d97c3.d1d738"
         ],
         "x": 885,
@@ -17423,7 +17420,6 @@
         "name": "Tolomeo ",
         "mode": "link",
         "links": [
-            "e5d97c3.d1d738",
             "10b5f2f821fb2314"
         ],
         "x": 885,
@@ -17455,7 +17451,6 @@
         "z": "039a8ad4ab697fb3",
         "name": "Tolomeo ",
         "links": [
-            "49386ad2cbcb1f8f",
             "8bbdb296a860acab"
         ],
         "x": 125,
@@ -17591,6 +17586,843 @@
         "wires": [
             [
                 "5e24b6f05b806f22"
+            ]
+        ]
+    },
+    {
+        "id": "ced8ff353af4a0c0",
+        "type": "fritz-thermostat",
+        "z": "68fa2cc37e97fc23",
+        "connection": "c2e6322e.33404",
+        "name": "setTempTarget AVM 302 Büro DG",
+        "action": "setTempTarget",
+        "x": 920,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a785e5a92f4c9787",
+        "type": "ui_dropdown",
+        "z": "68fa2cc37e97fc23",
+        "name": "Heizung",
+        "label": "Heizung",
+        "tooltip": "",
+        "place": "Select option",
+        "group": "2a035fef893e8cd2",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "multiple": false,
+        "options": [
+            {
+                "label": "aus",
+                "value": "off",
+                "type": "str"
+            },
+            {
+                "label": "14°",
+                "value": 14,
+                "type": "num"
+            },
+            {
+                "label": "16°",
+                "value": 16,
+                "type": "num"
+            },
+            {
+                "label": "18°",
+                "value": "18",
+                "type": "str"
+            },
+            {
+                "label": "20°",
+                "value": 20,
+                "type": "num"
+            },
+            {
+                "label": "21",
+                "value": "21",
+                "type": "str"
+            },
+            {
+                "label": "22",
+                "value": "22",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "topic",
+        "topicType": "msg",
+        "className": "",
+        "x": 480,
+        "y": 200,
+        "wires": [
+            [
+                "60a8d3a1dcdf72cc"
+            ]
+        ]
+    },
+    {
+        "id": "60a8d3a1dcdf72cc",
+        "type": "change",
+        "z": "68fa2cc37e97fc23",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "Temperatur",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "ain",
+                "pt": "msg",
+                "to": "139790924291",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 660,
+        "y": 200,
+        "wires": [
+            [
+                "ced8ff353af4a0c0"
+            ]
+        ]
+    },
+    {
+        "id": "fd424fc4fa8edbd1",
+        "type": "comment",
+        "z": "68fa2cc37e97fc23",
+        "name": "Boost?",
+        "info": "",
+        "x": 470,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "a3c903e257f12248",
+        "type": "ui_switch",
+        "z": "68fa2cc37e97fc23",
+        "name": "",
+        "label": "Mo.",
+        "tooltip": "",
+        "group": "2a035fef893e8cd2",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 470,
+        "y": 240,
+        "wires": [
+            [
+                "3b9abc6380ef3910"
+            ]
+        ]
+    },
+    {
+        "id": "3b9abc6380ef3910",
+        "type": "change",
+        "z": "68fa2cc37e97fc23",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "Montag",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 660,
+        "y": 240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7c5bfbbfc70d4418",
+        "type": "thingzi-timer",
+        "z": "68fa2cc37e97fc23",
+        "name": "3:00-18:00",
+        "lat": "50.882",
+        "lon": "6.6949",
+        "timerType": "onoff",
+        "startupMessage": true,
+        "ontype": "tod",
+        "ontimesun": "dusk",
+        "ontimetod": "3:00",
+        "onpropertytype": "msg",
+        "onproperty": "payload",
+        "onvaluetype": "date",
+        "onvalue": "",
+        "onoffset": "",
+        "onrandomoffset": true,
+        "offtype": "tod",
+        "offtimesun": "dawn",
+        "offtimetod": "17:00",
+        "offpropertytype": "msg",
+        "offproperty": "payload",
+        "offvaluetype": "bool",
+        "offvalue": "false",
+        "offoffset": "",
+        "offrandomoffset": false,
+        "mon": true,
+        "tue": true,
+        "wed": true,
+        "thu": true,
+        "fri": true,
+        "sat": true,
+        "sun": true,
+        "x": 180,
+        "y": 80,
+        "wires": [
+            [
+                "afd265e74d5e2016"
+            ]
+        ]
+    },
+    {
+        "id": "afd265e74d5e2016",
+        "type": "function",
+        "z": "68fa2cc37e97fc23",
+        "name": "function 39",
+        "func": "const timestamp = msg.payload;\nif (timestamp) {\n    const date = new Date(timestamp);\n    const day_of_week_number = date.getDay();\n    const weekdays = [\"Sonntag\", \"Montag\", \"Dienstag\", \"Mittwoch\", \"Donnerstag\", \"Freitag\", \"Sonnabend\"];\n    const day_of_week = weekdays[day_of_week_number];\n    const buerotag = flow.get(day_of_week);\n\n    if (buerotag) {\n        return {payload: '21'};\n    }\n}\nreturn { payload: 'aus' };\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 330,
+        "y": 80,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a7516bd04903328e",
+        "type": "ui_switch",
+        "z": "68fa2cc37e97fc23",
+        "name": "",
+        "label": "Di.",
+        "tooltip": "",
+        "group": "2a035fef893e8cd2",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 470,
+        "y": 280,
+        "wires": [
+            [
+                "d55ed9e3862c0e07"
+            ]
+        ]
+    },
+    {
+        "id": "d55ed9e3862c0e07",
+        "type": "change",
+        "z": "68fa2cc37e97fc23",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "Dienstag",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 670,
+        "y": 280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "afd2f06838322fa3",
+        "type": "ui_switch",
+        "z": "68fa2cc37e97fc23",
+        "name": "",
+        "label": "Mi.",
+        "tooltip": "",
+        "group": "2a035fef893e8cd2",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 470,
+        "y": 320,
+        "wires": [
+            [
+                "b86c6f0642eb4180"
+            ]
+        ]
+    },
+    {
+        "id": "b86c6f0642eb4180",
+        "type": "change",
+        "z": "68fa2cc37e97fc23",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "Mittwoch",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 670,
+        "y": 320,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2829345e1ce0934a",
+        "type": "ui_switch",
+        "z": "68fa2cc37e97fc23",
+        "name": "",
+        "label": "Do.",
+        "tooltip": "",
+        "group": "2a035fef893e8cd2",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 470,
+        "y": 360,
+        "wires": [
+            [
+                "8098a63741da6da9"
+            ]
+        ]
+    },
+    {
+        "id": "8098a63741da6da9",
+        "type": "change",
+        "z": "68fa2cc37e97fc23",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "Donnerstag",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 680,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1278ace3c7fc8b1a",
+        "type": "ui_switch",
+        "z": "68fa2cc37e97fc23",
+        "name": "",
+        "label": "Fr.",
+        "tooltip": "",
+        "group": "2a035fef893e8cd2",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 470,
+        "y": 400,
+        "wires": [
+            [
+                "4b640947fefa371f"
+            ]
+        ]
+    },
+    {
+        "id": "4b640947fefa371f",
+        "type": "change",
+        "z": "68fa2cc37e97fc23",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "Freitag",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 660,
+        "y": 400,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "99682679d929804d",
+        "type": "ui_switch",
+        "z": "68fa2cc37e97fc23",
+        "name": "",
+        "label": "Sa.",
+        "tooltip": "",
+        "group": "2a035fef893e8cd2",
+        "order": 7,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 470,
+        "y": 440,
+        "wires": [
+            [
+                "506e018d06399e9f"
+            ]
+        ]
+    },
+    {
+        "id": "506e018d06399e9f",
+        "type": "change",
+        "z": "68fa2cc37e97fc23",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "Sonnabend",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 680,
+        "y": 440,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "80a864f9b65a6b05",
+        "type": "ui_switch",
+        "z": "68fa2cc37e97fc23",
+        "name": "",
+        "label": "So.",
+        "tooltip": "",
+        "group": "2a035fef893e8cd2",
+        "order": 8,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 470,
+        "y": 480,
+        "wires": [
+            [
+                "ad6a51ce171ac8bf"
+            ]
+        ]
+    },
+    {
+        "id": "ad6a51ce171ac8bf",
+        "type": "change",
+        "z": "68fa2cc37e97fc23",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "Sonntag",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 670,
+        "y": 480,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "84ab5a22037b3f5d",
+        "type": "inject",
+        "z": "68fa2cc37e97fc23",
+        "name": "Boot",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "5",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 190,
+        "y": 140,
+        "wires": [
+            [
+                "52c9a545070804da"
+            ]
+        ]
+    },
+    {
+        "id": "0a854737a7a864fa",
+        "type": "change",
+        "z": "68fa2cc37e97fc23",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Montag",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 300,
+        "y": 240,
+        "wires": [
+            [
+                "a3c903e257f12248"
+            ]
+        ]
+    },
+    {
+        "id": "b0bb85f8cfb08f5c",
+        "type": "change",
+        "z": "68fa2cc37e97fc23",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Sonntag",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 300,
+        "y": 480,
+        "wires": [
+            [
+                "80a864f9b65a6b05"
+            ]
+        ]
+    },
+    {
+        "id": "34a740e3943c3931",
+        "type": "change",
+        "z": "68fa2cc37e97fc23",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Dienstag",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 300,
+        "y": 280,
+        "wires": [
+            [
+                "a7516bd04903328e"
+            ]
+        ]
+    },
+    {
+        "id": "bd3c43b4230d5784",
+        "type": "change",
+        "z": "68fa2cc37e97fc23",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Mittwoch",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 300,
+        "y": 320,
+        "wires": [
+            [
+                "afd2f06838322fa3"
+            ]
+        ]
+    },
+    {
+        "id": "2b031eee6e0adb99",
+        "type": "change",
+        "z": "68fa2cc37e97fc23",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Donnerstag",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 300,
+        "y": 360,
+        "wires": [
+            [
+                "2829345e1ce0934a"
+            ]
+        ]
+    },
+    {
+        "id": "5b3107b181d72a8c",
+        "type": "change",
+        "z": "68fa2cc37e97fc23",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Freitag",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 300,
+        "y": 400,
+        "wires": [
+            [
+                "1278ace3c7fc8b1a"
+            ]
+        ]
+    },
+    {
+        "id": "3aededb277467e1d",
+        "type": "change",
+        "z": "68fa2cc37e97fc23",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Sonnabend",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 300,
+        "y": 440,
+        "wires": [
+            [
+                "99682679d929804d"
+            ]
+        ]
+    },
+    {
+        "id": "6538b49e7f341b28",
+        "type": "change",
+        "z": "68fa2cc37e97fc23",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Temperatur",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 300,
+        "y": 200,
+        "wires": [
+            [
+                "a785e5a92f4c9787"
             ]
         ]
     }
