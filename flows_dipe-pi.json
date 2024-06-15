@@ -294,6 +294,38 @@
         ]
     },
     {
+        "id": "df20abd98685a459",
+        "type": "junction",
+        "z": "4d90b497.b5b2ac",
+        "x": 1320,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7e28ed5815aaaef5",
+        "type": "junction",
+        "z": "4d90b497.b5b2ac",
+        "x": 1320,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "14273365e7b654be",
+        "type": "junction",
+        "z": "4d90b497.b5b2ac",
+        "x": 1660,
+        "y": 460,
+        "wires": [
+            [
+                "8ccbeeaf68939b5e"
+            ]
+        ]
+    },
+    {
         "id": "c349b9ff.9dc4c8",
         "type": "mqtt-broker",
         "name": "dipe-pi",
@@ -5970,7 +6002,7 @@
         "broker": "c349b9ff.9dc4c8",
         "inputs": 0,
         "x": 230,
-        "y": 160,
+        "y": 180,
         "wires": [
             [
                 "b56cd25f.124c9",
@@ -5989,7 +6021,7 @@
         "broker": "c349b9ff.9dc4c8",
         "inputs": 0,
         "x": 220,
-        "y": 760,
+        "y": 800,
         "wires": [
             [
                 "8fd7504b.225ed"
@@ -6006,7 +6038,7 @@
         "contentproperty": "Waschmaschiene ist fertig!",
         "contenttype": "str",
         "x": 780,
-        "y": 720,
+        "y": 760,
         "wires": [
             []
         ]
@@ -6024,7 +6056,7 @@
         "rap": false,
         "inputs": 0,
         "x": 240,
-        "y": 900,
+        "y": 940,
         "wires": [
             [
                 "c7cd3c7f.93d75"
@@ -6041,7 +6073,7 @@
         "contentproperty": "Shelly WaMa ist überhitzt!",
         "contenttype": "str",
         "x": 780,
-        "y": 880,
+        "y": 920,
         "wires": [
             []
         ]
@@ -6051,14 +6083,15 @@
         "type": "function",
         "z": "4d90b497.b5b2ac",
         "name": "",
-        "func": "var val = parseFloat(msg.payload);\nconst last_n = 30\n\nvar wama_power_last = flow.get(\"wama_power_last\") || [];\nvar wama_status = flow.get(\"wama_status\") || \"Aus\";\n\nwama_power_last.unshift(val);\nwama_power_last = wama_power_last.splice(0, last_n);\nflow.set(\"wama_power_last\", wama_power_last);\n\nconst avg_wama_power = wama_power_last.reduce(function (accumulator, currentValue) {\n  return accumulator + currentValue;\n}, 0) / last_n;\n\n\n// Result array:\n// 0 - Hangout\n// 1 - Status text\n// 2 - debug\nmsg = [undefined, {payload: wama_status}, {payload: avg_wama_power, topic: wama_status}];\nif (wama_status == \"läuft\") {\n    if (avg_wama_power < 4.0) {\n        flow.set(\"wama_status\", \"fertig\")\n        msg = [\n            {payload: \"fertig, \" + (new Date).toLocaleTimeString()},\n            {payload: \"fertig\"},\n            {payload: avg_wama_power, topic: wama_status}\n        ];\n    }\n} else if (wama_status == \"fertig\") {\n    if (avg_wama_power < 2.0) {\n        flow.set(\"wama_status\", \"aus\")\n        msg = [\n            undefined,\n            {payload: \"aus\"},\n            {payload: avg_wama_power, topic: wama_status}\n        ];\n    } else if (avg_wama_power >= 20.0) {\n        flow.set(\"wama_status\", \"läuft\")\n        msg = [\n            undefined,\n            {payload: \"läuft\"},\n            {payload: avg_wama_power, topic: wama_status}\n        ];\n    }\n} else { // status off\n    if (avg_wama_power >= 20.0) {\n        flow.set(\"wama_status\", \"läuft\")\n        msg = [\n            undefined,\n            {payload: \"läuft\"},\n            {payload: avg_wama_power, topic: wama_status}\n        ];\n    } else if (avg_wama_power >= 2.0) {\n        flow.set(\"wama_status\", \"fertig\")\n        msg = [\n            undefined,\n            {payload: \"fertig\"},\n            {payload: avg_wama_power, topic: wama_status}\n        ];\n    }\n}\n\nreturn msg;",
+        "func": "var val = parseFloat(msg.payload);\nconst last_n = 30\n\nvar wama_power_last = flow.get(\"wama_power_last\") || [];\nvar wama_status = flow.get(\"wama_status\") || \"aus\";\n\nwama_power_last.unshift(val);\nwama_power_last = wama_power_last.splice(0, last_n);\nflow.set(\"wama_power_last\", wama_power_last);\n\nconst avg_wama_power = wama_power_last.reduce(function (accumulator, currentValue) {\n  return accumulator + currentValue;\n}, 0) / last_n;\n\n\n// Result array:\n// 0 - Hangout\n// 1 - Status text\n// 2 - debug\nmsg = [undefined, {payload: wama_status}, {payload: avg_wama_power, topic: wama_status}];\nif (wama_status == \"läuft\") {\n    if (avg_wama_power < 4.0) {\n        flow.set(\"wama_status\", \"fertig\")\n        msg = [\n            {payload: \"fertig, \" + (new Date).toLocaleTimeString()},\n            {payload: \"fertig\"},\n            {payload: avg_wama_power, topic: wama_status}\n        ];\n    }\n} else if (wama_status == \"fertig\") {\n    if (avg_wama_power < 2.0) {\n        flow.set(\"wama_status\", \"aus\")\n        msg = [\n            undefined,\n            {payload: \"aus\"},\n            {payload: avg_wama_power, topic: wama_status}\n        ];\n    } else if (avg_wama_power >= 20.0) {\n        flow.set(\"wama_status\", \"läuft\")\n        msg = [\n            undefined,\n            {payload: \"läuft\"},\n            {payload: avg_wama_power, topic: wama_status}\n        ];\n    }\n} else { // status off\n    if (avg_wama_power >= 20.0) {\n        flow.set(\"wama_status\", \"läuft\")\n        msg = [\n            undefined,\n            {payload: \"läuft\"},\n            {payload: avg_wama_power, topic: wama_status}\n        ];\n    } else if (avg_wama_power >= 2.0) {\n        flow.set(\"wama_status\", \"fertig\")\n        msg = [\n            undefined,\n            {payload: \"fertig\"},\n            {payload: avg_wama_power, topic: wama_status}\n        ];\n    }\n}\n\nreturn msg;",
         "outputs": 3,
+        "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
         "x": 560,
-        "y": 760,
+        "y": 800,
         "wires": [
             [
                 "15f3325a.1a8f0e"
@@ -6078,12 +6111,13 @@
         "name": "",
         "func": "var val = parseFloat(msg.payload);\n\nvar text, status;\nif (val > 95) {\n    msg = [\n        {payload: \"Überhitzt\"},\n        {payload: \"OFF\"}\n    ];\n} else {\n    msg = [\n        undefined,\n        undefined\n    ];\n}\n\nreturn msg;",
         "outputs": 2,
+        "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
         "x": 560,
-        "y": 900,
+        "y": 940,
         "wires": [
             [
                 "7b089f13.f2142"
@@ -6103,7 +6137,7 @@
         "retain": "",
         "broker": "c349b9ff.9dc4c8",
         "x": 900,
-        "y": 920,
+        "y": 960,
         "wires": []
     },
     {
@@ -6111,7 +6145,7 @@
         "type": "ui_text",
         "z": "4d90b497.b5b2ac",
         "group": "7e092ea0.4f2d9",
-        "order": 5,
+        "order": 6,
         "width": 0,
         "height": 0,
         "name": "",
@@ -6119,7 +6153,7 @@
         "format": "{{msg.payload}}",
         "layout": "row-spread",
         "x": 830,
-        "y": 760,
+        "y": 800,
         "wires": []
     },
     {
@@ -6136,7 +6170,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 770,
-        "y": 800,
+        "y": 840,
         "wires": []
     },
     {
@@ -6249,7 +6283,7 @@
         "rap": false,
         "inputs": 0,
         "x": 240,
-        "y": 240,
+        "y": 260,
         "wires": [
             [
                 "4990ce01.e26cf",
@@ -6281,14 +6315,14 @@
         "officon": "",
         "offcolor": "",
         "x": 1070,
-        "y": 380,
+        "y": 400,
         "wires": [
             [
                 "fcc6366f.aa0998",
-                "92c6f73d.d38e98",
                 "21f07479.c7da9c",
                 "c8ee7404.bf05b8",
-                "6afb2001.139fe"
+                "6afb2001.139fe",
+                "c3cee7f24ee5352c"
             ]
         ]
     },
@@ -6312,14 +6346,15 @@
         "type": "function",
         "z": "4d90b497.b5b2ac",
         "name": "fan controller",
-        "func": "const outside_abs_humidity = global.get(\"aussen-absolute_humidity\");\nconst wk_temperature = global.get(\"waschkueche_luefter-temperature\");\nconst wk_humidity = global.get(\"waschkueche_luefter-humidity\");\nconst wk_abs_humidity = global.get(\"waschkueche_luefter-absolute_humidity\");\n\nconst washroom_fan_control = flow.get(\"washroom_fan_control\");\nconst last_abs_humidity_gt_outside_abs_humidity = global.get(\"washroom-last_abs_humidity_gt_outside_abs_humidity\");\n\nconst room_abs_humidity_gt_outside_abs_humidity = (last_abs_humidity_gt_outside_abs_humidity) ?\n    wk_abs_humidity > outside_abs_humidity * 1.15:\n    wk_abs_humidity > outside_abs_humidity * 1.15;\n\nglobal.set(\"washroom-last_abs_humidity_gt_outside_abs_humidity\", wk_abs_humidity > outside_abs_humidity);\n\nvar washroom_fan_on;\nif (washroom_fan_control == \"ON\") {\n    if (room_abs_humidity_gt_outside_abs_humidity) {\n        if (wk_humidity > 60 && wk_temperature > 14) {\n            washroom_fan_on = \"ON\";\n        } else {\n            washroom_fan_on = \"OFF\";\n        }\n    } else {\n        washroom_fan_on = \"OFF\";\n    }\n} else {\n    washroom_fan_on = undefined;\n}\n\nmsg = [\n    (washroom_fan_on) ? {topic: \"luefter_sw\", payload: washroom_fan_on} : undefined,\n    {topic: \"Debug\", payload: {\n            outside_abs_humidity: outside_abs_humidity,\n            wk_temperature: wk_temperature,\n            wk_humidity: wk_humidity,\n            wk_abs_humidity: wk_abs_humidity,\n            washroom_fan_on: washroom_fan_on,\n            washroom_fan_control: washroom_fan_control,\n            room_abs_humidity_gt_outside_abs_humidity: room_abs_humidity_gt_outside_abs_humidity,\n            last_abs_humidity_gt_outside_abs_humidity: last_abs_humidity_gt_outside_abs_humidity\n    }   }\n];\n\nreturn msg;",
+        "func": "const outside_abs_humidity = global.get(\"aussen-absolute_humidity\");\nconst wk_temperature = global.get(\"waschkueche_luefter-temperature\");\nconst wk_humidity = global.get(\"waschkueche_luefter-humidity\");\nconst wk_abs_humidity = global.get(\"waschkueche_luefter-absolute_humidity\");\n\nconst washroom_fan_control = flow.get(\"washroom_fan_control\");\nconst last_abs_humidity_gt_outside_abs_humidity = global.get(\"washroom-last_abs_humidity_gt_outside_abs_humidity\");\n\nconst room_abs_humidity_gt_outside_abs_humidity = (last_abs_humidity_gt_outside_abs_humidity) ?\n    wk_abs_humidity > outside_abs_humidity * 1.2:\n    wk_abs_humidity > outside_abs_humidity * 1.2;\n\nglobal.set(\"washroom-last_abs_humidity_gt_outside_abs_humidity\", wk_abs_humidity > outside_abs_humidity);\n\nvar washroom_fan_on;\nif (washroom_fan_control == \"ON\") {\n    if (room_abs_humidity_gt_outside_abs_humidity) {\n        if (wk_humidity > 65 && wk_temperature > 14) {\n            washroom_fan_on = \"ON\";\n        } else {\n            washroom_fan_on = \"OFF\";\n        }\n    } else {\n        washroom_fan_on = \"OFF\";\n    }\n} else {\n    washroom_fan_on = undefined;\n}\n\nmsg = [\n    (washroom_fan_on) ? {topic: \"luefter_sw\", payload: washroom_fan_on} : undefined,\n    {topic: \"Debug\", payload: {\n            outside_abs_humidity: outside_abs_humidity,\n            wk_temperature: wk_temperature,\n            wk_humidity: wk_humidity,\n            wk_abs_humidity: wk_abs_humidity,\n            washroom_fan_on: washroom_fan_on,\n            washroom_fan_control: washroom_fan_control,\n            room_abs_humidity_gt_outside_abs_humidity: room_abs_humidity_gt_outside_abs_humidity,\n            last_abs_humidity_gt_outside_abs_humidity: last_abs_humidity_gt_outside_abs_humidity\n    }   }\n];\n\nreturn msg;",
         "outputs": 2,
+        "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 670,
-        "y": 380,
+        "x": 830,
+        "y": 400,
         "wires": [
             [
                 "74d29041.9a5c4"
@@ -6339,7 +6374,7 @@
         "retain": "",
         "broker": "c349b9ff.9dc4c8",
         "x": 1410,
-        "y": 460,
+        "y": 500,
         "wires": []
     },
     {
@@ -6351,8 +6386,8 @@
         "qos": "",
         "retain": "",
         "broker": "c349b9ff.9dc4c8",
-        "x": 1480,
-        "y": 500,
+        "x": 1880,
+        "y": 480,
         "wires": []
     },
     {
@@ -6476,8 +6511,8 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "x": 450,
-        "y": 380,
+        "x": 610,
+        "y": 400,
         "wires": [
             [
                 "a8931b52.026628"
@@ -6717,7 +6752,7 @@
         "tooltip": "",
         "place": "Select option",
         "group": "7e092ea0.4f2d9",
-        "order": 4,
+        "order": 5,
         "width": 0,
         "height": 0,
         "passthru": true,
@@ -6832,8 +6867,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 850,
-        "y": 420,
+        "x": 830,
+        "y": 440,
         "wires": []
     },
     {
@@ -6894,7 +6929,7 @@
         "z": "4d90b497.b5b2ac",
         "name": "",
         "group": "7e092ea0.4f2d9",
-        "order": 1,
+        "order": 2,
         "width": 0,
         "height": 0,
         "gtype": "gage",
@@ -6915,6 +6950,281 @@
         "x": 570,
         "y": 280,
         "wires": []
+    },
+    {
+        "id": "4647f4d0882cb5e0",
+        "type": "change",
+        "z": "4d90b497.b5b2ac",
+        "name": "Speicher Waschküche Fahradkellertür Status",
+        "rules": [
+            {
+                "t": "set",
+                "p": "waschkueche_fahradkeller_tuer_sensor",
+                "pt": "flow",
+                "to": "payload.contact",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1490,
+        "y": 420,
+        "wires": [
+            [
+                "8ccbeeaf68939b5e"
+            ]
+        ]
+    },
+    {
+        "id": "4499456238fa52c6",
+        "type": "mqtt in",
+        "z": "4d90b497.b5b2ac",
+        "name": "",
+        "topic": "zigbee2mqtt/waschkueche_fahradkeller_tuer_sensor",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "c349b9ff.9dc4c8",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 250,
+        "y": 340,
+        "wires": [
+            [
+                "605faa63e383b5da",
+                "7a8a17ed0bce2cbf"
+            ]
+        ]
+    },
+    {
+        "id": "8ccbeeaf68939b5e",
+        "type": "function",
+        "z": "4d90b497.b5b2ac",
+        "name": "function 47",
+        "func": "let waschkueche_fahradkeller_tuer_sensor_contact = flow.get('waschkueche_fahradkeller_tuer_sensor');\nlet luefter_status = flow.get('luefter_status') == 'ON';\n\nreturn {payload: (waschkueche_fahradkeller_tuer_sensor_contact && luefter_status) ? 'ON' : 'OFF'};",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1790,
+        "y": 440,
+        "wires": [
+            [
+                "92c6f73d.d38e98",
+                "66a1493425edcaa6"
+            ]
+        ]
+    },
+    {
+        "id": "c3cee7f24ee5352c",
+        "type": "change",
+        "z": "4d90b497.b5b2ac",
+        "name": "Speicher Lüfter-Status",
+        "rules": [
+            {
+                "t": "set",
+                "p": "luefter_status",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1420,
+        "y": 460,
+        "wires": [
+            [
+                "14273365e7b654be"
+            ]
+        ]
+    },
+    {
+        "id": "605faa63e383b5da",
+        "type": "link out",
+        "z": "4d90b497.b5b2ac",
+        "name": "link out 17",
+        "mode": "link",
+        "links": [
+            "9b82371bd7bd5085"
+        ],
+        "x": 515,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "9b82371bd7bd5085",
+        "type": "link in",
+        "z": "4d90b497.b5b2ac",
+        "name": "link in 5",
+        "links": [
+            "605faa63e383b5da"
+        ],
+        "x": 1275,
+        "y": 420,
+        "wires": [
+            [
+                "4647f4d0882cb5e0"
+            ]
+        ]
+    },
+    {
+        "id": "8b3628118da7f2ec",
+        "type": "inject",
+        "z": "4d90b497.b5b2ac",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "x": 770,
+        "y": 140,
+        "wires": [
+            [
+                "5a82573d05182b80"
+            ]
+        ]
+    },
+    {
+        "id": "5a82573d05182b80",
+        "type": "function",
+        "z": "4d90b497.b5b2ac",
+        "name": "function 48",
+        "func": "flow.set('waschkueche_fahradkeller_tuer_sensor', msg.payload)\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 970,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1f0d540cc091b459",
+        "type": "inject",
+        "z": "4d90b497.b5b2ac",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "false",
+        "payloadType": "bool",
+        "x": 770,
+        "y": 180,
+        "wires": [
+            [
+                "5a82573d05182b80"
+            ]
+        ]
+    },
+    {
+        "id": "7a8a17ed0bce2cbf",
+        "type": "function",
+        "z": "4d90b497.b5b2ac",
+        "name": "Status-Text",
+        "func": "const contact = msg.payload.contact;\n\nreturn { payload: (contact) ? \"geschlossen\" : \"offen\"};\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 570,
+        "y": 320,
+        "wires": [
+            [
+                "ef4abc638bd7a5a4"
+            ]
+        ]
+    },
+    {
+        "id": "ef4abc638bd7a5a4",
+        "type": "ui_text",
+        "z": "4d90b497.b5b2ac",
+        "group": "7e092ea0.4f2d9",
+        "order": 7,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Tür zum Fahradkeller",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
+        "x": 780,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "154abe954d8614ac",
+        "type": "ui_text",
+        "z": "4d90b497.b5b2ac",
+        "group": "7e092ea0.4f2d9",
+        "order": 7,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Lüftungsklappe",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
+        "x": 2160,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "66a1493425edcaa6",
+        "type": "function",
+        "z": "4d90b497.b5b2ac",
+        "name": "Status-Text",
+        "func": "return { payload: (msg.payload == 'ON') ? \"offen\" : \"geschlossen\"};\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1970,
+        "y": 440,
+        "wires": [
+            [
+                "154abe954d8614ac"
+            ]
+        ]
     },
     {
         "id": "3f614727.989a68",
@@ -11367,11 +11677,13 @@
         "type": "function",
         "z": "d0173d54.941d7",
         "name": "ZIGBEE2MQTT to InfluxDB",
-        "func": "function flatItem(base, key, src, dest) {\n     if (typeof src === 'undefined') {\n         return;\n     }\n     const deepKey = base.length ? base + '.' + key : key;\n     // console.log(`base=${base} key=${key} deepKey=${deepKey}`);\n     if (typeof src === 'object') {\n        if (Array.isArray(src)) {\n            src.forEach((val, idx) => flatItem(deepKey, idx, val, dest));\n        } else {\n            Object.entries(src).forEach(([key, val]) => flatItem(deepKey, key, val, dest))\n        }\n     } else {\n        dest[deepKey] = src;\n     }\n}\n\nlet deSerialize = {};\nlet deep = msg.payload;\nlet value; \ntry {\n    deep = JSON.parse(msg.payload);\n    if (typeof deep == 'object') {\n        flatItem('', '', deep, deSerialize);\n    } else {\n       deSerialize.value = deep; \n    }\n} catch (e) {\n}\n\nconst tokens = msg.topic.split(\"/\");\nconst measurement = tokens[1].replace(/ /g, '_').toLowerCase();\nmsg.measurement = measurement;\nmsg.payload = deSerialize;\n\nreturn msg;",
+        "func": "function flatItem(base, key, src, dest) {\n     if (typeof src === 'undefined') {\n         return;\n     }\n     const deepKey = base.length ? base + '.' + key : key;\n     // console.log(`base=${base} key=${key} deepKey=${deepKey}`);\n     if (typeof src === 'object') {\n        if (Array.isArray(src)) {\n            src.forEach((val, idx) => flatItem(deepKey, idx, val, dest));\n        } else {\n            Object.entries(src).forEach(([key, val]) => flatItem(deepKey, key, val, dest))\n        }\n     } else {\n        dest[deepKey] = src;\n     }\n}\n\nconst tokens = msg.topic.split(\"/\");\nconst measurement = tokens[1].replace(/ /g, '_').toLowerCase();\n\nif (/^0x/.test(measurement)) {\n    // Daten (neuer) Devices, die (noch) keinen Namen haben \n    // Tracken wir nicht. \n    return;\n}\n\nmsg.measurement = measurement;\n\nlet deSerialize = {};\nlet deep = msg.payload;\nlet value; \ntry {\n    deep = JSON.parse(msg.payload);\n    if (typeof deep == 'object') {\n        flatItem('', '', deep, deSerialize);\n    } else {\n       deSerialize.value = deep; \n    }\n} catch (e) {\n}\n\nmsg.payload = deSerialize;\n\nreturn msg;",
         "outputs": 1,
+        "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
+        "libs": [],
         "x": 660,
         "y": 380,
         "wires": [
@@ -12676,6 +12988,7 @@
         "name": "append to log",
         "func": "const log = flow.get('log');\nconst timestamp = new Date().toLocaleTimeString('de-DE');\nconst new_entry = timestamp + \": \" + msg.payload;\nconst max_length = 10;\n\nlog.push(new_entry);\nif (log.length > max_length) {\n    log.splice(0, log.length - max_length);\n}\nflow.set('log', log);\n\nreturn { payload: log.join(\"<br>\")};",
         "outputs": 1,
+        "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
@@ -13368,7 +13681,8 @@
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "false",
+        "complete": "true",
+        "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
         "x": 1320,
@@ -14088,7 +14402,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 480,
+        "x": 440,
         "y": 420,
         "wires": [
             [
@@ -14337,7 +14651,7 @@
         "sendOnBlur": true,
         "className": "",
         "topicType": "msg",
-        "x": 210,
+        "x": 270,
         "y": 580,
         "wires": [
             [
@@ -14468,11 +14782,11 @@
         "y": 680,
         "wires": [
             [
-                "4d42edd6ee3c272e"
+                "23400c7227a0807c"
             ],
             [
-                "6aed96f65ecbb9f3",
-                "166ea28fb4066970"
+                "166ea28fb4066970",
+                "6aed96f65ecbb9f3"
             ]
         ]
     },
@@ -14854,7 +15168,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 440,
+        "x": 430,
         "y": 620,
         "wires": [
             []
@@ -14878,7 +15192,7 @@
         "sendOnBlur": true,
         "className": "",
         "topicType": "msg",
-        "x": 210,
+        "x": 270,
         "y": 620,
         "wires": [
             [
@@ -14947,12 +15261,16 @@
         "order": 2,
         "width": "6",
         "height": "6",
-        "name": "Liste",
+        "name": "Liste der Fingerabdrücke",
         "label": "{{msg.payload}}",
         "format": "",
         "layout": "row-left",
         "className": "",
-        "x": 550,
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
+        "x": 610,
         "y": 120,
         "wires": []
     },
@@ -14986,6 +15304,7 @@
         "id": "86fec2abf6293c44",
         "type": "mqtt out",
         "z": "0133ddc4e63513b7",
+        "d": true,
         "name": "",
         "topic": "fingersensor1/enroll",
         "qos": "",
@@ -14999,25 +15318,6 @@
         "x": 900,
         "y": 780,
         "wires": []
-    },
-    {
-        "id": "6aed96f65ecbb9f3",
-        "type": "function",
-        "z": "0133ddc4e63513b7",
-        "name": "clear data",
-        "func": "return(\n    {payload: {pin: '', finger_id: '', num_scans: ''}});\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 860,
-        "y": 740,
-        "wires": [
-            [
-                "86fec2abf6293c44"
-            ]
-        ]
     },
     {
         "id": "bc763a522d5e7245",
@@ -15114,7 +15414,7 @@
         "topic": "topic",
         "topicType": "msg",
         "className": "",
-        "x": 210,
+        "x": 270,
         "y": 500,
         "wires": [
             [
@@ -15167,11 +15467,55 @@
         "topic": "topic",
         "topicType": "msg",
         "className": "",
-        "x": 210,
+        "x": 270,
         "y": 540,
         "wires": [
             [
                 "64feafd00e0a8031"
+            ]
+        ]
+    },
+    {
+        "id": "6aed96f65ecbb9f3",
+        "type": "function",
+        "z": "0133ddc4e63513b7",
+        "name": "clear data",
+        "func": "return(\n    {payload: {pin: '', finger_id: '', num_scans: ''}});\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 860,
+        "y": 740,
+        "wires": [
+            [
+                "86fec2abf6293c44"
+            ]
+        ]
+    },
+    {
+        "id": "23400c7227a0807c",
+        "type": "delay",
+        "z": "0133ddc4e63513b7",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "5",
+        "timeoutUnits": "minutes",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 120,
+        "y": 620,
+        "wires": [
+            [
+                "4d42edd6ee3c272e"
             ]
         ]
     },
@@ -15488,6 +15832,7 @@
         "name": "Erkenne Einspeisung",
         "func": "if (msg.payload.einspeisung < -150) \n    return [{ payload: 'on' }, { payload: 'ON' }]\nelse\n    return;\n",
         "outputs": 2,
+        "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
@@ -19135,7 +19480,7 @@
         "expiry": "",
         "broker": "c349b9ff.9dc4c8",
         "x": 1010,
-        "y": 920,
+        "y": 900,
         "wires": []
     },
     {
@@ -19151,7 +19496,7 @@
         "rap": false,
         "inputs": 0,
         "x": 130,
-        "y": 920,
+        "y": 900,
         "wires": [
             [
                 "7fb932d08adf577e",
