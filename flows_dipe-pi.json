@@ -149,6 +149,13 @@
         "env": []
     },
     {
+        "id": "186ee9b7.78e426",
+        "type": "tab",
+        "label": "Web Push Demo",
+        "disabled": false,
+        "info": ""
+    },
+    {
         "id": "5212abebc2a62f0b",
         "type": "junction",
         "z": "2ba29887.9266e8",
@@ -1053,6 +1060,25 @@
         "width": "6",
         "collapse": false,
         "className": ""
+    },
+    {
+        "id": "1d41b598.c12dba",
+        "type": "vapid-configuration",
+        "subject": "mailto:salnikov@gmail.com",
+        "publicKey": "BM88mSlUg4mvjcPK5QrzRfQzow91F47iEazCnoTBQ8Hv_AVrJviLcnrNumTK319qWOt43sgOzBJs6UrdOW5IxHg",
+        "privateKey": "81iA43m6lKOtT0p8FYEh_WXfcNZW2X6Hs3S_FfBxKY4",
+        "gcmApiKey": "",
+        "name": ""
+    },
+    {
+        "id": "7e81b420bdfbe2ed",
+        "type": "vapid-configuration",
+        "subject": "pe@dipe.de",
+        "publicKey": "BLWff9ryHpaBiHIj1aDVp6JKsqOx5UNXQlEPTXy5Bvme2sp3g8Orc3zRI7Y90sijW2CdZH4UlAtc2GE99y2aG5U",
+        "privateKey": "eeQzU9jyfR67F1AMZDGNnskt3ii0OgMERByWGtnvlAY",
+        "gcmApiKey": "",
+        "timeout": "0",
+        "name": ""
     },
     {
         "id": "930e92a7.3f378",
@@ -6305,6 +6331,7 @@
         "passthru": true,
         "decouple": "false",
         "topic": "",
+        "topicType": "str",
         "style": "",
         "onvalue": "ON",
         "onvalueType": "str",
@@ -6314,6 +6341,8 @@
         "offvalueType": "str",
         "officon": "",
         "offcolor": "",
+        "animate": true,
+        "className": "",
         "x": 1070,
         "y": 400,
         "wires": [
@@ -6346,7 +6375,7 @@
         "type": "function",
         "z": "4d90b497.b5b2ac",
         "name": "fan controller",
-        "func": "const outside_abs_humidity = global.get(\"aussen-absolute_humidity\");\nconst wk_temperature = global.get(\"waschkueche_luefter-temperature\");\nconst wk_humidity = global.get(\"waschkueche_luefter-humidity\");\nconst wk_abs_humidity = global.get(\"waschkueche_luefter-absolute_humidity\");\n\nconst washroom_fan_control = flow.get(\"washroom_fan_control\");\nconst last_abs_humidity_gt_outside_abs_humidity = global.get(\"washroom-last_abs_humidity_gt_outside_abs_humidity\");\n\nconst room_abs_humidity_gt_outside_abs_humidity = (last_abs_humidity_gt_outside_abs_humidity) ?\n    wk_abs_humidity > outside_abs_humidity * 1.2:\n    wk_abs_humidity > outside_abs_humidity * 1.2;\n\nglobal.set(\"washroom-last_abs_humidity_gt_outside_abs_humidity\", wk_abs_humidity > outside_abs_humidity);\n\nvar washroom_fan_on;\nif (washroom_fan_control == \"ON\") {\n    if (room_abs_humidity_gt_outside_abs_humidity) {\n        if (wk_humidity > 65 && wk_temperature > 14) {\n            washroom_fan_on = \"ON\";\n        } else {\n            washroom_fan_on = \"OFF\";\n        }\n    } else {\n        washroom_fan_on = \"OFF\";\n    }\n} else {\n    washroom_fan_on = undefined;\n}\n\nmsg = [\n    (washroom_fan_on) ? {topic: \"luefter_sw\", payload: washroom_fan_on} : undefined,\n    {topic: \"Debug\", payload: {\n            outside_abs_humidity: outside_abs_humidity,\n            wk_temperature: wk_temperature,\n            wk_humidity: wk_humidity,\n            wk_abs_humidity: wk_abs_humidity,\n            washroom_fan_on: washroom_fan_on,\n            washroom_fan_control: washroom_fan_control,\n            room_abs_humidity_gt_outside_abs_humidity: room_abs_humidity_gt_outside_abs_humidity,\n            last_abs_humidity_gt_outside_abs_humidity: last_abs_humidity_gt_outside_abs_humidity\n    }   }\n];\n\nreturn msg;",
+        "func": "let kellertuer_sensor = global.get(\"kellertuer_sensor\");\nlet waschkueche_fahradkeller_tuer_sensor_contact = global.get('waschkueche_fahradkeller_tuer_sensor');\nif (!kellertuer_sensor && !waschkueche_fahradkeller_tuer_sensor_contact) {\n    msg = [\n        {topic: \"luefter_sw\", payload: \"OFF\"},\n        {topic: \"Debug\", payload: {}}\n    ];\n\n    return msg;  \n}\n\n// const outside_abs_humidity = global.get(\"aussen-absolute_humidity\");\nconst outside_abs_humidity = global.get(\"luftguetemesser2-absolute_humidity\");\nconst wk_temperature = global.get(\"waschkueche_luefter-temperature\");\nconst wk_humidity = global.get(\"waschkueche_luefter-humidity\");\nconst wk_abs_humidity = global.get(\"waschkueche_luefter-absolute_humidity\");\n\nconst washroom_fan_control = flow.get(\"washroom_fan_control\");\nconst last_abs_humidity_gt_outside_abs_humidity = global.get(\"washroom-last_abs_humidity_gt_outside_abs_humidity\");\n\nconst room_abs_humidity_gt_outside_abs_humidity = (last_abs_humidity_gt_outside_abs_humidity) ?\n    wk_abs_humidity > outside_abs_humidity * 1.05:\n    wk_abs_humidity > outside_abs_humidity * 1.05;\n\nglobal.set(\"washroom-last_abs_humidity_gt_outside_abs_humidity\", wk_abs_humidity > outside_abs_humidity);\n\nvar washroom_fan_on;\nif (washroom_fan_control == \"ON\") {\n    if (room_abs_humidity_gt_outside_abs_humidity) {\n        if (wk_humidity > 65 && wk_temperature > 14) {\n            washroom_fan_on = \"ON\";\n        } else {\n            washroom_fan_on = \"OFF\";\n        }\n    } else {\n        washroom_fan_on = \"OFF\";\n    }\n} else {\n    washroom_fan_on = undefined;\n}\n\nmsg = [\n    (washroom_fan_on) ? {topic: \"luefter_sw\", payload: washroom_fan_on} : undefined,\n    {topic: \"Debug\", payload: {\n            outside_abs_humidity: outside_abs_humidity,\n            wk_temperature: wk_temperature,\n            wk_humidity: wk_humidity,\n            wk_abs_humidity: wk_abs_humidity,\n            washroom_fan_on: washroom_fan_on,\n            washroom_fan_control: washroom_fan_control,\n            room_abs_humidity_gt_outside_abs_humidity: room_abs_humidity_gt_outside_abs_humidity,\n            last_abs_humidity_gt_outside_abs_humidity: last_abs_humidity_gt_outside_abs_humidity\n    }   }\n];\n\nreturn msg;",
         "outputs": 2,
         "timeout": "",
         "noerr": 0,
@@ -6386,8 +6415,8 @@
         "qos": "",
         "retain": "",
         "broker": "c349b9ff.9dc4c8",
-        "x": 1880,
-        "y": 480,
+        "x": 2220,
+        "y": 440,
         "wires": []
     },
     {
@@ -6859,7 +6888,7 @@
         "type": "debug",
         "z": "4d90b497.b5b2ac",
         "name": "",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -6960,7 +6989,7 @@
             {
                 "t": "set",
                 "p": "waschkueche_fahradkeller_tuer_sensor",
-                "pt": "flow",
+                "pt": "global",
                 "to": "payload.contact",
                 "tot": "msg"
             }
@@ -6982,7 +7011,7 @@
         "id": "4499456238fa52c6",
         "type": "mqtt in",
         "z": "4d90b497.b5b2ac",
-        "name": "",
+        "name": "Waschküche-Fahradkeller-Tür",
         "topic": "zigbee2mqtt/waschkueche_fahradkeller_tuer_sensor",
         "qos": "2",
         "datatype": "auto-detect",
@@ -6991,7 +7020,7 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 250,
+        "x": 180,
         "y": 340,
         "wires": [
             [
@@ -7004,15 +7033,15 @@
         "id": "8ccbeeaf68939b5e",
         "type": "function",
         "z": "4d90b497.b5b2ac",
-        "name": "function 47",
-        "func": "let waschkueche_fahradkeller_tuer_sensor_contact = flow.get('waschkueche_fahradkeller_tuer_sensor');\nlet luefter_status = flow.get('luefter_status') == 'ON';\n\nreturn {payload: (waschkueche_fahradkeller_tuer_sensor_contact && luefter_status) ? 'ON' : 'OFF'};",
+        "name": "Waschküche-Fahradkellertür Check",
+        "func": "let waschkueche_fahradkeller_tuer_sensor_contact = global.get('waschkueche_fahradkeller_tuer_sensor');\nlet luefter_status = flow.get('luefter_status') == 'ON';\n\nreturn {payload: (waschkueche_fahradkeller_tuer_sensor_contact && luefter_status) ? 'ON' : 'OFF'};",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1790,
+        "x": 1870,
         "y": 440,
         "wires": [
             [
@@ -7055,7 +7084,8 @@
         "name": "link out 17",
         "mode": "link",
         "links": [
-            "9b82371bd7bd5085"
+            "9b82371bd7bd5085",
+            "d8ccba5a509c6755"
         ],
         "x": 515,
         "y": 360,
@@ -7074,74 +7104,6 @@
         "wires": [
             [
                 "4647f4d0882cb5e0"
-            ]
-        ]
-    },
-    {
-        "id": "8b3628118da7f2ec",
-        "type": "inject",
-        "z": "4d90b497.b5b2ac",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "true",
-        "payloadType": "bool",
-        "x": 770,
-        "y": 140,
-        "wires": [
-            [
-                "5a82573d05182b80"
-            ]
-        ]
-    },
-    {
-        "id": "5a82573d05182b80",
-        "type": "function",
-        "z": "4d90b497.b5b2ac",
-        "name": "function 48",
-        "func": "flow.set('waschkueche_fahradkeller_tuer_sensor', msg.payload)\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 970,
-        "y": 160,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "1f0d540cc091b459",
-        "type": "inject",
-        "z": "4d90b497.b5b2ac",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "false",
-        "payloadType": "bool",
-        "x": 770,
-        "y": 180,
-        "wires": [
-            [
-                "5a82573d05182b80"
             ]
         ]
     },
@@ -7202,8 +7164,8 @@
         "font": "",
         "fontSize": "",
         "color": "#000000",
-        "x": 2160,
-        "y": 440,
+        "x": 1980,
+        "y": 480,
         "wires": []
     },
     {
@@ -7218,11 +7180,28 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1970,
-        "y": 440,
+        "x": 1790,
+        "y": 480,
         "wires": [
             [
                 "154abe954d8614ac"
+            ]
+        ]
+    },
+    {
+        "id": "d8ccba5a509c6755",
+        "type": "link in",
+        "z": "4d90b497.b5b2ac",
+        "name": "Fan Controller",
+        "links": [
+            "21b33795391d4ce8",
+            "605faa63e383b5da"
+        ],
+        "x": 685,
+        "y": 440,
+        "wires": [
+            [
+                "a8931b52.026628"
             ]
         ]
     },
@@ -7550,15 +7529,15 @@
         "correl": "",
         "expiry": "",
         "broker": "c349b9ff.9dc4c8",
-        "x": 870,
-        "y": 560,
+        "x": 730,
+        "y": 540,
         "wires": []
     },
     {
         "id": "c06891a3.a77e7",
         "type": "mqtt in",
         "z": "293bb437.fa00bc",
-        "name": "",
+        "name": "Dämmerungssensor",
         "topic": "aussen-licht/binary_sensor/lichtsensor/state",
         "qos": "2",
         "datatype": "auto",
@@ -7566,7 +7545,7 @@
         "nl": false,
         "rap": false,
         "inputs": 0,
-        "x": 250,
+        "x": 170,
         "y": 540,
         "wires": [
             [
@@ -7603,8 +7582,8 @@
         "officon": "",
         "offcolor": "",
         "animate": true,
-        "x": 570,
-        "y": 540,
+        "x": 430,
+        "y": 520,
         "wires": [
             [
                 "19fb59d7.6f23e6"
@@ -7636,8 +7615,8 @@
         "officon": "",
         "offcolor": "",
         "animate": true,
-        "x": 570,
-        "y": 580,
+        "x": 430,
+        "y": 560,
         "wires": [
             [
                 "19fb59d7.6f23e6"
@@ -7654,8 +7633,8 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 560,
-        "y": 500,
+        "x": 420,
+        "y": 480,
         "wires": [
             [
                 "f6017621.65b638"
@@ -7675,8 +7654,8 @@
         "format": "{{msg.payload}}",
         "layout": "row-spread",
         "className": "",
-        "x": 930,
-        "y": 500,
+        "x": 790,
+        "y": 480,
         "wires": []
     },
     {
@@ -7938,8 +7917,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 740,
-        "y": 500,
+        "x": 600,
+        "y": 480,
         "wires": [
             [
                 "bc54b6b1.153c68"
@@ -8029,8 +8008,8 @@
         "offcolor": "",
         "animate": true,
         "className": "",
-        "x": 570,
-        "y": 620,
+        "x": 430,
+        "y": 600,
         "wires": [
             [
                 "ea10858a1cba4404",
@@ -8052,8 +8031,8 @@
         "correl": "",
         "expiry": "",
         "broker": "c349b9ff.9dc4c8",
-        "x": 1040,
-        "y": 620,
+        "x": 900,
+        "y": 600,
         "wires": []
     },
     {
@@ -8136,8 +8115,8 @@
         "links": [
             "89dc73d808e84b6b"
         ],
-        "x": 445,
-        "y": 620,
+        "x": 245,
+        "y": 600,
         "wires": [
             [
                 "c4e81b24848f57bf"
@@ -8402,8 +8381,8 @@
         "correl": "",
         "expiry": "",
         "broker": "c349b9ff.9dc4c8",
-        "x": 1120,
-        "y": 660,
+        "x": 980,
+        "y": 640,
         "wires": []
     },
     {
@@ -8417,8 +8396,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 770,
-        "y": 660,
+        "x": 630,
+        "y": 640,
         "wires": [
             [
                 "ac84dab220def119"
@@ -8438,8 +8417,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 580,
-        "y": 680,
+        "x": 440,
+        "y": 660,
         "wires": []
     },
     {
@@ -10371,7 +10350,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 190,
-        "y": 220,
+        "y": 300,
         "wires": [
             [
                 "00e08a79ca2ce0b4"
@@ -10391,7 +10370,7 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 550,
+        "x": 570,
         "y": 140,
         "wires": []
     },
@@ -10410,7 +10389,7 @@
         "resendOnRefresh": true,
         "templateScope": "local",
         "className": "",
-        "x": 550,
+        "x": 570,
         "y": 180,
         "wires": [
             []
@@ -10431,7 +10410,7 @@
         "resendOnRefresh": true,
         "templateScope": "local",
         "className": "",
-        "x": 550,
+        "x": 570,
         "y": 220,
         "wires": [
             []
@@ -10452,7 +10431,7 @@
         "resendOnRefresh": true,
         "templateScope": "local",
         "className": "",
-        "x": 550,
+        "x": 570,
         "y": 260,
         "wires": [
             []
@@ -10485,7 +10464,7 @@
         "animate": false,
         "className": "",
         "x": 530,
-        "y": 400,
+        "y": 540,
         "wires": [
             [
                 "63f21a6d5e10906e"
@@ -10507,7 +10486,7 @@
         "expiry": "",
         "broker": "c349b9ff.9dc4c8",
         "x": 820,
-        "y": 400,
+        "y": 540,
         "wires": []
     },
     {
@@ -10525,7 +10504,7 @@
         "resendOnRefresh": true,
         "templateScope": "local",
         "className": "",
-        "x": 550,
+        "x": 570,
         "y": 300,
         "wires": [
             []
@@ -10536,14 +10515,15 @@
         "type": "function",
         "z": "59d7b954e676768e",
         "name": "",
-        "func": "const temp = global.get(\"luftguetemesser2-temperature\");\nconst hum = global.get(\"luftguetemesser2-humidity\");\nconst abs_hum = global.get(\"luftguetemesser2-absolute_humidity\");\nconst press = global.get(\"luftguetemesser2-pressure\");\nconst iaq = global.get(\"luftguetemesser2-iaq\");\nconst co2 = global.get(\"luftguetemesser2-co2\");\nconst voc = global.get(\"luftguetemesser2-breath_voc_equivalent\");\nconst m10 = global.get(\"luftguetemesser2-particulate_matter_10m_concentration\");\nconst m25 = global.get(\"luftguetemesser2-particulate_matter_25m_concentration\");\nconst m100 = global.get(\"luftguetemesser2-particulate_matter_100m_concentration\");\nconst formaldehyde = global.get(\"luftguetemesser2-formaldehyde\");\nconst alert_voc = global.get(\"luftguetemesser2-alert_voc\");\nconst alert_co2 = global.get(\"luftguetemesser2-alert_co2\");\nconst alert_pm = global.get(\"luftguetemesser2-alert_pm\");\nconst alert_formaldehyde = global.get(\"luftguetemesser2-alert_formaldehyde\");\n\nvar debug = {\n    temp: temp,\n    hum: hum,\n    abs_hum: abs_hum,\n    press: press,\n    iaq: iaq,\n    co2: co2,\n    voc: voc,\n    m10: m10,\n    m25: m25,\n    m100: m100,\n    formaldehyde: formaldehyde,\n    alert_voc,\n    alert_co2,\n    alert_pm,\n    alert_formaldehyde\n};\n\nconst intl = global.get('intl');\nconst format = intl.NumberFormat('de-De',{style:'decimal', maximumFractionDigits: 2}).format;\nconst sprintf = global.get(\"sprintf\");\n\nfunction color(alert) {\n    return (alert == \"green\") ? \"limegreen\" : alert;\n}\n\nvar voc_status = {payload: { value: \"Flüchtige org. Verbindungen\", color: color(alert_voc), text: sprintf(\"%s mg/m³\", format(voc))}};\nvar matter_status = { payload: { value: \"Feinstaub\", color: color(alert_pm), text1: sprintf(\"1,0 µm: %s ppm\", format(m10)), text2: sprintf(\"2,5 µm: %s ppm\", format(m25)), text3: sprintf(\"10 µm: %s ppm\", format(m100))}};\nvar co2_status = { payload: { value: \"CO2\", color: color(alert_co2), text: sprintf(\"%s ppm\", format(co2)) }};\nvar formaldehyde_status = { payload: { value: \"Formaldehyd\", color: color(alert_formaldehyde), text: sprintf(\"%s µg/m³\", format(formaldehyde)) }};\n\nreturn [debug, voc_status, matter_status, co2_status, formaldehyde_status];\n",
-        "outputs": 5,
+        "func": "const temp = global.get(\"luftguetemesser2-temperature\");\nconst hum = global.get(\"luftguetemesser2-humidity\");\nconst abs_hum = global.get(\"luftguetemesser2-absolute_humidity\");\nconst press = global.get(\"luftguetemesser2-pressure\");\nconst iaq = global.get(\"luftguetemesser2-iaq\");\nconst co2 = global.get(\"luftguetemesser2-co2\");\nconst voc = global.get(\"luftguetemesser2-breath_voc_equivalent\");\nconst m10 = global.get(\"luftguetemesser2-particulate_matter_10m_concentration\");\nconst m25 = global.get(\"luftguetemesser2-particulate_matter_25m_concentration\");\nconst m100 = global.get(\"luftguetemesser2-particulate_matter_100m_concentration\");\nconst formaldehyde = global.get(\"luftguetemesser2-formaldehyde\");\nconst alert_voc = global.get(\"luftguetemesser2-alert_voc\");\nconst alert_co2 = global.get(\"luftguetemesser2-alert_co2\");\nconst alert_pm = global.get(\"luftguetemesser2-alert_pm\");\nconst alert_formaldehyde = global.get(\"luftguetemesser2-alert_formaldehyde\");\n\nvar debug = {\n    temp: temp,\n    hum: hum,\n    abs_hum: abs_hum,\n    press: press,\n    iaq: iaq,\n    co2: co2,\n    voc: voc,\n    m10: m10,\n    m25: m25,\n    m100: m100,\n    formaldehyde: formaldehyde,\n    alert_voc,\n    alert_co2,\n    alert_pm,\n    alert_formaldehyde\n};\n\nconst intl = global.get('intl');\nconst format = intl.NumberFormat('de-De',{style:'decimal', maximumFractionDigits: 2}).format;\nconst sprintf = global.get(\"sprintf\");\n\nfunction color(alert) {\n    return (alert == \"green\") ? \"limegreen\" : alert;\n}\n\nvar voc_status = {payload: { value: \"Flüchtige org. Verbindungen\", color: color(alert_voc), text: sprintf(\"%s mg/m³\", format(voc))}};\nvar matter_status = { payload: { value: \"Feinstaub\", color: color(alert_pm), text1: sprintf(\"1,0 µm: %s ppm\", format(m10)), text2: sprintf(\"2,5 µm: %s ppm\", format(m25)), text3: sprintf(\"10 µm: %s ppm\", format(m100))}};\nvar co2_status = { payload: { value: \"CO2\", color: color(alert_co2), text: sprintf(\"%s ppm\", format(co2)) }};\nvar formaldehyde_status = { payload: { value: \"Formaldehyd\", color: color(alert_formaldehyde), text: sprintf(\"%s µg/m³\", format(formaldehyde)) }};\nvar temp_status = { payload: { value: \"Temperatur\", color: \"white\", text: sprintf(\"%s °C\", format(temp)) }};\nvar hum_status = { payload: { value: \"Rel. Luftfeuchtigkeit\", color: \"white\", text: sprintf(\"%s %%\", format(hum)) }};\nvar abs_hum_status = { payload: { value: \"Abs. Luftfeuchtigkeit\", color: \"white\", text: sprintf(\"%s mg/m³\", format(abs_hum)) }};\nvar press_status = { payload: { value: \"Luftdruck\", color: \"white\", text: sprintf(\"%s µg/m³\", format(press)) }};\n\nreturn [debug, voc_status, matter_status, co2_status, formaldehyde_status, temp_status, hum_status, abs_hum_status, press_status];\n",
+        "outputs": 9,
+        "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
         "x": 360,
-        "y": 220,
+        "y": 300,
         "wires": [
             [
                 "d99e941e4f8ab25f"
@@ -10559,6 +10539,18 @@
             ],
             [
                 "b30af5915352bee5"
+            ],
+            [
+                "deafacdbd897b3ae"
+            ],
+            [
+                "2478f7a297b80e97"
+            ],
+            [
+                "af4c89378f93543b"
+            ],
+            [
+                "2895804f2def8399"
             ]
         ]
     },
@@ -10576,11 +10568,95 @@
         "rh": 0,
         "inputs": 0,
         "x": 260,
-        "y": 400,
+        "y": 540,
         "wires": [
             [
                 "479b8a0810c021cb"
             ]
+        ]
+    },
+    {
+        "id": "deafacdbd897b3ae",
+        "type": "ui_template",
+        "z": "59d7b954e676768e",
+        "group": "69570255a88564b2",
+        "name": "5",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "format": "<md-card ui-card-size=\"6x2\" \n    class=\"_md nr-dashboard-text layout-align-center-center nr-dashboard-widget-text visible\" \n    style=\"background-color: {{msg.payload.color}}; color: black; left: 0px; top: 54px; width: 300px; height: 96px;\">\n    <p class=\"value\">{{msg.payload.value}}</p><p>{{msg.payload.text}}</p>\n</md-card>\n",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 570,
+        "y": 340,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2478f7a297b80e97",
+        "type": "ui_template",
+        "z": "59d7b954e676768e",
+        "group": "69570255a88564b2",
+        "name": "6",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "format": "<md-card ui-card-size=\"6x2\" \n    class=\"_md nr-dashboard-text layout-align-center-center nr-dashboard-widget-text visible\" \n    style=\"background-color: {{msg.payload.color}}; color: black; left: 0px; top: 54px; width: 300px; height: 96px;\">\n    <p class=\"value\">{{msg.payload.value}}</p><p>{{msg.payload.text}}</p>\n</md-card>\n",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 570,
+        "y": 380,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "af4c89378f93543b",
+        "type": "ui_template",
+        "z": "59d7b954e676768e",
+        "group": "69570255a88564b2",
+        "name": "7",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "format": "<md-card ui-card-size=\"6x2\" \n    class=\"_md nr-dashboard-text layout-align-center-center nr-dashboard-widget-text visible\" \n    style=\"background-color: {{msg.payload.color}}; color: black; left: 0px; top: 54px; width: 300px; height: 96px;\">\n    <p class=\"value\">{{msg.payload.value}}</p><p>{{msg.payload.text}}</p>\n</md-card>\n",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 570,
+        "y": 420,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2895804f2def8399",
+        "type": "ui_template",
+        "z": "59d7b954e676768e",
+        "group": "69570255a88564b2",
+        "name": "8",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "format": "<md-card ui-card-size=\"6x2\" \n    class=\"_md nr-dashboard-text layout-align-center-center nr-dashboard-widget-text visible\" \n    style=\"background-color: {{msg.payload.color}}; color: black; left: 0px; top: 54px; width: 300px; height: 96px;\">\n    <p class=\"value\">{{msg.payload.value}}</p><p>{{msg.payload.text}}</p>\n</md-card>\n",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 570,
+        "y": 460,
+        "wires": [
+            []
         ]
     },
     {
@@ -10631,7 +10707,7 @@
         "z": "2788b93b.8a2f56",
         "group": "245ec0f9.12765",
         "name": "",
-        "order": 4,
+        "order": 3,
         "width": 0,
         "height": 0,
         "format": "<md-card ui-card-size=\"6x2\" \n    class=\"_md nr-dashboard-text layout-align-center-center nr-dashboard-widget-text visible\" \n    style=\"background-color: {{msg.payload.color}}; color: black; left: 0px; top: 54px; width: 300px; height: 96px;\">\n    <p class=\"label\">{{msg.payload.room}}</p><p>{{msg.payload.text}}</p> <p class=\"value\">{{msg.payload.hint}}</p>\n</md-card>\n",
@@ -10640,7 +10716,7 @@
         "resendOnRefresh": true,
         "templateScope": "local",
         "x": 1300,
-        "y": 480,
+        "y": 440,
         "wires": [
             []
         ]
@@ -10651,7 +10727,7 @@
         "z": "2788b93b.8a2f56",
         "group": "245ec0f9.12765",
         "name": "",
-        "order": 5,
+        "order": 4,
         "width": 0,
         "height": 0,
         "format": "<md-card ui-card-size=\"6x2\" \n    class=\"_md nr-dashboard-text layout-align-center-center nr-dashboard-widget-text visible\" \n    style=\"background-color: {{msg.payload.color}}; color: black; left: 0px; top: 54px; width: 300px; height: 96px;\">\n    <p class=\"label\">{{msg.payload.room}}</p><p>{{msg.payload.text}}</p> <p class=\"value\">{{msg.payload.hint}}</p>\n</md-card>\n",
@@ -10660,7 +10736,7 @@
         "resendOnRefresh": true,
         "templateScope": "local",
         "x": 1300,
-        "y": 520,
+        "y": 480,
         "wires": [
             []
         ]
@@ -10714,11 +10790,6 @@
             {
                 "t": "eq",
                 "v": "treppenhaus_keller",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "treppenhaus_dg",
                 "vt": "str"
             },
             {
@@ -10778,6 +10849,11 @@
             },
             {
                 "t": "eq",
+                "v": "treppenhaus_dg",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
                 "v": "bad_dg",
                 "vt": "str"
             },
@@ -10803,9 +10879,6 @@
             ],
             [
                 "12ebb575.a874db"
-            ],
-            [
-                "3c7c9ecf2bc53afe"
             ],
             [
                 "89e98409.0b1d08"
@@ -10841,6 +10914,9 @@
                 "7ebcce878d52151f"
             ],
             [
+                "3c7c9ecf2bc53afe"
+            ],
+            [
                 "b4af6219f2a77569"
             ],
             [
@@ -10853,6 +10929,26 @@
     },
     {
         "id": "c91d5cbf.ecc24",
+        "type": "ui_template",
+        "z": "2788b93b.8a2f56",
+        "group": "245ec0f9.12765",
+        "name": "",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "format": "<md-card ui-card-size=\"6x2\" \n    class=\"_md nr-dashboard-text layout-align-center-center nr-dashboard-widget-text visible\" \n    style=\"background-color: {{msg.payload.color}}; color: black; left: 0px; top: 54px; width: 300px; height: 96px;\">\n    <p class=\"label\">{{msg.payload.room}}</p><p>{{msg.payload.text}}</p> <p class=\"value\">{{msg.payload.hint}}</p>\n</md-card>\n",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "x": 1300,
+        "y": 520,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "740dd7e9.4e3008",
         "type": "ui_template",
         "z": "2788b93b.8a2f56",
         "group": "245ec0f9.12765",
@@ -10872,12 +10968,12 @@
         ]
     },
     {
-        "id": "740dd7e9.4e3008",
+        "id": "f1e82e9a.000e8",
         "type": "ui_template",
         "z": "2788b93b.8a2f56",
         "group": "245ec0f9.12765",
         "name": "",
-        "order": 7,
+        "order": 8,
         "width": 0,
         "height": 0,
         "format": "<md-card ui-card-size=\"6x2\" \n    class=\"_md nr-dashboard-text layout-align-center-center nr-dashboard-widget-text visible\" \n    style=\"background-color: {{msg.payload.color}}; color: black; left: 0px; top: 54px; width: 300px; height: 96px;\">\n    <p class=\"label\">{{msg.payload.room}}</p><p>{{msg.payload.text}}</p> <p class=\"value\">{{msg.payload.hint}}</p>\n</md-card>\n",
@@ -10886,13 +10982,13 @@
         "resendOnRefresh": true,
         "templateScope": "local",
         "x": 1300,
-        "y": 600,
+        "y": 640,
         "wires": [
             []
         ]
     },
     {
-        "id": "f1e82e9a.000e8",
+        "id": "961cf428.5c8238",
         "type": "ui_template",
         "z": "2788b93b.8a2f56",
         "group": "245ec0f9.12765",
@@ -10907,26 +11003,6 @@
         "templateScope": "local",
         "x": 1300,
         "y": 680,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "961cf428.5c8238",
-        "type": "ui_template",
-        "z": "2788b93b.8a2f56",
-        "group": "245ec0f9.12765",
-        "name": "",
-        "order": 10,
-        "width": 0,
-        "height": 0,
-        "format": "<md-card ui-card-size=\"6x2\" \n    class=\"_md nr-dashboard-text layout-align-center-center nr-dashboard-widget-text visible\" \n    style=\"background-color: {{msg.payload.color}}; color: black; left: 0px; top: 54px; width: 300px; height: 96px;\">\n    <p class=\"label\">{{msg.payload.room}}</p><p>{{msg.payload.text}}</p> <p class=\"value\">{{msg.payload.hint}}</p>\n</md-card>\n",
-        "storeOutMessages": true,
-        "fwdInMessages": true,
-        "resendOnRefresh": true,
-        "templateScope": "local",
-        "x": 1300,
-        "y": 720,
         "wires": [
             []
         ]
@@ -10976,7 +11052,7 @@
         "z": "2788b93b.8a2f56",
         "group": "245ec0f9.12765",
         "name": "",
-        "order": 12,
+        "order": 11,
         "width": 0,
         "height": 0,
         "format": "<md-card ui-card-size=\"6x2\" \n    class=\"_md nr-dashboard-text layout-align-center-center nr-dashboard-widget-text visible\" \n    style=\"background-color: {{msg.payload.color}}; color: black; left: 0px; top: 54px; width: 300px; height: 96px;\">\n    <p class=\"label\">{{msg.payload.room}}</p><p>{{msg.payload.text}}</p> <p class=\"value\">{{msg.payload.hint}}</p>\n</md-card>\n",
@@ -10985,7 +11061,7 @@
         "resendOnRefresh": true,
         "templateScope": "local",
         "x": 1300,
-        "y": 800,
+        "y": 760,
         "wires": [
             []
         ]
@@ -11278,7 +11354,7 @@
         "z": "2788b93b.8a2f56",
         "group": "245ec0f9.12765",
         "name": "",
-        "order": 11,
+        "order": 10,
         "width": 0,
         "height": 0,
         "format": "<md-card ui-card-size=\"6x2\" \n    class=\"_md nr-dashboard-text layout-align-center-center nr-dashboard-widget-text visible\" \n    style=\"background-color: {{msg.payload.color}}; color: black; left: 0px; top: 54px; width: 300px; height: 96px;\">\n    <p class=\"label\">{{msg.payload.room}}</p><p>{{msg.payload.text}}</p> <p class=\"value\">{{msg.payload.hint}}</p>\n</md-card>\n",
@@ -11287,7 +11363,7 @@
         "resendOnRefresh": true,
         "templateScope": "local",
         "x": 1300,
-        "y": 760,
+        "y": 720,
         "wires": [
             []
         ]
@@ -11298,7 +11374,7 @@
         "z": "2788b93b.8a2f56",
         "group": "245ec0f9.12765",
         "name": "",
-        "order": 8,
+        "order": 7,
         "width": 0,
         "height": 0,
         "format": "<md-card ui-card-size=\"6x2\" \n    class=\"_md nr-dashboard-text layout-align-center-center nr-dashboard-widget-text visible\" \n    style=\"background-color: {{msg.payload.color}}; color: black; left: 0px; top: 54px; width: 300px; height: 96px;\">\n    <p class=\"label\">{{msg.payload.room}}</p><p>{{msg.payload.text}}</p> <p class=\"value\">{{msg.payload.hint}}</p>\n</md-card>\n",
@@ -11307,7 +11383,7 @@
         "resendOnRefresh": true,
         "templateScope": "local",
         "x": 1300,
-        "y": 640,
+        "y": 600,
         "wires": [
             []
         ]
@@ -11398,7 +11474,7 @@
         "resendOnRefresh": true,
         "templateScope": "local",
         "x": 1300,
-        "y": 840,
+        "y": 800,
         "wires": [
             []
         ]
@@ -11466,7 +11542,7 @@
         "z": "2788b93b.8a2f56",
         "group": "245ec0f9.12765",
         "name": "",
-        "order": 12,
+        "order": 13,
         "width": 0,
         "height": 0,
         "format": "<md-card ui-card-size=\"6x2\" \n    class=\"_md nr-dashboard-text layout-align-center-center nr-dashboard-widget-text visible\" \n    style=\"background-color: {{msg.payload.color}}; color: black; left: 0px; top: 54px; width: 300px; height: 96px;\">\n    <p class=\"label\">{{msg.payload.room}}</p><p>{{msg.payload.text}}</p> <p class=\"value\">{{msg.payload.hint}}</p>\n</md-card>\n",
@@ -11475,7 +11551,7 @@
         "resendOnRefresh": true,
         "templateScope": "local",
         "x": 1300,
-        "y": 880,
+        "y": 840,
         "wires": [
             []
         ]
@@ -11486,7 +11562,7 @@
         "z": "2788b93b.8a2f56",
         "group": "245ec0f9.12765",
         "name": "",
-        "order": 12,
+        "order": 15,
         "width": 0,
         "height": 0,
         "format": "<md-card ui-card-size=\"6x2\" \n    class=\"_md nr-dashboard-text layout-align-center-center nr-dashboard-widget-text visible\" \n    style=\"background-color: {{msg.payload.color}}; color: black; left: 0px; top: 54px; width: 300px; height: 96px;\">\n    <p class=\"label\">{{msg.payload.room}}</p><p>{{msg.payload.text}}</p> <p class=\"value\">{{msg.payload.hint}}</p>\n</md-card>\n",
@@ -11506,7 +11582,7 @@
         "z": "2788b93b.8a2f56",
         "group": "245ec0f9.12765",
         "name": "",
-        "order": 12,
+        "order": 16,
         "width": 0,
         "height": 0,
         "format": "<md-card ui-card-size=\"6x2\" \n    class=\"_md nr-dashboard-text layout-align-center-center nr-dashboard-widget-text visible\" \n    style=\"background-color: {{msg.payload.color}}; color: black; left: 0px; top: 54px; width: 300px; height: 96px;\">\n    <p class=\"label\">{{msg.payload.room}}</p><p>{{msg.payload.text}}</p> <p class=\"value\">{{msg.payload.hint}}</p>\n</md-card>\n",
@@ -11545,7 +11621,7 @@
         "z": "2788b93b.8a2f56",
         "group": "245ec0f9.12765",
         "name": "",
-        "order": 12,
+        "order": 17,
         "width": 0,
         "height": 0,
         "format": "<md-card ui-card-size=\"6x2\" \n    class=\"_md nr-dashboard-text layout-align-center-center nr-dashboard-widget-text visible\" \n    style=\"background-color: {{msg.payload.color}}; color: black; left: 0px; top: 54px; width: 300px; height: 96px;\">\n    <p class=\"label\">{{msg.payload.room}}</p><p>{{msg.payload.text}}</p> <p class=\"value\">{{msg.payload.hint}}</p>\n</md-card>\n",
@@ -11585,7 +11661,7 @@
         "z": "2788b93b.8a2f56",
         "group": "245ec0f9.12765",
         "name": "",
-        "order": 2,
+        "order": 14,
         "width": 0,
         "height": 0,
         "format": "<md-card ui-card-size=\"6x2\" \n    class=\"_md nr-dashboard-text layout-align-center-center nr-dashboard-widget-text visible\" \n    style=\"background-color: {{msg.payload.color}}; color: black; left: 0px; top: 54px; width: 300px; height: 96px;\">\n    <p class=\"label\">{{msg.payload.room}}</p><p>{{msg.payload.text}}</p> <p class=\"value\">{{msg.payload.hint}}</p>\n</md-card>\n",
@@ -11593,8 +11669,9 @@
         "fwdInMessages": true,
         "resendOnRefresh": true,
         "templateScope": "local",
+        "className": "",
         "x": 1300,
-        "y": 440,
+        "y": 880,
         "wires": [
             []
         ]
@@ -12570,7 +12647,7 @@
         "id": "f2a9858295ce0676",
         "type": "mqtt in",
         "z": "caf02dc9a5b73890",
-        "name": "",
+        "name": "Kellertür-Sensor",
         "topic": "zigbee2mqtt/kellertuer_sensor",
         "qos": "2",
         "datatype": "auto-detect",
@@ -12579,7 +12656,7 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 200,
+        "x": 160,
         "y": 1540,
         "wires": [
             [
@@ -12594,8 +12671,9 @@
         "type": "function",
         "z": "caf02dc9a5b73890",
         "name": "Abschließen wenn Gartenlicht aus",
-        "func": "const contact = flow.get(\"kellertuer_sensor\");\nconst gartenlicht = global.get(\"gartenlicht\");\n\nif (contact && gartenlicht == \"OFF\") {\n    return {topic: \"lockAction\", payload: \"LOCK\"};\n} else \n    return;\n",
+        "func": "const contact = global.get(\"kellertuer_sensor\");\nconst gartenlicht = global.get(\"gartenlicht\");\n\nif (contact && gartenlicht == \"OFF\") {\n    return {topic: \"lockAction\", payload: \"LOCK\"};\n} else \n    return;\n",
         "outputs": 1,
+        "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
@@ -12849,7 +12927,7 @@
         "name": "link out 9",
         "mode": "link",
         "links": [
-            "0b172ea0761e4dbb"
+            "d8ccba5a509c6755"
         ],
         "x": 375,
         "y": 1580,
@@ -12878,7 +12956,7 @@
             {
                 "t": "set",
                 "p": "kellertuer_sensor",
-                "pt": "flow",
+                "pt": "global",
                 "to": "payload.contact",
                 "tot": "msg"
             }
@@ -13614,8 +13692,9 @@
         "type": "function",
         "z": "caf02dc9a5b73890",
         "name": "open with pin",
-        "func": "const pin = flow.get('pin');\nflow.set('pin', '');\n\nif (pin != msg.pin) return;\n\nreturn [{ payload: '' }, { payload: true}];",
-        "outputs": 2,
+        "func": "const pin = flow.get('pin');\nflow.set('pin', '');\n\nif (pin != msg.pin) return;\n\nreturn { payload: true};",
+        "outputs": 1,
+        "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
@@ -13623,9 +13702,6 @@
         "x": 480,
         "y": 1180,
         "wires": [
-            [
-                "d30eaa96a9c03566"
-            ],
             [
                 "da07e9eb00c44b89"
             ]
@@ -13640,7 +13716,7 @@
         "links": [
             "38c704d3beb148ed"
         ],
-        "x": 605,
+        "x": 615,
         "y": 1180,
         "wires": []
     },
@@ -14344,8 +14420,8 @@
         "payloadType": "str",
         "topic": "topic",
         "topicType": "msg",
-        "x": 230,
-        "y": 420,
+        "x": 250,
+        "y": 580,
         "wires": [
             [
                 "b3d68c772a191a78"
@@ -14366,8 +14442,8 @@
         "correl": "",
         "expiry": "",
         "broker": "c349b9ff.9dc4c8",
-        "x": 700,
-        "y": 420,
+        "x": 760,
+        "y": 580,
         "wires": []
     },
     {
@@ -14402,8 +14478,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 440,
-        "y": 420,
+        "x": 500,
+        "y": 580,
         "wires": [
             [
                 "89a64d036fd322d0"
@@ -14458,7 +14534,7 @@
         "payloadType": "str",
         "topic": "topic",
         "topicType": "msg",
-        "x": 230,
+        "x": 250,
         "y": 920,
         "wires": [
             [
@@ -14481,7 +14557,7 @@
         "correl": "",
         "expiry": "",
         "broker": "c349b9ff.9dc4c8",
-        "x": 720,
+        "x": 780,
         "y": 920,
         "wires": []
     },
@@ -14652,7 +14728,7 @@
         "className": "",
         "topicType": "msg",
         "x": 270,
-        "y": 580,
+        "y": 500,
         "wires": [
             [
                 "4b60f74abbc296ce"
@@ -14678,8 +14754,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 460,
-        "y": 580,
+        "x": 520,
+        "y": 500,
         "wires": [
             []
         ]
@@ -14772,8 +14848,9 @@
         "type": "function",
         "z": "0133ddc4e63513b7",
         "name": "store finger name and id",
-        "func": "const name_to_add = flow.get('name_to_add');\nconst hand_to_add = flow.get('hand_to_add');\nconst finger_to_add = flow.get('finger_to_add');\nconst id_to_add = flow.get('id_to_add');\nconst list_of_fingerprints = flow.get('list_of_fingerprints') || {};\n\nlist_of_fingerprints[id_to_add] = `${name_to_add}-${finger_to_add}-${hand_to_add}`;\nflow.set('list_of_fingerprints', list_of_fingerprints);\nflow.set('pin', '');\n\nconst sprintf = global.get(\"sprintf\");\nconst text = sprintf(\"%i: %s\", id_to_add, name_to_add);\n\nreturn [{ payload: '' }, { topic: \"Erfolgreich hinzugefügt:\", payload: text}];",
-        "outputs": 2,
+        "func": "const name_to_add = flow.get('name_to_add');\nconst hand_to_add = flow.get('hand_to_add');\nconst finger_to_add = flow.get('finger_to_add');\nconst id_to_add = flow.get('id_to_add');\nconst list_of_fingerprints = flow.get('list_of_fingerprints') || {};\n\nlist_of_fingerprints[id_to_add] = `${name_to_add}-${finger_to_add}-${hand_to_add}`;\nflow.set('list_of_fingerprints', list_of_fingerprints);\nflow.set('pin', '');\n\nconst sprintf = global.get(\"sprintf\");\nconst text = sprintf(\"%i: %s\", id_to_add, name_to_add);\n\nreturn { topic: \"Erfolgreich hinzugefügt:\", payload: text};",
+        "outputs": 1,
+        "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
@@ -14781,9 +14858,6 @@
         "x": 530,
         "y": 680,
         "wires": [
-            [
-                "23400c7227a0807c"
-            ],
             [
                 "166ea28fb4066970",
                 "6aed96f65ecbb9f3"
@@ -14935,7 +15009,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 450,
+        "x": 510,
         "y": 340,
         "wires": [
             []
@@ -14961,7 +15035,7 @@
         "max": "100",
         "step": 1,
         "className": "",
-        "x": 210,
+        "x": 270,
         "y": 340,
         "wires": [
             [
@@ -15113,8 +15187,8 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 290,
-        "y": 260,
+        "x": 200,
+        "y": 280,
         "wires": [
             [
                 "b048f207dc1e62d9",
@@ -15141,8 +15215,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 620,
-        "y": 260,
+        "x": 530,
+        "y": 280,
         "wires": [
             [
                 "e3e03178bf6cebe2"
@@ -15168,8 +15242,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 430,
-        "y": 620,
+        "x": 490,
+        "y": 540,
         "wires": [
             []
         ]
@@ -15193,7 +15267,7 @@
         "className": "",
         "topicType": "msg",
         "x": 270,
-        "y": 620,
+        "y": 540,
         "wires": [
             [
                 "8d25e61dcf29b6a7"
@@ -15220,7 +15294,7 @@
         "max": 10,
         "step": 1,
         "className": "",
-        "x": 240,
+        "x": 300,
         "y": 380,
         "wires": [
             [
@@ -15247,7 +15321,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 450,
+        "x": 510,
         "y": 380,
         "wires": [
             []
@@ -15353,8 +15427,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 460,
-        "y": 540,
+        "x": 520,
+        "y": 460,
         "wires": [
             []
         ]
@@ -15378,8 +15452,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 460,
-        "y": 500,
+        "x": 520,
+        "y": 420,
         "wires": [
             []
         ]
@@ -15415,7 +15489,7 @@
         "topicType": "msg",
         "className": "",
         "x": 270,
-        "y": 500,
+        "y": 420,
         "wires": [
             [
                 "0e71dae562ead704"
@@ -15468,7 +15542,7 @@
         "topicType": "msg",
         "className": "",
         "x": 270,
-        "y": 540,
+        "y": 460,
         "wires": [
             [
                 "64feafd00e0a8031"
@@ -15495,27 +15569,27 @@
         ]
     },
     {
-        "id": "23400c7227a0807c",
-        "type": "delay",
+        "id": "34659b7b3818c48d",
+        "type": "inject",
         "z": "0133ddc4e63513b7",
-        "name": "",
-        "pauseType": "delay",
-        "timeout": "5",
-        "timeoutUnits": "minutes",
-        "rate": "1",
-        "nbRateUnits": "1",
-        "rateUnits": "second",
-        "randomFirst": "1",
-        "randomLast": "5",
-        "randomUnits": "seconds",
-        "drop": false,
-        "allowrate": false,
-        "outputs": 1,
-        "x": 120,
-        "y": 620,
+        "name": "Reset",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "2",
+        "payloadType": "num",
+        "x": 130,
+        "y": 380,
         "wires": [
             [
-                "4d42edd6ee3c272e"
+                "eed67a44576cb146"
             ]
         ]
     },
@@ -19623,6 +19697,268 @@
             [
                 "418bb92d0b2c9f87"
             ]
+        ]
+    },
+    {
+        "id": "c0a453e0.3b0b",
+        "type": "web-push",
+        "z": "186ee9b7.78e426",
+        "name": "",
+        "vapidConfiguration": "1d41b598.c12dba",
+        "x": 740,
+        "y": 280,
+        "wires": [
+            [
+                "dacfb716.62dd98"
+            ]
+        ]
+    },
+    {
+        "id": "55f7d1e7.59fe4",
+        "type": "web-push-notification",
+        "z": "186ee9b7.78e426",
+        "name": "web push notification",
+        "title": "This is default notification",
+        "body": "It makes sense to have a call to action in the content",
+        "sound": "",
+        "payload": "",
+        "x": 420,
+        "y": 200,
+        "wires": [
+            [
+                "9b93fae9.81c4d8"
+            ]
+        ]
+    },
+    {
+        "id": "772803c2.55b3cc",
+        "type": "inject",
+        "z": "186ee9b7.78e426",
+        "name": "Send predefined notification",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 160,
+        "y": 200,
+        "wires": [
+            [
+                "55f7d1e7.59fe4"
+            ]
+        ]
+    },
+    {
+        "id": "dacfb716.62dd98",
+        "type": "debug",
+        "z": "186ee9b7.78e426",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "x": 750,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "1512b37d.10daed",
+        "type": "http in",
+        "z": "186ee9b7.78e426",
+        "name": "Demo Web Push Manager REST API",
+        "url": "webpush",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 180,
+        "y": 60,
+        "wires": [
+            [
+                "c1013cfe.39645"
+            ]
+        ]
+    },
+    {
+        "id": "c1013cfe.39645",
+        "type": "function",
+        "z": "186ee9b7.78e426",
+        "name": "Demo Web Push Manager",
+        "func": "let pushSubscriptions = flow.get('pushSubscriptions')||[]\n  \nlet action = msg.payload.action\nlet subscription = msg.payload.subscription\n  \nlet result = ''\n\nlet foundSubscriptionItems = pushSubscriptions.filter( subscriptionItem => {\n    return subscriptionItem.endpoint == subscription.endpoint\n})\n  \nif (action === 'subscribe') {\n    \n    if (foundSubscriptionItems.length === 0) {\n      pushSubscriptions.push(subscription)\n      result = 'Subscription registered: ' + subscription.endpoint\n    } else {\n      result = 'Subscription was already registered: ' + subscription.endpoint\n    }\n\n    msg.statusCode = 200\n    \n } else if (action === 'unsubscribe') {\n     \n    if(foundSubscriptionItems.length === 0) {\n        result = 'Subscription was not found: ' + subscription.endpoint\n    } else {\n        pushSubscriptions = pushSubscriptions.filter(subscriptionItem => {\n            return subscriptionItem.endpoint !== subscription.endpoint\n        })\n        result = 'Subscription unregistered: ' + subscription.endpoint\n    }\n    \n    msg.statusCode = 200\n\n } else {\n      \n    result = 'Unsupported action'\n      \n    msg.statusCode = 400\n    \n }\n  \nmsg.payload = {\n  result: result\n}\n\nnode.log(`Number of active subscriptions: ${pushSubscriptions.length}`)\n    \nflow.set('pushSubscriptions', pushSubscriptions)\n  \nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 480,
+        "y": 60,
+        "wires": [
+            [
+                "af876fe8.30ed6",
+                "f0b8d2a9.8a765"
+            ]
+        ]
+    },
+    {
+        "id": "af876fe8.30ed6",
+        "type": "http response",
+        "z": "186ee9b7.78e426",
+        "name": "API Response",
+        "statusCode": "",
+        "headers": {},
+        "x": 760,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "f0b8d2a9.8a765",
+        "type": "debug",
+        "z": "186ee9b7.78e426",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "x": 750,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "cdb680f9.fdbe5",
+        "type": "inject",
+        "z": "186ee9b7.78e426",
+        "name": "Send custom notifcation",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"notification\":{\"title\":\"This is custom notification\",\"body\":\"It makes sense to have a call to action in the content\"}}",
+        "payloadType": "json",
+        "x": 150,
+        "y": 380,
+        "wires": [
+            [
+                "71ee5e9.d465ea"
+            ]
+        ]
+    },
+    {
+        "id": "71ee5e9.d465ea",
+        "type": "change",
+        "z": "186ee9b7.78e426",
+        "name": "Set msg.notification",
+        "rules": [
+            {
+                "t": "set",
+                "p": "notification",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 420,
+        "y": 380,
+        "wires": [
+            [
+                "9b93fae9.81c4d8"
+            ]
+        ]
+    },
+    {
+        "id": "9b93fae9.81c4d8",
+        "type": "function",
+        "z": "186ee9b7.78e426",
+        "name": "List subscriptions",
+        "func": "// Using Flow variable we set in Demo Web Push Manager API\nmsg.subscriptions = flow.get('pushSubscriptions')||[]\n\n/*\nor list your subscription objects manually:\nmsg.subscriptions = [{\n    endpoint: \"https://fcm.googleapis.com/fcm/send/SOME_LONG_TOKEN\",\n    keys:\n    {\n        p256dh: P256DH_KEY\",\n        auth: \"AUTH_KEY\"\n    }\n}]\n*/\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 530,
+        "y": 280,
+        "wires": [
+            [
+                "c0a453e0.3b0b"
+            ]
+        ]
+    },
+    {
+        "id": "8dfba1eca066bea9",
+        "type": "ui_toast",
+        "z": "186ee9b7.78e426",
+        "position": "prompt",
+        "displayTime": "3",
+        "highlight": "",
+        "sendall": true,
+        "outputs": 1,
+        "ok": "OK",
+        "cancel": "Cancel",
+        "raw": false,
+        "className": "",
+        "topic": "",
+        "name": "",
+        "x": 490,
+        "y": 540,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "0156dcb0bbf4f867",
+        "type": "inject",
+        "z": "186ee9b7.78e426",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 140,
+        "y": 540,
+        "wires": [
+            [
+                "8dfba1eca066bea9"
+            ]
+        ]
+    },
+    {
+        "id": "530bdce51b11eaf4",
+        "type": "ui_web_push_client",
+        "z": "186ee9b7.78e426",
+        "group": "3f0994e3.62d76c",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "webPushConfig": "7e81b420bdfbe2ed",
+        "sendSubscription": false,
+        "disableButton": false,
+        "showTooltip": false,
+        "subscribeLabel": "Subscribe",
+        "unsubscribeLabel": "Unsubscribe",
+        "name": "",
+        "x": 120,
+        "y": 640,
+        "wires": [
+            []
         ]
     }
 ]
