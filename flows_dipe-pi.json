@@ -8558,6 +8558,43 @@
         "wires": []
     },
     {
+        "id": "873f70487ac3ba4f",
+        "type": "mqtt in",
+        "z": "293bb437.fa00bc",
+        "name": "Regenwasserpumpe",
+        "topic": "shellies/shellyplusplugs-d4d4daedbe64/status/switch:0",
+        "qos": "2",
+        "datatype": "utf8",
+        "broker": "c349b9ff.9dc4c8",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 170,
+        "y": 840,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9591ad84c965c4a0",
+        "type": "mqtt out",
+        "z": "293bb437.fa00bc",
+        "d": true,
+        "name": "Regenwasserpumpe im Schacht bei den Nachbarn",
+        "topic": "shellies/shellyplusplugs-d4d4daedbe64/command/switch:0",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "c349b9ff.9dc4c8",
+        "x": 930,
+        "y": 840,
+        "wires": []
+    },
+    {
         "id": "7ae7fa74.a8aa34",
         "type": "function",
         "z": "fc81a32b.bb6db",
@@ -9060,6 +9097,7 @@
         "id": "d4a94293b3dcde0f",
         "type": "mqtt in",
         "z": "2f328ad8.26ca86",
+        "d": true,
         "name": "Wasserzaehler",
         "topic": "wasserzaehler/main/json",
         "qos": "2",
@@ -9094,6 +9132,7 @@
         "id": "bda66cbe403b98e1",
         "type": "ui_text",
         "z": "2f328ad8.26ca86",
+        "d": true,
         "group": "82403ec68b4e0d16",
         "order": 0,
         "width": 0,
@@ -9103,6 +9142,10 @@
         "format": "{{msg.payload}}",
         "layout": "row-spread",
         "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
         "x": 770,
         "y": 800,
         "wires": []
@@ -9111,9 +9154,11 @@
         "id": "81639ac35386f5a5",
         "type": "function",
         "z": "2f328ad8.26ca86",
+        "d": true,
         "name": "",
         "func": "const intl = global.get('intl');\nmsg.payload = intl.NumberFormat('de-De',{\n        style:'decimal', \n        maximumFractionDigits: 3,\n        minimumFractionDigits: 3\n    }).format(msg.payload.value) + \" m³\";\nreturn msg;",
         "outputs": 1,
+        "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
@@ -9130,12 +9175,14 @@
         "id": "02b2155614250dad",
         "type": "debug",
         "z": "2f328ad8.26ca86",
+        "d": true,
         "name": "",
         "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "false",
+        "complete": "payload",
+        "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
         "x": 630,
@@ -9146,6 +9193,7 @@
         "id": "02f13974ebab4450",
         "type": "catch",
         "z": "2f328ad8.26ca86",
+        "d": true,
         "name": "Catch Error from Wasserzaehler",
         "scope": [
             "d4a94293b3dcde0f"
@@ -11880,8 +11928,10 @@
         "name": "",
         "topic": "zigbee2mqtt/+",
         "qos": "2",
-        "datatype": "auto",
+        "datatype": "auto-detect",
         "broker": "c349b9ff.9dc4c8",
+        "nl": false,
+        "rap": false,
         "inputs": 0,
         "x": 180,
         "y": 380,
@@ -11896,7 +11946,7 @@
         "type": "function",
         "z": "d0173d54.941d7",
         "name": "ZIGBEE2MQTT to InfluxDB",
-        "func": "function flatItem(base, key, src, dest) {\n     if (typeof src === 'undefined') {\n         return;\n     }\n     const deepKey = base.length ? base + '.' + key : key;\n     // console.log(`base=${base} key=${key} deepKey=${deepKey}`);\n     if (typeof src === 'object') {\n        if (Array.isArray(src)) {\n            src.forEach((val, idx) => flatItem(deepKey, idx, val, dest));\n        } else {\n            Object.entries(src).forEach(([key, val]) => flatItem(deepKey, key, val, dest))\n        }\n     } else {\n        dest[deepKey] = src;\n     }\n}\n\nconst tokens = msg.topic.split(\"/\");\nconst measurement = tokens[1].replace(/ /g, '_').toLowerCase();\n\nif (/^0x/.test(measurement)) {\n    // Daten (neuer) Devices, die (noch) keinen Namen haben \n    // Tracken wir nicht. \n    return;\n}\n\nmsg.measurement = measurement;\n\nlet deSerialize = {};\nlet deep = msg.payload;\nlet value; \ntry {\n    deep = JSON.parse(msg.payload);\n    if (typeof deep == 'object') {\n        flatItem('', '', deep, deSerialize);\n    } else {\n       deSerialize.value = deep; \n    }\n} catch (e) {\n}\n\nmsg.payload = deSerialize;\n\nreturn msg;",
+        "func": "function flatItem(base, key, src, dest) {\n     if (typeof src === 'undefined') {\n         return;\n     }\n     const deepKey = base.length ? base + '.' + key : key;\n     // console.log(`base=${base} key=${key} deepKey=${deepKey}`);\n     if (typeof src === 'object') {\n        if (Array.isArray(src)) {\n            src.forEach((val, idx) => flatItem(deepKey, idx, val, dest));\n        } else {\n            Object.entries(src).forEach(([key, val]) => flatItem(deepKey, key, val, dest))\n        }\n     } else {\n        dest[deepKey] = src;\n     }\n}\n\nconst tokens = msg.topic.split(\"/\");\nconst measurement = tokens[1].replace(/ /g, '_').toLowerCase();\n\nif (/^0x/.test(measurement)) {\n    // Daten (neuer) Devices, die (noch) keinen Namen haben \n    // Tracken wir nicht. \n    return;\n}\n\nmsg.measurement = measurement;\n\nlet flat = {};\nflatItem('', '', msg.payload, flat);\n\nmsg.payload = flat;\n\nreturn msg;\n\n\nlet deSerialize = {};\nlet deep = msg.payload;\nlet value; \ntry {\n    deep = JSON.parse(msg.payload);\n    if (typeof deep == 'object') {\n        flatItem('', '', deep, deSerialize);\n    } else {\n       deSerialize.value = deep; \n    }\n} catch (e) {\n}\n",
         "outputs": 1,
         "timeout": "",
         "noerr": 0,
@@ -12196,32 +12246,13 @@
         ]
     },
     {
-        "id": "2433e1cc815bb8e6",
-        "type": "function",
-        "z": "d0173d54.941d7",
-        "name": "Shellies to Influxdb",
-        "func": "const tokens = msg.topic.split(\"/\");\n\nvar value;\nif(/^(\\-|\\+)?([0-9]+(\\.[0-9]+)?)$/.test(msg.payload)) {\n  value = Number(msg.payload);\n} else {\n  value = msg.payload;\n}\n\nif (value === \"nan\" || value === undefined || value === null) {\n    return;\n}\n\nconst measurement = tokens[1].replace(/\\-/g, '_');\n\nmsg.measurement = measurement;\nmsg.payload = {};\nif (tokens.length > 4) {\n    if (tokens[2] === \"emeter\") {\n        const L = Number(tokens[3]) + 1;\n        msg.payload[\"L\" + L + \"_\" + tokens[4]] = value;\n    } else {\n        msg.payload[\"relay\" + tokens[3] + \"_\" + tokens[4]] = value;\n    }\n} else if (tokens.length > 3) {\n    msg.payload[tokens[2] + tokens[3]] = value;\n} else {\n    msg.payload[tokens[2]] = value;\n}\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 690,
-        "y": 320,
-        "wires": [
-            [
-                "faa25f7f.0777"
-            ]
-        ]
-    },
-    {
         "id": "fb1d1c15841f2b0a",
         "type": "mqtt in",
         "z": "d0173d54.941d7",
         "name": "",
         "topic": "shellies/#",
         "qos": "2",
-        "datatype": "auto",
+        "datatype": "auto-detect",
         "broker": "c349b9ff.9dc4c8",
         "nl": false,
         "rap": true,
@@ -12231,7 +12262,7 @@
         "y": 320,
         "wires": [
             [
-                "2433e1cc815bb8e6"
+                "bfb21e9be837b4fd"
             ]
         ]
     },
@@ -12317,6 +12348,45 @@
         ],
         "x": 875,
         "y": 280,
+        "wires": [
+            [
+                "faa25f7f.0777"
+            ]
+        ]
+    },
+    {
+        "id": "770e9d662c333e2e",
+        "type": "function",
+        "z": "d0173d54.941d7",
+        "d": true,
+        "name": "Shellies to Influxdb",
+        "func": "function flatItem(base, key, src, dest) {\n     if (typeof src === 'undefined') {\n         return;\n     }\n     const deepKey = base.length ? base + '.' + key : key;\n     // console.log(`base=${base} key=${key} deepKey=${deepKey}`);\n     if (typeof src === 'object') {\n        if (Array.isArray(src)) {\n            src.forEach((val, idx) => flatItem(deepKey, idx, val, dest));\n        } else {\n            Object.entries(src).forEach(([key, val]) => flatItem(deepKey, key, val, dest))\n        }\n     } else {\n        dest[deepKey] = src;\n     }\n}\n\nconst tokens = msg.topic.split(\"/\");\n\nvar value;\nif(/^(\\-|\\+)?([0-9]+(\\.[0-9]+)?)$/.test(msg.payload)) {\n  value = Number(msg.payload);\n} else if (typeof msg.payload === 'object') {\n    value = {};\n    flatItem('', '', msg.payload, value);\n} else {\n  value = msg.payload;\n}\n\nif (value === \"nan\" || value === undefined || value === null) {\n    return;\n}\n\nconst measurement = tokens[1].replace(/\\-/g, '_');\n\nmsg.measurement = measurement;\nmsg.payload = {};\nif (tokens.length > 4) {\n    if (tokens[2] === \"emeter\") {\n        const L = Number(tokens[3]) + 1;\n        msg.payload[\"L\" + L + \"_\" + tokens[4]] = value;\n    } else {\n//        msg.payload[\"relay\" + tokens[3] + \"_\" + tokens[4]] = value;\n          msg.payload[tokens.slice(2).join('_')] = value;\n    }\n} else if (tokens.length > 3) {\n    msg.payload[tokens[2] + tokens[3]] = value;\n} else {\n    msg.payload[tokens[2]] = value;\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 910,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "bfb21e9be837b4fd",
+        "type": "function",
+        "z": "d0173d54.941d7",
+        "name": "Shellies to Influxdb",
+        "func": "function flatItem(base, key, src, dest) {\n     if (typeof src === 'undefined') {\n         return;\n     }\n     const deepKey = base.length ? base + '.' + key : key;\n     // console.log(`base=${base} key=${key} deepKey=${deepKey}`);\n     if (typeof src === 'object') {\n        if (Array.isArray(src)) {\n            src.forEach((val, idx) => flatItem(deepKey, idx, val, dest));\n        } else {\n            Object.entries(src).forEach(([key, val]) => flatItem(deepKey, key, val, dest))\n        }\n     } else if(/^(\\-|\\+)?([0-9]+(\\.[0-9]+)?)$/.test(src)) {\n        dest[deepKey] = Number(src);\n    } else {\n        dest[deepKey] = src;\n     }\n}\n\nif (msg.payload === \"nan\" || msg.payload === undefined || msg.payload === null) {\n    return;\n}\n\nconst tokens = msg.topic.split(\"/\");\nconst measurement = tokens[1].replace(/\\-/g, '_');\n\nlet val = {};\nif (tokens.length > 4 && tokens[2] === \"emeter\") {\n    let L = Number(tokens[3]) + 1;\n    flatItem('', \"L\" + L + \"_\" + tokens[4], msg.payload, val);\n} else {\n    flatItem('', tokens.splice(2).join('.'), msg.payload, val);\n}\nreturn {measurement: measurement, payload: val};\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 630,
+        "y": 320,
         "wires": [
             [
                 "faa25f7f.0777"
