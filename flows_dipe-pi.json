@@ -365,7 +365,7 @@
         "type": "ui_tab",
         "name": "Wohnzimmer",
         "icon": "dashboard",
-        "order": 1,
+        "order": 2,
         "disabled": false,
         "hidden": false
     },
@@ -499,9 +499,9 @@
     {
         "id": "4a760c5.5eef1f4",
         "type": "ui_tab",
-        "name": "Esszimmer",
+        "name": "Esszimmer/Küche",
         "icon": "dashboard",
-        "order": 2,
+        "order": 3,
         "disabled": false,
         "hidden": false
     },
@@ -561,7 +561,7 @@
         "type": "ui_tab",
         "name": "Waschküche",
         "icon": "dashboard",
-        "order": 6,
+        "order": 7,
         "disabled": false,
         "hidden": false
     },
@@ -570,7 +570,7 @@
         "type": "ui_tab",
         "name": "Verbrauch",
         "icon": "dashboard",
-        "order": 9,
+        "order": 10,
         "disabled": false,
         "hidden": false
     },
@@ -604,7 +604,7 @@
         "type": "ui_tab",
         "name": "Außen",
         "icon": "dashboard",
-        "order": 8,
+        "order": 9,
         "disabled": false,
         "hidden": false
     },
@@ -636,7 +636,7 @@
         "type": "ui_tab",
         "name": "Treppenhaus",
         "icon": "dashboard",
-        "order": 4,
+        "order": 5,
         "disabled": false,
         "hidden": false
     },
@@ -656,7 +656,7 @@
         "type": "ui_tab",
         "name": "Lüftungsempfehlungen",
         "icon": "dashboard",
-        "order": 16,
+        "order": 1,
         "disabled": false,
         "hidden": false
     },
@@ -693,7 +693,7 @@
         "type": "ui_tab",
         "name": "Warmwasser",
         "icon": "dashboard",
-        "order": 11,
+        "order": 12,
         "disabled": false,
         "hidden": false
     },
@@ -723,7 +723,7 @@
         "type": "ui_tab",
         "name": "Werkstatt",
         "icon": "dashboard",
-        "order": 7,
+        "order": 8,
         "disabled": false,
         "hidden": false
     },
@@ -766,7 +766,7 @@
         "type": "ui_tab",
         "name": "Fahrradkeller",
         "icon": "dashboard",
-        "order": 5,
+        "order": 6,
         "disabled": false,
         "hidden": false
     },
@@ -795,7 +795,7 @@
         "type": "ui_tab",
         "name": "IR-Heizungen",
         "icon": "dashboard",
-        "order": 12,
+        "order": 13,
         "disabled": false,
         "hidden": false
     },
@@ -845,17 +845,6 @@
         "className": ""
     },
     {
-        "id": "3d281e38187eb483",
-        "type": "ui_group",
-        "name": "",
-        "tab": "03f79ee82b15785f",
-        "order": 4,
-        "disp": true,
-        "width": "6",
-        "collapse": false,
-        "className": ""
-    },
-    {
         "id": "154f06d5432267e7",
         "type": "button-events-config",
         "name": "config for b26ffbed.c2c898",
@@ -882,7 +871,7 @@
         "type": "ui_tab",
         "name": "Batterie Status",
         "icon": "dashboard",
-        "order": 13,
+        "order": 14,
         "disabled": false,
         "hidden": false
     },
@@ -913,7 +902,7 @@
         "type": "ui_tab",
         "name": "Solar-Start",
         "icon": "dashboard",
-        "order": 10,
+        "order": 11,
         "disabled": false,
         "hidden": false
     },
@@ -933,7 +922,7 @@
         "type": "ui_tab",
         "name": "Bad",
         "icon": "dashboard",
-        "order": 3,
+        "order": 4,
         "disabled": false,
         "hidden": false
     },
@@ -994,7 +983,7 @@
         "type": "ui_tab",
         "name": "Luftgütemesser 2",
         "icon": "dashboard",
-        "order": 14,
+        "order": 15,
         "disabled": false,
         "hidden": false
     },
@@ -1046,7 +1035,7 @@
         "type": "ui_tab",
         "name": "Büro DG",
         "icon": "dashboard",
-        "order": 15,
+        "order": 16,
         "disabled": false,
         "hidden": false
     },
@@ -1062,23 +1051,37 @@
         "className": ""
     },
     {
-        "id": "1d41b598.c12dba",
-        "type": "vapid-configuration",
-        "subject": "mailto:salnikov@gmail.com",
-        "publicKey": "BM88mSlUg4mvjcPK5QrzRfQzow91F47iEazCnoTBQ8Hv_AVrJviLcnrNumTK319qWOt43sgOzBJs6UrdOW5IxHg",
-        "privateKey": "81iA43m6lKOtT0p8FYEh_WXfcNZW2X6Hs3S_FfBxKY4",
-        "gcmApiKey": "",
-        "name": ""
+        "id": "549ed076d5ae6b58",
+        "type": "ui_group",
+        "d": true,
+        "name": "Dunsthaube",
+        "tab": "4a760c5.5eef1f4",
+        "order": 4,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
     },
     {
-        "id": "7e81b420bdfbe2ed",
+        "id": "8dc58e15e89f6392",
         "type": "vapid-configuration",
-        "subject": "pe@dipe.de",
-        "publicKey": "BLWff9ryHpaBiHIj1aDVp6JKsqOx5UNXQlEPTXy5Bvme2sp3g8Orc3zRI7Y90sijW2CdZH4UlAtc2GE99y2aG5U",
-        "privateKey": "eeQzU9jyfR67F1AMZDGNnskt3ii0OgMERByWGtnvlAY",
+        "subject": "mailto:pe@dipe.de",
+        "publicKey": "BH5bZgGKEunQfA6NozNO0i6SxfXnDuFNeBnQZsmI7fBZu-QULSYw6CrRve1LqqJWBN_lghsb8xyz11tFR2v1S4M",
+        "privateKey": "ntbnnYlqZSlCTRK59b3rzUmLB1MqLIL1oCkzgAzhxJ4",
         "gcmApiKey": "",
         "timeout": "0",
         "name": ""
+    },
+    {
+        "id": "a5f2ba636c8c5d09",
+        "type": "ui_group",
+        "name": "Push-Benachrichtigungen",
+        "tab": "dc07af4f.71ca1",
+        "order": 10,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
     },
     {
         "id": "930e92a7.3f378",
@@ -3108,7 +3111,8 @@
         "name": "Scene",
         "mode": "link",
         "links": [
-            "6f44eabb6a272d2b"
+            "6f44eabb6a272d2b",
+            "805d0f02d8ec8802"
         ],
         "x": 745,
         "y": 480,
@@ -3645,9 +3649,11 @@
         "name": "state",
         "func": "msg.payload = {\"state\": msg.payload.state};\nreturn msg;",
         "outputs": 1,
+        "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
+        "libs": [],
         "x": 330,
         "y": 1000,
         "wires": [
@@ -4552,8 +4558,8 @@
         "y": 820,
         "wires": [
             [
-                "efbb8637.d28188",
-                "4cf435ec8d6914ea"
+                "4cf435ec8d6914ea",
+                "efbb8637.d28188"
             ]
         ]
     },
@@ -4574,6 +4580,123 @@
         "wires": [
             [
                 "3d9defb2050f98fb"
+            ]
+        ]
+    },
+    {
+        "id": "8899fbf216ae99fb",
+        "type": "function",
+        "z": "2ba29887.9266e8",
+        "name": "function 41",
+        "func": "delete msg.payload.device_idx;\ndelete msg.payload.name;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1070,
+        "y": 480,
+        "wires": [
+            [
+                "3e2f1b8ef0d2c98f"
+            ]
+        ]
+    },
+    {
+        "id": "d0ef0d0d55b72d02",
+        "type": "mqtt out",
+        "z": "2ba29887.9266e8",
+        "d": true,
+        "name": "Dunsthaube",
+        "topic": "shellies/shellyplusplugs-d4d4daedbe64/command/switch:0",
+        "qos": "1",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "c349b9ff.9dc4c8",
+        "x": 750,
+        "y": 1200,
+        "wires": []
+    },
+    {
+        "id": "2e01c6e91fa6958d",
+        "type": "ui_switch",
+        "z": "2ba29887.9266e8",
+        "d": true,
+        "name": "An/Aus Dunsthaube",
+        "label": "An/Aus",
+        "tooltip": "",
+        "group": "549ed076d5ae6b58",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "",
+        "topicType": "str",
+        "style": "",
+        "onvalue": "on",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "off",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "animate": true,
+        "className": "",
+        "x": 540,
+        "y": 1200,
+        "wires": [
+            [
+                "d0ef0d0d55b72d02"
+            ]
+        ]
+    },
+    {
+        "id": "9cc088902d879707",
+        "type": "mqtt in",
+        "z": "2ba29887.9266e8",
+        "d": true,
+        "name": "Küchenfenster-Sensor",
+        "topic": "zigbee2mqtt/küchenfenster-sensor",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "c349b9ff.9dc4c8",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 160,
+        "y": 1200,
+        "wires": [
+            [
+                "dd338b7c9cd740b1"
+            ]
+        ]
+    },
+    {
+        "id": "dd338b7c9cd740b1",
+        "type": "function",
+        "z": "2ba29887.9266e8",
+        "d": true,
+        "name": "State",
+        "func": "const contact = msg.payload.contact;\n// Window \n//  - closed (contact == true) -> turn fan off\n//  - open (contact == false) -> turn on\nreturn { payload: (contact) ? \"off\" : \"on\"};\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 350,
+        "y": 1200,
+        "wires": [
+            [
+                "2e01c6e91fa6958d"
             ]
         ]
     },
@@ -4600,26 +4723,6 @@
         "y": 140,
         "wires": [
             []
-        ]
-    },
-    {
-        "id": "8899fbf216ae99fb",
-        "type": "function",
-        "z": "2ba29887.9266e8",
-        "name": "function 41",
-        "func": "delete msg.payload.device_idx;\ndelete msg.payload.name;\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1070,
-        "y": 480,
-        "wires": [
-            [
-                "3e2f1b8ef0d2c98f"
-            ]
         ]
     },
     {
@@ -6059,8 +6162,8 @@
         "type": "hangoutChatBot",
         "z": "4d90b497.b5b2ac",
         "hangoutsCertificate": "10925253.f46f4e",
-        "roomid": "spaces/AAAAl9wJJ_0",
-        "roomname": "spaces/AAAAl9wJJ_0",
+        "roomid": "spaces/-fp3jQAAAAE",
+        "roomname": "spaces/-fp3jQAAAAE",
         "contentproperty": "Waschmaschiene ist fertig!",
         "contenttype": "str",
         "x": 780,
@@ -6120,7 +6223,8 @@
         "y": 800,
         "wires": [
             [
-                "15f3325a.1a8f0e"
+                "15f3325a.1a8f0e",
+                "001ee2a7fce02dde"
             ],
             [
                 "fd3b965b.3e6fc8"
@@ -6375,7 +6479,7 @@
         "type": "function",
         "z": "4d90b497.b5b2ac",
         "name": "fan controller",
-        "func": "let kellertuer_sensor = global.get(\"kellertuer_sensor\");\nlet waschkueche_fahradkeller_tuer_sensor_contact = global.get('waschkueche_fahradkeller_tuer_sensor');\nif (!kellertuer_sensor && !waschkueche_fahradkeller_tuer_sensor_contact) {\n    msg = [\n        {topic: \"luefter_sw\", payload: \"OFF\"},\n        {topic: \"Debug\", payload: {}}\n    ];\n\n    return msg;  \n}\n\n// const outside_abs_humidity = global.get(\"aussen-absolute_humidity\");\nconst outside_abs_humidity = global.get(\"luftguetemesser2-absolute_humidity\");\nconst wk_temperature = global.get(\"waschkueche_luefter-temperature\");\nconst wk_humidity = global.get(\"waschkueche_luefter-humidity\");\nconst wk_abs_humidity = global.get(\"waschkueche_luefter-absolute_humidity\");\n\nconst washroom_fan_control = flow.get(\"washroom_fan_control\");\nconst last_abs_humidity_gt_outside_abs_humidity = global.get(\"washroom-last_abs_humidity_gt_outside_abs_humidity\");\n\nconst room_abs_humidity_gt_outside_abs_humidity = (last_abs_humidity_gt_outside_abs_humidity) ?\n    wk_abs_humidity > outside_abs_humidity * 1.05:\n    wk_abs_humidity > outside_abs_humidity * 1.05;\n\nglobal.set(\"washroom-last_abs_humidity_gt_outside_abs_humidity\", wk_abs_humidity > outside_abs_humidity);\n\nvar washroom_fan_on;\nif (washroom_fan_control == \"ON\") {\n    if (room_abs_humidity_gt_outside_abs_humidity) {\n        if (wk_humidity > 65 && wk_temperature > 14) {\n            washroom_fan_on = \"ON\";\n        } else {\n            washroom_fan_on = \"OFF\";\n        }\n    } else {\n        washroom_fan_on = \"OFF\";\n    }\n} else {\n    washroom_fan_on = undefined;\n}\n\nmsg = [\n    (washroom_fan_on) ? {topic: \"luefter_sw\", payload: washroom_fan_on} : undefined,\n    {topic: \"Debug\", payload: {\n            outside_abs_humidity: outside_abs_humidity,\n            wk_temperature: wk_temperature,\n            wk_humidity: wk_humidity,\n            wk_abs_humidity: wk_abs_humidity,\n            washroom_fan_on: washroom_fan_on,\n            washroom_fan_control: washroom_fan_control,\n            room_abs_humidity_gt_outside_abs_humidity: room_abs_humidity_gt_outside_abs_humidity,\n            last_abs_humidity_gt_outside_abs_humidity: last_abs_humidity_gt_outside_abs_humidity\n    }   }\n];\n\nreturn msg;",
+        "func": "let kellertuer_sensor = global.get(\"kellertuer_sensor\");\nlet waschkueche_fahradkeller_tuer_sensor_contact = global.get('waschkueche_fahradkeller_tuer_sensor');\nif (!kellertuer_sensor && !waschkueche_fahradkeller_tuer_sensor_contact) {\n    msg = [\n        {topic: \"luefter_sw\", payload: \"OFF\"},\n        {topic: \"Debug\", payload: {}}\n    ];\n\n    return msg;  \n}\n\n// const outside_abs_humidity = global.get(\"aussen-absolute_humidity\");\nconst outside_abs_humidity = global.get(\"steckdose1-absolute_humidity\");\nconst wk_temperature = global.get(\"waschkueche_luefter-temperature\");\nconst wk_humidity = global.get(\"waschkueche_luefter-humidity\");\nconst wk_abs_humidity = global.get(\"waschkueche_luefter-absolute_humidity\");\n\nconst washroom_fan_control = flow.get(\"washroom_fan_control\");\nconst last_abs_humidity_gt_outside_abs_humidity = global.get(\"washroom-last_abs_humidity_gt_outside_abs_humidity\");\n\nconst room_abs_humidity_gt_outside_abs_humidity = (last_abs_humidity_gt_outside_abs_humidity) ?\n    wk_abs_humidity > outside_abs_humidity * 1.05:\n    wk_abs_humidity > outside_abs_humidity * 1.05;\n\nglobal.set(\"washroom-last_abs_humidity_gt_outside_abs_humidity\", wk_abs_humidity > outside_abs_humidity);\n\nvar washroom_fan_on;\nif (washroom_fan_control == \"ON\") {\n    if (room_abs_humidity_gt_outside_abs_humidity) {\n        if (wk_humidity > 65 && wk_temperature > 14) {\n            washroom_fan_on = \"ON\";\n        } else {\n            washroom_fan_on = \"OFF\";\n        }\n    } else {\n        washroom_fan_on = \"OFF\";\n    }\n} else {\n    washroom_fan_on = undefined;\n}\n\nmsg = [\n    (washroom_fan_on) ? {topic: \"luefter_sw\", payload: washroom_fan_on} : undefined,\n    {topic: \"Debug\", payload: {\n            outside_abs_humidity: outside_abs_humidity,\n            wk_temperature: wk_temperature,\n            wk_humidity: wk_humidity,\n            wk_abs_humidity: wk_abs_humidity,\n            washroom_fan_on: washroom_fan_on,\n            washroom_fan_control: washroom_fan_control,\n            room_abs_humidity_gt_outside_abs_humidity: room_abs_humidity_gt_outside_abs_humidity,\n            last_abs_humidity_gt_outside_abs_humidity: last_abs_humidity_gt_outside_abs_humidity\n    }   }\n];\n\nreturn msg;",
         "outputs": 2,
         "timeout": "",
         "noerr": 0,
@@ -6527,7 +6631,7 @@
         "id": "1547ac.8baef854",
         "type": "inject",
         "z": "4d90b497.b5b2ac",
-        "name": "every 20 minutes",
+        "name": "every 5 minutes",
         "props": [
             {
                 "p": "topic",
@@ -6535,7 +6639,7 @@
                 "vt": "date"
             }
         ],
-        "repeat": "1200",
+        "repeat": "300",
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
@@ -6888,7 +6992,7 @@
         "type": "debug",
         "z": "4d90b497.b5b2ac",
         "name": "",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -7114,6 +7218,7 @@
         "name": "Status-Text",
         "func": "const contact = msg.payload.contact;\n\nreturn { payload: (contact) ? \"geschlossen\" : \"offen\"};\n",
         "outputs": 1,
+        "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
@@ -7202,6 +7307,37 @@
         "wires": [
             [
                 "a8931b52.026628"
+            ]
+        ]
+    },
+    {
+        "id": "b6e1a30dedd2a905",
+        "type": "link out",
+        "z": "4d90b497.b5b2ac",
+        "name": "link out 18",
+        "mode": "link",
+        "links": [],
+        "x": 955,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "001ee2a7fce02dde",
+        "type": "function",
+        "z": "4d90b497.b5b2ac",
+        "name": "push notification",
+        "func": "if (!msg.payload) return;\n\nreturn {\n    payload: {\n        notification: {\n            title:\"Hello Node-RED user !\",\n            body:\"Click me to open your dashboard\"\n        },\n        data:{\n            silent: true,\n            requireInteraction: true,\n            icon: \"https://nodered.org/about/resources/media/node-red-icon-2.png\",\n            image: \"https://user-images.githubusercontent.com/14224149/73395580-19bac700-42e0-11ea-90c2-71cb4f496637.png\"\n        }\n    }\n};\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 810,
+        "y": 720,
+        "wires": [
+            [
+                "b6e1a30dedd2a905"
             ]
         ]
     },
@@ -10684,8 +10820,9 @@
         "type": "function",
         "z": "2788b93b.8a2f56",
         "name": "Lüftungsempfehlung",
-        "func": "const name = msg.payload.name;\n\nconst temperature = global.get(name + \"-temperature\");\nconst humidity = global.get(name + \"-humidity\");\nconst abs_humidity = global.get(name + \"-absolute_humidity\");\nconst last_abs_humidity_gt_outside_abs_humidity = global.get(name + \"-last_abs_humidity_gt_outside_abs_humidity\");\nconst outside_abs_humidity = global.get(\"aussen-absolute_humidity\");\n\nconst room_abs_humidity_gt_outside_abs_humidity = (last_abs_humidity_gt_outside_abs_humidity) ?\n    abs_humidity > outside_abs_humidity * 1.05:\n    abs_humidity > outside_abs_humidity;\n\nglobal.set(name + \"-last_abs_humidity_gt_outside_abs_humidity\", abs_humidity > outside_abs_humidity);\n\nconst intl = global.get('intl');\nconst format = intl.NumberFormat('de-De',{style:'decimal', maximumFractionDigits: 1}).format;\nconst sprintf = global.get(\"sprintf\");\nconst text = sprintf(\"%s °C, %s %% H, %s g/m³\", format(temperature), format(humidity), format(abs_humidity))\n\nvar payload;\nif (room_abs_humidity_gt_outside_abs_humidity) {\n    if (humidity > 65) {\n        payload = {payload: {name: name, color: \"skyblue\", hint: \"Raum feucht. Lüften!\", text: text}};\n    } else {\n        payload = {payload: {name: name, color: \"limegreen\", hint: \"Raum ausreichend trocken.\", text: text}};\n    }\n} else {\n    payload = {payload: {name: name, color: \"red\", hint: \"Draußen zu feucht. Nur kurz lüften!\", text: text}};\n}\n\nconst debug = {\n    name: name,\n    temperature: temperature,\n    humidity: humidity,\n    abs_humidity: abs_humidity,\n    outside_abs_humidity: outside_abs_humidity,\n    last_abs_humidity_gt_outside_abs_humidity: last_abs_humidity_gt_outside_abs_humidity,\n    room_abs_humidity_gt_outside_abs_humidity: room_abs_humidity_gt_outside_abs_humidity,\n    text: text\n};\n\nreturn [payload, debug];\n",
+        "func": "const name = msg.payload.name;\n\nconst temperature = global.get(name + \"-temperature\");\nconst humidity = global.get(name + \"-humidity\");\nconst abs_humidity = global.get(name + \"-absolute_humidity\");\nconst last_abs_humidity_gt_outside_abs_humidity = global.get(name + \"-last_abs_humidity_gt_outside_abs_humidity\");\n// const outside_abs_humidity = global.get(\"aussen-absolute_humidity\");\nconst outside_abs_humidity = global.get(\"steckdose1-absolute_humidity\");\n\nconst room_abs_humidity_gt_outside_abs_humidity = (last_abs_humidity_gt_outside_abs_humidity) ?\n    abs_humidity > outside_abs_humidity * 1.05:\n    abs_humidity > outside_abs_humidity;\n\nglobal.set(name + \"-last_abs_humidity_gt_outside_abs_humidity\", abs_humidity > outside_abs_humidity);\n\nconst intl = global.get('intl');\nconst format = intl.NumberFormat('de-De',{style:'decimal', maximumFractionDigits: 1}).format;\nconst sprintf = global.get(\"sprintf\");\nconst text = sprintf(\"%s °C, %s %% H, %s g/m³\", format(temperature), format(humidity), format(abs_humidity))\n\nvar payload;\nif (room_abs_humidity_gt_outside_abs_humidity) {\n    if (humidity > 65) {\n        payload = {payload: {name: name, color: \"skyblue\", hint: \"Raum feucht. Lüften!\", text: text}};\n    } else {\n        payload = {payload: {name: name, color: \"limegreen\", hint: \"Raum ausreichend trocken.\", text: text}};\n    }\n} else {\n    payload = {payload: {name: name, color: \"red\", hint: \"Draußen zu feucht. Nur kurz lüften!\", text: text}};\n}\n\nconst debug = {\n    name: name,\n    temperature: temperature,\n    humidity: humidity,\n    abs_humidity: abs_humidity,\n    outside_abs_humidity: outside_abs_humidity,\n    last_abs_humidity_gt_outside_abs_humidity: last_abs_humidity_gt_outside_abs_humidity,\n    room_abs_humidity_gt_outside_abs_humidity: room_abs_humidity_gt_outside_abs_humidity,\n    text: text\n};\n\nreturn [payload, debug];\n",
         "outputs": 2,
+        "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
@@ -10784,7 +10921,7 @@
         "rules": [
             {
                 "t": "eq",
-                "v": "aussen",
+                "v": "steckdose1",
                 "vt": "str"
             },
             {
@@ -11032,8 +11169,9 @@
         "type": "function",
         "z": "2788b93b.8a2f56",
         "name": "recall klima draußen",
-        "func": "const name = \"aussen\";\n\nconst temperature = global.get(name + \"-temperature\");\nconst humidity = global.get(name + \"-humidity\");\nconst abs_humidity = global.get(name + \"-absolute_humidity\");\nconst last_abs_humidity = global.get(name + \"-last_abs_humidity\");\nglobal.set(name + \"-last_abs_humidity\", abs_humidity);\n\n//node.warn(name)\n//node.warn(temperature)\n//node.warn(humidity)\n//node.warn(abs_humidity)\n//node.warn(last_abs_humidity_gt_outside_abs_humidity)\n//node.warn(outside_abs_humidity)\n\nconst intl = global.get('intl');\nconst format = intl.NumberFormat('de-De',{style:'decimal', maximumFractionDigits: 2}).format;\nconst sprintf = global.get(\"sprintf\");\nconst text = sprintf(\"%s °C, %s %% H, %s g/m³\", format(temperature), format(humidity), format(abs_humidity))\n\nif        (abs_humidity >= 13) {\n    return {payload: {name: name, color: \"deepskyblue\", hint: \"Draußen ist es sehr feucht.\", text: text}};\n} else if (abs_humidity >= 12 && abs_humidity < 13) {\n    return {payload: {name: name, color: \"skyblue\", hint: \"Draußen ist es feucht.\", text: text}};\n} else if (abs_humidity >= 11 && abs_humidity < 12) {\n    return {payload: {name: name, color: \"limegreen\", hint: \"Draußen ist einigermaßen trocken.\", text: text}};\n} else if (abs_humidity < 11) {\n    return {payload: {name: name, color: \"YellowGreen\", hint: \"Draußen ist es trocken.\", text: text}};\n} else {\n    return {payload: {name: name, color: \"DarkSeaGreen\", hint: \"Draußen ist es sehr trocken.\", text: text}};\n}\n\n// if (last_abs_humidity >= 13 && abs_humidity >= 13 ||\n//     last_abs_humidity < 13 && abs_humidity > 13 * 1.10) {\n//     return { payload: { name: name, color: \"deepskyblue\", hint: \"Draußen ist es sehr feucht.\", text: text } };\n// } else if (last_abs_humidity > 13 && abs_humidity < 13 / 1.10 && abs_humidity > 12 ||\n//     last_abs_humidity <= 13 && last_abs_humidity >= 12 && abs_humidity <= 13 && abs_humidity >= 12 ||\n//     last_abs_humidity < 12 && abs_humidity > 12 * 1.10 && abs_humidity < 13) {\n//     return { payload: { name: name, color: \"skyblue\", hint: \"Draußen ist es feucht.\", text: text } };\n// } else if (last_abs_humidity > 12 && abs_humidity < 12 / 1.10 && abs_humidity > 11 ||\n//     last_abs_humidity <= 12 && last_abs_humidity >= 11 && abs_humidity <= 12 && abs_humidity >= 11 ||\n//     last_abs_humidity < 11 && abs_humidity > 11 * 1.10 && abs_humidity < 12) {\n//     return { payload: { name: name, color: \"limegreen\", hint: \"Draußen ist einigermaßen trocken.\", text: text } };\n// } else if (last_abs_humidity > 11 && abs_humidity < 11 / 1.10 ||\n//     last_abs_humidity <= 11 && abs_humidity <= 11) {\n//     return { payload: { name: name, color: \"YellowGreen\", hint: \"Draußen ist es trocken.\", text: text } };\n// } else {\n//     return { payload: { name: name, color: \"DarkSeaGreen\", hint: \"Draußen ist es sehr trocken.\", text: text } };\n// }\n",
+        "func": "const name = \"steckdose1\";\n\nconst temperature = global.get(name + \"-temperature\");\nconst humidity = global.get(name + \"-humidity\");\nconst abs_humidity = global.get(name + \"-absolute_humidity\");\nconst last_abs_humidity = global.get(name + \"-last_abs_humidity\");\nglobal.set(name + \"-last_abs_humidity\", abs_humidity);\n\n//node.warn(name)\n//node.warn(temperature)\n//node.warn(humidity)\n//node.warn(abs_humidity)\n//node.warn(last_abs_humidity_gt_outside_abs_humidity)\n//node.warn(outside_abs_humidity)\n\nconst intl = global.get('intl');\nconst format = intl.NumberFormat('de-De',{style:'decimal', maximumFractionDigits: 1}).format;\nconst sprintf = global.get(\"sprintf\");\nconst text = sprintf(\"%s °C, %s %% H, %s g/m³\", format(temperature), format(humidity), format(abs_humidity))\n\nif        (abs_humidity >= 13) {\n    return {payload: {name: name, color: \"deepskyblue\", hint: \"Draußen ist es sehr feucht.\", text: text}};\n} else if (abs_humidity >= 12 && abs_humidity < 13) {\n    return {payload: {name: name, color: \"skyblue\", hint: \"Draußen ist es feucht.\", text: text}};\n} else if (abs_humidity >= 11 && abs_humidity < 12) {\n    return {payload: {name: name, color: \"limegreen\", hint: \"Draußen ist einigermaßen trocken.\", text: text}};\n} else if (abs_humidity < 11) {\n    return {payload: {name: name, color: \"YellowGreen\", hint: \"Draußen ist es trocken.\", text: text}};\n} else {\n    return {payload: {name: name, color: \"DarkSeaGreen\", hint: \"Draußen ist es sehr trocken.\", text: text}};\n}\n\n// if (last_abs_humidity >= 13 && abs_humidity >= 13 ||\n//     last_abs_humidity < 13 && abs_humidity > 13 * 1.10) {\n//     return { payload: { name: name, color: \"deepskyblue\", hint: \"Draußen ist es sehr feucht.\", text: text } };\n// } else if (last_abs_humidity > 13 && abs_humidity < 13 / 1.10 && abs_humidity > 12 ||\n//     last_abs_humidity <= 13 && last_abs_humidity >= 12 && abs_humidity <= 13 && abs_humidity >= 12 ||\n//     last_abs_humidity < 12 && abs_humidity > 12 * 1.10 && abs_humidity < 13) {\n//     return { payload: { name: name, color: \"skyblue\", hint: \"Draußen ist es feucht.\", text: text } };\n// } else if (last_abs_humidity > 12 && abs_humidity < 12 / 1.10 && abs_humidity > 11 ||\n//     last_abs_humidity <= 12 && last_abs_humidity >= 11 && abs_humidity <= 12 && abs_humidity >= 11 ||\n//     last_abs_humidity < 11 && abs_humidity > 11 * 1.10 && abs_humidity < 12) {\n//     return { payload: { name: name, color: \"limegreen\", hint: \"Draußen ist einigermaßen trocken.\", text: text } };\n// } else if (last_abs_humidity > 11 && abs_humidity < 11 / 1.10 ||\n//     last_abs_humidity <= 11 && abs_humidity <= 11) {\n//     return { payload: { name: name, color: \"YellowGreen\", hint: \"Draußen ist es trocken.\", text: text } };\n// } else {\n//     return { payload: { name: name, color: \"DarkSeaGreen\", hint: \"Draußen ist es sehr trocken.\", text: text } };\n// }\n",
         "outputs": 1,
+        "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
@@ -11073,6 +11211,7 @@
         "name": "recall zwitscherbox klima",
         "func": "const name = \"zwitscherbox-bad\";\nreturn {\n    payload: {\n        name: name,\n        humidity: global.get(`${name}-humidity`),\n        absolute_humidity: global.get(`${name}-absolute_humidity`),\n        tempeature: global.get(`${name}-temperature`)\n    }\n};\n",
         "outputs": 1,
+        "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
@@ -11131,8 +11270,9 @@
         "type": "function",
         "z": "2788b93b.8a2f56",
         "name": "initialize names-rooms mapping",
-        "func": "const room = global.set(\"names_rooms\", {\n    \"zwitscherbox-bad\": \"Bad\",\n    \"luftguetemesser1\": \"Werkstatt\",\n    \"gaeste_wc\": \"Gäste-WC\",\n    \"waschkueche_luefter\": \"Waschküche\",\n    \"wozi\": \"Wohnzimmer\",\n    \"kueche\": \"Küche\",\n    \"aussen\": \"Draußen\",\n    \"luftfeuchtemesser1\": \"Büro Peter\",\n    \"büro_og\": \"Büro Angelika\",\n    \"schlafzimmer_dg\": \"Schalfzimmer Emma\",\n    \"bad_dg\": \"Bad Emma\",\n});\n",
+        "func": "const room = global.set(\"names_rooms\", {\n    \"zwitscherbox-bad\": \"Bad\",\n    \"luftguetemesser1\": \"Werkstatt\",\n    \"gaeste_wc\": \"Gäste-WC\",\n    \"waschkueche_luefter\": \"Waschküche\",\n    \"wozi\": \"Wohnzimmer\",\n    \"kueche\": \"Küche\",\n    \"luftfeuchtemesser1\": \"Büro DG\",\n    \"büro_og\": \"Büro OG\",\n    \"schlafzimmer_dg\": \"Schalfzimmer DG\",\n    \"bad_dg\": \"Bad DG\",\n    \"steckdose1\": \"Draußen\"\n});\n",
         "outputs": 1,
+        "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
@@ -11175,9 +11315,11 @@
         "name": "add room",
         "func": "const name = msg.payload.name;\nconst names_rooms = global.get(\"names_rooms\");\nvar room = names_rooms[name] || name;\nroom = room\n    .split('_')\n    .map(word => word.charAt(0).toUpperCase() + word.slice(1))\n    .join(' ');\n    \nmsg.payload.room = room;\nreturn msg;",
         "outputs": 1,
+        "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
+        "libs": [],
         "x": 860,
         "y": 520,
         "wires": [
@@ -12354,7 +12496,7 @@
         "nuki": "439053421",
         "bridge": "b6b292c6a3480048",
         "x": 560,
-        "y": 1260,
+        "y": 1400,
         "wires": [
             [
                 "61153b6e98049a2e",
@@ -12370,7 +12512,7 @@
         "nuki": "664478908",
         "bridge": "b6b292c6a3480048",
         "x": 570,
-        "y": 1300,
+        "y": 1440,
         "wires": [
             [
                 "0f68dc3afdaa2f7f",
@@ -12392,7 +12534,7 @@
         "layout": "row-spread",
         "className": "",
         "x": 1320,
-        "y": 1320,
+        "y": 1460,
         "wires": []
     },
     {
@@ -12413,7 +12555,7 @@
         "fontSize": "",
         "color": "#000000",
         "x": 1310,
-        "y": 1240,
+        "y": 1380,
         "wires": []
     },
     {
@@ -12423,12 +12565,13 @@
         "name": "Status-Text",
         "func": "if (msg.topic !== \"lockStatus\") return;\n\nconst state_name_de = {\n    UNCALIBRATED: \"uncalibriert\",\n    LOCKED: \"verriegelt\",\n    UNLOCKING: \"entriegeln\",\n    UNLOCKED: \"entriegelt\",\n    LOCKING: \"verriegeln\",\n    UNLATCHED: \"geöffnet\",\n    UNLOCKED_LOCK_N_GO: \"entriegelt und gehen\",\n    UNLATCHING: \"öffnen\",\n    MOTOR_BLOCKED: \"Motor blockiert\",\n    UNDEFINED: \"undefiniert\"\n}[msg.payload.state];\n\nreturn ({payload: state_name_de || msg.payload.state});",
         "outputs": 1,
+        "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
         "x": 1150,
-        "y": 1260,
+        "y": 1400,
         "wires": [
             [
                 "57d2ad26b221e581",
@@ -12458,7 +12601,7 @@
         "payload": "UNLOCK",
         "payloadType": "str",
         "x": 610,
-        "y": 820,
+        "y": 960,
         "wires": [
             [
                 "acc198f8dc5ea896"
@@ -12487,7 +12630,7 @@
         "payload": "LOCK",
         "payloadType": "str",
         "x": 600,
-        "y": 780,
+        "y": 920,
         "wires": [
             [
                 "acc198f8dc5ea896"
@@ -12511,7 +12654,7 @@
         "onceDelay": 0.1,
         "topic": "setupCallbacks",
         "x": 180,
-        "y": 480,
+        "y": 620,
         "wires": [
             [
                 "14679608625f0446"
@@ -12540,7 +12683,7 @@
         "payload": "UNLOCK",
         "payloadType": "str",
         "x": 190,
-        "y": 820,
+        "y": 960,
         "wires": [
             [
                 "daf7dacd9dca27aa"
@@ -12569,7 +12712,7 @@
         "payload": "LOCK",
         "payloadType": "str",
         "x": 180,
-        "y": 780,
+        "y": 920,
         "wires": [
             [
                 "daf7dacd9dca27aa"
@@ -12593,7 +12736,7 @@
         "onceDelay": 0.1,
         "topic": "getCallbacks",
         "x": 170,
-        "y": 520,
+        "y": 660,
         "wires": [
             [
                 "14679608625f0446"
@@ -12611,7 +12754,7 @@
             "4708a180.a07a"
         ],
         "x": 715,
-        "y": 1340,
+        "y": 1480,
         "wires": []
     },
     {
@@ -12636,7 +12779,7 @@
         "payload": "UNLATCH",
         "payloadType": "str",
         "x": 620,
-        "y": 860,
+        "y": 1000,
         "wires": [
             [
                 "acc198f8dc5ea896"
@@ -12657,7 +12800,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 160,
-        "y": 1540,
+        "y": 1680,
         "wires": [
             [
                 "25f654e171406fb8",
@@ -12679,7 +12822,7 @@
         "finalize": "",
         "libs": [],
         "x": 500,
-        "y": 1460,
+        "y": 1600,
         "wires": [
             [
                 "a57ad13c5478facf"
@@ -12695,7 +12838,7 @@
             "86cb329b293bb1f4"
         ],
         "x": 305,
-        "y": 1460,
+        "y": 1600,
         "wires": [
             [
                 "e8dc780272f0a049"
@@ -12716,7 +12859,7 @@
         "layout": "row-spread",
         "className": "",
         "x": 590,
-        "y": 1540,
+        "y": 1680,
         "wires": []
     },
     {
@@ -12731,7 +12874,7 @@
         "finalize": "",
         "libs": [],
         "x": 430,
-        "y": 1540,
+        "y": 1680,
         "wires": [
             [
                 "418d8d8e9de2763b"
@@ -12749,7 +12892,7 @@
         ],
         "uncaught": false,
         "x": 950,
-        "y": 1580,
+        "y": 1720,
         "wires": [
             [
                 "1941a899e31bb27f"
@@ -12761,7 +12904,7 @@
         "type": "ui_text",
         "z": "caf02dc9a5b73890",
         "group": "6e590cb07ba9a85d",
-        "order": 6,
+        "order": 8,
         "width": "6",
         "height": "6",
         "name": "Log",
@@ -12774,7 +12917,7 @@
         "fontSize": "12",
         "color": "#ffffff",
         "x": 1310,
-        "y": 1520,
+        "y": 1660,
         "wires": []
     },
     {
@@ -12783,7 +12926,7 @@
         "z": "caf02dc9a5b73890",
         "name": "",
         "group": "6e590cb07ba9a85d",
-        "order": 7,
+        "order": 9,
         "width": 0,
         "height": 0,
         "passthru": false,
@@ -12798,7 +12941,7 @@
         "topic": "",
         "topicType": "str",
         "x": 1150,
-        "y": 1560,
+        "y": 1700,
         "wires": [
             [
                 "a3b59c897713f50e"
@@ -12815,7 +12958,7 @@
             "da07e9eb00c44b89"
         ],
         "x": 225,
-        "y": 1220,
+        "y": 1360,
         "wires": [
             [
                 "5c9d349cfc6dbce2"
@@ -12834,7 +12977,7 @@
         "finalize": "",
         "libs": [],
         "x": 350,
-        "y": 1260,
+        "y": 1400,
         "wires": [
             [
                 "5491f3b7aa1d4a3f"
@@ -12854,7 +12997,7 @@
             "1f5092044763746a"
         ],
         "x": 815,
-        "y": 900,
+        "y": 1040,
         "wires": []
     },
     {
@@ -12867,7 +13010,7 @@
             "1fe490d1499dd17b"
         ],
         "x": 385,
-        "y": 900,
+        "y": 1040,
         "wires": []
     },
     {
@@ -12880,7 +13023,7 @@
             "a57ad13c5478facf"
         ],
         "x": 425,
-        "y": 1340,
+        "y": 1480,
         "wires": [
             [
                 "ebe65eae65335e8d"
@@ -12897,7 +13040,7 @@
             "daf7dacd9dca27aa"
         ],
         "x": 425,
-        "y": 1220,
+        "y": 1360,
         "wires": [
             [
                 "5491f3b7aa1d4a3f"
@@ -12917,7 +13060,7 @@
             "85461b3c7b54b76f"
         ],
         "x": 685,
-        "y": 1460,
+        "y": 1600,
         "wires": []
     },
     {
@@ -12930,7 +13073,7 @@
             "d8ccba5a509c6755"
         ],
         "x": 375,
-        "y": 1580,
+        "y": 1720,
         "wires": []
     },
     {
@@ -12944,7 +13087,7 @@
             "4708a180.a07a"
         ],
         "x": 715,
-        "y": 1220,
+        "y": 1360,
         "wires": []
     },
     {
@@ -12967,7 +13110,7 @@
         "to": "",
         "reg": false,
         "x": 500,
-        "y": 1500,
+        "y": 1640,
         "wires": [
             [
                 "e8dc780272f0a049"
@@ -12986,7 +13129,7 @@
         "template": "Tür geschlossen, absperren!\n",
         "output": "str",
         "x": 940,
-        "y": 1500,
+        "y": 1640,
         "wires": [
             [
                 "1941a899e31bb27f"
@@ -13002,7 +13145,7 @@
             "bc763a522d5e7245"
         ],
         "x": 835,
-        "y": 1540,
+        "y": 1680,
         "wires": [
             [
                 "40a7873186f5ed29"
@@ -13018,7 +13161,7 @@
             "a57ad13c5478facf"
         ],
         "x": 835,
-        "y": 1500,
+        "y": 1640,
         "wires": [
             [
                 "094c0e53103ca4e6"
@@ -13037,7 +13180,7 @@
         "template": "Fingerbadruck erkannt. Tür öffnen!",
         "output": "str",
         "x": 940,
-        "y": 1540,
+        "y": 1680,
         "wires": [
             [
                 "1941a899e31bb27f"
@@ -13051,12 +13194,10 @@
         "name": "link out 10",
         "mode": "link",
         "links": [
-            "19c3635367e1d357",
-            "941ca6aa3f7271d7",
-            "874dfff3aa6fa109"
+            "40193de5f7799667"
         ],
         "x": 1275,
-        "y": 1280,
+        "y": 1420,
         "wires": []
     },
     {
@@ -13072,7 +13213,7 @@
         "finalize": "",
         "libs": [],
         "x": 1140,
-        "y": 1520,
+        "y": 1660,
         "wires": [
             [
                 "13a2708c18c5fc01"
@@ -13091,7 +13232,7 @@
         "finalize": "",
         "libs": [],
         "x": 1320,
-        "y": 1560,
+        "y": 1700,
         "wires": [
             [
                 "13a2708c18c5fc01"
@@ -13120,7 +13261,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 150,
-        "y": 1260,
+        "y": 1400,
         "wires": [
             [
                 "5c9d349cfc6dbce2"
@@ -13149,7 +13290,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 160,
-        "y": 1300,
+        "y": 1440,
         "wires": [
             [
                 "53351be4e1c45aae"
@@ -13168,7 +13309,7 @@
         "finalize": "",
         "libs": [],
         "x": 360,
-        "y": 1300,
+        "y": 1440,
         "wires": [
             [
                 "5491f3b7aa1d4a3f",
@@ -13193,7 +13334,7 @@
         "onceDelay": 0.1,
         "topic": "clearCallbacks",
         "x": 180,
-        "y": 440,
+        "y": 580,
         "wires": [
             [
                 "14679608625f0446"
@@ -13207,7 +13348,7 @@
         "name": "nuki-bridge:8080",
         "bridge": "b6b292c6a3480048",
         "x": 470,
-        "y": 560,
+        "y": 700,
         "wires": [
             [
                 "645c78c3640c5827"
@@ -13227,7 +13368,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 660,
-        "y": 560,
+        "y": 700,
         "wires": []
     },
     {
@@ -13247,7 +13388,7 @@
         "onceDelay": 0.1,
         "topic": "lockStatus",
         "x": 160,
-        "y": 900,
+        "y": 1040,
         "wires": [
             [
                 "daf7dacd9dca27aa"
@@ -13271,7 +13412,7 @@
         "onceDelay": 0.1,
         "topic": "lockStatus",
         "x": 580,
-        "y": 900,
+        "y": 1040,
         "wires": [
             [
                 "acc198f8dc5ea896"
@@ -13295,7 +13436,7 @@
         "onceDelay": 0.1,
         "topic": "log",
         "x": 150,
-        "y": 560,
+        "y": 700,
         "wires": [
             [
                 "14679608625f0446"
@@ -13319,7 +13460,7 @@
         "onceDelay": 0.1,
         "topic": "reboot",
         "x": 150,
-        "y": 600,
+        "y": 740,
         "wires": [
             [
                 "14679608625f0446"
@@ -13343,7 +13484,7 @@
         "onceDelay": 0.1,
         "topic": "getCallbacks",
         "x": 170,
-        "y": 1020,
+        "y": 1160,
         "wires": [
             [
                 "daf7dacd9dca27aa"
@@ -13367,7 +13508,7 @@
         "onceDelay": 0.1,
         "topic": "getCallbacks",
         "x": 590,
-        "y": 1020,
+        "y": 1160,
         "wires": [
             [
                 "acc198f8dc5ea896"
@@ -13391,7 +13532,7 @@
         "onceDelay": 0.1,
         "topic": "setupCallbacks",
         "x": 180,
-        "y": 980,
+        "y": 1120,
         "wires": [
             [
                 "daf7dacd9dca27aa"
@@ -13415,7 +13556,7 @@
         "onceDelay": 0.1,
         "topic": "clearCallbacks",
         "x": 180,
-        "y": 940,
+        "y": 1080,
         "wires": [
             [
                 "daf7dacd9dca27aa"
@@ -13439,7 +13580,7 @@
         "onceDelay": 0.1,
         "topic": "setupCallbacks",
         "x": 600,
-        "y": 980,
+        "y": 1120,
         "wires": [
             [
                 "acc198f8dc5ea896"
@@ -13463,7 +13604,7 @@
         "onceDelay": 0.1,
         "topic": "clearCallbacks",
         "x": 600,
-        "y": 940,
+        "y": 1080,
         "wires": [
             [
                 "acc198f8dc5ea896"
@@ -13487,7 +13628,7 @@
         "onceDelay": 0.1,
         "topic": "fwupdate",
         "x": 160,
-        "y": 640,
+        "y": 780,
         "wires": [
             [
                 "14679608625f0446"
@@ -13511,7 +13652,7 @@
         "onceDelay": 0.1,
         "topic": "info",
         "x": 150,
-        "y": 680,
+        "y": 820,
         "wires": [
             [
                 "14679608625f0446"
@@ -13526,7 +13667,7 @@
         "nuki": "439053421",
         "bridge": "b6b292c6a3480048",
         "x": 940,
-        "y": 1260,
+        "y": 1400,
         "wires": [
             [
                 "6b35d5e316596e6d",
@@ -13542,7 +13683,7 @@
         "nuki": "664478908",
         "bridge": "b6b292c6a3480048",
         "x": 950,
-        "y": 1300,
+        "y": 1440,
         "wires": [
             [
                 "62b141ee2365aa8e",
@@ -13562,7 +13703,7 @@
         "template": "lockStatus",
         "output": "str",
         "x": 760,
-        "y": 1260,
+        "y": 1400,
         "wires": [
             [
                 "0be5be39aa68669b"
@@ -13581,7 +13722,7 @@
         "template": "lockStatus",
         "output": "str",
         "x": 760,
-        "y": 1300,
+        "y": 1440,
         "wires": [
             [
                 "9532cc6340534aa8"
@@ -13595,12 +13736,13 @@
         "name": "Status-Text",
         "func": "if (msg.topic !== \"lockStatus\") return;\n\nconst state_name_de = {\n    UNCALIBRATED: \"uncalibriert\",\n    LOCKED: \"verriegelt\",\n    UNLOCKING: \"entriegeln\",\n    UNLOCKED: \"entriegelt\",\n    LOCKING: \"verriegeln\",\n    UNLATCHED: \"geöffnet\",\n    UNLOCKED_LOCK_N_GO: \"entriegelt und gehen\",\n    UNLATCHING: \"öffnen\",\n    MOTOR_BLOCKED: \"Motor blockiert\",\n    UNDEFINED: \"undefiniert\"\n}[msg.payload.state];\n\nreturn ({payload: state_name_de || msg.payload.state});",
         "outputs": 1,
+        "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
         "x": 1150,
-        "y": 1300,
+        "y": 1440,
         "wires": [
             [
                 "462ab2a1dc1a547b",
@@ -13629,7 +13771,7 @@
         "topic": "topic",
         "topicType": "msg",
         "x": 150,
-        "y": 1180,
+        "y": 1320,
         "wires": [
             [
                 "5f3fc938750c255d"
@@ -13655,7 +13797,7 @@
         "className": "",
         "topicType": "msg",
         "x": 130,
-        "y": 1140,
+        "y": 1260,
         "wires": [
             [
                 "be4cf324cf4e4559"
@@ -13681,10 +13823,12 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 330,
-        "y": 1140,
+        "x": 320,
+        "y": 1260,
         "wires": [
-            []
+            [
+                "befaa0afd349c3ad"
+            ]
         ]
     },
     {
@@ -13700,7 +13844,7 @@
         "finalize": "",
         "libs": [],
         "x": 480,
-        "y": 1180,
+        "y": 1320,
         "wires": [
             [
                 "da07e9eb00c44b89"
@@ -13717,7 +13861,7 @@
             "38c704d3beb148ed"
         ],
         "x": 615,
-        "y": 1180,
+        "y": 1320,
         "wires": []
     },
     {
@@ -13726,7 +13870,7 @@
         "z": "caf02dc9a5b73890",
         "name": "",
         "group": "6e590cb07ba9a85d",
-        "order": 5,
+        "order": 6,
         "width": 0,
         "height": 0,
         "passthru": false,
@@ -13741,7 +13885,7 @@
         "topic": "topic",
         "topicType": "msg",
         "x": 160,
-        "y": 1360,
+        "y": 1500,
         "wires": [
             [
                 "53351be4e1c45aae"
@@ -13762,7 +13906,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 1320,
-        "y": 1180,
+        "y": 1320,
         "wires": []
     },
     {
@@ -13773,12 +13917,11 @@
         "links": [
             "61153b6e98049a2e",
             "0f68dc3afdaa2f7f",
-            "462ab2a1dc1a547b",
             "51ff512d041315da",
             "40451bbf160ab4c7"
         ],
-        "x": 1215,
-        "y": 1180,
+        "x": 1205,
+        "y": 1320,
         "wires": [
             [
                 "5459fcc983b43949"
@@ -13795,7 +13938,7 @@
             "19c3635367e1d357"
         ],
         "x": 1095,
-        "y": 1220,
+        "y": 1360,
         "wires": []
     },
     {
@@ -13808,7 +13951,7 @@
             "19c3635367e1d357"
         ],
         "x": 1095,
-        "y": 1340,
+        "y": 1480,
         "wires": []
     },
     {
@@ -13821,7 +13964,7 @@
         "upload": false,
         "swaggerDoc": "",
         "x": 140,
-        "y": 320,
+        "y": 440,
         "wires": [
             [
                 "5426f39b9317f078",
@@ -13842,7 +13985,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 300,
-        "y": 360,
+        "y": 480,
         "wires": []
     },
     {
@@ -13903,7 +14046,7 @@
         "statusCode": "200",
         "headers": {},
         "x": 340,
-        "y": 320,
+        "y": 440,
         "wires": []
     },
     {
@@ -13995,7 +14138,7 @@
             }
         ],
         "x": 310,
-        "y": 1180,
+        "y": 1320,
         "wires": [
             [
                 "39b8b4aeb3b0300a"
@@ -14314,6 +14457,7 @@
         "name": "check",
         "func": "if (msg.payload != '{\"callbacks\": [{\"id\": 0, \"url\": \"http://dipe-pi:1880/nuki\"}]}') {\n    return { payload: \"Neuverbindung Nuki-Bridge\" }\n}",
         "outputs": 1,
+        "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
@@ -14346,11 +14490,11 @@
         "drop": false,
         "allowrate": false,
         "outputs": 1,
-        "x": 900,
+        "x": 960,
         "y": 280,
         "wires": [
             [
-                "5219158699c90d01"
+                "bf9ec4221c55c756"
             ]
         ]
     },
@@ -14358,13 +14502,13 @@
         "id": "874dfff3aa6fa109",
         "type": "link in",
         "z": "caf02dc9a5b73890",
-        "name": "NukiLog",
+        "name": "Append to NukiLog",
         "links": [
             "654a244c622d13f2",
-            "462ab2a1dc1a547b"
+            "19b01bf54f5d1742"
         ],
         "x": 985,
-        "y": 1460,
+        "y": 1760,
         "wires": [
             [
                 "1941a899e31bb27f"
@@ -14380,7 +14524,7 @@
         "links": [
             "874dfff3aa6fa109"
         ],
-        "x": 855,
+        "x": 895,
         "y": 320,
         "wires": []
     },
@@ -14396,9 +14540,194 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 920,
-        "y": 380,
+        "x": 940,
+        "y": 360,
         "wires": []
+    },
+    {
+        "id": "48be9664f191c60e",
+        "type": "inject",
+        "z": "caf02dc9a5b73890",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "3600",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 170,
+        "y": 280,
+        "wires": [
+            [
+                "fe524ee7393f9f6e"
+            ]
+        ]
+    },
+    {
+        "id": "4f620ba5fc8ff501",
+        "type": "link in",
+        "z": "caf02dc9a5b73890",
+        "name": "Nuki Initialisieren",
+        "links": [
+            "bf9ec4221c55c756",
+            "7ac02d8428887df2"
+        ],
+        "x": 45,
+        "y": 80,
+        "wires": [
+            [
+                "5219158699c90d01"
+            ]
+        ]
+    },
+    {
+        "id": "bf9ec4221c55c756",
+        "type": "link out",
+        "z": "caf02dc9a5b73890",
+        "name": "link out 19",
+        "mode": "link",
+        "links": [
+            "4f620ba5fc8ff501"
+        ],
+        "x": 1095,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "8ab179626ae22745",
+        "type": "function",
+        "z": "caf02dc9a5b73890",
+        "name": "check",
+        "func": "if (msg.payload == 'undefiniert') {\n    return { payload: \"Neuverbindung Nuki-Bridge\" }\n}",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 950,
+        "y": 1600,
+        "wires": [
+            [
+                "1941a899e31bb27f",
+                "7ac02d8428887df2",
+                "7c14896d79ec85ee"
+            ]
+        ]
+    },
+    {
+        "id": "40193de5f7799667",
+        "type": "link in",
+        "z": "caf02dc9a5b73890",
+        "name": "Nuki Reinitalisieren?",
+        "links": [
+            "462ab2a1dc1a547b"
+        ],
+        "x": 835,
+        "y": 1600,
+        "wires": [
+            [
+                "8ab179626ae22745"
+            ]
+        ]
+    },
+    {
+        "id": "7ac02d8428887df2",
+        "type": "link out",
+        "z": "caf02dc9a5b73890",
+        "name": "link out 20",
+        "mode": "link",
+        "links": [
+            "4f620ba5fc8ff501"
+        ],
+        "x": 1075,
+        "y": 1600,
+        "wires": []
+    },
+    {
+        "id": "7c14896d79ec85ee",
+        "type": "debug",
+        "z": "caf02dc9a5b73890",
+        "name": "debug 18",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1120,
+        "y": 1560,
+        "wires": []
+    },
+    {
+        "id": "befaa0afd349c3ad",
+        "type": "delay",
+        "z": "caf02dc9a5b73890",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "5",
+        "timeoutUnits": "minutes",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 520,
+        "y": 1260,
+        "wires": [
+            [
+                "308f8ad74ab23e95"
+            ]
+        ]
+    },
+    {
+        "id": "308f8ad74ab23e95",
+        "type": "change",
+        "z": "caf02dc9a5b73890",
+        "name": "clear flow.pin",
+        "rules": [
+            {
+                "t": "set",
+                "p": "pin",
+                "pt": "flow",
+                "to": "",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 710,
+        "y": 1260,
+        "wires": [
+            [
+                "d30eaa96a9c03566"
+            ]
+        ]
     },
     {
         "id": "3f9580dafe32e9bb",
@@ -14421,7 +14750,7 @@
         "topic": "topic",
         "topicType": "msg",
         "x": 250,
-        "y": 580,
+        "y": 600,
         "wires": [
             [
                 "b3d68c772a191a78"
@@ -14443,7 +14772,7 @@
         "expiry": "",
         "broker": "c349b9ff.9dc4c8",
         "x": 760,
-        "y": 580,
+        "y": 600,
         "wires": []
     },
     {
@@ -14474,12 +14803,13 @@
         "name": "add fingerprint",
         "func": "const pin = flow.get('pin');\nconst id_to_add = flow.get('id_to_add');\nconst num_scans = flow.get('num_scans');\n\nreturn [\n    {payload: {pin: pin,finger_id: id_to_add, num_scans: num_scans}},\n    {topic: \"Scan:\", payload: \"Bitte Finger auflegen\"} \n];",
         "outputs": 2,
+        "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
         "x": 500,
-        "y": 580,
+        "y": 600,
         "wires": [
             [
                 "89a64d036fd322d0"
@@ -14577,8 +14907,7 @@
         "wires": [
             [
                 "a7b0725dc592d634",
-                "166ea28fb4066970",
-                "6aed96f65ecbb9f3"
+                "166ea28fb4066970"
             ]
         ]
     },
@@ -14586,8 +14915,8 @@
         "id": "55b427a01688b459",
         "type": "ui_text",
         "z": "0133ddc4e63513b7",
-        "group": "3d281e38187eb483",
-        "order": 1,
+        "group": "6e590cb07ba9a85d",
+        "order": 7,
         "width": 0,
         "height": 0,
         "name": "Erkannt",
@@ -14595,6 +14924,10 @@
         "format": "{{msg.payload}}",
         "layout": "row-spread",
         "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
         "x": 680,
         "y": 1060,
         "wires": []
@@ -14765,8 +15098,9 @@
         "type": "function",
         "z": "0133ddc4e63513b7",
         "name": "Lookup Name",
-        "func": "const list_of_fingerprints = flow.get('list_of_fingerprints') || [];\nconst finger_id = msg.payload.finger_id;\nconst confidence = msg.payload.confidence;\nconst finger_name = list_of_fingerprints[finger_id];\n\nconst sprintf = global.get(\"sprintf\");\nconst text = sprintf(\"%s ID: %i, Vertrauen: %i\", finger_name, finger_id, confidence);\n\nreturn {topic: \"Finger erkannt:\", payload: text};",
+        "func": "const list_of_fingerprints = flow.get('list_of_fingerprints') || [];\nconst finger_id = msg.payload.finger_id;\nconst confidence = msg.payload.confidence;\nconst finger_name = list_of_fingerprints[finger_id];\n\nconst sprintf = global.get(\"sprintf\");\nconst text = sprintf(\"%s ID: %i, Vertrauen: %i\", finger_name, finger_id, confidence);\n\nreturn {topic: \"Finger erkannt\", payload: text};",
         "outputs": 1,
+        "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
@@ -14776,7 +15110,8 @@
         "wires": [
             [
                 "55b427a01688b459",
-                "bc763a522d5e7245"
+                "bc763a522d5e7245",
+                "8ce49dec505c6e79"
             ]
         ]
     },
@@ -14785,8 +15120,9 @@
         "type": "function",
         "z": "0133ddc4e63513b7",
         "name": "unerkannt",
-        "func": "return { topic: \"unerkannt\", payload: new Date().toISOString()};",
+        "func": "return { topic: \"Finger unerkannt\", payload: new Date().toISOString()};",
         "outputs": 1,
+        "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
@@ -14795,7 +15131,8 @@
         "y": 1080,
         "wires": [
             [
-                "55b427a01688b459"
+                "55b427a01688b459",
+                "8ce49dec505c6e79"
             ]
         ]
     },
@@ -14848,7 +15185,7 @@
         "type": "function",
         "z": "0133ddc4e63513b7",
         "name": "store finger name and id",
-        "func": "const name_to_add = flow.get('name_to_add');\nconst hand_to_add = flow.get('hand_to_add');\nconst finger_to_add = flow.get('finger_to_add');\nconst id_to_add = flow.get('id_to_add');\nconst list_of_fingerprints = flow.get('list_of_fingerprints') || {};\n\nlist_of_fingerprints[id_to_add] = `${name_to_add}-${finger_to_add}-${hand_to_add}`;\nflow.set('list_of_fingerprints', list_of_fingerprints);\nflow.set('pin', '');\n\nconst sprintf = global.get(\"sprintf\");\nconst text = sprintf(\"%i: %s\", id_to_add, name_to_add);\n\nreturn { topic: \"Erfolgreich hinzugefügt:\", payload: text};",
+        "func": "const name_to_add = flow.get('name_to_add');\nconst hand_to_add = flow.get('hand_to_add');\nconst finger_to_add = flow.get('finger_to_add');\nconst id_to_add = flow.get('id_to_add');\nconst list_of_fingerprints = flow.get('list_of_fingerprints') || {};\n\nlist_of_fingerprints[id_to_add] = `${name_to_add}-${finger_to_add}-${hand_to_add}`;\nflow.set('list_of_fingerprints', list_of_fingerprints);\n\nconst sprintf = global.get(\"sprintf\");\nconst text = sprintf(\"%i: %s\", id_to_add, name_to_add);\n\nreturn { topic: \"Erfolgreich hinzugefügt:\", payload: text};",
         "outputs": 1,
         "timeout": "",
         "noerr": 0,
@@ -14859,8 +15196,7 @@
         "y": 680,
         "wires": [
             [
-                "166ea28fb4066970",
-                "6aed96f65ecbb9f3"
+                "166ea28fb4066970"
             ]
         ]
     },
@@ -14871,6 +15207,7 @@
         "name": "Finger auflegen",
         "func": "const finger_id = msg.payload.finger_id;\nconst scan_num = msg.payload.scan_num;\nreturn { topic: \"Scan \" + scan_num, payload: \"Finger auflegen\"};",
         "outputs": 1,
+        "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
@@ -14879,8 +15216,7 @@
         "y": 720,
         "wires": [
             [
-                "166ea28fb4066970",
-                "6aed96f65ecbb9f3"
+                "166ea28fb4066970"
             ]
         ]
     },
@@ -14941,8 +15277,7 @@
         "y": 760,
         "wires": [
             [
-                "166ea28fb4066970",
-                "6aed96f65ecbb9f3"
+                "166ea28fb4066970"
             ]
         ]
     },
@@ -15070,6 +15405,10 @@
         "format": "{{msg.payload}}",
         "layout": "row-spread",
         "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
         "x": 950,
         "y": 680,
         "wires": []
@@ -15245,7 +15584,9 @@
         "x": 490,
         "y": 540,
         "wires": [
-            []
+            [
+                "e03fbc3595a06311"
+            ]
         ]
     },
     {
@@ -15331,8 +15672,8 @@
         "id": "1bf4ce914349d32c",
         "type": "ui_text",
         "z": "0133ddc4e63513b7",
-        "group": "3d281e38187eb483",
-        "order": 2,
+        "group": "e1e3eb2e7b5352d1",
+        "order": 3,
         "width": "6",
         "height": "6",
         "name": "Liste der Fingerabdrücke",
@@ -15373,25 +15714,6 @@
                 "ccb35b1aaf0aeec3"
             ]
         ]
-    },
-    {
-        "id": "86fec2abf6293c44",
-        "type": "mqtt out",
-        "z": "0133ddc4e63513b7",
-        "d": true,
-        "name": "",
-        "topic": "fingersensor1/enroll",
-        "qos": "",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "c349b9ff.9dc4c8",
-        "x": 900,
-        "y": 780,
-        "wires": []
     },
     {
         "id": "bc763a522d5e7245",
@@ -15550,25 +15872,6 @@
         ]
     },
     {
-        "id": "6aed96f65ecbb9f3",
-        "type": "function",
-        "z": "0133ddc4e63513b7",
-        "name": "clear data",
-        "func": "return(\n    {payload: {pin: '', finger_id: '', num_scans: ''}});\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 860,
-        "y": 740,
-        "wires": [
-            [
-                "86fec2abf6293c44"
-            ]
-        ]
-    },
-    {
         "id": "34659b7b3818c48d",
         "type": "inject",
         "z": "0133ddc4e63513b7",
@@ -15590,6 +15893,105 @@
         "wires": [
             [
                 "eed67a44576cb146"
+            ]
+        ]
+    },
+    {
+        "id": "19b01bf54f5d1742",
+        "type": "link out",
+        "z": "0133ddc4e63513b7",
+        "name": "link out 21",
+        "mode": "link",
+        "links": [
+            "874dfff3aa6fa109"
+        ],
+        "x": 855,
+        "y": 1100,
+        "wires": []
+    },
+    {
+        "id": "8ce49dec505c6e79",
+        "type": "change",
+        "z": "0133ddc4e63513b7",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "topic",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 710,
+        "y": 1100,
+        "wires": [
+            [
+                "19b01bf54f5d1742"
+            ]
+        ]
+    },
+    {
+        "id": "e03fbc3595a06311",
+        "type": "delay",
+        "z": "0133ddc4e63513b7",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "5",
+        "timeoutUnits": "minutes",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 740,
+        "y": 540,
+        "wires": [
+            [
+                "98ef39032f284deb"
+            ]
+        ]
+    },
+    {
+        "id": "98ef39032f284deb",
+        "type": "change",
+        "z": "0133ddc4e63513b7",
+        "name": "clear flow.pin",
+        "rules": [
+            {
+                "t": "set",
+                "p": "pin",
+                "pt": "flow",
+                "to": "",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 930,
+        "y": 540,
+        "wires": [
+            [
+                "4d42edd6ee3c272e"
             ]
         ]
     },
@@ -15620,6 +16022,7 @@
         "name": "update device",
         "func": "const battery_level = msg.payload.battery\nif (!battery_level) return;\n\nconst device_name = msg.topic.split(\"/\")[1];\nconst devices = flow.get('devices') || {} ;\n\nconst device = devices[device_name] || {};\nconst update = {};\nupdate.name = device_name;\nupdate.battery_level = battery_level;\nupdate.last_seen = Date.now();\n\n//if (device.battery_level == update.battery_level) return;\n\ndevices[device_name] = update;\nflow.set('devices', devices);\n\nmsg.payload = device;\nreturn msg;",
         "outputs": 1,
+        "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
@@ -15660,7 +16063,7 @@
         "group": "fb88c1d7fb2d5bc7",
         "order": 6,
         "width": "6",
-        "height": "6",
+        "height": "8",
         "name": "Log",
         "label": "{{msg.payload}}",
         "format": "",
@@ -15816,6 +16219,7 @@
         "name": "function 34",
         "func": "const devices = flow.get('devices');\nconst delete_from_seen_devices = flow.get('delete_from_seen_devices');\ndelete devices[delete_from_seen_devices];\nreturn msg;",
         "outputs": 1,
+        "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
@@ -16308,6 +16712,7 @@
         "z": "039a8ad4ab697fb3",
         "name": "Deckenlicht",
         "topic": "",
+        "metadata": "",
         "connection": "b425927fca74a6a7",
         "template": "SWITCH",
         "retrievable": true,
@@ -16330,6 +16735,7 @@
         "z": "039a8ad4ab697fb3",
         "name": "Spiegelschranklicht",
         "topic": "",
+        "metadata": "",
         "connection": "b425927fca74a6a7",
         "template": "SWITCH",
         "retrievable": true,
@@ -16352,6 +16758,7 @@
         "z": "039a8ad4ab697fb3",
         "name": "Tizio",
         "topic": "",
+        "metadata": "",
         "connection": "b425927fca74a6a7",
         "template": "SWITCH",
         "retrievable": true,
@@ -16378,7 +16785,8 @@
             "ccb51c58de1b3ee4",
             "1631c8b0516d3d18",
             "3158fabb72429a4d",
-            "6f44eabb6a272d2b"
+            "6f44eabb6a272d2b",
+            "805d0f02d8ec8802"
         ],
         "x": 885,
         "y": 120,
@@ -16493,6 +16901,7 @@
         "z": "039a8ad4ab697fb3",
         "name": "Helles Licht",
         "topic": "",
+        "metadata": "",
         "connection": "b425927fca74a6a7",
         "template": "SCENE",
         "retrievable": false,
@@ -16547,6 +16956,7 @@
         "z": "039a8ad4ab697fb3",
         "name": "Leselicht",
         "topic": "",
+        "metadata": "",
         "connection": "b425927fca74a6a7",
         "template": "SCENE",
         "retrievable": false,
@@ -16569,6 +16979,7 @@
         "z": "039a8ad4ab697fb3",
         "name": "Gemütlich",
         "topic": "",
+        "metadata": "",
         "connection": "b425927fca74a6a7",
         "template": "SCENE",
         "retrievable": false,
@@ -16591,6 +17002,7 @@
         "z": "039a8ad4ab697fb3",
         "name": "Ambientelicht",
         "topic": "",
+        "metadata": "",
         "connection": "b425927fca74a6a7",
         "template": "SCENE",
         "retrievable": false,
@@ -16613,6 +17025,7 @@
         "z": "039a8ad4ab697fb3",
         "name": "Aus",
         "topic": "",
+        "metadata": "",
         "connection": "b425927fca74a6a7",
         "template": "SCENE",
         "retrievable": false,
@@ -16711,6 +17124,7 @@
         "z": "039a8ad4ab697fb3",
         "name": "Hell",
         "topic": "",
+        "metadata": "",
         "connection": "b425927fca74a6a7",
         "template": "SCENE",
         "retrievable": false,
@@ -16765,6 +17179,7 @@
         "z": "039a8ad4ab697fb3",
         "name": "Normal",
         "topic": "",
+        "metadata": "",
         "connection": "b425927fca74a6a7",
         "template": "SCENE",
         "retrievable": false,
@@ -16787,6 +17202,7 @@
         "z": "039a8ad4ab697fb3",
         "name": "Gemütlich",
         "topic": "",
+        "metadata": "",
         "connection": "b425927fca74a6a7",
         "template": "SCENE",
         "retrievable": false,
@@ -16809,6 +17225,7 @@
         "z": "039a8ad4ab697fb3",
         "name": "Ambiente",
         "topic": "",
+        "metadata": "",
         "connection": "b425927fca74a6a7",
         "template": "SCENE",
         "retrievable": false,
@@ -16831,6 +17248,7 @@
         "z": "039a8ad4ab697fb3",
         "name": "Aus",
         "topic": "",
+        "metadata": "",
         "connection": "b425927fca74a6a7",
         "template": "SCENE",
         "retrievable": false,
@@ -16939,6 +17357,7 @@
         "z": "039a8ad4ab697fb3",
         "name": "Esszimmertisch",
         "topic": "",
+        "metadata": "",
         "connection": "b425927fca74a6a7",
         "template": "DIMMER_SWITCH",
         "retrievable": true,
@@ -16994,6 +17413,7 @@
         "z": "039a8ad4ab697fb3",
         "name": "Klavierlampe",
         "topic": "",
+        "metadata": "",
         "connection": "b425927fca74a6a7",
         "template": "SWITCH",
         "retrievable": true,
@@ -17048,6 +17468,7 @@
         "z": "039a8ad4ab697fb3",
         "name": "Fensterbanklampe",
         "topic": "",
+        "metadata": "",
         "connection": "b425927fca74a6a7",
         "template": "DIMMABLE_LIGHT_BULB",
         "retrievable": true,
@@ -17103,6 +17524,7 @@
         "z": "039a8ad4ab697fb3",
         "name": "Tiffany",
         "topic": "",
+        "metadata": "",
         "connection": "b425927fca74a6a7",
         "template": "DIMMABLE_LIGHT_BULB",
         "retrievable": true,
@@ -17157,6 +17579,7 @@
         "z": "039a8ad4ab697fb3",
         "name": "Eckschrank",
         "topic": "",
+        "metadata": "",
         "connection": "b425927fca74a6a7",
         "template": "SWITCH",
         "retrievable": true,
@@ -17211,6 +17634,7 @@
         "z": "039a8ad4ab697fb3",
         "name": "doorbell",
         "topic": "doorbell",
+        "metadata": "",
         "connection": "b425927fca74a6a7",
         "template": "DOORBELL_EVENT_SOURCE",
         "retrievable": false,
@@ -17645,6 +18069,7 @@
         "z": "039a8ad4ab697fb3",
         "name": "Wohnzimmer",
         "topic": "",
+        "metadata": "",
         "connection": "b425927fca74a6a7",
         "template": "TEMPERATURE_SENSOR",
         "retrievable": false,
@@ -17665,6 +18090,7 @@
         "z": "039a8ad4ab697fb3",
         "name": "Bad",
         "topic": "",
+        "metadata": "",
         "connection": "b425927fca74a6a7",
         "template": "TEMPERATURE_SENSOR",
         "retrievable": false,
@@ -17685,6 +18111,7 @@
         "z": "039a8ad4ab697fb3",
         "name": "Küche",
         "topic": "",
+        "metadata": "",
         "connection": "b425927fca74a6a7",
         "template": "TEMPERATURE_SENSOR",
         "retrievable": false,
@@ -17847,7 +18274,8 @@
         "links": [
             "5b39c5f2114ceeec",
             "0ed63df895988561",
-            "88a124d82c1bfa92"
+            "88a124d82c1bfa92",
+            "f0f190e5c22765b6"
         ],
         "x": 125,
         "y": 120,
@@ -17987,6 +18415,7 @@
         "z": "039a8ad4ab697fb3",
         "name": "Leuchter",
         "topic": "",
+        "metadata": "",
         "connection": "b425927fca74a6a7",
         "template": "DIMMABLE_LIGHT_BULB",
         "retrievable": true,
@@ -18106,6 +18535,7 @@
         "z": "039a8ad4ab697fb3",
         "name": "Warmwasser",
         "topic": "",
+        "metadata": "",
         "connection": "b425927fca74a6a7",
         "template": "SWITCH",
         "retrievable": true,
@@ -18197,6 +18627,7 @@
         "z": "039a8ad4ab697fb3",
         "name": "Tolomeo ",
         "topic": "",
+        "metadata": "",
         "connection": "b425927fca74a6a7",
         "template": "DIMMABLE_LIGHT_BULB",
         "retrievable": true,
@@ -18288,6 +18719,7 @@
         "z": "039a8ad4ab697fb3",
         "name": "Tizio Standsäule",
         "topic": "",
+        "metadata": "",
         "connection": "b425927fca74a6a7",
         "template": "SWITCH",
         "retrievable": true,
@@ -18311,7 +18743,8 @@
         "name": "Tizio",
         "mode": "link",
         "links": [
-            "6f44eabb6a272d2b"
+            "6f44eabb6a272d2b",
+            "805d0f02d8ec8802"
         ],
         "x": 885,
         "y": 160,
@@ -18342,7 +18775,8 @@
         "z": "039a8ad4ab697fb3",
         "name": "Tizio ",
         "links": [
-            "88a124d82c1bfa92"
+            "88a124d82c1bfa92",
+            "f0f190e5c22765b6"
         ],
         "x": 125,
         "y": 160,
@@ -19700,38 +20134,269 @@
         ]
     },
     {
-        "id": "c0a453e0.3b0b",
-        "type": "web-push",
+        "id": "40f0a03.02d426",
+        "type": "function",
+        "z": "186ee9b7.78e426",
+        "name": "Subscription Manager",
+        "func": "let pushSubscriptions = flow.get('pushSubscriptions', \"storeInFile\") || []\n  \nlet result = ''\nlet foundSubscriptionItems = [];\n\n// Determine on which subscriptions the action should be executed\nif (msg.payload.action === 'reset') {\n    // Reset has impact on all subscriptions\n    foundSubscriptionItems = pushSubscriptions;\n}\nelse {\n    // Find all subscriptions for the specified endpoint\n    foundSubscriptionItems = pushSubscriptions.filter( subscriptionItem => {\n        return subscriptionItem.endpoint == msg.payload.endpoint;\n    })\n}\n\nlet totalSubscriptionLength = pushSubscriptions.length;\n  \nswitch (msg.topic) {\n    case 'subscription_new':\n    case 'subscription_existing':\n        var subscription = msg.payload;\n        if (foundSubscriptionItems.length === 0) {\n            pushSubscriptions.push(subscription);\n            result = 'Subscription registered: ' + subscription.endpoint\n        } else {\n            result = 'Subscription was already registered: ' + subscription.endpoint\n        }\n\n        msg.statusCode = 200;\n        break;\n    \n    case 'unsubscription':\n        var unsubscription = msg.payload;\n        if(foundSubscriptionItems.length === 0) {\n            result = 'Subscription was not found: ' + unsubscription.endpoint\n        } else {\n            pushSubscriptions = pushSubscriptions.filter(subscriptionItem => {\n                return subscriptionItem.endpoint !== unsubscription.endpoint\n            })\n            result = 'Subscription unregistered: ' + unsubscription.endpoint\n        }\n    \n        msg.statusCode = 200;\n        break;\n    case 'reset':\n        // All push subscriptions will be removed!!!!!!!!!\n        // Make sure you know what you are doing, because you cannot send notifications to these endpoints anymore!!!!!!!!!\n        pushSubscriptions = [];\n        break;\n    default:\n        result = 'Unsupported action';\n        msg.statusCode = 400;\n}\n\nmsg.payload = { result: result }\n\n// Show the evolution in number of subscriptions\nnode.status({fill:\"green\",shape:\"dot\",text: pushSubscriptions.length + \" subscription (previously \" + totalSubscriptionLength + \")\"});\n\n// Make sure this flow variable in stored in a file, because we still need the subscriptions \n// after a flow restart (otherwise there is no way anymore to push notifications to those clients!!)\nflow.set('pushSubscriptions', pushSubscriptions, \"storeInFile\")\n  \nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 700,
+        "y": 320,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "78eccaf6.6f3504",
+        "type": "ui_web_push_client",
+        "z": "186ee9b7.78e426",
+        "group": "a5f2ba636c8c5d09",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "webPushConfig": "8dc58e15e89f6392",
+        "sendSubscription": true,
+        "disableButton": false,
+        "showTooltip": false,
+        "subscribeLabel": "Subscribe",
+        "unsubscribeLabel": "Unsubscribe",
+        "name": "",
+        "x": 220,
+        "y": 300,
+        "wires": [
+            [
+                "224ae0be.2ff16"
+            ]
+        ]
+    },
+    {
+        "id": "224ae0be.2ff16",
+        "type": "switch",
         "z": "186ee9b7.78e426",
         "name": "",
-        "vapidConfiguration": "1d41b598.c12dba",
-        "x": 740,
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "error",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "subscription_new",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "subscription_existing",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "unsubscription",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 4,
+        "x": 410,
+        "y": 300,
+        "wires": [
+            [
+                "db2d5103.3b7ed"
+            ],
+            [
+                "40f0a03.02d426",
+                "b81732c1.c64cf"
+            ],
+            [
+                "40f0a03.02d426"
+            ],
+            [
+                "40f0a03.02d426",
+                "891acbb7.fead88"
+            ]
+        ],
+        "outputLabels": [
+            "error",
+            "subscription_new",
+            "subscription_existing",
+            "unsubscription"
+        ]
+    },
+    {
+        "id": "db2d5103.3b7ed",
+        "type": "ui_toast",
+        "z": "186ee9b7.78e426",
+        "position": "dialog",
+        "displayTime": "3",
+        "highlight": "",
+        "sendall": false,
+        "outputs": 1,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "topic": "Internal problem",
+        "name": "Show error popup",
+        "x": 690,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "36ba1f5.156dee",
+        "type": "ui_toast",
+        "z": "186ee9b7.78e426",
+        "position": "dialog",
+        "displayTime": "3",
+        "highlight": "",
+        "sendall": false,
+        "outputs": 1,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "className": "",
+        "topic": "Info",
+        "name": "Show subscription confirmation popup",
+        "x": 950,
+        "y": 240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "51b2a714.96c4d8",
+        "type": "ui_toast",
+        "z": "186ee9b7.78e426",
+        "position": "dialog",
+        "displayTime": "3",
+        "highlight": "",
+        "sendall": false,
+        "outputs": 1,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "topic": "Info",
+        "name": "Show unsubscription confirmation popup",
+        "x": 960,
+        "y": 280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "891acbb7.fead88",
+        "type": "change",
+        "z": "186ee9b7.78e426",
+        "name": "Set popup body",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Succesfully unsubscribed from receiving Node-RED notifications",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 680,
         "y": 280,
         "wires": [
             [
-                "dacfb716.62dd98"
+                "51b2a714.96c4d8"
             ]
         ]
     },
     {
-        "id": "55f7d1e7.59fe4",
+        "id": "b81732c1.c64cf",
+        "type": "change",
+        "z": "186ee9b7.78e426",
+        "name": "Set popup body",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Succesfully subscribed for receiving Node-RED notifications",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 680,
+        "y": 240,
+        "wires": [
+            [
+                "36ba1f5.156dee"
+            ]
+        ]
+    },
+    {
+        "id": "cb8eb1f8.b0135",
+        "type": "function",
+        "z": "186ee9b7.78e426",
+        "name": "Get subscriptions",
+        "func": "// Use the flow variable that has been set in Demo Web Push Manager API (\"storeInFile\" context)\nmsg.subscriptions = flow.get('pushSubscriptions', \"storeInFile\") || []\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 750,
+        "y": 420,
+        "wires": [
+            [
+                "b976fed6.9d7f5"
+            ]
+        ]
+    },
+    {
+        "id": "b976fed6.9d7f5",
+        "type": "web-push",
+        "z": "186ee9b7.78e426",
+        "name": "Send notification to the subscribers",
+        "vapidConfiguration": "8dc58e15e89f6392",
+        "x": 1020,
+        "y": 420,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3d761c9f.df5fa4",
         "type": "web-push-notification",
         "z": "186ee9b7.78e426",
         "name": "web push notification",
-        "title": "This is default notification",
-        "body": "It makes sense to have a call to action in the content",
-        "sound": "",
-        "payload": "",
-        "x": 420,
-        "y": 200,
+        "title": "Hello Node-RED user!!!",
+        "body": "Click me to open your dashboard",
+        "sound": "default",
+        "payload": "[{\"key\":\"icon\",\"value\":\"https://nodered.org/about/resources/media/node-red-icon-2.png\",\"type\":\"str\"}]",
+        "x": 520,
+        "y": 420,
         "wires": [
             [
-                "9b93fae9.81c4d8"
+                "cb8eb1f8.b0135"
             ]
         ]
     },
     {
-        "id": "772803c2.55b3cc",
+        "id": "412be38b.155bac",
         "type": "inject",
         "z": "186ee9b7.78e426",
         "name": "Send predefined notification",
@@ -19742,180 +20407,51 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 160,
-        "y": 200,
+        "x": 260,
+        "y": 420,
         "wires": [
             [
-                "55f7d1e7.59fe4"
+                "3d761c9f.df5fa4"
             ]
         ]
     },
     {
-        "id": "dacfb716.62dd98",
-        "type": "debug",
-        "z": "186ee9b7.78e426",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "x": 750,
-        "y": 340,
-        "wires": []
-    },
-    {
-        "id": "1512b37d.10daed",
-        "type": "http in",
-        "z": "186ee9b7.78e426",
-        "name": "Demo Web Push Manager REST API",
-        "url": "webpush",
-        "method": "post",
-        "upload": false,
-        "swaggerDoc": "",
-        "x": 180,
-        "y": 60,
-        "wires": [
-            [
-                "c1013cfe.39645"
-            ]
-        ]
-    },
-    {
-        "id": "c1013cfe.39645",
+        "id": "8b685850.ce1428",
         "type": "function",
         "z": "186ee9b7.78e426",
-        "name": "Demo Web Push Manager",
-        "func": "let pushSubscriptions = flow.get('pushSubscriptions')||[]\n  \nlet action = msg.payload.action\nlet subscription = msg.payload.subscription\n  \nlet result = ''\n\nlet foundSubscriptionItems = pushSubscriptions.filter( subscriptionItem => {\n    return subscriptionItem.endpoint == subscription.endpoint\n})\n  \nif (action === 'subscribe') {\n    \n    if (foundSubscriptionItems.length === 0) {\n      pushSubscriptions.push(subscription)\n      result = 'Subscription registered: ' + subscription.endpoint\n    } else {\n      result = 'Subscription was already registered: ' + subscription.endpoint\n    }\n\n    msg.statusCode = 200\n    \n } else if (action === 'unsubscribe') {\n     \n    if(foundSubscriptionItems.length === 0) {\n        result = 'Subscription was not found: ' + subscription.endpoint\n    } else {\n        pushSubscriptions = pushSubscriptions.filter(subscriptionItem => {\n            return subscriptionItem.endpoint !== subscription.endpoint\n        })\n        result = 'Subscription unregistered: ' + subscription.endpoint\n    }\n    \n    msg.statusCode = 200\n\n } else {\n      \n    result = 'Unsupported action'\n      \n    msg.statusCode = 400\n    \n }\n  \nmsg.payload = {\n  result: result\n}\n\nnode.log(`Number of active subscriptions: ${pushSubscriptions.length}`)\n    \nflow.set('pushSubscriptions', pushSubscriptions)\n  \nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 480,
-        "y": 60,
-        "wires": [
-            [
-                "af876fe8.30ed6",
-                "f0b8d2a9.8a765"
-            ]
-        ]
-    },
-    {
-        "id": "af876fe8.30ed6",
-        "type": "http response",
-        "z": "186ee9b7.78e426",
-        "name": "API Response",
-        "statusCode": "",
-        "headers": {},
-        "x": 760,
-        "y": 60,
-        "wires": []
-    },
-    {
-        "id": "f0b8d2a9.8a765",
-        "type": "debug",
-        "z": "186ee9b7.78e426",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "x": 750,
-        "y": 120,
-        "wires": []
-    },
-    {
-        "id": "cdb680f9.fdbe5",
-        "type": "inject",
-        "z": "186ee9b7.78e426",
-        "name": "Send custom notifcation",
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "{\"notification\":{\"title\":\"This is custom notification\",\"body\":\"It makes sense to have a call to action in the content\"}}",
-        "payloadType": "json",
-        "x": 150,
-        "y": 380,
-        "wires": [
-            [
-                "71ee5e9.d465ea"
-            ]
-        ]
-    },
-    {
-        "id": "71ee5e9.d465ea",
-        "type": "change",
-        "z": "186ee9b7.78e426",
-        "name": "Set msg.notification",
-        "rules": [
-            {
-                "t": "set",
-                "p": "notification",
-                "pt": "msg",
-                "to": "payload",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 420,
-        "y": 380,
-        "wires": [
-            [
-                "9b93fae9.81c4d8"
-            ]
-        ]
-    },
-    {
-        "id": "9b93fae9.81c4d8",
-        "type": "function",
-        "z": "186ee9b7.78e426",
-        "name": "List subscriptions",
-        "func": "// Using Flow variable we set in Demo Web Push Manager API\nmsg.subscriptions = flow.get('pushSubscriptions')||[]\n\n/*\nor list your subscription objects manually:\nmsg.subscriptions = [{\n    endpoint: \"https://fcm.googleapis.com/fcm/send/SOME_LONG_TOKEN\",\n    keys:\n    {\n        p256dh: P256DH_KEY\",\n        auth: \"AUTH_KEY\"\n    }\n}]\n*/\n\nreturn msg;",
+        "name": "Get subscriptions",
+        "func": "// Use the flow variable that has been set in Demo Web Push Manager API (\"storeInFile\" context)\nmsg.subscriptions = flow.get('pushSubscriptions', \"storeInFile\") || []\n\nreturn msg;",
         "outputs": 1,
         "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 530,
-        "y": 280,
+        "x": 730,
+        "y": 540,
         "wires": [
             [
-                "c0a453e0.3b0b"
+                "e45925bf.a85bb8"
             ]
         ]
     },
     {
-        "id": "8dfba1eca066bea9",
-        "type": "ui_toast",
+        "id": "e45925bf.a85bb8",
+        "type": "web-push",
         "z": "186ee9b7.78e426",
-        "position": "prompt",
-        "displayTime": "3",
-        "highlight": "",
-        "sendall": true,
-        "outputs": 1,
-        "ok": "OK",
-        "cancel": "Cancel",
-        "raw": false,
-        "className": "",
-        "topic": "",
-        "name": "",
-        "x": 490,
+        "name": "Send notification to the subscribers",
+        "vapidConfiguration": "8dc58e15e89f6392",
+        "x": 1000,
         "y": 540,
         "wires": [
             []
         ]
     },
     {
-        "id": "0156dcb0bbf4f867",
+        "id": "362b4b30.09d254",
         "type": "inject",
         "z": "186ee9b7.78e426",
-        "name": "",
+        "name": "Send custom notifcation",
         "props": [
             {
                 "p": "payload"
@@ -19930,35 +20466,84 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 140,
-        "y": 540,
+        "payload": "{\"notification\":{\"title\":\"Hello Node-RED user!\",\"body\":\"Click me to open your dashboard\"},\"data\":{\"silent\":true,\"requireInteraction \":true,\"icon\":\"https://nodered.org/about/resources/media/node-red-icon-2.png\",\"image\":\"https://user-images.githubusercontent.com/14224149/73395580-19bac700-42e0-11ea-90c2-71cb4f496637.png\"}}",
+        "payloadType": "json",
+        "x": 250,
+        "y": 520,
         "wires": [
             [
-                "8dfba1eca066bea9"
+                "180914ab.2b6e8b"
             ]
         ]
     },
     {
-        "id": "530bdce51b11eaf4",
-        "type": "ui_web_push_client",
+        "id": "180914ab.2b6e8b",
+        "type": "change",
         "z": "186ee9b7.78e426",
-        "group": "3f0994e3.62d76c",
-        "order": 5,
-        "width": 0,
-        "height": 0,
-        "webPushConfig": "7e81b420bdfbe2ed",
-        "sendSubscription": false,
-        "disableButton": false,
-        "showTooltip": false,
-        "subscribeLabel": "Subscribe",
-        "unsubscribeLabel": "Unsubscribe",
-        "name": "",
-        "x": 120,
-        "y": 640,
+        "name": "payload => notification",
+        "rules": [
+            {
+                "t": "move",
+                "p": "payload",
+                "pt": "msg",
+                "to": "notification",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 500,
+        "y": 540,
         "wires": [
-            []
+            [
+                "8b685850.ce1428"
+            ]
+        ]
+    },
+    {
+        "id": "67fbe85705585cdf",
+        "type": "link in",
+        "z": "186ee9b7.78e426",
+        "name": "Send Push Notification",
+        "links": [],
+        "x": 345,
+        "y": 560,
+        "wires": [
+            [
+                "180914ab.2b6e8b"
+            ]
+        ]
+    },
+    {
+        "id": "39984194.b6179e",
+        "type": "inject",
+        "z": "186ee9b7.78e426",
+        "name": "Reload service worker",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "reload_service_worker",
+        "payloadType": "str",
+        "x": 220,
+        "y": 240,
+        "wires": [
+            [
+                "78eccaf6.6f3504"
+            ]
         ]
     }
 ]
