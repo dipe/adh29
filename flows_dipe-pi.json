@@ -80,7 +80,7 @@
     {
         "id": "d0173d54.941d7",
         "type": "tab",
-        "label": "influxdb",
+        "label": "InfluxDB",
         "disabled": false,
         "info": ""
     },
@@ -309,38 +309,6 @@
         ]
     },
     {
-        "id": "df20abd98685a459",
-        "type": "junction",
-        "z": "4d90b497.b5b2ac",
-        "x": 1320,
-        "y": 360,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "7e28ed5815aaaef5",
-        "type": "junction",
-        "z": "4d90b497.b5b2ac",
-        "x": 1320,
-        "y": 360,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "14273365e7b654be",
-        "type": "junction",
-        "z": "4d90b497.b5b2ac",
-        "x": 1660,
-        "y": 460,
-        "wires": [
-            [
-                "8ccbeeaf68939b5e"
-            ]
-        ]
-    },
-    {
         "id": "d6fac80997a49234",
         "type": "junction",
         "z": "fc93ef5a2502b341",
@@ -348,8 +316,6 @@
         "y": 360,
         "wires": [
             [
-                "865d40eb7c6b444e",
-                "a5b5dc67bdd74287",
                 "aff044c527bc1c76"
             ]
         ]
@@ -363,8 +329,19 @@
         "wires": [
             [
                 "5f083e6b9b4c2abf",
-                "2d506252b028bcda",
                 "ef7fa9114609ef59"
+            ]
+        ]
+    },
+    {
+        "id": "45bc567304c5cb80",
+        "type": "junction",
+        "z": "fc93ef5a2502b341",
+        "x": 620,
+        "y": 1000,
+        "wires": [
+            [
+                "861877044ab714d2"
             ]
         ]
     },
@@ -1163,24 +1140,13 @@
         "className": ""
     },
     {
-        "id": "b18c7f627e1b692d",
-        "type": "ui_group",
-        "name": "Zwitscherbox",
-        "tab": "ff6f06b14f53b220",
-        "order": 2,
-        "disp": true,
-        "width": "6",
-        "collapse": false,
-        "className": ""
-    },
-    {
         "id": "bebc2a08.8975f8",
         "type": "ui_group",
         "name": "Kellertür",
         "tab": "f1b5e757.dd28e8",
         "order": 2,
         "disp": true,
-        "width": "6",
+        "width": 9,
         "collapse": false,
         "className": ""
     },
@@ -1225,7 +1191,27 @@
         "tab": "f1b5e757.dd28e8",
         "order": 1,
         "disp": true,
-        "width": "6",
+        "width": 9,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "72de7bb378ccfa71",
+        "type": "onvif-config",
+        "xaddress": "kamera-balkon",
+        "port": "8000",
+        "timeout": "30",
+        "checkConnectionInterval": "5",
+        "name": ""
+    },
+    {
+        "id": "09752717148dff64",
+        "type": "ui_group",
+        "name": "Balkon",
+        "tab": "f1b5e757.dd28e8",
+        "order": 3,
+        "disp": true,
+        "width": 9,
         "collapse": false,
         "className": ""
     },
@@ -6459,7 +6445,7 @@
                 "21f07479.c7da9c",
                 "c8ee7404.bf05b8",
                 "6afb2001.139fe",
-                "c3cee7f24ee5352c"
+                "92c6f73d.d38e98"
             ]
         ]
     },
@@ -6470,7 +6456,7 @@
         "connection": "c2e6322e.33404",
         "name": "setTempTarget AVM 301 Waschküche",
         "action": "setTempTarget",
-        "x": 1950,
+        "x": 1910,
         "y": 340,
         "wires": [
             [
@@ -6497,7 +6483,7 @@
                 "74d29041.9a5c4"
             ],
             [
-                "9b925dad22426b25"
+                "89a86d6b3ba3dfad"
             ]
         ]
     },
@@ -6510,8 +6496,8 @@
         "qos": "",
         "retain": "",
         "broker": "c349b9ff.9dc4c8",
-        "x": 1410,
-        "y": 500,
+        "x": 1370,
+        "y": 460,
         "wires": []
     },
     {
@@ -6523,8 +6509,8 @@
         "qos": "",
         "retain": "",
         "broker": "c349b9ff.9dc4c8",
-        "x": 2220,
-        "y": 440,
+        "x": 1440,
+        "y": 420,
         "wires": []
     },
     {
@@ -6538,7 +6524,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1370,
+        "x": 1330,
         "y": 380,
         "wires": [
             [
@@ -6560,8 +6546,8 @@
         "correl": "",
         "expiry": "",
         "broker": "c349b9ff.9dc4c8",
-        "x": 1490,
-        "y": 540,
+        "x": 1450,
+        "y": 500,
         "wires": []
     },
     {
@@ -6623,7 +6609,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1380,
+        "x": 1340,
         "y": 340,
         "wires": [
             [
@@ -6670,7 +6656,7 @@
         "correl": "",
         "expiry": "",
         "broker": "c349b9ff.9dc4c8",
-        "x": 1620,
+        "x": 1580,
         "y": 380,
         "wires": []
     },
@@ -6804,8 +6790,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1450,
-        "y": 620,
+        "x": 1420,
+        "y": 580,
         "wires": [
             []
         ]
@@ -6819,8 +6805,8 @@
         "qos": "",
         "retain": "",
         "broker": "c349b9ff.9dc4c8",
-        "x": 1490,
-        "y": 580,
+        "x": 1450,
+        "y": 540,
         "wires": []
     },
     {
@@ -6926,7 +6912,7 @@
         "topic": "topic",
         "topicType": "msg",
         "className": "",
-        "x": 1560,
+        "x": 1520,
         "y": 340,
         "wires": [
             [
@@ -6946,7 +6932,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 2000,
+        "x": 1960,
         "y": 380,
         "wires": [
             [
@@ -6973,7 +6959,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1730,
+        "x": 1690,
         "y": 340,
         "wires": [
             [
@@ -6989,25 +6975,8 @@
         "links": [
             "4708a180.a07a"
         ],
-        "x": 2095,
+        "x": 2055,
         "y": 380,
-        "wires": []
-    },
-    {
-        "id": "9b925dad22426b25",
-        "type": "debug",
-        "z": "4d90b497.b5b2ac",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 830,
-        "y": 440,
         "wires": []
     },
     {
@@ -7091,33 +7060,6 @@
         "wires": []
     },
     {
-        "id": "4647f4d0882cb5e0",
-        "type": "change",
-        "z": "4d90b497.b5b2ac",
-        "name": "Speicher Waschküche Fahradkellertür Status",
-        "rules": [
-            {
-                "t": "set",
-                "p": "waschkueche_fahradkeller_tuer_sensor",
-                "pt": "global",
-                "to": "payload.contact",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 1490,
-        "y": 420,
-        "wires": [
-            [
-                "8ccbeeaf68939b5e"
-            ]
-        ]
-    },
-    {
         "id": "4499456238fa52c6",
         "type": "mqtt in",
         "z": "4d90b497.b5b2ac",
@@ -7141,54 +7083,6 @@
         ]
     },
     {
-        "id": "8ccbeeaf68939b5e",
-        "type": "function",
-        "z": "4d90b497.b5b2ac",
-        "name": "Waschküche-Fahradkellertür Check",
-        "func": "let waschkueche_fahradkeller_tuer_sensor_contact = global.get('waschkueche_fahradkeller_tuer_sensor');\nlet luefter_status = flow.get('luefter_status') == 'ON';\n\nreturn {payload: (waschkueche_fahradkeller_tuer_sensor_contact && luefter_status) ? 'ON' : 'OFF'};",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1870,
-        "y": 440,
-        "wires": [
-            [
-                "92c6f73d.d38e98",
-                "66a1493425edcaa6"
-            ]
-        ]
-    },
-    {
-        "id": "c3cee7f24ee5352c",
-        "type": "change",
-        "z": "4d90b497.b5b2ac",
-        "name": "Speicher Lüfter-Status",
-        "rules": [
-            {
-                "t": "set",
-                "p": "luefter_status",
-                "pt": "flow",
-                "to": "payload",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 1420,
-        "y": 460,
-        "wires": [
-            [
-                "14273365e7b654be"
-            ]
-        ]
-    },
-    {
         "id": "605faa63e383b5da",
         "type": "link out",
         "z": "4d90b497.b5b2ac",
@@ -7201,22 +7095,6 @@
         "x": 515,
         "y": 360,
         "wires": []
-    },
-    {
-        "id": "9b82371bd7bd5085",
-        "type": "link in",
-        "z": "4d90b497.b5b2ac",
-        "name": "link in 5",
-        "links": [
-            "605faa63e383b5da"
-        ],
-        "x": 1275,
-        "y": 420,
-        "wires": [
-            [
-                "4647f4d0882cb5e0"
-            ]
-        ]
     },
     {
         "id": "7a8a17ed0bce2cbf",
@@ -7260,47 +7138,6 @@
         "x": 780,
         "y": 320,
         "wires": []
-    },
-    {
-        "id": "154abe954d8614ac",
-        "type": "ui_text",
-        "z": "4d90b497.b5b2ac",
-        "group": "7e092ea0.4f2d9",
-        "order": 7,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "Lüftungsklappe",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "className": "",
-        "style": false,
-        "font": "",
-        "fontSize": "",
-        "color": "#000000",
-        "x": 1980,
-        "y": 480,
-        "wires": []
-    },
-    {
-        "id": "66a1493425edcaa6",
-        "type": "function",
-        "z": "4d90b497.b5b2ac",
-        "name": "Status-Text",
-        "func": "return { payload: (msg.payload == 'ON') ? \"offen\" : \"geschlossen\"};\n",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1790,
-        "y": 480,
-        "wires": [
-            [
-                "154abe954d8614ac"
-            ]
-        ]
     },
     {
         "id": "d8ccba5a509c6755",
@@ -7391,8 +7228,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1380,
-        "y": 660,
+        "x": 1340,
+        "y": 620,
         "wires": [
             [
                 "0a8c64a7ae570888"
@@ -7407,8 +7244,24 @@
         "links": [
             "4708a180.a07a"
         ],
-        "x": 1475,
-        "y": 660,
+        "x": 1435,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "89a86d6b3ba3dfad",
+        "type": "debug",
+        "z": "4d90b497.b5b2ac",
+        "name": "debug 22",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 820,
+        "y": 440,
         "wires": []
     },
     {
@@ -7757,8 +7610,7 @@
                 "7ced6d2d.29ad64",
                 "f52fa99.d8a2b58",
                 "6795e265.50a59c",
-                "c4e81b24848f57bf",
-                "50569a76f26aae62"
+                "c4e81b24848f57bf"
             ]
         ]
     },
@@ -8155,12 +8007,15 @@
         "id": "b4b4ec5a.5a982",
         "type": "function",
         "z": "293bb437.fa00bc",
+        "d": true,
         "name": "map occupancy to ON",
         "func": "if (msg.payload[\"occupancy\"])\n    return {payload: \"ON\"}\n",
         "outputs": 1,
+        "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
+        "libs": [],
         "x": 460,
         "y": 400,
         "wires": [
@@ -8517,23 +8372,6 @@
         ]
     },
     {
-        "id": "50569a76f26aae62",
-        "type": "debug",
-        "z": "293bb437.fa00bc",
-        "name": "debug 15",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 440,
-        "y": 660,
-        "wires": []
-    },
-    {
         "id": "873f70487ac3ba4f",
         "type": "mqtt in",
         "z": "293bb437.fa00bc",
@@ -8578,7 +8416,8 @@
         "name": "Kellertürscheinwerfer",
         "links": [
             "5f083e6b9b4c2abf",
-            "865d40eb7c6b444e"
+            "865d40eb7c6b444e",
+            "5f52228d037d591e"
         ],
         "x": 545,
         "y": 440,
@@ -8724,6 +8563,7 @@
         "name": "ESPHome to global store",
         "func": "const tokens = msg.topic.split(\"/\");\nconst name = tokens[0].replace(' ', '_');\nconst field = tokens[2].replace(' ', '_');\n\nconst value = (/^(\\-|\\+)?([0-9]+(\\.[0-9]+)?)$/.test(msg.payload))\n    ? Number(msg.payload) : msg.payload;\n\nglobal.set(`${name}-${field}`, value);\n\nreturn {payload: {\n    name: name,\n    field: field,\n    value: value\n}};",
         "outputs": 1,
+        "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
@@ -8788,7 +8628,7 @@
         "finalize": "",
         "libs": [],
         "x": 390,
-        "y": 100,
+        "y": 80,
         "wires": [
             []
         ]
@@ -8815,7 +8655,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 160,
-        "y": 100,
+        "y": 80,
         "wires": [
             [
                 "ca4f0c870cf58d0a"
@@ -9529,7 +9369,6 @@
         "y": 300,
         "wires": [
             [
-                "a271605023de56e7",
                 "eaf6fe8a89747f00"
             ]
         ]
@@ -9666,7 +9505,6 @@
         "y": 260,
         "wires": [
             [
-                "a271605023de56e7",
                 "eaf6fe8a89747f00"
             ]
         ]
@@ -9699,25 +9537,6 @@
                 "7b56cfeb.46625",
                 "2e8b20cfb2c1a46d"
             ]
-        ]
-    },
-    {
-        "id": "a271605023de56e7",
-        "type": "flogger",
-        "z": "dac2cb3b.559138",
-        "name": "",
-        "logfile": "zpumpe",
-        "inputchoice": "object",
-        "inputobject": "payload",
-        "inputobjectType": "msg",
-        "inputmoustache": "Recieved payload {{payload}} and topic {{topic}}",
-        "loglevel": "INFO",
-        "logconfig": "8929498a4f6d4a2d",
-        "sendpane": "",
-        "x": 480,
-        "y": 320,
-        "wires": [
-            []
         ]
     },
     {
@@ -11447,8 +11266,9 @@
         "type": "function",
         "z": "d0173d54.941d7",
         "name": "ESPHOME to InfluxDB",
-        "func": "const tokens = msg.topic.split(\"/\");\n\nif (tokens[1] == \"debug\") {\n    return;\n}\n\nvar value;\nif(/^(\\-|\\+)?([0-9]+(\\.[0-9]+)?)$/.test(msg.payload)) {\n  value = Number(msg.payload);\n} else {\n  value = msg.payload;\n}\n\nif (value === \"nan\" || value === undefined || value === null) {\n    return;\n}\n\nconst measurement = tokens[0].replace('-', '_');\n\nmsg.measurement = measurement;\nmsg.payload = {};\nmsg.payload[tokens[2]] = value;\n\nreturn msg;",
+        "func": "const tokens = msg.topic.split(\"/\");\n\nif (tokens[1] == \"debug\") {\n    return;\n}\n\nvar value;\nif(/^(\\-|\\+)?([0-9]+(\\.[0-9]+)?)$/.test(msg.payload)) {\n  value = Number(msg.payload);\n} else {\n  value = msg.payload;\n}\n\nif (value === \"nan\" || value === \"-nan\" || value === undefined || value === null) {\n    return;\n}\n\nconst measurement = tokens[0].replace('-', '_');\n\nmsg.measurement = measurement;\nmsg.payload = {};\nmsg.payload[tokens[2]] = value;\n\nreturn msg;",
         "outputs": 1,
+        "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
@@ -11935,24 +11755,6 @@
             [
                 "faa25f7f.0777"
             ]
-        ]
-    },
-    {
-        "id": "fa0231fe.d86ab",
-        "type": "function",
-        "z": "d0173d54.941d7",
-        "name": "ZIGBEE2MQTT to InfluxDB",
-        "func": "function flatItem(base, key, src, dest) {\n    if (typeof src === 'undefined') {\n        return;\n    }\n    const deepKey = base.length ? base + '.' + key : key;\n    // console.log(base=${base} key=${key} deepKey=${deepKey});\n    if (typeof src === 'object') {\n        if (Array.isArray(src)) {\n            src.forEach((val, idx) => flatItem(deepKey, idx, val, dest));\n        } else {\n            Object.entries(src).forEach(([key, val]) => flatItem(deepKey, key, val, dest))\n        }\n    } else {\n        dest[deepKey] = src;\n    }\n}\n\nconst tokens = msg.topic.split(\"/\");\nconst measurement = tokens[1].replace(/ /g, '_').toLowerCase();\n\nif (/^0x/.test(measurement)) {\n    // Daten (neuer) Devices, die (noch) keinen Namen haben \n    // Tracken wir nicht. \n    return;\n}\n\nmsg.measurement = measurement;\n\nlet flat = {};\nflatItem('', '', msg.payload, flat);\n\nmsg.payload = flat;\n\nreturn msg;\n\n\nlet deSerialize = {};\nlet deep = msg.payload;\nlet value;\ntry {\n    deep = JSON.parse(msg.payload);\n    if (typeof deep == 'object') {\n        flatItem('', '', deep, deSerialize);\n    } else {\n        deSerialize.value = deep;\n    }\n} catch (e) {\n}",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1120,
-        "y": 200,
-        "wires": [
-            []
         ]
     },
     {
@@ -13587,40 +13389,6 @@
         "wires": []
     },
     {
-        "id": "b008a4ef92d8709c",
-        "type": "http in",
-        "z": "caf02dc9a5b73890",
-        "name": "",
-        "url": "/nuki",
-        "method": "post",
-        "upload": false,
-        "swaggerDoc": "",
-        "x": 140,
-        "y": 440,
-        "wires": [
-            [
-                "5426f39b9317f078",
-                "d4c87387ce096aff"
-            ]
-        ]
-    },
-    {
-        "id": "5426f39b9317f078",
-        "type": "debug",
-        "z": "caf02dc9a5b73890",
-        "name": "debug 7",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 300,
-        "y": 480,
-        "wires": []
-    },
-    {
         "id": "fadc0297633fd69c",
         "type": "http request",
         "z": "caf02dc9a5b73890",
@@ -13643,17 +13411,6 @@
                 "185711cedafd5fe4"
             ]
         ]
-    },
-    {
-        "id": "d4c87387ce096aff",
-        "type": "http response",
-        "z": "caf02dc9a5b73890",
-        "name": "send empty response",
-        "statusCode": "200",
-        "headers": {},
-        "x": 340,
-        "y": 440,
-        "wires": []
     },
     {
         "id": "185711cedafd5fe4",
@@ -16220,7 +15977,7 @@
         "correl": "",
         "expiry": "",
         "broker": "c349b9ff.9dc4c8",
-        "x": 960,
+        "x": 780,
         "y": 120,
         "wires": []
     },
@@ -16229,19 +15986,20 @@
         "type": "mqtt in",
         "z": "937c538bb5079218",
         "name": "",
-        "topic": "bad/binary_sensor/button2/state",
+        "topic": "bad/switch/relay2/state",
         "qos": "0",
         "datatype": "auto",
         "broker": "c349b9ff.9dc4c8",
         "nl": false,
         "rap": false,
         "inputs": 0,
-        "x": 150,
+        "x": 320,
         "y": 240,
         "wires": [
             [
-                "287bbd08650fd066",
-                "f3663c203c86bc1a"
+                "8b3aba5983973888",
+                "8bbb8be99a554c57",
+                "76195ae023c40205"
             ]
         ]
     },
@@ -16256,8 +16014,8 @@
         "order": 2,
         "width": 0,
         "height": 0,
-        "passthru": true,
-        "decouple": "false",
+        "passthru": false,
+        "decouple": "true",
         "topic": "",
         "topicType": "str",
         "style": "",
@@ -16272,10 +16030,11 @@
         "animate": true,
         "className": "",
         "x": 530,
-        "y": 240,
+        "y": 220,
         "wires": [
             [
-                "5eb123c82d87d397"
+                "e0c1cf24ff2b7e57",
+                "76195ae023c40205"
             ]
         ]
     },
@@ -16293,7 +16052,7 @@
         "correl": "",
         "expiry": "",
         "broker": "c349b9ff.9dc4c8",
-        "x": 960,
+        "x": 780,
         "y": 240,
         "wires": []
     },
@@ -16302,19 +16061,20 @@
         "type": "mqtt in",
         "z": "937c538bb5079218",
         "name": "",
-        "topic": "bad/binary_sensor/button1/state",
+        "topic": "bad/switch/relay1/state",
         "qos": "0",
         "datatype": "auto",
         "broker": "c349b9ff.9dc4c8",
         "nl": false,
         "rap": false,
         "inputs": 0,
-        "x": 150,
+        "x": 320,
         "y": 120,
         "wires": [
             [
-                "9e89ed0ee38f7e3e",
-                "f3663c203c86bc1a"
+                "be36acd18194951b",
+                "c9d084d9188e034d",
+                "76195ae023c40205"
             ]
         ]
     },
@@ -16329,8 +16089,8 @@
         "order": 1,
         "width": 0,
         "height": 0,
-        "passthru": true,
-        "decouple": "false",
+        "passthru": false,
+        "decouple": "true",
         "topic": "",
         "topicType": "str",
         "style": "",
@@ -16345,10 +16105,11 @@
         "animate": true,
         "className": "",
         "x": 540,
-        "y": 120,
+        "y": 140,
         "wires": [
             [
-                "6aac07c6fa9c4cd7"
+                "76300692c288857b",
+                "76195ae023c40205"
             ]
         ]
     },
@@ -16361,11 +16122,12 @@
             "d79734f22fc84a48",
             "35ae68a760d0d2e2"
         ],
-        "x": 405,
-        "y": 80,
+        "x": 605,
+        "y": 100,
         "wires": [
             [
-                "be36acd18194951b"
+                "76300692c288857b",
+                "76195ae023c40205"
             ]
         ]
     },
@@ -16377,11 +16139,12 @@
         "links": [
             "5895f61d99a0f697"
         ],
-        "x": 405,
-        "y": 280,
+        "x": 585,
+        "y": 260,
         "wires": [
             [
-                "8b3aba5983973888"
+                "e0c1cf24ff2b7e57",
+                "76195ae023c40205"
             ]
         ]
     },
@@ -16396,7 +16159,7 @@
             "0e775ee78efd07c4"
         ],
         "x": 475,
-        "y": 80,
+        "y": 100,
         "wires": []
     },
     {
@@ -16409,189 +16172,11 @@
             "1d5f9e357c8dd2a8"
         ],
         "x": 475,
-        "y": 280,
+        "y": 260,
         "wires": []
     },
     {
-        "id": "70cedba4bebacb50",
-        "type": "ui_switch",
-        "z": "937c538bb5079218",
-        "name": "Zwitcherbox",
-        "label": "Spielen bei Bewegung",
-        "tooltip": "",
-        "group": "b18c7f627e1b692d",
-        "order": 1,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "decouple": "false",
-        "topic": "",
-        "topicType": "str",
-        "style": "",
-        "onvalue": "{\"enabled\": true}",
-        "onvalueType": "json",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "{\"enabled\": false}",
-        "offvalueType": "json",
-        "officon": "",
-        "offcolor": "",
-        "animate": true,
-        "className": "",
-        "x": 530,
-        "y": 380,
-        "wires": [
-            [
-                "7b149695e6875eb4"
-            ]
-        ]
-    },
-    {
-        "id": "7b149695e6875eb4",
-        "type": "mqtt out",
-        "z": "937c538bb5079218",
-        "name": "",
-        "topic": "zwitscherbox-bad/autoplay_on_motion",
-        "qos": "",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "c349b9ff.9dc4c8",
-        "x": 820,
-        "y": 380,
-        "wires": []
-    },
-    {
-        "id": "d295b72604be528a",
-        "type": "thingzi-timer",
-        "z": "937c538bb5079218",
-        "name": "Zwitscherbox Tags an",
-        "lat": "50.882",
-        "lon": "6.6949",
-        "timerType": "onoff",
-        "startupMessage": true,
-        "ontype": "tod",
-        "ontimesun": "dusk",
-        "ontimetod": "8:00",
-        "onpropertytype": "msg",
-        "onproperty": "payload",
-        "onvaluetype": "json",
-        "onvalue": "{\"enabled\": true}",
-        "onoffset": "",
-        "onrandomoffset": false,
-        "offtype": "tod",
-        "offtimesun": "dawn",
-        "offtimetod": "22:00",
-        "offpropertytype": "msg",
-        "offproperty": "payload",
-        "offvaluetype": "json",
-        "offvalue": "{\"enabled\": false}",
-        "offoffset": "",
-        "offrandomoffset": false,
-        "mon": true,
-        "tue": true,
-        "wed": true,
-        "thu": true,
-        "fri": true,
-        "sat": true,
-        "sun": true,
-        "x": 300,
-        "y": 380,
-        "wires": [
-            [
-                "70cedba4bebacb50"
-            ]
-        ]
-    },
-    {
-        "id": "9e89ed0ee38f7e3e",
-        "type": "function",
-        "z": "937c538bb5079218",
-        "name": "toggle",
-        "func": "if (msg.payload != \"ON\")\n    return undefined;\n\nlet topic = \"spiegellicht\";\nlet current_state = flow.get(topic);\nlet new_state = (current_state === \"OFF\") ? \"ON\" : \"OFF\";\n\nflow.set(topic, new_state);\n\nreturn {payload: new_state};\n",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 370,
-        "y": 120,
-        "wires": [
-            [
-                "be36acd18194951b",
-                "c9d084d9188e034d",
-                "f3663c203c86bc1a"
-            ]
-        ]
-    },
-    {
-        "id": "6aac07c6fa9c4cd7",
-        "type": "function",
-        "z": "937c538bb5079218",
-        "name": "store in flow",
-        "func": "let topic = \"gartenlicht\";\nflow.set(topic, msg.payload);\n\nreturn {payload: msg.payload};\n",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 730,
-        "y": 120,
-        "wires": [
-            [
-                "76300692c288857b"
-            ]
-        ]
-    },
-    {
-        "id": "287bbd08650fd066",
-        "type": "function",
-        "z": "937c538bb5079218",
-        "name": "toggle",
-        "func": "if (msg.payload != \"ON\")\n    return undefined;\n\nlet topic = \"deckenlicht\";\nlet current_state = flow.get(topic);\nlet new_state = (current_state === \"OFF\") ? \"ON\" : \"OFF\";\n\nflow.set(topic, new_state);\n\nreturn {payload: new_state};\n",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 370,
-        "y": 240,
-        "wires": [
-            [
-                "8b3aba5983973888",
-                "8bbb8be99a554c57",
-                "f3663c203c86bc1a"
-            ]
-        ]
-    },
-    {
-        "id": "5eb123c82d87d397",
-        "type": "function",
-        "z": "937c538bb5079218",
-        "name": "store in flow",
-        "func": "let topic = \"deckenlicht\";\nflow.set(topic, msg.payload);\n\nreturn {payload: msg.payload};\n",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 730,
-        "y": 240,
-        "wires": [
-            [
-                "e0c1cf24ff2b7e57"
-            ]
-        ]
-    },
-    {
-        "id": "f3663c203c86bc1a",
+        "id": "76195ae023c40205",
         "type": "flogger",
         "z": "937c538bb5079218",
         "name": "",
@@ -16603,7 +16188,7 @@
         "loglevel": "INFO",
         "logconfig": "8929498a4f6d4a2d",
         "sendpane": "",
-        "x": 380,
+        "x": 760,
         "y": 180,
         "wires": [
             []
@@ -20064,8 +19649,8 @@
         "subscribeLabel": "Subscribe",
         "unsubscribeLabel": "Unsubscribe",
         "name": "",
-        "x": 220,
-        "y": 300,
+        "x": 240,
+        "y": 220,
         "wires": [
             [
                 "224ae0be.2ff16"
@@ -20105,7 +19690,7 @@
         "repair": false,
         "outputs": 4,
         "x": 410,
-        "y": 300,
+        "y": 220,
         "wires": [
             [
                 "db2d5103.3b7ed"
@@ -20256,7 +19841,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 750,
+        "x": 770,
         "y": 420,
         "wires": [
             [
@@ -20270,7 +19855,7 @@
         "z": "186ee9b7.78e426",
         "name": "Send notification to the subscribers",
         "vapidConfiguration": "8dc58e15e89f6392",
-        "x": 1020,
+        "x": 1040,
         "y": 420,
         "wires": [
             []
@@ -20285,7 +19870,7 @@
         "body": "Click me to open your dashboard",
         "sound": "default",
         "payload": "[{\"key\":\"icon\",\"value\":\"https://nodered.org/about/resources/media/node-red-icon-2.png\",\"type\":\"str\"}]",
-        "x": 520,
+        "x": 500,
         "y": 420,
         "wires": [
             [
@@ -20298,6 +19883,15 @@
         "type": "inject",
         "z": "186ee9b7.78e426",
         "name": "Send predefined notification",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
         "repeat": "",
         "crontab": "",
         "once": false,
@@ -20329,7 +19923,8 @@
         "y": 480,
         "wires": [
             [
-                "e45925bf.a85bb8"
+                "e45925bf.a85bb8",
+                "b3f52823fc570bdc"
             ]
         ]
     },
@@ -20397,7 +19992,6 @@
         "y": 480,
         "wires": [
             [
-                "4b6ca52079f0ac0b",
                 "8b685850.ce1428"
             ]
         ]
@@ -20424,7 +20018,7 @@
         "payload": "reload_service_worker",
         "payloadType": "str",
         "x": 220,
-        "y": 240,
+        "y": 180,
         "wires": [
             [
                 "78eccaf6.6f3504"
@@ -20437,89 +20031,53 @@
         "z": "186ee9b7.78e426",
         "name": "Push",
         "links": [
-            "acda66fdb9be0812"
+            "acda66fdb9be0812",
+            "9a73800936b6d966",
+            "daa30e9d291ddc4e"
         ],
         "x": 595,
         "y": 560,
         "wires": [
             [
-                "8b685850.ce1428"
+                "8b685850.ce1428",
+                "599b38aea5c2631c"
             ]
         ]
     },
     {
-        "id": "4b6ca52079f0ac0b",
+        "id": "b3f52823fc570bdc",
+        "type": "flogger",
+        "z": "186ee9b7.78e426",
+        "name": "",
+        "logfile": "push-notifications",
+        "inputchoice": "fullmsg",
+        "inputobject": "payload",
+        "inputobjectType": "msg",
+        "inputmoustache": "Recieved payload {{payload}} and topic {{topic}}",
+        "loglevel": "INFO",
+        "logconfig": "8929498a4f6d4a2d",
+        "sendpane": "",
+        "x": 960,
+        "y": 580,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "599b38aea5c2631c",
         "type": "debug",
         "z": "186ee9b7.78e426",
-        "name": "debug 21",
+        "name": "debug 32",
         "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
+        "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 520,
-        "y": 520,
-        "wires": []
-    },
-    {
-        "id": "034b724558990dfa",
-        "type": "ui_text",
-        "z": "fc93ef5a2502b341",
-        "group": "bebc2a08.8975f8",
-        "order": 1,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "Person erkannt um",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "className": "",
-        "style": false,
-        "font": "",
-        "fontSize": "",
-        "color": "#000000",
-        "x": 970,
-        "y": 680,
-        "wires": []
-    },
-    {
-        "id": "0ac856363c11b72a",
-        "type": "base64",
-        "z": "fc93ef5a2502b341",
-        "name": "",
-        "action": "str",
-        "property": "payload",
         "x": 720,
-        "y": 840,
-        "wires": [
-            [
-                "53681d35a14ce6d9"
-            ]
-        ]
-    },
-    {
-        "id": "2cde5f1c3fa05916",
-        "type": "ui_template",
-        "z": "fc93ef5a2502b341",
-        "group": "bebc2a08.8975f8",
-        "name": "Motion Start",
-        "order": 2,
-        "width": "6",
-        "height": "5",
-        "format": "<div ng-bind-html=\"msg.payload\"></div>",
-        "storeOutMessages": true,
-        "fwdInMessages": true,
-        "resendOnRefresh": true,
-        "templateScope": "local",
-        "className": "",
-        "x": 950,
-        "y": 880,
-        "wires": [
-            []
-        ]
+        "y": 560,
+        "wires": []
     },
     {
         "id": "5bb9f99504d3586f",
@@ -20558,26 +20116,9 @@
         "wires": [
             [
                 "1a6110959cb9d38a",
-                "1a401e935efa3792"
+                "9726f1fa6cacb42b"
             ]
         ]
-    },
-    {
-        "id": "1a401e935efa3792",
-        "type": "debug",
-        "z": "fc93ef5a2502b341",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 510,
-        "y": 640,
-        "wires": []
     },
     {
         "id": "1a6110959cb9d38a",
@@ -20651,7 +20192,8 @@
         "y": 780,
         "wires": [
             [
-                "83dd2b3eaa6fde09"
+                "83dd2b3eaa6fde09",
+                "08be364dba5b864b"
             ],
             []
         ]
@@ -20671,7 +20213,7 @@
         "protocol": "",
         "stream": "",
         "x": 720,
-        "y": 760,
+        "y": 720,
         "wires": [
             [
                 "9a67a48e3018fe4a"
@@ -20692,45 +20234,6 @@
         "wires": []
     },
     {
-        "id": "2d506252b028bcda",
-        "type": "function",
-        "z": "fc93ef5a2502b341",
-        "name": "Person detected at",
-        "func": "let timestamp = new Date().toLocaleTimeString('de-DE', { timeStyle: 'short' });\nreturn {payload: timestamp};",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 750,
-        "y": 680,
-        "wires": [
-            [
-                "034b724558990dfa"
-            ]
-        ]
-    },
-    {
-        "id": "53681d35a14ce6d9",
-        "type": "template",
-        "z": "fc93ef5a2502b341",
-        "name": "",
-        "field": "payload",
-        "fieldType": "msg",
-        "format": "handlebars",
-        "syntax": "mustache",
-        "template": "<img width=\"320px\" height=\"240px\" src=\"data:image/jpg;base64,{{{payload}}}\">",
-        "output": "str",
-        "x": 720,
-        "y": 880,
-        "wires": [
-            [
-                "2cde5f1c3fa05916"
-            ]
-        ]
-    },
-    {
         "id": "ef7fa9114609ef59",
         "type": "delay",
         "z": "fc93ef5a2502b341",
@@ -20748,7 +20251,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 760,
-        "y": 720,
+        "y": 680,
         "wires": [
             [
                 "97396944b993325d"
@@ -20764,25 +20267,24 @@
         "links": [
             "1cd036385c85d54d"
         ],
-        "x": 975,
-        "y": 140,
+        "x": 1115,
+        "y": 400,
         "wires": []
     },
     {
         "id": "0de19dc9d3f813c8",
         "type": "function",
         "z": "fc93ef5a2502b341",
-        "d": true,
         "name": "Push Notification",
-        "func": "let image_base64 = msg.payload;\nlet image_url = `data: image / jpg; base64, ${image_base64}`;\n\n// image_url = \"https://user-images.githubusercontent.com/14224149/73395580-19bac700-42e0-11ea-90c2-71cb4f496637.png\";\n\nreturn {\n    notification: {\n        notification: { \n            title: \"Kamera Kellertür\", \n            body: \"Person erkannt\" \n        }, \n        data: { \n            requireInteraction: true, \n            icon: \"https://nodered.org/about/resources/media/node-red-icon-2.png\",\n            image: image_url\n        }\n    }\n};\n",
+        "func": "let image_url = \"https://home.dipe.de/ui/haustuer-kamera-img\";\n\nreturn {\n    notification: {\n        notification: { \n            title: \"Kamera Haustür\", \n            body: \"Person erkannt\" \n        }, \n        data: { \n            requireInteraction: true, \n            icon: \"https://nodered.org/about/resources/media/node-red-icon-2.png\",\n            image: image_url\n        }\n    }\n};\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 830,
-        "y": 140,
+        "x": 970,
+        "y": 400,
         "wires": [
             [
                 "acda66fdb9be0812"
@@ -20807,56 +20309,11 @@
         "repair": false,
         "outputs": 1,
         "x": 710,
-        "y": 800,
+        "y": 760,
         "wires": [
             [
-                "0ac856363c11b72a"
-            ]
-        ]
-    },
-    {
-        "id": "30aabbb72e83e6f6",
-        "type": "comment",
-        "z": "fc93ef5a2502b341",
-        "name": "",
-        "info": "Für Push Notifications muss das Bild kleiner gerechnet werden. Bisher keinen fertigen Node dafür gefunden. Selber bauen?",
-        "x": 800,
-        "y": 100,
-        "wires": []
-    },
-    {
-        "id": "82eff6d73d0edf1d",
-        "type": "ui_text",
-        "z": "fc93ef5a2502b341",
-        "group": "6ed7382c947a98d9",
-        "order": 1,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "Person erkannt um",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "className": "",
-        "style": false,
-        "font": "",
-        "fontSize": "",
-        "color": "#000000",
-        "x": 970,
-        "y": 360,
-        "wires": []
-    },
-    {
-        "id": "06f5cab87e0cdcbe",
-        "type": "base64",
-        "z": "fc93ef5a2502b341",
-        "name": "",
-        "action": "str",
-        "property": "payload",
-        "x": 720,
-        "y": 520,
-        "wires": [
-            [
-                "6682b32de1b257a8"
+                "945de28f527cf29c",
+                "dbf023d83f534b34"
             ]
         ]
     },
@@ -20865,18 +20322,18 @@
         "type": "ui_template",
         "z": "fc93ef5a2502b341",
         "group": "6ed7382c947a98d9",
-        "name": "Motion Start",
+        "name": "Schnappschuss",
         "order": 2,
-        "width": "6",
-        "height": "5",
-        "format": "<div ng-bind-html=\"msg.payload\"></div>",
+        "width": 9,
+        "height": 9,
+        "format": "<div style=\"transform:rotate(90deg);margin-top:100px\"><img width=\"480px\" height=\"260px\" src=\"/ui/haustuer-kamera-img?ts={{msg.payload}}\"></div>",
         "storeOutMessages": true,
-        "fwdInMessages": true,
+        "fwdInMessages": false,
         "resendOnRefresh": true,
         "templateScope": "local",
         "className": "",
-        "x": 950,
-        "y": 560,
+        "x": 960,
+        "y": 520,
         "wires": [
             []
         ]
@@ -20912,32 +20369,15 @@
         "z": "fc93ef5a2502b341",
         "name": "Haustür",
         "deviceConfig": "2ab7fd0847fe244d",
-        "action": "",
+        "action": "start",
         "x": 340,
         "y": 320,
         "wires": [
             [
                 "07e41550cb5611d8",
-                "e94b361735fdbcd5"
+                "af1cb714eff0f6ae"
             ]
         ]
-    },
-    {
-        "id": "e94b361735fdbcd5",
-        "type": "debug",
-        "z": "fc93ef5a2502b341",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 510,
-        "y": 320,
-        "wires": []
     },
     {
         "id": "07e41550cb5611d8",
@@ -21011,7 +20451,8 @@
         "y": 460,
         "wires": [
             [
-                "d6fac80997a49234"
+                "d6fac80997a49234",
+                "50b916c738c7700f"
             ],
             []
         ]
@@ -21031,62 +20472,10 @@
         "protocol": "",
         "stream": "",
         "x": 720,
-        "y": 440,
+        "y": 400,
         "wires": [
             [
                 "c94fa50e4f7a78aa"
-            ]
-        ]
-    },
-    {
-        "id": "865d40eb7c6b444e",
-        "type": "link out",
-        "z": "fc93ef5a2502b341",
-        "name": "Person an Kellertür erkannt",
-        "mode": "link",
-        "links": [
-            "3bbcf05fba67d89a"
-        ],
-        "x": 675,
-        "y": 320,
-        "wires": []
-    },
-    {
-        "id": "a5b5dc67bdd74287",
-        "type": "function",
-        "z": "fc93ef5a2502b341",
-        "name": "Person detected at",
-        "func": "let timestamp = new Date().toLocaleTimeString('de-DE', { timeStyle: 'short' });\nreturn {payload: timestamp};",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 750,
-        "y": 360,
-        "wires": [
-            [
-                "82eff6d73d0edf1d"
-            ]
-        ]
-    },
-    {
-        "id": "6682b32de1b257a8",
-        "type": "template",
-        "z": "fc93ef5a2502b341",
-        "name": "",
-        "field": "payload",
-        "fieldType": "msg",
-        "format": "handlebars",
-        "syntax": "mustache",
-        "template": "<img width=\"320px\" height=\"240px\" src=\"data:image/jpg;base64,{{{payload}}}\">",
-        "output": "str",
-        "x": 720,
-        "y": 560,
-        "wires": [
-            [
-                "ab507b0a4fc73d76"
             ]
         ]
     },
@@ -21108,7 +20497,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 760,
-        "y": 400,
+        "y": 360,
         "wires": [
             [
                 "054d03b59aa6b625"
@@ -21133,10 +20522,826 @@
         "repair": false,
         "outputs": 1,
         "x": 710,
+        "y": 440,
+        "wires": [
+            [
+                "b2574752d2a0af51",
+                "a5b5dc67bdd74287"
+            ]
+        ]
+    },
+    {
+        "id": "c99f53d26fcee620",
+        "type": "inject",
+        "z": "fc93ef5a2502b341",
+        "name": "Start listening",
+        "props": [
+            {
+                "p": "action",
+                "v": "start",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "15",
+        "topic": "",
+        "x": 160,
+        "y": 960,
+        "wires": [
+            [
+                "626516404607b758"
+            ]
+        ]
+    },
+    {
+        "id": "626516404607b758",
+        "type": "onvif-events",
+        "z": "fc93ef5a2502b341",
+        "name": "Balkon",
+        "deviceConfig": "72de7bb378ccfa71",
+        "action": "",
+        "x": 330,
+        "y": 960,
+        "wires": [
+            [
+                "e112b3ecd78d9b3f",
+                "4ec5783534f42c32"
+            ]
+        ]
+    },
+    {
+        "id": "e112b3ecd78d9b3f",
+        "type": "switch",
+        "z": "fc93ef5a2502b341",
+        "name": "Motion Detection Event",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "RuleEngine/MyRuleDetector/PeopleDetect",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 430,
+        "y": 1020,
+        "wires": [
+            [
+                "d53f124d6dd7284b"
+            ]
+        ]
+    },
+    {
+        "id": "d53f124d6dd7284b",
+        "type": "switch",
+        "z": "fc93ef5a2502b341",
+        "name": "IsMotion",
+        "property": "data.name",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "State",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 480,
+        "y": 1060,
+        "wires": [
+            [
+                "e028f0280d82f788"
+            ]
+        ]
+    },
+    {
+        "id": "e028f0280d82f788",
+        "type": "switch",
+        "z": "fc93ef5a2502b341",
+        "name": "",
+        "property": "data.value",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "true"
+            },
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 490,
+        "y": 1100,
+        "wires": [
+            [
+                "45bc567304c5cb80",
+                "9d726d51987d25c8"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "0df33b0c6ff5c4cb",
+        "type": "onvif-media",
+        "z": "fc93ef5a2502b341",
+        "name": "Snapshot",
+        "deviceConfig": "72de7bb378ccfa71",
+        "profileToken": "",
+        "profileName": "Profile001_SubStream",
+        "videoEncoderConfigToken": "",
+        "videoEncoderConfigName": "",
+        "videoEncoderConfigEncoding": "",
+        "action": "getSnapshot",
+        "protocol": "",
+        "stream": "",
+        "x": 720,
+        "y": 1040,
+        "wires": [
+            [
+                "3939ce3c07139333"
+            ]
+        ]
+    },
+    {
+        "id": "861877044ab714d2",
+        "type": "delay",
+        "z": "fc93ef5a2502b341",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "5",
+        "rateUnits": "minute",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 760,
+        "y": 1000,
+        "wires": [
+            [
+                "0df33b0c6ff5c4cb"
+            ]
+        ]
+    },
+    {
+        "id": "3939ce3c07139333",
+        "type": "switch",
+        "z": "fc93ef5a2502b341",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "istype",
+                "v": "buffer",
+                "vt": "buffer"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 710,
+        "y": 1080,
+        "wires": [
+            [
+                "9f89d91d48c5251f",
+                "be5c1c01403587f0"
+            ]
+        ]
+    },
+    {
+        "id": "af4f2acfc6b4788f",
+        "type": "inject",
+        "z": "fc93ef5a2502b341",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 500,
+        "y": 240,
+        "wires": [
+            [
+                "d6fac80997a49234",
+                "83dd2b3eaa6fde09",
+                "45bc567304c5cb80"
+            ]
+        ]
+    },
+    {
+        "id": "08be364dba5b864b",
+        "type": "debug",
+        "z": "fc93ef5a2502b341",
+        "name": "debug 24",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 480,
+        "y": 820,
+        "wires": []
+    },
+    {
+        "id": "9d726d51987d25c8",
+        "type": "debug",
+        "z": "fc93ef5a2502b341",
+        "name": "debug 25",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 480,
+        "y": 1140,
+        "wires": []
+    },
+    {
+        "id": "50b916c738c7700f",
+        "type": "debug",
+        "z": "fc93ef5a2502b341",
+        "name": "debug 26",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 480,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "7f807fd8588ea7ce",
+        "type": "http in",
+        "z": "fc93ef5a2502b341",
+        "name": "",
+        "url": "/ui/balkon-kamera-img",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 180,
+        "y": 180,
+        "wires": [
+            [
+                "97a7a986daf2b9df"
+            ]
+        ]
+    },
+    {
+        "id": "71cb69634e2af22f",
+        "type": "http response",
+        "z": "fc93ef5a2502b341",
+        "name": "",
+        "statusCode": "",
+        "headers": {
+            "Content-Type": "image/jpeg",
+            "Content-Disposition": "inline"
+        },
+        "x": 610,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "b2574752d2a0af51",
+        "type": "change",
+        "z": "fc93ef5a2502b341",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "haustuer-kamera",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 940,
+        "y": 440,
+        "wires": [
+            [
+                "0de19dc9d3f813c8"
+            ]
+        ]
+    },
+    {
+        "id": "97a7a986daf2b9df",
+        "type": "change",
+        "z": "fc93ef5a2502b341",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "balkon-kamera",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 430,
+        "y": 180,
+        "wires": [
+            [
+                "71cb69634e2af22f"
+            ]
+        ]
+    },
+    {
+        "id": "d90fde07c98e6555",
+        "type": "http in",
+        "z": "fc93ef5a2502b341",
+        "name": "",
+        "url": "/ui/kellertuer-kamera-img",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 180,
+        "y": 140,
+        "wires": [
+            [
+                "633149d23f7b2e78"
+            ]
+        ]
+    },
+    {
+        "id": "7ffee3775dd668e3",
+        "type": "http response",
+        "z": "fc93ef5a2502b341",
+        "name": "",
+        "statusCode": "",
+        "headers": {
+            "Content-Type": "image/jpeg",
+            "Content-Disposition": "inline"
+        },
+        "x": 610,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "633149d23f7b2e78",
+        "type": "change",
+        "z": "fc93ef5a2502b341",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "kellertuer-kamera",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 430,
+        "y": 140,
+        "wires": [
+            [
+                "7ffee3775dd668e3"
+            ]
+        ]
+    },
+    {
+        "id": "5405bbc47910f8ec",
+        "type": "http in",
+        "z": "fc93ef5a2502b341",
+        "name": "",
+        "url": "/ui/haustuer-kamera-img",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 180,
+        "y": 100,
+        "wires": [
+            [
+                "31f96fa7073319ca"
+            ]
+        ]
+    },
+    {
+        "id": "0fb5633e535d1adb",
+        "type": "http response",
+        "z": "fc93ef5a2502b341",
+        "name": "",
+        "statusCode": "",
+        "headers": {
+            "Content-Type": "image/jpeg",
+            "Content-Disposition": "inline",
+            "Cache-Control": "no-cache"
+        },
+        "x": 610,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "31f96fa7073319ca",
+        "type": "change",
+        "z": "fc93ef5a2502b341",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "haustuer-kamera",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 430,
+        "y": 100,
+        "wires": [
+            [
+                "0fb5633e535d1adb"
+            ]
+        ]
+    },
+    {
+        "id": "945de28f527cf29c",
+        "type": "change",
+        "z": "fc93ef5a2502b341",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "kellertuer-kamera",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 940,
+        "y": 760,
+        "wires": [
+            [
+                "c6e87caa65b0c0cb"
+            ]
+        ]
+    },
+    {
+        "id": "9f89d91d48c5251f",
+        "type": "change",
+        "z": "fc93ef5a2502b341",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "balkon-kamera",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 950,
+        "y": 1080,
+        "wires": [
+            [
+                "c6816cdda33ab9fd"
+            ]
+        ]
+    },
+    {
+        "id": "c6e87caa65b0c0cb",
+        "type": "function",
+        "z": "fc93ef5a2502b341",
+        "name": "Push Notification",
+        "func": "let image_base64 = msg.payload;\nlet image_url = \"https://home.dipe.de/ui/kellertuer-kamera-img\";\n\nreturn {\n    notification: {\n        notification: { \n            title: \"Kamera Kellertür\", \n            body: \"Person erkannt\" \n        }, \n        data: { \n            requireInteraction: true, \n            icon: \"https://nodered.org/about/resources/media/node-red-icon-2.png\",\n            image: image_url\n        }\n    }\n};\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 970,
+        "y": 720,
+        "wires": [
+            [
+                "9a73800936b6d966"
+            ]
+        ]
+    },
+    {
+        "id": "9a73800936b6d966",
+        "type": "link out",
+        "z": "fc93ef5a2502b341",
+        "name": "Person an Kellertür erkannt",
+        "mode": "link",
+        "links": [
+            "1cd036385c85d54d"
+        ],
+        "x": 1115,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "c6816cdda33ab9fd",
+        "type": "function",
+        "z": "fc93ef5a2502b341",
+        "name": "Push Notification",
+        "func": "let image_base64 = msg.payload;\nlet image_url = \"https://home.dipe.de/ui/balkon-kamera-img\";\n\nreturn {\n    notification: {\n        notification: { \n            title: \"Kamera Balkon\", \n            body: \"Person erkannt\" \n        }, \n        data: { \n            requireInteraction: true, \n            icon: \"https://nodered.org/about/resources/media/node-red-icon-2.png\",\n            image: image_url\n        }\n    }\n};\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 970,
+        "y": 1040,
+        "wires": [
+            [
+                "daa30e9d291ddc4e"
+            ]
+        ]
+    },
+    {
+        "id": "daa30e9d291ddc4e",
+        "type": "link out",
+        "z": "fc93ef5a2502b341",
+        "name": "Person an Kellertür erkannt",
+        "mode": "link",
+        "links": [
+            "1cd036385c85d54d"
+        ],
+        "x": 1115,
+        "y": 1040,
+        "wires": []
+    },
+    {
+        "id": "af1cb714eff0f6ae",
+        "type": "debug",
+        "z": "fc93ef5a2502b341",
+        "name": "debug 29",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 500,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "4ec5783534f42c32",
+        "type": "debug",
+        "z": "fc93ef5a2502b341",
+        "name": "debug 30",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 500,
+        "y": 960,
+        "wires": []
+    },
+    {
+        "id": "9726f1fa6cacb42b",
+        "type": "debug",
+        "z": "fc93ef5a2502b341",
+        "name": "debug 31",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 500,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "82eff6d73d0edf1d",
+        "type": "ui_text",
+        "z": "fc93ef5a2502b341",
+        "group": "6ed7382c947a98d9",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Person erkannt um",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
+        "x": 970,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "a5b5dc67bdd74287",
+        "type": "function",
+        "z": "fc93ef5a2502b341",
+        "name": "Person detected at",
+        "func": "let timestamp = new Date().toLocaleTimeString('de-DE', { timeStyle: 'short' });\nreturn {payload: timestamp};",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 750,
         "y": 480,
         "wires": [
             [
-                "06f5cab87e0cdcbe"
+                "82eff6d73d0edf1d",
+                "ab507b0a4fc73d76"
+            ]
+        ]
+    },
+    {
+        "id": "c7c4bab3058c2584",
+        "type": "ui_template",
+        "z": "fc93ef5a2502b341",
+        "group": "bebc2a08.8975f8",
+        "name": "Schnappschuss",
+        "order": 2,
+        "width": 9,
+        "height": 9,
+        "format": "<div><img width=\"480px\" height=\"260px\" src=\"/ui/kellertuer-kamera-img?ts={{msg.payload}}\"></div>",
+        "storeOutMessages": true,
+        "fwdInMessages": false,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 960,
+        "y": 840,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "bd22f5a7345ddf52",
+        "type": "ui_text",
+        "z": "fc93ef5a2502b341",
+        "group": "bebc2a08.8975f8",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Person erkannt um",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
+        "x": 970,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "dbf023d83f534b34",
+        "type": "function",
+        "z": "fc93ef5a2502b341",
+        "name": "Person detected at",
+        "func": "let timestamp = new Date().toLocaleTimeString('de-DE', { timeStyle: 'short' });\nreturn {payload: timestamp};",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 750,
+        "y": 800,
+        "wires": [
+            [
+                "bd22f5a7345ddf52",
+                "c7c4bab3058c2584"
+            ]
+        ]
+    },
+    {
+        "id": "4277ada26c90a9d8",
+        "type": "ui_template",
+        "z": "fc93ef5a2502b341",
+        "group": "09752717148dff64",
+        "name": "Schnappschuss",
+        "order": 2,
+        "width": 9,
+        "height": 9,
+        "format": "<div><img width=\"480px\" height=\"260px\" src=\"/ui/balkon-kamera-img?ts={{msg.payload}}\"></div>",
+        "storeOutMessages": true,
+        "fwdInMessages": false,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 960,
+        "y": 1160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "85213331e8e616fc",
+        "type": "ui_text",
+        "z": "fc93ef5a2502b341",
+        "group": "09752717148dff64",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Person erkannt um",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
+        "x": 970,
+        "y": 1120,
+        "wires": []
+    },
+    {
+        "id": "be5c1c01403587f0",
+        "type": "function",
+        "z": "fc93ef5a2502b341",
+        "name": "Person detected at",
+        "func": "let timestamp = new Date().toLocaleTimeString('de-DE', { timeStyle: 'short' });\nreturn {payload: timestamp};",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 750,
+        "y": 1120,
+        "wires": [
+            [
+                "85213331e8e616fc",
+                "4277ada26c90a9d8"
             ]
         ]
     }
