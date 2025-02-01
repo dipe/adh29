@@ -160,8 +160,60 @@
         "type": "tab",
         "label": "Kamera",
         "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "f5d8e11fee9a1e7c",
+        "type": "subflow",
+        "name": "reolink-kamera",
         "info": "",
-        "env": []
+        "category": "",
+        "in": [],
+        "out": [
+            {
+                "x": 880,
+                "y": 360,
+                "wires": [
+                    {
+                        "id": "575bd07550518820",
+                        "port": 0
+                    }
+                ]
+            },
+            {
+                "x": 1240,
+                "y": 360,
+                "wires": [
+                    {
+                        "id": "36171ea14a65a252",
+                        "port": 0
+                    }
+                ]
+            }
+        ],
+        "env": [
+            {
+                "name": "username",
+                "type": "str",
+                "value": ""
+            },
+            {
+                "name": "password",
+                "type": "cred"
+            },
+            {
+                "name": "hostname",
+                "type": "str",
+                "value": ""
+            }
+        ],
+        "meta": {},
+        "color": "#C0DEED",
+        "outputLabels": [
+            "person detected",
+            "snapshot"
+        ],
+        "icon": "font-awesome/fa-video-camera"
     },
     {
         "id": "5212abebc2a62f0b",
@@ -309,39 +361,29 @@
         ]
     },
     {
-        "id": "d6fac80997a49234",
+        "id": "4df1b9f51433920e",
         "type": "junction",
-        "z": "fc93ef5a2502b341",
-        "x": 620,
-        "y": 360,
+        "z": "68fa2cc37e97fc23",
+        "x": 440,
+        "y": 260,
         "wires": [
             [
-                "aff044c527bc1c76"
+                "60a8d3a1dcdf72cc",
+                "6f9b259b00b18baa"
             ]
         ]
     },
     {
-        "id": "83dd2b3eaa6fde09",
+        "id": "12ebe76fae3f9cf7",
         "type": "junction",
-        "z": "fc93ef5a2502b341",
-        "x": 620,
-        "y": 680,
+        "z": "dac2cb3b.559138",
+        "x": 700,
+        "y": 280,
         "wires": [
             [
-                "5f083e6b9b4c2abf",
-                "ef7fa9114609ef59"
-            ]
-        ]
-    },
-    {
-        "id": "45bc567304c5cb80",
-        "type": "junction",
-        "z": "fc93ef5a2502b341",
-        "x": 620,
-        "y": 1000,
-        "wires": [
-            [
-                "861877044ab714d2"
+                "df2bfb8e940b1768",
+                "53936a862e9e6c08",
+                "ed69a63d6f99c6d1"
             ]
         ]
     },
@@ -1063,17 +1105,6 @@
         "name": ""
     },
     {
-        "id": "a5f2ba636c8c5d09",
-        "type": "ui_group",
-        "name": "Push-Benachrichtigungen",
-        "tab": "dc07af4f.71ca1",
-        "order": 10,
-        "disp": true,
-        "width": "6",
-        "collapse": false,
-        "className": ""
-    },
-    {
         "id": "0c6a4630d4ea781b",
         "type": "ui_group",
         "name": "IR-Heizung",
@@ -1145,19 +1176,10 @@
         "name": "Kellertür",
         "tab": "f1b5e757.dd28e8",
         "order": 2,
-        "disp": true,
-        "width": 9,
+        "disp": false,
+        "width": "9",
         "collapse": false,
         "className": ""
-    },
-    {
-        "id": "660b923c.f0fadc",
-        "type": "onvif-config",
-        "xaddress": "kamera-kellertuer",
-        "port": "8000",
-        "timeout": "10",
-        "checkConnectionInterval": "5",
-        "name": ""
     },
     {
         "id": "f1b5e757.dd28e8",
@@ -1176,33 +1198,15 @@
         "debounceInterval": 30
     },
     {
-        "id": "2ab7fd0847fe244d",
-        "type": "onvif-config",
-        "xaddress": "kamera-haustuer",
-        "port": "8000",
-        "timeout": "30",
-        "checkConnectionInterval": "5",
-        "name": ""
-    },
-    {
         "id": "6ed7382c947a98d9",
         "type": "ui_group",
         "name": "Haustür",
         "tab": "f1b5e757.dd28e8",
         "order": 1,
-        "disp": true,
-        "width": 9,
+        "disp": false,
+        "width": "9",
         "collapse": false,
         "className": ""
-    },
-    {
-        "id": "72de7bb378ccfa71",
-        "type": "onvif-config",
-        "xaddress": "kamera-balkon",
-        "port": "8000",
-        "timeout": "30",
-        "checkConnectionInterval": "5",
-        "name": ""
     },
     {
         "id": "09752717148dff64",
@@ -1210,10 +1214,272 @@
         "name": "Balkon",
         "tab": "f1b5e757.dd28e8",
         "order": 3,
+        "disp": false,
+        "width": "9",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "b714005ba4818fc0",
+        "type": "ui_group",
+        "name": "Push-Benachrichtigungen",
+        "tab": "f1b5e757.dd28e8",
+        "order": 4,
         "disp": true,
         "width": 9,
         "collapse": false,
         "className": ""
+    },
+    {
+        "id": "a27c201f88d5372d",
+        "type": "http request",
+        "z": "f5d8e11fee9a1e7c",
+        "name": "",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 310,
+        "y": 300,
+        "wires": [
+            [
+                "8406ac3401f66db6"
+            ]
+        ]
+    },
+    {
+        "id": "e9c24f7de0b9dc42",
+        "type": "inject",
+        "z": "f5d8e11fee9a1e7c",
+        "name": "",
+        "props": [
+            {
+                "p": "url",
+                "v": "\"http://\" & $env('hostname') & \"/cgi-bin/api.cgi?cmd=GetAiState&token=\" & $flowContext(\"token\")",
+                "vt": "jsonata"
+            }
+        ],
+        "repeat": "2",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 140,
+        "y": 300,
+        "wires": [
+            [
+                "a27c201f88d5372d"
+            ]
+        ]
+    },
+    {
+        "id": "8406ac3401f66db6",
+        "type": "switch",
+        "z": "f5d8e11fee9a1e7c",
+        "name": "Mensch",
+        "property": "payload[0].value.people.alarm_state",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 480,
+        "y": 300,
+        "wires": [
+            [
+                "575bd07550518820"
+            ]
+        ]
+    },
+    {
+        "id": "bc2389e7080a4308",
+        "type": "change",
+        "z": "f5d8e11fee9a1e7c",
+        "name": "Prep Login Post",
+        "rules": [
+            {
+                "t": "set",
+                "p": "url",
+                "pt": "msg",
+                "to": "\"http://\" & $env('hostname') & \"/cgi-bin/api.cgi?cmd=Login\"",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "[{\"cmd\":\"Login\",\"action\":0,\"param\":{\"User\":{\"userName\":$env('username'),\"password\":$env('password')}}}]",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 320,
+        "y": 200,
+        "wires": [
+            [
+                "741722e4a7ad9cdb"
+            ]
+        ]
+    },
+    {
+        "id": "741722e4a7ad9cdb",
+        "type": "http request",
+        "z": "f5d8e11fee9a1e7c",
+        "name": "",
+        "method": "POST",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 510,
+        "y": 200,
+        "wires": [
+            [
+                "79f15d4a0714d7d8"
+            ]
+        ]
+    },
+    {
+        "id": "ded95475e69af2fe",
+        "type": "inject",
+        "z": "f5d8e11fee9a1e7c",
+        "name": "",
+        "props": [],
+        "repeat": "3000",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "11",
+        "topic": "",
+        "x": 140,
+        "y": 200,
+        "wires": [
+            [
+                "bc2389e7080a4308"
+            ]
+        ]
+    },
+    {
+        "id": "79f15d4a0714d7d8",
+        "type": "change",
+        "z": "f5d8e11fee9a1e7c",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "token",
+                "pt": "flow",
+                "to": "payload[0].value.Token.name",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 700,
+        "y": 200,
+        "wires": [
+            []
+        ],
+        "icon": "font-awesome/fa-lock"
+    },
+    {
+        "id": "6dfc591e4b556f70",
+        "type": "change",
+        "z": "f5d8e11fee9a1e7c",
+        "name": "Prep Snap Get",
+        "rules": [
+            {
+                "t": "set",
+                "p": "url",
+                "pt": "msg",
+                "to": "\"http://\" & $env('hostname') & \"/cgi-bin/api.cgi?cmd=Snap&channel=0&token=\" & $flowContext(\"token\")",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 860,
+        "y": 300,
+        "wires": [
+            [
+                "36171ea14a65a252"
+            ]
+        ]
+    },
+    {
+        "id": "36171ea14a65a252",
+        "type": "http request",
+        "z": "f5d8e11fee9a1e7c",
+        "name": "",
+        "method": "GET",
+        "ret": "bin",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 1050,
+        "y": 300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "575bd07550518820",
+        "type": "delay",
+        "z": "f5d8e11fee9a1e7c",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "5",
+        "rateUnits": "minute",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 660,
+        "y": 300,
+        "wires": [
+            [
+                "6dfc591e4b556f70"
+            ]
+        ]
     },
     {
         "id": "930e92a7.3f378",
@@ -6050,8 +6316,8 @@
             "86e17b7b.a2f5d8",
             "b70e105a77f51cd4"
         ],
-        "x": 515,
-        "y": 1200,
+        "x": 575,
+        "y": 1160,
         "wires": [
             [
                 "f266a2cb363f176a"
@@ -6068,7 +6334,7 @@
             "01e739e468ac7641"
         ],
         "x": 715,
-        "y": 220,
+        "y": 140,
         "wires": []
     },
     {
@@ -6445,7 +6711,7 @@
                 "21f07479.c7da9c",
                 "c8ee7404.bf05b8",
                 "6afb2001.139fe",
-                "92c6f73d.d38e98"
+                "abbb2e72f1b22143"
             ]
         ]
     },
@@ -6504,12 +6770,17 @@
         "id": "92c6f73d.d38e98",
         "type": "mqtt out",
         "z": "4d90b497.b5b2ac",
-        "name": "waschkueche-lueftungssteuerung servo",
+        "name": "waschkueche-lueftungsklappe",
         "topic": "waschkueche-lueftungssteuerung/switch/servo/command",
         "qos": "",
         "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
         "broker": "c349b9ff.9dc4c8",
-        "x": 1440,
+        "x": 1690,
         "y": 420,
         "wires": []
     },
@@ -7263,6 +7534,40 @@
         "x": 820,
         "y": 440,
         "wires": []
+    },
+    {
+        "id": "abbb2e72f1b22143",
+        "type": "ui_switch",
+        "z": "4d90b497.b5b2ac",
+        "name": "Waschküche Lüftungsklappe",
+        "label": "Lüftungsklappe offen",
+        "tooltip": "",
+        "group": "7e092ea0.4f2d9",
+        "order": 4,
+        "width": "0",
+        "height": "0",
+        "passthru": true,
+        "decouple": "false",
+        "topic": "",
+        "topicType": "str",
+        "style": "",
+        "onvalue": "ON",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "OFF",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "animate": true,
+        "className": "",
+        "x": 1400,
+        "y": 420,
+        "wires": [
+            [
+                "92c6f73d.d38e98"
+            ]
+        ]
     },
     {
         "id": "3f614727.989a68",
@@ -9348,7 +9653,7 @@
         "correl": "",
         "expiry": "",
         "broker": "c349b9ff.9dc4c8",
-        "x": 1160,
+        "x": 1180,
         "y": 240,
         "wires": []
     },
@@ -9388,8 +9693,8 @@
         "y": 280,
         "wires": [
             [
-                "df2bfb8e940b1768",
-                "53936a862e9e6c08"
+                "ed69a63d6f99c6d1",
+                "12ebe76fae3f9cf7"
             ]
         ]
     },
@@ -9419,13 +9724,14 @@
         "offcolor": "",
         "animate": true,
         "className": "",
-        "x": 840,
+        "x": 860,
         "y": 280,
         "wires": [
             [
+                "aa6a1af021d12ce9",
+                "ed69a63d6f99c6d1",
                 "7b56cfeb.46625",
-                "2e8b20cfb2c1a46d",
-                "1bd61820f04bb24e"
+                "102c0c6b428bff43"
             ]
         ]
     },
@@ -9446,47 +9752,15 @@
         "bytopic": "all",
         "topic": "topic",
         "outputs": 1,
-        "x": 1280,
+        "x": 1300,
         "y": 280,
         "wires": [
             [
-                "df2bfb8e940b1768"
+                "f3efb2ed21761296",
+                "ed69a63d6f99c6d1",
+                "12ebe76fae3f9cf7"
             ]
         ]
-    },
-    {
-        "id": "2e8b20cfb2c1a46d",
-        "type": "function",
-        "z": "dac2cb3b.559138",
-        "name": "filter ON",
-        "func": "if (msg.payload === \"ON\")\n    return {payload: \"ON\"}\nelse\n    return undefined;\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 1080,
-        "y": 280,
-        "wires": [
-            [
-                "351c32062e77392a"
-            ]
-        ]
-    },
-    {
-        "id": "1bd61820f04bb24e",
-        "type": "debug",
-        "z": "dac2cb3b.559138",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1090,
-        "y": 200,
-        "wires": []
     },
     {
         "id": "e91d70892415c84f",
@@ -9518,7 +9792,7 @@
         "links": [
             "0e775ee78efd07c4"
         ],
-        "x": 735,
+        "x": 755,
         "y": 240,
         "wires": []
     },
@@ -9530,12 +9804,13 @@
         "links": [
             "35ae68a760d0d2e2"
         ],
-        "x": 945,
+        "x": 965,
         "y": 240,
         "wires": [
             [
                 "7b56cfeb.46625",
-                "2e8b20cfb2c1a46d"
+                "ed69a63d6f99c6d1",
+                "102c0c6b428bff43"
             ]
         ]
     },
@@ -9563,6 +9838,99 @@
                 "df199e6fb3a59d4f"
             ]
         ]
+    },
+    {
+        "id": "102c0c6b428bff43",
+        "type": "switch",
+        "z": "dac2cb3b.559138",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "ON",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 1090,
+        "y": 280,
+        "wires": [
+            [
+                "351c32062e77392a",
+                "c6dae92136ad904e"
+            ]
+        ]
+    },
+    {
+        "id": "ed69a63d6f99c6d1",
+        "type": "flogger",
+        "z": "dac2cb3b.559138",
+        "name": "",
+        "logfile": "warmwasser",
+        "inputchoice": "fullmsg",
+        "inputobject": "payload",
+        "inputobjectType": "msg",
+        "inputmoustache": "Recieved payload {{payload}} and topic {{topic}}",
+        "loglevel": "INFO",
+        "logconfig": "8929498a4f6d4a2d",
+        "sendpane": "",
+        "x": 1160,
+        "y": 560,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "aa6a1af021d12ce9",
+        "type": "debug",
+        "z": "dac2cb3b.559138",
+        "name": "debug 34",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1240,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "c6dae92136ad904e",
+        "type": "debug",
+        "z": "dac2cb3b.559138",
+        "name": "debug 35",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1240,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "f3efb2ed21761296",
+        "type": "debug",
+        "z": "dac2cb3b.559138",
+        "name": "debug 36",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1540,
+        "y": 240,
+        "wires": []
     },
     {
         "id": "49d727fe.737a88",
@@ -10541,6 +10909,7 @@
         "fwdInMessages": true,
         "resendOnRefresh": true,
         "templateScope": "local",
+        "className": "",
         "x": 1300,
         "y": 360,
         "wires": [
@@ -15998,8 +16367,7 @@
         "wires": [
             [
                 "8b3aba5983973888",
-                "8bbb8be99a554c57",
-                "76195ae023c40205"
+                "8bbb8be99a554c57"
             ]
         ]
     },
@@ -16033,8 +16401,7 @@
         "y": 220,
         "wires": [
             [
-                "e0c1cf24ff2b7e57",
-                "76195ae023c40205"
+                "e0c1cf24ff2b7e57"
             ]
         ]
     },
@@ -16073,8 +16440,7 @@
         "wires": [
             [
                 "be36acd18194951b",
-                "c9d084d9188e034d",
-                "76195ae023c40205"
+                "c9d084d9188e034d"
             ]
         ]
     },
@@ -16108,8 +16474,7 @@
         "y": 140,
         "wires": [
             [
-                "76300692c288857b",
-                "76195ae023c40205"
+                "76300692c288857b"
             ]
         ]
     },
@@ -16119,15 +16484,13 @@
         "z": "937c538bb5079218",
         "name": "Set Spiegelschrank Bad",
         "links": [
-            "d79734f22fc84a48",
-            "35ae68a760d0d2e2"
+            "d79734f22fc84a48"
         ],
         "x": 605,
         "y": 100,
         "wires": [
             [
-                "76300692c288857b",
-                "76195ae023c40205"
+                "76300692c288857b"
             ]
         ]
     },
@@ -16143,8 +16506,7 @@
         "y": 260,
         "wires": [
             [
-                "e0c1cf24ff2b7e57",
-                "76195ae023c40205"
+                "e0c1cf24ff2b7e57"
             ]
         ]
     },
@@ -16155,8 +16517,7 @@
         "name": "Spiegelschrank state",
         "mode": "link",
         "links": [
-            "57cd850ad65917cf",
-            "0e775ee78efd07c4"
+            "57cd850ad65917cf"
         ],
         "x": 475,
         "y": 100,
@@ -16174,25 +16535,6 @@
         "x": 475,
         "y": 260,
         "wires": []
-    },
-    {
-        "id": "76195ae023c40205",
-        "type": "flogger",
-        "z": "937c538bb5079218",
-        "name": "",
-        "logfile": "bad",
-        "inputchoice": "fullmsg",
-        "inputobject": "payload",
-        "inputobjectType": "msg",
-        "inputmoustache": "Recieved payload {{payload}} and topic {{topic}}",
-        "loglevel": "INFO",
-        "logconfig": "8929498a4f6d4a2d",
-        "sendpane": "",
-        "x": 760,
-        "y": 180,
-        "wires": [
-            []
-        ]
     },
     {
         "id": "b3429e540f297cef",
@@ -18066,7 +18408,6 @@
         "name": "Alexa Warmwasser",
         "mode": "link",
         "links": [
-            "f8213aca590fd54b",
             "c0c28364952dec04"
         ],
         "x": 885,
@@ -18079,7 +18420,6 @@
         "z": "039a8ad4ab697fb3",
         "name": "Alexa Warmwasser ",
         "links": [
-            "c9d084d9188e034d",
             "53936a862e9e6c08"
         ],
         "x": 125,
@@ -18320,8 +18660,8 @@
         "connection": "c2e6322e.33404",
         "name": "setTempTarget AVM 302 Büro DG",
         "action": "setTempTarget",
-        "x": 800,
-        "y": 260,
+        "x": 840,
+        "y": 280,
         "wires": [
             [
                 "eded24bb1027f7b4"
@@ -18360,8 +18700,8 @@
             },
             {
                 "label": "18,0° C",
-                "value": "18",
-                "type": "str"
+                "value": 18,
+                "type": "num"
             },
             {
                 "label": "20,0° C",
@@ -18402,7 +18742,7 @@
         "y": 220,
         "wires": [
             [
-                "60a8d3a1dcdf72cc"
+                "4df1b9f51433920e"
             ]
         ]
     },
@@ -18432,8 +18772,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 530,
-        "y": 260,
+        "x": 570,
+        "y": 280,
         "wires": [
             [
                 "ced8ff353af4a0c0"
@@ -18467,7 +18807,7 @@
         "animate": false,
         "className": "",
         "x": 530,
-        "y": 400,
+        "y": 380,
         "wires": [
             [
                 "3b9abc6380ef3910"
@@ -18494,7 +18834,7 @@
         "to": "",
         "reg": false,
         "x": 710,
-        "y": 400,
+        "y": 380,
         "wires": [
             []
         ]
@@ -18507,16 +18847,16 @@
         "lat": "50.882",
         "lon": "6.6949",
         "timerType": "onoff",
-        "startupMessage": true,
+        "startupMessage": false,
         "ontype": "tod",
         "ontimesun": "dusk",
-        "ontimetod": "00:00",
+        "ontimetod": "04:00",
         "onpropertytype": "msg",
         "onproperty": "payload",
         "onvaluetype": "date",
         "onvalue": "",
         "onoffset": "",
-        "onrandomoffset": true,
+        "onrandomoffset": false,
         "offtype": "tod",
         "offtimesun": "dawn",
         "offtimetod": "17:00",
@@ -18546,7 +18886,7 @@
         "type": "function",
         "z": "68fa2cc37e97fc23",
         "name": "function 39",
-        "func": "const timestamp = msg.payload;\nif (timestamp) {\n    const date = new Date(timestamp);\n    const day_of_week_number = date.getDay();\n    const weekdays = [\"Sonntag\", \"Montag\", \"Dienstag\", \"Mittwoch\", \"Donnerstag\", \"Freitag\", \"Sonnabend\"];\n    const day_of_week = weekdays[day_of_week_number];\n    const buerotag = flow.get(day_of_week);\n\n    if (buerotag) {\n        return {payload: 21};\n    }\n}\nreturn { payload: 'off' };\n",
+        "func": "const timestamp = msg.payload;\nif (timestamp) {\n    const date = new Date(timestamp);\n    const day_of_week_number = date.getDay();\n    const weekdays = [\"Sonntag\", \"Montag\", \"Dienstag\", \"Mittwoch\", \"Donnerstag\", \"Freitag\", \"Sonnabend\"];\n    const day_of_week = weekdays[day_of_week_number];\n    const buerotag = flow.get(day_of_week);\n\n    if (buerotag) {\n        return {payload: 21};\n    }\n}\nreturn { payload: 16 };\n",
         "outputs": 1,
         "timeout": "",
         "noerr": 0,
@@ -18557,7 +18897,7 @@
         "y": 260,
         "wires": [
             [
-                "60a8d3a1dcdf72cc"
+                "4df1b9f51433920e"
             ]
         ]
     },
@@ -18588,7 +18928,7 @@
         "animate": false,
         "className": "",
         "x": 530,
-        "y": 440,
+        "y": 420,
         "wires": [
             [
                 "d55ed9e3862c0e07"
@@ -18615,7 +18955,7 @@
         "to": "",
         "reg": false,
         "x": 710,
-        "y": 440,
+        "y": 420,
         "wires": [
             []
         ]
@@ -18647,7 +18987,7 @@
         "animate": false,
         "className": "",
         "x": 530,
-        "y": 480,
+        "y": 460,
         "wires": [
             [
                 "b86c6f0642eb4180"
@@ -18674,7 +19014,7 @@
         "to": "",
         "reg": false,
         "x": 720,
-        "y": 480,
+        "y": 460,
         "wires": [
             []
         ]
@@ -18706,7 +19046,7 @@
         "animate": false,
         "className": "",
         "x": 530,
-        "y": 520,
+        "y": 500,
         "wires": [
             [
                 "8098a63741da6da9"
@@ -18733,7 +19073,7 @@
         "to": "",
         "reg": false,
         "x": 720,
-        "y": 520,
+        "y": 500,
         "wires": [
             []
         ]
@@ -18765,7 +19105,7 @@
         "animate": false,
         "className": "",
         "x": 530,
-        "y": 560,
+        "y": 540,
         "wires": [
             [
                 "4b640947fefa371f"
@@ -18792,7 +19132,7 @@
         "to": "",
         "reg": false,
         "x": 710,
-        "y": 560,
+        "y": 540,
         "wires": [
             []
         ]
@@ -18824,7 +19164,7 @@
         "animate": false,
         "className": "",
         "x": 530,
-        "y": 600,
+        "y": 580,
         "wires": [
             [
                 "506e018d06399e9f"
@@ -18851,7 +19191,7 @@
         "to": "",
         "reg": false,
         "x": 720,
-        "y": 600,
+        "y": 580,
         "wires": [
             []
         ]
@@ -18883,7 +19223,7 @@
         "animate": false,
         "className": "",
         "x": 530,
-        "y": 640,
+        "y": 620,
         "wires": [
             [
                 "ad6a51ce171ac8bf"
@@ -18910,7 +19250,7 @@
         "to": "",
         "reg": false,
         "x": 710,
-        "y": 640,
+        "y": 620,
         "wires": [
             []
         ]
@@ -18937,7 +19277,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 130,
-        "y": 300,
+        "y": 340,
         "wires": [
             [
                 "6538b49e7f341b28",
@@ -18971,7 +19311,7 @@
         "to": "",
         "reg": false,
         "x": 350,
-        "y": 400,
+        "y": 380,
         "wires": [
             [
                 "a3c903e257f12248"
@@ -18998,7 +19338,7 @@
         "to": "",
         "reg": false,
         "x": 350,
-        "y": 640,
+        "y": 620,
         "wires": [
             [
                 "80a864f9b65a6b05"
@@ -19025,7 +19365,7 @@
         "to": "",
         "reg": false,
         "x": 350,
-        "y": 440,
+        "y": 420,
         "wires": [
             [
                 "a7516bd04903328e"
@@ -19052,7 +19392,7 @@
         "to": "",
         "reg": false,
         "x": 350,
-        "y": 480,
+        "y": 460,
         "wires": [
             [
                 "afd2f06838322fa3"
@@ -19079,7 +19419,7 @@
         "to": "",
         "reg": false,
         "x": 350,
-        "y": 520,
+        "y": 500,
         "wires": [
             [
                 "2829345e1ce0934a"
@@ -19106,7 +19446,7 @@
         "to": "",
         "reg": false,
         "x": 350,
-        "y": 560,
+        "y": 540,
         "wires": [
             [
                 "1278ace3c7fc8b1a"
@@ -19133,7 +19473,7 @@
         "to": "",
         "reg": false,
         "x": 350,
-        "y": 600,
+        "y": 580,
         "wires": [
             [
                 "99682679d929804d"
@@ -19163,7 +19503,7 @@
         "y": 300,
         "wires": [
             [
-                "60a8d3a1dcdf72cc"
+                "4df1b9f51433920e"
             ]
         ]
     },
@@ -19185,7 +19525,7 @@
         "fontSize": 16,
         "color": "#000000",
         "x": 540,
-        "y": 360,
+        "y": 340,
         "wires": []
     },
     {
@@ -19200,8 +19540,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1040,
-        "y": 260,
+        "x": 1080,
+        "y": 280,
         "wires": [
             [
                 "c267a86a9b913165"
@@ -19215,7 +19555,7 @@
         "connection": "c2e6322e.33404",
         "name": "getTempTarget AVM 302 Büro DG",
         "action": "getTempTarget",
-        "x": 260,
+        "x": 560,
         "y": 180,
         "wires": [
             [
@@ -19242,8 +19582,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 350,
-        "y": 140,
+        "x": 330,
+        "y": 180,
         "wires": [
             [
                 "049e69a6ae98e094"
@@ -19271,8 +19611,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 200,
-        "y": 140,
+        "x": 160,
+        "y": 180,
         "wires": [
             [
                 "eeeda847f25ae413"
@@ -19612,8 +19952,24 @@
         "links": [
             "4708a180.a07a"
         ],
-        "x": 1145,
-        "y": 260,
+        "x": 1195,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "6f9b259b00b18baa",
+        "type": "debug",
+        "z": "68fa2cc37e97fc23",
+        "name": "debug 33",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 540,
+        "y": 240,
         "wires": []
     },
     {
@@ -19638,7 +19994,7 @@
         "id": "78eccaf6.6f3504",
         "type": "ui_web_push_client",
         "z": "186ee9b7.78e426",
-        "group": "a5f2ba636c8c5d09",
+        "group": "b714005ba4818fc0",
         "order": 1,
         "width": 0,
         "height": 0,
@@ -19646,8 +20002,8 @@
         "sendSubscription": true,
         "disableButton": false,
         "showTooltip": false,
-        "subscribeLabel": "Subscribe",
-        "unsubscribeLabel": "Unsubscribe",
+        "subscribeLabel": "Abbonieren",
+        "unsubscribeLabel": "Abbestellen",
         "name": "",
         "x": 240,
         "y": 220,
@@ -20033,7 +20389,14 @@
         "links": [
             "acda66fdb9be0812",
             "9a73800936b6d966",
-            "daa30e9d291ddc4e"
+            "daa30e9d291ddc4e",
+            "4ecb4949f900dca4",
+            "8f033d351dfceb3c",
+            "cd3194d00047dffa",
+            "8c611b1cbe7f1ba4",
+            "4ccfd8e25ba474a1",
+            "342eebe9491c875a",
+            "15e2744d23e684e0"
         ],
         "x": 595,
         "y": 560,
@@ -20072,7 +20435,8 @@
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "false",
+        "complete": "true",
+        "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
         "x": 720,
@@ -20080,741 +20444,16 @@
         "wires": []
     },
     {
-        "id": "5bb9f99504d3586f",
-        "type": "inject",
-        "z": "fc93ef5a2502b341",
-        "name": "Start listening",
-        "props": [
-            {
-                "p": "action",
-                "v": "start",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": true,
-        "onceDelay": "15",
-        "topic": "",
-        "x": 160,
-        "y": 640,
-        "wires": [
-            [
-                "13b854f6e314bba9"
-            ]
-        ]
-    },
-    {
-        "id": "13b854f6e314bba9",
-        "type": "onvif-events",
-        "z": "fc93ef5a2502b341",
-        "name": "Kellertür",
-        "deviceConfig": "660b923c.f0fadc",
-        "action": "",
-        "x": 340,
-        "y": 640,
-        "wires": [
-            [
-                "1a6110959cb9d38a",
-                "9726f1fa6cacb42b"
-            ]
-        ]
-    },
-    {
-        "id": "1a6110959cb9d38a",
-        "type": "switch",
-        "z": "fc93ef5a2502b341",
-        "name": "Motion Detection Event",
-        "property": "topic",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "RuleEngine/MyRuleDetector/PeopleDetect",
-                "vt": "str"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 430,
-        "y": 700,
-        "wires": [
-            [
-                "5e0b14e5fed6a062"
-            ]
-        ]
-    },
-    {
-        "id": "5e0b14e5fed6a062",
-        "type": "switch",
-        "z": "fc93ef5a2502b341",
-        "name": "IsMotion",
-        "property": "data.name",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "State",
-                "vt": "str"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 480,
-        "y": 740,
-        "wires": [
-            [
-                "f84395fbaeda2fcf"
-            ]
-        ]
-    },
-    {
-        "id": "f84395fbaeda2fcf",
-        "type": "switch",
-        "z": "fc93ef5a2502b341",
-        "name": "",
-        "property": "data.value",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "true"
-            },
-            {
-                "t": "false"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 2,
-        "x": 490,
-        "y": 780,
-        "wires": [
-            [
-                "83dd2b3eaa6fde09",
-                "08be364dba5b864b"
-            ],
-            []
-        ]
-    },
-    {
-        "id": "97396944b993325d",
-        "type": "onvif-media",
-        "z": "fc93ef5a2502b341",
-        "name": "Snapshot",
-        "deviceConfig": "660b923c.f0fadc",
-        "profileToken": "",
-        "profileName": "Profile001_SubStream",
-        "videoEncoderConfigToken": "",
-        "videoEncoderConfigName": "",
-        "videoEncoderConfigEncoding": "",
-        "action": "getSnapshot",
-        "protocol": "",
-        "stream": "",
-        "x": 720,
-        "y": 720,
-        "wires": [
-            [
-                "9a67a48e3018fe4a"
-            ]
-        ]
-    },
-    {
-        "id": "5f083e6b9b4c2abf",
-        "type": "link out",
-        "z": "fc93ef5a2502b341",
-        "name": "Person an Kellertür erkannt",
-        "mode": "link",
-        "links": [
-            "3bbcf05fba67d89a"
-        ],
-        "x": 675,
-        "y": 640,
-        "wires": []
-    },
-    {
-        "id": "ef7fa9114609ef59",
-        "type": "delay",
-        "z": "fc93ef5a2502b341",
-        "name": "",
-        "pauseType": "rate",
-        "timeout": "5",
-        "timeoutUnits": "seconds",
-        "rate": "1",
-        "nbRateUnits": "5",
-        "rateUnits": "minute",
-        "randomFirst": "1",
-        "randomLast": "5",
-        "randomUnits": "seconds",
-        "drop": true,
-        "allowrate": false,
-        "outputs": 1,
-        "x": 760,
-        "y": 680,
-        "wires": [
-            [
-                "97396944b993325d"
-            ]
-        ]
-    },
-    {
-        "id": "acda66fdb9be0812",
-        "type": "link out",
-        "z": "fc93ef5a2502b341",
-        "name": "Person an Kellertür erkannt",
-        "mode": "link",
-        "links": [
-            "1cd036385c85d54d"
-        ],
-        "x": 1115,
-        "y": 400,
-        "wires": []
-    },
-    {
-        "id": "0de19dc9d3f813c8",
-        "type": "function",
-        "z": "fc93ef5a2502b341",
-        "name": "Push Notification",
-        "func": "let image_url = \"https://home.dipe.de/ui/haustuer-kamera-img\";\n\nreturn {\n    notification: {\n        notification: { \n            title: \"Kamera Haustür\", \n            body: \"Person erkannt\" \n        }, \n        data: { \n            requireInteraction: true, \n            icon: \"https://nodered.org/about/resources/media/node-red-icon-2.png\",\n            image: image_url\n        }\n    }\n};\n",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 970,
-        "y": 400,
-        "wires": [
-            [
-                "acda66fdb9be0812"
-            ]
-        ]
-    },
-    {
-        "id": "9a67a48e3018fe4a",
-        "type": "switch",
-        "z": "fc93ef5a2502b341",
-        "name": "",
-        "property": "payload",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "istype",
-                "v": "buffer",
-                "vt": "buffer"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 710,
-        "y": 760,
-        "wires": [
-            [
-                "945de28f527cf29c",
-                "dbf023d83f534b34"
-            ]
-        ]
-    },
-    {
-        "id": "ab507b0a4fc73d76",
-        "type": "ui_template",
-        "z": "fc93ef5a2502b341",
-        "group": "6ed7382c947a98d9",
-        "name": "Schnappschuss",
-        "order": 2,
-        "width": 9,
-        "height": 9,
-        "format": "<div style=\"transform:rotate(90deg);margin-top:100px\"><img width=\"480px\" height=\"260px\" src=\"/ui/haustuer-kamera-img?ts={{msg.payload}}\"></div>",
-        "storeOutMessages": true,
-        "fwdInMessages": false,
-        "resendOnRefresh": true,
-        "templateScope": "local",
-        "className": "",
-        "x": 960,
-        "y": 520,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "78b6f0fafd4d326f",
-        "type": "inject",
-        "z": "fc93ef5a2502b341",
-        "name": "Start listening",
-        "props": [
-            {
-                "p": "action",
-                "v": "start",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": true,
-        "onceDelay": "15",
-        "topic": "",
-        "x": 160,
-        "y": 320,
-        "wires": [
-            [
-                "cd46aa3ded8d8625"
-            ]
-        ]
-    },
-    {
-        "id": "cd46aa3ded8d8625",
-        "type": "onvif-events",
-        "z": "fc93ef5a2502b341",
-        "name": "Haustür",
-        "deviceConfig": "2ab7fd0847fe244d",
-        "action": "start",
-        "x": 340,
-        "y": 320,
-        "wires": [
-            [
-                "07e41550cb5611d8",
-                "af1cb714eff0f6ae"
-            ]
-        ]
-    },
-    {
-        "id": "07e41550cb5611d8",
-        "type": "switch",
-        "z": "fc93ef5a2502b341",
-        "name": "Motion Detection Event",
-        "property": "topic",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "RuleEngine/MyRuleDetector/PeopleDetect",
-                "vt": "str"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 430,
-        "y": 380,
-        "wires": [
-            [
-                "dd42ba5325aeb737"
-            ]
-        ]
-    },
-    {
-        "id": "dd42ba5325aeb737",
-        "type": "switch",
-        "z": "fc93ef5a2502b341",
-        "name": "IsMotion",
-        "property": "data.name",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "State",
-                "vt": "str"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 480,
-        "y": 420,
-        "wires": [
-            [
-                "f3b9b1fb5a5de492"
-            ]
-        ]
-    },
-    {
-        "id": "f3b9b1fb5a5de492",
-        "type": "switch",
-        "z": "fc93ef5a2502b341",
-        "name": "",
-        "property": "data.value",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "true"
-            },
-            {
-                "t": "false"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 2,
-        "x": 490,
-        "y": 460,
-        "wires": [
-            [
-                "d6fac80997a49234",
-                "50b916c738c7700f"
-            ],
-            []
-        ]
-    },
-    {
-        "id": "054d03b59aa6b625",
-        "type": "onvif-media",
-        "z": "fc93ef5a2502b341",
-        "name": "Snapshot",
-        "deviceConfig": "2ab7fd0847fe244d",
-        "profileToken": "",
-        "profileName": "Profile001_SubStream",
-        "videoEncoderConfigToken": "",
-        "videoEncoderConfigName": "",
-        "videoEncoderConfigEncoding": "",
-        "action": "getSnapshot",
-        "protocol": "",
-        "stream": "",
-        "x": 720,
-        "y": 400,
-        "wires": [
-            [
-                "c94fa50e4f7a78aa"
-            ]
-        ]
-    },
-    {
-        "id": "aff044c527bc1c76",
-        "type": "delay",
-        "z": "fc93ef5a2502b341",
-        "name": "",
-        "pauseType": "rate",
-        "timeout": "5",
-        "timeoutUnits": "seconds",
-        "rate": "1",
-        "nbRateUnits": "5",
-        "rateUnits": "minute",
-        "randomFirst": "1",
-        "randomLast": "5",
-        "randomUnits": "seconds",
-        "drop": true,
-        "allowrate": false,
-        "outputs": 1,
-        "x": 760,
-        "y": 360,
-        "wires": [
-            [
-                "054d03b59aa6b625"
-            ]
-        ]
-    },
-    {
-        "id": "c94fa50e4f7a78aa",
-        "type": "switch",
-        "z": "fc93ef5a2502b341",
-        "name": "",
-        "property": "payload",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "istype",
-                "v": "buffer",
-                "vt": "buffer"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 710,
-        "y": 440,
-        "wires": [
-            [
-                "b2574752d2a0af51",
-                "a5b5dc67bdd74287"
-            ]
-        ]
-    },
-    {
-        "id": "c99f53d26fcee620",
-        "type": "inject",
-        "z": "fc93ef5a2502b341",
-        "name": "Start listening",
-        "props": [
-            {
-                "p": "action",
-                "v": "start",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": true,
-        "onceDelay": "15",
-        "topic": "",
-        "x": 160,
-        "y": 960,
-        "wires": [
-            [
-                "626516404607b758"
-            ]
-        ]
-    },
-    {
-        "id": "626516404607b758",
-        "type": "onvif-events",
-        "z": "fc93ef5a2502b341",
-        "name": "Balkon",
-        "deviceConfig": "72de7bb378ccfa71",
-        "action": "",
-        "x": 330,
-        "y": 960,
-        "wires": [
-            [
-                "e112b3ecd78d9b3f",
-                "4ec5783534f42c32"
-            ]
-        ]
-    },
-    {
-        "id": "e112b3ecd78d9b3f",
-        "type": "switch",
-        "z": "fc93ef5a2502b341",
-        "name": "Motion Detection Event",
-        "property": "topic",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "RuleEngine/MyRuleDetector/PeopleDetect",
-                "vt": "str"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 430,
-        "y": 1020,
-        "wires": [
-            [
-                "d53f124d6dd7284b"
-            ]
-        ]
-    },
-    {
-        "id": "d53f124d6dd7284b",
-        "type": "switch",
-        "z": "fc93ef5a2502b341",
-        "name": "IsMotion",
-        "property": "data.name",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "State",
-                "vt": "str"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 480,
-        "y": 1060,
-        "wires": [
-            [
-                "e028f0280d82f788"
-            ]
-        ]
-    },
-    {
-        "id": "e028f0280d82f788",
-        "type": "switch",
-        "z": "fc93ef5a2502b341",
-        "name": "",
-        "property": "data.value",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "true"
-            },
-            {
-                "t": "false"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 2,
-        "x": 490,
-        "y": 1100,
-        "wires": [
-            [
-                "45bc567304c5cb80",
-                "9d726d51987d25c8"
-            ],
-            []
-        ]
-    },
-    {
-        "id": "0df33b0c6ff5c4cb",
-        "type": "onvif-media",
-        "z": "fc93ef5a2502b341",
-        "name": "Snapshot",
-        "deviceConfig": "72de7bb378ccfa71",
-        "profileToken": "",
-        "profileName": "Profile001_SubStream",
-        "videoEncoderConfigToken": "",
-        "videoEncoderConfigName": "",
-        "videoEncoderConfigEncoding": "",
-        "action": "getSnapshot",
-        "protocol": "",
-        "stream": "",
-        "x": 720,
-        "y": 1040,
-        "wires": [
-            [
-                "3939ce3c07139333"
-            ]
-        ]
-    },
-    {
-        "id": "861877044ab714d2",
-        "type": "delay",
-        "z": "fc93ef5a2502b341",
-        "name": "",
-        "pauseType": "rate",
-        "timeout": "5",
-        "timeoutUnits": "seconds",
-        "rate": "1",
-        "nbRateUnits": "5",
-        "rateUnits": "minute",
-        "randomFirst": "1",
-        "randomLast": "5",
-        "randomUnits": "seconds",
-        "drop": true,
-        "allowrate": false,
-        "outputs": 1,
-        "x": 760,
-        "y": 1000,
-        "wires": [
-            [
-                "0df33b0c6ff5c4cb"
-            ]
-        ]
-    },
-    {
-        "id": "3939ce3c07139333",
-        "type": "switch",
-        "z": "fc93ef5a2502b341",
-        "name": "",
-        "property": "payload",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "istype",
-                "v": "buffer",
-                "vt": "buffer"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 710,
-        "y": 1080,
-        "wires": [
-            [
-                "9f89d91d48c5251f",
-                "be5c1c01403587f0"
-            ]
-        ]
-    },
-    {
-        "id": "af4f2acfc6b4788f",
-        "type": "inject",
-        "z": "fc93ef5a2502b341",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 500,
-        "y": 240,
-        "wires": [
-            [
-                "d6fac80997a49234",
-                "83dd2b3eaa6fde09",
-                "45bc567304c5cb80"
-            ]
-        ]
-    },
-    {
-        "id": "08be364dba5b864b",
-        "type": "debug",
-        "z": "fc93ef5a2502b341",
-        "name": "debug 24",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 480,
-        "y": 820,
-        "wires": []
-    },
-    {
-        "id": "9d726d51987d25c8",
-        "type": "debug",
-        "z": "fc93ef5a2502b341",
-        "name": "debug 25",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 480,
-        "y": 1140,
-        "wires": []
-    },
-    {
-        "id": "50b916c738c7700f",
-        "type": "debug",
-        "z": "fc93ef5a2502b341",
-        "name": "debug 26",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 480,
-        "y": 500,
-        "wires": []
-    },
-    {
         "id": "7f807fd8588ea7ce",
         "type": "http in",
         "z": "fc93ef5a2502b341",
         "name": "",
-        "url": "/ui/balkon-kamera-img",
+        "url": "/ui/kamera-balkon-img",
         "method": "get",
         "upload": false,
         "swaggerDoc": "",
-        "x": 180,
-        "y": 180,
+        "x": 200,
+        "y": 660,
         "wires": [
             [
                 "97a7a986daf2b9df"
@@ -20831,36 +20470,9 @@
             "Content-Type": "image/jpeg",
             "Content-Disposition": "inline"
         },
-        "x": 610,
-        "y": 180,
+        "x": 630,
+        "y": 660,
         "wires": []
-    },
-    {
-        "id": "b2574752d2a0af51",
-        "type": "change",
-        "z": "fc93ef5a2502b341",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "haustuer-kamera",
-                "pt": "flow",
-                "to": "payload",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 940,
-        "y": 440,
-        "wires": [
-            [
-                "0de19dc9d3f813c8"
-            ]
-        ]
     },
     {
         "id": "97a7a986daf2b9df",
@@ -20872,7 +20484,7 @@
                 "t": "set",
                 "p": "payload",
                 "pt": "msg",
-                "to": "balkon-kamera",
+                "to": "kamera-balkon",
                 "tot": "flow"
             }
         ],
@@ -20881,8 +20493,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 430,
-        "y": 180,
+        "x": 450,
+        "y": 660,
         "wires": [
             [
                 "71cb69634e2af22f"
@@ -20894,12 +20506,12 @@
         "type": "http in",
         "z": "fc93ef5a2502b341",
         "name": "",
-        "url": "/ui/kellertuer-kamera-img",
+        "url": "/ui/kamera-kellertuer-img",
         "method": "get",
         "upload": false,
         "swaggerDoc": "",
-        "x": 180,
-        "y": 140,
+        "x": 200,
+        "y": 620,
         "wires": [
             [
                 "633149d23f7b2e78"
@@ -20916,8 +20528,8 @@
             "Content-Type": "image/jpeg",
             "Content-Disposition": "inline"
         },
-        "x": 610,
-        "y": 140,
+        "x": 630,
+        "y": 620,
         "wires": []
     },
     {
@@ -20930,7 +20542,7 @@
                 "t": "set",
                 "p": "payload",
                 "pt": "msg",
-                "to": "kellertuer-kamera",
+                "to": "kamera-kellertuer",
                 "tot": "flow"
             }
         ],
@@ -20939,8 +20551,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 430,
-        "y": 140,
+        "x": 450,
+        "y": 620,
         "wires": [
             [
                 "7ffee3775dd668e3"
@@ -20952,12 +20564,12 @@
         "type": "http in",
         "z": "fc93ef5a2502b341",
         "name": "",
-        "url": "/ui/haustuer-kamera-img",
+        "url": "/ui/kamera-haustuer-img",
         "method": "get",
         "upload": false,
         "swaggerDoc": "",
-        "x": 180,
-        "y": 100,
+        "x": 200,
+        "y": 580,
         "wires": [
             [
                 "31f96fa7073319ca"
@@ -20975,9 +20587,480 @@
             "Content-Disposition": "inline",
             "Cache-Control": "no-cache"
         },
-        "x": 610,
-        "y": 100,
+        "x": 630,
+        "y": 580,
         "wires": []
+    },
+    {
+        "id": "09cbf53394928908",
+        "type": "function",
+        "z": "fc93ef5a2502b341",
+        "name": "Person detected at",
+        "func": "let timestamp = new Date();\nlet time = timestamp.toLocaleTimeString('de-DE', { timeStyle: 'short' });\nreturn [\n    {payload: time},\n    {payload: timestamp.valueOf()}\n];",
+        "outputs": 2,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 370,
+        "y": 120,
+        "wires": [
+            [
+                "9dc10f33bc28aa10"
+            ],
+            [
+                "3a9115c6aff8a3a9"
+            ]
+        ]
+    },
+    {
+        "id": "adbdd2ef941f50af",
+        "type": "function",
+        "z": "fc93ef5a2502b341",
+        "name": "Push Notification",
+        "func": "let image_base64 = msg.payload;\nlet image_url = \"https://home.dipe.de/ui/kamera-haustuer-img\";\n\nreturn {\n    notification: {\n        notification: { \n            title: \"Kamera Haustür\", \n            body: \"Person erkannt\" \n        }, \n        data: { \n            requireInteraction: true, \n            icon: \"https://nodered.org/about/resources/media/node-red-icon-2.png\",\n            image: image_url\n        }\n    }\n};\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 630,
+        "y": 160,
+        "wires": [
+            [
+                "8f033d351dfceb3c"
+            ]
+        ]
+    },
+    {
+        "id": "e2f015a4de4af10b",
+        "type": "change",
+        "z": "fc93ef5a2502b341",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "kamera-haustuer",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 400,
+        "y": 160,
+        "wires": [
+            [
+                "adbdd2ef941f50af"
+            ]
+        ]
+    },
+    {
+        "id": "9dc10f33bc28aa10",
+        "type": "ui_text",
+        "z": "fc93ef5a2502b341",
+        "group": "6ed7382c947a98d9",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Haustür – Person erkannt um",
+        "format": "{{msg.payload}}",
+        "layout": "row-center",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
+        "x": 660,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "3a9115c6aff8a3a9",
+        "type": "ui_template",
+        "z": "fc93ef5a2502b341",
+        "group": "6ed7382c947a98d9",
+        "name": "Schnappschuss",
+        "order": 2,
+        "width": 9,
+        "height": 9,
+        "format": "<img src=\"/ui/kamera-haustuer-img?ts={{msg.payload}}\" style=\"transform:rotate(90deg);margin-top:100px\">",
+        "storeOutMessages": false,
+        "fwdInMessages": false,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 620,
+        "y": 120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8f033d351dfceb3c",
+        "type": "link out",
+        "z": "fc93ef5a2502b341",
+        "name": "Person an Kellertür erkannt",
+        "mode": "link",
+        "links": [
+            "1cd036385c85d54d"
+        ],
+        "x": 765,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "7d609fa9b03d8a28",
+        "type": "subflow:f5d8e11fee9a1e7c",
+        "z": "fc93ef5a2502b341",
+        "name": "Kamera Haustür",
+        "env": [
+            {
+                "name": "username",
+                "value": "admin",
+                "type": "str"
+            },
+            {
+                "name": "password",
+                "type": "cred"
+            },
+            {
+                "name": "hostname",
+                "value": "kamera-haustuer",
+                "type": "str"
+            }
+        ],
+        "x": 160,
+        "y": 140,
+        "wires": [
+            [
+                "09cbf53394928908"
+            ],
+            [
+                "e2f015a4de4af10b"
+            ]
+        ]
+    },
+    {
+        "id": "f19e72af47339cf8",
+        "type": "function",
+        "z": "fc93ef5a2502b341",
+        "name": "Person detected at",
+        "func": "let timestamp = new Date();\nlet time = timestamp.toLocaleTimeString('de-DE', { timeStyle: 'short' });\nreturn [\n    {payload: time},\n    {payload: timestamp.valueOf()}\n];",
+        "outputs": 2,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 370,
+        "y": 280,
+        "wires": [
+            [
+                "664ba5ea762ea9aa"
+            ],
+            [
+                "9a48784e5e86db26"
+            ]
+        ]
+    },
+    {
+        "id": "6b2c44686b589a9b",
+        "type": "function",
+        "z": "fc93ef5a2502b341",
+        "name": "Push Notification",
+        "func": "let image_base64 = msg.payload;\nlet image_url = \"https://home.dipe.de/ui/kamera-kellertuer-img\";\n\nreturn {\n    notification: {\n        notification: { \n            title: \"Kamera Kellertür\", \n            body: \"Person erkannt\" \n        }, \n        data: { \n            requireInteraction: true, \n            icon: \"https://nodered.org/about/resources/media/node-red-icon-2.png\",\n            image: image_url\n        }\n    }\n};\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 630,
+        "y": 320,
+        "wires": [
+            [
+                "4ccfd8e25ba474a1"
+            ]
+        ]
+    },
+    {
+        "id": "409f37a2ef9abb46",
+        "type": "change",
+        "z": "fc93ef5a2502b341",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "kamera-kellertuer",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 400,
+        "y": 320,
+        "wires": [
+            [
+                "6b2c44686b589a9b"
+            ]
+        ]
+    },
+    {
+        "id": "664ba5ea762ea9aa",
+        "type": "ui_text",
+        "z": "fc93ef5a2502b341",
+        "group": "bebc2a08.8975f8",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Kellertür – Person erkannt um",
+        "format": "{{msg.payload}}",
+        "layout": "row-center",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
+        "x": 670,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "9a48784e5e86db26",
+        "type": "ui_template",
+        "z": "fc93ef5a2502b341",
+        "group": "bebc2a08.8975f8",
+        "name": "Schnappschuss",
+        "order": 2,
+        "width": 9,
+        "height": "5",
+        "format": "<img src=\"/ui/kamera-kellertuer-img?ts={{msg.payload}}\">",
+        "storeOutMessages": false,
+        "fwdInMessages": false,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 620,
+        "y": 280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4ccfd8e25ba474a1",
+        "type": "link out",
+        "z": "fc93ef5a2502b341",
+        "name": "Person an Kellertür erkannt",
+        "mode": "link",
+        "links": [
+            "1cd036385c85d54d"
+        ],
+        "x": 765,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "c1dca34d35dcf59e",
+        "type": "subflow:f5d8e11fee9a1e7c",
+        "z": "fc93ef5a2502b341",
+        "name": "Kamera Kellertür",
+        "env": [
+            {
+                "name": "username",
+                "value": "admin",
+                "type": "str"
+            },
+            {
+                "name": "password",
+                "type": "cred"
+            },
+            {
+                "name": "hostname",
+                "value": "kamera-kellertuer",
+                "type": "str"
+            }
+        ],
+        "x": 160,
+        "y": 300,
+        "wires": [
+            [
+                "f19e72af47339cf8"
+            ],
+            [
+                "409f37a2ef9abb46"
+            ]
+        ]
+    },
+    {
+        "id": "68f1e056b5ac9262",
+        "type": "function",
+        "z": "fc93ef5a2502b341",
+        "name": "Person detected at",
+        "func": "let timestamp = new Date();\nlet time = timestamp.toLocaleTimeString('de-DE', { timeStyle: 'short' });\nreturn [\n    {payload: time},\n    {payload: timestamp.valueOf()}\n];",
+        "outputs": 2,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 370,
+        "y": 440,
+        "wires": [
+            [
+                "359defd5b7fb9042"
+            ],
+            [
+                "7777344c3077307f"
+            ]
+        ]
+    },
+    {
+        "id": "93e21039c660d889",
+        "type": "function",
+        "z": "fc93ef5a2502b341",
+        "name": "Push Notification",
+        "func": "let image_base64 = msg.payload;\nlet image_url = \"https://home.dipe.de/ui/kamera-balkon-img\";\n\nreturn {\n    notification: {\n        notification: { \n            title: \"Kamera Balkon\", \n            body: \"Person erkannt\" \n        }, \n        data: { \n            requireInteraction: true, \n            icon: \"https://nodered.org/about/resources/media/node-red-icon-2.png\",\n            image: image_url\n        }\n    }\n};\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 630,
+        "y": 480,
+        "wires": [
+            [
+                "15e2744d23e684e0"
+            ]
+        ]
+    },
+    {
+        "id": "94f4b7425b382622",
+        "type": "change",
+        "z": "fc93ef5a2502b341",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "kamera-balkon",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 390,
+        "y": 480,
+        "wires": [
+            [
+                "93e21039c660d889"
+            ]
+        ]
+    },
+    {
+        "id": "359defd5b7fb9042",
+        "type": "ui_text",
+        "z": "fc93ef5a2502b341",
+        "group": "09752717148dff64",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Balkon – Person erkannt um",
+        "format": "{{msg.payload}}",
+        "layout": "row-center",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
+        "x": 660,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "7777344c3077307f",
+        "type": "ui_template",
+        "z": "fc93ef5a2502b341",
+        "group": "09752717148dff64",
+        "name": "Schnappschuss",
+        "order": 2,
+        "width": 9,
+        "height": "5",
+        "format": "<img src=\"/ui/kamera-balkon-img?ts={{msg.payload}}\">",
+        "storeOutMessages": false,
+        "fwdInMessages": false,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 620,
+        "y": 440,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "15e2744d23e684e0",
+        "type": "link out",
+        "z": "fc93ef5a2502b341",
+        "name": "Person an Kellertür erkannt",
+        "mode": "link",
+        "links": [
+            "1cd036385c85d54d"
+        ],
+        "x": 765,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "1212b191d655a9fa",
+        "type": "subflow:f5d8e11fee9a1e7c",
+        "z": "fc93ef5a2502b341",
+        "name": "Kamera Balkon",
+        "env": [
+            {
+                "name": "username",
+                "value": "admin",
+                "type": "str"
+            },
+            {
+                "name": "password",
+                "type": "cred"
+            },
+            {
+                "name": "hostname",
+                "value": "kamera-balkon",
+                "type": "str"
+            }
+        ],
+        "x": 160,
+        "y": 460,
+        "wires": [
+            [
+                "68f1e056b5ac9262"
+            ],
+            [
+                "94f4b7425b382622"
+            ]
+        ]
     },
     {
         "id": "31f96fa7073319ca",
@@ -20989,7 +21072,7 @@
                 "t": "set",
                 "p": "payload",
                 "pt": "msg",
-                "to": "haustuer-kamera",
+                "to": "kamera-haustuer",
                 "tot": "flow"
             }
         ],
@@ -20998,350 +21081,11 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 430,
-        "y": 100,
+        "x": 450,
+        "y": 580,
         "wires": [
             [
                 "0fb5633e535d1adb"
-            ]
-        ]
-    },
-    {
-        "id": "945de28f527cf29c",
-        "type": "change",
-        "z": "fc93ef5a2502b341",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "kellertuer-kamera",
-                "pt": "flow",
-                "to": "payload",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 940,
-        "y": 760,
-        "wires": [
-            [
-                "c6e87caa65b0c0cb"
-            ]
-        ]
-    },
-    {
-        "id": "9f89d91d48c5251f",
-        "type": "change",
-        "z": "fc93ef5a2502b341",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "balkon-kamera",
-                "pt": "flow",
-                "to": "payload",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 950,
-        "y": 1080,
-        "wires": [
-            [
-                "c6816cdda33ab9fd"
-            ]
-        ]
-    },
-    {
-        "id": "c6e87caa65b0c0cb",
-        "type": "function",
-        "z": "fc93ef5a2502b341",
-        "name": "Push Notification",
-        "func": "let image_base64 = msg.payload;\nlet image_url = \"https://home.dipe.de/ui/kellertuer-kamera-img\";\n\nreturn {\n    notification: {\n        notification: { \n            title: \"Kamera Kellertür\", \n            body: \"Person erkannt\" \n        }, \n        data: { \n            requireInteraction: true, \n            icon: \"https://nodered.org/about/resources/media/node-red-icon-2.png\",\n            image: image_url\n        }\n    }\n};\n",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 970,
-        "y": 720,
-        "wires": [
-            [
-                "9a73800936b6d966"
-            ]
-        ]
-    },
-    {
-        "id": "9a73800936b6d966",
-        "type": "link out",
-        "z": "fc93ef5a2502b341",
-        "name": "Person an Kellertür erkannt",
-        "mode": "link",
-        "links": [
-            "1cd036385c85d54d"
-        ],
-        "x": 1115,
-        "y": 720,
-        "wires": []
-    },
-    {
-        "id": "c6816cdda33ab9fd",
-        "type": "function",
-        "z": "fc93ef5a2502b341",
-        "name": "Push Notification",
-        "func": "let image_base64 = msg.payload;\nlet image_url = \"https://home.dipe.de/ui/balkon-kamera-img\";\n\nreturn {\n    notification: {\n        notification: { \n            title: \"Kamera Balkon\", \n            body: \"Person erkannt\" \n        }, \n        data: { \n            requireInteraction: true, \n            icon: \"https://nodered.org/about/resources/media/node-red-icon-2.png\",\n            image: image_url\n        }\n    }\n};\n",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 970,
-        "y": 1040,
-        "wires": [
-            [
-                "daa30e9d291ddc4e"
-            ]
-        ]
-    },
-    {
-        "id": "daa30e9d291ddc4e",
-        "type": "link out",
-        "z": "fc93ef5a2502b341",
-        "name": "Person an Kellertür erkannt",
-        "mode": "link",
-        "links": [
-            "1cd036385c85d54d"
-        ],
-        "x": 1115,
-        "y": 1040,
-        "wires": []
-    },
-    {
-        "id": "af1cb714eff0f6ae",
-        "type": "debug",
-        "z": "fc93ef5a2502b341",
-        "name": "debug 29",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 500,
-        "y": 320,
-        "wires": []
-    },
-    {
-        "id": "4ec5783534f42c32",
-        "type": "debug",
-        "z": "fc93ef5a2502b341",
-        "name": "debug 30",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 500,
-        "y": 960,
-        "wires": []
-    },
-    {
-        "id": "9726f1fa6cacb42b",
-        "type": "debug",
-        "z": "fc93ef5a2502b341",
-        "name": "debug 31",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 500,
-        "y": 640,
-        "wires": []
-    },
-    {
-        "id": "82eff6d73d0edf1d",
-        "type": "ui_text",
-        "z": "fc93ef5a2502b341",
-        "group": "6ed7382c947a98d9",
-        "order": 1,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "Person erkannt um",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "className": "",
-        "style": false,
-        "font": "",
-        "fontSize": "",
-        "color": "#000000",
-        "x": 970,
-        "y": 480,
-        "wires": []
-    },
-    {
-        "id": "a5b5dc67bdd74287",
-        "type": "function",
-        "z": "fc93ef5a2502b341",
-        "name": "Person detected at",
-        "func": "let timestamp = new Date().toLocaleTimeString('de-DE', { timeStyle: 'short' });\nreturn {payload: timestamp};",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 750,
-        "y": 480,
-        "wires": [
-            [
-                "82eff6d73d0edf1d",
-                "ab507b0a4fc73d76"
-            ]
-        ]
-    },
-    {
-        "id": "c7c4bab3058c2584",
-        "type": "ui_template",
-        "z": "fc93ef5a2502b341",
-        "group": "bebc2a08.8975f8",
-        "name": "Schnappschuss",
-        "order": 2,
-        "width": 9,
-        "height": 9,
-        "format": "<div><img width=\"480px\" height=\"260px\" src=\"/ui/kellertuer-kamera-img?ts={{msg.payload}}\"></div>",
-        "storeOutMessages": true,
-        "fwdInMessages": false,
-        "resendOnRefresh": true,
-        "templateScope": "local",
-        "className": "",
-        "x": 960,
-        "y": 840,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "bd22f5a7345ddf52",
-        "type": "ui_text",
-        "z": "fc93ef5a2502b341",
-        "group": "bebc2a08.8975f8",
-        "order": 1,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "Person erkannt um",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "className": "",
-        "style": false,
-        "font": "",
-        "fontSize": "",
-        "color": "#000000",
-        "x": 970,
-        "y": 800,
-        "wires": []
-    },
-    {
-        "id": "dbf023d83f534b34",
-        "type": "function",
-        "z": "fc93ef5a2502b341",
-        "name": "Person detected at",
-        "func": "let timestamp = new Date().toLocaleTimeString('de-DE', { timeStyle: 'short' });\nreturn {payload: timestamp};",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 750,
-        "y": 800,
-        "wires": [
-            [
-                "bd22f5a7345ddf52",
-                "c7c4bab3058c2584"
-            ]
-        ]
-    },
-    {
-        "id": "4277ada26c90a9d8",
-        "type": "ui_template",
-        "z": "fc93ef5a2502b341",
-        "group": "09752717148dff64",
-        "name": "Schnappschuss",
-        "order": 2,
-        "width": 9,
-        "height": 9,
-        "format": "<div><img width=\"480px\" height=\"260px\" src=\"/ui/balkon-kamera-img?ts={{msg.payload}}\"></div>",
-        "storeOutMessages": true,
-        "fwdInMessages": false,
-        "resendOnRefresh": true,
-        "templateScope": "local",
-        "className": "",
-        "x": 960,
-        "y": 1160,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "85213331e8e616fc",
-        "type": "ui_text",
-        "z": "fc93ef5a2502b341",
-        "group": "09752717148dff64",
-        "order": 1,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "Person erkannt um",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "className": "",
-        "style": false,
-        "font": "",
-        "fontSize": "",
-        "color": "#000000",
-        "x": 970,
-        "y": 1120,
-        "wires": []
-    },
-    {
-        "id": "be5c1c01403587f0",
-        "type": "function",
-        "z": "fc93ef5a2502b341",
-        "name": "Person detected at",
-        "func": "let timestamp = new Date().toLocaleTimeString('de-DE', { timeStyle: 'short' });\nreturn {payload: timestamp};",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 750,
-        "y": 1120,
-        "wires": [
-            [
-                "85213331e8e616fc",
-                "4277ada26c90a9d8"
             ]
         ]
     }
