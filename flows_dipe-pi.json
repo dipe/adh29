@@ -163,59 +163,6 @@
         "info": ""
     },
     {
-        "id": "f5d8e11fee9a1e7c",
-        "type": "subflow",
-        "name": "reolink-kamera",
-        "info": "",
-        "category": "",
-        "in": [],
-        "out": [
-            {
-                "x": 880,
-                "y": 360,
-                "wires": [
-                    {
-                        "id": "575bd07550518820",
-                        "port": 0
-                    }
-                ]
-            },
-            {
-                "x": 1240,
-                "y": 360,
-                "wires": [
-                    {
-                        "id": "36171ea14a65a252",
-                        "port": 0
-                    }
-                ]
-            }
-        ],
-        "env": [
-            {
-                "name": "username",
-                "type": "str",
-                "value": ""
-            },
-            {
-                "name": "password",
-                "type": "cred"
-            },
-            {
-                "name": "hostname",
-                "type": "str",
-                "value": ""
-            }
-        ],
-        "meta": {},
-        "color": "#C0DEED",
-        "outputLabels": [
-            "person detected",
-            "snapshot"
-        ],
-        "icon": "font-awesome/fa-video-camera"
-    },
-    {
         "id": "5212abebc2a62f0b",
         "type": "junction",
         "z": "2ba29887.9266e8",
@@ -382,8 +329,7 @@
         "wires": [
             [
                 "df2bfb8e940b1768",
-                "53936a862e9e6c08",
-                "ed69a63d6f99c6d1"
+                "53936a862e9e6c08"
             ]
         ]
     },
@@ -1229,257 +1175,6 @@
         "width": 9,
         "collapse": false,
         "className": ""
-    },
-    {
-        "id": "a27c201f88d5372d",
-        "type": "http request",
-        "z": "f5d8e11fee9a1e7c",
-        "name": "",
-        "method": "GET",
-        "ret": "obj",
-        "paytoqs": "ignore",
-        "url": "",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "insecureHTTPParser": false,
-        "authType": "",
-        "senderr": false,
-        "headers": [],
-        "x": 310,
-        "y": 300,
-        "wires": [
-            [
-                "8406ac3401f66db6"
-            ]
-        ]
-    },
-    {
-        "id": "e9c24f7de0b9dc42",
-        "type": "inject",
-        "z": "f5d8e11fee9a1e7c",
-        "name": "",
-        "props": [
-            {
-                "p": "url",
-                "v": "\"http://\" & $env('hostname') & \"/cgi-bin/api.cgi?cmd=GetAiState&token=\" & $flowContext(\"token\")",
-                "vt": "jsonata"
-            }
-        ],
-        "repeat": "2",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "x": 140,
-        "y": 300,
-        "wires": [
-            [
-                "a27c201f88d5372d"
-            ]
-        ]
-    },
-    {
-        "id": "8406ac3401f66db6",
-        "type": "switch",
-        "z": "f5d8e11fee9a1e7c",
-        "name": "Mensch",
-        "property": "payload[0].value.people.alarm_state",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "1",
-                "vt": "str"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 480,
-        "y": 300,
-        "wires": [
-            [
-                "575bd07550518820"
-            ]
-        ]
-    },
-    {
-        "id": "bc2389e7080a4308",
-        "type": "change",
-        "z": "f5d8e11fee9a1e7c",
-        "name": "Prep Login Post",
-        "rules": [
-            {
-                "t": "set",
-                "p": "url",
-                "pt": "msg",
-                "to": "\"http://\" & $env('hostname') & \"/cgi-bin/api.cgi?cmd=Login\"",
-                "tot": "jsonata"
-            },
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "[{\"cmd\":\"Login\",\"action\":0,\"param\":{\"User\":{\"userName\":$env('username'),\"password\":$env('password')}}}]",
-                "tot": "jsonata"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 320,
-        "y": 200,
-        "wires": [
-            [
-                "741722e4a7ad9cdb"
-            ]
-        ]
-    },
-    {
-        "id": "741722e4a7ad9cdb",
-        "type": "http request",
-        "z": "f5d8e11fee9a1e7c",
-        "name": "",
-        "method": "POST",
-        "ret": "obj",
-        "paytoqs": "ignore",
-        "url": "",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "insecureHTTPParser": false,
-        "authType": "",
-        "senderr": false,
-        "headers": [],
-        "x": 510,
-        "y": 200,
-        "wires": [
-            [
-                "79f15d4a0714d7d8"
-            ]
-        ]
-    },
-    {
-        "id": "ded95475e69af2fe",
-        "type": "inject",
-        "z": "f5d8e11fee9a1e7c",
-        "name": "",
-        "props": [],
-        "repeat": "3000",
-        "crontab": "",
-        "once": true,
-        "onceDelay": "11",
-        "topic": "",
-        "x": 140,
-        "y": 200,
-        "wires": [
-            [
-                "bc2389e7080a4308"
-            ]
-        ]
-    },
-    {
-        "id": "79f15d4a0714d7d8",
-        "type": "change",
-        "z": "f5d8e11fee9a1e7c",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "token",
-                "pt": "flow",
-                "to": "payload[0].value.Token.name",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 700,
-        "y": 200,
-        "wires": [
-            []
-        ],
-        "icon": "font-awesome/fa-lock"
-    },
-    {
-        "id": "6dfc591e4b556f70",
-        "type": "change",
-        "z": "f5d8e11fee9a1e7c",
-        "name": "Prep Snap Get",
-        "rules": [
-            {
-                "t": "set",
-                "p": "url",
-                "pt": "msg",
-                "to": "\"http://\" & $env('hostname') & \"/cgi-bin/api.cgi?cmd=Snap&channel=0&token=\" & $flowContext(\"token\")",
-                "tot": "jsonata"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 860,
-        "y": 300,
-        "wires": [
-            [
-                "36171ea14a65a252"
-            ]
-        ]
-    },
-    {
-        "id": "36171ea14a65a252",
-        "type": "http request",
-        "z": "f5d8e11fee9a1e7c",
-        "name": "",
-        "method": "GET",
-        "ret": "bin",
-        "paytoqs": "ignore",
-        "url": "",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "insecureHTTPParser": false,
-        "authType": "",
-        "senderr": false,
-        "headers": [],
-        "x": 1050,
-        "y": 300,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "575bd07550518820",
-        "type": "delay",
-        "z": "f5d8e11fee9a1e7c",
-        "name": "",
-        "pauseType": "rate",
-        "timeout": "5",
-        "timeoutUnits": "seconds",
-        "rate": "1",
-        "nbRateUnits": "5",
-        "rateUnits": "minute",
-        "randomFirst": "1",
-        "randomLast": "5",
-        "randomUnits": "seconds",
-        "drop": true,
-        "allowrate": false,
-        "outputs": 1,
-        "x": 660,
-        "y": 300,
-        "wires": [
-            [
-                "6dfc591e4b556f70"
-            ]
-        ]
     },
     {
         "id": "930e92a7.3f378",
@@ -6735,7 +6430,7 @@
         "type": "function",
         "z": "4d90b497.b5b2ac",
         "name": "fan controller",
-        "func": "// let kellertuer_sensor = global.get(\"kellertuer_sensor\");\n// let waschkueche_fahradkeller_tuer_sensor_contact = global.get('waschkueche_fahradkeller_tuer_sensor');\n// if (!kellertuer_sensor && !waschkueche_fahradkeller_tuer_sensor_contact) {\n//     msg = [\n//         {topic: \"luefter_sw\", payload: \"OFF\"},\n//         {topic: \"Debug\", payload: {}}\n//     ];\n\n//     return msg;  \n// }\n\n// const outside_abs_humidity = global.get(\"aussen-absolute_humidity\");\nconst outside_abs_humidity = global.get(\"steckdose1-absolute_humidity\");\nconst wk_temperature = global.get(\"waschkueche_luefter-temperature\");\nconst wk_humidity = global.get(\"waschkueche_luefter-humidity\");\nconst wk_abs_humidity = global.get(\"waschkueche_luefter-absolute_humidity\");\n\nconst washroom_fan_control = flow.get(\"washroom_fan_control\");\nconst last_abs_humidity_gt_outside_abs_humidity = global.get(\"washroom-last_abs_humidity_gt_outside_abs_humidity\");\n\nconst room_abs_humidity_gt_outside_abs_humidity = (last_abs_humidity_gt_outside_abs_humidity) ?\n    wk_abs_humidity > outside_abs_humidity * 1.05:\n    wk_abs_humidity > outside_abs_humidity * 1.05;\n\nglobal.set(\"washroom-last_abs_humidity_gt_outside_abs_humidity\", wk_abs_humidity > outside_abs_humidity);\n\nvar washroom_fan_on;\nif (washroom_fan_control == \"ON\") {\n    if (room_abs_humidity_gt_outside_abs_humidity) {\n        if (wk_humidity > 65 && wk_temperature > 14) {\n            washroom_fan_on = \"ON\";\n        } else {\n            washroom_fan_on = \"OFF\";\n        }\n    } else {\n        washroom_fan_on = \"OFF\";\n    }\n} else {\n    washroom_fan_on = undefined;\n}\n\nmsg = [\n    (washroom_fan_on) ? {topic: \"luefter_sw\", payload: washroom_fan_on} : undefined,\n    {topic: \"Debug\", payload: {\n            outside_abs_humidity: outside_abs_humidity,\n            wk_temperature: wk_temperature,\n            wk_humidity: wk_humidity,\n            wk_abs_humidity: wk_abs_humidity,\n            washroom_fan_on: washroom_fan_on,\n            washroom_fan_control: washroom_fan_control,\n            room_abs_humidity_gt_outside_abs_humidity: room_abs_humidity_gt_outside_abs_humidity,\n            last_abs_humidity_gt_outside_abs_humidity: last_abs_humidity_gt_outside_abs_humidity\n    }   }\n];\n\nreturn msg;",
+        "func": "// let kellertuer_sensor = global.get(\"kellertuer_sensor\");\n// let waschkueche_fahradkeller_tuer_sensor_contact = global.get('waschkueche_fahradkeller_tuer_sensor');\n// if (!kellertuer_sensor && !waschkueche_fahradkeller_tuer_sensor_contact) {\n//     msg = [\n//         {topic: \"luefter_sw\", payload: \"OFF\"},\n//         {topic: \"Debug\", payload: {}}\n//     ];\n\n//     return msg;  \n// }\n\n// const outside_abs_humidity = global.get(\"aussen-absolute_humidity\");\nconst outside_abs_humidity = global.get(\"steckdose1-absolute_humidity\");\nconst wk_temperature = global.get(\"waschkueche_luefter-temperature\");\nconst wk_humidity = global.get(\"waschkueche_luefter-humidity\");\nconst wk_abs_humidity = global.get(\"waschkueche_luefter-absolute_humidity\");\n\nconst washroom_fan_control = flow.get(\"washroom_fan_control\");\nconst last_abs_humidity_gt_outside_abs_humidity = global.get(\"washroom-last_abs_humidity_gt_outside_abs_humidity\");\n\nconst room_abs_humidity_gt_outside_abs_humidity = (last_abs_humidity_gt_outside_abs_humidity) ?\n    wk_abs_humidity > outside_abs_humidity * 1.05:\n    wk_abs_humidity > outside_abs_humidity * 1.05;\n\nglobal.set(\"washroom-last_abs_humidity_gt_outside_abs_humidity\", wk_abs_humidity > outside_abs_humidity);\n\nvar washroom_fan_on;\nif (washroom_fan_control == \"ON\") {\n    if (room_abs_humidity_gt_outside_abs_humidity) {\n        if (wk_humidity > 55 && wk_temperature > 14) {\n            washroom_fan_on = \"ON\";\n        } else {\n            washroom_fan_on = \"OFF\";\n        }\n    } else {\n        washroom_fan_on = \"OFF\";\n    }\n} else {\n    washroom_fan_on = undefined;\n}\n\nmsg = [\n    (washroom_fan_on) ? {topic: \"luefter_sw\", payload: washroom_fan_on} : undefined,\n    {topic: \"Debug\", payload: {\n            outside_abs_humidity: outside_abs_humidity,\n            wk_temperature: wk_temperature,\n            wk_humidity: wk_humidity,\n            wk_abs_humidity: wk_abs_humidity,\n            washroom_fan_on: washroom_fan_on,\n            washroom_fan_control: washroom_fan_control,\n            room_abs_humidity_gt_outside_abs_humidity: room_abs_humidity_gt_outside_abs_humidity,\n            last_abs_humidity_gt_outside_abs_humidity: last_abs_humidity_gt_outside_abs_humidity\n    }   }\n];\n\nreturn msg;",
         "outputs": 2,
         "timeout": "",
         "noerr": 0,
@@ -9671,7 +9366,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 210,
-        "y": 300,
+        "y": 240,
         "wires": [
             [
                 "eaf6fe8a89747f00"
@@ -9689,11 +9384,10 @@
         "syntax": "mustache",
         "template": "ON",
         "output": "str",
-        "x": 620,
+        "x": 600,
         "y": 280,
         "wires": [
             [
-                "ed69a63d6f99c6d1",
                 "12ebe76fae3f9cf7"
             ]
         ]
@@ -9728,8 +9422,6 @@
         "y": 280,
         "wires": [
             [
-                "aa6a1af021d12ce9",
-                "ed69a63d6f99c6d1",
                 "7b56cfeb.46625",
                 "102c0c6b428bff43"
             ]
@@ -9756,8 +9448,6 @@
         "y": 280,
         "wires": [
             [
-                "f3efb2ed21761296",
-                "ed69a63d6f99c6d1",
                 "12ebe76fae3f9cf7"
             ]
         ]
@@ -9776,7 +9466,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 220,
-        "y": 260,
+        "y": 280,
         "wires": [
             [
                 "eaf6fe8a89747f00"
@@ -9809,7 +9499,6 @@
         "wires": [
             [
                 "7b56cfeb.46625",
-                "ed69a63d6f99c6d1",
                 "102c0c6b428bff43"
             ]
         ]
@@ -9831,7 +9520,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 470,
+        "x": 450,
         "y": 280,
         "wires": [
             [
@@ -9860,77 +9549,9 @@
         "y": 280,
         "wires": [
             [
-                "351c32062e77392a",
-                "c6dae92136ad904e"
+                "351c32062e77392a"
             ]
         ]
-    },
-    {
-        "id": "ed69a63d6f99c6d1",
-        "type": "flogger",
-        "z": "dac2cb3b.559138",
-        "name": "",
-        "logfile": "warmwasser",
-        "inputchoice": "fullmsg",
-        "inputobject": "payload",
-        "inputobjectType": "msg",
-        "inputmoustache": "Recieved payload {{payload}} and topic {{topic}}",
-        "loglevel": "INFO",
-        "logconfig": "8929498a4f6d4a2d",
-        "sendpane": "",
-        "x": 1160,
-        "y": 560,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "aa6a1af021d12ce9",
-        "type": "debug",
-        "z": "dac2cb3b.559138",
-        "name": "debug 34",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1240,
-        "y": 140,
-        "wires": []
-    },
-    {
-        "id": "c6dae92136ad904e",
-        "type": "debug",
-        "z": "dac2cb3b.559138",
-        "name": "debug 35",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1240,
-        "y": 180,
-        "wires": []
-    },
-    {
-        "id": "f3efb2ed21761296",
-        "type": "debug",
-        "z": "dac2cb3b.559138",
-        "name": "debug 36",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1540,
-        "y": 240,
-        "wires": []
     },
     {
         "id": "49d727fe.737a88",
@@ -20717,38 +20338,6 @@
         "wires": []
     },
     {
-        "id": "7d609fa9b03d8a28",
-        "type": "subflow:f5d8e11fee9a1e7c",
-        "z": "fc93ef5a2502b341",
-        "name": "Kamera Haustür",
-        "env": [
-            {
-                "name": "username",
-                "value": "admin",
-                "type": "str"
-            },
-            {
-                "name": "password",
-                "type": "cred"
-            },
-            {
-                "name": "hostname",
-                "value": "kamera-haustuer",
-                "type": "str"
-            }
-        ],
-        "x": 160,
-        "y": 140,
-        "wires": [
-            [
-                "09cbf53394928908"
-            ],
-            [
-                "e2f015a4de4af10b"
-            ]
-        ]
-    },
-    {
         "id": "f19e72af47339cf8",
         "type": "function",
         "z": "fc93ef5a2502b341",
@@ -20874,38 +20463,6 @@
         "wires": []
     },
     {
-        "id": "c1dca34d35dcf59e",
-        "type": "subflow:f5d8e11fee9a1e7c",
-        "z": "fc93ef5a2502b341",
-        "name": "Kamera Kellertür",
-        "env": [
-            {
-                "name": "username",
-                "value": "admin",
-                "type": "str"
-            },
-            {
-                "name": "password",
-                "type": "cred"
-            },
-            {
-                "name": "hostname",
-                "value": "kamera-kellertuer",
-                "type": "str"
-            }
-        ],
-        "x": 160,
-        "y": 300,
-        "wires": [
-            [
-                "f19e72af47339cf8"
-            ],
-            [
-                "409f37a2ef9abb46"
-            ]
-        ]
-    },
-    {
         "id": "68f1e056b5ac9262",
         "type": "function",
         "z": "fc93ef5a2502b341",
@@ -21029,38 +20586,6 @@
         "x": 765,
         "y": 480,
         "wires": []
-    },
-    {
-        "id": "1212b191d655a9fa",
-        "type": "subflow:f5d8e11fee9a1e7c",
-        "z": "fc93ef5a2502b341",
-        "name": "Kamera Balkon",
-        "env": [
-            {
-                "name": "username",
-                "value": "admin",
-                "type": "str"
-            },
-            {
-                "name": "password",
-                "type": "cred"
-            },
-            {
-                "name": "hostname",
-                "value": "kamera-balkon",
-                "type": "str"
-            }
-        ],
-        "x": 160,
-        "y": 460,
-        "wires": [
-            [
-                "68f1e056b5ac9262"
-            ],
-            [
-                "94f4b7425b382622"
-            ]
-        ]
     },
     {
         "id": "31f96fa7073319ca",
