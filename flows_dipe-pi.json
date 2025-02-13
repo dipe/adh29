@@ -163,6 +163,59 @@
         "info": ""
     },
     {
+        "id": "f5d8e11fee9a1e7c",
+        "type": "subflow",
+        "name": "reolink-kamera",
+        "info": "",
+        "category": "",
+        "in": [],
+        "out": [
+            {
+                "x": 880,
+                "y": 360,
+                "wires": [
+                    {
+                        "id": "575bd07550518820",
+                        "port": 0
+                    }
+                ]
+            },
+            {
+                "x": 1240,
+                "y": 360,
+                "wires": [
+                    {
+                        "id": "36171ea14a65a252",
+                        "port": 0
+                    }
+                ]
+            }
+        ],
+        "env": [
+            {
+                "name": "username",
+                "type": "str",
+                "value": ""
+            },
+            {
+                "name": "password",
+                "type": "cred"
+            },
+            {
+                "name": "hostname",
+                "type": "str",
+                "value": ""
+            }
+        ],
+        "meta": {},
+        "color": "#C0DEED",
+        "outputLabels": [
+            "person detected",
+            "snapshot"
+        ],
+        "icon": "font-awesome/fa-video-camera"
+    },
+    {
         "id": "5212abebc2a62f0b",
         "type": "junction",
         "z": "2ba29887.9266e8",
@@ -1175,6 +1228,257 @@
         "width": 9,
         "collapse": false,
         "className": ""
+    },
+    {
+        "id": "a27c201f88d5372d",
+        "type": "http request",
+        "z": "f5d8e11fee9a1e7c",
+        "name": "",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 310,
+        "y": 300,
+        "wires": [
+            [
+                "8406ac3401f66db6"
+            ]
+        ]
+    },
+    {
+        "id": "e9c24f7de0b9dc42",
+        "type": "inject",
+        "z": "f5d8e11fee9a1e7c",
+        "name": "",
+        "props": [
+            {
+                "p": "url",
+                "v": "\"http://\" & $env('hostname') & \"/cgi-bin/api.cgi?cmd=GetAiState&token=\" & $flowContext(\"token\")",
+                "vt": "jsonata"
+            }
+        ],
+        "repeat": "2",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 140,
+        "y": 300,
+        "wires": [
+            [
+                "a27c201f88d5372d"
+            ]
+        ]
+    },
+    {
+        "id": "8406ac3401f66db6",
+        "type": "switch",
+        "z": "f5d8e11fee9a1e7c",
+        "name": "Mensch",
+        "property": "payload[0].value.people.alarm_state",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 480,
+        "y": 300,
+        "wires": [
+            [
+                "575bd07550518820"
+            ]
+        ]
+    },
+    {
+        "id": "bc2389e7080a4308",
+        "type": "change",
+        "z": "f5d8e11fee9a1e7c",
+        "name": "Prep Login Post",
+        "rules": [
+            {
+                "t": "set",
+                "p": "url",
+                "pt": "msg",
+                "to": "\"http://\" & $env('hostname') & \"/cgi-bin/api.cgi?cmd=Login\"",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "[{\"cmd\":\"Login\",\"action\":0,\"param\":{\"User\":{\"userName\":$env('username'),\"password\":$env('password')}}}]",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 320,
+        "y": 200,
+        "wires": [
+            [
+                "741722e4a7ad9cdb"
+            ]
+        ]
+    },
+    {
+        "id": "741722e4a7ad9cdb",
+        "type": "http request",
+        "z": "f5d8e11fee9a1e7c",
+        "name": "",
+        "method": "POST",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 510,
+        "y": 200,
+        "wires": [
+            [
+                "79f15d4a0714d7d8"
+            ]
+        ]
+    },
+    {
+        "id": "ded95475e69af2fe",
+        "type": "inject",
+        "z": "f5d8e11fee9a1e7c",
+        "name": "",
+        "props": [],
+        "repeat": "3000",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "11",
+        "topic": "",
+        "x": 140,
+        "y": 200,
+        "wires": [
+            [
+                "bc2389e7080a4308"
+            ]
+        ]
+    },
+    {
+        "id": "79f15d4a0714d7d8",
+        "type": "change",
+        "z": "f5d8e11fee9a1e7c",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "token",
+                "pt": "flow",
+                "to": "payload[0].value.Token.name",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 700,
+        "y": 200,
+        "wires": [
+            []
+        ],
+        "icon": "font-awesome/fa-lock"
+    },
+    {
+        "id": "6dfc591e4b556f70",
+        "type": "change",
+        "z": "f5d8e11fee9a1e7c",
+        "name": "Prep Snap Get",
+        "rules": [
+            {
+                "t": "set",
+                "p": "url",
+                "pt": "msg",
+                "to": "\"http://\" & $env('hostname') & \"/cgi-bin/api.cgi?cmd=Snap&channel=0&token=\" & $flowContext(\"token\")",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 860,
+        "y": 300,
+        "wires": [
+            [
+                "36171ea14a65a252"
+            ]
+        ]
+    },
+    {
+        "id": "36171ea14a65a252",
+        "type": "http request",
+        "z": "f5d8e11fee9a1e7c",
+        "name": "",
+        "method": "GET",
+        "ret": "bin",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 1050,
+        "y": 300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "575bd07550518820",
+        "type": "delay",
+        "z": "f5d8e11fee9a1e7c",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "5",
+        "rateUnits": "minute",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 660,
+        "y": 300,
+        "wires": [
+            [
+                "6dfc591e4b556f70"
+            ]
+        ]
     },
     {
         "id": "930e92a7.3f378",
@@ -20611,6 +20915,102 @@
         "wires": [
             [
                 "0fb5633e535d1adb"
+            ]
+        ]
+    },
+    {
+        "id": "652ddcc9a8144c81",
+        "type": "subflow:f5d8e11fee9a1e7c",
+        "z": "fc93ef5a2502b341",
+        "name": "Kamera Haustür",
+        "env": [
+            {
+                "name": "username",
+                "value": "admin",
+                "type": "str"
+            },
+            {
+                "name": "password",
+                "type": "cred"
+            },
+            {
+                "name": "hostname",
+                "value": "kamera-haustuer",
+                "type": "str"
+            }
+        ],
+        "x": 160,
+        "y": 140,
+        "wires": [
+            [
+                "09cbf53394928908"
+            ],
+            [
+                "e2f015a4de4af10b"
+            ]
+        ]
+    },
+    {
+        "id": "281f8d4326a675f1",
+        "type": "subflow:f5d8e11fee9a1e7c",
+        "z": "fc93ef5a2502b341",
+        "name": "Kamera Kellertür",
+        "env": [
+            {
+                "name": "username",
+                "value": "admin",
+                "type": "str"
+            },
+            {
+                "name": "password",
+                "type": "cred"
+            },
+            {
+                "name": "hostname",
+                "value": "kamera-kellertuer",
+                "type": "str"
+            }
+        ],
+        "x": 160,
+        "y": 300,
+        "wires": [
+            [
+                "f19e72af47339cf8"
+            ],
+            [
+                "409f37a2ef9abb46"
+            ]
+        ]
+    },
+    {
+        "id": "9ff914a13475df69",
+        "type": "subflow:f5d8e11fee9a1e7c",
+        "z": "fc93ef5a2502b341",
+        "name": "Kamera Balkon",
+        "env": [
+            {
+                "name": "username",
+                "value": "admin",
+                "type": "str"
+            },
+            {
+                "name": "password",
+                "type": "cred"
+            },
+            {
+                "name": "hostname",
+                "value": "kamera-balkon",
+                "type": "str"
+            }
+        ],
+        "x": 160,
+        "y": 460,
+        "wires": [
+            [
+                "68f1e056b5ac9262"
+            ],
+            [
+                "94f4b7425b382622"
             ]
         ]
     }
