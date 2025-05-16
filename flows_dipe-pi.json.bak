@@ -95,15 +95,7 @@
     {
         "id": "caf02dc9a5b73890",
         "type": "tab",
-        "label": "Kellertür",
-        "disabled": false,
-        "info": "",
-        "env": []
-    },
-    {
-        "id": "062848eb6508a3a6",
-        "type": "tab",
-        "label": "Haustür",
+        "label": "Nuki",
         "disabled": false,
         "info": "",
         "env": []
@@ -159,8 +151,8 @@
     {
         "id": "186ee9b7.78e426",
         "type": "tab",
-        "label": "Web Push",
-        "disabled": true,
+        "label": "Web Push Demo",
+        "disabled": false,
         "info": ""
     },
     {
@@ -169,67 +161,6 @@
         "label": "Kamera",
         "disabled": false,
         "info": ""
-    },
-    {
-        "id": "c2a5330f97fa7c16",
-        "type": "tab",
-        "label": "Fernbedienung",
-        "disabled": false,
-        "info": "",
-        "env": []
-    },
-    {
-        "id": "f5d8e11fee9a1e7c",
-        "type": "subflow",
-        "name": "reolink-kamera",
-        "info": "",
-        "category": "",
-        "in": [],
-        "out": [
-            {
-                "x": 880,
-                "y": 360,
-                "wires": [
-                    {
-                        "id": "575bd07550518820",
-                        "port": 0
-                    }
-                ]
-            },
-            {
-                "x": 1240,
-                "y": 360,
-                "wires": [
-                    {
-                        "id": "36171ea14a65a252",
-                        "port": 0
-                    }
-                ]
-            }
-        ],
-        "env": [
-            {
-                "name": "username",
-                "type": "str",
-                "value": ""
-            },
-            {
-                "name": "password",
-                "type": "cred"
-            },
-            {
-                "name": "hostname",
-                "type": "str",
-                "value": ""
-            }
-        ],
-        "meta": {},
-        "color": "#C0DEED",
-        "outputLabels": [
-            "person detected",
-            "snapshot"
-        ],
-        "icon": "font-awesome/fa-video-camera"
     },
     {
         "id": "5212abebc2a62f0b",
@@ -841,6 +772,15 @@
         "className": ""
     },
     {
+        "id": "b6b292c6a3480048",
+        "type": "nuki-bridge",
+        "host": "nuki-bridge",
+        "port": "8080",
+        "callbackHost": "http://dipe-pi:1880",
+        "clearCallbacks": false,
+        "webUpdateTimeout": "30"
+    },
+    {
         "id": "9092750be0b451a2",
         "type": "ui_tab",
         "name": "IR-Heizungen",
@@ -1235,321 +1175,6 @@
         "width": 9,
         "collapse": false,
         "className": ""
-    },
-    {
-        "id": "d172b67019921586",
-        "type": "ui_tab",
-        "name": "Fernbedienung",
-        "icon": "dashboard",
-        "order": 18,
-        "disabled": false,
-        "hidden": false
-    },
-    {
-        "id": "f52f860f97388f73",
-        "type": "ui_group",
-        "name": "Group 1",
-        "tab": "d172b67019921586",
-        "order": 1,
-        "disp": false,
-        "width": 2,
-        "collapse": false,
-        "className": ""
-    },
-    {
-        "id": "deb41d0cb1067945",
-        "type": "ui_group",
-        "name": "Group 2",
-        "tab": "d172b67019921586",
-        "order": 2,
-        "disp": false,
-        "width": 2,
-        "collapse": false,
-        "className": ""
-    },
-    {
-        "id": "293408e2cb7bb9c0",
-        "type": "ui_group",
-        "name": "Group 3",
-        "tab": "d172b67019921586",
-        "order": 3,
-        "disp": false,
-        "width": 2,
-        "collapse": false,
-        "className": ""
-    },
-    {
-        "id": "2359d0317a8e5efd",
-        "type": "ui_group",
-        "name": "Group 4",
-        "tab": "d172b67019921586",
-        "order": 4,
-        "disp": false,
-        "width": "6",
-        "collapse": false,
-        "className": ""
-    },
-    {
-        "id": "40197d5f58592aee",
-        "type": "ui_group",
-        "name": "Haustür",
-        "tab": "c824e9e5.f339c8",
-        "order": 2,
-        "disp": true,
-        "width": "6",
-        "collapse": false,
-        "className": ""
-    },
-    {
-        "id": "a27c201f88d5372d",
-        "type": "http request",
-        "z": "f5d8e11fee9a1e7c",
-        "name": "",
-        "method": "GET",
-        "ret": "obj",
-        "paytoqs": "ignore",
-        "url": "",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "insecureHTTPParser": false,
-        "authType": "",
-        "senderr": false,
-        "headers": [],
-        "x": 310,
-        "y": 300,
-        "wires": [
-            [
-                "8406ac3401f66db6"
-            ]
-        ]
-    },
-    {
-        "id": "e9c24f7de0b9dc42",
-        "type": "inject",
-        "z": "f5d8e11fee9a1e7c",
-        "name": "",
-        "props": [
-            {
-                "p": "url",
-                "v": "\"http://\" & $env('hostname') & \"/cgi-bin/api.cgi?cmd=GetAiState&token=\" & $flowContext(\"token\")",
-                "vt": "jsonata"
-            }
-        ],
-        "repeat": "2",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "x": 140,
-        "y": 300,
-        "wires": [
-            [
-                "a27c201f88d5372d"
-            ]
-        ]
-    },
-    {
-        "id": "8406ac3401f66db6",
-        "type": "switch",
-        "z": "f5d8e11fee9a1e7c",
-        "name": "Mensch",
-        "property": "payload[0].value.people.alarm_state",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "1",
-                "vt": "str"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 480,
-        "y": 300,
-        "wires": [
-            [
-                "575bd07550518820"
-            ]
-        ]
-    },
-    {
-        "id": "bc2389e7080a4308",
-        "type": "change",
-        "z": "f5d8e11fee9a1e7c",
-        "name": "Prep Login Post",
-        "rules": [
-            {
-                "t": "set",
-                "p": "url",
-                "pt": "msg",
-                "to": "\"http://\" & $env('hostname') & \"/cgi-bin/api.cgi?cmd=Login\"",
-                "tot": "jsonata"
-            },
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "[{\"cmd\":\"Login\",\"action\":0,\"param\":{\"User\":{\"userName\":$env('username'),\"password\":$env('password')}}}]",
-                "tot": "jsonata"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 320,
-        "y": 200,
-        "wires": [
-            [
-                "741722e4a7ad9cdb"
-            ]
-        ]
-    },
-    {
-        "id": "741722e4a7ad9cdb",
-        "type": "http request",
-        "z": "f5d8e11fee9a1e7c",
-        "name": "",
-        "method": "POST",
-        "ret": "obj",
-        "paytoqs": "ignore",
-        "url": "",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "insecureHTTPParser": false,
-        "authType": "",
-        "senderr": false,
-        "headers": [],
-        "x": 510,
-        "y": 200,
-        "wires": [
-            [
-                "79f15d4a0714d7d8"
-            ]
-        ]
-    },
-    {
-        "id": "ded95475e69af2fe",
-        "type": "inject",
-        "z": "f5d8e11fee9a1e7c",
-        "name": "",
-        "props": [],
-        "repeat": "3000",
-        "crontab": "",
-        "once": true,
-        "onceDelay": "11",
-        "topic": "",
-        "x": 140,
-        "y": 200,
-        "wires": [
-            [
-                "bc2389e7080a4308"
-            ]
-        ]
-    },
-    {
-        "id": "79f15d4a0714d7d8",
-        "type": "change",
-        "z": "f5d8e11fee9a1e7c",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "token",
-                "pt": "flow",
-                "to": "payload[0].value.Token.name",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 700,
-        "y": 200,
-        "wires": [
-            []
-        ],
-        "icon": "font-awesome/fa-lock"
-    },
-    {
-        "id": "6dfc591e4b556f70",
-        "type": "change",
-        "z": "f5d8e11fee9a1e7c",
-        "name": "Prep Snap Get",
-        "rules": [
-            {
-                "t": "set",
-                "p": "url",
-                "pt": "msg",
-                "to": "\"http://\" & $env('hostname') & \"/cgi-bin/api.cgi?cmd=Snap&channel=0&token=\" & $flowContext(\"token\")",
-                "tot": "jsonata"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 860,
-        "y": 300,
-        "wires": [
-            [
-                "36171ea14a65a252"
-            ]
-        ]
-    },
-    {
-        "id": "36171ea14a65a252",
-        "type": "http request",
-        "z": "f5d8e11fee9a1e7c",
-        "name": "",
-        "method": "GET",
-        "ret": "bin",
-        "paytoqs": "ignore",
-        "url": "",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "insecureHTTPParser": false,
-        "authType": "",
-        "senderr": false,
-        "headers": [],
-        "x": 1050,
-        "y": 300,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "575bd07550518820",
-        "type": "delay",
-        "z": "f5d8e11fee9a1e7c",
-        "name": "",
-        "pauseType": "rate",
-        "timeout": "5",
-        "timeoutUnits": "seconds",
-        "rate": "1",
-        "nbRateUnits": "5",
-        "rateUnits": "minute",
-        "randomFirst": "1",
-        "randomLast": "5",
-        "randomUnits": "seconds",
-        "drop": true,
-        "allowrate": false,
-        "outputs": 1,
-        "x": 660,
-        "y": 300,
-        "wires": [
-            [
-                "6dfc591e4b556f70"
-            ]
-        ]
     },
     {
         "id": "930e92a7.3f378",
@@ -2675,7 +2300,7 @@
         "type": "function",
         "z": "37daec28.284ee4",
         "name": "initialize Scenes",
-        "func": "flow.set(\"current_scene_idx\", 0)\nflow.set(\"max_scene_idx\", 5)\nflow.set(\"scenes\", [\n        {   scene_idx: 0,\n            scene_name: \"aus\",\n            devices: [\n                {   device_idx: 1,\n                    name: \"Tiffany\",\n                    state: \"OFF\"\n                },\n                {   device_idx: 2,\n                    name: \"Fensterbank\",\n                    state: \"OFF\"\n                },\n                {   device_idx: 3,\n                    name: \"Klavierlampe\",\n                    state: \"OFF\"\n                },\n                {   device_idx: 4,\n                    name: \"Leuchter\",\n                    state: \"OFF\"\n                },\n                {\n                    device_idx: 5,\n                    name: \"Tizo\",\n                    state: \"OFF\"\n                },\n                {\n                    device_idx: 6,\n                    name: \"Tizo Standsäule\",\n                    state: \"OFF\"\n                },\n                {\n                    device_idx: 7,\n                    name: \"Tolomeo \",\n                    state: \"OFF\"\n                }\n            ]\n        },\n        {   scene_idx: 1,\n            scene_name: \"ambiente\",\n            devices: [\n                {   device_idx: 1,\n                    name: \"Tiffany\",\n                    brightness: 70,\n                    state: \"ON\"\n                },\n                {   device_idx: 2,\n                    name: \"Fensterbank\",\n                    brightness: 70,\n                    state: \"ON\"\n                },\n                {   device_idx: 3,\n                    name: \"Klavierlampe\",\n                    state: \"ON\"\n                },\n                {   device_idx: 4,\n                    name: \"Leuchter\",\n                    state: \"OFF\"\n                },\n                {   device_idx: 5,\n                    name: \"Tizio\",\n                    state: \"OFF\"\n                },\n                {\n                    device_idx: 6,\n                    name: \"Tizo Standsäule\",\n                    state: \"OFF\"\n                },\n                {\n                    device_idx: 7,\n                    name: \"Tolomeo \",\n                    brightness: 30,\n                    state: \"ON\"\n                }\n            ]\n        },\n        {   scene_idx: 2,\n            scene_name: \"cosy\",\n            devices: [\n                {   device_idx: 1,\n                    name: \"Tiffany\",\n                    brightness: 150,\n                    state: \"ON\"\n                },\n                {   device_idx: 2,\n                    name: \"Fensterbank\",\n                    brightness: 150,\n                    state: \"ON\"\n                },\n                {   device_idx: 3,\n                    name: \"Klavierlampe\",\n                    state: \"ON\"\n                },\n                {   device_idx: 4,\n                    name: \"Leuchter\",\n                    state: \"OFF\"\n                },\n                {   device_idx: 5,\n                    name: \"Tizio\",\n                    state: \"ON\"\n                },\n                {\n                    device_idx: 6,\n                    name: \"Tizo Standsäule\",\n                    state: \"ON\"\n                },\n                {\n                    device_idx: 7,\n                    name: \"Tolomeo \",\n                    brightness: 255,\n                    state: \"ON\"\n                }\n            ]\n        },\n        {   scene_idx: 3,\n            scene_name: \"sofa_read\",\n            devices: [\n                {   device_idx: 1,\n                    name: \"Tiffany\",\n                    brightness: 100,\n                    state: \"ON\"\n                },\n                {   device_idx: 2,\n                    name: \"Fensterbank\",\n                    brightness: 255,\n                    state: \"ON\"\n                },\n                {   device_idx: 3,\n                    name: \"Klavierlampe\",\n                    state: \"ON\"\n                },\n                {   device_idx: 4,\n                    name: \"Leuchter\",\n                    state: \"OFF\"\n                },\n                {\n                    device_idx: 5,\n                    name: \"Tizio\",\n                    state: \"ON\"\n                },\n                {\n                    device_idx: 6,\n                    name: \"Tizo Standsäule\",\n                    state: \"ON\"\n                },\n                {\n                    device_idx: 7,\n                    name: \"Tolomeo \",\n                    brightness: 100,\n                    state: \"ON\"\n                }\n            ]\n        },\n      {   scene_idx: 4,\n            scene_name: \"bright\",\n            devices: [\n                {   device_idx: 1,\n                    name: \"Tiffany\",\n                    brightness: 255,\n                    state: \"ON\"\n                },\n                {   device_idx: 2,\n                    name: \"Fensterbank\",\n                    brightness: 255,\n                    state: \"ON\"\n                },\n                {   device_idx: 3,\n                    name: \"Klavierlampe\",\n                    state: \"ON\"\n                },\n                {   device_idx: 4,\n                    name: \"Leuchter\",\n                    brightness: 255,\n                    state: \"ON\"\n                },\n                {\n                    device_idx: 5,\n                    name: \"Tizio\",\n                    state: \"ON\"\n                },\n                {\n                    device_idx: 6,\n                    name: \"Tizo Standsäule\",\n                    state: \"ON\"\n                },\n                {\n                    device_idx: 7,\n                    name: \"Tolomeo \",\n                    brightness: 255,\n                    state: \"ON\"\n                }\n            ]\n        }\n    ]\n)\n\nreturn {payload: 0};",
+        "func": "flow.set(\"current_scene_idx\", 0)\nflow.set(\"max_scene_idx\", 5)\nflow.set(\"scenes\", [\n        {   scene_idx: 0,\n            scene_name: \"aus\",\n            devices: [\n                {   device_idx: 1,\n                    name: \"Tiffany\",\n                    state: \"OFF\"\n                },\n                {   device_idx: 2,\n                    name: \"Fensterbank\",\n                    state: \"OFF\"\n                },\n                {   device_idx: 3,\n                    name: \"Klavierlampe\",\n                    state: \"OFF\"\n                },\n                {   device_idx: 4,\n                    name: \"Leuchter\",\n                    state: \"OFF\"\n                },\n                {\n                    device_idx: 5,\n                    name: \"Tizo\",\n                    state: \"OFF\"\n                },\n                {\n                    device_idx: 6,\n                    name: \"Tizo Standsäule\",\n                    state: \"OFF\"\n                },\n                {\n                    device_idx: 7,\n                    name: \"Tolomeo \",\n                    state: \"OFF\"\n                }\n            ]\n        },\n        {   scene_idx: 1,\n            scene_name: \"ambiente\",\n            devices: [\n                {   device_idx: 1,\n                    name: \"Tiffany\",\n                    brightness: 70,\n                    state: \"ON\"\n                },\n                {   device_idx: 2,\n                    name: \"Fensterbank\",\n                    brightness: 70,\n                    state: \"ON\"\n                },\n                {   device_idx: 3,\n                    name: \"Klavierlampe\",\n                    state: \"ON\"\n                },\n                {   device_idx: 4,\n                    name: \"Leuchter\",\n                    state: \"OFF\"\n                },\n                {   device_idx: 5,\n                    name: \"Tizio\",\n                    state: \"OFF\"\n                },\n                {\n                    device_idx: 6,\n                    name: \"Tizo Standsäule\",\n                    state: \"OFF\"\n                },\n                {\n                    device_idx: 7,\n                    name: \"Tolomeo \",\n                    brightness: 30,\n                    state: \"ON\"\n                }\n            ]\n        },\n        {   scene_idx: 2,\n            scene_name: \"cosy\",\n            devices: [\n                {   device_idx: 1,\n                    name: \"Tiffany\",\n                    brightness: 150,\n                    state: \"ON\"\n                },\n                {   device_idx: 2,\n                    name: \"Fensterbank\",\n                    brightness: 150,\n                    state: \"ON\"\n                },\n                {   device_idx: 3,\n                    name: \"Klavierlampe\",\n                    state: \"ON\"\n                },\n                {   device_idx: 4,\n                    name: \"Leuchter\",\n                    state: \"OFF\"\n                },\n                {   device_idx: 5,\n                    name: \"Tizio\",\n                    state: \"ON\"\n                },\n                {\n                    device_idx: 6,\n                    name: \"Tizo Standsäule\",\n                    state: \"ON\"\n                },\n                {\n                    device_idx: 7,\n                    name: \"Tolomeo \",\n                    brightness: 144,\n                    state: \"ON\"\n                }\n            ]\n        },\n        {   scene_idx: 3,\n            scene_name: \"sofa_read\",\n            devices: [\n                {   device_idx: 1,\n                    name: \"Tiffany\",\n                    brightness: 100,\n                    state: \"ON\"\n                },\n                {   device_idx: 2,\n                    name: \"Fensterbank\",\n                    brightness: 255,\n                    state: \"ON\"\n                },\n                {   device_idx: 3,\n                    name: \"Klavierlampe\",\n                    state: \"ON\"\n                },\n                {   device_idx: 4,\n                    name: \"Leuchter\",\n                    state: \"OFF\"\n                },\n                {\n                    device_idx: 5,\n                    name: \"Tizio\",\n                    state: \"ON\"\n                },\n                {\n                    device_idx: 6,\n                    name: \"Tizo Standsäule\",\n                    state: \"ON\"\n                },\n                {\n                    device_idx: 7,\n                    name: \"Tolomeo \",\n                    brightness: 100,\n                    state: \"ON\"\n                }\n            ]\n        },\n      {   scene_idx: 4,\n            scene_name: \"bright\",\n            devices: [\n                {   device_idx: 1,\n                    name: \"Tiffany\",\n                    brightness: 255,\n                    state: \"ON\"\n                },\n                {   device_idx: 2,\n                    name: \"Fensterbank\",\n                    brightness: 255,\n                    state: \"ON\"\n                },\n                {   device_idx: 3,\n                    name: \"Klavierlampe\",\n                    state: \"ON\"\n                },\n                {   device_idx: 4,\n                    name: \"Leuchter\",\n                    brightness: 255,\n                    state: \"ON\"\n                },\n                {\n                    device_idx: 5,\n                    name: \"Tizio\",\n                    state: \"ON\"\n                },\n                {\n                    device_idx: 6,\n                    name: \"Tizo Standsäule\",\n                    state: \"ON\"\n                },\n                {\n                    device_idx: 7,\n                    name: \"Tolomeo \",\n                    brightness: 255,\n                    state: \"ON\"\n                }\n            ]\n        }\n    ]\n)\n\nreturn {payload: 0};",
         "outputs": 1,
         "timeout": "",
         "noerr": 0,
@@ -6805,7 +6430,7 @@
         "type": "function",
         "z": "4d90b497.b5b2ac",
         "name": "fan controller",
-        "func": "// let kellertuer_sensor = global.get(\"kellertuer_sensor\");\n// let waschkueche_fahradkeller_tuer_sensor_contact = global.get('waschkueche_fahradkeller_tuer_sensor');\n// if (!kellertuer_sensor && !waschkueche_fahradkeller_tuer_sensor_contact) {\n//     msg = [\n//         {topic: \"luefter_sw\", payload: \"OFF\"},\n//         {topic: \"Debug\", payload: {}}\n//     ];\n\n//     return msg;  \n// }\n\n// const outside_abs_humidity = global.get(\"aussen-absolute_humidity\");\nconst outside_abs_humidity = global.get(\"steckdose1-absolute_humidity\");\nconst wk_temperature = global.get(\"waschkueche_luefter-temperature\");\nconst wk_humidity = global.get(\"waschkueche_luefter-humidity\");\nconst wk_abs_humidity = global.get(\"waschkueche_luefter-absolute_humidity\");\n\nconst washroom_fan_control = flow.get(\"washroom_fan_control\");\nconst last_abs_humidity_gt_outside_abs_humidity = global.get(\"washroom-last_abs_humidity_gt_outside_abs_humidity\");\n\nconst room_abs_humidity_gt_outside_abs_humidity = (last_abs_humidity_gt_outside_abs_humidity) ?\n    wk_abs_humidity > outside_abs_humidity * 1.05:\n    wk_abs_humidity > outside_abs_humidity * 1.05;\n\nglobal.set(\"washroom-last_abs_humidity_gt_outside_abs_humidity\", wk_abs_humidity > outside_abs_humidity);\n\nvar washroom_fan_on;\nif (washroom_fan_control == \"ON\") {\n    if (room_abs_humidity_gt_outside_abs_humidity) {\n        if (wk_humidity > 60 && wk_temperature > 14) {\n            washroom_fan_on = \"ON\";\n        } else {\n            washroom_fan_on = \"OFF\";\n        }\n    } else {\n        washroom_fan_on = \"OFF\";\n    }\n} else {\n    washroom_fan_on = undefined;\n}\n\nmsg = [\n    (washroom_fan_on) ? {topic: \"luefter_sw\", payload: washroom_fan_on} : undefined,\n    {topic: \"Debug\", payload: {\n            outside_abs_humidity: outside_abs_humidity,\n            wk_temperature: wk_temperature,\n            wk_humidity: wk_humidity,\n            wk_abs_humidity: wk_abs_humidity,\n            washroom_fan_on: washroom_fan_on,\n            washroom_fan_control: washroom_fan_control,\n            room_abs_humidity_gt_outside_abs_humidity: room_abs_humidity_gt_outside_abs_humidity,\n            last_abs_humidity_gt_outside_abs_humidity: last_abs_humidity_gt_outside_abs_humidity\n    }   }\n];\n\nreturn msg;",
+        "func": "// let kellertuer_sensor = global.get(\"kellertuer_sensor\");\n// let waschkueche_fahradkeller_tuer_sensor_contact = global.get('waschkueche_fahradkeller_tuer_sensor');\n// if (!kellertuer_sensor && !waschkueche_fahradkeller_tuer_sensor_contact) {\n//     msg = [\n//         {topic: \"luefter_sw\", payload: \"OFF\"},\n//         {topic: \"Debug\", payload: {}}\n//     ];\n\n//     return msg;  \n// }\n\n// const outside_abs_humidity = global.get(\"aussen-absolute_humidity\");\nconst outside_abs_humidity = global.get(\"steckdose1-absolute_humidity\");\nconst wk_temperature = global.get(\"waschkueche_luefter-temperature\");\nconst wk_humidity = global.get(\"waschkueche_luefter-humidity\");\nconst wk_abs_humidity = global.get(\"waschkueche_luefter-absolute_humidity\");\n\nconst washroom_fan_control = flow.get(\"washroom_fan_control\");\nconst last_abs_humidity_gt_outside_abs_humidity = global.get(\"washroom-last_abs_humidity_gt_outside_abs_humidity\");\n\nconst room_abs_humidity_gt_outside_abs_humidity = (last_abs_humidity_gt_outside_abs_humidity) ?\n    wk_abs_humidity > outside_abs_humidity * 1.05:\n    wk_abs_humidity > outside_abs_humidity * 1.05;\n\nglobal.set(\"washroom-last_abs_humidity_gt_outside_abs_humidity\", wk_abs_humidity > outside_abs_humidity);\n\nvar washroom_fan_on;\nif (washroom_fan_control == \"ON\") {\n    if (room_abs_humidity_gt_outside_abs_humidity) {\n        if (wk_humidity > 55 && wk_temperature > 14) {\n            washroom_fan_on = \"ON\";\n        } else {\n            washroom_fan_on = \"OFF\";\n        }\n    } else {\n        washroom_fan_on = \"OFF\";\n    }\n} else {\n    washroom_fan_on = undefined;\n}\n\nmsg = [\n    (washroom_fan_on) ? {topic: \"luefter_sw\", payload: washroom_fan_on} : undefined,\n    {topic: \"Debug\", payload: {\n            outside_abs_humidity: outside_abs_humidity,\n            wk_temperature: wk_temperature,\n            wk_humidity: wk_humidity,\n            wk_abs_humidity: wk_abs_humidity,\n            washroom_fan_on: washroom_fan_on,\n            washroom_fan_control: washroom_fan_control,\n            room_abs_humidity_gt_outside_abs_humidity: room_abs_humidity_gt_outside_abs_humidity,\n            last_abs_humidity_gt_outside_abs_humidity: last_abs_humidity_gt_outside_abs_humidity\n    }   }\n];\n\nreturn msg;",
         "outputs": 2,
         "timeout": "",
         "noerr": 0,
@@ -6944,9 +6569,8 @@
         "type": "function",
         "z": "4d90b497.b5b2ac",
         "name": "",
-        "func": "const luefter = msg.payload;\nconst wk_temperature = global.get(\"waschkueche_luefter-temperature\");\nconst wk_rel_humidity = global.get(\"waschkueche_luefter-humidity\");\n\nif (luefter === \"ON\") { \n    return {\n        payload: \"off\"\n    };\n} else if (wk_rel_humidity > 65 && wk_temperature < 18) {\n    return {\n        payload: 18\n    };\n} else if (wk_rel_humidity > 60  && wk_temperature < 16) {\n    return {\n        payload: 16\n    };\n} else if (wk_temperature < 14  && wk_temperature < 14) {\n    return {\n        payload: 14\n    };\n} else {\n    return {\n        payload: \"off\"\n    };\n}\n",
+        "func": "const luefter = msg.payload;\nconst wk_temperature = global.get(\"waschkueche_luefter-temperature\");\nconst wk_rel_humidity = global.get(\"waschkueche_luefter-humidity\");\n\nif (luefter === \"ON\") { \n    return {\n        payload: \"off\"\n    };\n} else if (wk_rel_humidity > 65) {\n    return {\n        payload: 18\n    };\n} else if (wk_rel_humidity > 60) {\n    return {\n        payload: 16\n    };\n} else if (wk_temperature < 14) {\n    return {\n        payload: 14\n    };\n} else {\n    return {\n        payload: \"off\"\n    };\n}\n",
         "outputs": 1,
-        "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
@@ -7488,8 +7112,7 @@
         "name": "Fan Controller",
         "links": [
             "21b33795391d4ce8",
-            "605faa63e383b5da",
-            "f9767b0c8c5a1e17"
+            "605faa63e383b5da"
         ],
         "x": 685,
         "y": 440,
@@ -7946,7 +7569,7 @@
         "y": 740,
         "wires": [
             [
-                "f182175dfb323de9"
+                "f537de13ab240908"
             ]
         ]
     },
@@ -8692,8 +8315,7 @@
         "name": "kellertuer_schalter_aussenlicht",
         "mode": "link",
         "links": [
-            "cfca6b4ad8a515f2",
-            "7fef5154b7c2177a"
+            "cfca6b4ad8a515f2"
         ],
         "x": 1215,
         "y": 60,
@@ -8706,12 +8328,11 @@
         "name": "store global as named aussen",
         "func": "global.set(\"aussen-temperature\", msg.payload.tempc);\nglobal.set(\"aussen-humidity\", msg.payload.humidity);\nglobal.set(\"aussen-absolute_humidity\", msg.payload.absolute_humidity);\nglobal.set(\"aussen-pressure\", msg.payload.pressure);\nglobal.set(\"aussen-dew_point\", msg.payload.dew_point);\n\nreturn msg;\n",
         "outputs": 1,
-        "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 870,
+        "x": 690,
         "y": 740,
         "wires": [
             []
@@ -8726,7 +8347,7 @@
         "links": [
             "9b9574d4.b3d108"
         ],
-        "x": 755,
+        "x": 575,
         "y": 780,
         "wires": []
     },
@@ -8737,12 +8358,11 @@
         "name": "add absolute_humidity and dew_point",
         "func": "const mw = 18.01534;    // molar mass of water g/mol\nconst r = 8.31447215;   // Universal gas constant J/mol/K\n\nconst tempc = Number(msg.payload.tempc);\nconst humidity = Number(msg.payload.humidity);\n\nconst absolute_humidity = Number((6.112 * Math.exp((17.67 * tempc) /\n    (tempc + 243.5)) * humidity * mw) /\n    ((273.15 + tempc) * r));\nconst dew_point = Number((243.5 * (Math.log(humidity / 100) + ((17.67 * tempc) /\n    (243.5 + tempc))) / (17.67 - Math.log(humidity / 100) -\n        ((17.67 * tempc) / (243.5 + tempc)))));\n\nmsg.payload.absolute_humidity = absolute_humidity;\nmsg.payload.dew_point = dew_point;\n\nreturn msg;\n",
         "outputs": 1,
-        "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 550,
+        "x": 370,
         "y": 740,
         "wires": [
             [
@@ -8797,34 +8417,13 @@
         "links": [
             "5f083e6b9b4c2abf",
             "865d40eb7c6b444e",
-            "5f52228d037d591e",
-            "4ccfd8e25ba474a1"
+            "5f52228d037d591e"
         ],
         "x": 545,
         "y": 440,
         "wires": [
             [
                 "25c855ce.b3b12a"
-            ]
-        ]
-    },
-    {
-        "id": "f182175dfb323de9",
-        "type": "function",
-        "z": "293bb437.fa00bc",
-        "name": "add field rain",
-        "func": "msg.payload.rain = msg.payload.rain || 0.0;\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 290,
-        "y": 740,
-        "wires": [
-            [
-                "f537de13ab240908"
             ]
         ]
     },
@@ -9131,7 +8730,7 @@
         "id": "86ad9def.8aa5c",
         "type": "mqtt in",
         "z": "2f328ad8.26ca86",
-        "name": "Stromzähler - Leistung",
+        "name": "",
         "topic": "stromzaehler/sensor/1/obis/1-0:16.7.0/255/value",
         "qos": "2",
         "datatype": "auto",
@@ -9139,7 +8738,7 @@
         "nl": false,
         "rap": false,
         "inputs": 0,
-        "x": 240,
+        "x": 320,
         "y": 340,
         "wires": [
             [
@@ -9151,15 +8750,13 @@
         "id": "2dcf1032.d990b",
         "type": "mqtt in",
         "z": "2f328ad8.26ca86",
-        "name": "Stromzähler - Energie",
+        "name": "",
         "topic": "stromzaehler/sensor/1/obis/1-0:1.8.0/255/value",
         "qos": "2",
         "datatype": "auto",
         "broker": "c349b9ff.9dc4c8",
-        "nl": false,
-        "rap": false,
         "inputs": 0,
-        "x": 240,
+        "x": 320,
         "y": 260,
         "wires": [
             [
@@ -9176,7 +8773,7 @@
         "links": [
             "cf2bd5c4.367d88"
         ],
-        "x": 575,
+        "x": 735,
         "y": 300,
         "wires": []
     },
@@ -9188,7 +8785,7 @@
         "links": [
             "cbdd2a4.e9dcad8"
         ],
-        "x": 575,
+        "x": 735,
         "y": 220,
         "wires": []
     },
@@ -9363,7 +8960,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 610,
+        "x": 770,
         "y": 260,
         "wires": [
             [
@@ -9383,7 +8980,7 @@
         "label": "Zähler",
         "format": "{{msg.payload}}",
         "layout": "row-spread",
-        "x": 750,
+        "x": 910,
         "y": 260,
         "wires": []
     },
@@ -9512,12 +9109,11 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 610,
+        "x": 770,
         "y": 340,
         "wires": [
             [
-                "a50e9312216973f8",
-                "b379919482e29525"
+                "a50e9312216973f8"
             ]
         ]
     },
@@ -9534,7 +9130,7 @@
         "format": "{{msg.payload}}",
         "layout": "row-spread",
         "className": "",
-        "x": 750,
+        "x": 910,
         "y": 340,
         "wires": []
     },
@@ -9549,7 +9145,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 680,
+        "x": 840,
         "y": 380,
         "wires": [
             []
@@ -9566,7 +9162,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 450,
+        "x": 610,
         "y": 340,
         "wires": [
             [
@@ -9587,7 +9183,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 450,
+        "x": 610,
         "y": 260,
         "wires": [
             [
@@ -9607,7 +9203,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 790,
+        "x": 870,
         "y": 460,
         "wires": [
             [
@@ -9627,7 +9223,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 510,
+        "x": 590,
         "y": 460,
         "wires": [
             [
@@ -9645,7 +9241,7 @@
             "49152127e918c9d7",
             "8dd66c9be3547aa2"
         ],
-        "x": 975,
+        "x": 1055,
         "y": 460,
         "wires": []
     },
@@ -9653,7 +9249,7 @@
         "id": "3e9ebf101b0970f9",
         "type": "mqtt in",
         "z": "2f328ad8.26ca86",
-        "name": "Wechselrichter - Leistung",
+        "name": "",
         "topic": "leistungsmesser2/sensor/power/state",
         "qos": "2",
         "datatype": "auto-detect",
@@ -9662,7 +9258,7 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 250,
+        "x": 290,
         "y": 420,
         "wires": [
             [
@@ -9682,7 +9278,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 570,
+        "x": 770,
         "y": 420,
         "wires": [
             [
@@ -9703,7 +9299,7 @@
         "format": "{{msg.payload}}",
         "layout": "row-spread",
         "className": "",
-        "x": 730,
+        "x": 930,
         "y": 420,
         "wires": []
     },
@@ -9719,7 +9315,7 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1020,
+        "x": 1100,
         "y": 500,
         "wires": []
     },
@@ -9737,27 +9333,6 @@
                 "6238d883.2f3dd8"
             ]
         ]
-    },
-    {
-        "id": "b379919482e29525",
-        "type": "ui_text",
-        "z": "2f328ad8.26ca86",
-        "group": "59ad78e6b49c46bb",
-        "order": 4,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "Bezug",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "className": "",
-        "style": false,
-        "font": "",
-        "fontSize": "",
-        "color": "#000000",
-        "x": 750,
-        "y": 300,
-        "wires": []
     },
     {
         "id": "7b56cfeb.46625",
@@ -10723,11 +10298,6 @@
             },
             {
                 "t": "eq",
-                "v": "aussen",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
                 "v": "th_treppenhaus_keller",
                 "vt": "str"
             },
@@ -10809,15 +10379,12 @@
         ],
         "checkall": "false",
         "repair": false,
-        "outputs": 18,
+        "outputs": 17,
         "x": 1090,
         "y": 520,
         "wires": [
             [
                 "5221a0c4.27e25"
-            ],
-            [
-                "cdd93d3e38ae622c"
             ],
             [
                 "12ebb575.a874db"
@@ -10965,7 +10532,7 @@
         "templateScope": "local",
         "className": "",
         "x": 1300,
-        "y": 320,
+        "y": 360,
         "wires": [
             []
         ]
@@ -10983,7 +10550,7 @@
         "finalize": "",
         "libs": [],
         "x": 400,
-        "y": 340,
+        "y": 380,
         "wires": [
             [
                 "dac326a7.c5d638"
@@ -11067,8 +10634,7 @@
                 "0b3e08059fd963b5",
                 "7359385faca6d84e",
                 "0bed57233aab0d43",
-                "ffaa1564fff185a6",
-                "b8d8ad110ade12f4"
+                "ffaa1564fff185a6"
             ]
         ]
     },
@@ -11077,7 +10643,7 @@
         "type": "function",
         "z": "2788b93b.8a2f56",
         "name": "initialize names-rooms mapping",
-        "func": "const room = global.set(\"names_rooms\", {\n    \"luftguetemesser1\": \"Werkstatt\",\n    \"waschkueche_luefter\": \"Waschküche\",\n    \"luftfeuchtemesser1\": \"Büro DG\",\n    \"steckdose1\": \"Balkon\",\n    \"aussen\": \"Open Weather\"\n});\n",
+        "func": "const room = global.set(\"names_rooms\", {\n    \"luftguetemesser1\": \"Werkstatt\",\n    \"waschkueche_luefter\": \"Waschküche\",\n    \"luftfeuchtemesser1\": \"Büro DG\",\n    \"steckdose1\": \"Balkon\"\n});\n",
         "outputs": 1,
         "timeout": "",
         "noerr": 0,
@@ -11645,47 +11211,6 @@
         "className": "",
         "x": 1300,
         "y": 880,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "b8d8ad110ade12f4",
-        "type": "function",
-        "z": "2788b93b.8a2f56",
-        "name": "recall klima aussen",
-        "func": "const name = \"aussen\";\n\nconst temperature = global.get(name + \"-temperature\");\nconst humidity = global.get(name + \"-humidity\");\nconst abs_humidity = global.get(name + \"-absolute_humidity\");\nconst last_abs_humidity = global.get(name + \"-last_abs_humidity\");\nglobal.set(name + \"-last_abs_humidity\", abs_humidity);\n\n//node.warn(name)\n//node.warn(temperature)\n//node.warn(humidity)\n//node.warn(abs_humidity)\n//node.warn(last_abs_humidity_gt_outside_abs_humidity)\n//node.warn(outside_abs_humidity)\n\nconst intl = global.get('intl');\nconst format = intl.NumberFormat('de-De',{style:'decimal', maximumFractionDigits: 1}).format;\nconst sprintf = global.get(\"sprintf\");\nconst text = sprintf(\"%s °C, %s %% H, %s g/m³\", format(temperature), format(humidity), format(abs_humidity))\n\nif        (abs_humidity >= 13) {\n    return {payload: {name: name, color: \"deepskyblue\", hint: \"Draußen ist es sehr feucht.\", text: text}};\n} else if (abs_humidity >= 12 && abs_humidity < 13) {\n    return {payload: {name: name, color: \"skyblue\", hint: \"Draußen ist es feucht.\", text: text}};\n} else if (abs_humidity >= 11 && abs_humidity < 12) {\n    return {payload: {name: name, color: \"limegreen\", hint: \"Draußen ist einigermaßen trocken.\", text: text}};\n} else if (abs_humidity < 11) {\n    return {payload: {name: name, color: \"YellowGreen\", hint: \"Draußen ist es trocken.\", text: text}};\n} else {\n    return {payload: {name: name, color: \"DarkSeaGreen\", hint: \"Draußen ist es sehr trocken.\", text: text}};\n}\n\n// if (last_abs_humidity >= 13 && abs_humidity >= 13 ||\n//     last_abs_humidity < 13 && abs_humidity > 13 * 1.10) {\n//     return { payload: { name: name, color: \"deepskyblue\", hint: \"Draußen ist es sehr feucht.\", text: text } };\n// } else if (last_abs_humidity > 13 && abs_humidity < 13 / 1.10 && abs_humidity > 12 ||\n//     last_abs_humidity <= 13 && last_abs_humidity >= 12 && abs_humidity <= 13 && abs_humidity >= 12 ||\n//     last_abs_humidity < 12 && abs_humidity > 12 * 1.10 && abs_humidity < 13) {\n//     return { payload: { name: name, color: \"skyblue\", hint: \"Draußen ist es feucht.\", text: text } };\n// } else if (last_abs_humidity > 12 && abs_humidity < 12 / 1.10 && abs_humidity > 11 ||\n//     last_abs_humidity <= 12 && last_abs_humidity >= 11 && abs_humidity <= 12 && abs_humidity >= 11 ||\n//     last_abs_humidity < 11 && abs_humidity > 11 * 1.10 && abs_humidity < 12) {\n//     return { payload: { name: name, color: \"limegreen\", hint: \"Draußen ist einigermaßen trocken.\", text: text } };\n// } else if (last_abs_humidity > 11 && abs_humidity < 11 / 1.10 ||\n//     last_abs_humidity <= 11 && abs_humidity <= 11) {\n//     return { payload: { name: name, color: \"YellowGreen\", hint: \"Draußen ist es trocken.\", text: text } };\n// } else {\n//     return { payload: { name: name, color: \"DarkSeaGreen\", hint: \"Draußen ist es sehr trocken.\", text: text } };\n// }\n",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 390,
-        "y": 380,
-        "wires": [
-            [
-                "dac326a7.c5d638"
-            ]
-        ]
-    },
-    {
-        "id": "cdd93d3e38ae622c",
-        "type": "ui_template",
-        "z": "2788b93b.8a2f56",
-        "group": "c64d3ecd133a32df",
-        "name": "",
-        "order": 1,
-        "width": 0,
-        "height": 0,
-        "format": "<md-card ui-card-size=\"6x2\" \n    class=\"_md nr-dashboard-text layout-align-center-center nr-dashboard-widget-text visible\" \n    style=\"background-color: {{msg.payload.color}}; color: black; left: 0px; top: 54px; width: 300px; height: 96px;\">\n    <p class=\"label\">{{msg.payload.room}}</p><p>{{msg.payload.text}}</p> <p class=\"value\">{{msg.payload.hint}}</p>\n</md-card>\n",
-        "storeOutMessages": true,
-        "fwdInMessages": true,
-        "resendOnRefresh": true,
-        "templateScope": "local",
-        "className": "",
-        "x": 1300,
-        "y": 360,
         "wires": [
             []
         ]
@@ -12388,11 +11913,309 @@
         ]
     },
     {
-        "id": "71f94bc81f332f8c",
-        "type": "mqtt in",
+        "id": "5491f3b7aa1d4a3f",
+        "type": "nuki-lock-control",
         "z": "caf02dc9a5b73890",
         "name": "Kellertür-Riegel",
-        "topic": "nuki/33B5C9E4/state",
+        "nuki": "439053421",
+        "bridge": "b6b292c6a3480048",
+        "x": 560,
+        "y": 1400,
+        "wires": [
+            [
+                "61153b6e98049a2e",
+                "4d7734b5b68a4673"
+            ]
+        ]
+    },
+    {
+        "id": "ebe65eae65335e8d",
+        "type": "nuki-lock-control",
+        "z": "caf02dc9a5b73890",
+        "name": "Kellertür-Schloss",
+        "nuki": "664478908",
+        "bridge": "b6b292c6a3480048",
+        "x": 570,
+        "y": 1440,
+        "wires": [
+            [
+                "0f68dc3afdaa2f7f",
+                "51e2c8177b790c74"
+            ]
+        ]
+    },
+    {
+        "id": "c9e2a024280b0742",
+        "type": "ui_text",
+        "z": "caf02dc9a5b73890",
+        "group": "6e590cb07ba9a85d",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Schloss",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 1320,
+        "y": 1460,
+        "wires": []
+    },
+    {
+        "id": "57d2ad26b221e581",
+        "type": "ui_text",
+        "z": "caf02dc9a5b73890",
+        "group": "6e590cb07ba9a85d",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Riegel",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
+        "x": 1310,
+        "y": 1380,
+        "wires": []
+    },
+    {
+        "id": "6b35d5e316596e6d",
+        "type": "function",
+        "z": "caf02dc9a5b73890",
+        "name": "Status-Text",
+        "func": "if (msg.topic !== \"lockStatus\") return;\n\nconst state_name_de = {\n    UNCALIBRATED: \"uncalibriert\",\n    LOCKED: \"verriegelt\",\n    UNLOCKING: \"entriegeln\",\n    UNLOCKED: \"entriegelt\",\n    LOCKING: \"verriegeln\",\n    UNLATCHED: \"geöffnet\",\n    UNLOCKED_LOCK_N_GO: \"entriegelt und gehen\",\n    UNLATCHING: \"öffnen\",\n    MOTOR_BLOCKED: \"Motor blockiert\",\n    UNDEFINED: \"undefiniert\"\n}[msg.payload.state];\n\nreturn ({payload: state_name_de || msg.payload.state});",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1150,
+        "y": 1400,
+        "wires": [
+            [
+                "57d2ad26b221e581",
+                "462ab2a1dc1a547b"
+            ]
+        ]
+    },
+    {
+        "id": "168965c8e03f3f68",
+        "type": "inject",
+        "z": "caf02dc9a5b73890",
+        "name": "",
+        "props": [
+            {
+                "p": "topic",
+                "vt": "str"
+            },
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "lockAction",
+        "payload": "UNLOCK",
+        "payloadType": "str",
+        "x": 610,
+        "y": 960,
+        "wires": [
+            [
+                "acc198f8dc5ea896"
+            ]
+        ]
+    },
+    {
+        "id": "5e7292d16e8d5d7d",
+        "type": "inject",
+        "z": "caf02dc9a5b73890",
+        "name": "",
+        "props": [
+            {
+                "p": "topic",
+                "vt": "str"
+            },
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "lockAction",
+        "payload": "LOCK",
+        "payloadType": "str",
+        "x": 600,
+        "y": 920,
+        "wires": [
+            [
+                "acc198f8dc5ea896"
+            ]
+        ]
+    },
+    {
+        "id": "4c84210c5dbade60",
+        "type": "inject",
+        "z": "caf02dc9a5b73890",
+        "name": "",
+        "props": [
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "setupCallbacks",
+        "x": 180,
+        "y": 620,
+        "wires": [
+            [
+                "14679608625f0446"
+            ]
+        ]
+    },
+    {
+        "id": "f6d4e7980ac1e1d5",
+        "type": "inject",
+        "z": "caf02dc9a5b73890",
+        "name": "",
+        "props": [
+            {
+                "p": "topic",
+                "vt": "str"
+            },
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "lockAction",
+        "payload": "UNLOCK",
+        "payloadType": "str",
+        "x": 190,
+        "y": 960,
+        "wires": [
+            [
+                "daf7dacd9dca27aa"
+            ]
+        ]
+    },
+    {
+        "id": "37278a8ab9471b0a",
+        "type": "inject",
+        "z": "caf02dc9a5b73890",
+        "name": "",
+        "props": [
+            {
+                "p": "topic",
+                "vt": "str"
+            },
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "lockAction",
+        "payload": "LOCK",
+        "payloadType": "str",
+        "x": 180,
+        "y": 920,
+        "wires": [
+            [
+                "daf7dacd9dca27aa"
+            ]
+        ]
+    },
+    {
+        "id": "67e01832216dd655",
+        "type": "inject",
+        "z": "caf02dc9a5b73890",
+        "name": "",
+        "props": [
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "getCallbacks",
+        "x": 170,
+        "y": 660,
+        "wires": [
+            [
+                "14679608625f0446"
+            ]
+        ]
+    },
+    {
+        "id": "0f68dc3afdaa2f7f",
+        "type": "link out",
+        "z": "caf02dc9a5b73890",
+        "name": "",
+        "mode": "link",
+        "links": [
+            "19c3635367e1d357",
+            "4708a180.a07a"
+        ],
+        "x": 715,
+        "y": 1480,
+        "wires": []
+    },
+    {
+        "id": "8517dde1d4e1be01",
+        "type": "inject",
+        "z": "caf02dc9a5b73890",
+        "name": "",
+        "props": [
+            {
+                "p": "topic",
+                "vt": "str"
+            },
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "lockAction",
+        "payload": "UNLATCH",
+        "payloadType": "str",
+        "x": 620,
+        "y": 1000,
+        "wires": [
+            [
+                "acc198f8dc5ea896"
+            ]
+        ]
+    },
+    {
+        "id": "f2a9858295ce0676",
+        "type": "mqtt in",
+        "z": "caf02dc9a5b73890",
+        "name": "Kellertür-Sensor",
+        "topic": "zigbee2mqtt/kellertuer_sensor",
         "qos": "2",
         "datatype": "auto-detect",
         "broker": "c349b9ff.9dc4c8",
@@ -12400,96 +12223,307 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 260,
-        "y": 660,
+        "x": 160,
+        "y": 1760,
         "wires": [
             [
-                "d82238f0a0c6b736"
+                "209031b828bceed3"
             ]
         ]
     },
     {
-        "id": "cb2a7f1829dca778",
-        "type": "mqtt out",
+        "id": "e8dc780272f0a049",
+        "type": "function",
         "z": "caf02dc9a5b73890",
-        "name": "Kellertür-Riegel",
-        "topic": "nuki/33B5C9E4/lockAction",
-        "qos": "",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "c349b9ff.9dc4c8",
-        "x": 620,
-        "y": 360,
+        "name": "Abschließen wenn Gartenlicht aus",
+        "func": "const contact = global.get(\"kellertuer_sensor\");\nconst gartenlicht = global.get(\"gartenlicht\");\n\nif (contact && gartenlicht == \"OFF\") {\n    return {topic: \"lockAction\", payload: \"LOCK\"};\n} else \n    return;\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 1600,
+        "wires": [
+            [
+                "a57ad13c5478facf"
+            ]
+        ]
+    },
+    {
+        "id": "cfca6b4ad8a515f2",
+        "type": "link in",
+        "z": "caf02dc9a5b73890",
+        "name": "nuki",
+        "links": [
+            "86cb329b293bb1f4"
+        ],
+        "x": 225,
+        "y": 1600,
+        "wires": [
+            [
+                "e8dc780272f0a049"
+            ]
+        ]
+    },
+    {
+        "id": "418d8d8e9de2763b",
+        "type": "ui_text",
+        "z": "caf02dc9a5b73890",
+        "group": "6e590cb07ba9a85d",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Status",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 530,
+        "y": 1680,
         "wires": []
     },
     {
-        "id": "2e305c9c9a98e2ec",
+        "id": "6260a7d2e27bbda1",
+        "type": "function",
+        "z": "caf02dc9a5b73890",
+        "name": "Status-Text",
+        "func": "const contact = msg.payload;\n\nreturn { payload: (contact) ? \"geschlossen\" : \"offen\"};\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 370,
+        "y": 1680,
+        "wires": [
+            [
+                "418d8d8e9de2763b"
+            ]
+        ]
+    },
+    {
+        "id": "1679bb791b7ed221",
+        "type": "catch",
+        "z": "caf02dc9a5b73890",
+        "name": "",
+        "scope": [
+            "5491f3b7aa1d4a3f",
+            "ebe65eae65335e8d"
+        ],
+        "uncaught": false,
+        "x": 950,
+        "y": 1720,
+        "wires": [
+            [
+                "1941a899e31bb27f"
+            ]
+        ]
+    },
+    {
+        "id": "13a2708c18c5fc01",
+        "type": "ui_text",
+        "z": "caf02dc9a5b73890",
+        "group": "6e590cb07ba9a85d",
+        "order": 8,
+        "width": "6",
+        "height": "6",
+        "name": "Log",
+        "label": "{{msg.payload}}",
+        "format": "",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": "12",
+        "color": "#ffffff",
+        "x": 1310,
+        "y": 1660,
+        "wires": []
+    },
+    {
+        "id": "a8d9c863a171f99c",
         "type": "ui_button",
         "z": "caf02dc9a5b73890",
         "name": "",
         "group": "6e590cb07ba9a85d",
-        "order": 5,
+        "order": 9,
         "width": 0,
         "height": 0,
         "passthru": false,
-        "label": "Tür öffnen",
+        "label": "Log löschen",
         "tooltip": "",
         "color": "",
         "bgcolor": "",
         "className": "",
         "icon": "",
-        "payload": "",
+        "payload": "-",
         "payloadType": "str",
-        "topic": "topic",
-        "topicType": "msg",
-        "x": 250,
-        "y": 520,
+        "topic": "",
+        "topicType": "str",
+        "x": 1150,
+        "y": 1700,
         "wires": [
             [
-                "e3c15cf96537dcc3"
+                "a3b59c897713f50e"
             ]
         ]
     },
     {
-        "id": "3cec1be23a276d46",
-        "type": "ui_text_input",
+        "id": "38c704d3beb148ed",
+        "type": "link in",
+        "z": "caf02dc9a5b73890",
+        "name": "Kellertür öffnen",
+        "links": [
+            "bc763a522d5e7245",
+            "da07e9eb00c44b89"
+        ],
+        "x": 225,
+        "y": 1360,
+        "wires": [
+            [
+                "5c9d349cfc6dbce2"
+            ]
+        ]
+    },
+    {
+        "id": "5c9d349cfc6dbce2",
+        "type": "function",
+        "z": "caf02dc9a5b73890",
+        "name": "Tür öffnren",
+        "func": "return [\n    { topic: \"lockAction\", payload: \"UNLOCK\" },\n    { topic: \"lockAction\", payload: \"UNLATCH\" }\n];",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 350,
+        "y": 1400,
+        "wires": [
+            [
+                "5491f3b7aa1d4a3f"
+            ],
+            [
+                "ebe65eae65335e8d"
+            ]
+        ]
+    },
+    {
+        "id": "acc198f8dc5ea896",
+        "type": "link out",
+        "z": "caf02dc9a5b73890",
+        "name": "link out 4",
+        "mode": "link",
+        "links": [
+            "1f5092044763746a"
+        ],
+        "x": 825,
+        "y": 1040,
+        "wires": []
+    },
+    {
+        "id": "daf7dacd9dca27aa",
+        "type": "link out",
+        "z": "caf02dc9a5b73890",
+        "name": "link out 5",
+        "mode": "link",
+        "links": [
+            "1fe490d1499dd17b"
+        ],
+        "x": 405,
+        "y": 1040,
+        "wires": []
+    },
+    {
+        "id": "1f5092044763746a",
+        "type": "link in",
+        "z": "caf02dc9a5b73890",
+        "name": " Nuki Kellertür-Schloss",
+        "links": [
+            "acc198f8dc5ea896",
+            "a57ad13c5478facf"
+        ],
+        "x": 425,
+        "y": 1480,
+        "wires": [
+            [
+                "ebe65eae65335e8d"
+            ]
+        ]
+    },
+    {
+        "id": "1fe490d1499dd17b",
+        "type": "link in",
+        "z": "caf02dc9a5b73890",
+        "name": " Nuki Kellertür-Riegel",
+        "links": [
+            "a57ad13c5478facf",
+            "daf7dacd9dca27aa"
+        ],
+        "x": 425,
+        "y": 1360,
+        "wires": [
+            [
+                "5491f3b7aa1d4a3f"
+            ]
+        ]
+    },
+    {
+        "id": "a57ad13c5478facf",
+        "type": "link out",
+        "z": "caf02dc9a5b73890",
+        "name": "link out 8",
+        "mode": "link",
+        "links": [
+            "0b172ea0761e4dbb",
+            "1f5092044763746a",
+            "1fe490d1499dd17b",
+            "85461b3c7b54b76f"
+        ],
+        "x": 625,
+        "y": 1600,
+        "wires": []
+    },
+    {
+        "id": "21b33795391d4ce8",
+        "type": "link out",
+        "z": "caf02dc9a5b73890",
+        "d": true,
+        "name": "link out 9",
+        "mode": "link",
+        "links": [
+            "d8ccba5a509c6755"
+        ],
+        "x": 315,
+        "y": 1720,
+        "wires": []
+    },
+    {
+        "id": "61153b6e98049a2e",
+        "type": "link out",
         "z": "caf02dc9a5b73890",
         "name": "",
-        "label": "PIN",
-        "tooltip": "",
-        "group": "6e590cb07ba9a85d",
-        "order": 4,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "mode": "text",
-        "delay": "300",
-        "topic": "topic",
-        "sendOnBlur": true,
-        "className": "",
-        "topicType": "msg",
-        "x": 230,
-        "y": 460,
-        "wires": [
-            [
-                "6d3ae5d833b95bcc"
-            ]
-        ]
+        "mode": "link",
+        "links": [
+            "19c3635367e1d357",
+            "4708a180.a07a"
+        ],
+        "x": 715,
+        "y": 1360,
+        "wires": []
     },
     {
-        "id": "6d3ae5d833b95bcc",
+        "id": "25f654e171406fb8",
         "type": "change",
         "z": "caf02dc9a5b73890",
-        "name": "",
+        "name": "Speicher kellertuer_sensor Status",
         "rules": [
             {
                 "t": "set",
-                "p": "pin",
-                "pt": "flow",
+                "p": "kellertuer_sensor",
+                "pt": "global",
                 "to": "payload",
                 "tot": "msg"
             }
@@ -12499,274 +12533,167 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 400,
-        "y": 460,
+        "x": 440,
+        "y": 1640,
         "wires": [
             [
-                "11fde3db94bedc1a"
+                "e8dc780272f0a049"
             ]
         ]
     },
     {
-        "id": "4c73625a30a9fe0d",
-        "type": "function",
-        "z": "caf02dc9a5b73890",
-        "name": "open with pin",
-        "func": "const pin = flow.get('pin');\nflow.set('pin', '');\n\nif (pin != msg.pin) return;\n\nreturn { payload: true};",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 580,
-        "y": 520,
-        "wires": [
-            [
-                "828f7738a1182e39"
-            ]
-        ]
-    },
-    {
-        "id": "e3c15cf96537dcc3",
-        "type": "credentials",
-        "z": "caf02dc9a5b73890",
-        "name": "PIN",
-        "props": [
-            {
-                "value": "pin",
-                "type": "msg"
-            }
-        ],
-        "x": 410,
-        "y": 520,
-        "wires": [
-            [
-                "4c73625a30a9fe0d"
-            ]
-        ]
-    },
-    {
-        "id": "11fde3db94bedc1a",
-        "type": "delay",
+        "id": "094c0e53103ca4e6",
+        "type": "template",
         "z": "caf02dc9a5b73890",
         "name": "",
-        "pauseType": "delay",
-        "timeout": "5",
-        "timeoutUnits": "minutes",
-        "rate": "1",
-        "nbRateUnits": "1",
-        "rateUnits": "second",
-        "randomFirst": "1",
-        "randomLast": "5",
-        "randomUnits": "seconds",
-        "drop": false,
-        "allowrate": false,
-        "outputs": 1,
-        "x": 600,
-        "y": 460,
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "Tür geschlossen, absperren!\n",
+        "output": "str",
+        "x": 940,
+        "y": 1640,
         "wires": [
             [
-                "eed935c324162191"
+                "1941a899e31bb27f"
             ]
         ]
     },
     {
-        "id": "eed935c324162191",
-        "type": "change",
-        "z": "caf02dc9a5b73890",
-        "name": "clear flow.pin",
-        "rules": [
-            {
-                "t": "set",
-                "p": "pin",
-                "pt": "flow",
-                "to": "",
-                "tot": "str"
-            },
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 790,
-        "y": 460,
-        "wires": [
-            [
-                "3cec1be23a276d46"
-            ]
-        ]
-    },
-    {
-        "id": "d82238f0a0c6b736",
-        "type": "function",
-        "z": "caf02dc9a5b73890",
-        "name": "Status-Text",
-        "func": "const state_name_de = {\n    0: \"uncalibriert\",\n    1: \"verriegelt\",\n    2: \"entriegeln\",\n    3: \"entriegelt\",\n    4: \"verriegeln\",\n    5: \"geöffnet\",\n    6: \"entriegelt und gehen\",\n    7: \"öffnen\",\n    254: \"Motor blockiert\",\n    255: \"undefiniert\"\n}[msg.payload];\n\nreturn ({payload: state_name_de || msg.payload});",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 490,
-        "y": 660,
-        "wires": [
-            [
-                "c982b05c0c3f390f"
-            ]
-        ]
-    },
-    {
-        "id": "04d2b4c3c7a006b0",
-        "type": "function",
-        "z": "caf02dc9a5b73890",
-        "name": "Nuki öffnren",
-        "func": "return {payload: 3};",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 310,
-        "y": 300,
-        "wires": [
-            [
-                "f0c03b06c01e8da7"
-            ]
-        ]
-    },
-    {
-        "id": "35568899f988eda6",
-        "type": "function",
-        "z": "caf02dc9a5b73890",
-        "name": "Nuki abschließen",
-        "func": "// 2 -> Lock\n// 6 -> Full Lock\nreturn {payload: 2};",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 330,
-        "y": 380,
-        "wires": [
-            [
-                "cb2a7f1829dca778",
-                "f0c03b06c01e8da7"
-            ]
-        ]
-    },
-    {
-        "id": "c2a01ce0387e093e",
-        "type": "function",
-        "z": "caf02dc9a5b73890",
-        "name": "Nuki aufschließen",
-        "func": "return {payload: 1};",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 330,
-        "y": 260,
-        "wires": [
-            [
-                "cb2a7f1829dca778",
-                "f0c03b06c01e8da7"
-            ]
-        ]
-    },
-    {
-        "id": "b67facabbd25434f",
+        "id": "23b39e867ad3e835",
         "type": "link in",
         "z": "caf02dc9a5b73890",
-        "name": "Kellertür verriegeln",
+        "name": "Kellertür öffnen",
         "links": [
-            "1a7f02c95197363e",
-            "022289dce3fba6d1",
-            "777da1f40eb95614",
-            "7b9d05285df83f9d"
+            "bc763a522d5e7245"
         ],
-        "x": 185,
-        "y": 380,
+        "x": 725,
+        "y": 1680,
         "wires": [
             [
-                "35568899f988eda6"
+                "40a7873186f5ed29"
             ]
         ]
     },
     {
-        "id": "f0c03b06c01e8da7",
-        "type": "mqtt out",
+        "id": "85461b3c7b54b76f",
+        "type": "link in",
         "z": "caf02dc9a5b73890",
-        "name": "Kellertür-Schloss",
-        "topic": "nuki/32AE09F4/lockAction",
-        "qos": "",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "c349b9ff.9dc4c8",
-        "x": 630,
-        "y": 280,
+        "name": " Nuki Kellertür-Riegel",
+        "links": [
+            "a57ad13c5478facf"
+        ],
+        "x": 725,
+        "y": 1640,
+        "wires": [
+            [
+                "094c0e53103ca4e6"
+            ]
+        ]
+    },
+    {
+        "id": "40a7873186f5ed29",
+        "type": "template",
+        "z": "caf02dc9a5b73890",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "Fingerbadruck erkannt. Tür öffnen!",
+        "output": "str",
+        "x": 940,
+        "y": 1680,
+        "wires": [
+            [
+                "1941a899e31bb27f"
+            ]
+        ]
+    },
+    {
+        "id": "462ab2a1dc1a547b",
+        "type": "link out",
+        "z": "caf02dc9a5b73890",
+        "name": "link out 10",
+        "mode": "link",
+        "links": [
+            "40193de5f7799667"
+        ],
+        "x": 1275,
+        "y": 1420,
         "wires": []
     },
     {
-        "id": "0b1e95f3cc692aa9",
-        "type": "mqtt in",
-        "z": "caf02dc9a5b73890",
-        "name": "Kellertür-Schloss",
-        "topic": "nuki/32AE09F4/state",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "c349b9ff.9dc4c8",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 260,
-        "y": 620,
-        "wires": [
-            [
-                "7334d6c84dcc27e3"
-            ]
-        ]
-    },
-    {
-        "id": "7b6ceb296b4f449a",
+        "id": "1941a899e31bb27f",
         "type": "function",
         "z": "caf02dc9a5b73890",
-        "name": "Nuki aufschließen",
-        "func": "return {payload: 1};",
+        "name": "append to log",
+        "func": "const log = flow.get('log');\nconst timestamp = new Date().toLocaleTimeString('de-DE');\nconst new_entry = timestamp + \": \" + msg.payload;\nconst max_length = 10;\n\nlog.push(new_entry);\nif (log.length > max_length) {\n    log.splice(0, log.length - max_length);\n}\nflow.set('log', log);\n\nreturn { payload: log.join(\"<br>\")};",
         "outputs": 1,
         "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 330,
-        "y": 340,
+        "x": 1140,
+        "y": 1660,
         "wires": [
             [
-                "cb2a7f1829dca778"
+                "13a2708c18c5fc01"
             ]
         ]
     },
     {
-        "id": "5581c09951fcfe15",
+        "id": "a3b59c897713f50e",
+        "type": "function",
+        "z": "caf02dc9a5b73890",
+        "name": "clear log",
+        "func": "flow.set('log', []);\nreturn {payload: ''};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1320,
+        "y": 1700,
+        "wires": [
+            [
+                "13a2708c18c5fc01"
+            ]
+        ]
+    },
+    {
+        "id": "b5b92d8b9c38f19c",
+        "type": "inject",
+        "z": "caf02dc9a5b73890",
+        "name": "Öffnen",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 150,
+        "y": 1400,
+        "wires": [
+            [
+                "5c9d349cfc6dbce2"
+            ]
+        ]
+    },
+    {
+        "id": "b2bffe229b81a908",
         "type": "inject",
         "z": "caf02dc9a5b73890",
         "name": "Verriegeln",
@@ -12786,23 +12713,40 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 260,
-        "y": 180,
+        "x": 160,
+        "y": 1440,
         "wires": [
             [
-                "777da1f40eb95614"
+                "53351be4e1c45aae"
             ]
         ]
     },
     {
-        "id": "ef2ca21867428acc",
+        "id": "53351be4e1c45aae",
+        "type": "function",
+        "z": "caf02dc9a5b73890",
+        "name": "Tür verriegeln",
+        "func": "return { topic: \"lockAction\", payload: \"LOCK\" };",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 1440,
+        "wires": [
+            [
+                "5491f3b7aa1d4a3f",
+                "ebe65eae65335e8d"
+            ]
+        ]
+    },
+    {
+        "id": "7d89baf2b5fa03a5",
         "type": "inject",
         "z": "caf02dc9a5b73890",
-        "name": "Öffnen",
+        "name": "",
         "props": [
-            {
-                "p": "payload"
-            },
             {
                 "p": "topic",
                 "vt": "str"
@@ -12812,26 +12756,51 @@
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 250,
-        "y": 140,
+        "topic": "clearCallbacks",
+        "x": 180,
+        "y": 580,
         "wires": [
             [
-                "08712a4ec7d05751"
+                "14679608625f0446"
             ]
         ]
     },
     {
-        "id": "2918bc366c153024",
+        "id": "14679608625f0446",
+        "type": "nuki-bridge-control",
+        "z": "caf02dc9a5b73890",
+        "name": "nuki-bridge:8080",
+        "bridge": "b6b292c6a3480048",
+        "x": 470,
+        "y": 700,
+        "wires": [
+            [
+                "645c78c3640c5827"
+            ]
+        ]
+    },
+    {
+        "id": "645c78c3640c5827",
+        "type": "debug",
+        "z": "caf02dc9a5b73890",
+        "name": "debug 4",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 660,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "82bcfc893e556a35",
         "type": "inject",
         "z": "caf02dc9a5b73890",
-        "name": "Aufschließen",
+        "name": "",
         "props": [
-            {
-                "p": "payload"
-            },
             {
                 "p": "topic",
                 "vt": "str"
@@ -12841,767 +12810,376 @@
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 270,
-        "y": 100,
+        "topic": "lockStatus",
+        "x": 160,
+        "y": 1040,
         "wires": [
             [
-                "dbc0be14c2dc8055"
+                "daf7dacd9dca27aa"
             ]
         ]
     },
     {
-        "id": "cc46f5227cddaf97",
-        "type": "link in",
-        "z": "caf02dc9a5b73890",
-        "name": "Kellertür aufschließen",
-        "links": [
-            "dbc0be14c2dc8055"
-        ],
-        "x": 185,
-        "y": 260,
-        "wires": [
-            [
-                "c2a01ce0387e093e"
-            ]
-        ]
-    },
-    {
-        "id": "8a8def64c5910356",
-        "type": "link in",
-        "z": "caf02dc9a5b73890",
-        "name": "Kellertür öffnen",
-        "links": [
-            "08712a4ec7d05751",
-            "828f7738a1182e39",
-            "bc763a522d5e7245"
-        ],
-        "x": 185,
-        "y": 320,
-        "wires": [
-            [
-                "04d2b4c3c7a006b0",
-                "7b6ceb296b4f449a"
-            ]
-        ]
-    },
-    {
-        "id": "743e1aea4f629986",
-        "type": "mqtt in",
-        "z": "caf02dc9a5b73890",
-        "name": "Kellertür-Sensor",
-        "topic": "zigbee2mqtt/kellertuer_sensor",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "c349b9ff.9dc4c8",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 260,
-        "y": 720,
-        "wires": [
-            [
-                "2eb463a39deb5ffa"
-            ]
-        ]
-    },
-    {
-        "id": "90394a161193e578",
-        "type": "function",
-        "z": "caf02dc9a5b73890",
-        "name": "Abschließen wenn Gartenlicht aus",
-        "func": "const contact = global.get(\"kellertuer_sensor\");\nconst gartenlicht = global.get(\"gartenlicht\");\n\nif (contact && gartenlicht == \"OFF\") {\n    return {topic: \"lockAction\", payload: \"LOCK\"};\n} else \n    return;\n",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 720,
-        "y": 880,
-        "wires": [
-            [
-                "022289dce3fba6d1"
-            ]
-        ]
-    },
-    {
-        "id": "7fef5154b7c2177a",
-        "type": "link in",
-        "z": "caf02dc9a5b73890",
-        "name": "nuki",
-        "links": [
-            "86cb329b293bb1f4"
-        ],
-        "x": 505,
-        "y": 880,
-        "wires": [
-            [
-                "90394a161193e578"
-            ]
-        ]
-    },
-    {
-        "id": "350613e0a2a79317",
-        "type": "ui_text",
-        "z": "caf02dc9a5b73890",
-        "group": "6e590cb07ba9a85d",
-        "order": 1,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "Status",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "className": "",
-        "x": 810,
-        "y": 800,
-        "wires": []
-    },
-    {
-        "id": "0397a8ada9aae6e0",
-        "type": "function",
-        "z": "caf02dc9a5b73890",
-        "name": "Status-Text",
-        "func": "const contact = msg.payload;\n\nreturn { payload: (contact) ? \"geschlossen\" : \"offen\"};\n",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 650,
-        "y": 800,
-        "wires": [
-            [
-                "350613e0a2a79317"
-            ]
-        ]
-    },
-    {
-        "id": "022289dce3fba6d1",
-        "type": "link out",
-        "z": "caf02dc9a5b73890",
-        "name": "link out 22",
-        "mode": "link",
-        "links": [
-            "b67facabbd25434f",
-            "6dd2413522f428db"
-        ],
-        "x": 905,
-        "y": 880,
-        "wires": []
-    },
-    {
-        "id": "ff4a7ebd071849c6",
-        "type": "change",
-        "z": "caf02dc9a5b73890",
-        "name": "Speicher kellertuer_sensor Status",
-        "rules": [
-            {
-                "t": "set",
-                "p": "kellertuer_sensor",
-                "pt": "global",
-                "to": "payload",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 720,
-        "y": 840,
-        "wires": [
-            [
-                "90394a161193e578"
-            ]
-        ]
-    },
-    {
-        "id": "e8cef0adc3a8e6b9",
-        "type": "rbe",
+        "id": "5d625fd936836a58",
+        "type": "inject",
         "z": "caf02dc9a5b73890",
         "name": "",
-        "func": "rbe",
-        "gap": "",
-        "start": "",
-        "inout": "out",
-        "septopics": true,
-        "property": "payload",
-        "topi": "topic",
-        "x": 450,
-        "y": 820,
+        "props": [
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "lockStatus",
+        "x": 580,
+        "y": 1040,
         "wires": [
             [
-                "0397a8ada9aae6e0",
-                "ff4a7ebd071849c6"
+                "acc198f8dc5ea896"
             ]
         ]
     },
     {
-        "id": "2eb463a39deb5ffa",
-        "type": "change",
+        "id": "b1edf012dd9fdd5d",
+        "type": "inject",
         "z": "caf02dc9a5b73890",
-        "name": "contact",
-        "rules": [
+        "name": "",
+        "props": [
             {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "payload.contact",
-                "tot": "msg"
+                "p": "topic",
+                "vt": "str"
             }
         ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 460,
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "log",
+        "x": 150,
+        "y": 700,
+        "wires": [
+            [
+                "14679608625f0446"
+            ]
+        ]
+    },
+    {
+        "id": "d839b0f99142aff4",
+        "type": "inject",
+        "z": "caf02dc9a5b73890",
+        "name": "",
+        "props": [
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "reboot",
+        "x": 150,
+        "y": 740,
+        "wires": [
+            [
+                "14679608625f0446"
+            ]
+        ]
+    },
+    {
+        "id": "6a415e6fa2a77d40",
+        "type": "inject",
+        "z": "caf02dc9a5b73890",
+        "name": "",
+        "props": [
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "getCallbacks",
+        "x": 170,
+        "y": 1160,
+        "wires": [
+            [
+                "daf7dacd9dca27aa"
+            ]
+        ]
+    },
+    {
+        "id": "232550bd72c0484a",
+        "type": "inject",
+        "z": "caf02dc9a5b73890",
+        "name": "",
+        "props": [
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "getCallbacks",
+        "x": 590,
+        "y": 1160,
+        "wires": [
+            [
+                "acc198f8dc5ea896"
+            ]
+        ]
+    },
+    {
+        "id": "6dcb8402f055283a",
+        "type": "inject",
+        "z": "caf02dc9a5b73890",
+        "name": "",
+        "props": [
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "setupCallbacks",
+        "x": 180,
+        "y": 1120,
+        "wires": [
+            [
+                "daf7dacd9dca27aa"
+            ]
+        ]
+    },
+    {
+        "id": "7c975bebaf5caf0a",
+        "type": "inject",
+        "z": "caf02dc9a5b73890",
+        "name": "",
+        "props": [
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "clearCallbacks",
+        "x": 180,
+        "y": 1080,
+        "wires": [
+            [
+                "daf7dacd9dca27aa"
+            ]
+        ]
+    },
+    {
+        "id": "d28c4ab814dce050",
+        "type": "inject",
+        "z": "caf02dc9a5b73890",
+        "name": "",
+        "props": [
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "setupCallbacks",
+        "x": 600,
+        "y": 1120,
+        "wires": [
+            [
+                "acc198f8dc5ea896"
+            ]
+        ]
+    },
+    {
+        "id": "700a10beec25cd07",
+        "type": "inject",
+        "z": "caf02dc9a5b73890",
+        "name": "",
+        "props": [
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "clearCallbacks",
+        "x": 600,
+        "y": 1080,
+        "wires": [
+            [
+                "acc198f8dc5ea896"
+            ]
+        ]
+    },
+    {
+        "id": "299399f2880f0767",
+        "type": "inject",
+        "z": "caf02dc9a5b73890",
+        "name": "",
+        "props": [
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "fwupdate",
+        "x": 160,
         "y": 780,
         "wires": [
             [
-                "e8cef0adc3a8e6b9"
+                "14679608625f0446"
             ]
         ]
     },
     {
-        "id": "4fd0292775325bfd",
+        "id": "a7e5de583cc42faa",
         "type": "inject",
         "z": "caf02dc9a5b73890",
-        "name": "true",
+        "name": "",
         "props": [
             {
-                "p": "payload.contact",
-                "v": "true",
-                "vt": "bool"
+                "p": "topic",
+                "vt": "str"
             }
         ],
         "repeat": "",
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
-        "topic": "",
-        "x": 250,
-        "y": 760,
+        "topic": "info",
+        "x": 150,
+        "y": 820,
         "wires": [
             [
-                "2eb463a39deb5ffa"
+                "14679608625f0446"
             ]
         ]
     },
     {
-        "id": "c1a9a3878a0a79ca",
-        "type": "inject",
+        "id": "0be5be39aa68669b",
+        "type": "nuki-lock-control",
         "z": "caf02dc9a5b73890",
-        "name": "false",
-        "props": [
-            {
-                "p": "payload.contact",
-                "v": "true",
-                "vt": "bool"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "x": 250,
-        "y": 800,
+        "name": "Kellertür-Riegel",
+        "nuki": "439053421",
+        "bridge": "b6b292c6a3480048",
+        "x": 940,
+        "y": 1400,
         "wires": [
             [
-                "2eb463a39deb5ffa"
+                "6b35d5e316596e6d",
+                "51ff512d041315da"
             ]
         ]
     },
     {
-        "id": "5340a29d47614540",
-        "type": "ui_text",
+        "id": "9532cc6340534aa8",
+        "type": "nuki-lock-control",
         "z": "caf02dc9a5b73890",
-        "group": "6e590cb07ba9a85d",
-        "order": 8,
-        "width": "6",
-        "height": "6",
-        "name": "Log",
-        "label": "{{msg.payload}}",
-        "format": "",
-        "layout": "row-spread",
-        "className": "",
-        "style": false,
-        "font": "",
-        "fontSize": "12",
-        "color": "#ffffff",
-        "x": 770,
-        "y": 960,
-        "wires": []
-    },
-    {
-        "id": "e183e89757e8e064",
-        "type": "ui_button",
-        "z": "caf02dc9a5b73890",
-        "name": "",
-        "group": "6e590cb07ba9a85d",
-        "order": 9,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "label": "Log löschen",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "className": "",
-        "icon": "",
-        "payload": "-",
-        "payloadType": "str",
-        "topic": "",
-        "topicType": "str",
-        "x": 610,
-        "y": 1000,
+        "name": "Kellertür-Schloss",
+        "nuki": "664478908",
+        "bridge": "b6b292c6a3480048",
+        "x": 950,
+        "y": 1440,
         "wires": [
             [
-                "94776f974b7e1540"
+                "62b141ee2365aa8e",
+                "40451bbf160ab4c7"
             ]
         ]
     },
     {
-        "id": "e0d4c4be7ac5c7c4",
+        "id": "4d7734b5b68a4673",
         "type": "template",
         "z": "caf02dc9a5b73890",
         "name": "",
-        "field": "payload",
+        "field": "topic",
         "fieldType": "msg",
         "format": "handlebars",
         "syntax": "mustache",
-        "template": "Tür geschlossen, absperren!\n",
+        "template": "lockStatus",
         "output": "str",
-        "x": 400,
-        "y": 940,
+        "x": 760,
+        "y": 1400,
         "wires": [
             [
-                "cc8ff4e067fca015"
+                "0be5be39aa68669b"
             ]
         ]
     },
     {
-        "id": "e4e0e1337baeea9f",
-        "type": "link in",
-        "z": "caf02dc9a5b73890",
-        "name": "Kellertür öffnen",
-        "links": [
-            "bc763a522d5e7245"
-        ],
-        "x": 185,
-        "y": 980,
-        "wires": [
-            [
-                "b17cc40dd8ac5320"
-            ]
-        ]
-    },
-    {
-        "id": "6dd2413522f428db",
-        "type": "link in",
-        "z": "caf02dc9a5b73890",
-        "name": " Nuki Kellertür-Riegel",
-        "links": [
-            "a57ad13c5478facf",
-            "022289dce3fba6d1"
-        ],
-        "x": 185,
-        "y": 940,
-        "wires": [
-            [
-                "e0d4c4be7ac5c7c4"
-            ]
-        ]
-    },
-    {
-        "id": "b17cc40dd8ac5320",
+        "id": "51e2c8177b790c74",
         "type": "template",
         "z": "caf02dc9a5b73890",
         "name": "",
-        "field": "payload",
+        "field": "topic",
         "fieldType": "msg",
         "format": "handlebars",
         "syntax": "mustache",
-        "template": "Fingerbadruck erkannt. Tür öffnen!",
+        "template": "lockStatus",
         "output": "str",
-        "x": 400,
-        "y": 980,
+        "x": 760,
+        "y": 1440,
         "wires": [
             [
-                "cc8ff4e067fca015"
+                "9532cc6340534aa8"
             ]
         ]
     },
     {
-        "id": "cc8ff4e067fca015",
-        "type": "function",
-        "z": "caf02dc9a5b73890",
-        "name": "append to log",
-        "func": "const log = flow.get('log');\nconst timestamp = new Date().toLocaleTimeString('de-DE');\nconst new_entry = timestamp + \": \" + msg.payload;\nconst max_length = 10;\n\nlog.push(new_entry);\nif (log.length > max_length) {\n    log.splice(0, log.length - max_length);\n}\nflow.set('log', log);\n\nreturn { payload: log.join(\"<br>\")};",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 600,
-        "y": 960,
-        "wires": [
-            [
-                "5340a29d47614540"
-            ]
-        ]
-    },
-    {
-        "id": "94776f974b7e1540",
-        "type": "function",
-        "z": "caf02dc9a5b73890",
-        "name": "clear log",
-        "func": "flow.set('log', []);\nreturn {payload: ''};",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 780,
-        "y": 1000,
-        "wires": [
-            [
-                "5340a29d47614540"
-            ]
-        ]
-    },
-    {
-        "id": "c5ed6d87d0d223d8",
-        "type": "rbe",
-        "z": "caf02dc9a5b73890",
-        "name": "",
-        "func": "rbe",
-        "gap": "",
-        "start": "",
-        "inout": "out",
-        "septopics": false,
-        "property": "payload",
-        "topi": "topic",
-        "x": 270,
-        "y": 940,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "c982b05c0c3f390f",
-        "type": "ui_text",
-        "z": "caf02dc9a5b73890",
-        "group": "6e590cb07ba9a85d",
-        "order": 3,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "Riegel",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "className": "",
-        "style": false,
-        "font": "",
-        "fontSize": "",
-        "color": "#000000",
-        "x": 650,
-        "y": 660,
-        "wires": []
-    },
-    {
-        "id": "d490a04f42251c6f",
-        "type": "ui_text",
-        "z": "caf02dc9a5b73890",
-        "group": "6e590cb07ba9a85d",
-        "order": 2,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "Schloss",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "className": "",
-        "x": 660,
-        "y": 620,
-        "wires": []
-    },
-    {
-        "id": "7334d6c84dcc27e3",
+        "id": "62b141ee2365aa8e",
         "type": "function",
         "z": "caf02dc9a5b73890",
         "name": "Status-Text",
-        "func": "const state_name_de = {\n    0: \"uncalibriert\",\n    1: \"verriegelt\",\n    2: \"entriegeln\",\n    3: \"entriegelt\",\n    4: \"verriegeln\",\n    5: \"geöffnet\",\n    6: \"entriegelt und gehen\",\n    7: \"öffnen\",\n    254: \"Motor blockiert\",\n    255: \"undefiniert\"\n}[msg.payload];\n\nreturn ({payload: state_name_de || msg.payload});",
+        "func": "if (msg.topic !== \"lockStatus\") return;\n\nconst state_name_de = {\n    UNCALIBRATED: \"uncalibriert\",\n    LOCKED: \"verriegelt\",\n    UNLOCKING: \"entriegeln\",\n    UNLOCKED: \"entriegelt\",\n    LOCKING: \"verriegeln\",\n    UNLATCHED: \"geöffnet\",\n    UNLOCKED_LOCK_N_GO: \"entriegelt und gehen\",\n    UNLATCHING: \"öffnen\",\n    MOTOR_BLOCKED: \"Motor blockiert\",\n    UNDEFINED: \"undefiniert\"\n}[msg.payload.state];\n\nreturn ({payload: state_name_de || msg.payload.state});",
         "outputs": 1,
         "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 490,
-        "y": 620,
+        "x": 1150,
+        "y": 1440,
         "wires": [
             [
-                "d490a04f42251c6f"
+                "462ab2a1dc1a547b",
+                "c9e2a024280b0742"
             ]
         ]
     },
     {
-        "id": "dbc0be14c2dc8055",
-        "type": "link out",
-        "z": "caf02dc9a5b73890",
-        "name": "link out 23",
-        "mode": "link",
-        "links": [
-            "cc46f5227cddaf97"
-        ],
-        "x": 405,
-        "y": 100,
-        "wires": []
-    },
-    {
-        "id": "08712a4ec7d05751",
-        "type": "link out",
-        "z": "caf02dc9a5b73890",
-        "name": "link out 24",
-        "mode": "link",
-        "links": [
-            "8a8def64c5910356"
-        ],
-        "x": 405,
-        "y": 140,
-        "wires": []
-    },
-    {
-        "id": "777da1f40eb95614",
-        "type": "link out",
-        "z": "caf02dc9a5b73890",
-        "name": "link out 25",
-        "mode": "link",
-        "links": [
-            "b67facabbd25434f"
-        ],
-        "x": 405,
-        "y": 180,
-        "wires": []
-    },
-    {
-        "id": "828f7738a1182e39",
-        "type": "link out",
-        "z": "caf02dc9a5b73890",
-        "name": "link out 26",
-        "mode": "link",
-        "links": [
-            "8a8def64c5910356"
-        ],
-        "x": 715,
-        "y": 520,
-        "wires": []
-    },
-    {
-        "id": "f3824ec96e61c2df",
+        "id": "3ad75162d58d56de",
         "type": "ui_button",
         "z": "caf02dc9a5b73890",
         "name": "",
         "group": "6e590cb07ba9a85d",
-        "order": 5,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "label": "Tür verriegeln",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "className": "",
-        "icon": "",
-        "payload": "",
-        "payloadType": "str",
-        "topic": "topic",
-        "topicType": "msg",
-        "x": 260,
-        "y": 560,
-        "wires": [
-            [
-                "7b9d05285df83f9d"
-            ]
-        ]
-    },
-    {
-        "id": "7b9d05285df83f9d",
-        "type": "link out",
-        "z": "caf02dc9a5b73890",
-        "name": "link out 27",
-        "mode": "link",
-        "links": [
-            "b67facabbd25434f"
-        ],
-        "x": 395,
-        "y": 560,
-        "wires": []
-    },
-    {
-        "id": "d7da2a2c8f314396",
-        "type": "mqtt in",
-        "z": "062848eb6508a3a6",
-        "name": "",
-        "topic": "nuki/33B5C9E4/state",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "c349b9ff.9dc4c8",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 280,
-        "y": 960,
-        "wires": [
-            [
-                "d121e0d80d05297e"
-            ]
-        ]
-    },
-    {
-        "id": "cb816aa78cf4b284",
-        "type": "mqtt out",
-        "z": "062848eb6508a3a6",
-        "name": "",
-        "topic": "nuki/312D447C/lockAction",
-        "qos": "",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "c349b9ff.9dc4c8",
-        "x": 640,
-        "y": 680,
-        "wires": []
-    },
-    {
-        "id": "734313c33a1a27c9",
-        "type": "mqtt in",
-        "z": "062848eb6508a3a6",
-        "name": "Haustür-Sensor",
-        "topic": "zigbee2mqtt/haustuer_sensor",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "c349b9ff.9dc4c8",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 260,
-        "y": 420,
-        "wires": [
-            [
-                "de98ccd1624d690c"
-            ]
-        ]
-    },
-    {
-        "id": "de98ccd1624d690c",
-        "type": "change",
-        "z": "062848eb6508a3a6",
-        "name": "contact",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "payload.contact",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 440,
-        "y": 380,
-        "wires": [
-            [
-                "4b6748b04ea10729"
-            ]
-        ]
-    },
-    {
-        "id": "4b6748b04ea10729",
-        "type": "rbe",
-        "z": "062848eb6508a3a6",
-        "name": "",
-        "func": "rbe",
-        "gap": "",
-        "start": "",
-        "inout": "out",
-        "septopics": true,
-        "property": "payload",
-        "topi": "topic",
-        "x": 450,
-        "y": 420,
-        "wires": [
-            [
-                "ca080b84c4fd696b"
-            ]
-        ]
-    },
-    {
-        "id": "6f0da61f822045d6",
-        "type": "function",
-        "z": "062848eb6508a3a6",
-        "name": "Status-Text",
-        "func": "const contact = msg.payload;\n\nreturn { payload: (contact) ? \"geschlossen\" : \"offen\"};\n",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 810,
-        "y": 420,
-        "wires": [
-            [
-                "ed13a185adf220fe"
-            ]
-        ]
-    },
-    {
-        "id": "ed13a185adf220fe",
-        "type": "ui_text",
-        "z": "062848eb6508a3a6",
-        "group": "40197d5f58592aee",
-        "order": 1,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "Status",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "className": "",
-        "style": false,
-        "font": "",
-        "fontSize": "",
-        "color": "#000000",
-        "x": 970,
-        "y": 420,
-        "wires": []
-    },
-    {
-        "id": "0ebabd3e81e9917c",
-        "type": "ui_button",
-        "z": "062848eb6508a3a6",
-        "name": "",
-        "group": "40197d5f58592aee",
         "order": 5,
         "width": 0,
         "height": 0,
@@ -13616,44 +13194,44 @@
         "payloadType": "str",
         "topic": "topic",
         "topicType": "msg",
-        "x": 250,
-        "y": 560,
+        "x": 150,
+        "y": 1320,
         "wires": [
             [
-                "59074b84082ad062"
+                "5f3fc938750c255d"
             ]
         ]
     },
     {
-        "id": "5c43c72b9d9fb6f1",
+        "id": "d30eaa96a9c03566",
         "type": "ui_text_input",
-        "z": "062848eb6508a3a6",
+        "z": "caf02dc9a5b73890",
         "name": "",
         "label": "PIN",
         "tooltip": "",
-        "group": "40197d5f58592aee",
+        "group": "6e590cb07ba9a85d",
         "order": 4,
         "width": 0,
         "height": 0,
         "passthru": true,
-        "mode": "text",
+        "mode": "password",
         "delay": "300",
         "topic": "topic",
         "sendOnBlur": true,
         "className": "",
         "topicType": "msg",
-        "x": 230,
-        "y": 500,
+        "x": 130,
+        "y": 1260,
         "wires": [
             [
-                "dd580eb0409bf952"
+                "be4cf324cf4e4559"
             ]
         ]
     },
     {
-        "id": "dd580eb0409bf952",
+        "id": "be4cf324cf4e4559",
         "type": "change",
-        "z": "062848eb6508a3a6",
+        "z": "caf02dc9a5b73890",
         "name": "",
         "rules": [
             {
@@ -13669,38 +13247,217 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 400,
-        "y": 500,
+        "x": 290,
+        "y": 1260,
         "wires": [
             [
-                "c9ba416c95edc65d"
+                "befaa0afd349c3ad"
             ]
         ]
     },
     {
-        "id": "56f29ee759efe048",
+        "id": "39b8b4aeb3b0300a",
         "type": "function",
-        "z": "062848eb6508a3a6",
+        "z": "caf02dc9a5b73890",
         "name": "open with pin",
-        "func": "const pin = flow.get('pin');\nflow.set('pin', '');\n\nif (pin != msg.pin) return;\n\nreturn { payload: 3}; // 3 -> unlatch",
+        "func": "const pin = flow.get('pin');\nflow.set('pin', '');\n\nif (pin != msg.pin) return;\n\nreturn { payload: true};",
         "outputs": 1,
         "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 580,
-        "y": 560,
+        "x": 480,
+        "y": 1320,
         "wires": [
             [
-                "f04bd40c362906d9"
+                "da07e9eb00c44b89"
             ]
         ]
     },
     {
-        "id": "59074b84082ad062",
+        "id": "da07e9eb00c44b89",
+        "type": "link out",
+        "z": "caf02dc9a5b73890",
+        "name": "link out 12",
+        "mode": "link",
+        "links": [
+            "38c704d3beb148ed"
+        ],
+        "x": 615,
+        "y": 1320,
+        "wires": []
+    },
+    {
+        "id": "66f1ea73dc51f63e",
+        "type": "ui_button",
+        "z": "caf02dc9a5b73890",
+        "name": "",
+        "group": "6e590cb07ba9a85d",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Tür verriegeln",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 160,
+        "y": 1500,
+        "wires": [
+            [
+                "53351be4e1c45aae"
+            ]
+        ]
+    },
+    {
+        "id": "5459fcc983b43949",
+        "type": "debug",
+        "z": "caf02dc9a5b73890",
+        "name": "debug 6",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1320,
+        "y": 1320,
+        "wires": []
+    },
+    {
+        "id": "19c3635367e1d357",
+        "type": "link in",
+        "z": "caf02dc9a5b73890",
+        "name": "Nuki Debug",
+        "links": [
+            "61153b6e98049a2e",
+            "0f68dc3afdaa2f7f",
+            "51ff512d041315da",
+            "40451bbf160ab4c7"
+        ],
+        "x": 1205,
+        "y": 1320,
+        "wires": [
+            [
+                "5459fcc983b43949"
+            ]
+        ]
+    },
+    {
+        "id": "51ff512d041315da",
+        "type": "link out",
+        "z": "caf02dc9a5b73890",
+        "name": "",
+        "mode": "link",
+        "links": [
+            "19c3635367e1d357"
+        ],
+        "x": 1095,
+        "y": 1360,
+        "wires": []
+    },
+    {
+        "id": "40451bbf160ab4c7",
+        "type": "link out",
+        "z": "caf02dc9a5b73890",
+        "name": "",
+        "mode": "link",
+        "links": [
+            "19c3635367e1d357"
+        ],
+        "x": 1095,
+        "y": 1480,
+        "wires": []
+    },
+    {
+        "id": "fadc0297633fd69c",
+        "type": "http request",
+        "z": "caf02dc9a5b73890",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 770,
+        "y": 240,
+        "wires": [
+            [
+                "185711cedafd5fe4"
+            ]
+        ]
+    },
+    {
+        "id": "185711cedafd5fe4",
+        "type": "debug",
+        "z": "caf02dc9a5b73890",
+        "name": "debug 8",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1000,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "f541f04b9ff59bf4",
+        "type": "http request",
+        "z": "caf02dc9a5b73890",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 770,
+        "y": 120,
+        "wires": [
+            [
+                "185711cedafd5fe4",
+                "2ad8e95cec850060"
+            ]
+        ]
+    },
+    {
+        "id": "dd11e2e5681c0eee",
+        "type": "comment",
+        "z": "caf02dc9a5b73890",
+        "name": "Workaround wegen Bug in node-red-contrib-nuki",
+        "info": "Der Bug in node-red-contrib-nuki bewirkt, dass \nder von ihr registrierte Callback nach ein paar \nSekunden wieder gelöscht wird.\n\nWorkaround: Wir warten ein paar Sekunden und \nsetzen dann den Callback selber.\n\nBis zu drei Callback können registriet sein, \ndie wir erstmal alle löschen wollen. Danach \nwird der richtige Callback registriert.",
+        "x": 500,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "5f3fc938750c255d",
         "type": "credentials",
-        "z": "062848eb6508a3a6",
+        "z": "caf02dc9a5b73890",
         "name": "PIN",
         "props": [
             {
@@ -13708,18 +13465,454 @@
                 "type": "msg"
             }
         ],
-        "x": 410,
-        "y": 560,
+        "x": 310,
+        "y": 1320,
         "wires": [
             [
-                "56f29ee759efe048"
+                "39b8b4aeb3b0300a"
             ]
         ]
     },
     {
-        "id": "c9ba416c95edc65d",
+        "id": "5219158699c90d01",
+        "type": "credentials",
+        "z": "caf02dc9a5b73890",
+        "name": "Nuki Bridge Token",
+        "props": [
+            {
+                "value": "token",
+                "type": "msg"
+            }
+        ],
+        "x": 190,
+        "y": 120,
+        "wires": [
+            [
+                "8f6f5329f2966a7c"
+            ]
+        ]
+    },
+    {
+        "id": "8f6f5329f2966a7c",
+        "type": "change",
+        "z": "caf02dc9a5b73890",
+        "name": "Prepare Nuki Bridge Remove Callback 0 URL",
+        "rules": [
+            {
+                "t": "set",
+                "p": "url",
+                "pt": "msg",
+                "to": "\"http://nuki-bridge:8080/callback/remove&id=0&token=\" & msg.token",
+                "tot": "jsonata"
+            },
+            {
+                "t": "delete",
+                "p": "token",
+                "pt": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 490,
+        "y": 120,
+        "wires": [
+            [
+                "f541f04b9ff59bf4"
+            ]
+        ]
+    },
+    {
+        "id": "2ad8e95cec850060",
+        "type": "credentials",
+        "z": "caf02dc9a5b73890",
+        "name": "Nuki Bridge Token",
+        "props": [
+            {
+                "value": "token",
+                "type": "msg"
+            }
+        ],
+        "x": 190,
+        "y": 160,
+        "wires": [
+            [
+                "00047f872fe30830"
+            ]
+        ]
+    },
+    {
+        "id": "00047f872fe30830",
+        "type": "change",
+        "z": "caf02dc9a5b73890",
+        "name": "Prepare Nuki Bridge Remove Callback 0 URL",
+        "rules": [
+            {
+                "t": "set",
+                "p": "url",
+                "pt": "msg",
+                "to": "\"http://nuki-bridge:8080/callback/remove&id=0&token=\" & msg.token",
+                "tot": "jsonata"
+            },
+            {
+                "t": "delete",
+                "p": "token",
+                "pt": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 490,
+        "y": 160,
+        "wires": [
+            [
+                "08970a62c2210619"
+            ]
+        ]
+    },
+    {
+        "id": "08970a62c2210619",
+        "type": "http request",
+        "z": "caf02dc9a5b73890",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 770,
+        "y": 160,
+        "wires": [
+            [
+                "185711cedafd5fe4",
+                "bec5b0fd03df1e33"
+            ]
+        ]
+    },
+    {
+        "id": "bec5b0fd03df1e33",
+        "type": "credentials",
+        "z": "caf02dc9a5b73890",
+        "name": "Nuki Bridge Token",
+        "props": [
+            {
+                "value": "token",
+                "type": "msg"
+            }
+        ],
+        "x": 190,
+        "y": 200,
+        "wires": [
+            [
+                "9c157a69ed806bd0"
+            ]
+        ]
+    },
+    {
+        "id": "9c157a69ed806bd0",
+        "type": "change",
+        "z": "caf02dc9a5b73890",
+        "name": "Prepare Nuki Bridge Remove Callback 0 URL",
+        "rules": [
+            {
+                "t": "set",
+                "p": "url",
+                "pt": "msg",
+                "to": "\"http://nuki-bridge:8080/callback/remove&id=0&token=\" & msg.token",
+                "tot": "jsonata"
+            },
+            {
+                "t": "delete",
+                "p": "token",
+                "pt": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 490,
+        "y": 200,
+        "wires": [
+            [
+                "416b61be64987712"
+            ]
+        ]
+    },
+    {
+        "id": "416b61be64987712",
+        "type": "http request",
+        "z": "caf02dc9a5b73890",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 770,
+        "y": 200,
+        "wires": [
+            [
+                "185711cedafd5fe4",
+                "6f40c1675a983ea9"
+            ]
+        ]
+    },
+    {
+        "id": "6f40c1675a983ea9",
+        "type": "credentials",
+        "z": "caf02dc9a5b73890",
+        "name": "Nuki Bridge Token",
+        "props": [
+            {
+                "value": "token",
+                "type": "msg"
+            }
+        ],
+        "x": 190,
+        "y": 240,
+        "wires": [
+            [
+                "1b316d46d9aa3517"
+            ]
+        ]
+    },
+    {
+        "id": "1b316d46d9aa3517",
+        "type": "change",
+        "z": "caf02dc9a5b73890",
+        "name": "Prepare Nuki Bridge Add Callback URL",
+        "rules": [
+            {
+                "t": "set",
+                "p": "url",
+                "pt": "msg",
+                "to": "\"http://nuki-bridge:8080/callback/add?url=http%3A%2F%2Fdipe-pi%3A1880%2Fnuki&token=\" & msg.token",
+                "tot": "jsonata"
+            },
+            {
+                "t": "delete",
+                "p": "token",
+                "pt": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 480,
+        "y": 240,
+        "wires": [
+            [
+                "fadc0297633fd69c"
+            ]
+        ]
+    },
+    {
+        "id": "4eb7997d0fd3e559",
+        "type": "function",
+        "z": "caf02dc9a5b73890",
+        "name": "check",
+        "func": "if (msg.payload != '{\"callbacks\": [{\"id\": 0, \"url\": \"http://dipe-pi:1880/nuki\"}]}') {\n    return { payload: \"Neuverbindung Nuki-Bridge\" }\n}",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 950,
+        "y": 300,
+        "wires": [
+            [
+                "21b4b0f43e4cf0d3",
+                "bf9ec4221c55c756"
+            ]
+        ]
+    },
+    {
+        "id": "874dfff3aa6fa109",
+        "type": "link in",
+        "z": "caf02dc9a5b73890",
+        "name": "Append to NukiLog",
+        "links": [
+            "654a244c622d13f2",
+            "19b01bf54f5d1742",
+            "bf9ec4221c55c756"
+        ],
+        "x": 985,
+        "y": 1760,
+        "wires": [
+            [
+                "1941a899e31bb27f"
+            ]
+        ]
+    },
+    {
+        "id": "21b4b0f43e4cf0d3",
+        "type": "debug",
+        "z": "caf02dc9a5b73890",
+        "name": "debug 17",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 960,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "48be9664f191c60e",
+        "type": "inject",
+        "z": "caf02dc9a5b73890",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "300",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 170,
+        "y": 280,
+        "wires": [
+            [
+                "93ff5d2cdac3f406"
+            ]
+        ]
+    },
+    {
+        "id": "4f620ba5fc8ff501",
+        "type": "link in",
+        "z": "caf02dc9a5b73890",
+        "name": "Nuki Initialisieren",
+        "links": [
+            "7ac02d8428887df2",
+            "bf9ec4221c55c756"
+        ],
+        "x": 45,
+        "y": 120,
+        "wires": [
+            [
+                "5219158699c90d01"
+            ]
+        ]
+    },
+    {
+        "id": "bf9ec4221c55c756",
+        "type": "link out",
+        "z": "caf02dc9a5b73890",
+        "name": "link out 19",
+        "mode": "link",
+        "links": [
+            "4f620ba5fc8ff501",
+            "874dfff3aa6fa109"
+        ],
+        "x": 1055,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "8ab179626ae22745",
+        "type": "function",
+        "z": "caf02dc9a5b73890",
+        "name": "check",
+        "func": "if (msg.payload == 'undefiniert') {\n    return { payload: \"Neuverbindung Nuki-Bridge\" }\n}",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 950,
+        "y": 1600,
+        "wires": [
+            [
+                "1941a899e31bb27f",
+                "7ac02d8428887df2",
+                "7c14896d79ec85ee"
+            ]
+        ]
+    },
+    {
+        "id": "40193de5f7799667",
+        "type": "link in",
+        "z": "caf02dc9a5b73890",
+        "name": "Nuki Reinitalisieren?",
+        "links": [
+            "462ab2a1dc1a547b"
+        ],
+        "x": 725,
+        "y": 1600,
+        "wires": [
+            [
+                "8ab179626ae22745"
+            ]
+        ]
+    },
+    {
+        "id": "7ac02d8428887df2",
+        "type": "link out",
+        "z": "caf02dc9a5b73890",
+        "name": "link out 20",
+        "mode": "link",
+        "links": [
+            "4f620ba5fc8ff501"
+        ],
+        "x": 1075,
+        "y": 1600,
+        "wires": []
+    },
+    {
+        "id": "7c14896d79ec85ee",
+        "type": "debug",
+        "z": "caf02dc9a5b73890",
+        "name": "debug 18",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1120,
+        "y": 1560,
+        "wires": []
+    },
+    {
+        "id": "befaa0afd349c3ad",
         "type": "delay",
-        "z": "062848eb6508a3a6",
+        "z": "caf02dc9a5b73890",
         "name": "",
         "pauseType": "delay",
         "timeout": "5",
@@ -13733,18 +13926,18 @@
         "drop": false,
         "allowrate": false,
         "outputs": 1,
-        "x": 600,
-        "y": 500,
+        "x": 460,
+        "y": 1260,
         "wires": [
             [
-                "6636e5545d92ea8c"
+                "308f8ad74ab23e95"
             ]
         ]
     },
     {
-        "id": "6636e5545d92ea8c",
+        "id": "308f8ad74ab23e95",
         "type": "change",
-        "z": "062848eb6508a3a6",
+        "z": "caf02dc9a5b73890",
         "name": "clear flow.pin",
         "rules": [
             {
@@ -13767,593 +13960,225 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 790,
-        "y": 500,
+        "x": 630,
+        "y": 1260,
         "wires": [
             [
-                "5c43c72b9d9fb6f1"
+                "d30eaa96a9c03566"
             ]
         ]
     },
     {
-        "id": "d121e0d80d05297e",
-        "type": "function",
-        "z": "062848eb6508a3a6",
-        "name": "Status-Text",
-        "func": "const state_name_de = {\n    0: \"uncalibriert\",\n    1: \"verriegelt\",\n    2: \"entriegeln\",\n    3: \"entriegelt\",\n    4: \"verriegeln\",\n    5: \"geöffnet\",\n    6: \"entriegelt und gehen\",\n    7: \"öffnen\",\n    254: \"Motor blockiert\",\n    255: \"undefiniert\"\n}[msg.payload];\n\nreturn ({payload: state_name_de || msg.payload});",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 490,
-        "y": 960,
-        "wires": [
-            [
-                "652ef2c884ce6d6a"
-            ]
-        ]
-    },
-    {
-        "id": "652ef2c884ce6d6a",
-        "type": "ui_text",
-        "z": "062848eb6508a3a6",
-        "group": "40197d5f58592aee",
-        "order": 3,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "Schloss",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "className": "",
-        "style": false,
-        "font": "",
-        "fontSize": "",
-        "color": "#000000",
-        "x": 660,
-        "y": 960,
-        "wires": []
-    },
-    {
-        "id": "0e5fa16938990d9d",
-        "type": "function",
-        "z": "062848eb6508a3a6",
-        "name": "Nuki öffnren",
-        "func": "return {payload: 3};",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 310,
-        "y": 680,
-        "wires": [
-            [
-                "cb816aa78cf4b284"
-            ]
-        ]
-    },
-    {
-        "id": "dbe57032c651ca6c",
-        "type": "function",
-        "z": "062848eb6508a3a6",
-        "name": "Nuki voll verriegeln",
-        "func": "// 2 -> Lock\n// 6 -> Full Lock\nreturn {payload: 6};",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 330,
-        "y": 760,
-        "wires": [
-            [
-                "cb816aa78cf4b284"
-            ]
-        ]
-    },
-    {
-        "id": "3b97f753674df844",
-        "type": "link out",
-        "z": "062848eb6508a3a6",
-        "name": "Haustür-Sesnsor",
-        "mode": "link",
-        "links": [
-            "39cc2025cd461843"
+        "id": "93ff5d2cdac3f406",
+        "type": "credentials",
+        "z": "caf02dc9a5b73890",
+        "name": "Nuki Bridge Token",
+        "props": [
+            {
+                "value": "token",
+                "type": "msg"
+            }
         ],
-        "x": 995,
-        "y": 380,
-        "wires": []
+        "x": 190,
+        "y": 320,
+        "wires": [
+            [
+                "1416a6aaac6827b2"
+            ]
+        ]
     },
     {
-        "id": "0e0f940aa0f8ed4f",
-        "type": "switch",
-        "z": "062848eb6508a3a6",
-        "name": "wenn Tür geschlossen",
-        "property": "payload",
-        "propertyType": "msg",
+        "id": "1416a6aaac6827b2",
+        "type": "change",
+        "z": "caf02dc9a5b73890",
+        "name": "Prepare Nuki Bridge List Callbacks URL",
         "rules": [
             {
-                "t": "eq",
-                "v": "true",
-                "vt": "jsonata"
+                "t": "set",
+                "p": "url",
+                "pt": "msg",
+                "to": "\"http://nuki-bridge:8080/callback/list?token=\" & msg.token",
+                "tot": "jsonata"
+            },
+            {
+                "t": "delete",
+                "p": "token",
+                "pt": "msg"
             }
         ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 840,
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 480,
+        "y": 320,
+        "wires": [
+            [
+                "fac2c81cb170fb0d"
+            ]
+        ]
+    },
+    {
+        "id": "fac2c81cb170fb0d",
+        "type": "http request",
+        "z": "caf02dc9a5b73890",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 770,
+        "y": 320,
+        "wires": [
+            [
+                "4eb7997d0fd3e559",
+                "21b4b0f43e4cf0d3",
+                "d149f1233638406c"
+            ]
+        ]
+    },
+    {
+        "id": "eede9ec4e06e1e8c",
+        "type": "rbe",
+        "z": "caf02dc9a5b73890",
+        "name": "",
+        "func": "rbe",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "septopics": false,
+        "property": "payload",
+        "topi": "topic",
+        "x": 810,
+        "y": 1640,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "98a76e45220e685e",
+        "type": "inject",
+        "z": "caf02dc9a5b73890",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 160,
+        "y": 80,
+        "wires": [
+            [
+                "5219158699c90d01"
+            ]
+        ]
+    },
+    {
+        "id": "d149f1233638406c",
+        "type": "flogger",
+        "z": "caf02dc9a5b73890",
+        "name": "",
+        "logfile": "nuki",
+        "inputchoice": "object",
+        "inputobject": "payload",
+        "inputobjectType": "msg",
+        "inputmoustache": "Recieved payload {{payload}} and topic {{topic}}",
+        "loglevel": "INFO",
+        "logconfig": "8929498a4f6d4a2d",
+        "sendpane": "",
+        "x": 960,
         "y": 380,
         "wires": [
-            [
-                "3b97f753674df844"
-            ]
+            []
         ]
     },
     {
-        "id": "090394706d68b92d",
-        "type": "function",
-        "z": "062848eb6508a3a6",
-        "name": "Nuki Abschließen",
-        "func": "// 2 -> Lock\n// 6 -> Full Lock\nreturn {payload: 2};",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 330,
-        "y": 720,
-        "wires": [
-            [
-                "cb816aa78cf4b284"
-            ]
-        ]
-    },
-    {
-        "id": "7bcf60c7730ed56e",
-        "type": "function",
-        "z": "062848eb6508a3a6",
-        "name": "Nuki aufschließen",
-        "func": "return {payload: 1};",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 330,
-        "y": 640,
-        "wires": [
-            [
-                "cb816aa78cf4b284"
-            ]
-        ]
-    },
-    {
-        "id": "39cc2025cd461843",
-        "type": "link in",
-        "z": "062848eb6508a3a6",
-        "name": "Haustür-Schloss abschließen",
-        "links": [
-            "3b97f753674df844",
-            "544c077ecd16519e"
-        ],
-        "x": 185,
-        "y": 720,
-        "wires": [
-            [
-                "090394706d68b92d"
-            ]
-        ]
-    },
-    {
-        "id": "49f12f8d291af95b",
-        "type": "thingzi-timer",
-        "z": "062848eb6508a3a6",
-        "name": "Haustür Nachts voll voll verriegeln",
-        "lat": "50.882",
-        "lon": "6.6949",
-        "timerType": "trigger",
-        "startupMessage": false,
-        "ontype": "tod",
-        "ontimesun": "dusk",
-        "ontimetod": "21:00",
-        "onpropertytype": "msg",
-        "onproperty": "payload",
-        "onvaluetype": "str",
-        "onvalue": "fulllock",
-        "onoffset": "",
-        "onrandomoffset": false,
-        "offtype": "tod",
-        "offtimesun": "dawn",
-        "offtimetod": "23:00",
-        "offpropertytype": "msg",
-        "offproperty": "payload",
-        "offvaluetype": "str",
-        "offvalue": "full lock",
-        "offoffset": "",
-        "offrandomoffset": false,
-        "mon": true,
-        "tue": true,
-        "wed": true,
-        "thu": true,
-        "fri": true,
-        "sat": true,
-        "sun": true,
-        "x": 320,
-        "y": 880,
-        "wires": [
-            [
-                "cf9843a5f73e34d3"
-            ]
-        ]
-    },
-    {
-        "id": "758b7299542b3d8b",
-        "type": "ui_button",
-        "z": "062848eb6508a3a6",
+        "id": "bef8606017e36522",
+        "type": "rbe",
+        "z": "caf02dc9a5b73890",
         "name": "",
-        "group": "40197d5f58592aee",
-        "order": 5,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "label": "Tür verriegeln",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "className": "",
-        "icon": "",
-        "payload": "",
-        "payloadType": "str",
-        "topic": "topic",
-        "topicType": "msg",
-        "x": 260,
-        "y": 840,
+        "func": "rbe",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "septopics": true,
+        "property": "payload",
+        "topi": "topic",
+        "x": 190,
+        "y": 1680,
         "wires": [
             [
-                "44bd1ae85ba6e007"
+                "21b33795391d4ce8",
+                "6260a7d2e27bbda1",
+                "25f654e171406fb8",
+                "9f2b95af944702ad"
             ]
         ]
     },
     {
-        "id": "ca080b84c4fd696b",
-        "type": "delay",
-        "z": "062848eb6508a3a6",
+        "id": "9f2b95af944702ad",
+        "type": "flogger",
+        "z": "caf02dc9a5b73890",
         "name": "",
-        "pauseType": "delay",
-        "timeout": "3",
-        "timeoutUnits": "seconds",
-        "rate": "1",
-        "nbRateUnits": "1",
-        "rateUnits": "second",
-        "randomFirst": "1",
-        "randomLast": "5",
-        "randomUnits": "seconds",
-        "drop": false,
-        "allowrate": false,
-        "outputs": 1,
-        "x": 620,
-        "y": 420,
+        "logfile": "kellertuer",
+        "inputchoice": "object",
+        "inputobject": "payload",
+        "inputobjectType": "msg",
+        "inputmoustache": "Recieved payload {{payload}} and topic {{topic}}",
+        "loglevel": "INFO",
+        "logconfig": "8929498a4f6d4a2d",
+        "sendpane": "",
+        "x": 360,
+        "y": 1760,
         "wires": [
-            [
-                "6f0da61f822045d6",
-                "0e0f940aa0f8ed4f"
-            ]
+            []
         ]
     },
     {
-        "id": "b28bfae487f83a15",
-        "type": "inject",
-        "z": "062848eb6508a3a6",
-        "name": "true",
-        "props": [
+        "id": "209031b828bceed3",
+        "type": "change",
+        "z": "caf02dc9a5b73890",
+        "name": "contact",
+        "rules": [
             {
-                "p": "payload.contact",
-                "v": "true",
-                "vt": "bool"
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.contact",
+                "tot": "msg"
             }
         ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "x": 230,
-        "y": 340,
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 180,
+        "y": 1720,
         "wires": [
             [
-                "de98ccd1624d690c"
+                "bef8606017e36522"
             ]
         ]
-    },
-    {
-        "id": "12e2364ab57036cd",
-        "type": "inject",
-        "z": "062848eb6508a3a6",
-        "name": "false",
-        "props": [
-            {
-                "p": "payload.contact",
-                "v": "true",
-                "vt": "bool"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "x": 230,
-        "y": 380,
-        "wires": [
-            [
-                "de98ccd1624d690c"
-            ]
-        ]
-    },
-    {
-        "id": "591dd9edad7d42cc",
-        "type": "inject",
-        "z": "062848eb6508a3a6",
-        "name": "Aufschließen",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 250,
-        "y": 120,
-        "wires": [
-            [
-                "7db73223e8adca5f"
-            ]
-        ]
-    },
-    {
-        "id": "b5668a259cdd2f0f",
-        "type": "inject",
-        "z": "062848eb6508a3a6",
-        "name": "Öffnen",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 230,
-        "y": 160,
-        "wires": [
-            [
-                "4302ce92e4985b06"
-            ]
-        ]
-    },
-    {
-        "id": "bcfbed8af5655435",
-        "type": "inject",
-        "z": "062848eb6508a3a6",
-        "name": "Abschließen",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 250,
-        "y": 200,
-        "wires": [
-            [
-                "544c077ecd16519e"
-            ]
-        ]
-    },
-    {
-        "id": "1e867707f37eda1a",
-        "type": "inject",
-        "z": "062848eb6508a3a6",
-        "name": "Voll verriegeln",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 250,
-        "y": 240,
-        "wires": [
-            [
-                "376c57b149afbccc"
-            ]
-        ]
-    },
-    {
-        "id": "f04bd40c362906d9",
-        "type": "link out",
-        "z": "062848eb6508a3a6",
-        "name": "link out 28",
-        "mode": "link",
-        "links": [
-            "986cc7c62e4fcf8c"
-        ],
-        "x": 715,
-        "y": 560,
-        "wires": []
-    },
-    {
-        "id": "96ddcf96bd0f01a9",
-        "type": "link in",
-        "z": "062848eb6508a3a6",
-        "name": "Haustür-Schloss aufschließen",
-        "links": [
-            "7db73223e8adca5f"
-        ],
-        "x": 185,
-        "y": 640,
-        "wires": [
-            [
-                "7bcf60c7730ed56e"
-            ]
-        ]
-    },
-    {
-        "id": "986cc7c62e4fcf8c",
-        "type": "link in",
-        "z": "062848eb6508a3a6",
-        "name": "Haustür-Schloss öffnen",
-        "links": [
-            "4302ce92e4985b06",
-            "f04bd40c362906d9"
-        ],
-        "x": 185,
-        "y": 680,
-        "wires": [
-            [
-                "0e5fa16938990d9d"
-            ]
-        ]
-    },
-    {
-        "id": "576bc4593d875946",
-        "type": "link in",
-        "z": "062848eb6508a3a6",
-        "name": "Haustür-Schloss voll verriegeln",
-        "links": [
-            "376c57b149afbccc",
-            "44bd1ae85ba6e007",
-            "cf9843a5f73e34d3"
-        ],
-        "x": 185,
-        "y": 760,
-        "wires": [
-            [
-                "dbe57032c651ca6c"
-            ]
-        ]
-    },
-    {
-        "id": "44bd1ae85ba6e007",
-        "type": "link out",
-        "z": "062848eb6508a3a6",
-        "name": "link out 29",
-        "mode": "link",
-        "links": [
-            "576bc4593d875946"
-        ],
-        "x": 395,
-        "y": 840,
-        "wires": []
-    },
-    {
-        "id": "cf9843a5f73e34d3",
-        "type": "link out",
-        "z": "062848eb6508a3a6",
-        "name": "link out 30",
-        "mode": "link",
-        "links": [
-            "576bc4593d875946"
-        ],
-        "x": 515,
-        "y": 880,
-        "wires": []
-    },
-    {
-        "id": "7db73223e8adca5f",
-        "type": "link out",
-        "z": "062848eb6508a3a6",
-        "name": "link out 31",
-        "mode": "link",
-        "links": [
-            "96ddcf96bd0f01a9"
-        ],
-        "x": 375,
-        "y": 120,
-        "wires": []
-    },
-    {
-        "id": "4302ce92e4985b06",
-        "type": "link out",
-        "z": "062848eb6508a3a6",
-        "name": "link out 32",
-        "mode": "link",
-        "links": [
-            "986cc7c62e4fcf8c"
-        ],
-        "x": 375,
-        "y": 160,
-        "wires": []
-    },
-    {
-        "id": "544c077ecd16519e",
-        "type": "link out",
-        "z": "062848eb6508a3a6",
-        "name": "link out 33",
-        "mode": "link",
-        "links": [
-            "39cc2025cd461843"
-        ],
-        "x": 375,
-        "y": 200,
-        "wires": []
-    },
-    {
-        "id": "376c57b149afbccc",
-        "type": "link out",
-        "z": "062848eb6508a3a6",
-        "name": "link out 34",
-        "mode": "link",
-        "links": [
-            "576bc4593d875946"
-        ],
-        "x": 375,
-        "y": 240,
-        "wires": []
     },
     {
         "id": "3f9580dafe32e9bb",
@@ -15227,7 +15052,7 @@
         "width": 0,
         "height": 0,
         "passthru": true,
-        "mode": "number",
+        "mode": "password",
         "delay": "300",
         "topic": "topic",
         "sendOnBlur": true,
@@ -15350,9 +15175,7 @@
         "links": [
             "38c704d3beb148ed",
             "23b39e867ad3e835",
-            "e0f2ee18f4a3dcc1",
-            "e4e0e1337baeea9f",
-            "8a8def64c5910356"
+            "e0f2ee18f4a3dcc1"
         ],
         "x": 635,
         "y": 1020,
@@ -15531,8 +15354,7 @@
         "name": "link out 21",
         "mode": "link",
         "links": [
-            "874dfff3aa6fa109",
-            "d34d9891ea5ecd72"
+            "874dfff3aa6fa109"
         ],
         "x": 855,
         "y": 1100,
@@ -15908,7 +15730,7 @@
         "label": "Geschirrspüler",
         "tooltip": "",
         "group": "59ad78e6b49c46bb",
-        "order": 2,
+        "order": 0,
         "width": 0,
         "height": 0,
         "passthru": false,
@@ -15965,7 +15787,7 @@
         "label": "Waschmaschine",
         "tooltip": "",
         "group": "59ad78e6b49c46bb",
-        "order": 3,
+        "order": 0,
         "width": 0,
         "height": 0,
         "passthru": false,
@@ -16072,7 +15894,7 @@
         "type": "ui_text",
         "z": "7518cde088588ebe",
         "group": "59ad78e6b49c46bb",
-        "order": 1,
+        "order": 2,
         "width": "6",
         "height": "2",
         "name": "Erklärbär",
@@ -16166,8 +15988,7 @@
         "wires": [
             [
                 "8b3aba5983973888",
-                "8bbb8be99a554c57",
-                "b317151ed3209d71"
+                "8bbb8be99a554c57"
             ]
         ]
     },
@@ -16201,8 +16022,7 @@
         "y": 220,
         "wires": [
             [
-                "e0c1cf24ff2b7e57",
-                "b317151ed3209d71"
+                "e0c1cf24ff2b7e57"
             ]
         ]
     },
@@ -16241,8 +16061,7 @@
         "wires": [
             [
                 "be36acd18194951b",
-                "c9d084d9188e034d",
-                "b317151ed3209d71"
+                "c9d084d9188e034d"
             ]
         ]
     },
@@ -16276,8 +16095,7 @@
         "y": 140,
         "wires": [
             [
-                "76300692c288857b",
-                "b317151ed3209d71"
+                "76300692c288857b"
             ]
         ]
     },
@@ -16293,8 +16111,7 @@
         "y": 100,
         "wires": [
             [
-                "76300692c288857b",
-                "b317151ed3209d71"
+                "76300692c288857b"
             ]
         ]
     },
@@ -16310,8 +16127,7 @@
         "y": 260,
         "wires": [
             [
-                "e0c1cf24ff2b7e57",
-                "b317151ed3209d71"
+                "e0c1cf24ff2b7e57"
             ]
         ]
     },
@@ -16340,25 +16156,6 @@
         "x": 475,
         "y": 260,
         "wires": []
-    },
-    {
-        "id": "b317151ed3209d71",
-        "type": "flogger",
-        "z": "937c538bb5079218",
-        "name": "",
-        "logfile": "bad",
-        "inputchoice": "fullmsg",
-        "inputobject": "payload",
-        "inputobjectType": "msg",
-        "inputmoustache": "Recieved payload {{payload}} and topic {{topic}}",
-        "loglevel": "INFO",
-        "logconfig": "8929498a4f6d4a2d",
-        "sendpane": "",
-        "x": 580,
-        "y": 460,
-        "wires": [
-            []
-        ]
     },
     {
         "id": "b3429e540f297cef",
@@ -18710,7 +18507,7 @@
         "type": "function",
         "z": "68fa2cc37e97fc23",
         "name": "function 39",
-        "func": "const timestamp = msg.payload;\nif (timestamp) {\n    const date = new Date(timestamp);\n    const day_of_week_number = date.getDay();\n    const weekdays = [\"Sonntag\", \"Montag\", \"Dienstag\", \"Mittwoch\", \"Donnerstag\", \"Freitag\", \"Sonnabend\"];\n    const day_of_week = weekdays[day_of_week_number];\n    const buerotag = flow.get(day_of_week);\n\n    if (buerotag) {\n        return {payload: 21};\n    }\n}\nreturn { payload: \"off\" };\n",
+        "func": "const timestamp = msg.payload;\nif (timestamp) {\n    const date = new Date(timestamp);\n    const day_of_week_number = date.getDay();\n    const weekdays = [\"Sonntag\", \"Montag\", \"Dienstag\", \"Mittwoch\", \"Donnerstag\", \"Freitag\", \"Sonnabend\"];\n    const day_of_week = weekdays[day_of_week_number];\n    const buerotag = flow.get(day_of_week);\n\n    if (buerotag) {\n        return {payload: 21};\n    }\n}\nreturn { payload: 16 };\n",
         "outputs": 1,
         "timeout": "",
         "noerr": 0,
@@ -20103,7 +19900,8 @@
         "y": 480,
         "wires": [
             [
-                "e45925bf.a85bb8"
+                "e45925bf.a85bb8",
+                "b3f52823fc570bdc"
             ]
         ]
     },
@@ -20228,6 +20026,25 @@
                 "8b685850.ce1428",
                 "599b38aea5c2631c"
             ]
+        ]
+    },
+    {
+        "id": "b3f52823fc570bdc",
+        "type": "flogger",
+        "z": "186ee9b7.78e426",
+        "name": "",
+        "logfile": "push-notifications",
+        "inputchoice": "fullmsg",
+        "inputobject": "payload",
+        "inputobjectType": "msg",
+        "inputmoustache": "Recieved payload {{payload}} and topic {{topic}}",
+        "loglevel": "INFO",
+        "logconfig": "8929498a4f6d4a2d",
+        "sendpane": "",
+        "x": 960,
+        "y": 580,
+        "wires": [
+            []
         ]
     },
     {
@@ -20639,8 +20456,7 @@
         "name": "Person an Kellertür erkannt",
         "mode": "link",
         "links": [
-            "1cd036385c85d54d",
-            "3bbcf05fba67d89a"
+            "1cd036385c85d54d"
         ],
         "x": 765,
         "y": 320,
@@ -20795,1325 +20611,6 @@
         "wires": [
             [
                 "0fb5633e535d1adb"
-            ]
-        ]
-    },
-    {
-        "id": "652ddcc9a8144c81",
-        "type": "subflow:f5d8e11fee9a1e7c",
-        "z": "fc93ef5a2502b341",
-        "name": "Kamera Haustür",
-        "env": [
-            {
-                "name": "username",
-                "value": "admin",
-                "type": "str"
-            },
-            {
-                "name": "password",
-                "type": "cred"
-            },
-            {
-                "name": "hostname",
-                "value": "kamera-haustuer",
-                "type": "str"
-            }
-        ],
-        "x": 160,
-        "y": 140,
-        "wires": [
-            [
-                "09cbf53394928908"
-            ],
-            [
-                "e2f015a4de4af10b"
-            ]
-        ]
-    },
-    {
-        "id": "281f8d4326a675f1",
-        "type": "subflow:f5d8e11fee9a1e7c",
-        "z": "fc93ef5a2502b341",
-        "name": "Kamera Kellertür",
-        "env": [
-            {
-                "name": "username",
-                "value": "admin",
-                "type": "str"
-            },
-            {
-                "name": "password",
-                "type": "cred"
-            },
-            {
-                "name": "hostname",
-                "value": "kamera-kellertuer",
-                "type": "str"
-            }
-        ],
-        "x": 160,
-        "y": 300,
-        "wires": [
-            [
-                "f19e72af47339cf8"
-            ],
-            [
-                "409f37a2ef9abb46"
-            ]
-        ]
-    },
-    {
-        "id": "9ff914a13475df69",
-        "type": "subflow:f5d8e11fee9a1e7c",
-        "z": "fc93ef5a2502b341",
-        "name": "Kamera Balkon",
-        "env": [
-            {
-                "name": "username",
-                "value": "admin",
-                "type": "str"
-            },
-            {
-                "name": "password",
-                "type": "cred"
-            },
-            {
-                "name": "hostname",
-                "value": "kamera-balkon",
-                "type": "str"
-            }
-        ],
-        "x": 160,
-        "y": 460,
-        "wires": [
-            [
-                "68f1e056b5ac9262"
-            ],
-            [
-                "94f4b7425b382622"
-            ]
-        ]
-    },
-    {
-        "id": "6691d6080f35a57f",
-        "type": "mqtt out",
-        "z": "c2a5330f97fa7c16",
-        "name": "",
-        "topic": "ir-remote/send",
-        "qos": "",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "c349b9ff.9dc4c8",
-        "x": 1000,
-        "y": 420,
-        "wires": []
-    },
-    {
-        "id": "3853dc54ae0c63b8",
-        "type": "ui_button",
-        "z": "c2a5330f97fa7c16",
-        "name": "",
-        "group": "293408e2cb7bb9c0",
-        "order": 3,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "label": "Info",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "className": "",
-        "icon": "",
-        "payload": "0000 006D 000C 0000 0045 0043 0045 0021 0022 0021 0023 0021 0023 0021 0023 0021 0023 0021 0023 0043 0023 0021 0022 0021 0023 0021 0023 0181",
-        "payloadType": "str",
-        "topic": "topic",
-        "topicType": "msg",
-        "x": 510,
-        "y": 280,
-        "wires": [
-            [
-                "5c2db22b12c777f7"
-            ]
-        ]
-    },
-    {
-        "id": "ac4d26e57b84d3b4",
-        "type": "ui_button",
-        "z": "c2a5330f97fa7c16",
-        "name": "",
-        "group": "293408e2cb7bb9c0",
-        "order": 1,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "label": "Zurück",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "className": "",
-        "icon": "",
-        "payload": "0000 006D 000D 0000 0023 0021 0023 0021 0045 0021 0023 0021 0023 0021 0023 0021 0023 0044 0022 0021 0023 0021 0023 0021 0023 0021 0023 0021 0023 0181",
-        "payloadType": "str",
-        "topic": "topic",
-        "topicType": "msg",
-        "x": 520,
-        "y": 200,
-        "wires": [
-            [
-                "5c2db22b12c777f7"
-            ]
-        ]
-    },
-    {
-        "id": "5c2db22b12c777f7",
-        "type": "change",
-        "z": "c2a5330f97fa7c16",
-        "name": "",
-        "rules": [
-            {
-                "t": "move",
-                "p": "payload",
-                "pt": "msg",
-                "to": "payload.data",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 780,
-        "y": 420,
-        "wires": [
-            [
-                "6691d6080f35a57f",
-                "1f801f03b7590a88"
-            ]
-        ]
-    },
-    {
-        "id": "1f801f03b7590a88",
-        "type": "debug",
-        "z": "c2a5330f97fa7c16",
-        "name": "debug 34",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 980,
-        "y": 380,
-        "wires": []
-    },
-    {
-        "id": "dcc5863019b27848",
-        "type": "ui_button",
-        "z": "c2a5330f97fa7c16",
-        "name": "",
-        "group": "deb41d0cb1067945",
-        "order": 3,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "label": "Menü",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "className": "",
-        "icon": "",
-        "payload": "0000 006D 000C 0000 0023 0021 0045 0021 0023 0021 0024 0020 0023 0021 0023 0021 0023 0021 0022 0022 0022 0043 0045 0043 0023 0021 0023 0181 0000 006D 000C 0000 0023 0021 0045 0021 0023 0020 0023 0021 0024 0020 0024 0020 0023 0021 0023 0021 0024 0042 0045 0043 0023 0021 0024 0181 ",
-        "payloadType": "str",
-        "topic": "topic",
-        "topicType": "msg",
-        "x": 370,
-        "y": 280,
-        "wires": [
-            [
-                "5c2db22b12c777f7"
-            ]
-        ]
-    },
-    {
-        "id": "8831cd968614e3af",
-        "type": "ui_button",
-        "z": "c2a5330f97fa7c16",
-        "name": "",
-        "group": "f52f860f97388f73",
-        "order": 4,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "label": "1",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "gray",
-        "className": "",
-        "icon": "",
-        "payload": "0000 006D 000D 0000 0023 0020 0023 0021 0045 0021 0023 0021 0023 0021 0022 0021 0022 0021 0022 0021 0022 0021 0023 0021 0022 0022 0022 0043 0022 0181 ",
-        "payloadType": "str",
-        "topic": "topic",
-        "topicType": "msg",
-        "x": 230,
-        "y": 340,
-        "wires": [
-            [
-                "5c2db22b12c777f7"
-            ]
-        ]
-    },
-    {
-        "id": "93929501b1283c12",
-        "type": "ui_button",
-        "z": "c2a5330f97fa7c16",
-        "name": "",
-        "group": "deb41d0cb1067945",
-        "order": 4,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "label": "2",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "gray",
-        "className": "",
-        "icon": "",
-        "payload": "0000 006D 000C 0000 0024 0020 0046 0020 0022 0021 0023 0021 0022 0021 0023 0021 0023 0021 0023 0021 0022 0022 0022 0021 0023 0043 0046 0181 ",
-        "payloadType": "str",
-        "topic": "topic",
-        "topicType": "msg",
-        "x": 370,
-        "y": 340,
-        "wires": [
-            [
-                "5c2db22b12c777f7"
-            ]
-        ]
-    },
-    {
-        "id": "82ac2853a6ccaba6",
-        "type": "ui_button",
-        "z": "c2a5330f97fa7c16",
-        "name": "",
-        "group": "293408e2cb7bb9c0",
-        "order": 4,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "label": "3",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "gray",
-        "className": "",
-        "icon": "",
-        "payload": " 0000 006D 000D 0000 0024 0020 0046 0020 0024 0020 0023 0021 0024 0020 0024 0020 0024 0020 0024 0020 0024 0020 0024 0020 0023 0043 0022 0021 0023 0181 ",
-        "payloadType": "str",
-        "topic": "topic",
-        "topicType": "msg",
-        "x": 510,
-        "y": 340,
-        "wires": [
-            [
-                "5c2db22b12c777f7"
-            ]
-        ]
-    },
-    {
-        "id": "0c522b6069740792",
-        "type": "ui_button",
-        "z": "c2a5330f97fa7c16",
-        "name": "",
-        "group": "f52f860f97388f73",
-        "order": 5,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "label": "4",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "gray",
-        "className": "",
-        "icon": "",
-        "payload": "0000 006D 000C 0000 0022 0022 0023 0021 0045 0021 0022 0022 0022 0022 0022 0022 0022 0021 0022 0022 0022 0022 0022 0043 0045 0022 0022 0181 ",
-        "payloadType": "str",
-        "topic": "topic",
-        "topicType": "msg",
-        "x": 230,
-        "y": 380,
-        "wires": [
-            [
-                "5c2db22b12c777f7"
-            ]
-        ]
-    },
-    {
-        "id": "285a6f6b5db41481",
-        "type": "ui_button",
-        "z": "c2a5330f97fa7c16",
-        "name": "",
-        "group": "deb41d0cb1067945",
-        "order": 5,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "label": "5",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "gray",
-        "className": "",
-        "icon": "",
-        "payload": "0000 006D 000C 0000 0024 0020 0045 0021 0022 0021 0023 0021 0023 0021 0023 0021 0022 0021 0022 0021 0023 0021 0022 0043 0046 0041 0024 0181 ",
-        "payloadType": "str",
-        "topic": "topic",
-        "topicType": "msg",
-        "x": 370,
-        "y": 380,
-        "wires": [
-            [
-                "5c2db22b12c777f7"
-            ]
-        ]
-    },
-    {
-        "id": "7f9a82fd4bd81703",
-        "type": "ui_button",
-        "z": "c2a5330f97fa7c16",
-        "name": "",
-        "group": "293408e2cb7bb9c0",
-        "order": 5,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "label": "6",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "gray",
-        "className": "",
-        "icon": "",
-        "payload": "0000 006D 000C 0000 0022 0021 0023 0021 0045 0021 0023 0021 0023 0021 0023 0021 0024 0020 0022 0021 0023 0021 0022 0043 0023 0021 0045 0181 ",
-        "payloadType": "str",
-        "topic": "topic",
-        "topicType": "msg",
-        "x": 510,
-        "y": 380,
-        "wires": [
-            [
-                "5c2db22b12c777f7"
-            ]
-        ]
-    },
-    {
-        "id": "f5a7c3f2ca4a8bba",
-        "type": "ui_button",
-        "z": "c2a5330f97fa7c16",
-        "name": "",
-        "group": "f52f860f97388f73",
-        "order": 6,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "label": "7",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "gray",
-        "className": "",
-        "icon": "",
-        "payload": "0000 006D 000D 0000 0023 0021 0045 0021 0022 0021 0022 0021 0022 0022 0022 0021 0022 0022 0022 0022 0022 0021 0022 0043 0022 0021 0022 0022 0022 0181 ",
-        "payloadType": "str",
-        "topic": "topic",
-        "topicType": "msg",
-        "x": 230,
-        "y": 420,
-        "wires": [
-            [
-                "5c2db22b12c777f7"
-            ]
-        ]
-    },
-    {
-        "id": "c0137d00f0b51865",
-        "type": "ui_button",
-        "z": "c2a5330f97fa7c16",
-        "name": "",
-        "group": "deb41d0cb1067945",
-        "order": 6,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "label": "8",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "gray",
-        "className": "",
-        "icon": "",
-        "payload": "0000 006D 000C 0000 0022 0021 0023 0021 0045 0021 0022 0021 0022 0022 0022 0022 0022 0022 0022 0022 0022 0043 0045 0021 0022 0022 0022 0181 ",
-        "payloadType": "str",
-        "topic": "topic",
-        "topicType": "msg",
-        "x": 370,
-        "y": 420,
-        "wires": [
-            [
-                "5c2db22b12c777f7"
-            ]
-        ]
-    },
-    {
-        "id": "0888fe6f1ec6264a",
-        "type": "ui_button",
-        "z": "c2a5330f97fa7c16",
-        "name": "",
-        "group": "293408e2cb7bb9c0",
-        "order": 6,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "label": "9",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "gray",
-        "className": "",
-        "icon": "",
-        "payload": "0000 006D 000C 0000 0022 0021 0045 0022 0022 0021 0022 0021 0022 0021 0022 0022 0022 0021 0023 0021 0022 0043 0045 0021 0022 0043 0022 0181 ",
-        "payloadType": "str",
-        "topic": "topic",
-        "topicType": "msg",
-        "x": 510,
-        "y": 420,
-        "wires": [
-            [
-                "5c2db22b12c777f7"
-            ]
-        ]
-    },
-    {
-        "id": "fe1e31949702d5fb",
-        "type": "ui_button",
-        "z": "c2a5330f97fa7c16",
-        "name": "",
-        "group": "deb41d0cb1067945",
-        "order": 7,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "label": "0",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "gray",
-        "className": "",
-        "icon": "",
-        "payload": "0000 006D 000D 0000 0024 0020 0023 0021 0045 0021 0023 0021 0022 0022 0022 0021 0023 0021 0023 0021 0023 0021 0023 0021 0024 0020 0023 0021 0023 0181 ",
-        "payloadType": "str",
-        "topic": "topic",
-        "topicType": "msg",
-        "x": 370,
-        "y": 460,
-        "wires": [
-            [
-                "5c2db22b12c777f7"
-            ]
-        ]
-    },
-    {
-        "id": "d38d9e21c9bfb68a",
-        "type": "ui_button",
-        "z": "c2a5330f97fa7c16",
-        "name": "",
-        "group": "f52f860f97388f73",
-        "order": 3,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "label": "Home",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "className": "",
-        "icon": "",
-        "payload": "0000 006D 0010 0000 0024 0021 0023 0021 0046 0021 0024 0020 0023 0021 0024 0020 0024 0030 0004 0006 002B 0021 0047 0019 002A 0019 002B 0011 0026 0005 0029 0015 0006 000E 0004 0181 ",
-        "payloadType": "str",
-        "topic": "topic",
-        "topicType": "msg",
-        "x": 230,
-        "y": 280,
-        "wires": [
-            [
-                "5c2db22b12c777f7"
-            ]
-        ]
-    },
-    {
-        "id": "0a31988d4b79aebb",
-        "type": "ui_button",
-        "z": "c2a5330f97fa7c16",
-        "name": "",
-        "group": "293408e2cb7bb9c0",
-        "order": 2,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "label": "EPG",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "className": "",
-        "icon": "",
-        "payload": "0000 006D 000C 0000 0047 0021 0024 0020 0024 0020 0023 0020 0025 001F 0023 0021 0023 0020 0023 0020 0024 0041 0025 0021 0023 0020 0046 0181 0000 006D 000D 0000 0048 001F 0024 0020 0024 0020 0023 0021 0023 0020 0023 0020 0024 0020 0024 001F 0023 003F 0027 0020 0024 0020 0047 0020 0015 0181 0000 006D 000D 0000 0047 0020 0023 0021 0023 0021 0023 0021 0023 0021 0024 0020 0024 0020 0023 0020 0023 0036 002F 0021 0023 0021 0046 002D 0011 0181 ",
-        "payloadType": "str",
-        "topic": "topic",
-        "topicType": "msg",
-        "x": 510,
-        "y": 240,
-        "wires": [
-            [
-                "5c2db22b12c777f7"
-            ]
-        ]
-    },
-    {
-        "id": "fec8460791901d25",
-        "type": "ui_button",
-        "z": "c2a5330f97fa7c16",
-        "name": "",
-        "group": "f52f860f97388f73",
-        "order": 1,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "label": "TV",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "className": "",
-        "icon": "",
-        "payload": "0000 006D 000B 0000 0024 0020 0045 0021 0023 0021 0022 0021 0022 0021 0023 0021 0022 0021 0023 0043 0046 0041 0023 0021 0045 0181 0000 006D 000B 0000 0023 0021 0045 0021 0023 0021 0023 0021 0023 0021 0022 0021 0022 0021 0023 0043 0046 0042 0023 0021 0045 0181 0000 006D 000B 0000 0023 0021 0045 0021 0023 0021 0022 0021 0022 0021 0023 0021 0022 0021 0023 0043 0046 0042 0023 0021 0045 0181 000 006D 0022 0000 015B 00AD 0016 0014 0016 0014 0016 0014 0016 003F 0016 003F 0016 003F 0016 003F 0016 0014 0017 003F 0016 003F 0016 003F 0017 0014 0016 0014 0016 0014 0016 0014 0016 003F 0016 0014 0017 003F 0017 003F 0017 003F 0016 003F 0017 003F 0016 003F 0017 0014 0016 003F 0016 0014 0016 0014 0016 0014 0016 0014 0016 0014 0016 0014 0016 003F 0016 0181 0000 006D 0002 0000 015B 0055 0016 0181 0000 006D 0002 0000 015B 0055 0017 0181 ",
-        "payloadType": "str",
-        "topic": "topic",
-        "topicType": "msg",
-        "x": 230,
-        "y": 200,
-        "wires": [
-            [
-                "5c2db22b12c777f7"
-            ]
-        ]
-    },
-    {
-        "id": "d5fe1975191b1f67",
-        "type": "ui_button",
-        "z": "c2a5330f97fa7c16",
-        "name": "",
-        "group": "f52f860f97388f73",
-        "order": 11,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "label": "Rot",
-        "tooltip": "",
-        "color": "red",
-        "bgcolor": "red",
-        "className": "",
-        "icon": "",
-        "payload": "0000 006D 000C 0000 0024 0021 0023 0021 0046 0021 0023 0021 0023 0021 0024 0020 0024 001D 0027 0014 0051 0017 004D 0042 0024 0021 0022 0181 ",
-        "payloadType": "str",
-        "topic": "topic",
-        "topicType": "msg",
-        "x": 230,
-        "y": 660,
-        "wires": [
-            [
-                "5c2db22b12c777f7"
-            ]
-        ]
-    },
-    {
-        "id": "3c8aa5e1d1411339",
-        "type": "ui_button",
-        "z": "c2a5330f97fa7c16",
-        "name": "",
-        "group": "deb41d0cb1067945",
-        "order": 11,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "label": "Grün",
-        "tooltip": "",
-        "color": "green",
-        "bgcolor": "green",
-        "className": "",
-        "icon": "",
-        "payload": "0000 006D 000C 0000 0024 0021 0024 0020 0047 0020 0023 0021 0023 0021 0023 0021 0023 0021 0024 003D 0028 0021 0046 0038 0050 0038 0009 0181 0000 006D 000C 0000 0024 0021 0023 0021 0046 0021 0023 0021 0024 0020 0023 0021 0023 0021 0024 0035 002F 0021 0047 002D 005B 002E 000B 0181 ",
-        "payloadType": "str",
-        "topic": "topic",
-        "topicType": "msg",
-        "x": 370,
-        "y": 660,
-        "wires": [
-            [
-                "5c2db22b12c777f7"
-            ]
-        ]
-    },
-    {
-        "id": "275349b9c956b911",
-        "type": "ui_button",
-        "z": "c2a5330f97fa7c16",
-        "name": "",
-        "group": "293408e2cb7bb9c0",
-        "order": 13,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "label": "Gelb",
-        "tooltip": "",
-        "color": "yellow",
-        "bgcolor": "yellow",
-        "className": "",
-        "icon": "",
-        "payload": "0000 006D 000B 0000 0022 0021 0023 0021 0045 0021 0024 0021 0020 0024 0023 0021 0023 0041 0046 0042 0046 0044 0020 001F 0027 0181 0000 006D 000B 0000 0022 0021 0022 0021 0045 0021 0022 0021 0022 0022 0022 0021 0022 0044 0044 0043 0044 0043 0022 0021 0024 0181 ",
-        "payloadType": "str",
-        "topic": "topic",
-        "topicType": "msg",
-        "x": 510,
-        "y": 740,
-        "wires": [
-            [
-                "5c2db22b12c777f7"
-            ]
-        ]
-    },
-    {
-        "id": "f456439174493d34",
-        "type": "ui_button",
-        "z": "c2a5330f97fa7c16",
-        "name": "",
-        "group": "293408e2cb7bb9c0",
-        "order": 11,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "label": "Blau",
-        "tooltip": "",
-        "color": "blue",
-        "bgcolor": "blue",
-        "className": "",
-        "icon": "",
-        "payload": "0000 006D 000B 0000 0024 0021 0046 0021 0023 0021 0023 0021 0024 0020 0024 0020 0024 0040 0047 003F 0049 0020 0025 001F 0023 0181 0000 006D 000D 0000 0025 0020 0046 0021 0023 0021 0023 0021 0023 0021 0024 0020 0023 0039 004E 003B 004D 0021 0023 0021 0024 0026 0009 0005 000A 0181 ",
-        "payloadType": "str",
-        "topic": "topic",
-        "topicType": "msg",
-        "x": 510,
-        "y": 660,
-        "wires": [
-            [
-                "5c2db22b12c777f7"
-            ]
-        ]
-    },
-    {
-        "id": "aec476181ed6ba38",
-        "type": "ui_button",
-        "z": "c2a5330f97fa7c16",
-        "name": "",
-        "group": "f52f860f97388f73",
-        "order": 12,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "label": "<<",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "className": "",
-        "icon": "",
-        "payload": "0000 006D 000A 0000 0022 0021 0022 0021 0045 0022 0022 0044 0022 0022 0045 0044 0022 0021 0045 0021 0023 0043 0044 0181 ",
-        "payloadType": "str",
-        "topic": "topic",
-        "topicType": "msg",
-        "x": 230,
-        "y": 700,
-        "wires": [
-            [
-                "5c2db22b12c777f7"
-            ]
-        ]
-    },
-    {
-        "id": "265eb06a59519ef2",
-        "type": "ui_button",
-        "z": "c2a5330f97fa7c16",
-        "name": "",
-        "group": "deb41d0cb1067945",
-        "order": 12,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "label": ">",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "className": "",
-        "icon": "",
-        "payload": "0000 006D 000A 0000 0024 0021 0023 0021 0046 0021 0023 003F 0026 0021 0046 0041 0025 0021 0046 003D 004B 0041 0024 0181 0000 006D 000A 0000 0024 0021 0024 0020 0046 0021 0023 003F 0027 0021 0046 0041 0025 0020 0047 0040 0047 0040 0025 0181 ",
-        "payloadType": "str",
-        "topic": "topic",
-        "topicType": "msg",
-        "x": 370,
-        "y": 700,
-        "wires": [
-            [
-                "5c2db22b12c777f7"
-            ]
-        ]
-    },
-    {
-        "id": "074c7e3e55d8b06e",
-        "type": "ui_button",
-        "z": "c2a5330f97fa7c16",
-        "name": "",
-        "group": "deb41d0cb1067945",
-        "order": 13,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "label": "||",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "className": "",
-        "icon": "",
-        "payload": "0000 006D 000A 0000 0025 0020 0023 0021 0047 001F 0023 0041 0025 0020 0046 0041 0047 003F 0049 0021 0023 0040 0025 0181",
-        "payloadType": "str",
-        "topic": "topic",
-        "topicType": "msg",
-        "x": 370,
-        "y": 740,
-        "wires": [
-            [
-                "5c2db22b12c777f7"
-            ]
-        ]
-    },
-    {
-        "id": "d705cbb1144caf0b",
-        "type": "ui_button",
-        "z": "c2a5330f97fa7c16",
-        "name": "",
-        "group": "293408e2cb7bb9c0",
-        "order": 12,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "label": ">>",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "className": "",
-        "icon": "",
-        "payload": "0000 006D 000A 0000 0023 0021 0045 0021 0023 0021 0023 0043 0023 0021 0046 0042 0023 0021 0046 0041 0045 0021 0024 0181 0000 006D 000A 0000 0025 0021 0046 0021 0024 0020 0023 003F 0026 0020 0047 003C 002A 0020 0046 003E 0049 0021 0023 0181 ",
-        "payloadType": "str",
-        "topic": "topic",
-        "topicType": "msg",
-        "x": 510,
-        "y": 700,
-        "wires": [
-            [
-                "5c2db22b12c777f7"
-            ]
-        ]
-    },
-    {
-        "id": "77b397d04a92244a",
-        "type": "ui_button",
-        "z": "c2a5330f97fa7c16",
-        "name": "",
-        "group": "f52f860f97388f73",
-        "order": 8,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "label": "+",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "className": "",
-        "icon": "",
-        "payload": "0000 006D 0022 0000 015B 00AD 0016 0014 0016 0014 0016 0014 0016 003F 0016 003F 0016 003F 0016 003F 0016 0014 0016 003F 0016 003F 0016 003F 0016 0014 0016 0014 0016 0014 0016 0014 0016 003F 0015 0015 0016 003F 0016 003F 0016 003F 0016 003F 0016 0014 0016 0014 0016 0014 0016 003F 0016 0014 0016 0014 0015 0015 0016 0014 0016 003F 0015 0040 0016 003F 0016 0181 0000 006D 0002 0000 015B 0055 0015 0181 ",
-        "payloadType": "str",
-        "topic": "topic",
-        "topicType": "msg",
-        "x": 230,
-        "y": 520,
-        "wires": [
-            [
-                "5c2db22b12c777f7"
-            ]
-        ]
-    },
-    {
-        "id": "7268a1524391073c",
-        "type": "ui_button",
-        "z": "c2a5330f97fa7c16",
-        "name": "",
-        "group": "f52f860f97388f73",
-        "order": 10,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "label": "-",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "className": "",
-        "icon": "",
-        "payload": "0000 006D 0022 0000 015A 00AE 0016 0014 0016 0014 0016 0014 0016 003F 0016 003F 0016 003F 0016 003F 0016 0014 0016 003F 0016 003F 0015 0040 0015 0015 0016 0014 0016 0014 0016 0014 0016 003F 0016 003F 0015 0040 0015 0040 0015 0040 0015 0040 0016 0014 0015 0015 0015 0015 0015 0015 0016 0014 0015 0015 0015 0016 0015 0015 0015 0041 0014 0041 0014 0041 0014 0181 0000 006D 0002 0000 0159 0057 0014 0181 ",
-        "payloadType": "str",
-        "topic": "topic",
-        "topicType": "msg",
-        "x": 230,
-        "y": 600,
-        "wires": [
-            [
-                "5c2db22b12c777f7"
-            ]
-        ]
-    },
-    {
-        "id": "788ddf186d82392b",
-        "type": "ui_button",
-        "z": "c2a5330f97fa7c16",
-        "name": "",
-        "group": "293408e2cb7bb9c0",
-        "order": 8,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "label": "P+",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "className": "",
-        "icon": "",
-        "payload": "0000 006D 000C 0000 0025 001F 0023 0021 0044 0022 0022 0022 0021 0023 0021 0023 0021 0023 0022 0043 0021 0024 0043 0023 0021 0023 0022 0181 0000 006D 000D 0000 0022 0023 0027 0006 0003 0012 0045 0021 0023 0020 0024 0021 0023 0021 0023 0021 0023 0043 0023 0021 0045 0021 0024 0020 0023 0181 ",
-        "payloadType": "str",
-        "topic": "topic",
-        "topicType": "msg",
-        "x": 510,
-        "y": 520,
-        "wires": [
-            [
-                "5c2db22b12c777f7"
-            ]
-        ]
-    },
-    {
-        "id": "b5a3433dbc312a52",
-        "type": "ui_button",
-        "z": "c2a5330f97fa7c16",
-        "name": "",
-        "group": "293408e2cb7bb9c0",
-        "order": 10,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "label": "P-",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "className": "",
-        "icon": "",
-        "payload": "0000 006D 000C 0000 0022 0021 0023 0021 0045 0021 0023 0021 0023 0021 0022 0021 0024 0020 0023 0043 0044 0043 0022 0021 0023 0021 0023 0181 ",
-        "payloadType": "str",
-        "topic": "topic",
-        "topicType": "msg",
-        "x": 510,
-        "y": 600,
-        "wires": [
-            [
-                "5c2db22b12c777f7"
-            ]
-        ]
-    },
-    {
-        "id": "40a785a734bc9dc0",
-        "type": "ui_button",
-        "z": "c2a5330f97fa7c16",
-        "name": "",
-        "group": "f52f860f97388f73",
-        "order": 9,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "label": "<",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "className": "",
-        "icon": "",
-        "payload": "0000 006D 000C 0000 0022 0022 0022 0022 0045 0021 0022 0021 0022 0021 0022 0021 0023 0021 0022 0043 0045 0021 0022 0021 0022 0043 0022 0181 ",
-        "payloadType": "str",
-        "topic": "topic",
-        "topicType": "msg",
-        "x": 230,
-        "y": 560,
-        "wires": [
-            [
-                "5c2db22b12c777f7"
-            ]
-        ]
-    },
-    {
-        "id": "e35fe934314c4833",
-        "type": "ui_button",
-        "z": "c2a5330f97fa7c16",
-        "name": "",
-        "group": "deb41d0cb1067945",
-        "order": 8,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "label": "^",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "className": "",
-        "icon": "",
-        "payload": "0000 006D 000C 0000 0024 0021 0044 0022 0022 0022 0022 0022 0021 0023 0021 0023 0022 0043 0044 0023 0021 0023 0022 0022 0021 0023 0022 0181",
-        "payloadType": "str",
-        "topic": "topic",
-        "topicType": "msg",
-        "x": 370,
-        "y": 520,
-        "wires": [
-            [
-                "5c2db22b12c777f7"
-            ]
-        ]
-    },
-    {
-        "id": "9be31e91e785be10",
-        "type": "ui_button",
-        "z": "c2a5330f97fa7c16",
-        "name": "",
-        "group": "deb41d0cb1067945",
-        "order": 10,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "label": "v",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "className": "",
-        "icon": "",
-        "payload": "0000 006D 000C 0000 0022 0021 0024 0020 0045 0021 0022 0021 0023 0021 0022 0021 0023 0043 0044 0022 0022 0021 0022 0021 0022 0044 0022 0181 ",
-        "payloadType": "str",
-        "topic": "topic",
-        "topicType": "msg",
-        "x": 370,
-        "y": 600,
-        "wires": [
-            [
-                "5c2db22b12c777f7"
-            ]
-        ]
-    },
-    {
-        "id": "c86f34e0dcb51565",
-        "type": "ui_button",
-        "z": "c2a5330f97fa7c16",
-        "name": "",
-        "group": "293408e2cb7bb9c0",
-        "order": 9,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "label": ">",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "className": "",
-        "icon": "",
-        "payload": "0000 006D 000C 0000 0022 0021 0045 0021 0022 0021 0022 0022 0022 0022 0022 0022 0022 0022 0022 0043 0045 0021 0022 0022 0022 0022 0022 0181 ",
-        "payloadType": "str",
-        "topic": "topic",
-        "topicType": "msg",
-        "x": 510,
-        "y": 560,
-        "wires": [
-            [
-                "5c2db22b12c777f7"
-            ]
-        ]
-    },
-    {
-        "id": "0411ac7d9962e0f3",
-        "type": "ui_button",
-        "z": "c2a5330f97fa7c16",
-        "name": "",
-        "group": "deb41d0cb1067945",
-        "order": 9,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "label": "OK",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "#cccccc",
-        "className": "",
-        "icon": "",
-        "payload": "0000 006D 000C 0000 0024 0021 0047 0020 0023 0021 0024 0020 0023 0021 0023 0021 0023 003F 0048 0021 0023 003C 0029 0021 0046 0030 0004 0181 0000 006D 000B 0000 0022 0021 0046 0021 0023 0021 0023 0021 0022 0021 0023 0021 0023 0043 0045 0021 0022 0043 0022 0022 0045 0181 ",
-        "payloadType": "str",
-        "topic": "topic",
-        "topicType": "msg",
-        "x": 370,
-        "y": 560,
-        "wires": [
-            [
-                "5c2db22b12c777f7"
-            ]
-        ]
-    },
-    {
-        "id": "597845a575892a0e",
-        "type": "ui_button",
-        "z": "c2a5330f97fa7c16",
-        "name": "",
-        "group": "f52f860f97388f73",
-        "order": 13,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "label": "Aufn.",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "className": "",
-        "icon": "",
-        "payload": "000 006D 000E 0000 0024 0021 0023 0021 0046 0021 0024 003C 0028 0021 0047 0025 0040 0019 004D 0011 0002 000C 0008 0005 000B 0007 0027 001F 0025 0021 0023 0181",
-        "payloadType": "str",
-        "topic": "topic",
-        "topicType": "msg",
-        "x": 230,
-        "y": 740,
-        "wires": [
-            [
-                "5c2db22b12c777f7"
-            ]
-        ]
-    },
-    {
-        "id": "0583ae608f2bb666",
-        "type": "ui_button",
-        "z": "c2a5330f97fa7c16",
-        "name": "",
-        "group": "f52f860f97388f73",
-        "order": 7,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "label": "Mute",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "className": "",
-        "icon": "",
-        "payload": "0000 006D 0022 0000 015B 00AC 0017 0014 0016 0014 0016 0014 0017 003F 0016 003F 0016 003F 0016 003F 0016 0014 0016 003F 0016 003F 0017 003F 0016 0014 0017 0014 0016 0014 0016 0014 0016 003F 0016 0014 0016 0014 0016 003F 0016 003F 0016 003F 0016 0014 0017 0014 0016 003F 0016 003F 0017 003F 0016 0014 0016 0014 0017 0014 0016 003F 0016 003F 0017 0014 0016 0181 0000 006D 0002 0000 015B 0055 0016 0181 ",
-        "payloadType": "str",
-        "topic": "topic",
-        "topicType": "msg",
-        "x": 230,
-        "y": 460,
-        "wires": [
-            [
-                "5c2db22b12c777f7"
-            ]
-        ]
-    },
-    {
-        "id": "4a7a20d84370ba75",
-        "type": "ui_button",
-        "z": "c2a5330f97fa7c16",
-        "name": "",
-        "group": "293408e2cb7bb9c0",
-        "order": 7,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "label": "",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "#303030",
-        "className": "",
-        "icon": "",
-        "payload": "",
-        "payloadType": "str",
-        "topic": "topic",
-        "topicType": "msg",
-        "x": 510,
-        "y": 460,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "989e9ecc2e57077c",
-        "type": "ui_button",
-        "z": "c2a5330f97fa7c16",
-        "name": "",
-        "group": "deb41d0cb1067945",
-        "order": 2,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "label": "",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "#303030",
-        "className": "",
-        "icon": "",
-        "payload": "",
-        "payloadType": "str",
-        "topic": "topic",
-        "topicType": "msg",
-        "x": 370,
-        "y": 240,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "2fb0104dcced5af2",
-        "type": "ui_button",
-        "z": "c2a5330f97fa7c16",
-        "name": "",
-        "group": "deb41d0cb1067945",
-        "order": 1,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "label": "Aus",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "className": "",
-        "icon": "",
-        "payload": "0000 006D 000D 0000 0024 0021 0024 0020 0045 0021 0023 0021 0023 0021 0023 0021 0024 0020 0023 0021 0023 003D 0029 0020 0046 0021 0023 002F 000D 0181 ",
-        "payloadType": "str",
-        "topic": "topic",
-        "topicType": "msg",
-        "x": 370,
-        "y": 200,
-        "wires": [
-            [
-                "5c2db22b12c777f7"
-            ]
-        ]
-    },
-    {
-        "id": "8c5002d91a1447d6",
-        "type": "mqtt out",
-        "z": "c2a5330f97fa7c16",
-        "name": "",
-        "topic": "ir-remote/switch/receiver/command",
-        "qos": "",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "c349b9ff.9dc4c8",
-        "x": 800,
-        "y": 820,
-        "wires": []
-    },
-    {
-        "id": "f02c56da187f6d4d",
-        "type": "ui_switch",
-        "z": "c2a5330f97fa7c16",
-        "name": "",
-        "label": "IR-Empfang",
-        "tooltip": "",
-        "group": "2359d0317a8e5efd",
-        "order": 1,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "decouple": "false",
-        "topic": "topic",
-        "topicType": "msg",
-        "style": "",
-        "onvalue": "ON",
-        "onvalueType": "str",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "OFF",
-        "offvalueType": "str",
-        "officon": "",
-        "offcolor": "",
-        "animate": false,
-        "className": "",
-        "x": 550,
-        "y": 820,
-        "wires": [
-            [
-                "8c5002d91a1447d6"
-            ]
-        ]
-    },
-    {
-        "id": "6b6838a8ab8f0576",
-        "type": "ui_button",
-        "z": "c2a5330f97fa7c16",
-        "name": "",
-        "group": "f52f860f97388f73",
-        "order": 2,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "label": "DR+",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "className": "",
-        "icon": "",
-        "payload": "0000 006D 000B 0000 0046 0042 0045 0021 0022 0021 0022 0021 0022 0021 0023 0021 0022 0043 0023 0021 0044 0044 0023 0021 0023 0181 0000 006D 000B 0000 0046 0042 0045 0021 0023 0021 0023 0021 0022 0022 0023 0021 0022 0043 0023 0021 0045 0043 0023 0021 0024 0181 ",
-        "payloadType": "str",
-        "topic": "topic",
-        "topicType": "msg",
-        "x": 230,
-        "y": 240,
-        "wires": [
-            [
-                "5c2db22b12c777f7"
-            ]
-        ]
-    },
-    {
-        "id": "a165b96bd31a0e52",
-        "type": "mqtt in",
-        "z": "c2a5330f97fa7c16",
-        "name": "",
-        "topic": "ir-remote/switch/receiver/state",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "c349b9ff.9dc4c8",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 310,
-        "y": 820,
-        "wires": [
-            [
-                "f02c56da187f6d4d"
             ]
         ]
     }
