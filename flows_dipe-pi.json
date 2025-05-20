@@ -1301,6 +1301,17 @@
         "className": ""
     },
     {
+        "id": "873ef7e7ca01f456",
+        "type": "ui_group",
+        "name": "PINs verwalten",
+        "tab": "c824e9e5.f339c8",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
         "id": "a27c201f88d5372d",
         "type": "http request",
         "z": "f5d8e11fee9a1e7c",
@@ -13453,7 +13464,7 @@
         "type": "mqtt in",
         "z": "062848eb6508a3a6",
         "name": "",
-        "topic": "nuki/33B5C9E4/state",
+        "topic": "nuki/312D447C/state",
         "qos": "2",
         "datatype": "auto-detect",
         "broker": "c349b9ff.9dc4c8",
@@ -13462,10 +13473,10 @@
         "rh": 0,
         "inputs": 0,
         "x": 280,
-        "y": 960,
+        "y": 680,
         "wires": [
             [
-                "d121e0d80d05297e"
+                "c62a2523e7890790"
             ]
         ]
     },
@@ -13484,7 +13495,7 @@
         "expiry": "",
         "broker": "c349b9ff.9dc4c8",
         "x": 640,
-        "y": 680,
+        "y": 540,
         "wires": []
     },
     {
@@ -13602,7 +13613,7 @@
         "z": "062848eb6508a3a6",
         "name": "",
         "group": "40197d5f58592aee",
-        "order": 5,
+        "order": 4,
         "width": 0,
         "height": 0,
         "passthru": false,
@@ -13617,10 +13628,10 @@
         "topic": "topic",
         "topicType": "msg",
         "x": 250,
-        "y": 560,
+        "y": 940,
         "wires": [
             [
-                "59074b84082ad062"
+                "651b1e11de589b85"
             ]
         ]
     },
@@ -13632,7 +13643,7 @@
         "label": "PIN",
         "tooltip": "",
         "group": "40197d5f58592aee",
-        "order": 4,
+        "order": 3,
         "width": 0,
         "height": 0,
         "passthru": true,
@@ -13643,135 +13654,10 @@
         "className": "",
         "topicType": "msg",
         "x": 230,
-        "y": 500,
+        "y": 840,
         "wires": [
             [
-                "dd580eb0409bf952"
-            ]
-        ]
-    },
-    {
-        "id": "dd580eb0409bf952",
-        "type": "change",
-        "z": "062848eb6508a3a6",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "pin",
-                "pt": "flow",
-                "to": "payload",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 400,
-        "y": 500,
-        "wires": [
-            [
-                "c9ba416c95edc65d"
-            ]
-        ]
-    },
-    {
-        "id": "56f29ee759efe048",
-        "type": "function",
-        "z": "062848eb6508a3a6",
-        "name": "open with pin",
-        "func": "const pin = flow.get('pin');\nflow.set('pin', '');\n\nif (pin != msg.pin) return;\n\nreturn { payload: 3}; // 3 -> unlatch",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 580,
-        "y": 560,
-        "wires": [
-            [
-                "f04bd40c362906d9"
-            ]
-        ]
-    },
-    {
-        "id": "59074b84082ad062",
-        "type": "credentials",
-        "z": "062848eb6508a3a6",
-        "name": "PIN",
-        "props": [
-            {
-                "value": "pin",
-                "type": "msg"
-            }
-        ],
-        "x": 410,
-        "y": 560,
-        "wires": [
-            [
-                "56f29ee759efe048"
-            ]
-        ]
-    },
-    {
-        "id": "c9ba416c95edc65d",
-        "type": "delay",
-        "z": "062848eb6508a3a6",
-        "name": "",
-        "pauseType": "delay",
-        "timeout": "5",
-        "timeoutUnits": "minutes",
-        "rate": "1",
-        "nbRateUnits": "1",
-        "rateUnits": "second",
-        "randomFirst": "1",
-        "randomLast": "5",
-        "randomUnits": "seconds",
-        "drop": false,
-        "allowrate": false,
-        "outputs": 1,
-        "x": 600,
-        "y": 500,
-        "wires": [
-            [
-                "6636e5545d92ea8c"
-            ]
-        ]
-    },
-    {
-        "id": "6636e5545d92ea8c",
-        "type": "change",
-        "z": "062848eb6508a3a6",
-        "name": "clear flow.pin",
-        "rules": [
-            {
-                "t": "set",
-                "p": "pin",
-                "pt": "flow",
-                "to": "",
-                "tot": "str"
-            },
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 790,
-        "y": 500,
-        "wires": [
-            [
-                "5c43c72b9d9fb6f1"
+                "be64234ed9852c64"
             ]
         ]
     },
@@ -13787,11 +13673,12 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 490,
-        "y": 960,
+        "x": 630,
+        "y": 680,
         "wires": [
             [
-                "652ef2c884ce6d6a"
+                "652ef2c884ce6d6a",
+                "0ad338c20d4c7bab"
             ]
         ]
     },
@@ -13800,7 +13687,7 @@
         "type": "ui_text",
         "z": "062848eb6508a3a6",
         "group": "40197d5f58592aee",
-        "order": 3,
+        "order": 2,
         "width": 0,
         "height": 0,
         "name": "",
@@ -13812,8 +13699,8 @@
         "font": "",
         "fontSize": "",
         "color": "#000000",
-        "x": 660,
-        "y": 960,
+        "x": 800,
+        "y": 660,
         "wires": []
     },
     {
@@ -13829,7 +13716,7 @@
         "finalize": "",
         "libs": [],
         "x": 310,
-        "y": 680,
+        "y": 540,
         "wires": [
             [
                 "cb816aa78cf4b284"
@@ -13849,7 +13736,7 @@
         "finalize": "",
         "libs": [],
         "x": 330,
-        "y": 760,
+        "y": 620,
         "wires": [
             [
                 "cb816aa78cf4b284"
@@ -13907,7 +13794,7 @@
         "finalize": "",
         "libs": [],
         "x": 330,
-        "y": 720,
+        "y": 580,
         "wires": [
             [
                 "cb816aa78cf4b284"
@@ -13927,7 +13814,7 @@
         "finalize": "",
         "libs": [],
         "x": 330,
-        "y": 640,
+        "y": 500,
         "wires": [
             [
                 "cb816aa78cf4b284"
@@ -13944,7 +13831,7 @@
             "544c077ecd16519e"
         ],
         "x": 185,
-        "y": 720,
+        "y": 580,
         "wires": [
             [
                 "090394706d68b92d"
@@ -13986,10 +13873,11 @@
         "sat": true,
         "sun": true,
         "x": 320,
-        "y": 880,
+        "y": 760,
         "wires": [
             [
-                "cf9843a5f73e34d3"
+                "cf9843a5f73e34d3",
+                "f6acd958aad9453a"
             ]
         ]
     },
@@ -14014,7 +13902,7 @@
         "topic": "topic",
         "topicType": "msg",
         "x": 260,
-        "y": 840,
+        "y": 900,
         "wires": [
             [
                 "44bd1ae85ba6e007"
@@ -14214,19 +14102,6 @@
         ]
     },
     {
-        "id": "f04bd40c362906d9",
-        "type": "link out",
-        "z": "062848eb6508a3a6",
-        "name": "link out 28",
-        "mode": "link",
-        "links": [
-            "986cc7c62e4fcf8c"
-        ],
-        "x": 715,
-        "y": 560,
-        "wires": []
-    },
-    {
         "id": "96ddcf96bd0f01a9",
         "type": "link in",
         "z": "062848eb6508a3a6",
@@ -14235,7 +14110,7 @@
             "7db73223e8adca5f"
         ],
         "x": 185,
-        "y": 640,
+        "y": 500,
         "wires": [
             [
                 "7bcf60c7730ed56e"
@@ -14249,10 +14124,11 @@
         "name": "Haustür-Schloss öffnen",
         "links": [
             "4302ce92e4985b06",
-            "f04bd40c362906d9"
+            "f04bd40c362906d9",
+            "bf6820b1163f0e66"
         ],
         "x": 185,
-        "y": 680,
+        "y": 540,
         "wires": [
             [
                 "0e5fa16938990d9d"
@@ -14270,7 +14146,7 @@
             "cf9843a5f73e34d3"
         ],
         "x": 185,
-        "y": 760,
+        "y": 620,
         "wires": [
             [
                 "dbe57032c651ca6c"
@@ -14287,7 +14163,7 @@
             "576bc4593d875946"
         ],
         "x": 395,
-        "y": 840,
+        "y": 900,
         "wires": []
     },
     {
@@ -14300,7 +14176,7 @@
             "576bc4593d875946"
         ],
         "x": 515,
-        "y": 880,
+        "y": 740,
         "wires": []
     },
     {
@@ -14353,6 +14229,1148 @@
         ],
         "x": 375,
         "y": 240,
+        "wires": []
+    },
+    {
+        "id": "64a5b05c05d56e87",
+        "type": "mqtt in",
+        "z": "062848eb6508a3a6",
+        "name": "",
+        "topic": "pinpad-haustuer/pin",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "c349b9ff.9dc4c8",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 270,
+        "y": 980,
+        "wires": [
+            [
+                "493b45377f6017c2",
+                "97580d4ee9bcfa7a"
+            ]
+        ]
+    },
+    {
+        "id": "493b45377f6017c2",
+        "type": "function",
+        "z": "062848eb6508a3a6",
+        "name": "erlaubte PIN?",
+        "func": "let failed_tries = flow.get(\"failed_tries\") || 0;\nif (failed_tries >= 3) return;\n\nlet pin = msg.payload.toString();\nif (!/^\\d{4,20}$/.test(pin)) return;\n\nlet list_of_pins = flow.get('list_of_pins') || {};\nif (list_of_pins[pin]) {\n    flow.set(\"failed_tries\", 0);\n    return [\n        {payload: ''},\n        {payload: ''},\n        {payload: `Pin ${list_of_pins[pin]} erkannt. Tür öffnen!` }\n    ];\n} else {\n    flow.set(\"failed_tries\", failed_tries + 1);\n\n    return [\n        undefined,\n        undefined,\n        {payload: `Pin ${pin} nicht legitimiert!`}\n    ]\n}\n",
+        "outputs": 3,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 680,
+        "y": 980,
+        "wires": [
+            [
+                "bf6820b1163f0e66",
+                "58b6e43f46480bc6"
+            ],
+            [
+                "a459edf43984bdf2",
+                "8d7bf269e4f14601"
+            ],
+            [
+                "57980e35b2edeb34",
+                "570e427043954d96",
+                "4d5c5d0bd20c30e1"
+            ]
+        ]
+    },
+    {
+        "id": "bf6820b1163f0e66",
+        "type": "link out",
+        "z": "062848eb6508a3a6",
+        "d": true,
+        "name": "link out 35",
+        "mode": "link",
+        "links": [
+            "986cc7c62e4fcf8c"
+        ],
+        "x": 855,
+        "y": 940,
+        "wires": []
+    },
+    {
+        "id": "32a354100dc318a6",
+        "type": "mqtt out",
+        "z": "062848eb6508a3a6",
+        "name": "",
+        "topic": "pinpad-haustuer/beep2",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "c349b9ff.9dc4c8",
+        "x": 1190,
+        "y": 940,
+        "wires": []
+    },
+    {
+        "id": "b73fe322de292acc",
+        "type": "ui_button",
+        "z": "062848eb6508a3a6",
+        "name": "",
+        "group": "873ef7e7ca01f456",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "PIN hinzufügen",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 260,
+        "y": 1260,
+        "wires": [
+            [
+                "657137f1cef8219b"
+            ]
+        ]
+    },
+    {
+        "id": "351a2a93fa95b9f0",
+        "type": "ui_text_input",
+        "z": "062848eb6508a3a6",
+        "name": "",
+        "label": "Name",
+        "tooltip": "",
+        "group": "873ef7e7ca01f456",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "mode": "text",
+        "delay": 300,
+        "topic": "topic",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "msg",
+        "x": 230,
+        "y": 1160,
+        "wires": [
+            [
+                "a6fbd64ab746f89b"
+            ]
+        ]
+    },
+    {
+        "id": "e42ed9991ff96ca6",
+        "type": "ui_text_input",
+        "z": "062848eb6508a3a6",
+        "name": "",
+        "label": "PIN",
+        "tooltip": "",
+        "group": "873ef7e7ca01f456",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "mode": "text",
+        "delay": 300,
+        "topic": "topic",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "msg",
+        "x": 230,
+        "y": 1200,
+        "wires": [
+            [
+                "e7357944484d0178"
+            ]
+        ]
+    },
+    {
+        "id": "1c90d54b2cba30e4",
+        "type": "ui_button",
+        "z": "062848eb6508a3a6",
+        "name": "",
+        "group": "873ef7e7ca01f456",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "PIN löschen",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 250,
+        "y": 1300,
+        "wires": [
+            [
+                "1a1419a8f13a5cd4"
+            ]
+        ]
+    },
+    {
+        "id": "a6fbd64ab746f89b",
+        "type": "change",
+        "z": "062848eb6508a3a6",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "name_to_process",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 480,
+        "y": 1160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e7357944484d0178",
+        "type": "change",
+        "z": "062848eb6508a3a6",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "pin_to_process",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 470,
+        "y": 1200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "0e27863964cfb950",
+        "type": "function",
+        "z": "062848eb6508a3a6",
+        "name": "add pin and name",
+        "func": "let master_pin = flow.get('master_pin');\n\nif (master_pin != msg.master_pin) return;\n\nlet name_to_process = flow.get('name_to_process');\nlet pin_to_process = flow.get('pin_to_process');\n\nif (!/^[a-zA-Z0-9_\\\\-äöüÄÖÜß]{4,20}$/.test(name_to_process)) return;\nif (!/^\\d{4,20}$/.test(pin_to_process)) return;\n\nlet list_of_pins = flow.get('list_of_pins') || {};\n\nif (list_of_pins[pin_to_process]) return { payload: `PIN existierttbereits für : ${list_of_pins[pin_to_process]}` };\n\nlist_of_pins[pin_to_process] = name_to_process;\nflow.set('list_of_pins', list_of_pins);\n\nreturn {payload: `Erfolgreich hinzugefügt: ${name_to_process}`};",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 610,
+        "y": 1260,
+        "wires": [
+            [
+                "363702e9d3b9aa0e"
+            ]
+        ]
+    },
+    {
+        "id": "24d730fdde46786e",
+        "type": "function",
+        "z": "062848eb6508a3a6",
+        "name": "delete pin ",
+        "func": "let master_pin = flow.get('master_pin');\n\nif (master_pin != msg.master_pin) return;\n\nlet name_to_process = flow.get('name_to_process');\nlet pin_to_process = flow.get('pin_to_process');\nlet list_of_pins = flow.get('list_of_pins') || {};\n\nif (list_of_pins[pin_to_process]) {\n    delete list_of_pins[pin_to_process];\n    flow.set('list_of_pins', list_of_pins);\n    return {\n        payload: `PIN gelöscht: ${pin_to_process}`};\n}\n\nlet entry = Object.entries(list_of_pins).find(([_, val]) => val === name_to_process);\nif (entry) {\n    delete list_of_pins[entry[0]];\n    flow.set('list_of_pins', list_of_pins);\n    return {\n        payload: `PIN gelöscht: ${name_to_process}`};\n}\n\nreturn {payload: `PIN nicht gefunden: ${name_to_process}`};\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 1300,
+        "wires": [
+            [
+                "72f0702ec637f375"
+            ]
+        ]
+    },
+    {
+        "id": "9da6ffe6e2a8bb19",
+        "type": "inject",
+        "z": "062848eb6508a3a6",
+        "name": "Reset",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "Started!",
+        "payloadType": "str",
+        "x": 230,
+        "y": 1400,
+        "wires": [
+            [
+                "b62cd28ebb5c5af9"
+            ]
+        ]
+    },
+    {
+        "id": "b62cd28ebb5c5af9",
+        "type": "function",
+        "z": "062848eb6508a3a6",
+        "name": "text",
+        "func": "let list_of_pins = flow.get('list_of_pins');\nlet entries = Object.values(list_of_pins);\nlet entries_count = entries.length;\nlet text = 'Anzahl: ' + entries_count + \"<br>\";\n\nentries.forEach(val => {\n    text += val + \"<br>\";\n});\n\nreturn {payload: text};",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 390,
+        "y": 1400,
+        "wires": [
+            [
+                "0f74695950a309d6"
+            ]
+        ]
+    },
+    {
+        "id": "024923061cda499f",
+        "type": "link in",
+        "z": "062848eb6508a3a6",
+        "name": "link in 5",
+        "links": [
+            "363702e9d3b9aa0e",
+            "72f0702ec637f375"
+        ],
+        "x": 265,
+        "y": 1440,
+        "wires": [
+            [
+                "b62cd28ebb5c5af9"
+            ]
+        ]
+    },
+    {
+        "id": "8e7e7c863d1f35ef",
+        "type": "function",
+        "z": "062848eb6508a3a6",
+        "name": "clear list of pins",
+        "func": "flow.set('list_of_pins', {});\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 1360,
+        "wires": [
+            [
+                "b62cd28ebb5c5af9"
+            ]
+        ]
+    },
+    {
+        "id": "c900e6db1ceee582",
+        "type": "inject",
+        "z": "062848eb6508a3a6",
+        "name": "Delete All",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "str",
+        "x": 240,
+        "y": 1360,
+        "wires": [
+            [
+                "8e7e7c863d1f35ef"
+            ]
+        ]
+    },
+    {
+        "id": "0f74695950a309d6",
+        "type": "ui_text",
+        "z": "062848eb6508a3a6",
+        "group": "873ef7e7ca01f456",
+        "order": 6,
+        "width": "6",
+        "height": "6",
+        "name": "Liste der PINs",
+        "label": "{{msg.payload}}",
+        "format": "",
+        "layout": "row-left",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
+        "x": 560,
+        "y": 1400,
+        "wires": []
+    },
+    {
+        "id": "363702e9d3b9aa0e",
+        "type": "link out",
+        "z": "062848eb6508a3a6",
+        "name": "link out 36",
+        "mode": "link",
+        "links": [
+            "024923061cda499f",
+            "e03c33a6dcae1a6c",
+            "800d93fff2a86382"
+        ],
+        "x": 755,
+        "y": 1260,
+        "wires": []
+    },
+    {
+        "id": "72f0702ec637f375",
+        "type": "link out",
+        "z": "062848eb6508a3a6",
+        "name": "link out 37",
+        "mode": "link",
+        "links": [
+            "024923061cda499f",
+            "e03c33a6dcae1a6c",
+            "800d93fff2a86382"
+        ],
+        "x": 755,
+        "y": 1300,
+        "wires": []
+    },
+    {
+        "id": "e03c33a6dcae1a6c",
+        "type": "link in",
+        "z": "062848eb6508a3a6",
+        "name": "link in 6",
+        "links": [
+            "363702e9d3b9aa0e",
+            "72f0702ec637f375",
+            "57980e35b2edeb34",
+            "0ad338c20d4c7bab",
+            "fcce69e721063c17"
+        ],
+        "x": 185,
+        "y": 1520,
+        "wires": [
+            [
+                "75f4e5455d83d356"
+            ]
+        ]
+    },
+    {
+        "id": "57980e35b2edeb34",
+        "type": "link out",
+        "z": "062848eb6508a3a6",
+        "name": "link out 38",
+        "mode": "link",
+        "links": [
+            "e03c33a6dcae1a6c"
+        ],
+        "x": 855,
+        "y": 1060,
+        "wires": []
+    },
+    {
+        "id": "d997b4091550a66d",
+        "type": "ui_text",
+        "z": "062848eb6508a3a6",
+        "group": "40197d5f58592aee",
+        "order": 8,
+        "width": "6",
+        "height": "6",
+        "name": "Log",
+        "label": "{{msg.payload}}",
+        "format": "",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": "12",
+        "color": "#ffffff",
+        "x": 490,
+        "y": 1520,
+        "wires": []
+    },
+    {
+        "id": "c7fce3451e77c211",
+        "type": "ui_button",
+        "z": "062848eb6508a3a6",
+        "name": "",
+        "group": "40197d5f58592aee",
+        "order": 9,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Log löschen",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "-",
+        "payloadType": "str",
+        "topic": "",
+        "topicType": "str",
+        "x": 250,
+        "y": 1560,
+        "wires": [
+            [
+                "0e588db6de9cd341"
+            ]
+        ]
+    },
+    {
+        "id": "75f4e5455d83d356",
+        "type": "function",
+        "z": "062848eb6508a3a6",
+        "name": "append to log",
+        "func": "const log = flow.get('log') || [];\nconst timestamp = new Date().toLocaleTimeString('de-DE');\nconst new_entry = timestamp + \": \" + msg.payload;\nconst max_length = 10;\n\nlog.push(new_entry);\nif (log.length > max_length) {\n    log.splice(0, log.length - max_length);\n}\nflow.set('log', log);\n\nreturn { payload: log.join(\"<br>\")};",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 1520,
+        "wires": [
+            [
+                "d997b4091550a66d"
+            ]
+        ]
+    },
+    {
+        "id": "0e588db6de9cd341",
+        "type": "function",
+        "z": "062848eb6508a3a6",
+        "name": "clear log",
+        "func": "flow.set('log', []);\nreturn {payload: ''};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 1560,
+        "wires": [
+            [
+                "d997b4091550a66d"
+            ]
+        ]
+    },
+    {
+        "id": "722ef49acb4fc4fa",
+        "type": "function",
+        "z": "062848eb6508a3a6",
+        "name": "leer-string",
+        "func": "return {topic: \"\", payload: \"\"};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1140,
+        "y": 1280,
+        "wires": [
+            [
+                "ce56d67cbe7d3e5d"
+            ]
+        ]
+    },
+    {
+        "id": "1acaa9cb3d251f7c",
+        "type": "delay",
+        "z": "062848eb6508a3a6",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 960,
+        "y": 1280,
+        "wires": [
+            [
+                "722ef49acb4fc4fa"
+            ]
+        ]
+    },
+    {
+        "id": "800d93fff2a86382",
+        "type": "link in",
+        "z": "062848eb6508a3a6",
+        "name": "link in 7",
+        "links": [
+            "363702e9d3b9aa0e",
+            "72f0702ec637f375"
+        ],
+        "x": 825,
+        "y": 1280,
+        "wires": [
+            [
+                "1acaa9cb3d251f7c"
+            ]
+        ]
+    },
+    {
+        "id": "0ad338c20d4c7bab",
+        "type": "link out",
+        "z": "062848eb6508a3a6",
+        "name": "link out 39",
+        "mode": "link",
+        "links": [
+            "e03c33a6dcae1a6c"
+        ],
+        "x": 755,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "f6acd958aad9453a",
+        "type": "template",
+        "z": "062848eb6508a3a6",
+        "name": "Log-Nachricht",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "Tür voll verriegleln",
+        "output": "str",
+        "x": 580,
+        "y": 780,
+        "wires": [
+            [
+                "fcce69e721063c17"
+            ]
+        ]
+    },
+    {
+        "id": "fcce69e721063c17",
+        "type": "link out",
+        "z": "062848eb6508a3a6",
+        "name": "link out 40",
+        "mode": "link",
+        "links": [
+            "e03c33a6dcae1a6c"
+        ],
+        "x": 715,
+        "y": 780,
+        "wires": []
+    },
+    {
+        "id": "16d086b6ef3f14ec",
+        "type": "ui_text_input",
+        "z": "062848eb6508a3a6",
+        "name": "",
+        "label": "Master-PIN",
+        "tooltip": "",
+        "group": "873ef7e7ca01f456",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "mode": "text",
+        "delay": 300,
+        "topic": "topic",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "msg",
+        "x": 250,
+        "y": 1120,
+        "wires": [
+            [
+                "ca384ef1885ac2d6"
+            ]
+        ]
+    },
+    {
+        "id": "ca384ef1885ac2d6",
+        "type": "change",
+        "z": "062848eb6508a3a6",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "master_pin",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 460,
+        "y": 1120,
+        "wires": [
+            [
+                "8ec6bbba406db6ae"
+            ]
+        ]
+    },
+    {
+        "id": "657137f1cef8219b",
+        "type": "credentials",
+        "z": "062848eb6508a3a6",
+        "name": "PIN",
+        "props": [
+            {
+                "value": "master_pin",
+                "type": "msg"
+            }
+        ],
+        "x": 430,
+        "y": 1260,
+        "wires": [
+            [
+                "0e27863964cfb950"
+            ]
+        ]
+    },
+    {
+        "id": "1a1419a8f13a5cd4",
+        "type": "credentials",
+        "z": "062848eb6508a3a6",
+        "name": "PIN",
+        "props": [
+            {
+                "value": "master_pin",
+                "type": "msg"
+            }
+        ],
+        "x": 430,
+        "y": 1300,
+        "wires": [
+            [
+                "24d730fdde46786e"
+            ]
+        ]
+    },
+    {
+        "id": "651b1e11de589b85",
+        "type": "change",
+        "z": "062848eb6508a3a6",
+        "name": "flow.pin -> payload.pin",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "pin",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 460,
+        "y": 940,
+        "wires": [
+            [
+                "493b45377f6017c2"
+            ]
+        ]
+    },
+    {
+        "id": "be64234ed9852c64",
+        "type": "change",
+        "z": "062848eb6508a3a6",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "pin",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 400,
+        "y": 840,
+        "wires": [
+            [
+                "654805311e11f7b0"
+            ]
+        ]
+    },
+    {
+        "id": "e9d4aee5b8d0b1d3",
+        "type": "change",
+        "z": "062848eb6508a3a6",
+        "name": "clear flow.pin",
+        "rules": [
+            {
+                "t": "set",
+                "p": "pin",
+                "pt": "flow",
+                "to": "",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 770,
+        "y": 840,
+        "wires": [
+            [
+                "5c43c72b9d9fb6f1"
+            ]
+        ]
+    },
+    {
+        "id": "ce56d67cbe7d3e5d",
+        "type": "link out",
+        "z": "062848eb6508a3a6",
+        "name": "link out 41",
+        "mode": "link",
+        "links": [
+            "92750cbfdf46fdfb"
+        ],
+        "x": 1255,
+        "y": 1280,
+        "wires": []
+    },
+    {
+        "id": "92750cbfdf46fdfb",
+        "type": "link in",
+        "z": "062848eb6508a3a6",
+        "name": "link in 8",
+        "links": [
+            "ce56d67cbe7d3e5d"
+        ],
+        "x": 115,
+        "y": 1180,
+        "wires": [
+            [
+                "351a2a93fa95b9f0",
+                "e42ed9991ff96ca6"
+            ]
+        ]
+    },
+    {
+        "id": "c62a2523e7890790",
+        "type": "rbe",
+        "z": "062848eb6508a3a6",
+        "name": "",
+        "func": "rbe",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "septopics": true,
+        "property": "payload",
+        "topi": "topic",
+        "x": 470,
+        "y": 680,
+        "wires": [
+            [
+                "d121e0d80d05297e"
+            ]
+        ]
+    },
+    {
+        "id": "5c6d09155f239850",
+        "type": "change",
+        "z": "062848eb6508a3a6",
+        "name": "clear flow.pin",
+        "rules": [
+            {
+                "t": "set",
+                "p": "master_pin",
+                "pt": "flow",
+                "to": "",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 850,
+        "y": 1120,
+        "wires": [
+            [
+                "16d086b6ef3f14ec"
+            ]
+        ]
+    },
+    {
+        "id": "8ec6bbba406db6ae",
+        "type": "trigger",
+        "z": "062848eb6508a3a6",
+        "name": "",
+        "op1": "",
+        "op2": "true",
+        "op1type": "nul",
+        "op2type": "bool",
+        "duration": "30",
+        "extend": true,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 670,
+        "y": 1120,
+        "wires": [
+            [
+                "5c6d09155f239850"
+            ]
+        ]
+    },
+    {
+        "id": "654805311e11f7b0",
+        "type": "trigger",
+        "z": "062848eb6508a3a6",
+        "name": "",
+        "op1": "",
+        "op2": "true",
+        "op1type": "nul",
+        "op2type": "bool",
+        "duration": "30",
+        "extend": true,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 590,
+        "y": 840,
+        "wires": [
+            [
+                "e9d4aee5b8d0b1d3"
+            ]
+        ]
+    },
+    {
+        "id": "570e427043954d96",
+        "type": "trigger",
+        "z": "062848eb6508a3a6",
+        "name": "",
+        "op1": "",
+        "op2": "0",
+        "op1type": "nul",
+        "op2type": "str",
+        "duration": "1",
+        "extend": true,
+        "overrideDelay": false,
+        "units": "min",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 910,
+        "y": 1020,
+        "wires": [
+            [
+                "aef4f9b3fb3740da"
+            ]
+        ]
+    },
+    {
+        "id": "aef4f9b3fb3740da",
+        "type": "change",
+        "z": "062848eb6508a3a6",
+        "name": "Lösche failed_tries",
+        "rules": [
+            {
+                "t": "set",
+                "p": "failed_tries",
+                "pt": "flow",
+                "to": "0",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1110,
+        "y": 1020,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a459edf43984bdf2",
+        "type": "debug",
+        "z": "062848eb6508a3a6",
+        "name": "debug 35",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1060,
+        "y": 900,
+        "wires": []
+    },
+    {
+        "id": "58b6e43f46480bc6",
+        "type": "debug",
+        "z": "062848eb6508a3a6",
+        "name": "debug 36",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1060,
+        "y": 860,
+        "wires": []
+    },
+    {
+        "id": "4d5c5d0bd20c30e1",
+        "type": "debug",
+        "z": "062848eb6508a3a6",
+        "name": "debug 37",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1040,
+        "y": 1080,
+        "wires": []
+    },
+    {
+        "id": "97580d4ee9bcfa7a",
+        "type": "debug",
+        "z": "062848eb6508a3a6",
+        "name": "debug 38",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 480,
+        "y": 1020,
+        "wires": []
+    },
+    {
+        "id": "8d7bf269e4f14601",
+        "type": "delay",
+        "z": "062848eb6508a3a6",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "300",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 940,
+        "y": 980,
+        "wires": [
+            [
+                "32a354100dc318a6",
+                "21d74c775c0dae39"
+            ]
+        ]
+    },
+    {
+        "id": "21d74c775c0dae39",
+        "type": "mqtt out",
+        "z": "062848eb6508a3a6",
+        "name": "",
+        "topic": "pinpad-haustuer/pin",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "c349b9ff.9dc4c8",
+        "x": 1180,
+        "y": 980,
         "wires": []
     },
     {
@@ -14476,7 +15494,7 @@
         "z": "0133ddc4e63513b7",
         "name": "",
         "group": "c15e3cecb6ae7609",
-        "order": 9,
+        "order": 8,
         "width": 0,
         "height": 0,
         "passthru": false,
@@ -14555,7 +15573,7 @@
         "fontSize": "",
         "color": "#000000",
         "x": 680,
-        "y": 1060,
+        "y": 1080,
         "wires": []
     },
     {
@@ -14736,8 +15754,7 @@
         "wires": [
             [
                 "55b427a01688b459",
-                "bc763a522d5e7245",
-                "8ce49dec505c6e79"
+                "bc763a522d5e7245"
             ]
         ]
     },
@@ -14757,8 +15774,7 @@
         "y": 1080,
         "wires": [
             [
-                "55b427a01688b459",
-                "8ce49dec505c6e79"
+                "55b427a01688b459"
             ]
         ]
     },
@@ -14895,6 +15911,7 @@
         "name": "fehlgeschlagen",
         "func": "return { topic: \"Scan\", payload: \"Scan fehlgeschlagen\"};",
         "outputs": 1,
+        "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
@@ -15023,7 +16040,7 @@
         "type": "ui_text",
         "z": "0133ddc4e63513b7",
         "group": "c15e3cecb6ae7609",
-        "order": 8,
+        "order": 9,
         "width": 0,
         "height": 0,
         "name": "Status",
@@ -15076,8 +16093,9 @@
         "type": "function",
         "z": "0133ddc4e63513b7",
         "name": "clear list of fingerprints",
-        "func": "flow.set('list_of_fingerprints', {\n    0: \"Peter-Zeigefinger-rechts\",\n    1: \"Peter-Mittelfinger-rechts\",\n    2: \"Peter-Daumen-rechts\"\n});\n\nreturn msg;",
+        "func": "flow.set('list_of_fingerprints', {});\n\nreturn msg;",
         "outputs": 1,
+        "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
@@ -15355,7 +16373,7 @@
             "8a8def64c5910356"
         ],
         "x": 635,
-        "y": 1020,
+        "y": 1040,
         "wires": []
     },
     {
@@ -15521,47 +16539,6 @@
         "wires": [
             [
                 "eed67a44576cb146"
-            ]
-        ]
-    },
-    {
-        "id": "19b01bf54f5d1742",
-        "type": "link out",
-        "z": "0133ddc4e63513b7",
-        "name": "link out 21",
-        "mode": "link",
-        "links": [
-            "874dfff3aa6fa109",
-            "d34d9891ea5ecd72"
-        ],
-        "x": 855,
-        "y": 1100,
-        "wires": []
-    },
-    {
-        "id": "8ce49dec505c6e79",
-        "type": "change",
-        "z": "0133ddc4e63513b7",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "topic",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 710,
-        "y": 1100,
-        "wires": [
-            [
-                "19b01bf54f5d1742"
             ]
         ]
     },
@@ -21336,7 +22313,7 @@
         "bgcolor": "",
         "className": "",
         "icon": "",
-        "payload": "0000 006D 0010 0000 0024 0021 0023 0021 0046 0021 0024 0020 0023 0021 0024 0020 0024 0030 0004 0006 002B 0021 0047 0019 002A 0019 002B 0011 0026 0005 0029 0015 0006 000E 0004 0181 ",
+        "payload": "0000 006D 000C 0000 0020 0024 0042 0024 0020 0025 0020 0025 001E 0025 001E 0025 001F 0048 001D 0026 0041 0025 001E 0025 001F 0046 0020 0181",
         "payloadType": "str",
         "topic": "topic",
         "topicType": "msg",
