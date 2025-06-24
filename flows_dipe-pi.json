@@ -393,8 +393,8 @@
         "id": "01754ad54aa8234a",
         "type": "junction",
         "z": "062848eb6508a3a6",
-        "x": 480,
-        "y": 740,
+        "x": 500,
+        "y": 780,
         "wires": [
             [
                 "097f9401300c4cfd"
@@ -405,11 +405,33 @@
         "id": "50056ddfb9a03fd5",
         "type": "junction",
         "z": "062848eb6508a3a6",
-        "x": 480,
-        "y": 620,
+        "x": 500,
+        "y": 580,
         "wires": [
             [
                 "097f9401300c4cfd"
+            ]
+        ]
+    },
+    {
+        "id": "4fec33dacfe9fca9",
+        "type": "junction",
+        "z": "caf02dc9a5b73890",
+        "x": 520,
+        "y": 880,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b69516bb46cf60c5",
+        "type": "junction",
+        "z": "062848eb6508a3a6",
+        "x": 1120,
+        "y": 520,
+        "wires": [
+            [
+                "c0a0c508bd460b46"
             ]
         ]
     },
@@ -6491,8 +6513,10 @@
         "name": "",
         "topic": "waschkueche-luefter/sensor/humidity/state",
         "qos": "2",
-        "datatype": "json",
+        "datatype": "auto-detect",
         "broker": "c349b9ff.9dc4c8",
+        "nl": false,
+        "rap": false,
         "inputs": 0,
         "x": 230,
         "y": 180,
@@ -6719,8 +6743,10 @@
         "name": "",
         "topic": "waschkueche-luefter/sensor/absolute_humidity/state",
         "qos": "2",
-        "datatype": "json",
+        "datatype": "auto-detect",
         "broker": "c349b9ff.9dc4c8",
+        "nl": false,
+        "rap": false,
         "inputs": 0,
         "x": 260,
         "y": 120,
@@ -6771,7 +6797,7 @@
         "name": "",
         "topic": "waschkueche-luefter/sensor/temperature/state",
         "qos": "2",
-        "datatype": "json",
+        "datatype": "auto-detect",
         "broker": "c349b9ff.9dc4c8",
         "nl": false,
         "rap": false,
@@ -6843,7 +6869,7 @@
         "type": "function",
         "z": "4d90b497.b5b2ac",
         "name": "fan controller",
-        "func": "// let kellertuer_sensor = global.get(\"kellertuer_sensor\");\n// let waschkueche_fahradkeller_tuer_sensor_contact = global.get('waschkueche_fahradkeller_tuer_sensor');\n// if (!kellertuer_sensor && !waschkueche_fahradkeller_tuer_sensor_contact) {\n//     msg = [\n//         {topic: \"luefter_sw\", payload: \"OFF\"},\n//         {topic: \"Debug\", payload: {}}\n//     ];\n\n//     return msg;  \n// }\n\n// const outside_abs_humidity = global.get(\"aussen-absolute_humidity\");\nconst outside_abs_humidity = global.get(\"steckdose1-absolute_humidity\");\nconst wk_temperature = global.get(\"waschkueche_luefter-temperature\");\nconst wk_humidity = global.get(\"waschkueche_luefter-humidity\");\nconst wk_abs_humidity = global.get(\"waschkueche_luefter-absolute_humidity\");\n\nconst washroom_fan_control = flow.get(\"washroom_fan_control\");\nconst last_abs_humidity_gt_outside_abs_humidity = global.get(\"washroom-last_abs_humidity_gt_outside_abs_humidity\");\n\nconst room_abs_humidity_gt_outside_abs_humidity = (last_abs_humidity_gt_outside_abs_humidity) ?\n    wk_abs_humidity > outside_abs_humidity * 1.05:\n    wk_abs_humidity > outside_abs_humidity * 1.05;\n\nglobal.set(\"washroom-last_abs_humidity_gt_outside_abs_humidity\", wk_abs_humidity > outside_abs_humidity);\n\nvar washroom_fan_on;\nif (washroom_fan_control == \"ON\") {\n    if (room_abs_humidity_gt_outside_abs_humidity) {\n        if (wk_humidity > 60 && wk_temperature > 14) {\n            washroom_fan_on = \"ON\";\n        } else {\n            washroom_fan_on = \"OFF\";\n        }\n    } else {\n        washroom_fan_on = \"OFF\";\n    }\n} else {\n    washroom_fan_on = undefined;\n}\n\nmsg = [\n    (washroom_fan_on) ? {topic: \"luefter_sw\", payload: washroom_fan_on} : undefined,\n    {topic: \"Debug\", payload: {\n            outside_abs_humidity: outside_abs_humidity,\n            wk_temperature: wk_temperature,\n            wk_humidity: wk_humidity,\n            wk_abs_humidity: wk_abs_humidity,\n            washroom_fan_on: washroom_fan_on,\n            washroom_fan_control: washroom_fan_control,\n            room_abs_humidity_gt_outside_abs_humidity: room_abs_humidity_gt_outside_abs_humidity,\n            last_abs_humidity_gt_outside_abs_humidity: last_abs_humidity_gt_outside_abs_humidity\n    }   }\n];\n\nreturn msg;",
+        "func": "const outside_abs_humidity = global.get(\"steckdose1-absolute_humidity\");\nconst wk_temperature = global.get(\"waschkueche_luefter-temperature\");\nconst wk_humidity = global.get(\"waschkueche_luefter-humidity\");\nconst wk_abs_humidity = global.get(\"waschkueche_luefter-absolute_humidity\");\n\nconst washroom_fan_control = flow.get(\"washroom_fan_control\");\nconst last_abs_humidity_gt_outside_abs_humidity = global.get(\"washroom-last_abs_humidity_gt_outside_abs_humidity\");\n\nconst room_abs_humidity_gt_outside_abs_humidity = (last_abs_humidity_gt_outside_abs_humidity) ?\n    wk_abs_humidity > outside_abs_humidity * 1.05:\n    wk_abs_humidity > outside_abs_humidity * 1.05;\n\nglobal.set(\"washroom-last_abs_humidity_gt_outside_abs_humidity\", wk_abs_humidity > outside_abs_humidity);\n\nvar washroom_fan_on;\nif (washroom_fan_control == \"ON\") {\n    if (room_abs_humidity_gt_outside_abs_humidity) {\n        if (wk_humidity > 60 && wk_temperature > 14) {\n            washroom_fan_on = \"ON\";\n        } else {\n            washroom_fan_on = \"OFF\";\n        }\n    } else {\n        washroom_fan_on = \"OFF\";\n    }\n} else {\n    washroom_fan_on = undefined;\n}\n\nmsg = [\n    (washroom_fan_on) ? {topic: \"luefter_sw\", payload: washroom_fan_on} : undefined,\n    {topic: \"Debug\", payload: {\n            outside_abs_humidity: outside_abs_humidity,\n            wk_temperature: wk_temperature,\n            wk_humidity: wk_humidity,\n            wk_abs_humidity: wk_abs_humidity,\n            washroom_fan_on: washroom_fan_on,\n            washroom_fan_control: washroom_fan_control,\n            room_abs_humidity_gt_outside_abs_humidity: room_abs_humidity_gt_outside_abs_humidity,\n            last_abs_humidity_gt_outside_abs_humidity: last_abs_humidity_gt_outside_abs_humidity\n    }   }\n];\n\nreturn msg;",
         "outputs": 2,
         "timeout": "",
         "noerr": 0,
@@ -7713,7 +7739,7 @@
         "correl": "",
         "expiry": "",
         "broker": "c349b9ff.9dc4c8",
-        "x": 1310,
+        "x": 1250,
         "y": 200,
         "wires": []
     },
@@ -7756,11 +7782,13 @@
         "offcolor": "",
         "animate": true,
         "className": "",
-        "x": 960,
+        "x": 780,
         "y": 200,
         "wires": [
             [
-                "50bd8fbd.0e738"
+                "926fe8aa98581746",
+                "264e2ae04e4d81f0",
+                "2913705d3d5c391f"
             ]
         ]
     },
@@ -7826,17 +7854,16 @@
         "name": "toggle",
         "func": "if (msg.payload != \"ON\")\n    return undefined;\n\nvar topic = \"gartenlicht\";\nvar current_state = flow.get(topic);\nvar new_state;\n\nif (current_state === \"OFF\") {\n    new_state = \"ON\";\n} else {\n    new_state = \"OFF\";\n}\n\nflow.set(topic, new_state);\n\nreturn {payload: new_state};\n",
         "outputs": 1,
+        "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 790,
+        "x": 590,
         "y": 200,
         "wires": [
             [
-                "6c60716b.1a609",
-                "264e2ae04e4d81f0",
-                "2913705d3d5c391f"
+                "6c60716b.1a609"
             ]
         ]
     },
@@ -8258,26 +8285,6 @@
         ]
     },
     {
-        "id": "50bd8fbd.0e738",
-        "type": "function",
-        "z": "293bb437.fa00bc",
-        "name": "store in flow",
-        "func": "var topic = \"gartenlicht\";\nflow.set(topic, msg.payload);\nglobal.set(topic, msg.payload);\n\nreturn {payload: msg.payload};\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1130,
-        "y": 200,
-        "wires": [
-            [
-                "ba941b0f.612f68",
-                "86cb329b293bb1f4"
-            ]
-        ]
-    },
-    {
         "id": "fe5adaf5.ca1d18",
         "type": "function",
         "z": "293bb437.fa00bc",
@@ -8512,8 +8519,8 @@
         "fri": true,
         "sat": true,
         "sun": true,
-        "x": 440,
-        "y": 140,
+        "x": 200,
+        "y": 120,
         "wires": [
             [
                 "89dc73d808e84b6b"
@@ -8528,8 +8535,8 @@
         "links": [
             "89dc73d808e84b6b"
         ],
-        "x": 795,
-        "y": 140,
+        "x": 625,
+        "y": 160,
         "wires": [
             [
                 "6c60716b.1a609"
@@ -8546,8 +8553,8 @@
             "42d43c62e34642a4",
             "7de46dbaad752c86"
         ],
-        "x": 575,
-        "y": 140,
+        "x": 335,
+        "y": 120,
         "wires": []
     },
     {
@@ -8576,7 +8583,7 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 980,
+        "x": 1000,
         "y": 240,
         "wires": [
             [
@@ -8646,7 +8653,7 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 980,
+        "x": 1000,
         "y": 280,
         "wires": [
             [
@@ -8694,14 +8701,12 @@
         "id": "86cb329b293bb1f4",
         "type": "link out",
         "z": "293bb437.fa00bc",
-        "name": "kellertuer_schalter_aussenlicht",
+        "name": "kellertuer_schalter_gartenlicht",
         "mode": "link",
         "links": [
-            "cfca6b4ad8a515f2",
-            "7fef5154b7c2177a",
             "777181a916c21b4f"
         ],
-        "x": 1255,
+        "x": 1195,
         "y": 160,
         "wires": []
     },
@@ -8854,6 +8859,34 @@
         "wires": [
             [
                 "40652647bd459a8c"
+            ]
+        ]
+    },
+    {
+        "id": "926fe8aa98581746",
+        "type": "change",
+        "z": "293bb437.fa00bc",
+        "name": "Speichere Gartenlicht",
+        "rules": [
+            {
+                "t": "set",
+                "p": "gartenlicht",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1040,
+        "y": 200,
+        "wires": [
+            [
+                "ba941b0f.612f68",
+                "86cb329b293bb1f4"
             ]
         ]
     },
@@ -12420,7 +12453,7 @@
         "id": "d7da2a2c8f314396",
         "type": "mqtt in",
         "z": "062848eb6508a3a6",
-        "name": "",
+        "name": "Haustür-Schloss-State",
         "topic": "nuki/312D447C/state",
         "qos": "2",
         "datatype": "auto-detect",
@@ -12430,7 +12463,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 220,
-        "y": 840,
+        "y": 900,
         "wires": [
             [
                 "c62a2523e7890790"
@@ -12451,7 +12484,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 200,
-        "y": 540,
+        "y": 500,
         "wires": [
             [
                 "de98ccd1624d690c"
@@ -12481,7 +12514,7 @@
         "y": 500,
         "wires": [
             [
-                "4b6748b04ea10729"
+                "93c033630b6b3907"
             ]
         ]
     },
@@ -12497,56 +12530,13 @@
         "septopics": true,
         "property": "payload",
         "topi": "topic",
-        "x": 530,
-        "y": 500,
+        "x": 370,
+        "y": 420,
         "wires": [
             [
-                "6f0da61f822045d6",
-                "0e0f940aa0f8ed4f"
+                "312879a91c07799a"
             ]
         ]
-    },
-    {
-        "id": "6f0da61f822045d6",
-        "type": "function",
-        "z": "062848eb6508a3a6",
-        "name": "Status-Text",
-        "func": "const contact = msg.payload;\n\nreturn { payload: (contact) ? \"geschlossen\" : \"offen\"};\n",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 690,
-        "y": 540,
-        "wires": [
-            [
-                "ed13a185adf220fe",
-                "b883bdcd38b13b7d"
-            ]
-        ]
-    },
-    {
-        "id": "ed13a185adf220fe",
-        "type": "ui_text",
-        "z": "062848eb6508a3a6",
-        "group": "40197d5f58592aee",
-        "order": 1,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "Status",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "className": "",
-        "style": false,
-        "font": "",
-        "fontSize": "",
-        "color": "#000000",
-        "x": 850,
-        "y": 540,
-        "wires": []
     },
     {
         "id": "0ebabd3e81e9917c",
@@ -12554,7 +12544,7 @@
         "z": "062848eb6508a3a6",
         "name": "",
         "group": "40197d5f58592aee",
-        "order": 4,
+        "order": 5,
         "width": 0,
         "height": 0,
         "passthru": false,
@@ -12569,7 +12559,7 @@
         "topic": "topic",
         "topicType": "msg",
         "x": 190,
-        "y": 1180,
+        "y": 1620,
         "wires": [
             [
                 "651b1e11de589b85"
@@ -12584,7 +12574,7 @@
         "label": "PIN",
         "tooltip": "",
         "group": "40197d5f58592aee",
-        "order": 3,
+        "order": 4,
         "width": 0,
         "height": 0,
         "passthru": true,
@@ -12595,7 +12585,7 @@
         "className": "",
         "topicType": "msg",
         "x": 170,
-        "y": 1080,
+        "y": 1380,
         "wires": [
             [
                 "be64234ed9852c64"
@@ -12615,7 +12605,7 @@
         "finalize": "",
         "libs": [],
         "x": 570,
-        "y": 880,
+        "y": 940,
         "wires": [
             [
                 "652ef2c884ce6d6a",
@@ -12640,8 +12630,8 @@
         "font": "",
         "fontSize": "",
         "color": "#000000",
-        "x": 740,
-        "y": 880,
+        "x": 780,
+        "y": 940,
         "wires": []
     },
     {
@@ -12657,7 +12647,7 @@
         "finalize": "",
         "libs": [],
         "x": 270,
-        "y": 660,
+        "y": 620,
         "wires": [
             [
                 "097f9401300c4cfd"
@@ -12677,7 +12667,7 @@
         "finalize": "",
         "libs": [],
         "x": 290,
-        "y": 740,
+        "y": 780,
         "wires": [
             [
                 "01754ad54aa8234a"
@@ -12685,48 +12675,10 @@
         ]
     },
     {
-        "id": "3b97f753674df844",
-        "type": "link out",
-        "z": "062848eb6508a3a6",
-        "name": "Haustür-Sesnsor",
-        "mode": "link",
-        "links": [
-            "39cc2025cd461843"
-        ],
-        "x": 1075,
-        "y": 500,
-        "wires": []
-    },
-    {
-        "id": "0e0f940aa0f8ed4f",
-        "type": "switch",
-        "z": "062848eb6508a3a6",
-        "name": "wenn Tür geschlossen",
-        "property": "payload",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "true",
-                "vt": "jsonata"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 720,
-        "y": 500,
-        "wires": [
-            [
-                "ca080b84c4fd696b"
-            ]
-        ]
-    },
-    {
         "id": "090394706d68b92d",
         "type": "function",
         "z": "062848eb6508a3a6",
-        "name": "Nuki abschließen oder verriegeln",
+        "name": "Nuki abschließen oder voll verriegeln",
         "func": "// 2 -> Lock\n// 6 -> Full Lock\nlet now = new Date();\nif (now.getHours() >= 21 || now.getHours() < 7)\n    return {payload: 6}\nelse\n    return {payload: 2};\n",
         "outputs": 1,
         "timeout": "",
@@ -12734,7 +12686,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 340,
+        "x": 350,
         "y": 700,
         "wires": [
             [
@@ -12755,7 +12707,7 @@
         "finalize": "",
         "libs": [],
         "x": 290,
-        "y": 620,
+        "y": 580,
         "wires": [
             [
                 "50056ddfb9a03fd5"
@@ -12769,13 +12721,16 @@
         "name": "Haustür-Schloss abschließen",
         "links": [
             "3b97f753674df844",
-            "544c077ecd16519e"
+            "544c077ecd16519e",
+            "29d1ce15d4d92e56",
+            "5809f3ba02185b44",
+            "ecadf7622e98101d"
         ],
         "x": 135,
-        "y": 700,
+        "y": 660,
         "wires": [
             [
-                "090394706d68b92d"
+                "3cc14662f3d44cba"
             ]
         ]
     },
@@ -12814,7 +12769,7 @@
         "sat": true,
         "sun": true,
         "x": 230,
-        "y": 980,
+        "y": 1140,
         "wires": [
             [
                 "cf9843a5f73e34d3",
@@ -12828,7 +12783,7 @@
         "z": "062848eb6508a3a6",
         "name": "",
         "group": "40197d5f58592aee",
-        "order": 5,
+        "order": 6,
         "width": 0,
         "height": 0,
         "passthru": false,
@@ -12843,7 +12798,7 @@
         "topic": "topic",
         "topicType": "msg",
         "x": 200,
-        "y": 1140,
+        "y": 1660,
         "wires": [
             [
                 "44bd1ae85ba6e007"
@@ -12868,7 +12823,7 @@
         "onceDelay": 0.1,
         "topic": "",
         "x": 190,
-        "y": 460,
+        "y": 420,
         "wires": [
             [
                 "de98ccd1624d690c"
@@ -12893,7 +12848,7 @@
         "onceDelay": 0.1,
         "topic": "",
         "x": 190,
-        "y": 500,
+        "y": 460,
         "wires": [
             [
                 "de98ccd1624d690c"
@@ -12922,7 +12877,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 210,
-        "y": 260,
+        "y": 180,
         "wires": [
             [
                 "7db73223e8adca5f"
@@ -12951,7 +12906,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 190,
-        "y": 300,
+        "y": 220,
         "wires": [
             [
                 "4302ce92e4985b06"
@@ -12980,7 +12935,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 210,
-        "y": 340,
+        "y": 260,
         "wires": [
             [
                 "544c077ecd16519e"
@@ -13009,7 +12964,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 210,
-        "y": 380,
+        "y": 300,
         "wires": [
             [
                 "376c57b149afbccc"
@@ -13025,7 +12980,7 @@
             "7db73223e8adca5f"
         ],
         "x": 135,
-        "y": 620,
+        "y": 580,
         "wires": [
             [
                 "7bcf60c7730ed56e"
@@ -13042,7 +12997,7 @@
             "bf6820b1163f0e66"
         ],
         "x": 135,
-        "y": 660,
+        "y": 620,
         "wires": [
             [
                 "0e5fa16938990d9d"
@@ -13057,13 +13012,15 @@
         "links": [
             "376c57b149afbccc",
             "44bd1ae85ba6e007",
-            "cf9843a5f73e34d3"
+            "cf9843a5f73e34d3",
+            "fd57ea1907744996",
+            "c76e0f9689ddc7ef"
         ],
         "x": 135,
         "y": 740,
         "wires": [
             [
-                "dbe57032c651ca6c"
+                "2cc88335d3847740"
             ]
         ]
     },
@@ -13077,7 +13034,7 @@
             "576bc4593d875946"
         ],
         "x": 335,
-        "y": 1140,
+        "y": 1660,
         "wires": []
     },
     {
@@ -13089,8 +13046,8 @@
         "links": [
             "576bc4593d875946"
         ],
-        "x": 455,
-        "y": 960,
+        "x": 395,
+        "y": 1120,
         "wires": []
     },
     {
@@ -13103,7 +13060,7 @@
             "96ddcf96bd0f01a9"
         ],
         "x": 335,
-        "y": 260,
+        "y": 180,
         "wires": []
     },
     {
@@ -13116,7 +13073,7 @@
             "986cc7c62e4fcf8c"
         ],
         "x": 335,
-        "y": 300,
+        "y": 220,
         "wires": []
     },
     {
@@ -13129,7 +13086,7 @@
             "39cc2025cd461843"
         ],
         "x": 335,
-        "y": 340,
+        "y": 260,
         "wires": []
     },
     {
@@ -13142,7 +13099,7 @@
             "576bc4593d875946"
         ],
         "x": 335,
-        "y": 380,
+        "y": 300,
         "wires": []
     },
     {
@@ -13159,7 +13116,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 210,
-        "y": 1220,
+        "y": 1540,
         "wires": [
             [
                 "15e93c1ed910ea48"
@@ -13179,7 +13136,7 @@
         "finalize": "",
         "libs": [],
         "x": 820,
-        "y": 1220,
+        "y": 1620,
         "wires": [
             [
                 "bf6820b1163f0e66"
@@ -13203,7 +13160,7 @@
             "986cc7c62e4fcf8c"
         ],
         "x": 995,
-        "y": 1180,
+        "y": 1580,
         "wires": []
     },
     {
@@ -13218,10 +13175,18 @@
             "72f0702ec637f375",
             "fcce69e721063c17",
             "b883bdcd38b13b7d",
-            "46a0786075d5b91c"
+            "46a0786075d5b91c",
+            "b40c7360eb8b53a3",
+            "8051754bbc4b8778",
+            "c0a0c508bd460b46",
+            "c8935dcf43e3113f",
+            "0f5a3cab8cad1976",
+            "eca0dac54fd9034c",
+            "bde5bac02c7ad594",
+            "249ae48919a778cc"
         ],
-        "x": 135,
-        "y": 1360,
+        "x": 125,
+        "y": 1780,
         "wires": [
             [
                 "75f4e5455d83d356",
@@ -13239,7 +13204,7 @@
             "e03c33a6dcae1a6c"
         ],
         "x": 995,
-        "y": 1300,
+        "y": 1720,
         "wires": []
     },
     {
@@ -13259,8 +13224,8 @@
         "font": "",
         "fontSize": "12",
         "color": "#ffffff",
-        "x": 440,
-        "y": 1360,
+        "x": 430,
+        "y": 1780,
         "wires": []
     },
     {
@@ -13283,8 +13248,8 @@
         "payloadType": "str",
         "topic": "",
         "topicType": "str",
-        "x": 190,
-        "y": 1400,
+        "x": 180,
+        "y": 1820,
         "wires": [
             [
                 "0e588db6de9cd341"
@@ -13303,8 +13268,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 270,
-        "y": 1360,
+        "x": 260,
+        "y": 1780,
         "wires": [
             [
                 "d997b4091550a66d"
@@ -13322,8 +13287,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 360,
-        "y": 1400,
+        "x": 350,
+        "y": 1820,
         "wires": [
             [
                 "d997b4091550a66d"
@@ -13339,23 +13304,23 @@
         "links": [
             "e03c33a6dcae1a6c"
         ],
-        "x": 695,
-        "y": 920,
+        "x": 735,
+        "y": 980,
         "wires": []
     },
     {
         "id": "f6acd958aad9453a",
         "type": "template",
         "z": "062848eb6508a3a6",
-        "name": "Log-Nachricht",
+        "name": "Text \"voll verriegeln\"",
         "field": "payload",
         "fieldType": "msg",
         "format": "handlebars",
         "syntax": "mustache",
         "template": "Tür voll verriegleln",
         "output": "str",
-        "x": 520,
-        "y": 1000,
+        "x": 480,
+        "y": 1160,
         "wires": [
             [
                 "fcce69e721063c17"
@@ -13371,8 +13336,8 @@
         "links": [
             "e03c33a6dcae1a6c"
         ],
-        "x": 655,
-        "y": 1000,
+        "x": 635,
+        "y": 1160,
         "wires": []
     },
     {
@@ -13395,7 +13360,7 @@
         "to": "",
         "reg": false,
         "x": 430,
-        "y": 1180,
+        "y": 1620,
         "wires": [
             [
                 "0d082e7ff2ce770c"
@@ -13422,7 +13387,7 @@
         "to": "",
         "reg": false,
         "x": 340,
-        "y": 1080,
+        "y": 1380,
         "wires": [
             [
                 "654805311e11f7b0"
@@ -13456,7 +13421,7 @@
         "to": "",
         "reg": false,
         "x": 710,
-        "y": 1080,
+        "y": 1380,
         "wires": [
             [
                 "5c43c72b9d9fb6f1"
@@ -13476,7 +13441,7 @@
         "property": "payload",
         "topi": "topic",
         "x": 410,
-        "y": 840,
+        "y": 900,
         "wires": [
             [
                 "d121e0d80d05297e",
@@ -13503,7 +13468,7 @@
         "topic": "topic",
         "outputs": 1,
         "x": 530,
-        "y": 1080,
+        "y": 1380,
         "wires": [
             [
                 "e9d4aee5b8d0b1d3"
@@ -13528,7 +13493,7 @@
         "topic": "topic",
         "outputs": 1,
         "x": 1050,
-        "y": 1260,
+        "y": 1660,
         "wires": [
             [
                 "aef4f9b3fb3740da"
@@ -13555,7 +13520,7 @@
         "to": "",
         "reg": false,
         "x": 1250,
-        "y": 1260,
+        "y": 1660,
         "wires": [
             []
         ]
@@ -13575,7 +13540,7 @@
         "expiry": "",
         "broker": "c349b9ff.9dc4c8",
         "x": 1080,
-        "y": 1220,
+        "y": 1620,
         "wires": []
     },
     {
@@ -13591,42 +13556,17 @@
         "loglevel": "INFO",
         "logconfig": "8929498a4f6d4a2d",
         "sendpane": "",
-        "x": 250,
-        "y": 1320,
+        "x": 240,
+        "y": 1740,
         "wires": [
             []
-        ]
-    },
-    {
-        "id": "ca080b84c4fd696b",
-        "type": "delay",
-        "z": "062848eb6508a3a6",
-        "name": "",
-        "pauseType": "delay",
-        "timeout": "1",
-        "timeoutUnits": "seconds",
-        "rate": "1",
-        "nbRateUnits": "1",
-        "rateUnits": "second",
-        "randomFirst": "1",
-        "randomLast": "5",
-        "randomUnits": "seconds",
-        "drop": false,
-        "allowrate": false,
-        "outputs": 1,
-        "x": 940,
-        "y": 500,
-        "wires": [
-            [
-                "3b97f753674df844"
-            ]
         ]
     },
     {
         "id": "4bd37ec91573856c",
         "type": "switch",
         "z": "062848eb6508a3a6",
-        "name": "wenn Tür verriegelt",
+        "name": "Nuki verriegelt?",
         "property": "payload",
         "propertyType": "msg",
         "rules": [
@@ -13639,11 +13579,12 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 590,
-        "y": 840,
+        "x": 580,
+        "y": 860,
         "wires": [
             [
-                "95140f2733bded5b"
+                "95140f2733bded5b",
+                "c0b9ffd95cb92ba3"
             ]
         ]
     },
@@ -13662,14 +13603,14 @@
         "expiry": "",
         "broker": "c349b9ff.9dc4c8",
         "x": 830,
-        "y": 840,
+        "y": 860,
         "wires": []
     },
     {
         "id": "38252e61060e0a59",
         "type": "switch",
         "z": "062848eb6508a3a6",
-        "name": "wenn Tür offen",
+        "name": "Nuki offen",
         "property": "payload",
         "propertyType": "msg",
         "rules": [
@@ -13682,8 +13623,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 580,
-        "y": 800,
+        "x": 570,
+        "y": 900,
         "wires": [
             [
                 "cc5a227a5358cf14"
@@ -13705,7 +13646,7 @@
         "expiry": "",
         "broker": "c349b9ff.9dc4c8",
         "x": 830,
-        "y": 800,
+        "y": 900,
         "wires": []
     },
     {
@@ -13721,8 +13662,8 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 290,
-        "y": 1480,
+        "x": 280,
+        "y": 1900,
         "wires": [
             [
                 "24b7f9aa04a0c833"
@@ -13742,8 +13683,8 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 290,
-        "y": 1560,
+        "x": 280,
+        "y": 1980,
         "wires": [
             [
                 "820bafe3acf224f2"
@@ -13764,8 +13705,8 @@
         "correl": "",
         "expiry": "",
         "broker": "c349b9ff.9dc4c8",
-        "x": 1020,
-        "y": 1480,
+        "x": 1010,
+        "y": 1900,
         "wires": []
     },
     {
@@ -13782,8 +13723,8 @@
         "correl": "",
         "expiry": "",
         "broker": "c349b9ff.9dc4c8",
-        "x": 1020,
-        "y": 1560,
+        "x": 1010,
+        "y": 1980,
         "wires": []
     },
     {
@@ -13813,8 +13754,8 @@
                 "type": "pressed"
             }
         ],
-        "x": 550,
-        "y": 1480,
+        "x": 540,
+        "y": 1900,
         "wires": [
             [
                 "aeed9bccbb37aec3"
@@ -13851,8 +13792,8 @@
                 "type": "pressed"
             }
         ],
-        "x": 550,
-        "y": 1560,
+        "x": 540,
+        "y": 1980,
         "wires": [
             [
                 "707912434cc1fd8d"
@@ -13879,8 +13820,8 @@
         "bytopic": "all",
         "topic": "topic",
         "outputs": 1,
-        "x": 720,
-        "y": 1540,
+        "x": 710,
+        "y": 1960,
         "wires": [
             [
                 "7df6141d15f348ea"
@@ -13904,8 +13845,8 @@
         "bytopic": "all",
         "topic": "topic",
         "outputs": 1,
-        "x": 720,
-        "y": 1460,
+        "x": 710,
+        "y": 1880,
         "wires": [
             [
                 "3d57f2823ba7175b"
@@ -13922,8 +13863,8 @@
         "maxtimeout": "1",
         "maxtimeoutunits": "Minute",
         "name": "",
-        "x": 730,
-        "y": 1500,
+        "x": 720,
+        "y": 1920,
         "wires": [
             [
                 "3d57f2823ba7175b"
@@ -13941,27 +13882,14 @@
         "maxtimeout": "1",
         "maxtimeoutunits": "Minute",
         "name": "",
-        "x": 730,
-        "y": 1580,
+        "x": 720,
+        "y": 2000,
         "wires": [
             [
                 "7df6141d15f348ea"
             ],
             []
         ]
-    },
-    {
-        "id": "b883bdcd38b13b7d",
-        "type": "link out",
-        "z": "062848eb6508a3a6",
-        "name": "link out 60",
-        "mode": "link",
-        "links": [
-            "e03c33a6dcae1a6c"
-        ],
-        "x": 815,
-        "y": 580,
-        "wires": []
     },
     {
         "id": "eb8392c5c332f821",
@@ -13977,26 +13905,26 @@
         "correl": "",
         "expiry": "",
         "broker": "c349b9ff.9dc4c8",
-        "x": 810,
-        "y": 640,
+        "x": 840,
+        "y": 600,
         "wires": []
     },
     {
         "id": "cb816aa78cf4b284",
         "type": "mqtt out",
         "z": "062848eb6508a3a6",
-        "name": "",
+        "name": "Haustürschloss lockAction",
         "topic": "nuki/312D447C/lockAction",
-        "qos": "",
-        "retain": "",
+        "qos": "2",
+        "retain": "true",
         "respTopic": "",
         "contentType": "",
         "userProps": "",
         "correl": "",
         "expiry": "",
         "broker": "c349b9ff.9dc4c8",
-        "x": 820,
-        "y": 680,
+        "x": 850,
+        "y": 640,
         "wires": []
     },
     {
@@ -14007,8 +13935,8 @@
         "links": [
             "097f9401300c4cfd"
         ],
-        "x": 645,
-        "y": 660,
+        "x": 675,
+        "y": 620,
         "wires": [
             [
                 "eb8392c5c332f821",
@@ -14025,8 +13953,8 @@
         "links": [
             "c1af54b5dcf743af"
         ],
-        "x": 565,
-        "y": 660,
+        "x": 605,
+        "y": 620,
         "wires": []
     },
     {
@@ -14042,7 +13970,7 @@
         "finalize": "",
         "libs": [],
         "x": 640,
-        "y": 1220,
+        "y": 1620,
         "wires": [
             [
                 "493b45377f6017c2"
@@ -14067,10 +13995,11 @@
         "payload": "Started!",
         "payloadType": "str",
         "x": 190,
-        "y": 180,
+        "y": 80,
         "wires": [
             [
-                "fca81ff96bb08249"
+                "fca81ff96bb08249",
+                "8d71f8358bc26766"
             ]
         ]
     },
@@ -14094,7 +14023,7 @@
         "to": "",
         "reg": false,
         "x": 370,
-        "y": 180,
+        "y": 80,
         "wires": [
             []
         ]
@@ -14103,36 +14032,1088 @@
         "id": "15e93c1ed910ea48",
         "type": "switch",
         "z": "062848eb6508a3a6",
-        "name": "Leerer Pin ignorieren",
+        "name": "Sonder-Pin?",
         "property": "payload",
         "propertyType": "msg",
         "rules": [
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "2",
+                "vt": "str"
+            },
             {
                 "t": "neq",
                 "v": "",
                 "vt": "str"
             }
         ],
-        "checkall": "true",
+        "checkall": "false",
         "repair": false,
-        "outputs": 1,
-        "x": 440,
-        "y": 1220,
+        "outputs": 3,
+        "x": 410,
+        "y": 1540,
         "wires": [
+            [
+                "55ef7dc599dc0c36"
+            ],
+            [
+                "0dd614af31e92bb7"
+            ],
             [
                 "0d082e7ff2ce770c"
             ]
         ]
     },
     {
-        "id": "b44442a2a7228651",
-        "type": "comment",
+        "id": "a619f98665481281",
+        "type": "mqtt in",
         "z": "062848eb6508a3a6",
-        "name": "Todos",
-        "info": "Genau einen Subflow machen",
-        "x": 770,
-        "y": 360,
+        "name": "Haustür-Schloss CommandResponse",
+        "topic": "nuki/312D447C/commandResponse",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "c349b9ff.9dc4c8",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 270,
+        "y": 980,
+        "wires": [
+            [
+                "d44ff0599bf197fe"
+            ]
+        ]
+    },
+    {
+        "id": "d44ff0599bf197fe",
+        "type": "function",
+        "z": "062848eb6508a3a6",
+        "name": "Fehler-Text",
+        "func": "const error_text_de = {\n    0: \"Okay\",\n    32: \"Die angegebene Autorisierungs-ID ist ungültig oder die Nutzlast konnte mit dem gemeinsamen Schlüssel für diese Autorisierungs-ID nicht entschlüsselt werden.\",\n    33: \"Die angegebene PIN stimmt nicht mit der gespeicherten überein.\",\n    34: \"Der angegebene Nonce stimmt nicht mit dem zuletzt gespeicherten dieser Autorisierungs-ID überein oder wurde bereits zuvor verwendet.\",\n    35: \"Der angegebene Parameter liegt außerhalb seines gültigen Bereichs.\",\n    36: \"Die gewünschte Autorisierungs-ID konnte nicht gelöscht werden, da sie nicht existiert.\",\n    37: \"Die angegebene Autorisierungs-ID ist derzeit deaktiviert.\",\n    38: \"Die Anfrage wurde von der Nuki Bridge weitergeleitet, und der angegebenen Autorisierungs-ID wurde kein Fernzugriff gewährt.\",\n    39: \"Der angegebenen Autorisierungs-ID wurde zum aktuellen Zeitpunkt kein Zugriff gewährt.\",\n    40: \"Es wurde zu oft eine ungültige PIN eingegeben.\",\n    41: \"Es können keine weiteren Einträge gespeichert werden.\",\n    42: \"Der Tastaturcode sollte hinzugefügt werden, aber der angegebene Code existiert bereits.\",\n    43: \"Der eingegebene Keypad-Code ist ungültig.\",\n    44: \"Es wurde mehrfach eine ungültige PIN eingegeben.\",\n    45: \"Es wurde mehrfach eine ungültige PIN eingegeben.\",\n    46: \"Es wurde mehrfach eine ungültige PIN eingegeben.\",\n    64: \"Wird bei einer eingehenden automatischen Entriegelungsanforderung zurückgegeben, wenn innerhalb kurzer Zeit bereits eine Verriegelungsaktion ausgeführt wurde.\",\n    65: \"Wird bei einer eingehenden Entriegelungsanforderung zurückgegeben, wenn die Anforderung von der Nuki Bridge weitergeleitet wurde und das Smart Lock sich über seine tatsächliche Verriegelungsposition nicht sicher ist.\",\n    66: \"Motor blockiert.\",\n    67: \"Es liegt ein Problem mit der Kupplung während der Motorbewegung vor.\",\n    68: \"Der Motor bewegt sich für einen bestimmten Zeitraum, blockiert jedoch nicht.\",\n    69: \"Verriegelungsaktion über Bluetooth, wenn bereits eine Verriegelungsaktion verarbeitet wird.\",\n    70: \"Verriegelungsaktion oder während der Kalibrierung, wenn der Benutzer die Motorbewegung durch Drücken der Taste abgebrochen hat.\",\n    71: \"Verriegelungsaktion, wenn das Smart Lock noch nicht kalibriert wurde.\",\n    72: \"Wird während der Kalibrierung zurückgegeben, wenn die interne Positionsdatenbank keine weiteren Werte speichern kann.\",\n    73: \"Motor blockiert aufgrund niedriger Spannung.\",\n    74: \"Der Stromverbrauch während der Motorbewegung ist null.\",\n    75: \"Der Stromverbrauch während der Kupplungsbewegung ist null.\",\n    76: \"Wird bei einer Kalibrierungsanforderung zurückgegeben, wenn die Batteriespannung zu niedrig ist und daher keine Kalibrierung gestartet wird.\",\n    77: \"Wird während einer Motoraktion zurückgegeben, wenn ein Firmware-Update erforderlich ist.\",\n    255: \"Unbekannter Fehler\"\n}[msg.payload];\n\nreturn ({payload: error_text_de || msg.payload});",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 570,
+        "y": 980,
+        "wires": [
+            [
+                "0ad338c20d4c7bab"
+            ]
+        ]
+    },
+    {
+        "id": "abdb84779478e550",
+        "type": "change",
+        "z": "062848eb6508a3a6",
+        "name": "Nicht abschließen aktivieren",
+        "rules": [
+            {
+                "t": "set",
+                "p": "nicht_abschließen",
+                "pt": "flow",
+                "to": "true",
+                "tot": "bool"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 900,
+        "y": 1480,
+        "wires": [
+            [
+                "b0d5c4d6b83346e7",
+                "219c03657decc1e1"
+            ]
+        ]
+    },
+    {
+        "id": "4ce22eeaaac3757a",
+        "type": "change",
+        "z": "062848eb6508a3a6",
+        "name": "Nicht abschließen deaktivieren",
+        "rules": [
+            {
+                "t": "set",
+                "p": "nicht_abschließen",
+                "pt": "flow",
+                "to": "false",
+                "tot": "bool"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1150,
+        "y": 800,
+        "wires": [
+            [
+                "cb913f1d17659e78",
+                "692780b0e9cbbed4"
+            ]
+        ]
+    },
+    {
+        "id": "b0d5c4d6b83346e7",
+        "type": "template",
+        "z": "062848eb6508a3a6",
+        "name": "Text \"Nicht abschließen\"",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "plain",
+        "template": "\"Nicht abschließen\" ist aktiviert",
+        "output": "str",
+        "x": 1170,
+        "y": 1480,
+        "wires": [
+            [
+                "b40c7360eb8b53a3"
+            ]
+        ]
+    },
+    {
+        "id": "b40c7360eb8b53a3",
+        "type": "link out",
+        "z": "062848eb6508a3a6",
+        "name": "link out 72",
+        "mode": "link",
+        "links": [
+            "e03c33a6dcae1a6c",
+            "4137a55c9c61792a"
+        ],
+        "x": 1335,
+        "y": 1480,
         "wires": []
+    },
+    {
+        "id": "312879a91c07799a",
+        "type": "change",
+        "z": "062848eb6508a3a6",
+        "name": "Speicher haustuer_sensor Status",
+        "rules": [
+            {
+                "t": "set",
+                "p": "haustuer_sensor",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 460,
+        "y": 380,
+        "wires": [
+            [
+                "63e92f47f6fbf63f"
+            ]
+        ]
+    },
+    {
+        "id": "55ef7dc599dc0c36",
+        "type": "switch",
+        "z": "062848eb6508a3a6",
+        "name": "Haustür offen?",
+        "property": "haustuer_sensor",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "false",
+                "vt": "jsonata"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 660,
+        "y": 1500,
+        "wires": [
+            [
+                "abdb84779478e550"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "4d319d834992eb9e",
+        "type": "template",
+        "z": "062848eb6508a3a6",
+        "name": "Text \"voll verriegeln\"",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "plain",
+        "template": "Tür voll verriegeln",
+        "output": "str",
+        "x": 880,
+        "y": 1520,
+        "wires": [
+            [
+                "8051754bbc4b8778"
+            ]
+        ]
+    },
+    {
+        "id": "8051754bbc4b8778",
+        "type": "link out",
+        "z": "062848eb6508a3a6",
+        "name": "link out 74",
+        "mode": "link",
+        "links": [
+            "e03c33a6dcae1a6c"
+        ],
+        "x": 1035,
+        "y": 1520,
+        "wires": []
+    },
+    {
+        "id": "fd57ea1907744996",
+        "type": "link out",
+        "z": "062848eb6508a3a6",
+        "name": "Haustür voll verriegeln",
+        "mode": "link",
+        "links": [
+            "576bc4593d875946"
+        ],
+        "x": 795,
+        "y": 1560,
+        "wires": []
+    },
+    {
+        "id": "310327846cda7b1a",
+        "type": "ui_text",
+        "z": "062848eb6508a3a6",
+        "group": "40197d5f58592aee",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Status",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
+        "x": 1130,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "29d1ce15d4d92e56",
+        "type": "link out",
+        "z": "062848eb6508a3a6",
+        "name": "link out 82",
+        "mode": "link",
+        "links": [
+            "39cc2025cd461843"
+        ],
+        "x": 875,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "8b962cd30a4b673a",
+        "type": "switch",
+        "z": "062848eb6508a3a6",
+        "name": "nicht abschließen aktiv?",
+        "property": "nicht_abschließen",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "true",
+                "vt": "jsonata"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 690,
+        "y": 460,
+        "wires": [
+            [
+                "2419604c1483caa0"
+            ],
+            [
+                "29d1ce15d4d92e56",
+                "95ed239b8fad0903"
+            ]
+        ]
+    },
+    {
+        "id": "2419604c1483caa0",
+        "type": "template",
+        "z": "062848eb6508a3a6",
+        "name": "Text \"Nicht abschließen aktiv\"",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "plain",
+        "template": "geschlossen, \"Nicht abschließen\" aktiv",
+        "output": "str",
+        "x": 990,
+        "y": 440,
+        "wires": [
+            [
+                "c0a0c508bd460b46"
+            ]
+        ]
+    },
+    {
+        "id": "63e92f47f6fbf63f",
+        "type": "switch",
+        "z": "062848eb6508a3a6",
+        "name": "Haustür offen?",
+        "property": "haustuer_sensor",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "false",
+                "vt": "jsonata"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 720,
+        "y": 380,
+        "wires": [
+            [
+                "4f47ddabe7cb6b13"
+            ],
+            [
+                "8b962cd30a4b673a",
+                "d9f45b3a3bd972d8"
+            ]
+        ]
+    },
+    {
+        "id": "4f47ddabe7cb6b13",
+        "type": "template",
+        "z": "062848eb6508a3a6",
+        "name": "Text \"offen\"",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "plain",
+        "template": "offen",
+        "output": "str",
+        "x": 930,
+        "y": 360,
+        "wires": [
+            [
+                "310327846cda7b1a"
+            ]
+        ]
+    },
+    {
+        "id": "d9f45b3a3bd972d8",
+        "type": "template",
+        "z": "062848eb6508a3a6",
+        "name": "Text \"geschlossen\"",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "plain",
+        "template": "geschlossen",
+        "output": "str",
+        "x": 950,
+        "y": 400,
+        "wires": [
+            [
+                "310327846cda7b1a"
+            ]
+        ]
+    },
+    {
+        "id": "c0a0c508bd460b46",
+        "type": "link out",
+        "z": "062848eb6508a3a6",
+        "name": "link out 85",
+        "mode": "link",
+        "links": [
+            "e03c33a6dcae1a6c"
+        ],
+        "x": 1175,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "700ef9303accc628",
+        "type": "ui_switch",
+        "z": "062848eb6508a3a6",
+        "name": "",
+        "label": "Nicht automatisch abschließen",
+        "tooltip": "",
+        "group": "40197d5f58592aee",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": "true",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 250,
+        "y": 1260,
+        "wires": [
+            [
+                "c0ad915ac416a2bb"
+            ]
+        ]
+    },
+    {
+        "id": "219c03657decc1e1",
+        "type": "link out",
+        "z": "062848eb6508a3a6",
+        "name": "link out 87",
+        "mode": "link",
+        "links": [
+            "b17af34ef87d87b6"
+        ],
+        "x": 1075,
+        "y": 1440,
+        "wires": []
+    },
+    {
+        "id": "b17af34ef87d87b6",
+        "type": "link in",
+        "z": "062848eb6508a3a6",
+        "name": "link in 23",
+        "links": [
+            "219c03657decc1e1",
+            "cb913f1d17659e78",
+            "409db2d1c3fb7cbb",
+            "d14618fd547f7af7",
+            "fe297a428bb3195c"
+        ],
+        "x": 135,
+        "y": 1220,
+        "wires": [
+            [
+                "700ef9303accc628"
+            ]
+        ]
+    },
+    {
+        "id": "730146c183eb7928",
+        "type": "link in",
+        "z": "062848eb6508a3a6",
+        "name": "Nicht abschließen aktivieren",
+        "links": [
+            "6ff01b0f5688c37e"
+        ],
+        "x": 725,
+        "y": 1460,
+        "wires": [
+            [
+                "abdb84779478e550"
+            ]
+        ]
+    },
+    {
+        "id": "c0ad915ac416a2bb",
+        "type": "switch",
+        "z": "062848eb6508a3a6",
+        "name": "true?",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "true",
+                "vt": "jsonata"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 470,
+        "y": 1260,
+        "wires": [
+            [
+                "6ff01b0f5688c37e"
+            ],
+            [
+                "7a2f1cfe3485085d",
+                "0984d392af489edb"
+            ]
+        ]
+    },
+    {
+        "id": "5809f3ba02185b44",
+        "type": "link out",
+        "z": "062848eb6508a3a6",
+        "name": "link out 88",
+        "mode": "link",
+        "links": [
+            "39cc2025cd461843"
+        ],
+        "x": 795,
+        "y": 1320,
+        "wires": []
+    },
+    {
+        "id": "6ff01b0f5688c37e",
+        "type": "link out",
+        "z": "062848eb6508a3a6",
+        "name": "link out 89",
+        "mode": "link",
+        "links": [
+            "730146c183eb7928"
+        ],
+        "x": 595,
+        "y": 1240,
+        "wires": []
+    },
+    {
+        "id": "4afc39f714a89983",
+        "type": "link in",
+        "z": "062848eb6508a3a6",
+        "name": "link in 24",
+        "links": [
+            "0984d392af489edb"
+        ],
+        "x": 965,
+        "y": 780,
+        "wires": [
+            [
+                "4ce22eeaaac3757a"
+            ]
+        ]
+    },
+    {
+        "id": "cb913f1d17659e78",
+        "type": "link out",
+        "z": "062848eb6508a3a6",
+        "name": "link out 90",
+        "mode": "link",
+        "links": [
+            "b17af34ef87d87b6"
+        ],
+        "x": 1345,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "8d71f8358bc26766",
+        "type": "change",
+        "z": "062848eb6508a3a6",
+        "name": "Nicht abschließen deaktivieren",
+        "rules": [
+            {
+                "t": "set",
+                "p": "nicht_abschließen",
+                "pt": "flow",
+                "to": "false",
+                "tot": "bool"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 410,
+        "y": 120,
+        "wires": [
+            [
+                "d14618fd547f7af7"
+            ]
+        ]
+    },
+    {
+        "id": "692780b0e9cbbed4",
+        "type": "template",
+        "z": "062848eb6508a3a6",
+        "name": "Text \"Nicht abschließen deaktiviert\"",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "plain",
+        "template": "\"Nicht abschließen\" deaktiviert",
+        "output": "str",
+        "x": 1160,
+        "y": 840,
+        "wires": [
+            [
+                "c8935dcf43e3113f"
+            ]
+        ]
+    },
+    {
+        "id": "c8935dcf43e3113f",
+        "type": "link out",
+        "z": "062848eb6508a3a6",
+        "name": "link out 92",
+        "mode": "link",
+        "links": [
+            "e03c33a6dcae1a6c"
+        ],
+        "x": 1345,
+        "y": 840,
+        "wires": []
+    },
+    {
+        "id": "93c033630b6b3907",
+        "type": "debounce",
+        "z": "062848eb6508a3a6",
+        "time": "2000",
+        "name": "",
+        "x": 380,
+        "y": 460,
+        "wires": [
+            [
+                "4b6748b04ea10729"
+            ]
+        ]
+    },
+    {
+        "id": "c0b9ffd95cb92ba3",
+        "type": "switch",
+        "z": "062848eb6508a3a6",
+        "name": "nicht abschließen aktiv?",
+        "property": "nicht_abschließen",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "true",
+                "vt": "jsonata"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 830,
+        "y": 820,
+        "wires": [
+            [
+                "4ce22eeaaac3757a"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "7a2f1cfe3485085d",
+        "type": "switch",
+        "z": "062848eb6508a3a6",
+        "name": "Haustür offen?",
+        "property": "haustuer_sensor",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "false",
+                "vt": "jsonata"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 660,
+        "y": 1320,
+        "wires": [
+            [],
+            [
+                "5809f3ba02185b44"
+            ]
+        ]
+    },
+    {
+        "id": "0dd614af31e92bb7",
+        "type": "switch",
+        "z": "062848eb6508a3a6",
+        "name": "Haustür offen?",
+        "property": "haustuer_sensor",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "false",
+                "vt": "jsonata"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 660,
+        "y": 1540,
+        "wires": [
+            [],
+            [
+                "4d319d834992eb9e",
+                "fd57ea1907744996"
+            ]
+        ]
+    },
+    {
+        "id": "0984d392af489edb",
+        "type": "link out",
+        "z": "062848eb6508a3a6",
+        "name": "link out 93",
+        "mode": "link",
+        "links": [
+            "4afc39f714a89983"
+        ],
+        "x": 595,
+        "y": 1280,
+        "wires": []
+    },
+    {
+        "id": "d14618fd547f7af7",
+        "type": "link out",
+        "z": "062848eb6508a3a6",
+        "name": "link out 94",
+        "mode": "link",
+        "links": [
+            "b17af34ef87d87b6"
+        ],
+        "x": 595,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "c96e7f13abcb3dea",
+        "type": "function",
+        "z": "062848eb6508a3a6",
+        "name": "Push Notification",
+        "func": "if (msg.payload.length == 0) return;\n\nreturn {\n    notification: {\n        notification: { \n            title: \"Haustür offen!\", \n            body: `Kann Haustür nicht verriegeln.` \n        }, \n    }\n};\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 820,
+        "y": 700,
+        "wires": [
+            [
+                "7bb975af10fb8606"
+            ]
+        ]
+    },
+    {
+        "id": "7bb975af10fb8606",
+        "type": "link out",
+        "z": "062848eb6508a3a6",
+        "name": "Person an Kellertür erkannt",
+        "mode": "link",
+        "links": [
+            "1cd036385c85d54d"
+        ],
+        "x": 965,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "3cc14662f3d44cba",
+        "type": "switch",
+        "z": "062848eb6508a3a6",
+        "name": "Haustür offen?",
+        "property": "haustuer_sensor",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "false",
+                "vt": "jsonata"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 280,
+        "y": 660,
+        "wires": [
+            [
+                "aeaccf9fa1d9d266"
+            ],
+            [
+                "090394706d68b92d"
+            ]
+        ]
+    },
+    {
+        "id": "2cc88335d3847740",
+        "type": "switch",
+        "z": "062848eb6508a3a6",
+        "name": "Haustür offen?",
+        "property": "haustuer_sensor",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "false",
+                "vt": "jsonata"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 280,
+        "y": 740,
+        "wires": [
+            [
+                "43d1e108ece7d1e4"
+            ],
+            [
+                "dbe57032c651ca6c"
+            ]
+        ]
+    },
+    {
+        "id": "aeaccf9fa1d9d266",
+        "type": "link out",
+        "z": "062848eb6508a3a6",
+        "name": "link out 108",
+        "mode": "link",
+        "links": [
+            "e408d478825d7007"
+        ],
+        "x": 415,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "e408d478825d7007",
+        "type": "link in",
+        "z": "062848eb6508a3a6",
+        "name": "link in 28",
+        "links": [
+            "aeaccf9fa1d9d266",
+            "43d1e108ece7d1e4"
+        ],
+        "x": 675,
+        "y": 700,
+        "wires": [
+            [
+                "c96e7f13abcb3dea"
+            ]
+        ]
+    },
+    {
+        "id": "43d1e108ece7d1e4",
+        "type": "link out",
+        "z": "062848eb6508a3a6",
+        "name": "link out 109",
+        "mode": "link",
+        "links": [
+            "e408d478825d7007"
+        ],
+        "x": 415,
+        "y": 740,
+        "wires": []
+    },
+    {
+        "id": "95ed239b8fad0903",
+        "type": "template",
+        "z": "062848eb6508a3a6",
+        "name": "Text \"Abschließen\"",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "plain",
+        "template": "Tür geschlossen. Abschließen!",
+        "output": "str",
+        "x": 950,
+        "y": 520,
+        "wires": [
+            [
+                "b69516bb46cf60c5"
+            ]
+        ]
+    },
+    {
+        "id": "e4bd376638d292c3",
+        "type": "mqtt in",
+        "z": "062848eb6508a3a6",
+        "name": "Kellertür-Schloss Connected",
+        "topic": "nuki/33B5C9E4/commandResponse",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "c349b9ff.9dc4c8",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 240,
+        "y": 1040,
+        "wires": [
+            [
+                "3c2e374fdb6d918d"
+            ]
+        ]
+    },
+    {
+        "id": "63cf52529ecd26c6",
+        "type": "function",
+        "z": "062848eb6508a3a6",
+        "name": "Push Notification",
+        "func": "if (msg.payload.length == 0) return;\n\nreturn {\n    notification: {\n        notification: { \n            title: \"Nuki nicht verbunden!\", \n            body: `Haustür-Schloss kann nicht gesteuert werden.` \n        }, \n    }\n};\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 630,
+        "y": 1020,
+        "wires": [
+            [
+                "797b6ddd77d5a87d"
+            ]
+        ]
+    },
+    {
+        "id": "797b6ddd77d5a87d",
+        "type": "link out",
+        "z": "062848eb6508a3a6",
+        "name": "Person an Kellertür erkannt",
+        "mode": "link",
+        "links": [
+            "1cd036385c85d54d"
+        ],
+        "x": 765,
+        "y": 1020,
+        "wires": []
+    },
+    {
+        "id": "cb5c0c820e90d75f",
+        "type": "template",
+        "z": "062848eb6508a3a6",
+        "name": "Text \"Nuki Haustür-Schloss nicht mit MQTT verbunden\"",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "plain",
+        "template": "Nuki Haustür-Schloss nicht mit MQTT verbunden!",
+        "output": "str",
+        "x": 750,
+        "y": 1060,
+        "wires": [
+            [
+                "249ae48919a778cc"
+            ]
+        ]
+    },
+    {
+        "id": "249ae48919a778cc",
+        "type": "link out",
+        "z": "062848eb6508a3a6",
+        "name": "link out 116",
+        "mode": "link",
+        "links": [
+            "e03c33a6dcae1a6c"
+        ],
+        "x": 1015,
+        "y": 1060,
+        "wires": []
+    },
+    {
+        "id": "3c2e374fdb6d918d",
+        "type": "switch",
+        "z": "062848eb6508a3a6",
+        "name": "false?",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "false",
+                "vt": "jsonata"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 450,
+        "y": 1040,
+        "wires": [
+            [
+                "63cf52529ecd26c6",
+                "cb5c0c820e90d75f"
+            ]
+        ]
     },
     {
         "id": "3eec6b45c3f95d3f",
@@ -14155,7 +15136,7 @@
         "topic": "topic",
         "topicType": "msg",
         "x": 190,
-        "y": 1200,
+        "y": 1860,
         "wires": [
             [
                 "c54fee1876ce45b0"
@@ -14181,35 +15162,10 @@
         "className": "",
         "topicType": "msg",
         "x": 170,
-        "y": 1100,
+        "y": 1600,
         "wires": [
             [
                 "8b12bba6b189b1e5"
-            ]
-        ]
-    },
-    {
-        "id": "f68826e383344316",
-        "type": "switch",
-        "z": "caf02dc9a5b73890",
-        "name": "wenn Tür geschlossen",
-        "property": "payload",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "true",
-                "vt": "jsonata"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 920,
-        "y": 460,
-        "wires": [
-            [
-                "c2dd2cdb960f5d20"
             ]
         ]
     },
@@ -14222,13 +15178,18 @@
             "10adf74a0abed3f5",
             "a827e6196787eee5",
             "f049ba3037415baa",
-            "120f99bd59cc83e3"
+            "120f99bd59cc83e3",
+            "80a264d77e1aea12",
+            "371d707b4760e792",
+            "09a9e7bcfffc38b7",
+            "e6f9343995adbf1a",
+            "d8d51fd93db8d168"
         ],
         "x": 135,
-        "y": 740,
+        "y": 680,
         "wires": [
             [
-                "c0ca94de26dbe973"
+                "754ba85bfcabbafa"
             ]
         ]
     },
@@ -14253,7 +15214,7 @@
         "topic": "topic",
         "topicType": "msg",
         "x": 200,
-        "y": 1160,
+        "y": 1900,
         "wires": [
             [
                 "f049ba3037415baa"
@@ -14282,7 +15243,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 210,
-        "y": 300,
+        "y": 820,
         "wires": [
             [
                 "3515d84560dda4f0"
@@ -14311,7 +15272,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 190,
-        "y": 260,
+        "y": 780,
         "wires": [
             [
                 "2c598c5ad99362f6"
@@ -14340,7 +15301,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 210,
-        "y": 340,
+        "y": 860,
         "wires": [
             [
                 "10adf74a0abed3f5"
@@ -14356,7 +15317,7 @@
             "3515d84560dda4f0"
         ],
         "x": 135,
-        "y": 700,
+        "y": 640,
         "wires": [
             [
                 "4a8ea6e9d9760630"
@@ -14373,7 +15334,7 @@
             "6b5343740447d15e"
         ],
         "x": 135,
-        "y": 620,
+        "y": 600,
         "wires": [
             [
                 "5a6c9f073ce41181",
@@ -14392,7 +15353,7 @@
             "68510defdfc4e9d1"
         ],
         "x": 335,
-        "y": 1160,
+        "y": 1900,
         "wires": []
     },
     {
@@ -14405,7 +15366,7 @@
             "7ee0934261f999ea"
         ],
         "x": 335,
-        "y": 300,
+        "y": 820,
         "wires": []
     },
     {
@@ -14418,7 +15379,7 @@
             "276c3158b7e4acb2"
         ],
         "x": 335,
-        "y": 260,
+        "y": 780,
         "wires": []
     },
     {
@@ -14431,7 +15392,7 @@
             "68510defdfc4e9d1"
         ],
         "x": 335,
-        "y": 340,
+        "y": 860,
         "wires": []
     },
     {
@@ -14448,10 +15409,10 @@
         "rh": 0,
         "inputs": 0,
         "x": 210,
-        "y": 1240,
+        "y": 1780,
         "wires": [
             [
-                "b2f5f0606b782c54"
+                "db41c8100b656c43"
             ]
         ]
     },
@@ -14465,7 +15426,7 @@
             "276c3158b7e4acb2"
         ],
         "x": 995,
-        "y": 1200,
+        "y": 1820,
         "wires": []
     },
     {
@@ -14474,17 +15435,26 @@
         "z": "caf02dc9a5b73890",
         "name": "Append to Log",
         "links": [
-            "43cf8e0a43dafb50",
-            "c3befc822b0fed2f",
-            "a962abdf89480ba3",
-            "4a981cc39c1487df",
-            "c0d2fae70ef47b75",
             "0942f0c2ca6f6725",
-            "08185278a7027028",
-            "fb7fa1e099c86eec"
+            "43cf8e0a43dafb50",
+            "5ae2f11599e6d537",
+            "5c7b361338d39e26",
+            "a962abdf89480ba3",
+            "ccee4913759be9cb",
+            "e69f4296db67176a",
+            "fb7fa1e099c86eec",
+            "fdfba466c688d903",
+            "12ff6c54dbc22d04",
+            "f05373735bbd43aa",
+            "fa6530593e76d101",
+            "55065b721c08fb2a",
+            "86e02f81dd616814",
+            "3be2e6461295d268",
+            "b5dbc5c6f9d3c2e0",
+            "5f125001e0185385"
         ],
-        "x": 135,
-        "y": 1380,
+        "x": 125,
+        "y": 2020,
         "wires": [
             [
                 "6d6d8f5320b56143",
@@ -14502,7 +15472,7 @@
             "a30ad159a4a28a4d"
         ],
         "x": 995,
-        "y": 1320,
+        "y": 1940,
         "wires": []
     },
     {
@@ -14522,8 +15492,8 @@
         "font": "",
         "fontSize": "12",
         "color": "#ffffff",
-        "x": 440,
-        "y": 1380,
+        "x": 430,
+        "y": 2020,
         "wires": []
     },
     {
@@ -14546,8 +15516,8 @@
         "payloadType": "str",
         "topic": "",
         "topicType": "str",
-        "x": 190,
-        "y": 1420,
+        "x": 180,
+        "y": 2060,
         "wires": [
             [
                 "bb54335ea9515d53"
@@ -14566,8 +15536,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 270,
-        "y": 1380,
+        "x": 260,
+        "y": 2020,
         "wires": [
             [
                 "20156ba1fdab30f3"
@@ -14585,8 +15555,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 360,
-        "y": 1420,
+        "x": 350,
+        "y": 2060,
         "wires": [
             [
                 "20156ba1fdab30f3"
@@ -14602,8 +15572,8 @@
         "links": [
             "a30ad159a4a28a4d"
         ],
-        "x": 855,
-        "y": 940,
+        "x": 915,
+        "y": 1000,
         "wires": []
     },
     {
@@ -14626,7 +15596,7 @@
         "to": "",
         "reg": false,
         "x": 340,
-        "y": 1100,
+        "y": 1600,
         "wires": [
             [
                 "cbbc12229200dfa5"
@@ -14660,7 +15630,7 @@
         "to": "",
         "reg": false,
         "x": 710,
-        "y": 1100,
+        "y": 1600,
         "wires": [
             [
                 "877e77a27d1eb54a"
@@ -14679,13 +15649,13 @@
         "septopics": true,
         "property": "payload",
         "topi": "topic",
-        "x": 370,
-        "y": 860,
+        "x": 410,
+        "y": 920,
         "wires": [
             [
-                "32cfa64518fe066e",
-                "3f03597363c5298d",
-                "ca859f08d83d0787"
+                "ca859f08d83d0787",
+                "ed95c413c6a5e0a9",
+                "8a9f9371d9d1ebbf"
             ]
         ]
     },
@@ -14707,7 +15677,7 @@
         "topic": "topic",
         "outputs": 1,
         "x": 530,
-        "y": 1100,
+        "y": 1600,
         "wires": [
             [
                 "a92929c03edfceca"
@@ -14732,7 +15702,7 @@
         "topic": "topic",
         "outputs": 1,
         "x": 1050,
-        "y": 1280,
+        "y": 1900,
         "wires": [
             [
                 "bd1acc71ea636bad"
@@ -14759,7 +15729,7 @@
         "to": "",
         "reg": false,
         "x": 1250,
-        "y": 1280,
+        "y": 1900,
         "wires": [
             []
         ]
@@ -14779,7 +15749,7 @@
         "expiry": "",
         "broker": "c349b9ff.9dc4c8",
         "x": 1080,
-        "y": 1240,
+        "y": 1860,
         "wires": []
     },
     {
@@ -14795,60 +15765,10 @@
         "loglevel": "INFO",
         "logconfig": "8929498a4f6d4a2d",
         "sendpane": "",
-        "x": 250,
-        "y": 1340,
+        "x": 240,
+        "y": 1980,
         "wires": [
             []
-        ]
-    },
-    {
-        "id": "c2dd2cdb960f5d20",
-        "type": "delay",
-        "z": "caf02dc9a5b73890",
-        "name": "",
-        "pauseType": "delay",
-        "timeout": "1",
-        "timeoutUnits": "seconds",
-        "rate": "1",
-        "nbRateUnits": "1",
-        "rateUnits": "second",
-        "randomFirst": "1",
-        "randomLast": "5",
-        "randomUnits": "seconds",
-        "drop": false,
-        "allowrate": false,
-        "outputs": 1,
-        "x": 580,
-        "y": 500,
-        "wires": [
-            [
-                "da541b9799c79cc4"
-            ]
-        ]
-    },
-    {
-        "id": "32cfa64518fe066e",
-        "type": "switch",
-        "z": "caf02dc9a5b73890",
-        "name": "wenn Tür verriegelt",
-        "property": "payload",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "1",
-                "vt": "num"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 550,
-        "y": 860,
-        "wires": [
-            [
-                "71235f0d5955ed78"
-            ]
         ]
     },
     {
@@ -14865,34 +15785,9 @@
         "correl": "",
         "expiry": "",
         "broker": "c349b9ff.9dc4c8",
-        "x": 790,
-        "y": 860,
+        "x": 810,
+        "y": 880,
         "wires": []
-    },
-    {
-        "id": "3f03597363c5298d",
-        "type": "switch",
-        "z": "caf02dc9a5b73890",
-        "name": "wenn Tür offen",
-        "property": "payload",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "5",
-                "vt": "num"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 540,
-        "y": 820,
-        "wires": [
-            [
-                "0bf1db32375b781e"
-            ]
-        ]
     },
     {
         "id": "0bf1db32375b781e",
@@ -14908,8 +15803,8 @@
         "correl": "",
         "expiry": "",
         "broker": "c349b9ff.9dc4c8",
-        "x": 790,
-        "y": 820,
+        "x": 810,
+        "y": 920,
         "wires": []
     },
     {
@@ -14925,7 +15820,7 @@
         "finalize": "",
         "libs": [],
         "x": 270,
-        "y": 620,
+        "y": 560,
         "wires": [
             [
                 "190f3045331170ed"
@@ -14936,18 +15831,18 @@
         "id": "7b33dbde8b47c8c3",
         "type": "mqtt out",
         "z": "caf02dc9a5b73890",
-        "name": "Kellertür-Riegel",
+        "name": "Kellertür-Riegel LockAction",
         "topic": "nuki/33B5C9E4/lockAction",
-        "qos": "",
-        "retain": "",
+        "qos": "2",
+        "retain": "true",
         "respTopic": "",
         "contentType": "",
         "userProps": "",
         "correl": "",
         "expiry": "",
         "broker": "c349b9ff.9dc4c8",
-        "x": 740,
-        "y": 740,
+        "x": 780,
+        "y": 640,
         "wires": []
     },
     {
@@ -14963,7 +15858,7 @@
         "finalize": "",
         "libs": [],
         "x": 290,
-        "y": 740,
+        "y": 720,
         "wires": [
             [
                 "85559714c22240e3"
@@ -14983,7 +15878,7 @@
         "finalize": "",
         "libs": [],
         "x": 290,
-        "y": 700,
+        "y": 640,
         "wires": [
             [
                 "28eb111ab18e19cf"
@@ -14994,25 +15889,25 @@
         "id": "f1392a64d0781bc6",
         "type": "mqtt out",
         "z": "caf02dc9a5b73890",
-        "name": "Kellertür-Schloss",
+        "name": "Kellertür-Schloss LockAction",
         "topic": "nuki/32AE09F4/lockAction",
-        "qos": "",
-        "retain": "",
+        "qos": "2",
+        "retain": "true",
         "respTopic": "",
         "contentType": "",
         "userProps": "",
         "correl": "",
         "expiry": "",
         "broker": "c349b9ff.9dc4c8",
-        "x": 750,
-        "y": 620,
+        "x": 780,
+        "y": 560,
         "wires": []
     },
     {
         "id": "129cafcfd2f9e56b",
         "type": "mqtt in",
         "z": "caf02dc9a5b73890",
-        "name": "Kellertür-Schloss",
+        "name": "Kellertür-Schloss State",
         "topic": "nuki/32AE09F4/state",
         "qos": "2",
         "datatype": "auto-detect",
@@ -15021,8 +15916,8 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 200,
-        "y": 860,
+        "x": 220,
+        "y": 920,
         "wires": [
             [
                 "49ec7a126061c939"
@@ -15033,7 +15928,7 @@
         "id": "7e807761389aca3d",
         "type": "mqtt in",
         "z": "caf02dc9a5b73890",
-        "name": "Kellertür-Riegel",
+        "name": "Kellertür-Riegel State",
         "topic": "nuki/33B5C9E4/state",
         "qos": "2",
         "datatype": "auto-detect",
@@ -15042,8 +15937,8 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 200,
-        "y": 980,
+        "x": 220,
+        "y": 1040,
         "wires": [
             [
                 "7f163ebdf37fa291"
@@ -15063,8 +15958,8 @@
         "format": "{{msg.payload}}",
         "layout": "row-spread",
         "className": "",
-        "x": 740,
-        "y": 900,
+        "x": 760,
+        "y": 960,
         "wires": []
     },
     {
@@ -15084,8 +15979,8 @@
         "font": "",
         "fontSize": "",
         "color": "#000000",
-        "x": 730,
-        "y": 980,
+        "x": 750,
+        "y": 1040,
         "wires": []
     },
     {
@@ -15100,8 +15995,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 530,
-        "y": 980,
+        "x": 570,
+        "y": 1040,
         "wires": [
             [
                 "2eb0752bbf77d892",
@@ -15121,8 +16016,8 @@
         "septopics": true,
         "property": "payload",
         "topi": "topic",
-        "x": 370,
-        "y": 980,
+        "x": 410,
+        "y": 1040,
         "wires": [
             [
                 "90dd6edb647f3b50"
@@ -15141,8 +16036,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 530,
-        "y": 900,
+        "x": 570,
+        "y": 960,
         "wires": [
             [
                 "1b57c1a9404b427d",
@@ -15162,8 +16057,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 720,
-        "y": 940,
+        "x": 780,
+        "y": 1000,
         "wires": [
             [
                 "43cf8e0a43dafb50"
@@ -15182,8 +16077,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 710,
-        "y": 1020,
+        "x": 770,
+        "y": 1080,
         "wires": [
             [
                 "0942f0c2ca6f6725"
@@ -15199,8 +16094,8 @@
         "links": [
             "a30ad159a4a28a4d"
         ],
-        "x": 835,
-        "y": 1020,
+        "x": 895,
+        "y": 1080,
         "wires": []
     },
     {
@@ -15225,43 +16120,6 @@
         ]
     },
     {
-        "id": "da541b9799c79cc4",
-        "type": "function",
-        "z": "caf02dc9a5b73890",
-        "name": "Abschließen wenn Gartenlicht aus",
-        "func": "const contact = global.get(\"kellertuer_sensor\");\nconst gartenlicht = global.get(\"gartenlicht\");\n\nif (contact && gartenlicht == \"OFF\") {\n    return {payload: true};\n} else \n    return;\n",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 840,
-        "y": 500,
-        "wires": [
-            [
-                "120f99bd59cc83e3",
-                "cbad21addb0a6337"
-            ]
-        ]
-    },
-    {
-        "id": "777181a916c21b4f",
-        "type": "link in",
-        "z": "caf02dc9a5b73890",
-        "name": "nuki",
-        "links": [
-            "86cb329b293bb1f4"
-        ],
-        "x": 645,
-        "y": 540,
-        "wires": [
-            [
-                "da541b9799c79cc4"
-            ]
-        ]
-    },
-    {
         "id": "e7146fb2d8c89318",
         "type": "ui_text",
         "z": "caf02dc9a5b73890",
@@ -15274,30 +16132,9 @@
         "format": "{{msg.payload}}",
         "layout": "row-spread",
         "className": "",
-        "x": 870,
-        "y": 420,
+        "x": 1150,
+        "y": 360,
         "wires": []
-    },
-    {
-        "id": "bab90e64a1d147a4",
-        "type": "function",
-        "z": "caf02dc9a5b73890",
-        "name": "Status-Text",
-        "func": "const contact = msg.payload;\n\nreturn { payload: (contact) ? \"geschlossen\" : \"offen\"};\n",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 710,
-        "y": 420,
-        "wires": [
-            [
-                "e7146fb2d8c89318",
-                "08185278a7027028"
-            ]
-        ]
     },
     {
         "id": "120f99bd59cc83e3",
@@ -15310,8 +16147,8 @@
             "6dd2413522f428db",
             "68510defdfc4e9d1"
         ],
-        "x": 1035,
-        "y": 500,
+        "x": 895,
+        "y": 460,
         "wires": []
     },
     {
@@ -15323,7 +16160,7 @@
             {
                 "t": "set",
                 "p": "kellertuer_sensor",
-                "pt": "global",
+                "pt": "flow",
                 "to": "payload",
                 "tot": "msg"
             }
@@ -15333,11 +16170,11 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 640,
-        "y": 460,
+        "x": 480,
+        "y": 360,
         "wires": [
             [
-                "f68826e383344316"
+                "7834494a996426dd"
             ]
         ]
     },
@@ -15353,11 +16190,10 @@
         "septopics": true,
         "property": "payload",
         "topi": "topic",
-        "x": 550,
-        "y": 420,
+        "x": 390,
+        "y": 400,
         "wires": [
             [
-                "bab90e64a1d147a4",
                 "f363c52e189b610f"
             ]
         ]
@@ -15382,10 +16218,10 @@
         "to": "",
         "reg": false,
         "x": 400,
-        "y": 420,
+        "y": 480,
         "wires": [
             [
-                "fb53dbf77d799ec7"
+                "b7b84aa94d69bcfe"
             ]
         ]
     },
@@ -15440,51 +16276,6 @@
         ]
     },
     {
-        "id": "08185278a7027028",
-        "type": "link out",
-        "z": "caf02dc9a5b73890",
-        "name": "link out 61",
-        "mode": "link",
-        "links": [
-            "a30ad159a4a28a4d"
-        ],
-        "x": 835,
-        "y": 380,
-        "wires": []
-    },
-    {
-        "id": "cbad21addb0a6337",
-        "type": "template",
-        "z": "caf02dc9a5b73890",
-        "name": "",
-        "field": "payload",
-        "fieldType": "msg",
-        "format": "handlebars",
-        "syntax": "mustache",
-        "template": "Gartenlicht aus. Kellertür verriegeln.",
-        "output": "str",
-        "x": 920,
-        "y": 540,
-        "wires": [
-            [
-                "fb7fa1e099c86eec"
-            ]
-        ]
-    },
-    {
-        "id": "fb7fa1e099c86eec",
-        "type": "link out",
-        "z": "caf02dc9a5b73890",
-        "name": "link out 62",
-        "mode": "link",
-        "links": [
-            "a30ad159a4a28a4d"
-        ],
-        "x": 1035,
-        "y": 540,
-        "wires": []
-    },
-    {
         "id": "62fde96522e455ca",
         "type": "mqtt out",
         "z": "caf02dc9a5b73890",
@@ -15499,7 +16290,7 @@
         "expiry": "",
         "broker": "c349b9ff.9dc4c8",
         "x": 770,
-        "y": 680,
+        "y": 600,
         "wires": []
     },
     {
@@ -15513,7 +16304,7 @@
             "d0011fbcfa0d2091"
         ],
         "x": 445,
-        "y": 620,
+        "y": 560,
         "wires": []
     },
     {
@@ -15528,7 +16319,7 @@
             "130df60a6948104d"
         ],
         "x": 445,
-        "y": 740,
+        "y": 720,
         "wires": []
     },
     {
@@ -15543,7 +16334,7 @@
             "28eb111ab18e19cf"
         ],
         "x": 605,
-        "y": 680,
+        "y": 600,
         "wires": [
             [
                 "62fde96522e455ca"
@@ -15561,11 +16352,10 @@
             "42cc6eaba0587836"
         ],
         "x": 605,
-        "y": 740,
+        "y": 640,
         "wires": [
             [
-                "7b33dbde8b47c8c3",
-                "dd66205476b1ffa7"
+                "7b33dbde8b47c8c3"
             ]
         ]
     },
@@ -15580,11 +16370,10 @@
             "85559714c22240e3"
         ],
         "x": 605,
-        "y": 620,
+        "y": 560,
         "wires": [
             [
-                "f1392a64d0781bc6",
-                "0765faf07d7c0791"
+                "f1392a64d0781bc6"
             ]
         ]
     },
@@ -15601,7 +16390,7 @@
         "finalize": "",
         "libs": [],
         "x": 290,
-        "y": 660,
+        "y": 600,
         "wires": [
             [
                 "42cc6eaba0587836"
@@ -15626,10 +16415,11 @@
         "payload": "Started!",
         "payloadType": "str",
         "x": 190,
-        "y": 180,
+        "y": 40,
         "wires": [
             [
-                "50d2aa6a32977f2a"
+                "50d2aa6a32977f2a",
+                "aec75487c09fbdc5"
             ]
         ]
     },
@@ -15653,7 +16443,7 @@
         "to": "",
         "reg": false,
         "x": 370,
-        "y": 180,
+        "y": 40,
         "wires": [
             []
         ]
@@ -15678,32 +16468,7 @@
         "to": "",
         "reg": false,
         "x": 430,
-        "y": 1200,
-        "wires": [
-            [
-                "15c5d4f3da2cd043"
-            ]
-        ]
-    },
-    {
-        "id": "b2f5f0606b782c54",
-        "type": "switch",
-        "z": "caf02dc9a5b73890",
-        "name": "Leere Pin ignorieren",
-        "property": "payload",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "neq",
-                "v": "",
-                "vt": "str"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 440,
-        "y": 1240,
+        "y": 1860,
         "wires": [
             [
                 "15c5d4f3da2cd043"
@@ -15723,7 +16488,7 @@
         "finalize": "",
         "libs": [],
         "x": 640,
-        "y": 1240,
+        "y": 1860,
         "wires": [
             [
                 "acba45d1aedd617a"
@@ -15743,7 +16508,7 @@
         "finalize": "",
         "libs": [],
         "x": 820,
-        "y": 1240,
+        "y": 1860,
         "wires": [
             [
                 "6b5343740447d15e"
@@ -15768,7 +16533,7 @@
             "840229b3f390bf76"
         ],
         "x": 445,
-        "y": 660,
+        "y": 600,
         "wires": []
     },
     {
@@ -15783,40 +16548,1438 @@
             "130df60a6948104d"
         ],
         "x": 445,
-        "y": 700,
+        "y": 640,
         "wires": []
     },
     {
-        "id": "0765faf07d7c0791",
-        "type": "debug",
+        "id": "5f268ab440ab069a",
+        "type": "mqtt in",
         "z": "caf02dc9a5b73890",
-        "name": "debug 35",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 720,
-        "y": 580,
+        "name": "Kellertür-Schloss CommandResponse",
+        "topic": "nuki/32AE09F4/commandResponse",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "c349b9ff.9dc4c8",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 270,
+        "y": 960,
+        "wires": [
+            [
+                "8077d51c2ec57138"
+            ]
+        ]
+    },
+    {
+        "id": "1272f31918f39114",
+        "type": "mqtt in",
+        "z": "caf02dc9a5b73890",
+        "name": "Kellertür-Riegel CommandResponse",
+        "topic": "nuki/33B5C9E4/commandResponse",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "c349b9ff.9dc4c8",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 260,
+        "y": 1080,
+        "wires": [
+            [
+                "3c7bf0584c0ad780"
+            ]
+        ]
+    },
+    {
+        "id": "3c7bf0584c0ad780",
+        "type": "function",
+        "z": "caf02dc9a5b73890",
+        "name": "Fehler-Text",
+        "func": "const error_text_de = {\n    0: \"Okay\",\n    32: \"Die angegebene Autorisierungs-ID ist ungültig oder die Nutzlast konnte mit dem gemeinsamen Schlüssel für diese Autorisierungs-ID nicht entschlüsselt werden.\",\n    33: \"Die angegebene PIN stimmt nicht mit der gespeicherten überein.\",\n    34: \"Der angegebene Nonce stimmt nicht mit dem zuletzt gespeicherten dieser Autorisierungs-ID überein oder wurde bereits zuvor verwendet.\",\n    35: \"Der angegebene Parameter liegt außerhalb seines gültigen Bereichs.\",\n    36: \"Die gewünschte Autorisierungs-ID konnte nicht gelöscht werden, da sie nicht existiert.\",\n    37: \"Die angegebene Autorisierungs-ID ist derzeit deaktiviert.\",\n    38: \"Die Anfrage wurde von der Nuki Bridge weitergeleitet, und der angegebenen Autorisierungs-ID wurde kein Fernzugriff gewährt.\",\n    39: \"Der angegebenen Autorisierungs-ID wurde zum aktuellen Zeitpunkt kein Zugriff gewährt.\",\n    40: \"Es wurde zu oft eine ungültige PIN eingegeben.\",\n    41: \"Es können keine weiteren Einträge gespeichert werden.\",\n    42: \"Der Tastaturcode sollte hinzugefügt werden, aber der angegebene Code existiert bereits.\",\n    43: \"Der eingegebene Keypad-Code ist ungültig.\",\n    44: \"Es wurde mehrfach eine ungültige PIN eingegeben.\",\n    45: \"Es wurde mehrfach eine ungültige PIN eingegeben.\",\n    46: \"Es wurde mehrfach eine ungültige PIN eingegeben.\",\n    64: \"Wird bei einer eingehenden automatischen Entriegelungsanforderung zurückgegeben, wenn innerhalb kurzer Zeit bereits eine Verriegelungsaktion ausgeführt wurde.\",\n    65: \"Wird bei einer eingehenden Entriegelungsanforderung zurückgegeben, wenn die Anforderung von der Nuki Bridge weitergeleitet wurde und das Smart Lock sich über seine tatsächliche Verriegelungsposition nicht sicher ist.\",\n    66: \"Motor blockiert.\",\n    67: \"Es liegt ein Problem mit der Kupplung während der Motorbewegung vor.\",\n    68: \"Der Motor bewegt sich für einen bestimmten Zeitraum, blockiert jedoch nicht.\",\n    69: \"Verriegelungsaktion über Bluetooth, wenn bereits eine Verriegelungsaktion verarbeitet wird.\",\n    70: \"Verriegelungsaktion oder während der Kalibrierung, wenn der Benutzer die Motorbewegung durch Drücken der Taste abgebrochen hat.\",\n    71: \"Verriegelungsaktion, wenn das Smart Lock noch nicht kalibriert wurde.\",\n    72: \"Wird während der Kalibrierung zurückgegeben, wenn die interne Positionsdatenbank keine weiteren Werte speichern kann.\",\n    73: \"Motor blockiert aufgrund niedriger Spannung.\",\n    74: \"Der Stromverbrauch während der Motorbewegung ist null.\",\n    75: \"Der Stromverbrauch während der Kupplungsbewegung ist null.\",\n    76: \"Wird bei einer Kalibrierungsanforderung zurückgegeben, wenn die Batteriespannung zu niedrig ist und daher keine Kalibrierung gestartet wird.\",\n    77: \"Wird während einer Motoraktion zurückgegeben, wenn ein Firmware-Update erforderlich ist.\",\n    255: \"Unbekannter Fehler\"\n}[msg.payload];\n\nreturn ({payload: error_text_de || msg.payload});",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 570,
+        "y": 1080,
+        "wires": [
+            [
+                "05658fe0f6ada402"
+            ]
+        ]
+    },
+    {
+        "id": "91b649eecd27b110",
+        "type": "switch",
+        "z": "caf02dc9a5b73890",
+        "name": "nicht abschließen aktiv?",
+        "property": "nicht_abschließen",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "true",
+                "vt": "jsonata"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 710,
+        "y": 440,
+        "wires": [
+            [
+                "8052806fa12c526b"
+            ],
+            [
+                "120f99bd59cc83e3"
+            ]
+        ]
+    },
+    {
+        "id": "8052806fa12c526b",
+        "type": "template",
+        "z": "caf02dc9a5b73890",
+        "name": "Text \"Nicht abschließen aktiv\"",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "plain",
+        "template": "geschlossen, \"Nicht abschließen\" aktiv",
+        "output": "str",
+        "x": 1010,
+        "y": 420,
+        "wires": [
+            [
+                "3be2e6461295d268"
+            ]
+        ]
+    },
+    {
+        "id": "db41c8100b656c43",
+        "type": "switch",
+        "z": "caf02dc9a5b73890",
+        "name": "Sonder-Pin?",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "2",
+                "vt": "str"
+            },
+            {
+                "t": "neq",
+                "v": "",
+                "vt": "str"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 3,
+        "x": 410,
+        "y": 1780,
+        "wires": [
+            [
+                "43f4eab279f65153"
+            ],
+            [
+                "b83079a81afc9c62"
+            ],
+            [
+                "15c5d4f3da2cd043"
+            ]
+        ]
+    },
+    {
+        "id": "43f4eab279f65153",
+        "type": "switch",
+        "z": "caf02dc9a5b73890",
+        "name": "Kellertür offen?",
+        "property": "kellertuer_sensor",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "false",
+                "vt": "jsonata"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 660,
+        "y": 1740,
+        "wires": [
+            [
+                "daa6714b079e750f"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "7bd3ca144480b4ca",
+        "type": "template",
+        "z": "caf02dc9a5b73890",
+        "name": "Text \"voll verriegeln\"",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "plain",
+        "template": "voll verriegeln",
+        "output": "str",
+        "x": 880,
+        "y": 1760,
+        "wires": [
+            [
+                "fdfba466c688d903"
+            ]
+        ]
+    },
+    {
+        "id": "80a264d77e1aea12",
+        "type": "link out",
+        "z": "caf02dc9a5b73890",
+        "name": "link out 76",
+        "mode": "link",
+        "links": [
+            "68510defdfc4e9d1"
+        ],
+        "x": 795,
+        "y": 1800,
         "wires": []
     },
     {
-        "id": "dd66205476b1ffa7",
-        "type": "debug",
+        "id": "daa6714b079e750f",
+        "type": "change",
         "z": "caf02dc9a5b73890",
-        "name": "debug 36",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 720,
-        "y": 780,
+        "name": "Nicht abschließen aktivieren",
+        "rules": [
+            {
+                "t": "set",
+                "p": "nicht_abschließen",
+                "pt": "flow",
+                "to": "true",
+                "tot": "bool"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 900,
+        "y": 1720,
+        "wires": [
+            [
+                "3c99219cb116ef07",
+                "900c95f52fe88a72"
+            ]
+        ]
+    },
+    {
+        "id": "3c99219cb116ef07",
+        "type": "template",
+        "z": "caf02dc9a5b73890",
+        "name": "Text \"Nicht abschließen aktiviert\"",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "plain",
+        "template": "\"Nicht abschließen\" ist aktiviert",
+        "output": "str",
+        "x": 1200,
+        "y": 1720,
+        "wires": [
+            [
+                "5ae2f11599e6d537"
+            ]
+        ]
+    },
+    {
+        "id": "5ae2f11599e6d537",
+        "type": "link out",
+        "z": "caf02dc9a5b73890",
+        "name": "link out 77",
+        "mode": "link",
+        "links": [
+            "a30ad159a4a28a4d"
+        ],
+        "x": 1395,
+        "y": 1720,
         "wires": []
+    },
+    {
+        "id": "fdfba466c688d903",
+        "type": "link out",
+        "z": "caf02dc9a5b73890",
+        "name": "link out 78",
+        "mode": "link",
+        "links": [
+            "a30ad159a4a28a4d"
+        ],
+        "x": 1025,
+        "y": 1760,
+        "wires": []
+    },
+    {
+        "id": "7834494a996426dd",
+        "type": "switch",
+        "z": "caf02dc9a5b73890",
+        "name": "Kellertür offen?",
+        "property": "kellertuer_sensor",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "false",
+                "vt": "jsonata"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 740,
+        "y": 360,
+        "wires": [
+            [
+                "8604fe30c579f341"
+            ],
+            [
+                "91b649eecd27b110",
+                "08f6820548e7ac91"
+            ]
+        ]
+    },
+    {
+        "id": "8604fe30c579f341",
+        "type": "template",
+        "z": "caf02dc9a5b73890",
+        "name": "Text \"offen\"",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "plain",
+        "template": "offen",
+        "output": "str",
+        "x": 950,
+        "y": 340,
+        "wires": [
+            [
+                "e7146fb2d8c89318"
+            ]
+        ]
+    },
+    {
+        "id": "08f6820548e7ac91",
+        "type": "template",
+        "z": "caf02dc9a5b73890",
+        "name": "Text \"geschlossen\"",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "plain",
+        "template": "geschlossen",
+        "output": "str",
+        "x": 970,
+        "y": 380,
+        "wires": [
+            [
+                "e7146fb2d8c89318"
+            ]
+        ]
+    },
+    {
+        "id": "aec75487c09fbdc5",
+        "type": "change",
+        "z": "caf02dc9a5b73890",
+        "name": "Nicht abschließen deaktivieren",
+        "rules": [
+            {
+                "t": "set",
+                "p": "nicht_abschließen",
+                "pt": "flow",
+                "to": "false",
+                "tot": "bool"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 410,
+        "y": 80,
+        "wires": [
+            [
+                "fe297a428bb3195c"
+            ]
+        ]
+    },
+    {
+        "id": "fe297a428bb3195c",
+        "type": "link out",
+        "z": "caf02dc9a5b73890",
+        "name": "link out 95",
+        "mode": "link",
+        "links": [
+            "b17af34ef87d87b6",
+            "1b6a6fac2dcdf14d"
+        ],
+        "x": 595,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "c095407521d58d5b",
+        "type": "thingzi-timer",
+        "z": "caf02dc9a5b73890",
+        "name": "Nachts verriegeln",
+        "lat": "50.882",
+        "lon": "6.6949",
+        "timerType": "trigger",
+        "startupMessage": false,
+        "ontype": "tod",
+        "ontimesun": "dusk",
+        "ontimetod": "21:00",
+        "onpropertytype": "msg",
+        "onproperty": "payload",
+        "onvaluetype": "str",
+        "onvalue": "fulllock",
+        "onoffset": "",
+        "onrandomoffset": false,
+        "offtype": "tod",
+        "offtimesun": "dawn",
+        "offtimetod": "23:00",
+        "offpropertytype": "msg",
+        "offproperty": "payload",
+        "offvaluetype": "str",
+        "offvalue": "full lock",
+        "offoffset": "",
+        "offrandomoffset": false,
+        "mon": true,
+        "tue": true,
+        "wed": true,
+        "thu": true,
+        "fri": true,
+        "sat": true,
+        "sun": true,
+        "x": 200,
+        "y": 1340,
+        "wires": [
+            [
+                "c76e0f9689ddc7ef",
+                "d9e903bf7f9f2b19"
+            ]
+        ]
+    },
+    {
+        "id": "c76e0f9689ddc7ef",
+        "type": "link out",
+        "z": "caf02dc9a5b73890",
+        "name": "link out 96",
+        "mode": "link",
+        "links": [
+            "576bc4593d875946"
+        ],
+        "x": 335,
+        "y": 1320,
+        "wires": []
+    },
+    {
+        "id": "772c90652aad370b",
+        "type": "ui_switch",
+        "z": "caf02dc9a5b73890",
+        "name": "",
+        "label": "Nicht automatisch abschließen",
+        "tooltip": "",
+        "group": "6e590cb07ba9a85d",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": "true",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 250,
+        "y": 1460,
+        "wires": [
+            [
+                "7e1f72994db91091"
+            ]
+        ]
+    },
+    {
+        "id": "1b6a6fac2dcdf14d",
+        "type": "link in",
+        "z": "caf02dc9a5b73890",
+        "name": "link in 25",
+        "links": [
+            "fe297a428bb3195c",
+            "8c6643557eab182e",
+            "900c95f52fe88a72"
+        ],
+        "x": 135,
+        "y": 1420,
+        "wires": [
+            [
+                "772c90652aad370b"
+            ]
+        ]
+    },
+    {
+        "id": "7e1f72994db91091",
+        "type": "switch",
+        "z": "caf02dc9a5b73890",
+        "name": "true?",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "true",
+                "vt": "jsonata"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 470,
+        "y": 1460,
+        "wires": [
+            [
+                "6d826065b5abde55"
+            ],
+            [
+                "d1571ccca64776b5",
+                "1a7a2324920b2161"
+            ]
+        ]
+    },
+    {
+        "id": "09a9e7bcfffc38b7",
+        "type": "link out",
+        "z": "caf02dc9a5b73890",
+        "name": "link out 98",
+        "mode": "link",
+        "links": [
+            "68510defdfc4e9d1"
+        ],
+        "x": 795,
+        "y": 1520,
+        "wires": []
+    },
+    {
+        "id": "6d826065b5abde55",
+        "type": "link out",
+        "z": "caf02dc9a5b73890",
+        "name": "link out 99",
+        "mode": "link",
+        "links": [
+            "2b45ab7b5a5f9fe2"
+        ],
+        "x": 595,
+        "y": 1440,
+        "wires": []
+    },
+    {
+        "id": "d1571ccca64776b5",
+        "type": "switch",
+        "z": "caf02dc9a5b73890",
+        "name": "Kellertür offen?",
+        "property": "kellertuer_sensor",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "false",
+                "vt": "jsonata"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 660,
+        "y": 1520,
+        "wires": [
+            [],
+            [
+                "09a9e7bcfffc38b7"
+            ]
+        ]
+    },
+    {
+        "id": "1a7a2324920b2161",
+        "type": "link out",
+        "z": "caf02dc9a5b73890",
+        "name": "link out 100",
+        "mode": "link",
+        "links": [
+            "74b60de5ac2484a2"
+        ],
+        "x": 595,
+        "y": 1480,
+        "wires": []
+    },
+    {
+        "id": "d9e903bf7f9f2b19",
+        "type": "template",
+        "z": "caf02dc9a5b73890",
+        "name": "Text \"verriegeln\"",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "Tür verriegleln",
+        "output": "str",
+        "x": 400,
+        "y": 1360,
+        "wires": [
+            [
+                "e6f9343995adbf1a"
+            ]
+        ]
+    },
+    {
+        "id": "e6f9343995adbf1a",
+        "type": "link out",
+        "z": "caf02dc9a5b73890",
+        "name": "link out 101",
+        "mode": "link",
+        "links": [
+            "68510defdfc4e9d1"
+        ],
+        "x": 555,
+        "y": 1360,
+        "wires": []
+    },
+    {
+        "id": "ed95c413c6a5e0a9",
+        "type": "switch",
+        "z": "caf02dc9a5b73890",
+        "name": "Nuki verriegelt?",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 580,
+        "y": 880,
+        "wires": [
+            [
+                "c43ee4e37e3fd8fb",
+                "71235f0d5955ed78"
+            ]
+        ]
+    },
+    {
+        "id": "8a9f9371d9d1ebbf",
+        "type": "switch",
+        "z": "caf02dc9a5b73890",
+        "name": "Nuki offen?",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "5",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 570,
+        "y": 920,
+        "wires": [
+            [
+                "0bf1db32375b781e"
+            ]
+        ]
+    },
+    {
+        "id": "c43ee4e37e3fd8fb",
+        "type": "switch",
+        "z": "caf02dc9a5b73890",
+        "name": "nicht abschließen aktiv?",
+        "property": "nicht_abschließen",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "true",
+                "vt": "jsonata"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 810,
+        "y": 840,
+        "wires": [
+            [
+                "1a0fed98ba8bb954"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "74b60de5ac2484a2",
+        "type": "link in",
+        "z": "caf02dc9a5b73890",
+        "name": "Nicht abschließen deaktivieren",
+        "links": [
+            "1a7a2324920b2161",
+            "b88f4927c9871b58"
+        ],
+        "x": 945,
+        "y": 800,
+        "wires": [
+            [
+                "1a0fed98ba8bb954"
+            ]
+        ]
+    },
+    {
+        "id": "1a0fed98ba8bb954",
+        "type": "change",
+        "z": "caf02dc9a5b73890",
+        "name": "Nicht abschließen deaktivieren",
+        "rules": [
+            {
+                "t": "set",
+                "p": "nicht_abschließen",
+                "pt": "flow",
+                "to": "false",
+                "tot": "bool"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1130,
+        "y": 820,
+        "wires": [
+            [
+                "8c6643557eab182e",
+                "25b00de6672e99a8"
+            ]
+        ]
+    },
+    {
+        "id": "25b00de6672e99a8",
+        "type": "template",
+        "z": "caf02dc9a5b73890",
+        "name": "Text \"Nicht abschließen deaktiviert\"",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "plain",
+        "template": "\"Nicht abschließen\" deaktiviert",
+        "output": "str",
+        "x": 1140,
+        "y": 860,
+        "wires": [
+            [
+                "86e02f81dd616814"
+            ]
+        ]
+    },
+    {
+        "id": "8c6643557eab182e",
+        "type": "link out",
+        "z": "caf02dc9a5b73890",
+        "name": "link out 102",
+        "mode": "link",
+        "links": [
+            "1b6a6fac2dcdf14d"
+        ],
+        "x": 1325,
+        "y": 820,
+        "wires": []
+    },
+    {
+        "id": "86e02f81dd616814",
+        "type": "link out",
+        "z": "caf02dc9a5b73890",
+        "name": "link out 103",
+        "mode": "link",
+        "links": [
+            "a30ad159a4a28a4d"
+        ],
+        "x": 1325,
+        "y": 860,
+        "wires": []
+    },
+    {
+        "id": "b83079a81afc9c62",
+        "type": "switch",
+        "z": "caf02dc9a5b73890",
+        "name": "Kellertür offen?",
+        "property": "kellertuer_sensor",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "false",
+                "vt": "jsonata"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 660,
+        "y": 1780,
+        "wires": [
+            [],
+            [
+                "7bd3ca144480b4ca",
+                "80a264d77e1aea12"
+            ]
+        ]
+    },
+    {
+        "id": "2b45ab7b5a5f9fe2",
+        "type": "link in",
+        "z": "caf02dc9a5b73890",
+        "name": "Nicht abschließen aktivieren",
+        "links": [
+            "6d826065b5abde55",
+            "634086b0220e510a"
+        ],
+        "x": 725,
+        "y": 1700,
+        "wires": [
+            [
+                "daa6714b079e750f"
+            ]
+        ]
+    },
+    {
+        "id": "3be2e6461295d268",
+        "type": "link out",
+        "z": "caf02dc9a5b73890",
+        "name": "link out 106",
+        "mode": "link",
+        "links": [
+            "a30ad159a4a28a4d"
+        ],
+        "x": 1195,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "900c95f52fe88a72",
+        "type": "link out",
+        "z": "caf02dc9a5b73890",
+        "name": "link out 107",
+        "mode": "link",
+        "links": [
+            "1b6a6fac2dcdf14d"
+        ],
+        "x": 1075,
+        "y": 1680,
+        "wires": []
+    },
+    {
+        "id": "8077d51c2ec57138",
+        "type": "function",
+        "z": "caf02dc9a5b73890",
+        "name": "Fehler-Text",
+        "func": "const error_text_de = {\n    0: \"Okay\",\n    32: \"Die angegebene Autorisierungs-ID ist ungültig oder die Nutzlast konnte mit dem gemeinsamen Schlüssel für diese Autorisierungs-ID nicht entschlüsselt werden.\",\n    33: \"Die angegebene PIN stimmt nicht mit der gespeicherten überein.\",\n    34: \"Der angegebene Nonce stimmt nicht mit dem zuletzt gespeicherten dieser Autorisierungs-ID überein oder wurde bereits zuvor verwendet.\",\n    35: \"Der angegebene Parameter liegt außerhalb seines gültigen Bereichs.\",\n    36: \"Die gewünschte Autorisierungs-ID konnte nicht gelöscht werden, da sie nicht existiert.\",\n    37: \"Die angegebene Autorisierungs-ID ist derzeit deaktiviert.\",\n    38: \"Die Anfrage wurde von der Nuki Bridge weitergeleitet, und der angegebenen Autorisierungs-ID wurde kein Fernzugriff gewährt.\",\n    39: \"Der angegebenen Autorisierungs-ID wurde zum aktuellen Zeitpunkt kein Zugriff gewährt.\",\n    40: \"Es wurde zu oft eine ungültige PIN eingegeben.\",\n    41: \"Es können keine weiteren Einträge gespeichert werden.\",\n    42: \"Der Tastaturcode sollte hinzugefügt werden, aber der angegebene Code existiert bereits.\",\n    43: \"Der eingegebene Keypad-Code ist ungültig.\",\n    44: \"Es wurde mehrfach eine ungültige PIN eingegeben.\",\n    45: \"Es wurde mehrfach eine ungültige PIN eingegeben.\",\n    46: \"Es wurde mehrfach eine ungültige PIN eingegeben.\",\n    64: \"Wird bei einer eingehenden automatischen Entriegelungsanforderung zurückgegeben, wenn innerhalb kurzer Zeit bereits eine Verriegelungsaktion ausgeführt wurde.\",\n    65: \"Wird bei einer eingehenden Entriegelungsanforderung zurückgegeben, wenn die Anforderung von der Nuki Bridge weitergeleitet wurde und das Smart Lock sich über seine tatsächliche Verriegelungsposition nicht sicher ist.\",\n    66: \"Motor blockiert.\",\n    67: \"Es liegt ein Problem mit der Kupplung während der Motorbewegung vor.\",\n    68: \"Der Motor bewegt sich für einen bestimmten Zeitraum, blockiert jedoch nicht.\",\n    69: \"Verriegelungsaktion über Bluetooth, wenn bereits eine Verriegelungsaktion verarbeitet wird.\",\n    70: \"Verriegelungsaktion oder während der Kalibrierung, wenn der Benutzer die Motorbewegung durch Drücken der Taste abgebrochen hat.\",\n    71: \"Verriegelungsaktion, wenn das Smart Lock noch nicht kalibriert wurde.\",\n    72: \"Wird während der Kalibrierung zurückgegeben, wenn die interne Positionsdatenbank keine weiteren Werte speichern kann.\",\n    73: \"Motor blockiert aufgrund niedriger Spannung.\",\n    74: \"Der Stromverbrauch während der Motorbewegung ist null.\",\n    75: \"Der Stromverbrauch während der Kupplungsbewegung ist null.\",\n    76: \"Wird bei einer Kalibrierungsanforderung zurückgegeben, wenn die Batteriespannung zu niedrig ist und daher keine Kalibrierung gestartet wird.\",\n    77: \"Wird während einer Motoraktion zurückgegeben, wenn ein Firmware-Update erforderlich ist.\",\n    255: \"Unbekannter Fehler\"\n}[msg.payload];\n\nreturn ({payload: error_text_de || msg.payload});",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 570,
+        "y": 1000,
+        "wires": [
+            [
+                "d8317f48eacb7f70"
+            ]
+        ]
+    },
+    {
+        "id": "b7b84aa94d69bcfe",
+        "type": "debounce",
+        "z": "caf02dc9a5b73890",
+        "time": "2000",
+        "name": "",
+        "x": 400,
+        "y": 440,
+        "wires": [
+            [
+                "fb53dbf77d799ec7"
+            ]
+        ]
+    },
+    {
+        "id": "754ba85bfcabbafa",
+        "type": "switch",
+        "z": "caf02dc9a5b73890",
+        "name": "Kellertür offen?",
+        "property": "kellertuer_sensor",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "false",
+                "vt": "jsonata"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 280,
+        "y": 680,
+        "wires": [
+            [
+                "1b37115ecaa32fd3"
+            ],
+            [
+                "c0ca94de26dbe973"
+            ]
+        ]
+    },
+    {
+        "id": "a8273f7cfb9f5c75",
+        "type": "function",
+        "z": "caf02dc9a5b73890",
+        "name": "Push Notification",
+        "func": "if (msg.payload.length == 0) return;\n\nreturn {\n    notification: {\n        notification: { \n            title: \"Kellertür offen!\", \n            body: `Kann Kellertür nicht verriegeln.` \n        }, \n    }\n};\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 750,
+        "y": 680,
+        "wires": [
+            [
+                "73c3ba04e545c1fc"
+            ]
+        ]
+    },
+    {
+        "id": "73c3ba04e545c1fc",
+        "type": "link out",
+        "z": "caf02dc9a5b73890",
+        "name": "Person an Kellertür erkannt",
+        "mode": "link",
+        "links": [
+            "1cd036385c85d54d"
+        ],
+        "x": 885,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "9deb515283324452",
+        "type": "link in",
+        "z": "caf02dc9a5b73890",
+        "name": "link in 29",
+        "links": [
+            "1b37115ecaa32fd3",
+            "d281a9c53f2373c3"
+        ],
+        "x": 605,
+        "y": 680,
+        "wires": [
+            [
+                "a8273f7cfb9f5c75"
+            ]
+        ]
+    },
+    {
+        "id": "1b37115ecaa32fd3",
+        "type": "link out",
+        "z": "caf02dc9a5b73890",
+        "name": "link out 110",
+        "mode": "link",
+        "links": [
+            "9deb515283324452"
+        ],
+        "x": 445,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "777181a916c21b4f",
+        "type": "link in",
+        "z": "caf02dc9a5b73890",
+        "name": "Statusänderung Gartenlicht",
+        "links": [
+            "86cb329b293bb1f4"
+        ],
+        "x": 135,
+        "y": 160,
+        "wires": [
+            [
+                "d81794ad8b1fdfe1"
+            ]
+        ]
+    },
+    {
+        "id": "cbad21addb0a6337",
+        "type": "template",
+        "z": "caf02dc9a5b73890",
+        "name": "Text \"Gartenlicht aus. Kellertür verriegeln.\"",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "Gartenlicht aus. Kellertür verriegeln.",
+        "output": "str",
+        "x": 810,
+        "y": 260,
+        "wires": [
+            [
+                "fb7fa1e099c86eec"
+            ]
+        ]
+    },
+    {
+        "id": "fb7fa1e099c86eec",
+        "type": "link out",
+        "z": "caf02dc9a5b73890",
+        "name": "link out 62",
+        "mode": "link",
+        "links": [
+            "a30ad159a4a28a4d"
+        ],
+        "x": 1025,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "d81794ad8b1fdfe1",
+        "type": "change",
+        "z": "caf02dc9a5b73890",
+        "name": "Speichere Gartenlicht",
+        "rules": [
+            {
+                "t": "set",
+                "p": "gartenlicht",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 280,
+        "y": 160,
+        "wires": [
+            [
+                "70c46ef976f67c04"
+            ]
+        ]
+    },
+    {
+        "id": "dc639244862f7976",
+        "type": "switch",
+        "z": "caf02dc9a5b73890",
+        "name": "Kellertür offen?",
+        "property": "kellertuer_sensor",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "false",
+                "vt": "jsonata"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 500,
+        "y": 200,
+        "wires": [
+            [],
+            [
+                "cbad21addb0a6337",
+                "d8d51fd93db8d168"
+            ]
+        ]
+    },
+    {
+        "id": "70c46ef976f67c04",
+        "type": "switch",
+        "z": "caf02dc9a5b73890",
+        "name": "Gartenlicht an?",
+        "property": "gartenlicht",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "ON",
+                "vt": "str"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 500,
+        "y": 160,
+        "wires": [
+            [
+                "634086b0220e510a"
+            ],
+            [
+                "dc639244862f7976",
+                "b88f4927c9871b58"
+            ]
+        ]
+    },
+    {
+        "id": "d8d51fd93db8d168",
+        "type": "link out",
+        "z": "caf02dc9a5b73890",
+        "name": "link out 111",
+        "mode": "link",
+        "links": [
+            "68510defdfc4e9d1"
+        ],
+        "x": 655,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "634086b0220e510a",
+        "type": "link out",
+        "z": "caf02dc9a5b73890",
+        "name": "link out 112",
+        "mode": "link",
+        "links": [
+            "2b45ab7b5a5f9fe2"
+        ],
+        "x": 655,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "b88f4927c9871b58",
+        "type": "link out",
+        "z": "caf02dc9a5b73890",
+        "name": "link out 113",
+        "mode": "link",
+        "links": [
+            "74b60de5ac2484a2"
+        ],
+        "x": 655,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "a632a8c0562ccca0",
+        "type": "mqtt in",
+        "z": "caf02dc9a5b73890",
+        "name": "Kellertür-Schloss Connected",
+        "topic": "nuki/33B5C9E4/commandResponse",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "c349b9ff.9dc4c8",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 240,
+        "y": 1140,
+        "wires": [
+            [
+                "a5b20ac0194b7d7c"
+            ]
+        ]
+    },
+    {
+        "id": "96b33015b690a96b",
+        "type": "mqtt in",
+        "z": "caf02dc9a5b73890",
+        "name": "Kellertür-Riegel Connected",
+        "topic": "nuki/33B5C9E4/connected",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "c349b9ff.9dc4c8",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 230,
+        "y": 1220,
+        "wires": [
+            [
+                "a858b01040bbc933"
+            ]
+        ]
+    },
+    {
+        "id": "92d99604fdb43064",
+        "type": "function",
+        "z": "caf02dc9a5b73890",
+        "name": "Push Notification",
+        "func": "if (msg.payload.length == 0) return;\n\nreturn {\n    notification: {\n        notification: { \n            title: \"Nuki nicht verbunden!\", \n            body: `Kellertür-Schloss kann nicht gesteuert werden.` \n        }, \n    }\n};\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 630,
+        "y": 1120,
+        "wires": [
+            [
+                "db754ef789a18c99"
+            ]
+        ]
+    },
+    {
+        "id": "db754ef789a18c99",
+        "type": "link out",
+        "z": "caf02dc9a5b73890",
+        "name": "Person an Kellertür erkannt",
+        "mode": "link",
+        "links": [
+            "1cd036385c85d54d"
+        ],
+        "x": 765,
+        "y": 1120,
+        "wires": []
+    },
+    {
+        "id": "b95a7e74b62a744b",
+        "type": "link out",
+        "z": "caf02dc9a5b73890",
+        "name": "Person an Kellertür erkannt",
+        "mode": "link",
+        "links": [
+            "1cd036385c85d54d"
+        ],
+        "x": 765,
+        "y": 1200,
+        "wires": []
+    },
+    {
+        "id": "593bfd943b6288c7",
+        "type": "function",
+        "z": "caf02dc9a5b73890",
+        "name": "Push Notification",
+        "func": "if (msg.payload.length == 0) return;\n\nreturn {\n    notification: {\n        notification: { \n            title: \"Nuki nicht verbunden!\", \n            body: `Kellertür-Riegel kann nicht gesteuert werden.` \n        }, \n    }\n};\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 630,
+        "y": 1200,
+        "wires": [
+            [
+                "b95a7e74b62a744b"
+            ]
+        ]
+    },
+    {
+        "id": "b5dbc5c6f9d3c2e0",
+        "type": "link out",
+        "z": "caf02dc9a5b73890",
+        "name": "link out 114",
+        "mode": "link",
+        "links": [
+            "a30ad159a4a28a4d"
+        ],
+        "x": 1015,
+        "y": 1160,
+        "wires": []
+    },
+    {
+        "id": "20c36d80ab1a4a25",
+        "type": "template",
+        "z": "caf02dc9a5b73890",
+        "name": "Text \"Nuki Kellertür-Schloss nicht mit MQTT verbunden\"",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "plain",
+        "template": "Nuki Kellertür-Schloss nicht mit MQTT verbunden!",
+        "output": "str",
+        "x": 750,
+        "y": 1160,
+        "wires": [
+            [
+                "b5dbc5c6f9d3c2e0"
+            ]
+        ]
+    },
+    {
+        "id": "5f125001e0185385",
+        "type": "link out",
+        "z": "caf02dc9a5b73890",
+        "name": "link out 115",
+        "mode": "link",
+        "links": [
+            "a30ad159a4a28a4d"
+        ],
+        "x": 1015,
+        "y": 1240,
+        "wires": []
+    },
+    {
+        "id": "849812f1d8613a71",
+        "type": "template",
+        "z": "caf02dc9a5b73890",
+        "name": "Text \"Nuki Kellertür-Riegel nicht mit MQTT verbunden\"",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "plain",
+        "template": "Nuki Kellertür-Riegel nicht mit MQTT verbunden!",
+        "output": "str",
+        "x": 740,
+        "y": 1240,
+        "wires": [
+            [
+                "5f125001e0185385"
+            ]
+        ]
+    },
+    {
+        "id": "a5b20ac0194b7d7c",
+        "type": "switch",
+        "z": "caf02dc9a5b73890",
+        "name": "false?",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "false",
+                "vt": "jsonata"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 450,
+        "y": 1140,
+        "wires": [
+            [
+                "92d99604fdb43064",
+                "20c36d80ab1a4a25"
+            ]
+        ]
+    },
+    {
+        "id": "a858b01040bbc933",
+        "type": "switch",
+        "z": "caf02dc9a5b73890",
+        "name": "false?",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "false",
+                "vt": "jsonata"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 450,
+        "y": 1220,
+        "wires": [
+            [
+                "593bfd943b6288c7",
+                "849812f1d8613a71"
+            ]
+        ]
     },
     {
         "id": "affde64f7b6e2b28",
@@ -17262,8 +19425,7 @@
         "wires": [
             [
                 "8b3aba5983973888",
-                "8bbb8be99a554c57",
-                "b317151ed3209d71"
+                "8bbb8be99a554c57"
             ]
         ]
     },
@@ -17297,8 +19459,7 @@
         "y": 220,
         "wires": [
             [
-                "e0c1cf24ff2b7e57",
-                "b317151ed3209d71"
+                "e0c1cf24ff2b7e57"
             ]
         ]
     },
@@ -17337,8 +19498,7 @@
         "wires": [
             [
                 "be36acd18194951b",
-                "c9d084d9188e034d",
-                "b317151ed3209d71"
+                "c9d084d9188e034d"
             ]
         ]
     },
@@ -17372,8 +19532,7 @@
         "y": 140,
         "wires": [
             [
-                "76300692c288857b",
-                "b317151ed3209d71"
+                "76300692c288857b"
             ]
         ]
     },
@@ -17389,8 +19548,7 @@
         "y": 100,
         "wires": [
             [
-                "76300692c288857b",
-                "b317151ed3209d71"
+                "76300692c288857b"
             ]
         ]
     },
@@ -17406,8 +19564,7 @@
         "y": 260,
         "wires": [
             [
-                "e0c1cf24ff2b7e57",
-                "b317151ed3209d71"
+                "e0c1cf24ff2b7e57"
             ]
         ]
     },
@@ -17436,25 +19593,6 @@
         "x": 475,
         "y": 260,
         "wires": []
-    },
-    {
-        "id": "b317151ed3209d71",
-        "type": "flogger",
-        "z": "937c538bb5079218",
-        "name": "",
-        "logfile": "bad",
-        "inputchoice": "fullmsg",
-        "inputobject": "payload",
-        "inputobjectType": "msg",
-        "inputmoustache": "Recieved payload {{payload}} and topic {{topic}}",
-        "loglevel": "INFO",
-        "logconfig": "8929498a4f6d4a2d",
-        "sendpane": "",
-        "x": 580,
-        "y": 460,
-        "wires": [
-            []
-        ]
     },
     {
         "id": "b3429e540f297cef",
@@ -21316,7 +23454,13 @@
             "4ccfd8e25ba474a1",
             "342eebe9491c875a",
             "15e2744d23e684e0",
-            "b4ead89e5352c667"
+            "b4ead89e5352c667",
+            "7bb975af10fb8606",
+            "73c3ba04e545c1fc",
+            "db754ef789a18c99",
+            "0a4cb9b375bff64a",
+            "b95a7e74b62a744b",
+            "797b6ddd77d5a87d"
         ],
         "x": 595,
         "y": 560,
