@@ -11763,7 +11763,7 @@
         "broker": "c349b9ff.9dc4c8",
         "inputs": 0,
         "x": 160,
-        "y": 200,
+        "y": 240,
         "wires": [
             [
                 "681998dd.099198"
@@ -11785,7 +11785,7 @@
         "org": "dipe",
         "bucket": "adh29-forever",
         "x": 1060,
-        "y": 380,
+        "y": 440,
         "wires": []
     },
     {
@@ -11801,7 +11801,7 @@
         "finalize": "",
         "libs": [],
         "x": 800,
-        "y": 180,
+        "y": 220,
         "wires": [
             [
                 "faa25f7f.0777"
@@ -11821,7 +11821,7 @@
         "rap": false,
         "inputs": 0,
         "x": 180,
-        "y": 380,
+        "y": 440,
         "wires": [
             [
                 "54e7d479.9e81bc"
@@ -11839,7 +11839,7 @@
         "broker": "c349b9ff.9dc4c8",
         "inputs": 0,
         "x": 180,
-        "y": 240,
+        "y": 280,
         "wires": [
             [
                 "681998dd.099198"
@@ -11857,7 +11857,7 @@
         "broker": "c349b9ff.9dc4c8",
         "inputs": 0,
         "x": 160,
-        "y": 160,
+        "y": 200,
         "wires": [
             [
                 "681998dd.099198"
@@ -11875,7 +11875,7 @@
         "broker": "c349b9ff.9dc4c8",
         "inputs": 0,
         "x": 160,
-        "y": 120,
+        "y": 160,
         "wires": [
             [
                 "681998dd.099198"
@@ -12090,10 +12090,9 @@
         "finalize": "",
         "libs": [],
         "x": 460,
-        "y": 380,
+        "y": 440,
         "wires": [
             [
-                "524badcbb8a30651",
                 "94d613200cae66eb"
             ]
         ]
@@ -12131,7 +12130,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 160,
-        "y": 320,
+        "y": 380,
         "wires": [
             [
                 "46d76dccedcc7776"
@@ -12219,29 +12218,12 @@
             "9a213e7f538e9cae"
         ],
         "x": 885,
-        "y": 280,
+        "y": 140,
         "wires": [
             [
                 "faa25f7f.0777"
             ]
         ]
-    },
-    {
-        "id": "524badcbb8a30651",
-        "type": "debug",
-        "z": "d0173d54.941d7",
-        "name": "debug 19",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1060,
-        "y": 340,
-        "wires": []
     },
     {
         "id": "94d613200cae66eb",
@@ -12256,10 +12238,9 @@
         "finalize": "",
         "libs": [],
         "x": 780,
-        "y": 380,
+        "y": 440,
         "wires": [
             [
-                "524badcbb8a30651",
                 "faa25f7f.0777"
             ]
         ]
@@ -12277,7 +12258,48 @@
         "finalize": "",
         "libs": [],
         "x": 810,
-        "y": 320,
+        "y": 380,
+        "wires": [
+            [
+                "faa25f7f.0777"
+            ]
+        ]
+    },
+    {
+        "id": "eae8b619e269fb1d",
+        "type": "mqtt in",
+        "z": "d0173d54.941d7",
+        "name": "",
+        "topic": "nuki/#",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "c349b9ff.9dc4c8",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 150,
+        "y": 340,
+        "wires": [
+            [
+                "e0016f2c0820903c"
+            ]
+        ]
+    },
+    {
+        "id": "e0016f2c0820903c",
+        "type": "function",
+        "z": "d0173d54.941d7",
+        "name": "nuki to Influxdb",
+        "func": "function flatItem(base, key, src, dest) {\n     if (typeof src === 'undefined') {\n         return;\n     }\n     const deepKey = base.length ? base + '.' + key : key;\n     // console.log(`base=${base} key=${key} deepKey=${deepKey}`);\n     if (typeof src === 'object') {\n        if (Array.isArray(src)) {\n            src.forEach((val, idx) => flatItem(deepKey, idx, val, dest));\n        } else {\n            Object.entries(src).forEach(([key, val]) => flatItem(deepKey, key, val, dest))\n        }\n     } else if(/^(\\-|\\+)?([0-9]+(\\.[0-9]+)?)$/.test(src)) {\n        dest[deepKey] = Number(src);\n    } else {\n        dest[deepKey] = src;\n     }\n}\n\nif (msg.payload === \"nan\" || msg.payload === undefined || msg.payload === null) {\n    return;\n}\n\nconst tokens = msg.topic.split(\"/\");\nconst measurement = tokens[1].replace(/\\-/g, '_');\n\nlet val = {};\nif (tokens.length > 4 && tokens[2] === \"emeter\") {\n    let L = Number(tokens[3]) + 1;\n    flatItem('', \"L\" + L + \"_\" + tokens[4], msg.payload, val);\n} else {\n    flatItem('', tokens.splice(2).join('.'), msg.payload, val);\n}\nreturn {measurement: measurement, payload: val};\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 820,
+        "y": 340,
         "wires": [
             [
                 "faa25f7f.0777"
@@ -13183,9 +13205,10 @@
             "0f5a3cab8cad1976",
             "eca0dac54fd9034c",
             "bde5bac02c7ad594",
-            "249ae48919a778cc"
+            "249ae48919a778cc",
+            "1f554e90d03ec3db"
         ],
-        "x": 125,
+        "x": 135,
         "y": 1780,
         "wires": [
             [
@@ -13224,7 +13247,7 @@
         "font": "",
         "fontSize": "12",
         "color": "#ffffff",
-        "x": 430,
+        "x": 440,
         "y": 1780,
         "wires": []
     },
@@ -13248,7 +13271,7 @@
         "payloadType": "str",
         "topic": "",
         "topicType": "str",
-        "x": 180,
+        "x": 190,
         "y": 1820,
         "wires": [
             [
@@ -13268,7 +13291,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 260,
+        "x": 270,
         "y": 1780,
         "wires": [
             [
@@ -13287,7 +13310,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 350,
+        "x": 360,
         "y": 1820,
         "wires": [
             [
@@ -13556,7 +13579,7 @@
         "loglevel": "INFO",
         "logconfig": "8929498a4f6d4a2d",
         "sendpane": "",
-        "x": 240,
+        "x": 250,
         "y": 1740,
         "wires": [
             []
@@ -13662,8 +13685,8 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 280,
-        "y": 1900,
+        "x": 290,
+        "y": 1980,
         "wires": [
             [
                 "24b7f9aa04a0c833"
@@ -13683,8 +13706,8 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 280,
-        "y": 1980,
+        "x": 290,
+        "y": 2060,
         "wires": [
             [
                 "820bafe3acf224f2"
@@ -13705,8 +13728,8 @@
         "correl": "",
         "expiry": "",
         "broker": "c349b9ff.9dc4c8",
-        "x": 1010,
-        "y": 1900,
+        "x": 1020,
+        "y": 1980,
         "wires": []
     },
     {
@@ -13723,8 +13746,8 @@
         "correl": "",
         "expiry": "",
         "broker": "c349b9ff.9dc4c8",
-        "x": 1010,
-        "y": 1980,
+        "x": 1020,
+        "y": 2060,
         "wires": []
     },
     {
@@ -13754,8 +13777,8 @@
                 "type": "pressed"
             }
         ],
-        "x": 540,
-        "y": 1900,
+        "x": 550,
+        "y": 1980,
         "wires": [
             [
                 "aeed9bccbb37aec3"
@@ -13792,8 +13815,8 @@
                 "type": "pressed"
             }
         ],
-        "x": 540,
-        "y": 1980,
+        "x": 550,
+        "y": 2060,
         "wires": [
             [
                 "707912434cc1fd8d"
@@ -13820,8 +13843,8 @@
         "bytopic": "all",
         "topic": "topic",
         "outputs": 1,
-        "x": 710,
-        "y": 1960,
+        "x": 720,
+        "y": 2040,
         "wires": [
             [
                 "7df6141d15f348ea"
@@ -13845,8 +13868,8 @@
         "bytopic": "all",
         "topic": "topic",
         "outputs": 1,
-        "x": 710,
-        "y": 1880,
+        "x": 720,
+        "y": 1960,
         "wires": [
             [
                 "3d57f2823ba7175b"
@@ -13863,8 +13886,8 @@
         "maxtimeout": "1",
         "maxtimeoutunits": "Minute",
         "name": "",
-        "x": 720,
-        "y": 1920,
+        "x": 730,
+        "y": 2000,
         "wires": [
             [
                 "3d57f2823ba7175b"
@@ -13882,8 +13905,8 @@
         "maxtimeout": "1",
         "maxtimeoutunits": "Minute",
         "name": "",
-        "x": 720,
-        "y": 2000,
+        "x": 730,
+        "y": 2080,
         "wires": [
             [
                 "7df6141d15f348ea"
@@ -13915,8 +13938,8 @@
         "z": "062848eb6508a3a6",
         "name": "Haustürschloss lockAction",
         "topic": "nuki/312D447C/lockAction",
-        "qos": "2",
-        "retain": "true",
+        "qos": "",
+        "retain": "",
         "respTopic": "",
         "contentType": "",
         "userProps": "",
@@ -15007,6 +15030,7 @@
         "id": "e4bd376638d292c3",
         "type": "mqtt in",
         "z": "062848eb6508a3a6",
+        "d": true,
         "name": "Kellertür-Schloss Connected",
         "topic": "nuki/312D447C/connected",
         "qos": "2",
@@ -15112,6 +15136,81 @@
             [
                 "63cf52529ecd26c6",
                 "cb5c0c820e90d75f"
+            ]
+        ]
+    },
+    {
+        "id": "5450e5e4f40730f9",
+        "type": "ping",
+        "z": "062848eb6508a3a6",
+        "protocol": "Automatic",
+        "mode": "timed",
+        "name": "",
+        "host": "Haustuer-Schloss",
+        "timer": "10",
+        "inputs": 0,
+        "x": 210,
+        "y": 1900,
+        "wires": [
+            [
+                "7c08f6e68fbbf979"
+            ]
+        ]
+    },
+    {
+        "id": "1f554e90d03ec3db",
+        "type": "link out",
+        "z": "062848eb6508a3a6",
+        "name": "link out 117",
+        "mode": "link",
+        "links": [
+            "e03c33a6dcae1a6c"
+        ],
+        "x": 735,
+        "y": 1900,
+        "wires": []
+    },
+    {
+        "id": "7c08f6e68fbbf979",
+        "type": "switch",
+        "z": "062848eb6508a3a6",
+        "name": "false?",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "false",
+                "vt": "jsonata"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 370,
+        "y": 1900,
+        "wires": [
+            [
+                "69ed83ac72e130c8"
+            ]
+        ]
+    },
+    {
+        "id": "69ed83ac72e130c8",
+        "type": "template",
+        "z": "062848eb6508a3a6",
+        "name": "Text \"… reagiert nicht!\"",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "{{topic}} reagiert nicht!",
+        "output": "str",
+        "x": 570,
+        "y": 1900,
+        "wires": [
+            [
+                "1f554e90d03ec3db"
             ]
         ]
     },
@@ -15451,9 +15550,10 @@
             "86e02f81dd616814",
             "3be2e6461295d268",
             "b5dbc5c6f9d3c2e0",
-            "5f125001e0185385"
+            "5f125001e0185385",
+            "5a1186600cb056de"
         ],
-        "x": 125,
+        "x": 135,
         "y": 2020,
         "wires": [
             [
@@ -15492,7 +15592,7 @@
         "font": "",
         "fontSize": "12",
         "color": "#ffffff",
-        "x": 430,
+        "x": 440,
         "y": 2020,
         "wires": []
     },
@@ -15516,7 +15616,7 @@
         "payloadType": "str",
         "topic": "",
         "topicType": "str",
-        "x": 180,
+        "x": 190,
         "y": 2060,
         "wires": [
             [
@@ -15536,7 +15636,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 260,
+        "x": 270,
         "y": 2020,
         "wires": [
             [
@@ -15555,7 +15655,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 350,
+        "x": 360,
         "y": 2060,
         "wires": [
             [
@@ -15765,7 +15865,7 @@
         "loglevel": "INFO",
         "logconfig": "8929498a4f6d4a2d",
         "sendpane": "",
-        "x": 240,
+        "x": 250,
         "y": 1980,
         "wires": [
             []
@@ -15833,8 +15933,8 @@
         "z": "caf02dc9a5b73890",
         "name": "Kellertür-Riegel LockAction",
         "topic": "nuki/33B5C9E4/lockAction",
-        "qos": "2",
-        "retain": "true",
+        "qos": "",
+        "retain": "",
         "respTopic": "",
         "contentType": "",
         "userProps": "",
@@ -15891,8 +15991,8 @@
         "z": "caf02dc9a5b73890",
         "name": "Kellertür-Schloss LockAction",
         "topic": "nuki/32AE09F4/lockAction",
-        "qos": "2",
-        "retain": "true",
+        "qos": "",
+        "retain": "",
         "respTopic": "",
         "contentType": "",
         "userProps": "",
@@ -17761,6 +17861,7 @@
         "id": "a632a8c0562ccca0",
         "type": "mqtt in",
         "z": "caf02dc9a5b73890",
+        "d": true,
         "name": "Kellertür-Schloss Connected",
         "topic": "nuki/32AE09F4/connected",
         "qos": "2",
@@ -17782,6 +17883,7 @@
         "id": "96b33015b690a96b",
         "type": "mqtt in",
         "z": "caf02dc9a5b73890",
+        "d": true,
         "name": "Kellertür-Riegel Connected",
         "topic": "nuki/33B5C9E4/connected",
         "qos": "2",
@@ -17978,6 +18080,99 @@
             [
                 "593bfd943b6288c7",
                 "849812f1d8613a71"
+            ]
+        ]
+    },
+    {
+        "id": "51651aa2ea02fbec",
+        "type": "ping",
+        "z": "caf02dc9a5b73890",
+        "protocol": "Automatic",
+        "mode": "timed",
+        "name": "",
+        "host": "Kellertuer-Schloss",
+        "timer": "10",
+        "inputs": 0,
+        "x": 210,
+        "y": 2140,
+        "wires": [
+            [
+                "6cde9011fb120382"
+            ]
+        ]
+    },
+    {
+        "id": "98f97210e824ae29",
+        "type": "ping",
+        "z": "caf02dc9a5b73890",
+        "protocol": "Automatic",
+        "mode": "timed",
+        "name": "",
+        "host": "Kellertuer-Riegel",
+        "timer": "10",
+        "inputs": 0,
+        "x": 200,
+        "y": 2180,
+        "wires": [
+            [
+                "6cde9011fb120382"
+            ]
+        ]
+    },
+    {
+        "id": "3e04932be772face",
+        "type": "template",
+        "z": "caf02dc9a5b73890",
+        "name": "Text \"… reagiert nicht!\"",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "{{topic}} reagiert nicht!",
+        "output": "str",
+        "x": 590,
+        "y": 2160,
+        "wires": [
+            [
+                "5a1186600cb056de"
+            ]
+        ]
+    },
+    {
+        "id": "5a1186600cb056de",
+        "type": "link out",
+        "z": "caf02dc9a5b73890",
+        "name": "link out 118",
+        "mode": "link",
+        "links": [
+            "a30ad159a4a28a4d"
+        ],
+        "x": 755,
+        "y": 2160,
+        "wires": []
+    },
+    {
+        "id": "6cde9011fb120382",
+        "type": "switch",
+        "z": "caf02dc9a5b73890",
+        "name": "false?",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "false",
+                "vt": "jsonata"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 390,
+        "y": 2160,
+        "wires": [
+            [
+                "3e04932be772face"
             ]
         ]
     },
