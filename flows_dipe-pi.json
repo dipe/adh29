@@ -15234,6 +15234,16 @@
         ]
     },
     {
+        "id": "2827c074ecfc1069",
+        "type": "comment",
+        "z": "062848eb6508a3a6",
+        "name": "Nuk Wifi-Verbindung wackelt?",
+        "info": "Nukis müssen anscheinend Internetverbindung haben, um sich nicht zu verhaspeln\nAußerdem muss anscheinend bei Netzteilbetrieb Batterietyp auf alkalisch gesetzt sein und\nPerformace auf Automatisch.",
+        "x": 240,
+        "y": 1860,
+        "wires": []
+    },
+    {
         "id": "3eec6b45c3f95d3f",
         "type": "ui_button",
         "z": "caf02dc9a5b73890",
@@ -18197,6 +18207,16 @@
                 "3e04932be772face"
             ]
         ]
+    },
+    {
+        "id": "12b1b9e95b73c480",
+        "type": "comment",
+        "z": "caf02dc9a5b73890",
+        "name": "Nuk Wifi-Verbindung wackelt?",
+        "info": "Nukis müssen anscheinend Internetverbindung haben, um sich nicht zu verhaspeln\nAußerdem muss anscheinend bei Netzteilbetrieb Batterietyp auf alkalisch gesetzt sein und\nPerformace auf Automatisch.",
+        "x": 240,
+        "y": 2100,
+        "wires": []
     },
     {
         "id": "affde64f7b6e2b28",
