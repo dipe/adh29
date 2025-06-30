@@ -5853,7 +5853,7 @@
             "a2fce519c5527456"
         ],
         "x": 915,
-        "y": 1042,
+        "y": 1040,
         "wires": []
     },
     {
@@ -6056,10 +6056,10 @@
         "finalize": "",
         "libs": [],
         "x": 630,
-        "y": 1042,
+        "y": 1040,
         "wires": [
             [
-                "d28aedd4.51206"
+                "038910aecb1fbc5a"
             ]
         ]
     },
@@ -6505,6 +6505,25 @@
         "x": 140,
         "y": 960,
         "wires": []
+    },
+    {
+        "id": "038910aecb1fbc5a",
+        "type": "function",
+        "z": "3a471104.edfbae",
+        "name": "toggle state",
+        "func": "if (msg.payload != \"ON\") {\n    return undefined;\n}\n\nvar topic = \"treppenhaus_kellerlicht\";\nvar current_state = flow.get(topic);\n\nif (current_state === \"OFF\")\n    return {payload: \"ON\"}\nelse\n    return {payload: \"OFF\"};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 790,
+        "y": 1040,
+        "wires": [
+            [
+                "d28aedd4.51206"
+            ]
+        ]
     },
     {
         "id": "2f8c3777.ecafb8",
@@ -13035,8 +13054,7 @@
             "376c57b149afbccc",
             "44bd1ae85ba6e007",
             "cf9843a5f73e34d3",
-            "fd57ea1907744996",
-            "c76e0f9689ddc7ef"
+            "fd57ea1907744996"
         ],
         "x": 135,
         "y": 740,
@@ -15143,13 +15161,14 @@
         "id": "5450e5e4f40730f9",
         "type": "ping",
         "z": "062848eb6508a3a6",
+        "d": true,
         "protocol": "Automatic",
         "mode": "timed",
         "name": "",
         "host": "Haustuer-Schloss",
-        "timer": "10",
+        "timer": "20",
         "inputs": 0,
-        "x": 210,
+        "x": 200,
         "y": 1900,
         "wires": [
             [
@@ -15281,8 +15300,8 @@
             "80a264d77e1aea12",
             "371d707b4760e792",
             "09a9e7bcfffc38b7",
-            "e6f9343995adbf1a",
-            "d8d51fd93db8d168"
+            "d8d51fd93db8d168",
+            "c76e0f9689ddc7ef"
         ],
         "x": 135,
         "y": 680,
@@ -15416,7 +15435,7 @@
             "3515d84560dda4f0"
         ],
         "x": 135,
-        "y": 640,
+        "y": 680,
         "wires": [
             [
                 "4a8ea6e9d9760630"
@@ -15551,7 +15570,8 @@
             "3be2e6461295d268",
             "b5dbc5c6f9d3c2e0",
             "5f125001e0185385",
-            "5a1186600cb056de"
+            "5a1186600cb056de",
+            "e6f9343995adbf1a"
         ],
         "x": 135,
         "y": 2020,
@@ -16911,7 +16931,7 @@
         "syntax": "plain",
         "template": "\"Nicht abschließen\" ist aktiviert",
         "output": "str",
-        "x": 1200,
+        "x": 1190,
         "y": 1720,
         "wires": [
             [
@@ -16928,7 +16948,7 @@
         "links": [
             "a30ad159a4a28a4d"
         ],
-        "x": 1395,
+        "x": 1375,
         "y": 1720,
         "wires": []
     },
@@ -17113,7 +17133,7 @@
         "name": "link out 96",
         "mode": "link",
         "links": [
-            "576bc4593d875946"
+            "68510defdfc4e9d1"
         ],
         "x": 335,
         "y": 1320,
@@ -17297,9 +17317,9 @@
         "name": "link out 101",
         "mode": "link",
         "links": [
-            "68510defdfc4e9d1"
+            "a30ad159a4a28a4d"
         ],
-        "x": 555,
+        "x": 535,
         "y": 1360,
         "wires": []
     },
@@ -18087,11 +18107,12 @@
         "id": "51651aa2ea02fbec",
         "type": "ping",
         "z": "caf02dc9a5b73890",
+        "d": true,
         "protocol": "Automatic",
         "mode": "timed",
         "name": "",
         "host": "Kellertuer-Schloss",
-        "timer": "10",
+        "timer": "20",
         "inputs": 0,
         "x": 210,
         "y": 2140,
@@ -18105,11 +18126,12 @@
         "id": "98f97210e824ae29",
         "type": "ping",
         "z": "caf02dc9a5b73890",
+        "d": true,
         "protocol": "Automatic",
         "mode": "timed",
         "name": "",
         "host": "Kellertuer-Riegel",
-        "timer": "10",
+        "timer": "20",
         "inputs": 0,
         "x": 200,
         "y": 2180,
