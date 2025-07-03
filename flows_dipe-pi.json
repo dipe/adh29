@@ -12600,7 +12600,7 @@
         "topic": "topic",
         "topicType": "msg",
         "x": 190,
-        "y": 1620,
+        "y": 1940,
         "wires": [
             [
                 "651b1e11de589b85"
@@ -12638,7 +12638,7 @@
         "type": "function",
         "z": "062848eb6508a3a6",
         "name": "Status-Text",
-        "func": "const state_name_de = {\n    0: \"uncalibriert\",\n    1: \"verriegelt\",\n    2: \"entriegeln\",\n    3: \"entriegelt\",\n    4: \"verriegeln\",\n    5: \"geöffnet\",\n    6: \"entriegelt und gehen\",\n    7: \"öffnen\",\n    254: \"Motor blockiert\",\n    255: \"undefiniert\"\n}[msg.payload];\n\nreturn ({payload: state_name_de || msg.payload});",
+        "func": "const state_name_de = {\n    0: \"unkalibriert\",\n    1: \"abgeschlossen\",\n    2: \"aufschließen\",\n    3: \"aufgeschlossen\",\n    4: \"abschließen\",\n    5: \"geöffnet\",\n    6: \"aufschließen und gehen\",\n    7: \"öffnen\",\n    254: \"Motor blockiert\",\n    255: \"undefiniert\"\n}[msg.payload];\n\nreturn ({payload: state_name_de || msg.payload});",
         "outputs": 1,
         "timeout": "",
         "noerr": 0,
@@ -12699,7 +12699,7 @@
         "id": "dbe57032c651ca6c",
         "type": "function",
         "z": "062848eb6508a3a6",
-        "name": "Nuki voll verriegeln",
+        "name": "Nuki doppelt abschließen",
         "func": "// 2 -> Lock\n// 6 -> Full Lock\nreturn {payload: 6};",
         "outputs": 1,
         "timeout": "",
@@ -12707,7 +12707,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 290,
+        "x": 310,
         "y": 780,
         "wires": [
             [
@@ -12719,7 +12719,7 @@
         "id": "090394706d68b92d",
         "type": "function",
         "z": "062848eb6508a3a6",
-        "name": "Nuki abschließen oder voll verriegeln",
+        "name": "Nuki einfach oder doppelt abschließen",
         "func": "// 2 -> Lock\n// 6 -> Full Lock\nlet now = new Date();\nif (now.getHours() >= 21 || now.getHours() < 7)\n    return {payload: 6}\nelse\n    return {payload: 2};\n",
         "outputs": 1,
         "timeout": "",
@@ -12765,7 +12765,8 @@
             "544c077ecd16519e",
             "29d1ce15d4d92e56",
             "5809f3ba02185b44",
-            "ecadf7622e98101d"
+            "ecadf7622e98101d",
+            "37f14ede9971b8a7"
         ],
         "x": 135,
         "y": 660,
@@ -12779,7 +12780,7 @@
         "id": "49f12f8d291af95b",
         "type": "thingzi-timer",
         "z": "062848eb6508a3a6",
-        "name": "Nachts voll voll verriegeln",
+        "name": "Nachts doppelt abschließen",
         "lat": "50.882",
         "lon": "6.6949",
         "timerType": "trigger",
@@ -12809,7 +12810,7 @@
         "fri": true,
         "sat": true,
         "sun": true,
-        "x": 230,
+        "x": 240,
         "y": 1140,
         "wires": [
             [
@@ -12828,7 +12829,7 @@
         "width": 0,
         "height": 0,
         "passthru": false,
-        "label": "Tür verriegeln",
+        "label": "Tür abschließen",
         "tooltip": "",
         "color": "",
         "bgcolor": "",
@@ -12839,7 +12840,7 @@
         "topic": "topic",
         "topicType": "msg",
         "x": 200,
-        "y": 1660,
+        "y": 1980,
         "wires": [
             [
                 "44bd1ae85ba6e007"
@@ -12987,7 +12988,7 @@
         "id": "1e867707f37eda1a",
         "type": "inject",
         "z": "062848eb6508a3a6",
-        "name": "Voll verriegeln",
+        "name": "Doppelt abschließen",
         "props": [
             {
                 "p": "payload"
@@ -13004,7 +13005,7 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 210,
+        "x": 230,
         "y": 300,
         "wires": [
             [
@@ -13049,7 +13050,7 @@
         "id": "576bc4593d875946",
         "type": "link in",
         "z": "062848eb6508a3a6",
-        "name": "Haustür-Schloss voll verriegeln",
+        "name": "Haustür-Schloss doppelt abschließen",
         "links": [
             "376c57b149afbccc",
             "44bd1ae85ba6e007",
@@ -13074,7 +13075,7 @@
             "576bc4593d875946"
         ],
         "x": 335,
-        "y": 1660,
+        "y": 1980,
         "wires": []
     },
     {
@@ -13156,7 +13157,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 210,
-        "y": 1540,
+        "y": 1640,
         "wires": [
             [
                 "15e93c1ed910ea48"
@@ -13176,7 +13177,7 @@
         "finalize": "",
         "libs": [],
         "x": 820,
-        "y": 1620,
+        "y": 1940,
         "wires": [
             [
                 "bf6820b1163f0e66"
@@ -13200,7 +13201,7 @@
             "986cc7c62e4fcf8c"
         ],
         "x": 995,
-        "y": 1580,
+        "y": 1900,
         "wires": []
     },
     {
@@ -13224,10 +13225,13 @@
             "eca0dac54fd9034c",
             "bde5bac02c7ad594",
             "249ae48919a778cc",
-            "1f554e90d03ec3db"
+            "1f554e90d03ec3db",
+            "90fa70cc6a1d5141",
+            "0aa9f195efcd1e4e",
+            "ce08ec74123677a2"
         ],
         "x": 135,
-        "y": 1780,
+        "y": 2100,
         "wires": [
             [
                 "75f4e5455d83d356",
@@ -13245,7 +13249,7 @@
             "e03c33a6dcae1a6c"
         ],
         "x": 995,
-        "y": 1720,
+        "y": 2040,
         "wires": []
     },
     {
@@ -13266,7 +13270,7 @@
         "fontSize": "12",
         "color": "#ffffff",
         "x": 440,
-        "y": 1780,
+        "y": 2100,
         "wires": []
     },
     {
@@ -13290,7 +13294,7 @@
         "topic": "",
         "topicType": "str",
         "x": 190,
-        "y": 1820,
+        "y": 2140,
         "wires": [
             [
                 "0e588db6de9cd341"
@@ -13310,7 +13314,7 @@
         "finalize": "",
         "libs": [],
         "x": 270,
-        "y": 1780,
+        "y": 2100,
         "wires": [
             [
                 "d997b4091550a66d"
@@ -13329,7 +13333,7 @@
         "finalize": "",
         "libs": [],
         "x": 360,
-        "y": 1820,
+        "y": 2140,
         "wires": [
             [
                 "d997b4091550a66d"
@@ -13353,14 +13357,14 @@
         "id": "f6acd958aad9453a",
         "type": "template",
         "z": "062848eb6508a3a6",
-        "name": "Text \"voll verriegeln\"",
+        "name": "Text \"doppelt abschleißen\"",
         "field": "payload",
         "fieldType": "msg",
         "format": "handlebars",
         "syntax": "mustache",
-        "template": "Tür voll verriegleln",
+        "template": "Tür doppelt abschließen",
         "output": "str",
-        "x": 480,
+        "x": 500,
         "y": 1160,
         "wires": [
             [
@@ -13401,7 +13405,7 @@
         "to": "",
         "reg": false,
         "x": 430,
-        "y": 1620,
+        "y": 1940,
         "wires": [
             [
                 "0d082e7ff2ce770c"
@@ -13534,7 +13538,7 @@
         "topic": "topic",
         "outputs": 1,
         "x": 1050,
-        "y": 1660,
+        "y": 1980,
         "wires": [
             [
                 "aef4f9b3fb3740da"
@@ -13561,7 +13565,7 @@
         "to": "",
         "reg": false,
         "x": 1250,
-        "y": 1660,
+        "y": 1980,
         "wires": [
             []
         ]
@@ -13581,7 +13585,7 @@
         "expiry": "",
         "broker": "c349b9ff.9dc4c8",
         "x": 1080,
-        "y": 1620,
+        "y": 1940,
         "wires": []
     },
     {
@@ -13598,7 +13602,7 @@
         "logconfig": "8929498a4f6d4a2d",
         "sendpane": "",
         "x": 250,
-        "y": 1740,
+        "y": 2060,
         "wires": [
             []
         ]
@@ -13704,7 +13708,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 290,
-        "y": 1980,
+        "y": 2300,
         "wires": [
             [
                 "24b7f9aa04a0c833"
@@ -13725,7 +13729,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 290,
-        "y": 2060,
+        "y": 2380,
         "wires": [
             [
                 "820bafe3acf224f2"
@@ -13747,7 +13751,7 @@
         "expiry": "",
         "broker": "c349b9ff.9dc4c8",
         "x": 1020,
-        "y": 1980,
+        "y": 2300,
         "wires": []
     },
     {
@@ -13765,7 +13769,7 @@
         "expiry": "",
         "broker": "c349b9ff.9dc4c8",
         "x": 1020,
-        "y": 2060,
+        "y": 2380,
         "wires": []
     },
     {
@@ -13796,7 +13800,7 @@
             }
         ],
         "x": 550,
-        "y": 1980,
+        "y": 2300,
         "wires": [
             [
                 "aeed9bccbb37aec3"
@@ -13834,7 +13838,7 @@
             }
         ],
         "x": 550,
-        "y": 2060,
+        "y": 2380,
         "wires": [
             [
                 "707912434cc1fd8d"
@@ -13862,7 +13866,7 @@
         "topic": "topic",
         "outputs": 1,
         "x": 720,
-        "y": 2040,
+        "y": 2360,
         "wires": [
             [
                 "7df6141d15f348ea"
@@ -13887,7 +13891,7 @@
         "topic": "topic",
         "outputs": 1,
         "x": 720,
-        "y": 1960,
+        "y": 2280,
         "wires": [
             [
                 "3d57f2823ba7175b"
@@ -13905,7 +13909,7 @@
         "maxtimeoutunits": "Minute",
         "name": "",
         "x": 730,
-        "y": 2000,
+        "y": 2320,
         "wires": [
             [
                 "3d57f2823ba7175b"
@@ -13924,7 +13928,7 @@
         "maxtimeoutunits": "Minute",
         "name": "",
         "x": 730,
-        "y": 2080,
+        "y": 2400,
         "wires": [
             [
                 "7df6141d15f348ea"
@@ -14011,7 +14015,7 @@
         "finalize": "",
         "libs": [],
         "x": 640,
-        "y": 1620,
+        "y": 1940,
         "wires": [
             [
                 "493b45377f6017c2"
@@ -14084,6 +14088,11 @@
             },
             {
                 "t": "eq",
+                "v": "1",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
                 "v": "2",
                 "vt": "str"
             },
@@ -14095,12 +14104,15 @@
         ],
         "checkall": "false",
         "repair": false,
-        "outputs": 3,
+        "outputs": 4,
         "x": 410,
-        "y": 1540,
+        "y": 1640,
         "wires": [
             [
                 "55ef7dc599dc0c36"
+            ],
+            [
+                "66e9c6f6f264a3a2"
             ],
             [
                 "0dd614af31e92bb7"
@@ -14178,11 +14190,12 @@
         "to": "",
         "reg": false,
         "x": 900,
-        "y": 1480,
+        "y": 1500,
         "wires": [
             [
                 "b0d5c4d6b83346e7",
-                "219c03657decc1e1"
+                "219c03657decc1e1",
+                "7f9908d6b186db84"
             ]
         ]
     },
@@ -14233,7 +14246,7 @@
         "template": "\"Nicht abschließen\" ist aktiviert",
         "output": "str",
         "x": 1170,
-        "y": 1480,
+        "y": 1540,
         "wires": [
             [
                 "b40c7360eb8b53a3"
@@ -14251,7 +14264,7 @@
             "4137a55c9c61792a"
         ],
         "x": 1335,
-        "y": 1480,
+        "y": 1540,
         "wires": []
     },
     {
@@ -14302,7 +14315,7 @@
         "repair": false,
         "outputs": 2,
         "x": 660,
-        "y": 1500,
+        "y": 1520,
         "wires": [
             [
                 "abdb84779478e550"
@@ -14314,15 +14327,15 @@
         "id": "4d319d834992eb9e",
         "type": "template",
         "z": "062848eb6508a3a6",
-        "name": "Text \"voll verriegeln\"",
+        "name": "Text \"doppelt abschließen\"",
         "field": "payload",
         "fieldType": "msg",
         "format": "handlebars",
         "syntax": "plain",
-        "template": "Tür voll verriegeln",
+        "template": "Tür doppelt abschließen",
         "output": "str",
-        "x": 880,
-        "y": 1520,
+        "x": 920,
+        "y": 1820,
         "wires": [
             [
                 "8051754bbc4b8778"
@@ -14338,21 +14351,21 @@
         "links": [
             "e03c33a6dcae1a6c"
         ],
-        "x": 1035,
-        "y": 1520,
+        "x": 1055,
+        "y": 1820,
         "wires": []
     },
     {
         "id": "fd57ea1907744996",
         "type": "link out",
         "z": "062848eb6508a3a6",
-        "name": "Haustür voll verriegeln",
+        "name": "Haustür Doppelt abschließen",
         "mode": "link",
         "links": [
             "576bc4593d875946"
         ],
-        "x": 795,
-        "y": 1560,
+        "x": 815,
+        "y": 1780,
         "wires": []
     },
     {
@@ -14567,7 +14580,7 @@
             "b17af34ef87d87b6"
         ],
         "x": 1075,
-        "y": 1440,
+        "y": 1500,
         "wires": []
     },
     {
@@ -14599,7 +14612,7 @@
             "6ff01b0f5688c37e"
         ],
         "x": 725,
-        "y": 1460,
+        "y": 1480,
         "wires": [
             [
                 "abdb84779478e550"
@@ -14852,12 +14865,13 @@
         "repair": false,
         "outputs": 2,
         "x": 660,
-        "y": 1540,
+        "y": 1760,
         "wires": [
             [],
             [
                 "4d319d834992eb9e",
-                "fd57ea1907744996"
+                "fd57ea1907744996",
+                "1ac04bc0a98ecfdd"
             ]
         ]
     },
@@ -14892,7 +14906,7 @@
         "type": "function",
         "z": "062848eb6508a3a6",
         "name": "Push Notification",
-        "func": "if (msg.payload.length == 0) return;\n\nreturn {\n    notification: {\n        notification: { \n            title: \"Haustür offen!\", \n            body: `Kann Haustür nicht verriegeln.` \n        }, \n    }\n};\n",
+        "func": "if (msg.payload.length == 0) return;\n\nreturn {\n    notification: {\n        notification: { \n            title: \"Haustür offen!\", \n            body: `Kann Haustür nicht abschließen.` \n        }, \n    }\n};\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -15169,7 +15183,7 @@
         "timer": "20",
         "inputs": 0,
         "x": 200,
-        "y": 1900,
+        "y": 2220,
         "wires": [
             [
                 "7c08f6e68fbbf979"
@@ -15186,7 +15200,7 @@
             "e03c33a6dcae1a6c"
         ],
         "x": 735,
-        "y": 1900,
+        "y": 2220,
         "wires": []
     },
     {
@@ -15207,7 +15221,7 @@
         "repair": false,
         "outputs": 1,
         "x": 370,
-        "y": 1900,
+        "y": 2220,
         "wires": [
             [
                 "69ed83ac72e130c8"
@@ -15226,7 +15240,7 @@
         "template": "{{topic}} reagiert nicht!",
         "output": "str",
         "x": 570,
-        "y": 1900,
+        "y": 2220,
         "wires": [
             [
                 "1f554e90d03ec3db"
@@ -15240,7 +15254,137 @@
         "name": "Nuk Wifi-Verbindung wackelt?",
         "info": "Nukis müssen anscheinend Internetverbindung haben, um sich nicht zu verhaspeln\nAußerdem muss anscheinend bei Netzteilbetrieb Batterietyp auf alkalisch gesetzt sein und\nPerformace auf Automatisch.",
         "x": 240,
-        "y": 1860,
+        "y": 2180,
+        "wires": []
+    },
+    {
+        "id": "7f9908d6b186db84",
+        "type": "mqtt out",
+        "z": "062848eb6508a3a6",
+        "name": "",
+        "topic": "pinpad-haustuer/beeep",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "c349b9ff.9dc4c8",
+        "x": 1170,
+        "y": 1460,
+        "wires": []
+    },
+    {
+        "id": "1ac04bc0a98ecfdd",
+        "type": "mqtt out",
+        "z": "062848eb6508a3a6",
+        "name": "",
+        "topic": "pinpad-haustuer/beeep",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "c349b9ff.9dc4c8",
+        "x": 910,
+        "y": 1740,
+        "wires": []
+    },
+    {
+        "id": "f43d202b4ad924ed",
+        "type": "template",
+        "z": "062848eb6508a3a6",
+        "name": "Text \"doppelt abschließen\"",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "plain",
+        "template": "Tür doppelt abschließen",
+        "output": "str",
+        "x": 920,
+        "y": 1680,
+        "wires": [
+            [
+                "ce08ec74123677a2"
+            ]
+        ]
+    },
+    {
+        "id": "ce08ec74123677a2",
+        "type": "link out",
+        "z": "062848eb6508a3a6",
+        "name": "link out 119",
+        "mode": "link",
+        "links": [
+            "e03c33a6dcae1a6c"
+        ],
+        "x": 1055,
+        "y": 1680,
+        "wires": []
+    },
+    {
+        "id": "37f14ede9971b8a7",
+        "type": "link out",
+        "z": "062848eb6508a3a6",
+        "name": "Haustür doppelt abschließen",
+        "mode": "link",
+        "links": [
+            "39cc2025cd461843"
+        ],
+        "x": 815,
+        "y": 1640,
+        "wires": []
+    },
+    {
+        "id": "66e9c6f6f264a3a2",
+        "type": "switch",
+        "z": "062848eb6508a3a6",
+        "name": "Haustür offen?",
+        "property": "haustuer_sensor",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "false",
+                "vt": "jsonata"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 660,
+        "y": 1620,
+        "wires": [
+            [],
+            [
+                "f43d202b4ad924ed",
+                "37f14ede9971b8a7",
+                "6e72ca2876405541"
+            ]
+        ]
+    },
+    {
+        "id": "6e72ca2876405541",
+        "type": "mqtt out",
+        "z": "062848eb6508a3a6",
+        "name": "",
+        "topic": "pinpad-haustuer/beeep",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "c349b9ff.9dc4c8",
+        "x": 910,
+        "y": 1600,
         "wires": []
     },
     {
@@ -15264,7 +15408,7 @@
         "topic": "topic",
         "topicType": "msg",
         "x": 190,
-        "y": 1860,
+        "y": 1980,
         "wires": [
             [
                 "c54fee1876ce45b0"
@@ -15303,7 +15447,6 @@
         "z": "caf02dc9a5b73890",
         "name": "Kellertür-Schloss abschließen",
         "links": [
-            "10adf74a0abed3f5",
             "a827e6196787eee5",
             "f049ba3037415baa",
             "120f99bd59cc83e3",
@@ -15311,7 +15454,8 @@
             "371d707b4760e792",
             "09a9e7bcfffc38b7",
             "d8d51fd93db8d168",
-            "c76e0f9689ddc7ef"
+            "c76e0f9689ddc7ef",
+            "9319d64a2b531e3f"
         ],
         "x": 135,
         "y": 680,
@@ -15331,7 +15475,7 @@
         "width": 0,
         "height": 0,
         "passthru": false,
-        "label": "Tür verriegeln",
+        "label": "Tür abschließen",
         "tooltip": "",
         "color": "",
         "bgcolor": "",
@@ -15342,7 +15486,7 @@
         "topic": "topic",
         "topicType": "msg",
         "x": 200,
-        "y": 1900,
+        "y": 2020,
         "wires": [
             [
                 "f049ba3037415baa"
@@ -15442,14 +15586,14 @@
         "z": "caf02dc9a5b73890",
         "name": "Kellertür-Schloss aufschließen",
         "links": [
-            "3515d84560dda4f0"
+            "09a9e7bcfffc38b7",
+            "10adf74a0abed3f5",
+            "120f99bd59cc83e3"
         ],
         "x": 135,
         "y": 680,
         "wires": [
-            [
-                "4a8ea6e9d9760630"
-            ]
+            []
         ]
     },
     {
@@ -15481,7 +15625,7 @@
             "68510defdfc4e9d1"
         ],
         "x": 335,
-        "y": 1900,
+        "y": 2020,
         "wires": []
     },
     {
@@ -15491,7 +15635,7 @@
         "name": "link out 44",
         "mode": "link",
         "links": [
-            "7ee0934261f999ea"
+            "cbcb4fd8b28af431"
         ],
         "x": 335,
         "y": 820,
@@ -15517,7 +15661,7 @@
         "name": "link out 46",
         "mode": "link",
         "links": [
-            "68510defdfc4e9d1"
+            "7ee0934261f999ea"
         ],
         "x": 335,
         "y": 860,
@@ -15554,7 +15698,7 @@
             "276c3158b7e4acb2"
         ],
         "x": 995,
-        "y": 1820,
+        "y": 1940,
         "wires": []
     },
     {
@@ -15581,10 +15725,11 @@
             "b5dbc5c6f9d3c2e0",
             "5f125001e0185385",
             "5a1186600cb056de",
-            "e6f9343995adbf1a"
+            "e6f9343995adbf1a",
+            "75ec16544430b53d"
         ],
         "x": 135,
-        "y": 2020,
+        "y": 2140,
         "wires": [
             [
                 "6d6d8f5320b56143",
@@ -15602,7 +15747,7 @@
             "a30ad159a4a28a4d"
         ],
         "x": 995,
-        "y": 1940,
+        "y": 2060,
         "wires": []
     },
     {
@@ -15623,7 +15768,7 @@
         "fontSize": "12",
         "color": "#ffffff",
         "x": 440,
-        "y": 2020,
+        "y": 2140,
         "wires": []
     },
     {
@@ -15647,7 +15792,7 @@
         "topic": "",
         "topicType": "str",
         "x": 190,
-        "y": 2060,
+        "y": 2180,
         "wires": [
             [
                 "bb54335ea9515d53"
@@ -15667,7 +15812,7 @@
         "finalize": "",
         "libs": [],
         "x": 270,
-        "y": 2020,
+        "y": 2140,
         "wires": [
             [
                 "20156ba1fdab30f3"
@@ -15686,7 +15831,7 @@
         "finalize": "",
         "libs": [],
         "x": 360,
-        "y": 2060,
+        "y": 2180,
         "wires": [
             [
                 "20156ba1fdab30f3"
@@ -15832,7 +15977,7 @@
         "topic": "topic",
         "outputs": 1,
         "x": 1050,
-        "y": 1900,
+        "y": 2020,
         "wires": [
             [
                 "bd1acc71ea636bad"
@@ -15859,7 +16004,7 @@
         "to": "",
         "reg": false,
         "x": 1250,
-        "y": 1900,
+        "y": 2020,
         "wires": [
             []
         ]
@@ -15879,7 +16024,7 @@
         "expiry": "",
         "broker": "c349b9ff.9dc4c8",
         "x": 1080,
-        "y": 1860,
+        "y": 1980,
         "wires": []
     },
     {
@@ -15896,7 +16041,7 @@
         "logconfig": "8929498a4f6d4a2d",
         "sendpane": "",
         "x": 250,
-        "y": 1980,
+        "y": 2100,
         "wires": [
             []
         ]
@@ -16118,7 +16263,7 @@
         "type": "function",
         "z": "caf02dc9a5b73890",
         "name": "Status-Text",
-        "func": "const state_name_de = {\n    0: \"uncalibriert\",\n    1: \"verriegelt\",\n    2: \"entriegeln\",\n    3: \"entriegelt\",\n    4: \"verriegeln\",\n    5: \"geöffnet\",\n    6: \"entriegelt und gehen\",\n    7: \"öffnen\",\n    254: \"Motor blockiert\",\n    255: \"undefiniert\"\n}[msg.payload];\n\nreturn ({payload: state_name_de || msg.payload});",
+        "func": "const state_name_de = {\n    0: \"unkalibriert\",\n    1: \"abgeschlossen\",\n    2: \"aufschließen\",\n    3: \"aufgeschlossen\",\n    4: \"abschließen\",\n    5: \"geöffnet\",\n    6: \"entriegelt und gehen\",\n    7: \"öffnen\",\n    254: \"Motor blockiert\",\n    255: \"undefiniert\"\n}[msg.payload];\n\nreturn ({payload: state_name_de || msg.payload});",
         "outputs": 1,
         "timeout": "",
         "noerr": 0,
@@ -16159,7 +16304,7 @@
         "type": "function",
         "z": "caf02dc9a5b73890",
         "name": "Status-Text",
-        "func": "const state_name_de = {\n    0: \"uncalibriert\",\n    1: \"verriegelt\",\n    2: \"entriegeln\",\n    3: \"entriegelt\",\n    4: \"verriegeln\",\n    5: \"geöffnet\",\n    6: \"entriegelt und gehen\",\n    7: \"öffnen\",\n    254: \"Motor blockiert\",\n    255: \"undefiniert\"\n}[msg.payload];\n\nreturn ({payload: state_name_de || msg.payload});",
+        "func": "const state_name_de = {\n    0: \"unkalibriert\",\n    1: \"abgeschlossen\",\n    2: \"aufschließen\",\n    3: \"aufgeschlossen\",\n    4: \"abschließen\",\n    5: \"geöffnet\",\n    6: \"entriegelt und gehen\",\n    7: \"öffnen\",\n    254: \"Motor blockiert\",\n    255: \"undefiniert\"\n}[msg.payload];\n\nreturn ({payload: state_name_de || msg.payload});",
         "outputs": 1,
         "timeout": "",
         "noerr": 0,
@@ -16275,7 +16420,8 @@
         "links": [
             "b67facabbd25434f",
             "6dd2413522f428db",
-            "68510defdfc4e9d1"
+            "68510defdfc4e9d1",
+            "7ee0934261f999ea"
         ],
         "x": 895,
         "y": 460,
@@ -16598,7 +16744,7 @@
         "to": "",
         "reg": false,
         "x": 430,
-        "y": 1860,
+        "y": 1980,
         "wires": [
             [
                 "15c5d4f3da2cd043"
@@ -16618,7 +16764,7 @@
         "finalize": "",
         "libs": [],
         "x": 640,
-        "y": 1860,
+        "y": 1980,
         "wires": [
             [
                 "acba45d1aedd617a"
@@ -16638,7 +16784,7 @@
         "finalize": "",
         "libs": [],
         "x": 820,
-        "y": 1860,
+        "y": 1980,
         "wires": [
             [
                 "6b5343740447d15e"
@@ -16808,6 +16954,11 @@
             },
             {
                 "t": "eq",
+                "v": "1",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
                 "v": "2",
                 "vt": "str"
             },
@@ -16819,12 +16970,15 @@
         ],
         "checkall": "false",
         "repair": false,
-        "outputs": 3,
+        "outputs": 4,
         "x": 410,
         "y": 1780,
         "wires": [
             [
                 "43f4eab279f65153"
+            ],
+            [
+                "b83079a81afc9c62"
             ],
             [
                 "b83079a81afc9c62"
@@ -16867,15 +17021,15 @@
         "id": "7bd3ca144480b4ca",
         "type": "template",
         "z": "caf02dc9a5b73890",
-        "name": "Text \"voll verriegeln\"",
+        "name": "Text \"abschließen\"",
         "field": "payload",
         "fieldType": "msg",
         "format": "handlebars",
         "syntax": "plain",
-        "template": "voll verriegeln",
+        "template": "abschließen",
         "output": "str",
-        "x": 880,
-        "y": 1760,
+        "x": 870,
+        "y": 1820,
         "wires": [
             [
                 "fdfba466c688d903"
@@ -16892,7 +17046,7 @@
             "68510defdfc4e9d1"
         ],
         "x": 795,
-        "y": 1800,
+        "y": 1780,
         "wires": []
     },
     {
@@ -16926,7 +17080,8 @@
         "wires": [
             [
                 "3c99219cb116ef07",
-                "900c95f52fe88a72"
+                "900c95f52fe88a72",
+                "3e38692b4d702a3b"
             ]
         ]
     },
@@ -16942,7 +17097,7 @@
         "template": "\"Nicht abschließen\" ist aktiviert",
         "output": "str",
         "x": 1190,
-        "y": 1720,
+        "y": 1760,
         "wires": [
             [
                 "5ae2f11599e6d537"
@@ -16959,7 +17114,7 @@
             "a30ad159a4a28a4d"
         ],
         "x": 1375,
-        "y": 1720,
+        "y": 1760,
         "wires": []
     },
     {
@@ -16972,7 +17127,7 @@
             "a30ad159a4a28a4d"
         ],
         "x": 1025,
-        "y": 1760,
+        "y": 1820,
         "wires": []
     },
     {
@@ -17097,7 +17252,7 @@
         "id": "c095407521d58d5b",
         "type": "thingzi-timer",
         "z": "caf02dc9a5b73890",
-        "name": "Nachts verriegeln",
+        "name": "Nachts abschließen",
         "lat": "50.882",
         "lon": "6.6949",
         "timerType": "trigger",
@@ -17127,7 +17282,7 @@
         "fri": true,
         "sat": true,
         "sun": true,
-        "x": 200,
+        "x": 210,
         "y": 1340,
         "wires": [
             [
@@ -17240,7 +17395,8 @@
         "name": "link out 98",
         "mode": "link",
         "links": [
-            "68510defdfc4e9d1"
+            "68510defdfc4e9d1",
+            "7ee0934261f999ea"
         ],
         "x": 795,
         "y": 1520,
@@ -17305,14 +17461,14 @@
         "id": "d9e903bf7f9f2b19",
         "type": "template",
         "z": "caf02dc9a5b73890",
-        "name": "Text \"verriegeln\"",
+        "name": "Text \"abschließen\"",
         "field": "payload",
         "fieldType": "msg",
         "format": "handlebars",
         "syntax": "mustache",
-        "template": "Tür verriegleln",
+        "template": "Tür abschließen",
         "output": "str",
-        "x": 400,
+        "x": 410,
         "y": 1360,
         "wires": [
             [
@@ -17531,12 +17687,13 @@
         "repair": false,
         "outputs": 2,
         "x": 660,
-        "y": 1780,
+        "y": 1800,
         "wires": [
             [],
             [
                 "7bd3ca144480b4ca",
-                "80a264d77e1aea12"
+                "80a264d77e1aea12",
+                "c14b96734611d230"
             ]
         ]
     },
@@ -17653,7 +17810,7 @@
         "type": "function",
         "z": "caf02dc9a5b73890",
         "name": "Push Notification",
-        "func": "if (msg.payload.length == 0) return;\n\nreturn {\n    notification: {\n        notification: { \n            title: \"Kellertür offen!\", \n            body: `Kann Kellertür nicht verriegeln.` \n        }, \n    }\n};\n",
+        "func": "if (msg.payload.length == 0) return;\n\nreturn {\n    notification: {\n        notification: { \n            title: \"Kellertür offen!\", \n            body: `Kann Kellertür nicht abschließen.` \n        }, \n    }\n};\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -17731,14 +17888,14 @@
         "id": "cbad21addb0a6337",
         "type": "template",
         "z": "caf02dc9a5b73890",
-        "name": "Text \"Gartenlicht aus. Kellertür verriegeln.\"",
+        "name": "Text \"Gartenlicht aus. Kellertür abschließen.\"",
         "field": "payload",
         "fieldType": "msg",
         "format": "handlebars",
         "syntax": "mustache",
-        "template": "Gartenlicht aus. Kellertür verriegeln.",
+        "template": "Gartenlicht aus. Kellertür abschließen.",
         "output": "str",
-        "x": 810,
+        "x": 820,
         "y": 260,
         "wires": [
             [
@@ -18125,7 +18282,7 @@
         "timer": "20",
         "inputs": 0,
         "x": 210,
-        "y": 2140,
+        "y": 2260,
         "wires": [
             [
                 "6cde9011fb120382"
@@ -18144,7 +18301,7 @@
         "timer": "20",
         "inputs": 0,
         "x": 200,
-        "y": 2180,
+        "y": 2300,
         "wires": [
             [
                 "6cde9011fb120382"
@@ -18163,7 +18320,7 @@
         "template": "{{topic}} reagiert nicht!",
         "output": "str",
         "x": 590,
-        "y": 2160,
+        "y": 2280,
         "wires": [
             [
                 "5a1186600cb056de"
@@ -18180,7 +18337,7 @@
             "a30ad159a4a28a4d"
         ],
         "x": 755,
-        "y": 2160,
+        "y": 2280,
         "wires": []
     },
     {
@@ -18201,7 +18358,7 @@
         "repair": false,
         "outputs": 1,
         "x": 390,
-        "y": 2160,
+        "y": 2280,
         "wires": [
             [
                 "3e04932be772face"
@@ -18215,7 +18372,59 @@
         "name": "Nuk Wifi-Verbindung wackelt?",
         "info": "Nukis müssen anscheinend Internetverbindung haben, um sich nicht zu verhaspeln\nAußerdem muss anscheinend bei Netzteilbetrieb Batterietyp auf alkalisch gesetzt sein und\nPerformace auf Automatisch.",
         "x": 240,
-        "y": 2100,
+        "y": 2220,
+        "wires": []
+    },
+    {
+        "id": "cbcb4fd8b28af431",
+        "type": "link in",
+        "z": "caf02dc9a5b73890",
+        "name": "Kellertür-Schloss aufschließen",
+        "links": [
+            "3515d84560dda4f0"
+        ],
+        "x": 135,
+        "y": 640,
+        "wires": [
+            [
+                "4a8ea6e9d9760630"
+            ]
+        ]
+    },
+    {
+        "id": "3e38692b4d702a3b",
+        "type": "mqtt out",
+        "z": "caf02dc9a5b73890",
+        "name": "",
+        "topic": "pinpad-kellertuer/beeep",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "c349b9ff.9dc4c8",
+        "x": 1170,
+        "y": 1720,
+        "wires": []
+    },
+    {
+        "id": "c14b96734611d230",
+        "type": "mqtt out",
+        "z": "caf02dc9a5b73890",
+        "name": "",
+        "topic": "pinpad-kellertuer/beeep",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "c349b9ff.9dc4c8",
+        "x": 890,
+        "y": 1860,
         "wires": []
     },
     {
@@ -19178,7 +19387,7 @@
         "font": "",
         "fontSize": "",
         "color": "#000000",
-        "x": 1000,
+        "x": 940,
         "y": 320,
         "wires": []
     },
@@ -19199,8 +19408,8 @@
         "font": "",
         "fontSize": "",
         "color": "#000000",
-        "x": 1010,
-        "y": 360,
+        "x": 1050,
+        "y": 440,
         "wires": []
     },
     {
@@ -19219,8 +19428,7 @@
         "y": 380,
         "wires": [
             [
-                "7511140e9ea85182",
-                "0a2acc11d6d5097f"
+                "c6be8878d520171d"
             ]
         ]
     },
@@ -19354,8 +19562,8 @@
         "links": [
             "1cd036385c85d54d"
         ],
-        "x": 1155,
-        "y": 400,
+        "x": 1195,
+        "y": 480,
         "wires": []
     },
     {
@@ -19370,11 +19578,64 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1010,
-        "y": 400,
+        "x": 1050,
+        "y": 480,
         "wires": [
             [
                 "b4ead89e5352c667"
+            ]
+        ]
+    },
+    {
+        "id": "ebf1be673956b32c",
+        "type": "delay",
+        "z": "cd1e0b0c87b3c825",
+        "name": "",
+        "pauseType": "queue",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "2",
+        "nbRateUnits": "1",
+        "rateUnits": "day",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 830,
+        "y": 460,
+        "wires": [
+            [
+                "0a2acc11d6d5097f",
+                "7511140e9ea85182"
+            ]
+        ]
+    },
+    {
+        "id": "c6be8878d520171d",
+        "type": "change",
+        "z": "cd1e0b0c87b3c825",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "payload.text",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 810,
+        "y": 420,
+        "wires": [
+            [
+                "ebf1be673956b32c"
             ]
         ]
     },
@@ -23734,7 +23995,7 @@
         "method": "get",
         "upload": false,
         "swaggerDoc": "",
-        "x": 200,
+        "x": 190,
         "y": 660,
         "wires": [
             [
