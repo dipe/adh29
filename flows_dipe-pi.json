@@ -427,11 +427,23 @@
         "id": "b69516bb46cf60c5",
         "type": "junction",
         "z": "062848eb6508a3a6",
-        "x": 1120,
+        "x": 1100,
         "y": 520,
         "wires": [
             [
                 "c0a0c508bd460b46"
+            ]
+        ]
+    },
+    {
+        "id": "daefdaedb954414b",
+        "type": "junction",
+        "z": "caf02dc9a5b73890",
+        "x": 1120,
+        "y": 500,
+        "wires": [
+            [
+                "3be2e6461295d268"
             ]
         ]
     },
@@ -1034,7 +1046,7 @@
     {
         "id": "b8fb397bd580054b",
         "type": "ui_tab",
-        "name": "Luftgütemesser 2",
+        "name": "Balkon",
         "icon": "dashboard",
         "order": 15,
         "disabled": false,
@@ -12525,7 +12537,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 200,
-        "y": 500,
+        "y": 460,
         "wires": [
             [
                 "de98ccd1624d690c"
@@ -12552,10 +12564,10 @@
         "to": "",
         "reg": false,
         "x": 380,
-        "y": 500,
+        "y": 460,
         "wires": [
             [
-                "93c033630b6b3907"
+                "4b6748b04ea10729"
             ]
         ]
     },
@@ -12865,7 +12877,7 @@
         "onceDelay": 0.1,
         "topic": "",
         "x": 190,
-        "y": 420,
+        "y": 380,
         "wires": [
             [
                 "de98ccd1624d690c"
@@ -12890,7 +12902,7 @@
         "onceDelay": 0.1,
         "topic": "",
         "x": 190,
-        "y": 460,
+        "y": 420,
         "wires": [
             [
                 "de98ccd1624d690c"
@@ -14445,7 +14457,7 @@
         "syntax": "plain",
         "template": "geschlossen, \"Nicht abschließen\" aktiv",
         "output": "str",
-        "x": 990,
+        "x": 980,
         "y": 440,
         "wires": [
             [
@@ -14480,8 +14492,8 @@
                 "4f47ddabe7cb6b13"
             ],
             [
-                "8b962cd30a4b673a",
-                "d9f45b3a3bd972d8"
+                "d9f45b3a3bd972d8",
+                "93c033630b6b3907"
             ]
         ]
     },
@@ -14771,20 +14783,6 @@
         "x": 1345,
         "y": 840,
         "wires": []
-    },
-    {
-        "id": "93c033630b6b3907",
-        "type": "debounce",
-        "z": "062848eb6508a3a6",
-        "time": "2000",
-        "name": "",
-        "x": 380,
-        "y": 460,
-        "wires": [
-            [
-                "4b6748b04ea10729"
-            ]
-        ]
     },
     {
         "id": "c0b9ffd95cb92ba3",
@@ -15175,7 +15173,6 @@
         "id": "5450e5e4f40730f9",
         "type": "ping",
         "z": "062848eb6508a3a6",
-        "d": true,
         "protocol": "Automatic",
         "mode": "timed",
         "name": "",
@@ -15386,6 +15383,20 @@
         "x": 910,
         "y": 1600,
         "wires": []
+    },
+    {
+        "id": "93c033630b6b3907",
+        "type": "debounce",
+        "z": "062848eb6508a3a6",
+        "time": "2000",
+        "name": "",
+        "x": 640,
+        "y": 420,
+        "wires": [
+            [
+                "8b962cd30a4b673a"
+            ]
+        ]
     },
     {
         "id": "3eec6b45c3f95d3f",
@@ -16387,7 +16398,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 200,
-        "y": 480,
+        "y": 440,
         "wires": [
             [
                 "4a3c18e8f33b1bc4"
@@ -16494,10 +16505,10 @@
         "to": "",
         "reg": false,
         "x": 400,
-        "y": 480,
+        "y": 440,
         "wires": [
             [
-                "b7b84aa94d69bcfe"
+                "fb53dbf77d799ec7"
             ]
         ]
     },
@@ -16519,7 +16530,7 @@
         "onceDelay": 0.1,
         "topic": "",
         "x": 190,
-        "y": 400,
+        "y": 360,
         "wires": [
             [
                 "4a3c18e8f33b1bc4"
@@ -16544,7 +16555,7 @@
         "onceDelay": 0.1,
         "topic": "",
         "x": 190,
-        "y": 440,
+        "y": 400,
         "wires": [
             [
                 "4a3c18e8f33b1bc4"
@@ -16916,7 +16927,8 @@
                 "8052806fa12c526b"
             ],
             [
-                "120f99bd59cc83e3"
+                "120f99bd59cc83e3",
+                "4e3368b1ed4f84e8"
             ]
         ]
     },
@@ -16931,7 +16943,7 @@
         "syntax": "plain",
         "template": "geschlossen, \"Nicht abschließen\" aktiv",
         "output": "str",
-        "x": 1010,
+        "x": 1000,
         "y": 420,
         "wires": [
             [
@@ -17157,8 +17169,8 @@
                 "8604fe30c579f341"
             ],
             [
-                "91b649eecd27b110",
-                "08f6820548e7ac91"
+                "08f6820548e7ac91",
+                "b7b84aa94d69bcfe"
             ]
         ]
     },
@@ -17724,7 +17736,7 @@
             "a30ad159a4a28a4d"
         ],
         "x": 1195,
-        "y": 420,
+        "y": 460,
         "wires": []
     },
     {
@@ -17757,20 +17769,6 @@
         "wires": [
             [
                 "d8317f48eacb7f70"
-            ]
-        ]
-    },
-    {
-        "id": "b7b84aa94d69bcfe",
-        "type": "debounce",
-        "z": "caf02dc9a5b73890",
-        "time": "2000",
-        "name": "",
-        "x": 400,
-        "y": 440,
-        "wires": [
-            [
-                "fb53dbf77d799ec7"
             ]
         ]
     },
@@ -18274,7 +18272,6 @@
         "id": "51651aa2ea02fbec",
         "type": "ping",
         "z": "caf02dc9a5b73890",
-        "d": true,
         "protocol": "Automatic",
         "mode": "timed",
         "name": "",
@@ -18293,7 +18290,6 @@
         "id": "98f97210e824ae29",
         "type": "ping",
         "z": "caf02dc9a5b73890",
-        "d": true,
         "protocol": "Automatic",
         "mode": "timed",
         "name": "",
@@ -18426,6 +18422,39 @@
         "x": 890,
         "y": 1860,
         "wires": []
+    },
+    {
+        "id": "b7b84aa94d69bcfe",
+        "type": "debounce",
+        "z": "caf02dc9a5b73890",
+        "time": "2000",
+        "name": "",
+        "x": 660,
+        "y": 400,
+        "wires": [
+            [
+                "91b649eecd27b110"
+            ]
+        ]
+    },
+    {
+        "id": "4e3368b1ed4f84e8",
+        "type": "template",
+        "z": "caf02dc9a5b73890",
+        "name": "Text \"Abschließen\"",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "plain",
+        "template": "Tür geschlossen. Abschließen!",
+        "output": "str",
+        "x": 970,
+        "y": 500,
+        "wires": [
+            [
+                "daefdaedb954414b"
+            ]
+        ]
     },
     {
         "id": "affde64f7b6e2b28",
