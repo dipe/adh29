@@ -98,7 +98,17 @@
         "label": "Haustür",
         "disabled": false,
         "info": "",
-        "env": []
+        "env": [
+            {
+                "name": "username",
+                "value": "admin",
+                "type": "str"
+            },
+            {
+                "name": "password",
+                "type": "cred"
+            }
+        ]
     },
     {
         "id": "caf02dc9a5b73890",
@@ -187,7 +197,7 @@
         "in": [],
         "out": [
             {
-                "x": 880,
+                "x": 920,
                 "y": 360,
                 "wires": [
                     {
@@ -197,7 +207,7 @@
                 ]
             },
             {
-                "x": 1240,
+                "x": 1280,
                 "y": 360,
                 "wires": [
                     {
@@ -534,7 +544,7 @@
         "id": "4567b39c81f033d0",
         "type": "junction",
         "z": "062848eb6508a3a6",
-        "x": 940,
+        "x": 960,
         "y": 2040,
         "wires": [
             [
@@ -586,7 +596,7 @@
         "type": "junction",
         "z": "062848eb6508a3a6",
         "x": 800,
-        "y": 1580,
+        "y": 1560,
         "wires": [
             [
                 "672d53d933615bd7",
@@ -1712,7 +1722,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 860,
+        "x": 900,
         "y": 300,
         "wires": [
             [
@@ -1736,7 +1746,7 @@
         "authType": "",
         "senderr": false,
         "headers": [],
-        "x": 1050,
+        "x": 1090,
         "y": 300,
         "wires": [
             []
@@ -1759,7 +1769,7 @@
         "drop": true,
         "allowrate": false,
         "outputs": 1,
-        "x": 660,
+        "x": 680,
         "y": 300,
         "wires": [
             [
@@ -13432,7 +13442,7 @@
         "links": [
             "986cc7c62e4fcf8c"
         ],
-        "x": 995,
+        "x": 1015,
         "y": 1940,
         "wires": []
     },
@@ -13472,7 +13482,7 @@
         "links": [
             "e03c33a6dcae1a6c"
         ],
-        "x": 995,
+        "x": 1015,
         "y": 2060,
         "wires": []
     },
@@ -13761,7 +13771,7 @@
         "bytopic": "all",
         "topic": "topic",
         "outputs": 1,
-        "x": 1050,
+        "x": 1070,
         "y": 2020,
         "wires": [
             [
@@ -13788,7 +13798,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1250,
+        "x": 1270,
         "y": 2020,
         "wires": [
             []
@@ -13808,7 +13818,7 @@
         "correl": "",
         "expiry": "",
         "broker": "c349b9ff.9dc4c8",
-        "x": 1080,
+        "x": 1100,
         "y": 1980,
         "wires": []
     },
@@ -13932,10 +13942,10 @@
         "rh": 0,
         "inputs": 0,
         "x": 290,
-        "y": 2380,
+        "y": 2480,
         "wires": [
             [
-                "24b7f9aa04a0c833"
+                "5a305a61e306dde3"
             ]
         ]
     },
@@ -13953,211 +13963,11 @@
         "rh": 0,
         "inputs": 0,
         "x": 290,
-        "y": 2460,
+        "y": 2520,
         "wires": [
             [
-                "820bafe3acf224f2"
+                "5a305a61e306dde3"
             ]
-        ]
-    },
-    {
-        "id": "3d57f2823ba7175b",
-        "type": "mqtt out",
-        "z": "062848eb6508a3a6",
-        "name": "",
-        "topic": "pinpad-haustuer/switch/relay1/command",
-        "qos": "",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "c349b9ff.9dc4c8",
-        "x": 1020,
-        "y": 2380,
-        "wires": []
-    },
-    {
-        "id": "7df6141d15f348ea",
-        "type": "mqtt out",
-        "z": "062848eb6508a3a6",
-        "name": "",
-        "topic": "pinpad-haustuer/switch/relay2/command",
-        "qos": "",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "c349b9ff.9dc4c8",
-        "x": 1020,
-        "y": 2460,
-        "wires": []
-    },
-    {
-        "id": "24b7f9aa04a0c833",
-        "type": "button-events",
-        "z": "062848eb6508a3a6",
-        "name": "Klingel",
-        "outputs": 2,
-        "inputField": "payload",
-        "inputFieldType": "msg",
-        "outputField": "payload",
-        "outputFieldType": "msg",
-        "downValue": "ON",
-        "downValueType": "str",
-        "upValue": "OFF",
-        "upValueType": "str",
-        "idleValue": "1",
-        "buttonEventsConfig": "3dbea5f7117423db",
-        "clickedInterval": null,
-        "pressedInterval": null,
-        "debounceInterval": null,
-        "events": [
-            {
-                "type": "clicked"
-            },
-            {
-                "type": "pressed"
-            }
-        ],
-        "x": 550,
-        "y": 2380,
-        "wires": [
-            [
-                "aeed9bccbb37aec3"
-            ],
-            [
-                "592d2e8fffd01543"
-            ]
-        ]
-    },
-    {
-        "id": "820bafe3acf224f2",
-        "type": "button-events",
-        "z": "062848eb6508a3a6",
-        "name": "Klingel",
-        "outputs": 2,
-        "inputField": "payload",
-        "inputFieldType": "msg",
-        "outputField": "payload",
-        "outputFieldType": "msg",
-        "downValue": "ON",
-        "downValueType": "str",
-        "upValue": "OFF",
-        "upValueType": "str",
-        "idleValue": "1",
-        "buttonEventsConfig": "3dbea5f7117423db",
-        "clickedInterval": null,
-        "pressedInterval": null,
-        "debounceInterval": null,
-        "events": [
-            {
-                "type": "clicked"
-            },
-            {
-                "type": "pressed"
-            }
-        ],
-        "x": 550,
-        "y": 2460,
-        "wires": [
-            [
-                "707912434cc1fd8d"
-            ],
-            [
-                "e40f7f9d7a7d8fa0"
-            ]
-        ]
-    },
-    {
-        "id": "707912434cc1fd8d",
-        "type": "trigger",
-        "z": "062848eb6508a3a6",
-        "name": "",
-        "op1": "ON",
-        "op2": "OFF",
-        "op1type": "str",
-        "op2type": "str",
-        "duration": "250",
-        "extend": false,
-        "overrideDelay": false,
-        "units": "ms",
-        "reset": "",
-        "bytopic": "all",
-        "topic": "topic",
-        "outputs": 1,
-        "x": 720,
-        "y": 2440,
-        "wires": [
-            [
-                "7df6141d15f348ea"
-            ]
-        ]
-    },
-    {
-        "id": "aeed9bccbb37aec3",
-        "type": "trigger",
-        "z": "062848eb6508a3a6",
-        "name": "",
-        "op1": "ON",
-        "op2": "OFF",
-        "op1type": "str",
-        "op2type": "str",
-        "duration": "250",
-        "extend": false,
-        "overrideDelay": false,
-        "units": "ms",
-        "reset": "",
-        "bytopic": "all",
-        "topic": "topic",
-        "outputs": 1,
-        "x": 720,
-        "y": 2360,
-        "wires": [
-            [
-                "3d57f2823ba7175b"
-            ]
-        ]
-    },
-    {
-        "id": "592d2e8fffd01543",
-        "type": "looptimer",
-        "z": "062848eb6508a3a6",
-        "duration": "0.7",
-        "units": "Second",
-        "maxloops": "2",
-        "maxtimeout": "1",
-        "maxtimeoutunits": "Minute",
-        "name": "",
-        "x": 730,
-        "y": 2400,
-        "wires": [
-            [
-                "3d57f2823ba7175b"
-            ],
-            []
-        ]
-    },
-    {
-        "id": "e40f7f9d7a7d8fa0",
-        "type": "looptimer",
-        "z": "062848eb6508a3a6",
-        "duration": "0.7",
-        "units": "Second",
-        "maxloops": "2",
-        "maxtimeout": "1",
-        "maxtimeoutunits": "Minute",
-        "name": "",
-        "x": 730,
-        "y": 2480,
-        "wires": [
-            [
-                "7df6141d15f348ea"
-            ],
-            []
         ]
     },
     {
@@ -15568,7 +15378,7 @@
         "repair": false,
         "outputs": 2,
         "x": 680,
-        "y": 1620,
+        "y": 1600,
         "wires": [
             [
                 "6a581e427fc920fe"
@@ -15788,6 +15598,239 @@
         "x": 855,
         "y": 1560,
         "wires": []
+    },
+    {
+        "id": "6903d806f430d4b7",
+        "type": "change",
+        "z": "062848eb6508a3a6",
+        "name": "Prep Snap Get",
+        "rules": [
+            {
+                "t": "set",
+                "p": "url",
+                "pt": "msg",
+                "to": "\"http://kamera-haustuer/cgi-bin/api.cgi?cmd=Snap&channel=0&token=\" & $flowContext(\"token\")",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 780,
+        "y": 2480,
+        "wires": [
+            [
+                "c8cbd5d2191a7909"
+            ]
+        ]
+    },
+    {
+        "id": "c8cbd5d2191a7909",
+        "type": "http request",
+        "z": "062848eb6508a3a6",
+        "name": "",
+        "method": "GET",
+        "ret": "bin",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 970,
+        "y": 2480,
+        "wires": [
+            [
+                "17cabeeb2b27611c"
+            ]
+        ]
+    },
+    {
+        "id": "e7c617a23d1611f4",
+        "type": "function",
+        "z": "062848eb6508a3a6",
+        "name": "Push Notification",
+        "func": "let image_url = \"https://home.dipe.de/ui/kamera-haustuer-img\";\n\nreturn {\n    notification: {\n        notification: { \n            title: \"Haustürklingel\", \n            body: \"Es hat geklingelt\" \n        }, \n        data: { \n            requireInteraction: true, \n            icon: \"https://nodered.org/about/resources/media/node-red-icon-2.png\",\n            image: image_url\n        }\n    }\n};\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 790,
+        "y": 2520,
+        "wires": [
+            [
+                "00c811ab0fc5e79c"
+            ]
+        ]
+    },
+    {
+        "id": "00c811ab0fc5e79c",
+        "type": "link out",
+        "z": "062848eb6508a3a6",
+        "name": "Person an Kellertür erkannt",
+        "mode": "link",
+        "links": [
+            "1cd036385c85d54d"
+        ],
+        "x": 935,
+        "y": 2520,
+        "wires": []
+    },
+    {
+        "id": "17cabeeb2b27611c",
+        "type": "link out",
+        "z": "062848eb6508a3a6",
+        "name": "link out 4",
+        "mode": "link",
+        "links": [
+            "c7b6b90beaf73c37"
+        ],
+        "x": 1095,
+        "y": 2480,
+        "wires": []
+    },
+    {
+        "id": "5ed4dede83b873c3",
+        "type": "change",
+        "z": "062848eb6508a3a6",
+        "name": "Prep Login Post",
+        "rules": [
+            {
+                "t": "set",
+                "p": "url",
+                "pt": "msg",
+                "to": "\"http://kamera-haustuer/cgi-bin/api.cgi?cmd=Login\"",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "[{\"cmd\":\"Login\",\"action\":0,\"param\":{\"User\":{\"userName\":$env('username'),\"password\":$env('password')}}}]",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 340,
+        "y": 2440,
+        "wires": [
+            [
+                "93095e5cace17aad"
+            ]
+        ]
+    },
+    {
+        "id": "93095e5cace17aad",
+        "type": "http request",
+        "z": "062848eb6508a3a6",
+        "name": "",
+        "method": "POST",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 530,
+        "y": 2440,
+        "wires": [
+            [
+                "8fca10f690a245dc"
+            ]
+        ]
+    },
+    {
+        "id": "09b1e17ee1d24d3d",
+        "type": "inject",
+        "z": "062848eb6508a3a6",
+        "name": "",
+        "props": [],
+        "repeat": "3000",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "11",
+        "topic": "",
+        "x": 180,
+        "y": 2440,
+        "wires": [
+            [
+                "5ed4dede83b873c3"
+            ]
+        ]
+    },
+    {
+        "id": "8fca10f690a245dc",
+        "type": "change",
+        "z": "062848eb6508a3a6",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "token",
+                "pt": "flow",
+                "to": "payload[0].value.Token.name",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 720,
+        "y": 2440,
+        "wires": [
+            []
+        ],
+        "icon": "font-awesome/fa-lock"
+    },
+    {
+        "id": "5a305a61e306dde3",
+        "type": "button-events",
+        "z": "062848eb6508a3a6",
+        "name": "",
+        "outputs": 1,
+        "inputField": "payload",
+        "inputFieldType": "msg",
+        "outputField": "payload",
+        "outputFieldType": "msg",
+        "downValue": "ON",
+        "downValueType": "str",
+        "upValue": "OFF",
+        "upValueType": "str",
+        "idleValue": "1",
+        "buttonEventsConfig": "3dbea5f7117423db",
+        "clickedInterval": null,
+        "pressedInterval": null,
+        "debounceInterval": null,
+        "events": [
+            {
+                "type": "button_press"
+            }
+        ],
+        "x": 580,
+        "y": 2500,
+        "wires": [
+            [
+                "6903d806f430d4b7",
+                "e7c617a23d1611f4"
+            ]
+        ]
     },
     {
         "id": "3eec6b45c3f95d3f",
@@ -24479,7 +24522,9 @@
             "73c3ba04e545c1fc",
             "db754ef789a18c99",
             "b95a7e74b62a744b",
-            "797b6ddd77d5a87d"
+            "797b6ddd77d5a87d",
+            "7af8943a9f308a8b",
+            "00c811ab0fc5e79c"
         ],
         "x": 595,
         "y": 560,
@@ -24691,7 +24736,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 630,
+        "x": 650,
         "y": 160,
         "wires": [
             [
@@ -24743,7 +24788,7 @@
         "font": "",
         "fontSize": "",
         "color": "#000000",
-        "x": 660,
+        "x": 680,
         "y": 80,
         "wires": []
     },
@@ -24762,7 +24807,7 @@
         "resendOnRefresh": true,
         "templateScope": "local",
         "className": "",
-        "x": 620,
+        "x": 640,
         "y": 120,
         "wires": [
             []
@@ -24777,7 +24822,7 @@
         "links": [
             "1cd036385c85d54d"
         ],
-        "x": 765,
+        "x": 785,
         "y": 160,
         "wires": []
     },
@@ -24817,7 +24862,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 630,
+        "x": 650,
         "y": 320,
         "wires": [
             [
@@ -24869,7 +24914,7 @@
         "font": "",
         "fontSize": "",
         "color": "#000000",
-        "x": 670,
+        "x": 690,
         "y": 240,
         "wires": []
     },
@@ -24888,7 +24933,7 @@
         "resendOnRefresh": true,
         "templateScope": "local",
         "className": "",
-        "x": 620,
+        "x": 640,
         "y": 280,
         "wires": [
             []
@@ -24904,7 +24949,7 @@
             "1cd036385c85d54d",
             "3bbcf05fba67d89a"
         ],
-        "x": 765,
+        "x": 785,
         "y": 320,
         "wires": []
     },
@@ -24944,7 +24989,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 630,
+        "x": 650,
         "y": 480,
         "wires": [
             [
@@ -24996,7 +25041,7 @@
         "font": "",
         "fontSize": "",
         "color": "#000000",
-        "x": 660,
+        "x": 680,
         "y": 400,
         "wires": []
     },
@@ -25015,7 +25060,7 @@
         "resendOnRefresh": true,
         "templateScope": "local",
         "className": "",
-        "x": 620,
+        "x": 640,
         "y": 440,
         "wires": [
             []
@@ -25030,7 +25075,7 @@
         "links": [
             "1cd036385c85d54d"
         ],
-        "x": 765,
+        "x": 785,
         "y": 480,
         "wires": []
     },
@@ -25154,6 +25199,47 @@
             ],
             [
                 "94f4b7425b382622"
+            ]
+        ]
+    },
+    {
+        "id": "6d78bf16f2775d40",
+        "type": "change",
+        "z": "fc93ef5a2502b341",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "kamera-haustuer",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 280,
+        "y": 740,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c7b6b90beaf73c37",
+        "type": "link in",
+        "z": "fc93ef5a2502b341",
+        "name": "Speichere Kamera Haustür Bild",
+        "links": [
+            "17cabeeb2b27611c"
+        ],
+        "x": 95,
+        "y": 740,
+        "wires": [
+            [
+                "6d78bf16f2775d40"
             ]
         ]
     },
