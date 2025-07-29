@@ -605,6 +605,21 @@
         ]
     },
     {
+        "id": "9d3f7f3b766e2880",
+        "type": "junction",
+        "z": "062848eb6508a3a6",
+        "x": 700,
+        "y": 2660,
+        "wires": [
+            [
+                "e7c617a23d1611f4",
+                "6903d806f430d4b7",
+                "4f8f08e94db97b09",
+                "0be175f5465114c4"
+            ]
+        ]
+    },
+    {
         "id": "c349b9ff.9dc4c8",
         "type": "mqtt-broker",
         "name": "dipe-pi",
@@ -1458,7 +1473,7 @@
         "tab": "c824e9e5.f339c8",
         "order": 2,
         "disp": true,
-        "width": "6",
+        "width": 6,
         "collapse": false,
         "className": ""
     },
@@ -1478,7 +1493,7 @@
         "tab": "c824e9e5.f339c8",
         "order": 3,
         "disp": true,
-        "width": "6",
+        "width": 6,
         "collapse": false,
         "className": ""
     },
@@ -5384,7 +5399,7 @@
         "label": "Treppenhaus  (2 min)",
         "tooltip": "",
         "group": "64b01bd0.e1d1b4",
-        "order": 5,
+        "order": 1,
         "width": 0,
         "height": 0,
         "passthru": true,
@@ -5616,7 +5631,7 @@
         "label": "Treppenhaus Keller (2 min)",
         "tooltip": "",
         "group": "64b01bd0.e1d1b4",
-        "order": 5,
+        "order": 2,
         "width": 0,
         "height": 0,
         "passthru": true,
@@ -6060,7 +6075,7 @@
         "label": "Treppenhaus Keller (1 h)",
         "tooltip": "",
         "group": "64b01bd0.e1d1b4",
-        "order": 5,
+        "order": 3,
         "width": 0,
         "height": 0,
         "passthru": true,
@@ -6491,7 +6506,7 @@
         "label": "Treppenhaus Gardrobe (2 min)",
         "tooltip": "",
         "group": "64b01bd0.e1d1b4",
-        "order": 5,
+        "order": 4,
         "width": 0,
         "height": 0,
         "passthru": true,
@@ -12830,7 +12845,7 @@
         "z": "062848eb6508a3a6",
         "name": "",
         "group": "40197d5f58592aee",
-        "order": 5,
+        "order": 7,
         "width": 0,
         "height": 0,
         "passthru": false,
@@ -12860,7 +12875,7 @@
         "label": "PIN",
         "tooltip": "",
         "group": "40197d5f58592aee",
-        "order": 4,
+        "order": 6,
         "width": 0,
         "height": 0,
         "passthru": true,
@@ -12904,7 +12919,7 @@
         "type": "ui_text",
         "z": "062848eb6508a3a6",
         "group": "40197d5f58592aee",
-        "order": 2,
+        "order": 4,
         "width": 0,
         "height": 0,
         "name": "",
@@ -13068,7 +13083,7 @@
         "z": "062848eb6508a3a6",
         "name": "",
         "group": "40197d5f58592aee",
-        "order": 6,
+        "order": 8,
         "width": 0,
         "height": 0,
         "passthru": false,
@@ -13462,7 +13477,8 @@
             "249ae48919a778cc",
             "1f554e90d03ec3db",
             "ce08ec74123677a2",
-            "76f5d758dfa7a70c"
+            "76f5d758dfa7a70c",
+            "139fd09546e5f4a8"
         ],
         "x": 135,
         "y": 2140,
@@ -13492,8 +13508,8 @@
         "z": "062848eb6508a3a6",
         "group": "afcbed3b3929b5c2",
         "order": 1,
-        "width": "6",
-        "height": "6",
+        "width": 6,
+        "height": 6,
         "name": "Log",
         "label": "{{msg.payload}}",
         "format": "",
@@ -13942,7 +13958,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 290,
-        "y": 2480,
+        "y": 2640,
         "wires": [
             [
                 "5a305a61e306dde3"
@@ -13963,7 +13979,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 290,
-        "y": 2520,
+        "y": 2680,
         "wires": [
             [
                 "5a305a61e306dde3"
@@ -14407,7 +14423,7 @@
         "type": "ui_text",
         "z": "062848eb6508a3a6",
         "group": "40197d5f58592aee",
-        "order": 1,
+        "order": 3,
         "width": 0,
         "height": 0,
         "name": "",
@@ -14577,7 +14593,7 @@
         "label": "Nicht automatisch abschließen",
         "tooltip": "",
         "group": "40197d5f58592aee",
-        "order": 3,
+        "order": 5,
         "width": 0,
         "height": 0,
         "passthru": false,
@@ -15618,8 +15634,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 780,
-        "y": 2480,
+        "x": 860,
+        "y": 2600,
         "wires": [
             [
                 "c8cbd5d2191a7909"
@@ -15642,11 +15658,11 @@
         "authType": "",
         "senderr": false,
         "headers": [],
-        "x": 970,
-        "y": 2480,
+        "x": 1050,
+        "y": 2600,
         "wires": [
             [
-                "17cabeeb2b27611c"
+                "6d78bf16f2775d40"
             ]
         ]
     },
@@ -15655,15 +15671,15 @@
         "type": "function",
         "z": "062848eb6508a3a6",
         "name": "Push Notification",
-        "func": "let image_url = \"https://home.dipe.de/ui/kamera-haustuer-img\";\n\nreturn {\n    notification: {\n        notification: { \n            title: \"Haustürklingel\", \n            body: \"Es hat geklingelt\" \n        }, \n        data: { \n            requireInteraction: true, \n            icon: \"https://nodered.org/about/resources/media/node-red-icon-2.png\",\n            image: image_url\n        }\n    }\n};\n",
+        "func": "let image_url = \"https://home.dipe.de/ui/kamera-haustuer-klingel-img\";\n\nreturn {\n    notification: {\n        notification: { \n            title: \"Haustürklingel\", \n            body: \"Es hat geklingelt\" \n        }, \n        data: { \n            requireInteraction: true, \n            icon: \"https://nodered.org/about/resources/media/node-red-icon-2.png\",\n            image: image_url\n        }\n    }\n};\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 790,
-        "y": 2520,
+        "x": 870,
+        "y": 2640,
         "wires": [
             [
                 "00c811ab0fc5e79c"
@@ -15679,21 +15695,8 @@
         "links": [
             "1cd036385c85d54d"
         ],
-        "x": 935,
-        "y": 2520,
-        "wires": []
-    },
-    {
-        "id": "17cabeeb2b27611c",
-        "type": "link out",
-        "z": "062848eb6508a3a6",
-        "name": "link out 4",
-        "mode": "link",
-        "links": [
-            "c7b6b90beaf73c37"
-        ],
-        "x": 1095,
-        "y": 2480,
+        "x": 1015,
+        "y": 2640,
         "wires": []
     },
     {
@@ -15824,11 +15827,220 @@
             }
         ],
         "x": 580,
+        "y": 2660,
+        "wires": [
+            [
+                "9d3f7f3b766e2880"
+            ]
+        ]
+    },
+    {
+        "id": "139fd09546e5f4a8",
+        "type": "link out",
+        "z": "062848eb6508a3a6",
+        "name": "link out 5",
+        "mode": "link",
+        "links": [
+            "e03c33a6dcae1a6c"
+        ],
+        "x": 1035,
+        "y": 2680,
+        "wires": []
+    },
+    {
+        "id": "4f8f08e94db97b09",
+        "type": "template",
+        "z": "062848eb6508a3a6",
+        "name": "Text \"Haustürklingel\"",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "plain",
+        "template": "Haustürklingel",
+        "output": "str",
+        "x": 880,
+        "y": 2680,
+        "wires": [
+            [
+                "139fd09546e5f4a8"
+            ]
+        ]
+    },
+    {
+        "id": "0be175f5465114c4",
+        "type": "function",
+        "z": "062848eb6508a3a6",
+        "name": "Person detected at",
+        "func": "let timestamp = new Date();\nlet time = timestamp.toLocaleTimeString('de-DE', { timeStyle: 'short' });\nreturn [\n    {payload: time},\n    {payload: timestamp.valueOf()}\n];",
+        "outputs": 2,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 870,
+        "y": 2740,
+        "wires": [
+            [
+                "35592cf5363351cf"
+            ],
+            [
+                "8216c7375ecc5ba4"
+            ]
+        ]
+    },
+    {
+        "id": "35592cf5363351cf",
+        "type": "ui_text",
+        "z": "062848eb6508a3a6",
+        "group": "40197d5f58592aee",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Person klingelt um",
+        "format": "{{msg.payload}}",
+        "layout": "row-center",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
+        "x": 1090,
+        "y": 2720,
+        "wires": []
+    },
+    {
+        "id": "8216c7375ecc5ba4",
+        "type": "ui_template",
+        "z": "062848eb6508a3a6",
+        "group": "40197d5f58592aee",
+        "name": "Schnappschuss",
+        "order": 2,
+        "width": "6",
+        "height": "6",
+        "format": "<img src=\"/ui/kamera-haustuer-klingel-img?ts={{msg.payload}}\" style=\"transform:rotate(90deg);margin-top:70px; width: 318px\">",
+        "storeOutMessages": false,
+        "fwdInMessages": false,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 1080,
+        "y": 2760,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6d78bf16f2775d40",
+        "type": "change",
+        "z": "062848eb6508a3a6",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "kamera-haustuer-klingel",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1300,
+        "y": 2600,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "184a66ccf754cfd2",
+        "type": "change",
+        "z": "062848eb6508a3a6",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "kamera-haustuer-klingel",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 530,
         "y": 2500,
         "wires": [
             [
-                "6903d806f430d4b7",
-                "e7c617a23d1611f4"
+                "6c093d6f719006bd"
+            ]
+        ]
+    },
+    {
+        "id": "7b4dae49b4f15122",
+        "type": "http in",
+        "z": "062848eb6508a3a6",
+        "name": "",
+        "url": "/ui/kamera-haustuer-klingel-img",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 260,
+        "y": 2500,
+        "wires": [
+            [
+                "184a66ccf754cfd2"
+            ]
+        ]
+    },
+    {
+        "id": "6c093d6f719006bd",
+        "type": "http response",
+        "z": "062848eb6508a3a6",
+        "name": "",
+        "statusCode": "",
+        "headers": {
+            "Content-Type": "image/jpeg",
+            "Content-Disposition": "inline",
+            "Cache-Control": "no-cache"
+        },
+        "x": 710,
+        "y": 2500,
+        "wires": []
+    },
+    {
+        "id": "97b6843e4897cf11",
+        "type": "inject",
+        "z": "062848eb6508a3a6",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 600,
+        "y": 2620,
+        "wires": [
+            [
+                "9d3f7f3b766e2880"
             ]
         ]
     },
@@ -24523,7 +24735,6 @@
             "db754ef789a18c99",
             "b95a7e74b62a744b",
             "797b6ddd77d5a87d",
-            "7af8943a9f308a8b",
             "00c811ab0fc5e79c"
         ],
         "x": 595,
@@ -24579,7 +24790,7 @@
             "Content-Type": "image/jpeg",
             "Content-Disposition": "inline"
         },
-        "x": 630,
+        "x": 670,
         "y": 660,
         "wires": []
     },
@@ -24602,7 +24813,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 450,
+        "x": 490,
         "y": 660,
         "wires": [
             [
@@ -24637,7 +24848,7 @@
             "Content-Type": "image/jpeg",
             "Content-Disposition": "inline"
         },
-        "x": 630,
+        "x": 670,
         "y": 620,
         "wires": []
     },
@@ -24660,7 +24871,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 450,
+        "x": 490,
         "y": 620,
         "wires": [
             [
@@ -24696,7 +24907,7 @@
             "Content-Disposition": "inline",
             "Cache-Control": "no-cache"
         },
-        "x": 630,
+        "x": 670,
         "y": 580,
         "wires": []
     },
@@ -25098,7 +25309,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 450,
+        "x": 490,
         "y": 580,
         "wires": [
             [
@@ -25199,47 +25410,6 @@
             ],
             [
                 "94f4b7425b382622"
-            ]
-        ]
-    },
-    {
-        "id": "6d78bf16f2775d40",
-        "type": "change",
-        "z": "fc93ef5a2502b341",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "kamera-haustuer",
-                "pt": "flow",
-                "to": "payload",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 280,
-        "y": 740,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "c7b6b90beaf73c37",
-        "type": "link in",
-        "z": "fc93ef5a2502b341",
-        "name": "Speichere Kamera Haustür Bild",
-        "links": [
-            "17cabeeb2b27611c"
-        ],
-        "x": 95,
-        "y": 740,
-        "wires": [
-            [
-                "6d78bf16f2775d40"
             ]
         ]
     },
