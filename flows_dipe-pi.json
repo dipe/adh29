@@ -1082,12 +1082,12 @@
         "type": "config-log",
         "logname": "node-red",
         "logdir": "node-red-logs",
-        "stamp": "utc",
+        "stamp": "local",
         "logstyle": "plain",
         "logrotate": true,
         "logcompress": true,
         "logrotatecount": "5",
-        "logsize": "1000"
+        "logsize": "5000"
     },
     {
         "id": "bf6b9b61f49db1aa",
@@ -8303,7 +8303,7 @@
         "correl": "",
         "expiry": "",
         "broker": "c349b9ff.9dc4c8",
-        "x": 770,
+        "x": 930,
         "y": 660,
         "wires": []
     },
@@ -8323,9 +8323,7 @@
         "y": 660,
         "wires": [
             [
-                "7ced6d2d.29ad64",
-                "6795e265.50a59c",
-                "c4e81b24848f57bf"
+                "9b100c3e75729cb5"
             ]
         ]
     },
@@ -8355,7 +8353,7 @@
         "offcolor": "",
         "animate": true,
         "className": "",
-        "x": 470,
+        "x": 670,
         "y": 660,
         "wires": [
             [
@@ -8373,7 +8371,7 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 460,
+        "x": 660,
         "y": 620,
         "wires": [
             [
@@ -8394,7 +8392,7 @@
         "format": "{{msg.payload}}",
         "layout": "row-spread",
         "className": "",
-        "x": 830,
+        "x": 1030,
         "y": 620,
         "wires": []
     },
@@ -8637,7 +8635,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 640,
+        "x": 840,
         "y": 620,
         "wires": [
             [
@@ -8733,7 +8731,7 @@
         "offcolor": "",
         "animate": true,
         "className": "",
-        "x": 470,
+        "x": 670,
         "y": 700,
         "wires": [
             [
@@ -8755,7 +8753,7 @@
         "correl": "",
         "expiry": "",
         "broker": "c349b9ff.9dc4c8",
-        "x": 760,
+        "x": 920,
         "y": 700,
         "wires": []
     },
@@ -8839,7 +8837,7 @@
         "links": [
             "89dc73d808e84b6b"
         ],
-        "x": 285,
+        "x": 545,
         "y": 700,
         "wires": [
             [
@@ -9200,6 +9198,33 @@
         "wires": [
             [
                 "89dc73d808e84b6b"
+            ]
+        ]
+    },
+    {
+        "id": "9b100c3e75729cb5",
+        "type": "delay",
+        "z": "293bb437.fa00bc",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "10",
+        "rateUnits": "minute",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 450,
+        "y": 660,
+        "wires": [
+            [
+                "6795e265.50a59c",
+                "7ced6d2d.29ad64",
+                "c4e81b24848f57bf"
             ]
         ]
     },
@@ -11317,7 +11342,7 @@
         "type": "function",
         "z": "2788b93b.8a2f56",
         "name": "recall klima draußen",
-        "func": "const name = \"steckdose1\";\n\nconst temperature = global.get(name + \"-temperature\");\nconst humidity = global.get(name + \"-humidity\");\nconst abs_humidity = global.get(name + \"-absolute_humidity\");\nconst last_abs_humidity = global.get(name + \"-last_abs_humidity\");\nglobal.set(name + \"-last_abs_humidity\", abs_humidity);\n\n//node.warn(name)\n//node.warn(temperature)\n//node.warn(humidity)\n//node.warn(abs_humidity)\n//node.warn(last_abs_humidity_gt_outside_abs_humidity)\n//node.warn(outside_abs_humidity)\n\nconst intl = global.get('intl');\nconst format = intl.NumberFormat('de-De',{style:'decimal', maximumFractionDigits: 1}).format;\nconst sprintf = global.get(\"sprintf\");\nconst text = sprintf(\"%s °C, %s %% H, %s g/m³\", format(temperature), format(humidity), format(abs_humidity))\n\nif        (abs_humidity >= 13) {\n    return {payload: {name: name, color: \"deepskyblue\", hint: \"Draußen ist es sehr feucht.\", text: text}};\n} else if (abs_humidity >= 12 && abs_humidity < 13) {\n    return {payload: {name: name, color: \"skyblue\", hint: \"Draußen ist es feucht.\", text: text}};\n} else if (abs_humidity >= 11 && abs_humidity < 12) {\n    return {payload: {name: name, color: \"limegreen\", hint: \"Draußen ist einigermaßen trocken.\", text: text}};\n} else if (abs_humidity < 11) {\n    return {payload: {name: name, color: \"YellowGreen\", hint: \"Draußen ist es trocken.\", text: text}};\n} else {\n    return {payload: {name: name, color: \"DarkSeaGreen\", hint: \"Draußen ist es sehr trocken.\", text: text}};\n}\n\n// if (last_abs_humidity >= 13 && abs_humidity >= 13 ||\n//     last_abs_humidity < 13 && abs_humidity > 13 * 1.10) {\n//     return { payload: { name: name, color: \"deepskyblue\", hint: \"Draußen ist es sehr feucht.\", text: text } };\n// } else if (last_abs_humidity > 13 && abs_humidity < 13 / 1.10 && abs_humidity > 12 ||\n//     last_abs_humidity <= 13 && last_abs_humidity >= 12 && abs_humidity <= 13 && abs_humidity >= 12 ||\n//     last_abs_humidity < 12 && abs_humidity > 12 * 1.10 && abs_humidity < 13) {\n//     return { payload: { name: name, color: \"skyblue\", hint: \"Draußen ist es feucht.\", text: text } };\n// } else if (last_abs_humidity > 12 && abs_humidity < 12 / 1.10 && abs_humidity > 11 ||\n//     last_abs_humidity <= 12 && last_abs_humidity >= 11 && abs_humidity <= 12 && abs_humidity >= 11 ||\n//     last_abs_humidity < 11 && abs_humidity > 11 * 1.10 && abs_humidity < 12) {\n//     return { payload: { name: name, color: \"limegreen\", hint: \"Draußen ist einigermaßen trocken.\", text: text } };\n// } else if (last_abs_humidity > 11 && abs_humidity < 11 / 1.10 ||\n//     last_abs_humidity <= 11 && abs_humidity <= 11) {\n//     return { payload: { name: name, color: \"YellowGreen\", hint: \"Draußen ist es trocken.\", text: text } };\n// } else {\n//     return { payload: { name: name, color: \"DarkSeaGreen\", hint: \"Draußen ist es sehr trocken.\", text: text } };\n// }\n",
+        "func": "const name = \"steckdose1\";\n\nconst temperature = global.get(name + \"-temperature\");\nconst humidity = global.get(name + \"-humidity\");\nconst abs_humidity = global.get(name + \"-absolute_humidity\");\nconst last_abs_humidity = global.get(name + \"-last_abs_humidity\");\nglobal.set(name + \"-last_abs_humidity\", abs_humidity);\n\n//node.warn(name)\n//node.warn(temperature)\n//node.warn(humidity)\n//node.warn(abs_humidity)\n//node.warn(last_abs_humidity_gt_outside_abs_humidity)\n//node.warn(outside_abs_humidity)\n\nconst intl = global.get('intl');\nconst format = intl.NumberFormat('de-De',{style:'decimal', maximumFractionDigits: 1}).format;\nconst sprintf = global.get(\"sprintf\");\nconst text = sprintf(\"%s °C, %s %% H, %s g/m³\", format(temperature), format(humidity), format(abs_humidity))\n\nif        (abs_humidity >= 13) {\n    return {payload: {name: name, color: \"deepskyblue\", hint: \"Draußen ist es sehr feucht.\", text: text, abs_humidity: abs_humidity}};\n} else if (abs_humidity >= 12 && abs_humidity < 13) {\n    return {payload: {name: name, color: \"skyblue\", hint: \"Draußen ist es feucht.\", text: text, abs_humidity: abs_humidity}};\n} else if (abs_humidity >= 11 && abs_humidity < 12) {\n    return {payload: {name: name, color: \"limegreen\", hint: \"Draußen ist einigermaßen trocken.\", text: text, abs_humidity: abs_humidity}};\n} else if (abs_humidity < 11) {\n    return {payload: {name: name, color: \"YellowGreen\", hint: \"Draußen ist es trocken.\", text: text, abs_humidity: abs_humidity}};\n} else {\n    return {payload: {name: name, color: \"DarkSeaGreen\", hint: \"Draußen ist es sehr trocken.\", text: text, abs_humidity: abs_humidity}};\n}\n\n// if (last_abs_humidity >= 13 && abs_humidity >= 13 ||\n//     last_abs_humidity < 13 && abs_humidity > 13 * 1.10) {\n//     return { payload: { name: name, color: \"deepskyblue\", hint: \"Draußen ist es sehr feucht.\", text: text } };\n// } else if (last_abs_humidity > 13 && abs_humidity < 13 / 1.10 && abs_humidity > 12 ||\n//     last_abs_humidity <= 13 && last_abs_humidity >= 12 && abs_humidity <= 13 && abs_humidity >= 12 ||\n//     last_abs_humidity < 12 && abs_humidity > 12 * 1.10 && abs_humidity < 13) {\n//     return { payload: { name: name, color: \"skyblue\", hint: \"Draußen ist es feucht.\", text: text } };\n// } else if (last_abs_humidity > 12 && abs_humidity < 12 / 1.10 && abs_humidity > 11 ||\n//     last_abs_humidity <= 12 && last_abs_humidity >= 11 && abs_humidity <= 12 && abs_humidity >= 11 ||\n//     last_abs_humidity < 11 && abs_humidity > 11 * 1.10 && abs_humidity < 12) {\n//     return { payload: { name: name, color: \"limegreen\", hint: \"Draußen ist einigermaßen trocken.\", text: text } };\n// } else if (last_abs_humidity > 11 && abs_humidity < 11 / 1.10 ||\n//     last_abs_humidity <= 11 && abs_humidity <= 11) {\n//     return { payload: { name: name, color: \"YellowGreen\", hint: \"Draußen ist es trocken.\", text: text } };\n// } else {\n//     return { payload: { name: name, color: \"DarkSeaGreen\", hint: \"Draußen ist es sehr trocken.\", text: text } };\n// }\n",
         "outputs": 1,
         "timeout": "",
         "noerr": 0,
@@ -11328,7 +11353,8 @@
         "y": 340,
         "wires": [
             [
-                "dac326a7.c5d638"
+                "dac326a7.c5d638",
+                "68a9bdaa8b3dd48c"
             ]
         ]
     },
@@ -11996,6 +12022,100 @@
         "wires": [
             []
         ]
+    },
+    {
+        "id": "68a9bdaa8b3dd48c",
+        "type": "function",
+        "z": "2788b93b.8a2f56",
+        "name": "push wetteränderung",
+        "func": "let current_hint = msg.payload.hint;\nlet current_abs_humidity = msg.payload.abs_humidity;\nlet last_hint = flow.get('last_hint') || 'unbekannt';\nlet last_abs_humidity = flow.get('last_abs_humidity') || 0;\n\nflow.set('last_abs_humidity', current_abs_humidity);\nflow.set('last_hint', current_hint);\n\nif (current_hint != last_hint) {\n    let wetter_hint = '';\n    let wetter_change = '';\n\n    if (last_abs_humidity < current_abs_humidity) {\n        wetter_change = 'Draußen ist es feuchter geworden.';\n        wetter_hint = 'Fenster schließen?';\n    } else {\n        wetter_change = 'Draußen ist es trockener geworden.';\n        wetter_hint = 'Lüften?';\n    }\n\n    return {\n        notification: {\n            notification: { \n                title: wetter_change, \n                body: wetter_hint\n            }\n        },\n        debug: {\n            wetter_change: wetter_change,\n            wetter_hint: wetter_hint,\n            current_abs_humidity: current_abs_humidity,\n            current_hint: current_hint,\n            last_abs_humidity: last_abs_humidity,\n            last_hint: last_hint\n        }\n    };\n}\n\nreturn;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 660,
+        "y": 340,
+        "wires": [
+            [
+                "85ae12065cd8acb3",
+                "acb10a5c4e93f41b",
+                "40f087710bb29d75"
+            ]
+        ]
+    },
+    {
+        "id": "40f087710bb29d75",
+        "type": "link out",
+        "z": "2788b93b.8a2f56",
+        "name": "link out 4",
+        "mode": "link",
+        "links": [
+            "1cd036385c85d54d"
+        ],
+        "x": 815,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "85ae12065cd8acb3",
+        "type": "delay",
+        "z": "2788b93b.8a2f56",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "hour",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 900,
+        "y": 340,
+        "wires": [
+            [
+                "e970fbdbc3d7a997"
+            ]
+        ]
+    },
+    {
+        "id": "acb10a5c4e93f41b",
+        "type": "debug",
+        "z": "2788b93b.8a2f56",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 900,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "e970fbdbc3d7a997",
+        "type": "debug",
+        "z": "2788b93b.8a2f56",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1080,
+        "y": 220,
+        "wires": []
     },
     {
         "id": "fc831115.7e04a",
@@ -13358,7 +13478,7 @@
         "links": [
             "96ddcf96bd0f01a9"
         ],
-        "x": 335,
+        "x": 375,
         "y": 180,
         "wires": []
     },
@@ -13371,7 +13491,7 @@
         "links": [
             "986cc7c62e4fcf8c"
         ],
-        "x": 335,
+        "x": 375,
         "y": 220,
         "wires": []
     },
@@ -13384,7 +13504,7 @@
         "links": [
             "39cc2025cd461843"
         ],
-        "x": 335,
+        "x": 375,
         "y": 260,
         "wires": []
     },
@@ -13397,7 +13517,7 @@
         "links": [
             "576bc4593d875946"
         ],
-        "x": 335,
+        "x": 375,
         "y": 300,
         "wires": []
     },
@@ -24561,6 +24681,7 @@
         "id": "3d761c9f.df5fa4",
         "type": "web-push-notification",
         "z": "186ee9b7.78e426",
+        "d": true,
         "name": "web push notification",
         "title": "Hello Node-RED user!!!",
         "body": "Click me to open your dashboard",
@@ -24578,6 +24699,7 @@
         "id": "412be38b.155bac",
         "type": "inject",
         "z": "186ee9b7.78e426",
+        "d": true,
         "name": "Send predefined notification",
         "props": [
             {
@@ -24639,6 +24761,7 @@
         "id": "362b4b30.09d254",
         "type": "inject",
         "z": "186ee9b7.78e426",
+        "d": true,
         "name": "Send custom notifcation",
         "props": [
             {
@@ -24668,6 +24791,7 @@
         "id": "180914ab.2b6e8b",
         "type": "change",
         "z": "186ee9b7.78e426",
+        "d": true,
         "name": "payload => notification",
         "rules": [
             {
@@ -24735,7 +24859,8 @@
             "db754ef789a18c99",
             "b95a7e74b62a744b",
             "797b6ddd77d5a87d",
-            "00c811ab0fc5e79c"
+            "00c811ab0fc5e79c",
+            "40f087710bb29d75"
         ],
         "x": 595,
         "y": 560,
