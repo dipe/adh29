@@ -189,6 +189,14 @@
         "env": []
     },
     {
+        "id": "80b8993e67ae0f11",
+        "type": "tab",
+        "label": "mcp",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "f5d8e11fee9a1e7c",
         "type": "subflow",
         "name": "reolink-kamera",
@@ -10166,7 +10174,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 210,
-        "y": 240,
+        "y": 260,
         "wires": [
             [
                 "eaf6fe8a89747f00"
@@ -10266,7 +10274,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 220,
-        "y": 280,
+        "y": 300,
         "wires": [
             [
                 "eaf6fe8a89747f00"
@@ -11427,8 +11435,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 430,
-        "y": 220,
+        "x": 310,
+        "y": 120,
         "wires": [
             []
         ]
@@ -11450,11 +11458,12 @@
         "topic": "",
         "payload": "Started!",
         "payloadType": "str",
-        "x": 170,
-        "y": 220,
+        "x": 90,
+        "y": 140,
         "wires": [
             [
-                "40d6912.e35a67"
+                "40d6912.e35a67",
+                "d9379ea9abb1659e"
             ]
         ]
     },
@@ -12003,7 +12012,7 @@
         "type": "function",
         "z": "2788b93b.8a2f56",
         "name": "push wetteränderung",
-        "func": "let current_hint = msg.payload.hint;\nlet current_abs_humidity = msg.payload.abs_humidity;\nlet last_hint = flow.get('last_hint') || 'unbekannt';\nlet last_abs_humidity = flow.get('last_abs_humidity') || 0;\n\nflow.set('last_abs_humidity', current_abs_humidity);\nflow.set('last_hint', current_hint);\n\nif (current_hint != last_hint) {\n    let wetter_hint = '';\n    let wetter_change = '';\n\n    if (last_abs_humidity < current_abs_humidity) {\n        wetter_change = 'Draußen ist es feuchter geworden.';\n        wetter_hint = 'Fenster schließen?';\n    } else {\n        wetter_change = 'Draußen ist es trockener geworden.';\n        wetter_hint = 'Lüften?';\n    }\n\n    return {\n        notification: {\n            notification: { \n                title: wetter_change, \n                body: wetter_hint\n            }\n        },\n        debug: {\n            wetter_change: wetter_change,\n            wetter_hint: wetter_hint,\n            current_abs_humidity: current_abs_humidity,\n            current_hint: current_hint,\n            last_abs_humidity: last_abs_humidity,\n            last_hint: last_hint\n        }\n    };\n}\n\nreturn;\n",
+        "func": "if (!flow.get('push-benachrichtigungen'))\n    return;\n\nlet current_hint = msg.payload.hint;\nlet current_abs_humidity = msg.payload.abs_humidity;\nlet last_hint = flow.get('last_hint') || 'unbekannt';\nlet last_abs_humidity = flow.get('last_abs_humidity') || 0;\n\nflow.set('last_abs_humidity', current_abs_humidity);\nflow.set('last_hint', current_hint);\n\nif (current_hint != last_hint) {\n    let wetter_hint = '';\n    let wetter_change = '';\n\n    if (current_abs_humidity * 1.1 > last_abs_humidity) {\n        wetter_change = 'Draußen ist es feuchter geworden.';\n        wetter_hint = 'Fenster schließen?';\n    } else if (current_abs_humidity * 0.9 < last_abs_humidity) {\n        wetter_change = 'Draußen ist es trockener geworden.';\n        wetter_hint = 'Lüften?';\n    } else\n        return;\n\n    return {\n        notification: {\n            notification: { \n                title: wetter_change, \n                body: wetter_hint\n            }\n        },\n        debug: {\n            wetter_change: wetter_change,\n            wetter_hint: wetter_hint,\n            current_abs_humidity: current_abs_humidity,\n            current_hint: current_hint,\n            last_abs_humidity: last_abs_humidity,\n            last_hint: last_hint\n        }\n    };\n}\n\nreturn;\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -12014,8 +12023,6 @@
         "y": 340,
         "wires": [
             [
-                "85ae12065cd8acb3",
-                "acb10a5c4e93f41b",
                 "40f087710bb29d75"
             ]
         ]
@@ -12030,67 +12037,94 @@
             "1cd036385c85d54d"
         ],
         "x": 815,
-        "y": 380,
+        "y": 340,
         "wires": []
     },
     {
-        "id": "85ae12065cd8acb3",
-        "type": "delay",
+        "id": "e63021ca9a82ab15",
+        "type": "ui_switch",
         "z": "2788b93b.8a2f56",
         "name": "",
-        "pauseType": "rate",
-        "timeout": "5",
-        "timeoutUnits": "seconds",
-        "rate": "1",
-        "nbRateUnits": "1",
-        "rateUnits": "hour",
-        "randomFirst": "1",
-        "randomLast": "5",
-        "randomUnits": "seconds",
-        "drop": true,
-        "allowrate": false,
-        "outputs": 1,
-        "x": 900,
-        "y": 340,
+        "label": "Push-Benachrichtigungen",
+        "tooltip": "",
+        "group": "f3afb1654d596966",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 510,
+        "y": 160,
         "wires": [
             [
-                "e970fbdbc3d7a997"
+                "8a194d53e948819d"
             ]
         ]
     },
     {
-        "id": "acb10a5c4e93f41b",
-        "type": "debug",
+        "id": "8a194d53e948819d",
+        "type": "change",
         "z": "2788b93b.8a2f56",
-        "name": "debug 2",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 900,
-        "y": 280,
-        "wires": []
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "push-benachrichtigungen",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 800,
+        "y": 160,
+        "wires": [
+            []
+        ]
     },
     {
-        "id": "e970fbdbc3d7a997",
-        "type": "debug",
+        "id": "d9379ea9abb1659e",
+        "type": "change",
         "z": "2788b93b.8a2f56",
-        "name": "debug 3",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1080,
-        "y": 220,
-        "wires": []
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "push-benachrichtigungen",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 270,
+        "y": 160,
+        "wires": [
+            [
+                "e63021ca9a82ab15"
+            ]
+        ]
     },
     {
         "id": "fc831115.7e04a",
