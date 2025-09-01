@@ -313,6 +313,7 @@
         "id": "7925a6a710f06185",
         "type": "junction",
         "z": "37daec28.284ee4",
+        "d": true,
         "x": 940,
         "y": 1880,
         "wires": [
@@ -1985,7 +1986,7 @@
         "links": [
             "6637cc7f.54ff74"
         ],
-        "x": 745,
+        "x": 765,
         "y": 280,
         "wires": []
     },
@@ -1997,7 +1998,7 @@
         "links": [
             "e30a134d.f410a"
         ],
-        "x": 745,
+        "x": 765,
         "y": 320,
         "wires": []
     },
@@ -2010,7 +2011,7 @@
         "links": [
             "4bbc2b23.ee06a4"
         ],
-        "x": 745,
+        "x": 765,
         "y": 360,
         "wires": []
     },
@@ -2022,7 +2023,7 @@
         "links": [
             "e5d97c3.d1d738"
         ],
-        "x": 745,
+        "x": 765,
         "y": 400,
         "wires": []
     },
@@ -3220,7 +3221,7 @@
         "links": [
             "1631c8b0516d3d18"
         ],
-        "x": 745,
+        "x": 765,
         "y": 440,
         "wires": []
     },
@@ -3393,7 +3394,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 610,
+        "x": 630,
         "y": 440,
         "wires": [
             [
@@ -3435,6 +3436,7 @@
         "id": "10b5f2f821fb2314",
         "type": "link in",
         "z": "37daec28.284ee4",
+        "d": true,
         "name": "Tolomeo",
         "links": [
             "b8226efddc3dde41",
@@ -3454,6 +3456,7 @@
         "id": "c5c764bba2c5634b",
         "type": "mqtt out",
         "z": "37daec28.284ee4",
+        "d": true,
         "name": "Tolomeo",
         "topic": "zigbee2mqtt/tolomeo/set",
         "qos": "1",
@@ -3472,6 +3475,7 @@
         "id": "c069046ed40e0a45",
         "type": "mqtt in",
         "z": "37daec28.284ee4",
+        "d": true,
         "name": "Tolomeo",
         "topic": "zigbee2mqtt/tolomeo",
         "qos": "2",
@@ -3495,6 +3499,7 @@
         "id": "60e1c79f97947074",
         "type": "change",
         "z": "37daec28.284ee4",
+        "d": true,
         "name": "save tolomeo state",
         "rules": [
             {
@@ -3534,6 +3539,7 @@
         "id": "fe25f29f83b8709d",
         "type": "ui_switch",
         "z": "37daec28.284ee4",
+        "d": true,
         "name": "An/Aus Tolomeo Basculante Lettura",
         "label": "An/Aus",
         "tooltip": "",
@@ -3568,6 +3574,7 @@
         "id": "e95452d2b5178b70",
         "type": "ui_slider",
         "z": "37daec28.284ee4",
+        "d": true,
         "name": "Helligkeit Tolomeo Basculante Lettura",
         "label": "Helligkeit",
         "tooltip": "",
@@ -3595,6 +3602,7 @@
         "id": "5582ebe881e2bbef",
         "type": "function",
         "z": "37daec28.284ee4",
+        "d": true,
         "name": "brightness",
         "func": "msg.payload = {\"brightness\": msg.payload};\nreturn msg;",
         "outputs": 1,
@@ -3614,6 +3622,7 @@
         "id": "a4d8693e5e4113ae",
         "type": "function",
         "z": "37daec28.284ee4",
+        "d": true,
         "name": "state",
         "func": "msg.payload = {\"state\": msg.payload.state};\nreturn msg;",
         "outputs": 1,
@@ -3632,6 +3641,7 @@
         "id": "fe9452d8b91bd237",
         "type": "function",
         "z": "37daec28.284ee4",
+        "d": true,
         "name": "brightness",
         "func": "msg.payload = msg.payload.brightness;\nreturn msg;",
         "outputs": 1,
@@ -3651,6 +3661,7 @@
         "id": "8bbdb296a860acab",
         "type": "link out",
         "z": "37daec28.284ee4",
+        "d": true,
         "name": "Tolomeo",
         "mode": "link",
         "links": [
@@ -3809,7 +3820,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 610,
+        "x": 630,
         "y": 480,
         "wires": [
             [
@@ -3826,7 +3837,7 @@
         "links": [
             "6f44eabb6a272d2b"
         ],
-        "x": 745,
+        "x": 765,
         "y": 480,
         "wires": []
     },
@@ -3839,7 +3850,7 @@
         "links": [
             "10b5f2f821fb2314"
         ],
-        "x": 745,
+        "x": 765,
         "y": 520,
         "wires": []
     },
@@ -3847,6 +3858,7 @@
         "id": "ab6e02e66da9c8c2",
         "type": "mqtt in",
         "z": "37daec28.284ee4",
+        "d": true,
         "name": "Fernbedienung Tolomeo",
         "topic": "zigbee2mqtt/fernbedienung_tolomeo",
         "qos": "2",
@@ -3867,6 +3879,7 @@
         "id": "cc0539ec5711d686",
         "type": "switch",
         "z": "37daec28.284ee4",
+        "d": true,
         "name": "action",
         "property": "payload.action",
         "propertyType": "msg",
@@ -3924,6 +3937,7 @@
         "id": "488b88feb2f60930",
         "type": "template",
         "z": "37daec28.284ee4",
+        "d": true,
         "name": "STOP",
         "field": "payload",
         "fieldType": "msg",
@@ -3944,6 +3958,7 @@
         "id": "e1b4c77d39876505",
         "type": "looptimer",
         "z": "37daec28.284ee4",
+        "d": true,
         "duration": "0.25",
         "units": "Second",
         "maxloops": "20",
@@ -3963,6 +3978,7 @@
         "id": "07c2920e7083e495",
         "type": "function",
         "z": "37daec28.284ee4",
+        "d": true,
         "name": "increment tolomeo brightness",
         "func": "var leuchter = flow.get(\"tolomeo\")\n\nleuchter[\"brightness\"] += 10;\nif (leuchter[\"brightness\"] > 254) {\n    leuchter[\"brightness\"] = 254;\n}\n\nflow.set(\"tolomeo\", leuchter);\n\nmsg.payload = {\"brightness\": leuchter[\"brightness\"]};\n\nreturn msg;",
         "outputs": 1,
@@ -3982,6 +3998,7 @@
         "id": "2eea301eef904728",
         "type": "function",
         "z": "37daec28.284ee4",
+        "d": true,
         "name": "decrement tolomeo brightness",
         "func": "var leuchter = flow.get(\"tolomeo\")\n\nleuchter[\"brightness\"] -= 10;\nif (leuchter[\"brightness\"] < 4) {\n    leuchter[\"brightness\"] = 4;\n}\nflow.set(\"tolomeo\", leuchter);\n\nmsg.payload = {\"brightness\": leuchter[\"brightness\"]};\n\nreturn msg;",
         "outputs": 1,
@@ -4001,6 +4018,7 @@
         "id": "a58a4e2a44445a81",
         "type": "looptimer",
         "z": "37daec28.284ee4",
+        "d": true,
         "duration": "0.25",
         "units": "Second",
         "maxloops": "20",
@@ -4020,6 +4038,7 @@
         "id": "4b3f633a5c0cb54d",
         "type": "change",
         "z": "37daec28.284ee4",
+        "d": true,
         "name": "",
         "rules": [
             {
@@ -4047,6 +4066,7 @@
         "id": "8800b9b077e92b5d",
         "type": "link out",
         "z": "37daec28.284ee4",
+        "d": true,
         "name": "link out 15",
         "mode": "link",
         "links": [
@@ -4060,6 +4080,7 @@
         "id": "01574e0230e0ec9c",
         "type": "link out",
         "z": "37daec28.284ee4",
+        "d": true,
         "name": "link out 16",
         "mode": "link",
         "links": [
@@ -4073,6 +4094,7 @@
         "id": "35de5f16f05ae406",
         "type": "change",
         "z": "37daec28.284ee4",
+        "d": true,
         "name": "",
         "rules": [
             {
@@ -4101,14 +4123,14 @@
         "type": "function",
         "z": "37daec28.284ee4",
         "name": "function 42",
-        "func": "delete msg.payload.device_idx;\ndelete msg.payload.name;\nreturn msg;",
+        "func": "let { device_idx, name, ...payload } = msg.payload;\nreturn { payload: payload };",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 630,
+        "x": 650,
         "y": 280,
         "wires": [
             [
@@ -4121,14 +4143,14 @@
         "type": "function",
         "z": "37daec28.284ee4",
         "name": "function 43",
-        "func": "delete msg.payload.device_idx;\ndelete msg.payload.name;\nreturn msg;",
+        "func": "let { device_idx, name, ...payload } = msg.payload;\nreturn { payload: payload };",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 630,
+        "x": 650,
         "y": 320,
         "wires": [
             [
@@ -4141,14 +4163,14 @@
         "type": "function",
         "z": "37daec28.284ee4",
         "name": "function 44",
-        "func": "delete msg.payload.device_idx;\ndelete msg.payload.name;\nreturn msg;",
+        "func": "let { device_idx, name, ...payload } = msg.payload;\nreturn { payload: payload };",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 630,
+        "x": 650,
         "y": 360,
         "wires": [
             [
@@ -4161,14 +4183,14 @@
         "type": "function",
         "z": "37daec28.284ee4",
         "name": "function 45",
-        "func": "delete msg.payload.device_idx;\ndelete msg.payload.name;\nreturn msg;",
+        "func": "let { device_idx, name, ...payload } = msg.payload;\nreturn { payload: payload };",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 630,
+        "x": 650,
         "y": 400,
         "wires": [
             [
@@ -4181,14 +4203,14 @@
         "type": "function",
         "z": "37daec28.284ee4",
         "name": "function 46",
-        "func": "delete msg.payload.device_idx;\ndelete msg.payload.name;\nreturn msg;",
+        "func": "let { device_idx, name, ...payload } = msg.payload;\nreturn { payload: payload };",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 630,
+        "x": 650,
         "y": 520,
         "wires": [
             [
@@ -4249,6 +4271,17 @@
         ],
         "x": 295,
         "y": 420,
+        "wires": []
+    },
+    {
+        "id": "0b3d737656504e76",
+        "type": "comment",
+        "z": "37daec28.284ee4",
+        "d": true,
+        "name": "",
+        "info": "Die Phillips Hue Lampe ist durch eine einfache Lampe ersetzt worden.",
+        "x": 140,
+        "y": 1860,
         "wires": []
     },
     {
@@ -5251,7 +5284,7 @@
         "type": "function",
         "z": "2ba29887.9266e8",
         "name": "function 40",
-        "func": "delete msg.payload.device_idx;\ndelete msg.payload.name;\nreturn msg;",
+        "func": "let { device_idx, name, ...payload } = msg.payload;\nreturn { payload: payload };",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -5271,7 +5304,7 @@
         "type": "function",
         "z": "2ba29887.9266e8",
         "name": "function 41",
-        "func": "delete msg.payload.device_idx;\ndelete msg.payload.name;\nreturn msg;",
+        "func": "let { device_idx, name, ...payload } = msg.payload;\nreturn { payload: payload };",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -9612,11 +9645,11 @@
         "rap": false,
         "inputs": 0,
         "x": 250,
-        "y": 560,
+        "y": 540,
         "wires": [
             [
                 "6238d883.2f3dd8",
-                "9e8d969fa2e830fa"
+                "afb0333e.affc6"
             ]
         ]
     },
@@ -9631,11 +9664,10 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 620,
+        "x": 460,
         "y": 560,
         "wires": [
             [
-                "afb0333e.affc6",
                 "cdbf2a81.584de8"
             ]
         ]
@@ -9648,8 +9680,8 @@
         "links": [
             "4708a180.a07a"
         ],
-        "x": 735,
-        "y": 560,
+        "x": 415,
+        "y": 520,
         "wires": []
     },
     {
@@ -9664,7 +9696,7 @@
         "label": "Zähler",
         "format": "{{msg.payload.counter}}",
         "layout": "row-spread",
-        "x": 930,
+        "x": 770,
         "y": 600,
         "wires": []
     },
@@ -9679,7 +9711,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 620,
+        "x": 460,
         "y": 640,
         "wires": [
             [
@@ -9708,7 +9740,7 @@
         "topic": "zigbee2mqtt/gas_zaehler",
         "payload": "{\"counter\": 8515.868}",
         "payloadType": "json",
-        "x": 400,
+        "x": 260,
         "y": 640,
         "wires": [
             [
@@ -9727,7 +9759,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 780,
+        "x": 620,
         "y": 600,
         "wires": [
             [
@@ -9740,8 +9772,9 @@
         "type": "function",
         "z": "2f328ad8.26ca86",
         "name": "format",
-        "func": "const intl = global.get('intl');\nmsg.payload = intl.NumberFormat('de-De',{\n        style:'decimal', \n        minimumFractionDigits: 5,\n        maximumFractionDigits: 5\n    }).format(msg.payload/1000) + \" kWh\";\nreturn msg;",
+        "func": "const intl = global.get('intl');\nmsg.payload = intl.NumberFormat('de-De',{\n        style:'decimal', \n        minimumFractionDigits: 4,\n        maximumFractionDigits: 4\n    }).format(msg.payload/1000) + \" kWh\";\nreturn msg;",
         "outputs": 1,
+        "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
@@ -9994,8 +10027,7 @@
         "y": 460,
         "wires": [
             [
-                "4d932a70ca858354",
-                "78bf53bd535db91f"
+                "4d932a70ca858354"
             ]
         ]
     },
@@ -10089,37 +10121,6 @@
         "x": 730,
         "y": 420,
         "wires": []
-    },
-    {
-        "id": "78bf53bd535db91f",
-        "type": "debug",
-        "z": "2f328ad8.26ca86",
-        "name": "debug 5",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1020,
-        "y": 500,
-        "wires": []
-    },
-    {
-        "id": "9e8d969fa2e830fa",
-        "type": "debounce",
-        "z": "2f328ad8.26ca86",
-        "d": true,
-        "time": "2000",
-        "name": "",
-        "x": 460,
-        "y": 500,
-        "wires": [
-            [
-                "6238d883.2f3dd8"
-            ]
-        ]
     },
     {
         "id": "b379919482e29525",
@@ -12195,7 +12196,7 @@
         "rap": false,
         "inputs": 0,
         "x": 170,
-        "y": 440,
+        "y": 420,
         "wires": [
             [
                 "54e7d479.9e81bc"
@@ -12438,7 +12439,7 @@
         "type": "function",
         "z": "d0173d54.941d7",
         "name": "Filter Sensors witch are tracked otherwise",
-        "func": "if (!msg.topic.match(/aqara_smart|gas_zaehler/)) {\n    return msg;\n}",
+        "func": "if (/^0x/.test(msg.topic)) {\n    // Daten (neuer) Devices, die (noch) keinen Namen haben \n    // Tracken wir nicht. \n    return;\n}\n\nreturn msg;\n",
         "outputs": 1,
         "timeout": "",
         "noerr": 0,
@@ -12582,7 +12583,7 @@
         "type": "function",
         "z": "d0173d54.941d7",
         "name": "ZIGBEE2MQTT to InfluxDB",
-        "func": "function flattenObject(obj, parentKey = '', result = {}) {\n    for (const [key, value] of Object.entries(obj)) {\n        const newKey = parentKey ? `${parentKey}.${key}` : key; // Schlüssel mit Punkt verknüpfen\n\n        if (Array.isArray(value)) {\n            // Arrays speziell behandeln, Indizes als Schlüssel hinzufügen\n            value.forEach((item, index) => {\n                flattenObject(item, `${newKey}[${index}]`, result);\n            });\n        } else if (typeof value === 'object' && value !== null) {\n            // Rekursion für Sub-Objekte\n            flattenObject(value, newKey, result);\n        } else {\n            // Einfachen Wert dem Ergebnis hinzufügen\n            result[newKey] = value;\n        }\n    }\n    return result;\n}\n\nconst tokens = msg.topic.split(\"/\");\nconst measurement = tokens[1].replace(/ /g, '_').toLowerCase();\nif (/^0x/.test(measurement)) {\n    // Daten (neuer) Devices, die (noch) keinen Namen haben \n    // Tracken wir nicht. \n    return;\n}\n\nmsg.measurement = measurement;\nmsg.payload = flattenObject(msg.payload);;\n\nreturn msg;\n",
+        "func": "function flattenObject(obj, parentKey = '', result = {}) {\n    for (const [key, value] of Object.entries(obj)) {\n        const newKey = parentKey ? `${parentKey}.${key}` : key; // Schlüssel mit Punkt verknüpfen\n\n        if (Array.isArray(value)) {\n            // Arrays speziell behandeln, Indizes als Schlüssel hinzufügen\n            value.forEach((item, index) => {\n                flattenObject(item, `${newKey}[${index}]`, result);\n            });\n        } else if (typeof value === 'object' && value !== null) {\n            // Rekursion für Sub-Objekte\n            flattenObject(value, newKey, result);\n        } else {\n            // Einfachen Wert dem Ergebnis hinzufügen\n            result[newKey] = value;\n        }\n    }\n    return result;\n}\n\nconst tokens = msg.topic.split(\"/\");\nconst measurement = tokens[1].replace(/ /g, '_').toLowerCase();\nmsg.measurement = measurement;\nmsg.payload = flattenObject(msg.payload);;\n\nreturn msg;\n",
         "outputs": 1,
         "timeout": "",
         "noerr": 0,
@@ -15250,7 +15251,7 @@
         "type": "function",
         "z": "062848eb6508a3a6",
         "name": "Push Notification",
-        "func": "if (msg.payload.length == 0) return;\n\nreturn {\n    notification: {\n        notification: { \n            title: \"Nuki nicht verbunden!\", \n            body: `Haustür-Schloss kann nicht gesteuert werden.` \n        }, \n    }\n};\n",
+        "func": "if (msg.payload.length == 0) return;\n\nreturn {\n    notification: {\n        notification: { \n            title: \"Nuki nicht mit MQTT verbunden!\", \n            body: `Haustür-Schloss kann nicht gesteuert werden.` \n        }, \n    }\n};\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -15342,11 +15343,11 @@
         "z": "062848eb6508a3a6",
         "protocol": "Automatic",
         "mode": "timed",
-        "name": "",
-        "host": "Haustuer-Schloss",
+        "name": "Ping Haustuer-Schloss",
+        "host": "haustuer-schloss",
         "timer": "20",
         "inputs": 0,
-        "x": 200,
+        "x": 220,
         "y": 2300,
         "wires": [
             [
@@ -15363,7 +15364,7 @@
         "links": [
             "e03c33a6dcae1a6c"
         ],
-        "x": 715,
+        "x": 755,
         "y": 2300,
         "wires": []
     },
@@ -15384,7 +15385,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 370,
+        "x": 410,
         "y": 2300,
         "wires": [
             [
@@ -15401,9 +15402,9 @@
         "fieldType": "msg",
         "format": "handlebars",
         "syntax": "mustache",
-        "template": "{{topic}} reagiert nicht!",
+        "template": "{{topic}} reagiert nicht auf Ping!",
         "output": "str",
-        "x": 560,
+        "x": 600,
         "y": 2300,
         "wires": [
             [
@@ -18850,7 +18851,7 @@
         "type": "function",
         "z": "caf02dc9a5b73890",
         "name": "Push Notification",
-        "func": "if (msg.payload.length == 0) return;\n\nreturn {\n    notification: {\n        notification: { \n            title: \"Nuki nicht verbunden!\", \n            body: `Kellertür-Schloss kann nicht gesteuert werden.` \n        }, \n    }\n};\n",
+        "func": "if (msg.payload.length == 0) return;\n\nreturn {\n    notification: {\n        notification: { \n            title: \"Nuki nicht mit MQTT verbunden!\", \n            body: `Kellertür-Schloss kann nicht gesteuert werden.` \n        }, \n    }\n};\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -18896,7 +18897,7 @@
         "type": "function",
         "z": "caf02dc9a5b73890",
         "name": "Push Notification",
-        "func": "if (msg.payload.length == 0) return;\n\nreturn {\n    notification: {\n        notification: { \n            title: \"Nuki nicht verbunden!\", \n            body: `Kellertür-Riegel kann nicht gesteuert werden.` \n        }, \n    }\n};\n",
+        "func": "if (msg.payload.length == 0) return;\n\nreturn {\n    notification: {\n        notification: { \n            title: \"Nuki nicht mit MQTT verbunden!\", \n            body: `Kellertür-Riegel kann nicht gesteuert werden.` \n        }, \n    }\n};\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -19033,12 +19034,12 @@
         "z": "caf02dc9a5b73890",
         "protocol": "Automatic",
         "mode": "timed",
-        "name": "",
-        "host": "Kellertuer-Schloss",
+        "name": "Ping Kellertuer-Schloss",
+        "host": "kellertuer-schloss",
         "timer": "20",
         "inputs": 0,
-        "x": 210,
-        "y": 2340,
+        "x": 220,
+        "y": 2400,
         "wires": [
             [
                 "6cde9011fb120382"
@@ -19051,12 +19052,12 @@
         "z": "caf02dc9a5b73890",
         "protocol": "Automatic",
         "mode": "timed",
-        "name": "",
-        "host": "Kellertuer-Riegel",
+        "name": "Ping Kellertuer-Riegel",
+        "host": "kellertuer-riegel",
         "timer": "20",
         "inputs": 0,
-        "x": 200,
-        "y": 2380,
+        "x": 220,
+        "y": 2440,
         "wires": [
             [
                 "6cde9011fb120382"
@@ -19072,10 +19073,10 @@
         "fieldType": "msg",
         "format": "handlebars",
         "syntax": "mustache",
-        "template": "{{topic}} reagiert nicht!",
+        "template": "{{topic}} reagiert nicht auf Ping!",
         "output": "str",
-        "x": 580,
-        "y": 2360,
+        "x": 600,
+        "y": 2420,
         "wires": [
             [
                 "5a1186600cb056de"
@@ -19091,8 +19092,8 @@
         "links": [
             "a30ad159a4a28a4d"
         ],
-        "x": 735,
-        "y": 2360,
+        "x": 755,
+        "y": 2420,
         "wires": []
     },
     {
@@ -19112,8 +19113,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 390,
-        "y": 2360,
+        "x": 410,
+        "y": 2420,
         "wires": [
             [
                 "3e04932be772face"
@@ -19127,7 +19128,7 @@
         "name": "Nuk Wifi-Verbindung wackelt?",
         "info": "Nukis müssen anscheinend Internetverbindung haben, um sich nicht zu verhaspeln\nAußerdem muss anscheinend bei Netzteilbetrieb Batterietyp auf alkalisch gesetzt sein und\nPerformace auf Automatisch.",
         "x": 240,
-        "y": 2300,
+        "y": 2360,
         "wires": []
     },
     {
@@ -22926,6 +22927,7 @@
         "id": "81ae9e3cf87ff918",
         "type": "vsh-virtual-device",
         "z": "039a8ad4ab697fb3",
+        "d": true,
         "name": "Tolomeo ",
         "topic": "",
         "metadata": "",
@@ -22949,6 +22951,7 @@
         "id": "cf216420654a94ca",
         "type": "link out",
         "z": "039a8ad4ab697fb3",
+        "d": true,
         "name": "Tolomeo ",
         "mode": "link",
         "links": [
@@ -22962,6 +22965,7 @@
         "id": "599cf42073808434",
         "type": "function",
         "z": "039a8ad4ab697fb3",
+        "d": true,
         "name": "function 35",
         "func": "return {\n    payload: {\n        state: msg.payload.powerState,\n        brightness: msg.payload.brightness / 100.0 * 255.0\n    }\n};",
         "outputs": 1,
@@ -22981,6 +22985,7 @@
         "id": "5f2e9f30beed284b",
         "type": "link in",
         "z": "039a8ad4ab697fb3",
+        "d": true,
         "name": "Tolomeo ",
         "links": [
             "8bbdb296a860acab"
@@ -22997,6 +23002,7 @@
         "id": "32de37f24c07ec7a",
         "type": "function",
         "z": "039a8ad4ab697fb3",
+        "d": true,
         "name": "function 36",
         "func": "const payload = {};\nif (msg.payload.state) {\n    payload.powerState = msg.payload.state;\n};\nif (msg.payload.brightness) {\n    payload.brightness = parseInt(msg.payload.brightness / 255.0 * 100);\n};\nreturn { payload };\n",
         "outputs": 1,
@@ -23121,6 +23127,17 @@
                 "5e24b6f05b806f22"
             ]
         ]
+    },
+    {
+        "id": "8d17f4edd4c5a505",
+        "type": "comment",
+        "z": "039a8ad4ab697fb3",
+        "d": true,
+        "name": "",
+        "info": "Die Phillips Hue Lampe ist durch eine einfache Lampe ersetzt worden.",
+        "x": 980,
+        "y": 360,
+        "wires": []
     },
     {
         "id": "ced8ff353af4a0c0",
