@@ -624,7 +624,8 @@
                 "e7c617a23d1611f4",
                 "6903d806f430d4b7",
                 "4f8f08e94db97b09",
-                "0be175f5465114c4"
+                "0be175f5465114c4",
+                "e938e0ee91a24106"
             ]
         ]
     },
@@ -5540,8 +5541,8 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 980,
-        "y": 618,
+        "x": 960,
+        "y": 620,
         "wires": [
             [
                 "1bf72870.060278"
@@ -5668,7 +5669,7 @@
         "id": "3eb024a5.e9f9bc",
         "type": "ui_switch",
         "z": "3a471104.edfbae",
-        "name": "Treppenhaus Keller (1 min)",
+        "name": "Treppenhaus Keller (2 min)",
         "label": "Treppenhaus Keller (2 min)",
         "tooltip": "",
         "group": "64b01bd0.e1d1b4",
@@ -5691,11 +5692,12 @@
         "animate": true,
         "className": "",
         "x": 740,
-        "y": 678,
+        "y": 680,
         "wires": [
             [
                 "4907d5.d804982c",
-                "95460152.3f519"
+                "95460152.3f519",
+                "20f374bc210f65a4"
             ]
         ]
     },
@@ -5714,8 +5716,8 @@
         "y": 620,
         "wires": [
             [
-                "d7f061.1e304fa",
-                "e18902b0a943f1fe"
+                "e18902b0a943f1fe",
+                "3eb024a5.e9f9bc"
             ]
         ]
     },
@@ -5723,7 +5725,7 @@
         "id": "1bf72870.060278",
         "type": "trigger",
         "z": "3a471104.edfbae",
-        "name": "Treppenhausautomat 1 min",
+        "name": "Treppenhausautomat 2 min",
         "op1": "",
         "op2": "OFF",
         "op1type": "nul",
@@ -5828,74 +5830,6 @@
         "wires": [
             [
                 "8a7888b.8497878"
-            ]
-        ]
-    },
-    {
-        "id": "829da71c.1e4898",
-        "type": "function",
-        "z": "3a471104.edfbae",
-        "d": true,
-        "name": "filter OFF",
-        "func": "if (msg.payload != \"ON\")\n    return {payload: \"OFF\"}\nelse\n    return undefined;\n",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 600,
-        "y": 758,
-        "wires": [
-            [
-                "24c102d9.3a5e4e"
-            ]
-        ]
-    },
-    {
-        "id": "24c102d9.3a5e4e",
-        "type": "trigger",
-        "z": "3a471104.edfbae",
-        "d": true,
-        "name": "Treppenhausautomat 2 min",
-        "op1": "DISABLE",
-        "op2": "ENABLE",
-        "op1type": "str",
-        "op2type": "str",
-        "duration": "2",
-        "extend": true,
-        "overrideDelay": false,
-        "units": "min",
-        "reset": "",
-        "bytopic": "all",
-        "topic": "topic",
-        "outputs": 1,
-        "x": 800,
-        "y": 758,
-        "wires": [
-            [
-                "25276f9407468fec"
-            ]
-        ]
-    },
-    {
-        "id": "d7f061.1e304fa",
-        "type": "function",
-        "z": "3a471104.edfbae",
-        "name": "Latch2",
-        "func": "const latch = flow.get('treppenhaus_latch2');\n\nif (latch != \"DISABLE\")\n    return {payload: \"ON\"}\n",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 670,
-        "y": 620,
-        "wires": [
-            [
-                "c53f0279.79555",
-                "3eb024a5.e9f9bc"
             ]
         ]
     },
@@ -6083,14 +6017,14 @@
         "z": "3a471104.edfbae",
         "name": "Treppenhaus Keller autom.",
         "links": [
-            "86e17b7b.a2f5d8"
+            "86e17b7b.a2f5d8",
+            "d08f9de9b01477a1"
         ],
-        "x": 455,
-        "y": 678,
+        "x": 555,
+        "y": 680,
         "wires": [
             [
-                "3eb024a5.e9f9bc",
-                "829da71c.1e4898"
+                "3eb024a5.e9f9bc"
             ]
         ]
     },
@@ -6163,12 +6097,11 @@
         "links": [
             "d28aedd4.51206"
         ],
-        "x": 455,
-        "y": 838,
+        "x": 555,
+        "y": 840,
         "wires": [
             [
-                "ef88d6e2.56a248",
-                "829da71c.1e4898"
+                "ef88d6e2.56a248"
             ]
         ]
     },
@@ -6231,26 +6164,6 @@
         "wires": [
             [
                 "c07473f0.eb252"
-            ]
-        ]
-    },
-    {
-        "id": "c53f0279.79555",
-        "type": "function",
-        "z": "3a471104.edfbae",
-        "d": true,
-        "name": "dunkel",
-        "func": "const umgebung = global.get('umgebungslicht');\n\nif (umgebung == \"dunkel\")\n    return {payload: \"ON\"}\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 810,
-        "y": 620,
-        "wires": [
-            [
-                "3eb024a5.e9f9bc"
             ]
         ]
     },
@@ -6384,32 +6297,6 @@
         "reg": false,
         "x": 1210,
         "y": 180,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "25276f9407468fec",
-        "type": "change",
-        "z": "3a471104.edfbae",
-        "d": true,
-        "name": "Latch2",
-        "rules": [
-            {
-                "t": "set",
-                "p": "treppenhaus_latch2",
-                "pt": "flow",
-                "to": "payload",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 1010,
-        "y": 760,
         "wires": [
             []
         ]
@@ -6823,6 +6710,19 @@
                 "d28aedd4.51206"
             ]
         ]
+    },
+    {
+        "id": "20f374bc210f65a4",
+        "type": "link out",
+        "z": "3a471104.edfbae",
+        "name": "link out 7",
+        "mode": "link",
+        "links": [
+            "ad0565297e996c8d"
+        ],
+        "x": 915,
+        "y": 720,
+        "wires": []
     },
     {
         "id": "2f8c3777.ecafb8",
@@ -9645,11 +9545,10 @@
         "rap": false,
         "inputs": 0,
         "x": 250,
-        "y": 540,
+        "y": 600,
         "wires": [
             [
-                "6238d883.2f3dd8",
-                "afb0333e.affc6"
+                "6238d883.2f3dd8"
             ]
         ]
     },
@@ -9658,31 +9557,21 @@
         "type": "function",
         "z": "2f328ad8.26ca86",
         "name": "",
-        "func": "if (msg.payload.contact) {\n    const topic = msg.topic;\n    var counter = (flow.get(topic) || 0) + 0.01;\n    flow.set(topic, counter);\n    return {topic: topic, payload: {counter: counter}};\n}",
+        "func": "if (msg.payload.contact) {\n    const topic = msg.topic;\n    var counter = (flow.get(topic) || 0) + 0.01;\n    flow.set(topic, counter);\n    msg.payload.counter = counter;\n}\n\nreturn msg;",
         "outputs": 1,
+        "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
         "x": 460,
-        "y": 560,
+        "y": 600,
         "wires": [
             [
-                "cdbf2a81.584de8"
+                "cdbf2a81.584de8",
+                "afb0333e.affc6"
             ]
         ]
-    },
-    {
-        "id": "afb0333e.affc6",
-        "type": "link out",
-        "z": "2f328ad8.26ca86",
-        "name": "Gas Zähler",
-        "links": [
-            "4708a180.a07a"
-        ],
-        "x": 415,
-        "y": 520,
-        "wires": []
     },
     {
         "id": "d7eb448b.d6abd8",
@@ -9697,7 +9586,7 @@
         "format": "{{msg.payload.counter}}",
         "layout": "row-spread",
         "x": 770,
-        "y": 600,
+        "y": 620,
         "wires": []
     },
     {
@@ -9760,7 +9649,7 @@
         "finalize": "",
         "libs": [],
         "x": 620,
-        "y": 600,
+        "y": 620,
         "wires": [
             [
                 "d7eb448b.d6abd8"
@@ -10141,6 +10030,18 @@
         "color": "#000000",
         "x": 750,
         "y": 300,
+        "wires": []
+    },
+    {
+        "id": "afb0333e.affc6",
+        "type": "link out",
+        "z": "2f328ad8.26ca86",
+        "name": "Gas Zähler",
+        "links": [
+            "4708a180.a07a"
+        ],
+        "x": 575,
+        "y": 580,
         "wires": []
     },
     {
@@ -12013,7 +11914,7 @@
         "type": "function",
         "z": "2788b93b.8a2f56",
         "name": "push wetteränderung",
-        "func": "if (!flow.get('push-benachrichtigungen'))\n    return;\n\nlet current_hint = msg.payload.hint;\nlet current_abs_humidity = msg.payload.abs_humidity;\nlet last_hint = flow.get('last_hint') || 'unbekannt';\nlet last_abs_humidity = flow.get('last_abs_humidity') || 0;\n\nflow.set('last_abs_humidity', current_abs_humidity);\nflow.set('last_hint', current_hint);\n\nif (current_hint != last_hint) {\n    let wetter_hint = '';\n    let wetter_change = '';\n\n    if (current_abs_humidity * 1.1 > last_abs_humidity) {\n        wetter_change = 'Draußen ist es feuchter geworden.';\n        wetter_hint = 'Fenster schließen?';\n    } else if (current_abs_humidity * 0.9 < last_abs_humidity) {\n        wetter_change = 'Draußen ist es trockener geworden.';\n        wetter_hint = 'Lüften?';\n    } else\n        return;\n\n    return {\n        notification: {\n            notification: { \n                title: wetter_change, \n                body: wetter_hint\n            }\n        },\n        debug: {\n            wetter_change: wetter_change,\n            wetter_hint: wetter_hint,\n            current_abs_humidity: current_abs_humidity,\n            current_hint: current_hint,\n            last_abs_humidity: last_abs_humidity,\n            last_hint: last_hint\n        }\n    };\n}\n\nreturn;\n",
+        "func": "if (!flow.get('push-benachrichtigungen'))\n    return;\n\nlet current_hint = msg.payload.hint;\nlet current_abs_humidity = msg.payload.abs_humidity;\nlet last_hint = flow.get('last_hint') || 'unbekannt';\nlet last_abs_humidity = flow.get('last_abs_humidity') || 0;\n\nflow.set('last_abs_humidity', current_abs_humidity);\nflow.set('last_hint', current_hint);\n\nif (current_hint != last_hint) {\n    let wetter_change = '';\n\n    if (current_abs_humidity * 1.1 > last_abs_humidity) {\n        wetter_change = 'Draußen ist es feuchter geworden.';\n    } else if (current_abs_humidity * 0.9 < last_abs_humidity) {\n        wetter_change = 'Draußen ist es trockener geworden.';\n    } else\n        return;\n\n    return {\n        notification: {\n            notification: { \n                title: wetter_change, \n                body: current_hint\n            }\n        },\n        debug: {\n            wetter_change: wetter_change,\n            wetter_hint: wetter_hint,\n            current_abs_humidity: current_abs_humidity,\n            current_hint: current_hint,\n            last_abs_humidity: last_abs_humidity,\n            last_hint: last_hint\n        }\n    };\n}\n\nreturn;\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -14295,8 +14196,7 @@
                 "66e9c6f6f264a3a2"
             ],
             [
-                "0dd614af31e92bb7",
-                "a718061e6cfc6acb"
+                "0dd614af31e92bb7"
             ],
             [
                 "0d082e7ff2ce770c"
@@ -15351,7 +15251,8 @@
         "y": 2300,
         "wires": [
             [
-                "7c08f6e68fbbf979"
+                "7c08f6e68fbbf979",
+                "ce62690f9fe0e1da"
             ]
         ]
     },
@@ -15462,14 +15363,14 @@
         "id": "f43d202b4ad924ed",
         "type": "template",
         "z": "062848eb6508a3a6",
-        "name": "Text \"doppelt abschließen\"",
+        "name": "Text \"abschließen\"",
         "field": "payload",
         "fieldType": "msg",
         "format": "handlebars",
         "syntax": "plain",
-        "template": "Tür doppelt abschließen",
+        "template": "Tür abschließen",
         "output": "str",
-        "x": 960,
+        "x": 930,
         "y": 1680,
         "wires": [
             [
@@ -15565,35 +15466,6 @@
                 "8b962cd30a4b673a"
             ]
         ]
-    },
-    {
-        "id": "35a359ab3156ab09",
-        "type": "link in",
-        "z": "062848eb6508a3a6",
-        "name": "2#",
-        "links": [
-            "2e64862bbace305b"
-        ],
-        "x": 615,
-        "y": 1740,
-        "wires": [
-            [
-                "0dd614af31e92bb7"
-            ]
-        ]
-    },
-    {
-        "id": "a718061e6cfc6acb",
-        "type": "link out",
-        "z": "062848eb6508a3a6",
-        "name": "link out 122",
-        "mode": "link",
-        "links": [
-            "dafabc8e11bf2fe1"
-        ],
-        "x": 615,
-        "y": 1820,
-        "wires": []
     },
     {
         "id": "f667a1bcc4c42df7",
@@ -15765,7 +15637,7 @@
         "to": "",
         "reg": false,
         "x": 860,
-        "y": 2600,
+        "y": 2620,
         "wires": [
             [
                 "c8cbd5d2191a7909"
@@ -15789,7 +15661,7 @@
         "senderr": false,
         "headers": [],
         "x": 1050,
-        "y": 2600,
+        "y": 2620,
         "wires": [
             [
                 "6d78bf16f2775d40"
@@ -15809,7 +15681,7 @@
         "finalize": "",
         "libs": [],
         "x": 870,
-        "y": 2640,
+        "y": 2660,
         "wires": [
             [
                 "00c811ab0fc5e79c"
@@ -15826,7 +15698,7 @@
             "1cd036385c85d54d"
         ],
         "x": 1015,
-        "y": 2640,
+        "y": 2660,
         "wires": []
     },
     {
@@ -15974,7 +15846,7 @@
             "e03c33a6dcae1a6c"
         ],
         "x": 1035,
-        "y": 2680,
+        "y": 2700,
         "wires": []
     },
     {
@@ -15989,7 +15861,7 @@
         "template": "Haustürklingel",
         "output": "str",
         "x": 880,
-        "y": 2680,
+        "y": 2700,
         "wires": [
             [
                 "139fd09546e5f4a8"
@@ -16009,7 +15881,7 @@
         "finalize": "",
         "libs": [],
         "x": 870,
-        "y": 2740,
+        "y": 2760,
         "wires": [
             [
                 "35592cf5363351cf"
@@ -16037,7 +15909,7 @@
         "fontSize": "",
         "color": "#000000",
         "x": 1090,
-        "y": 2720,
+        "y": 2740,
         "wires": []
     },
     {
@@ -16056,7 +15928,7 @@
         "templateScope": "local",
         "className": "",
         "x": 1080,
-        "y": 2760,
+        "y": 2780,
         "wires": [
             []
         ]
@@ -16081,7 +15953,7 @@
         "to": "",
         "reg": false,
         "x": 1300,
-        "y": 2600,
+        "y": 2620,
         "wires": [
             []
         ]
@@ -16173,6 +16045,35 @@
                 "9d3f7f3b766e2880"
             ]
         ]
+    },
+    {
+        "id": "e938e0ee91a24106",
+        "type": "link out",
+        "z": "062848eb6508a3a6",
+        "name": "link out 6",
+        "mode": "link",
+        "links": [
+            "682c2648030bca5b"
+        ],
+        "x": 795,
+        "y": 2580,
+        "wires": []
+    },
+    {
+        "id": "ce62690f9fe0e1da",
+        "type": "debug",
+        "z": "062848eb6508a3a6",
+        "name": "debug 3",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 420,
+        "y": 2340,
+        "wires": []
     },
     {
         "id": "3eec6b45c3f95d3f",
@@ -17755,8 +17656,7 @@
                 "b83079a81afc9c62"
             ],
             [
-                "b83079a81afc9c62",
-                "2e64862bbace305b"
+                "b83079a81afc9c62"
             ],
             [
                 "15c5d4f3da2cd043"
@@ -19042,7 +18942,8 @@
         "y": 2400,
         "wires": [
             [
-                "6cde9011fb120382"
+                "6cde9011fb120382",
+                "607c54fe803fee51"
             ]
         ]
     },
@@ -19060,7 +18961,8 @@
         "y": 2440,
         "wires": [
             [
-                "6cde9011fb120382"
+                "6cde9011fb120382",
+                "607c54fe803fee51"
             ]
         ]
     },
@@ -19117,7 +19019,8 @@
         "y": 2420,
         "wires": [
             [
-                "3e04932be772face"
+                "3e04932be772face",
+                "607c54fe803fee51"
             ]
         ]
     },
@@ -19210,35 +19113,6 @@
         "x": 815,
         "y": 1800,
         "wires": []
-    },
-    {
-        "id": "2e64862bbace305b",
-        "type": "link out",
-        "z": "caf02dc9a5b73890",
-        "name": "link out 121",
-        "mode": "link",
-        "links": [
-            "35a359ab3156ab09"
-        ],
-        "x": 575,
-        "y": 1880,
-        "wires": []
-    },
-    {
-        "id": "dafabc8e11bf2fe1",
-        "type": "link in",
-        "z": "caf02dc9a5b73890",
-        "name": "2#",
-        "links": [
-            "a718061e6cfc6acb"
-        ],
-        "x": 575,
-        "y": 1800,
-        "wires": [
-            [
-                "b83079a81afc9c62"
-            ]
-        ]
     },
     {
         "id": "87ad0a678743e42a",
@@ -19355,6 +19229,22 @@
                 "13d8f1d4af5bbe66"
             ]
         ]
+    },
+    {
+        "id": "607c54fe803fee51",
+        "type": "debug",
+        "z": "caf02dc9a5b73890",
+        "name": "debug 2",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 440,
+        "y": 2460,
+        "wires": []
     },
     {
         "id": "affde64f7b6e2b28",
@@ -21938,8 +21828,8 @@
         "id": "3c6eab3b.4539d4",
         "type": "vsh-virtual-device",
         "z": "039a8ad4ab697fb3",
-        "name": "doorbell",
-        "topic": "doorbell",
+        "name": "Haustürklingel",
+        "topic": "",
         "metadata": "",
         "connection": "b425927fca74a6a7",
         "template": "DOORBELL_EVENT_SOURCE",
@@ -21948,7 +21838,7 @@
         "diff": false,
         "filter": false,
         "filterTopic": false,
-        "x": 840,
+        "x": 860,
         "y": 1540,
         "wires": [
             []
@@ -21972,8 +21862,8 @@
         "onceDelay": 0.1,
         "topic": "",
         "payloadType": "str",
-        "x": 350,
-        "y": 1540,
+        "x": 310,
+        "y": 1520,
         "wires": [
             [
                 "248691bd.94314e"
@@ -21996,8 +21886,8 @@
         "randomUnits": "seconds",
         "drop": false,
         "outputs": 1,
-        "x": 500,
-        "y": 1600,
+        "x": 480,
+        "y": 1580,
         "wires": [
             [
                 "97c9ad29.a8c97"
@@ -22024,7 +21914,7 @@
         "to": "",
         "reg": false,
         "x": 670,
-        "y": 1600,
+        "y": 1580,
         "wires": [
             [
                 "3c6eab3b.4539d4"
@@ -22047,7 +21937,7 @@
         "randomUnits": "seconds",
         "drop": true,
         "outputs": 1,
-        "x": 520,
+        "x": 510,
         "y": 1540,
         "wires": [
             [
@@ -22055,16 +21945,6 @@
                 "d9afcbd4.52af88"
             ]
         ]
-    },
-    {
-        "id": "b4ba7049.d7fe3",
-        "type": "comment",
-        "z": "039a8ad4ab697fb3",
-        "name": "DOORBELL EVENT SOURCE",
-        "info": "",
-        "x": 420,
-        "y": 1420,
-        "wires": []
     },
     {
         "id": "29498e9f.887142",
@@ -23138,6 +23018,141 @@
         "x": 980,
         "y": 360,
         "wires": []
+    },
+    {
+        "id": "682c2648030bca5b",
+        "type": "link in",
+        "z": "039a8ad4ab697fb3",
+        "name": "Türklingel",
+        "links": [
+            "e938e0ee91a24106"
+        ],
+        "x": 185,
+        "y": 1560,
+        "wires": [
+            [
+                "2a370dfaed28f667"
+            ]
+        ]
+    },
+    {
+        "id": "2a370dfaed28f667",
+        "type": "template",
+        "z": "039a8ad4ab697fb3",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "DETECTED",
+        "output": "str",
+        "x": 300,
+        "y": 1560,
+        "wires": [
+            [
+                "248691bd.94314e"
+            ]
+        ]
+    },
+    {
+        "id": "f4735bf148e4f9dc",
+        "type": "vsh-virtual-device",
+        "z": "039a8ad4ab697fb3",
+        "name": "Treppenhaus Kellerlicht",
+        "topic": "",
+        "metadata": "",
+        "connection": "b425927fca74a6a7",
+        "template": "SWITCH",
+        "retrievable": true,
+        "passthrough": false,
+        "diff": false,
+        "filter": false,
+        "filterTopic": false,
+        "plan": "free",
+        "x": 470,
+        "y": 1300,
+        "wires": [
+            [
+                "9607f9678dad904a"
+            ]
+        ]
+    },
+    {
+        "id": "9607f9678dad904a",
+        "type": "function",
+        "z": "039a8ad4ab697fb3",
+        "name": "function 1",
+        "func": "return {payload: msg.payload.powerState};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 760,
+        "y": 1300,
+        "wires": [
+            [
+                "d08f9de9b01477a1"
+            ]
+        ]
+    },
+    {
+        "id": "d08f9de9b01477a1",
+        "type": "link out",
+        "z": "039a8ad4ab697fb3",
+        "name": "Treppenhaus Kellerlicht",
+        "mode": "link",
+        "links": [
+            "c4c2eff3.b70f"
+        ],
+        "x": 885,
+        "y": 1300,
+        "wires": []
+    },
+    {
+        "id": "d1bc1cebbebfe944",
+        "type": "comment",
+        "z": "039a8ad4ab697fb3",
+        "name": "Treppenhaus Kellerlicht",
+        "info": "",
+        "x": 460,
+        "y": 1260,
+        "wires": []
+    },
+    {
+        "id": "4668f0d31de5be39",
+        "type": "function",
+        "z": "039a8ad4ab697fb3",
+        "name": "function 2",
+        "func": "return { payload: { powerState: msg.payload}};\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 250,
+        "y": 1300,
+        "wires": [
+            [
+                "f4735bf148e4f9dc"
+            ]
+        ]
+    },
+    {
+        "id": "ad0565297e996c8d",
+        "type": "link in",
+        "z": "039a8ad4ab697fb3",
+        "name": "Alexa Treppenhaus Kellerlicht ",
+        "links": [
+            "20f374bc210f65a4"
+        ],
+        "x": 125,
+        "y": 1300,
+        "wires": [
+            [
+                "4668f0d31de5be39"
+            ]
+        ]
     },
     {
         "id": "ced8ff353af4a0c0",
