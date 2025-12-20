@@ -5611,8 +5611,7 @@
         "y": 580,
         "wires": [
             [
-                "38bf3abf.87fe76",
-                "c786dc4af34858bf"
+                "38bf3abf.87fe76"
             ]
         ]
     },
@@ -5710,8 +5709,7 @@
         "y": 300,
         "wires": [
             [
-                "c473a018.46907",
-                "150feb218a15841a"
+                "c473a018.46907"
             ]
         ]
     },
@@ -5731,8 +5729,7 @@
         "y": 340,
         "wires": [
             [
-                "c473a018.46907",
-                "2b5f1c23b715943b"
+                "c473a018.46907"
             ]
         ]
     },
@@ -5752,8 +5749,7 @@
         "y": 380,
         "wires": [
             [
-                "c473a018.46907",
-                "444ea36d64cffb87"
+                "c473a018.46907"
             ]
         ]
     },
@@ -6313,8 +6309,7 @@
         "y": 260,
         "wires": [
             [
-                "c473a018.46907",
-                "07c656ac52e77e9d"
+                "c473a018.46907"
             ]
         ]
     },
@@ -6853,91 +6848,6 @@
         ],
         "x": 915,
         "y": 720,
-        "wires": []
-    },
-    {
-        "id": "c786dc4af34858bf",
-        "type": "debug",
-        "z": "3a471104.edfbae",
-        "name": "Bewegungsmelder Treppenhaus Keller",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 570,
-        "y": 540,
-        "wires": []
-    },
-    {
-        "id": "150feb218a15841a",
-        "type": "debug",
-        "z": "3a471104.edfbae",
-        "name": "Bewegungsmelder Treppenhaus DG",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 590,
-        "y": 240,
-        "wires": []
-    },
-    {
-        "id": "07c656ac52e77e9d",
-        "type": "debug",
-        "z": "3a471104.edfbae",
-        "name": "Bewegungsmelder Gäste-WC",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 570,
-        "y": 200,
-        "wires": []
-    },
-    {
-        "id": "2b5f1c23b715943b",
-        "type": "debug",
-        "z": "3a471104.edfbae",
-        "name": "Bewegungsmelder Treppenhaus EG",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 590,
-        "y": 420,
-        "wires": []
-    },
-    {
-        "id": "444ea36d64cffb87",
-        "type": "debug",
-        "z": "3a471104.edfbae",
-        "name": "Bewegungsmelder Treppenhaus OG",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 590,
-        "y": 460,
         "wires": []
     },
     {
@@ -10394,13 +10304,14 @@
         "type": "function",
         "z": "2f328ad8.26ca86",
         "name": "einspeisung & eigenverbrauch",
-        "func": "const solarertag = msg.payload;\nconst stombezug = global.get(\"stombezug\");\n\nconst netzbezug = (stombezug > 0) ? stombezug : 0;\nconst einspeisung = (stombezug < 0) ? stombezug : 0; //wie so nicht - ?\nconst eigenverbrauch = solarertag - einspeisung;\nconst stromverbrauch = netzbezug + eigenverbrauch;\n\nreturn { payload: { eigenverbrauch: eigenverbrauch, einspeisung: einspeisung, netzbezug: netzbezug, stromverbrauch: stromverbrauch}};",
+        "func": "const solarertrag = msg.payload;\nconst stombezug = global.get(\"stombezug\");\n\nconst netzbezug = (stombezug > 0) ? stombezug : 0;\nconst einspeisung = (stombezug < 0) ? stombezug : 0; //wie so nicht - ?\nconst eigenverbrauch = solarertrag - einspeisung;\nconst stromverbrauch = netzbezug + eigenverbrauch;\n\nreturn { payload: { eigenverbrauch: eigenverbrauch, einspeisung: einspeisung, netzbezug: netzbezug, stromverbrauch: stromverbrauch}};",
         "outputs": 1,
+        "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 790,
+        "x": 530,
         "y": 460,
         "wires": [
             [
@@ -10412,15 +10323,17 @@
         "id": "e3e242d521f1c698",
         "type": "function",
         "z": "2f328ad8.26ca86",
+        "d": true,
         "name": "Store solarertrag in global",
-        "func": "global.set(\"solarertag\", msg.payload);\nreturn msg;",
+        "func": "global.set(\"solarertrag\", msg.payload);\nreturn msg;",
         "outputs": 1,
+        "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
         "x": 510,
-        "y": 460,
+        "y": 500,
         "wires": [
             [
                 "5001caa3ccebc382"
@@ -10437,7 +10350,7 @@
             "49152127e918c9d7",
             "8dd66c9be3547aa2"
         ],
-        "x": 975,
+        "x": 705,
         "y": 460,
         "wires": []
     },
@@ -10459,7 +10372,7 @@
         "wires": [
             [
                 "53201bdb5632cbb7",
-                "e3e242d521f1c698"
+                "5001caa3ccebc382"
             ]
         ]
     },
@@ -10474,7 +10387,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 570,
+        "x": 450,
         "y": 420,
         "wires": [
             [
@@ -11563,7 +11476,7 @@
             },
             {
                 "t": "eq",
-                "v": "luftfeuchtemesser1",
+                "v": "th_büro_dg",
                 "vt": "str"
             },
             {
@@ -11801,7 +11714,7 @@
         "type": "function",
         "z": "2788b93b.8a2f56",
         "name": "initialize names-rooms mapping",
-        "func": "const room = global.set(\"names_rooms\", {\n    \"luftguetemesser1\": \"Werkstatt\",\n    \"waschkueche_luefter\": \"Waschküche\",\n    \"luftfeuchtemesser1\": \"Büro DG\",\n    \"steckdose1\": \"Balkon\",\n    \"aussen\": \"Open Weather\"\n});\n",
+        "func": "const room = global.set(\"names_rooms\", {\n    \"luftguetemesser1\": \"Werkstatt\",\n    \"waschkueche_luefter\": \"Waschküche\",\n    \"steckdose1\": \"Balkon\",\n    \"aussen\": \"Open Weather\"\n});\n",
         "outputs": 1,
         "timeout": "",
         "noerr": 0,
@@ -12104,7 +12017,7 @@
         "type": "function",
         "z": "2788b93b.8a2f56",
         "name": "recall Büro DG (luftfeuchtemesser1) klima",
-        "func": "const name = \"luftfeuchtemesser1\";\nreturn {\n    payload: {\n        name: name,\n        humidity: global.get(`${name}-humidity`),\n        absolute_humidity: global.get(`${name}-absolute_humidity`),\n        tempeature: global.get(`${name}-temperature`)\n    }\n};\n",
+        "func": "const name = \"th_büro_dg\";\nreturn {\n    payload: {\n        name: name,\n        humidity: global.get(`${name}-humidity`),\n        absolute_humidity: global.get(`${name}-absolute_humidity`),\n        tempeature: global.get(`${name}-temperature`)\n    }\n};\n",
         "outputs": 1,
         "timeout": "",
         "noerr": 0,
@@ -12707,7 +12620,7 @@
         "type": "function",
         "z": "2788b93b.8a2f56",
         "name": "Update Luftdruck",
-        "func": "const intl = global.get('intl');\nconst format = intl.NumberFormat('de-De',{style:'decimal', maximumFractionDigits: 1}).format;\nconst sprintf = global.get(\"sprintf\");\n\nconst pressure = global.get('aussen-pressure');\nconst yesterdays_pressure = flow.get('yesterdays_pressure');\nlet trend = 'Gleichbleibend';\nif (pressure > yesterdays_pressure * 1.01) \n    trend = 'Steigend'\nelse if (pressure < yesterdays_pressure * 0.99)\n    trend = 'Fallend';\n\nconst pressure_text = sprintf(\"%s, %s hPa\", trend, format(pressure));\n\nreturn {payload: {pressure: pressure_text}};",
+        "func": "const intl = global.get('intl');\nconst format = intl.NumberFormat('de-De',{style:'decimal', maximumFractionDigits: 1}).format;\nconst sprintf = global.get(\"sprintf\");\n\nconst pressure = global.get('aussen-pressure');\nconst yesterdays_pressure = flow.get('yesterdays_pressure');\nlet trend = 'Gleichbleibend';\nif (pressure > yesterdays_pressure * 1.001) \n    trend = 'Steigend'\nelse if (pressure < yesterdays_pressure * 0.999)\n    trend = 'Fallend';\n\nconst pressure_text = sprintf(\"%s, %s hPa\", trend, format(pressure));\n\nreturn {payload: {pressure: pressure_text}};",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -21303,7 +21216,7 @@
         "bgcolor": "",
         "className": "",
         "icon": "",
-        "payload": "",
+        "payload": "delete",
         "payloadType": "str",
         "topic": "topic",
         "topicType": "msg",
