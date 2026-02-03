@@ -820,14 +820,14 @@
         ]
     },
     {
-        "id": "e8673e91cea46488",
+        "id": "072ba9b75ca2561c",
         "type": "junction",
         "z": "2ba29887.9266e8",
-        "x": 1020,
-        "y": 600,
+        "x": 620,
+        "y": 560,
         "wires": [
             [
-                "5212abebc2a62f0b"
+                "2653279c588e4a02"
             ]
         ]
     },
@@ -4800,9 +4800,7 @@
         "name": "link in 6",
         "links": [
             "4c4005cc93aa357b",
-            "2360817c14e76973",
-            "c0789cbbec5db93b",
-            "75f8c15dc022b118"
+            "2360817c14e76973"
         ],
         "x": 325,
         "y": 800,
@@ -4944,6 +4942,7 @@
         "id": "426fbf3ef78dda91",
         "type": "ui_slider",
         "z": "37daec28.284ee4",
+        "d": true,
         "name": "Farbtemperatur",
         "label": "Farbtemperatur",
         "tooltip": "",
@@ -4971,6 +4970,7 @@
         "id": "c63c941986848280",
         "type": "function",
         "z": "37daec28.284ee4",
+        "d": true,
         "name": "color_temp from brightness",
         "func": "const x = msg.payload;\nconst m = -301 / 254;\nconst b = 454;\n\nmsg.payload = { color_temp: m * x + b };\nreturn msg;",
         "outputs": 1,
@@ -5118,6 +5118,7 @@
         "id": "f130dbccebbeb64f",
         "type": "function",
         "z": "37daec28.284ee4",
+        "d": true,
         "name": "color_temp",
         "func": "msg.payload = msg.payload.color_temp;\nreturn msg;",
         "outputs": 1,
@@ -5138,6 +5139,7 @@
         "id": "ebfe1a471a6f20d0",
         "type": "rbe",
         "z": "37daec28.284ee4",
+        "d": true,
         "name": "",
         "func": "rbe",
         "gap": "",
@@ -5158,6 +5160,7 @@
         "id": "a91b63a0aa8a6c9d",
         "type": "function",
         "z": "37daec28.284ee4",
+        "d": true,
         "name": "color_temp",
         "func": "msg.payload = {\"color_temp\": msg.payload};\nreturn msg;",
         "outputs": 1,
@@ -5272,6 +5275,7 @@
         "id": "3d48d2b3c9b826ce",
         "type": "function",
         "z": "37daec28.284ee4",
+        "d": true,
         "name": "color_temp from brightness",
         "func": "const x = msg.payload;\nconst m = -301 / 254;\nconst b = 454;\n\nmsg.payload = { color_temp: m * x + b };\nreturn msg;",
         "outputs": 1,
@@ -5292,6 +5296,7 @@
         "id": "dc3f967882d73aec",
         "type": "function",
         "z": "37daec28.284ee4",
+        "d": true,
         "name": "color_temp",
         "func": "msg.payload = {\"color_temp\": msg.payload};\nreturn msg;",
         "outputs": 1,
@@ -5312,6 +5317,7 @@
         "id": "bdf1c1adc06d0573",
         "type": "ui_slider",
         "z": "37daec28.284ee4",
+        "d": true,
         "name": "Farbtemperatur",
         "label": "Farbtemperatur",
         "tooltip": "",
@@ -5339,6 +5345,7 @@
         "id": "0a8a6569bc0429fb",
         "type": "rbe",
         "z": "37daec28.284ee4",
+        "d": true,
         "name": "",
         "func": "rbe",
         "gap": "",
@@ -5359,6 +5366,7 @@
         "id": "6c61bd0ebaf82c89",
         "type": "function",
         "z": "37daec28.284ee4",
+        "d": true,
         "name": "color_temp",
         "func": "msg.payload = msg.payload.color_temp;\nreturn msg;",
         "outputs": 1,
@@ -5554,9 +5562,9 @@
         "y": 640,
         "wires": [
             [
+                "bdfe59bb9986887e",
                 "811e8564.045d88",
-                "4c63a8ea7a44d9d8",
-                "bdfe59bb9986887e"
+                "4c63a8ea7a44d9d8"
             ]
         ]
     },
@@ -5639,11 +5647,10 @@
         "animate": true,
         "className": "",
         "x": 870,
-        "y": 580,
+        "y": 600,
         "wires": [
             [
-                "0fb8f06ac48fa6ee",
-                "e8673e91cea46488"
+                "5212abebc2a62f0b"
             ]
         ]
     },
@@ -6079,11 +6086,12 @@
             "3d9defb2050f98fb",
             "9648fe4077632af9"
         ],
-        "x": 1265,
-        "y": 680,
+        "x": 685,
+        "y": 600,
         "wires": [
             [
-                "13b7ccd6.d98e83"
+                "b95edb0e.4e93d8",
+                "2653279c588e4a02"
             ]
         ]
     },
@@ -6099,7 +6107,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1240,
+        "x": 980,
         "y": 560,
         "wires": [
             [
@@ -6116,7 +6124,7 @@
         "links": [
             "444ce93bb8dcb6d7"
         ],
-        "x": 1375,
+        "x": 1115,
         "y": 560,
         "wires": []
     },
@@ -6139,26 +6147,6 @@
             [
                 "afc4d89fbb56f83f",
                 "28a49ad78b750429"
-            ]
-        ]
-    },
-    {
-        "id": "0fb8f06ac48fa6ee",
-        "type": "rbe",
-        "z": "2ba29887.9266e8",
-        "name": "",
-        "func": "rbe",
-        "gap": "",
-        "start": "",
-        "inout": "out",
-        "septopics": true,
-        "property": "payload.state",
-        "topi": "topic",
-        "x": 1070,
-        "y": 560,
-        "wires": [
-            [
-                "58e6b312940c0def"
             ]
         ]
     },
@@ -6195,10 +6183,10 @@
         "finalize": "",
         "libs": [],
         "x": 530,
-        "y": 580,
+        "y": 600,
         "wires": [
             [
-                "efbb8637.d28188"
+                "072ba9b75ca2561c"
             ]
         ]
     },
@@ -6342,6 +6330,27 @@
         "wires": [
             [
                 "3e2f1b8ef0d2c98f"
+            ]
+        ]
+    },
+    {
+        "id": "2653279c588e4a02",
+        "type": "rbe",
+        "z": "2ba29887.9266e8",
+        "name": "",
+        "func": "rbe",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "septopics": true,
+        "property": "payload.state",
+        "topi": "topic",
+        "x": 810,
+        "y": 560,
+        "wires": [
+            [
+                "58e6b312940c0def",
+                "efbb8637.d28188"
             ]
         ]
     },
