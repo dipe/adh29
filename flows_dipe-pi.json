@@ -6357,8 +6357,8 @@
         "nl": false,
         "rap": false,
         "inputs": 0,
-        "x": 190,
-        "y": 600,
+        "x": 210,
+        "y": 640,
         "wires": [
             [
                 "38bf3abf.87fe76"
@@ -6381,8 +6381,7 @@
         "y": 300,
         "wires": [
             [
-                "36a19851.367748",
-                "ce7d3b23fdd9c308"
+                "36a19851.367748"
             ]
         ]
     },
@@ -6500,7 +6499,7 @@
         "rap": false,
         "inputs": 0,
         "x": 190,
-        "y": 998,
+        "y": 1118,
         "wires": [
             [
                 "b26ffbed.c2c898"
@@ -6522,7 +6521,7 @@
         "expiry": "",
         "broker": "c349b9ff.9dc4c8",
         "x": 1370,
-        "y": 640,
+        "y": 720,
         "wires": []
     },
     {
@@ -6552,31 +6551,10 @@
         "animate": true,
         "className": "",
         "x": 740,
-        "y": 700,
+        "y": 780,
         "wires": [
             [
                 "95460152.3f519"
-            ]
-        ]
-    },
-    {
-        "id": "38bf3abf.87fe76",
-        "type": "function",
-        "z": "3a471104.edfbae",
-        "name": "map occupancy to ON",
-        "func": "if (msg.payload.occupancy)\n    return {payload: \"ON\"};\n",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 480,
-        "y": 600,
-        "wires": [
-            [
-                "e18902b0a943f1fe",
-                "f60f9feede63a480"
             ]
         ]
     },
@@ -6598,7 +6576,7 @@
         "topic": "topic",
         "outputs": 1,
         "x": 1320,
-        "y": 680,
+        "y": 760,
         "wires": [
             [
                 "95460152.3f519"
@@ -6618,7 +6596,7 @@
         "rap": false,
         "inputs": 0,
         "x": 210,
-        "y": 1040,
+        "y": 1160,
         "wires": [
             [
                 "b26ffbed.c2c898"
@@ -6686,8 +6664,7 @@
         "y": 340,
         "wires": [
             [
-                "8a7888b.8497878",
-                "99a69904d04dd970"
+                "8a7888b.8497878"
             ]
         ]
     },
@@ -6793,7 +6770,7 @@
         "finalize": "",
         "libs": [],
         "x": 1000,
-        "y": 680,
+        "y": 760,
         "wires": [
             [
                 "b187a14.548406",
@@ -6841,7 +6818,7 @@
             }
         ],
         "x": 440,
-        "y": 1020,
+        "y": 1140,
         "wires": [
             [
                 "e5b77373cf1730fb"
@@ -6859,10 +6836,12 @@
         "links": [
             "86e17b7b.a2f5d8",
             "d08f9de9b01477a1",
-            "f60f9feede63a480"
+            "f60f9feede63a480",
+            "b11a0ba5dadebbe5",
+            "029adfc035a60f48"
         ],
         "x": 845,
-        "y": 660,
+        "y": 740,
         "wires": [
             [
                 "95460152.3f519"
@@ -6880,7 +6859,7 @@
             "01e739e468ac7641"
         ],
         "x": 915,
-        "y": 980,
+        "y": 1100,
         "wires": []
     },
     {
@@ -6910,7 +6889,7 @@
         "animate": true,
         "className": "",
         "x": 750,
-        "y": 860,
+        "y": 960,
         "wires": [
             [
                 "6fb1916d45e04881"
@@ -6926,7 +6905,7 @@
             "2be218d9.cd0108"
         ],
         "x": 915,
-        "y": 1040,
+        "y": 1160,
         "wires": []
     },
     {
@@ -6938,7 +6917,7 @@
             "d28aedd4.51206"
         ],
         "x": 845,
-        "y": 820,
+        "y": 920,
         "wires": [
             [
                 "6fb1916d45e04881"
@@ -6963,7 +6942,7 @@
         "topic": "topic",
         "outputs": 1,
         "x": 1310,
-        "y": 840,
+        "y": 940,
         "wires": [
             []
         ]
@@ -6984,8 +6963,7 @@
         "y": 340,
         "wires": [
             [
-                "c07473f0.eb252",
-                "3d07f26e3798aafc"
+                "c07473f0.eb252"
             ]
         ]
     },
@@ -7026,8 +7004,8 @@
         "bytopic": "all",
         "topic": "topic",
         "outputs": 1,
-        "x": 730,
-        "y": 580,
+        "x": 670,
+        "y": 620,
         "wires": [
             [
                 "8e3990f1558de9fb"
@@ -7053,8 +7031,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 930,
-        "y": 580,
+        "x": 870,
+        "y": 620,
         "wires": [
             []
         ]
@@ -7072,7 +7050,7 @@
         "finalize": "",
         "libs": [],
         "x": 630,
-        "y": 1002,
+        "y": 1122,
         "wires": [
             [
                 "8a94d4bd.10b228"
@@ -7091,7 +7069,7 @@
         "finalize": "",
         "libs": [],
         "x": 630,
-        "y": 1040,
+        "y": 1160,
         "wires": [
             [
                 "d28aedd4.51206"
@@ -7139,8 +7117,8 @@
         "z": "3a471104.edfbae",
         "name": "",
         "info": "Schalte der Bewegungsmelder das Licht ein und ich drücke praktisch gleichzeitig den Taster, schalte ich das Licht nicht unabsichtlich aus.",
-        "x": 820,
-        "y": 540,
+        "x": 620,
+        "y": 580,
         "wires": []
     },
     {
@@ -7150,7 +7128,7 @@
         "name": "",
         "info": "Kurz drücken: Licht an/aus; Treppenhausautomat 2 min.\nLang Drücken: Licht an; Treppenhaus automat 1 Stunde.",
         "x": 420,
-        "y": 982,
+        "y": 1102,
         "wires": []
     },
     {
@@ -7166,7 +7144,7 @@
         "rap": false,
         "inputs": 0,
         "x": 200,
-        "y": 1240,
+        "y": 1280,
         "wires": [
             [
                 "de8d9af857835e7b"
@@ -7188,7 +7166,7 @@
         "expiry": "",
         "broker": "c349b9ff.9dc4c8",
         "x": 1460,
-        "y": 1260,
+        "y": 1300,
         "wires": []
     },
     {
@@ -7219,7 +7197,7 @@
             }
         ],
         "x": 420,
-        "y": 1240,
+        "y": 1280,
         "wires": [
             [
                 "b4daf9ad3a2af382"
@@ -7241,7 +7219,7 @@
         "finalize": "",
         "libs": [],
         "x": 610,
-        "y": 1240,
+        "y": 1280,
         "wires": [
             [
                 "3d54164a8aad07af"
@@ -7275,7 +7253,7 @@
         "animate": true,
         "className": "",
         "x": 890,
-        "y": 1260,
+        "y": 1300,
         "wires": [
             [
                 "81e18b30bcaf7bb9",
@@ -7296,7 +7274,7 @@
         "finalize": "",
         "libs": [],
         "x": 1170,
-        "y": 1260,
+        "y": 1300,
         "wires": [
             [
                 "447669d06017102b"
@@ -7316,7 +7294,7 @@
         "finalize": "",
         "libs": [],
         "x": 790,
-        "y": 980,
+        "y": 1100,
         "wires": [
             [
                 "86e17b7b.a2f5d8",
@@ -7335,7 +7313,7 @@
         "initialize": "",
         "finalize": "",
         "x": 1160,
-        "y": 1300,
+        "y": 1340,
         "wires": [
             [
                 "ed9df766a52f2c8c"
@@ -7360,7 +7338,7 @@
         "topic": "topic",
         "outputs": 1,
         "x": 1400,
-        "y": 1300,
+        "y": 1340,
         "wires": [
             [
                 "3d54164a8aad07af"
@@ -7387,7 +7365,7 @@
         "to": "",
         "reg": false,
         "x": 1360,
-        "y": 1340,
+        "y": 1380,
         "wires": [
             [
                 "ed9df766a52f2c8c"
@@ -7405,7 +7383,7 @@
         "initialize": "",
         "finalize": "",
         "x": 1160,
-        "y": 1340,
+        "y": 1380,
         "wires": [
             [
                 "3cb225532788346d"
@@ -7457,7 +7435,7 @@
             "b70e105a77f51cd4"
         ],
         "x": 505,
-        "y": 1280,
+        "y": 1320,
         "wires": [
             [
                 "f266a2cb363f176a"
@@ -7489,7 +7467,7 @@
         "finalize": "",
         "libs": [],
         "x": 620,
-        "y": 1280,
+        "y": 1320,
         "wires": [
             [
                 "3d54164a8aad07af"
@@ -7513,7 +7491,7 @@
         "name": "",
         "info": "Taster an der Kellertreppe im EG und im Keller",
         "x": 140,
-        "y": 960,
+        "y": 1080,
         "wires": []
     },
     {
@@ -7526,39 +7504,7 @@
             "ad0565297e996c8d"
         ],
         "x": 1215,
-        "y": 600,
-        "wires": []
-    },
-    {
-        "id": "ce7d3b23fdd9c308",
-        "type": "debug",
-        "z": "3a471104.edfbae",
-        "name": "debug 5",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 820,
-        "y": 220,
-        "wires": []
-    },
-    {
-        "id": "99a69904d04dd970",
-        "type": "debug",
-        "z": "3a471104.edfbae",
-        "name": "debug 6",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 820,
-        "y": 260,
+        "y": 680,
         "wires": []
     },
     {
@@ -7635,22 +7581,6 @@
                 "39cf66ed8e40283d"
             ]
         ]
-    },
-    {
-        "id": "3d07f26e3798aafc",
-        "type": "debug",
-        "z": "3a471104.edfbae",
-        "name": "debug 8",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 820,
-        "y": 300,
-        "wires": []
     },
     {
         "id": "73e3905367029b78",
@@ -7762,8 +7692,8 @@
         "topic": "",
         "payload": "ON",
         "payloadType": "str",
-        "x": 410,
-        "y": 880,
+        "x": 630,
+        "y": 1080,
         "wires": [
             [
                 "8a94d4bd.10b228"
@@ -7787,8 +7717,8 @@
         "topic": "",
         "payload": "ON",
         "payloadType": "str",
-        "x": 770,
-        "y": 1100,
+        "x": 810,
+        "y": 1180,
         "wires": [
             [
                 "d28aedd4.51206"
@@ -7805,26 +7735,13 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 780,
-        "y": 1020,
+        "x": 800,
+        "y": 1140,
         "wires": [
             [
                 "d28aedd4.51206"
             ]
         ]
-    },
-    {
-        "id": "f60f9feede63a480",
-        "type": "link out",
-        "z": "3a471104.edfbae",
-        "name": "link out 26",
-        "mode": "link",
-        "links": [
-            "c4c2eff3.b70f"
-        ],
-        "x": 635,
-        "y": 620,
-        "wires": []
     },
     {
         "id": "34a1513e71ad6dc0",
@@ -7836,7 +7753,7 @@
             "ad0565297e996c8d"
         ],
         "x": 1215,
-        "y": 760,
+        "y": 860,
         "wires": []
     },
     {
@@ -7852,7 +7769,7 @@
         "finalize": "",
         "libs": [],
         "x": 1000,
-        "y": 840,
+        "y": 940,
         "wires": [
             [
                 "118590dc458bd6b7",
@@ -7887,7 +7804,41 @@
         "expiry": "",
         "broker": "c349b9ff.9dc4c8",
         "x": 1370,
-        "y": 800,
+        "y": 900,
+        "wires": []
+    },
+    {
+        "id": "38bf3abf.87fe76",
+        "type": "function",
+        "z": "3a471104.edfbae",
+        "name": "",
+        "func": "var topic = \"treppenhaus_kellerlicht\";\nvar current_state = flow.get(topic);\n\nif (msg.payload.occupancy && current_state === \"OFF\")\n    return { payload: \"ON\" }\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 460,
+        "y": 640,
+        "wires": [
+            [
+                "e18902b0a943f1fe",
+                "029adfc035a60f48"
+            ]
+        ]
+    },
+    {
+        "id": "029adfc035a60f48",
+        "type": "link out",
+        "z": "3a471104.edfbae",
+        "name": "link out 26",
+        "mode": "link",
+        "links": [
+            "c4c2eff3.b70f"
+        ],
+        "x": 575,
+        "y": 660,
         "wires": []
     },
     {
