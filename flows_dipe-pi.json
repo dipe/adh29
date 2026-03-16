@@ -221,6 +221,14 @@
         "env": []
     },
     {
+        "id": "f146a45029860fdf",
+        "type": "tab",
+        "label": "Sonos",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "f5d8e11fee9a1e7c",
         "type": "subflow",
         "name": "reolink-kamera",
@@ -827,6 +835,30 @@
         "wires": [
             [
                 "2653279c588e4a02"
+            ]
+        ]
+    },
+    {
+        "id": "8b9645a48467a05d",
+        "type": "junction",
+        "z": "68fa2cc37e97fc23",
+        "x": 880,
+        "y": 1940,
+        "wires": [
+            [
+                "9446c7b02dc74012"
+            ]
+        ]
+    },
+    {
+        "id": "92848bccf20355a2",
+        "type": "junction",
+        "z": "68fa2cc37e97fc23",
+        "x": 880,
+        "y": 2060,
+        "wires": [
+            [
+                "2e2540407ce02b7f"
             ]
         ]
     },
@@ -1860,6 +1892,55 @@
         "order": 3,
         "width": "0",
         "height": "0"
+    },
+    {
+        "id": "d95aaf5fc46e435c",
+        "type": "ui_group",
+        "name": "Qualle",
+        "tab": "482f6aac9d63d29c",
+        "order": 5,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "13acd62b3d700beb",
+        "type": "sonos-config",
+        "name": "Sonos",
+        "serialnum": "",
+        "ipaddress": "172.28.29.45"
+    },
+    {
+        "id": "b317e57d8ea7312a",
+        "type": "ui_group",
+        "name": "Kleine Lampe",
+        "tab": "482f6aac9d63d29c",
+        "order": 6,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "cb02ab122ac694ac",
+        "type": "ui_spacer",
+        "z": "68fa2cc37e97fc23",
+        "name": "spacer",
+        "group": "d95aaf5fc46e435c",
+        "order": 2,
+        "width": "6",
+        "height": "1"
+    },
+    {
+        "id": "0a36dfc6aed22b33",
+        "type": "ui_spacer",
+        "z": "68fa2cc37e97fc23",
+        "name": "spacer",
+        "group": "b317e57d8ea7312a",
+        "order": 6,
+        "width": "6",
+        "height": "1"
     },
     {
         "id": "a27c201f88d5372d",
@@ -6285,8 +6366,8 @@
         "correl": "",
         "expiry": "",
         "broker": "c349b9ff.9dc4c8",
-        "x": 1410,
-        "y": 360,
+        "x": 1380,
+        "y": 320,
         "wires": []
     },
     {
@@ -6301,8 +6382,8 @@
         "nl": false,
         "rap": false,
         "inputs": 0,
-        "x": 230,
-        "y": 100,
+        "x": 270,
+        "y": 180,
         "wires": [
             [
                 "dba6f56.3127408"
@@ -6335,7 +6416,7 @@
         "offcolor": "",
         "animate": true,
         "className": "",
-        "x": 860,
+        "x": 880,
         "y": 360,
         "wires": [
             [
@@ -6397,8 +6478,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 590,
-        "y": 100,
+        "x": 630,
+        "y": 180,
         "wires": [
             [
                 "50e80d17.fa58d4",
@@ -6418,8 +6499,8 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 1110,
-        "y": 360,
+        "x": 1090,
+        "y": 320,
         "wires": [
             [
                 "b529a82a.481848"
@@ -6439,7 +6520,7 @@
         "rap": false,
         "inputs": 0,
         "x": 220,
-        "y": 300,
+        "y": 280,
         "wires": [
             [
                 "c473a018.46907"
@@ -6459,7 +6540,7 @@
         "rap": false,
         "inputs": 0,
         "x": 220,
-        "y": 340,
+        "y": 320,
         "wires": [
             [
                 "c473a018.46907"
@@ -6479,7 +6560,7 @@
         "rap": false,
         "inputs": 0,
         "x": 220,
-        "y": 380,
+        "y": 360,
         "wires": [
             [
                 "c473a018.46907"
@@ -6499,7 +6580,7 @@
         "rap": false,
         "inputs": 0,
         "x": 190,
-        "y": 1118,
+        "y": 1138,
         "wires": [
             [
                 "b26ffbed.c2c898"
@@ -6520,7 +6601,7 @@
         "correl": "",
         "expiry": "",
         "broker": "c349b9ff.9dc4c8",
-        "x": 1370,
+        "x": 1390,
         "y": 720,
         "wires": []
     },
@@ -6575,7 +6656,7 @@
         "bytopic": "all",
         "topic": "topic",
         "outputs": 1,
-        "x": 1320,
+        "x": 1340,
         "y": 760,
         "wires": [
             [
@@ -6596,7 +6677,7 @@
         "rap": false,
         "inputs": 0,
         "x": 210,
-        "y": 1160,
+        "y": 1180,
         "wires": [
             [
                 "b26ffbed.c2c898"
@@ -6615,8 +6696,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 780,
-        "y": 100,
+        "x": 840,
+        "y": 180,
         "wires": [
             [
                 "7c5fc140.d9c58"
@@ -6640,8 +6721,8 @@
         "bytopic": "all",
         "topic": "topic",
         "outputs": 1,
-        "x": 1000,
-        "y": 100,
+        "x": 1060,
+        "y": 180,
         "wires": [
             [
                 "4a9f1a2e29bec69c"
@@ -6679,8 +6760,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1100,
-        "y": 400,
+        "x": 1080,
+        "y": 360,
         "wires": [
             [
                 "bb85ebf4.9e01a8"
@@ -6704,8 +6785,8 @@
         "bytopic": "all",
         "topic": "topic",
         "outputs": 1,
-        "x": 1340,
-        "y": 400,
+        "x": 1320,
+        "y": 360,
         "wires": [
             [
                 "c07473f0.eb252"
@@ -6731,8 +6812,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1300,
-        "y": 440,
+        "x": 1280,
+        "y": 400,
         "wires": [
             [
                 "bb85ebf4.9e01a8"
@@ -6749,8 +6830,8 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 1100,
-        "y": 440,
+        "x": 1080,
+        "y": 400,
         "wires": [
             [
                 "5147c0eb.b5ca3"
@@ -6818,7 +6899,7 @@
             }
         ],
         "x": 440,
-        "y": 1140,
+        "y": 1160,
         "wires": [
             [
                 "e5b77373cf1730fb"
@@ -6836,8 +6917,6 @@
         "links": [
             "86e17b7b.a2f5d8",
             "d08f9de9b01477a1",
-            "f60f9feede63a480",
-            "b11a0ba5dadebbe5",
             "029adfc035a60f48"
         ],
         "x": 845,
@@ -6859,7 +6938,7 @@
             "01e739e468ac7641"
         ],
         "x": 915,
-        "y": 1100,
+        "y": 1120,
         "wires": []
     },
     {
@@ -6905,7 +6984,7 @@
             "2be218d9.cd0108"
         ],
         "x": 915,
-        "y": 1160,
+        "y": 1180,
         "wires": []
     },
     {
@@ -6941,7 +7020,7 @@
         "bytopic": "all",
         "topic": "topic",
         "outputs": 1,
-        "x": 1310,
+        "x": 1330,
         "y": 940,
         "wires": [
             []
@@ -6980,7 +7059,7 @@
         "rap": false,
         "inputs": 0,
         "x": 240,
-        "y": 260,
+        "y": 240,
         "wires": [
             [
                 "c473a018.46907"
@@ -7050,7 +7129,7 @@
         "finalize": "",
         "libs": [],
         "x": 630,
-        "y": 1122,
+        "y": 1142,
         "wires": [
             [
                 "8a94d4bd.10b228"
@@ -7069,7 +7148,7 @@
         "finalize": "",
         "libs": [],
         "x": 630,
-        "y": 1160,
+        "y": 1180,
         "wires": [
             [
                 "d28aedd4.51206"
@@ -7095,8 +7174,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1210,
-        "y": 100,
+        "x": 1270,
+        "y": 180,
         "wires": [
             []
         ]
@@ -7107,8 +7186,8 @@
         "z": "3a471104.edfbae",
         "name": "",
         "info": "Schalte ich das Licht manuell aus, geht es nicht gleich wieder durch einen Bewegungsmerlder an.",
-        "x": 940,
-        "y": 60,
+        "x": 1000,
+        "y": 140,
         "wires": []
     },
     {
@@ -7128,7 +7207,7 @@
         "name": "",
         "info": "Kurz drücken: Licht an/aus; Treppenhausautomat 2 min.\nLang Drücken: Licht an; Treppenhaus automat 1 Stunde.",
         "x": 420,
-        "y": 1102,
+        "y": 1122,
         "wires": []
     },
     {
@@ -7294,7 +7373,7 @@
         "finalize": "",
         "libs": [],
         "x": 790,
-        "y": 1100,
+        "y": 1120,
         "wires": [
             [
                 "86e17b7b.a2f5d8",
@@ -7451,8 +7530,8 @@
         "links": [
             "01e739e468ac7641"
         ],
-        "x": 735,
-        "y": 60,
+        "x": 795,
+        "y": 140,
         "wires": []
     },
     {
@@ -7480,8 +7559,8 @@
         "z": "3a471104.edfbae",
         "name": "",
         "info": "Alle Treppenhaus-Taster sind hier aufgeschlatet (nur die für den Keller nicht)",
-        "x": 200,
-        "y": 60,
+        "x": 240,
+        "y": 140,
         "wires": []
     },
     {
@@ -7491,7 +7570,7 @@
         "name": "",
         "info": "Taster an der Kellertreppe im EG und im Keller",
         "x": 140,
-        "y": 1080,
+        "y": 1100,
         "wires": []
     },
     {
@@ -7503,7 +7582,7 @@
         "links": [
             "ad0565297e996c8d"
         ],
-        "x": 1215,
+        "x": 1235,
         "y": 680,
         "wires": []
     },
@@ -7526,8 +7605,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 400,
-        "y": 480,
+        "x": 500,
+        "y": 500,
         "wires": [
             []
         ]
@@ -7549,8 +7628,8 @@
         "topic": "",
         "payload": "hell",
         "payloadType": "str",
-        "x": 210,
-        "y": 460,
+        "x": 310,
+        "y": 480,
         "wires": [
             [
                 "39cf66ed8e40283d"
@@ -7574,8 +7653,8 @@
         "topic": "",
         "payload": "dunkel",
         "payloadType": "str",
-        "x": 210,
-        "y": 500,
+        "x": 310,
+        "y": 520,
         "wires": [
             [
                 "39cf66ed8e40283d"
@@ -7599,8 +7678,8 @@
         "topic": "",
         "payload": "ON",
         "payloadType": "str",
-        "x": 370,
-        "y": 420,
+        "x": 310,
+        "y": 400,
         "wires": [
             [
                 "36a19851.367748"
@@ -7619,8 +7698,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 780,
-        "y": 140,
+        "x": 840,
+        "y": 220,
         "wires": [
             [
                 "b3d2af4c7e826d98"
@@ -7646,33 +7725,12 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 960,
-        "y": 140,
+        "x": 1020,
+        "y": 220,
         "wires": [
             [
                 "7c5fc140.d9c58"
             ]
-        ]
-    },
-    {
-        "id": "ff90a09d391e8053",
-        "type": "function",
-        "z": "3a471104.edfbae",
-        "d": true,
-        "name": "",
-        "func": "const topic = \"treppenhaus_kellerlicht\";\nconst last_state = flow.get(topic);\n\nif (last_state === \"ON\")\n    if (msg.payload === \"ON\") {\n        flow.set(topic + \"-exor\", true);\n        flow.set(topic, msg.payload);\n        return [{payload: \"ON\"}, undefined, {payload: \"OFF\"}]\n    } else {\n        if (flow.get(topic + \"-exor\")) {\n            flow.set(topic + \"-exor\", false);\n            return;\n        }\n        flow.set(topic, msg.payload);\n        return [{payload: \"OFF\"}, {reset: \"RESET\"}, undefined];\n    }\nelse {\n    if (msg.payload === \"ON\") {\n        flow.set(topic, msg.payload);\n        return [{payload: \"ON\"}, undefined, undefined];\n    }\n}",
-        "outputs": 3,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1100,
-        "y": 500,
-        "wires": [
-            [],
-            [],
-            []
         ]
     },
     {
@@ -7693,7 +7751,7 @@
         "payload": "ON",
         "payloadType": "str",
         "x": 630,
-        "y": 1080,
+        "y": 1100,
         "wires": [
             [
                 "8a94d4bd.10b228"
@@ -7718,7 +7776,7 @@
         "payload": "ON",
         "payloadType": "str",
         "x": 810,
-        "y": 1180,
+        "y": 1200,
         "wires": [
             [
                 "d28aedd4.51206"
@@ -7736,7 +7794,7 @@
         "initialize": "",
         "finalize": "",
         "x": 800,
-        "y": 1140,
+        "y": 1160,
         "wires": [
             [
                 "d28aedd4.51206"
@@ -7752,7 +7810,7 @@
         "links": [
             "ad0565297e996c8d"
         ],
-        "x": 1215,
+        "x": 1235,
         "y": 860,
         "wires": []
     },
@@ -7803,7 +7861,7 @@
         "correl": "",
         "expiry": "",
         "broker": "c349b9ff.9dc4c8",
-        "x": 1370,
+        "x": 1390,
         "y": 900,
         "wires": []
     },
@@ -11022,7 +11080,8 @@
         "wires": [
             [
                 "cdbf2a81.584de8",
-                "afb0333e.affc6"
+                "afb0333e.affc6",
+                "49886081852e0d9e"
             ]
         ]
     },
@@ -11111,7 +11170,8 @@
         "y": 620,
         "wires": [
             [
-                "d7eb448b.d6abd8"
+                "d7eb448b.d6abd8",
+                "088bf0781001c457"
             ]
         ]
     },
@@ -11505,6 +11565,67 @@
         "x": 575,
         "y": 580,
         "wires": []
+    },
+    {
+        "id": "088bf0781001c457",
+        "type": "debug",
+        "z": "2f328ad8.26ca86",
+        "name": "debug 5",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 780,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "49886081852e0d9e",
+        "type": "debug",
+        "z": "2f328ad8.26ca86",
+        "name": "debug 6",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 780,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "eb1548d98a2bf66b",
+        "type": "inject",
+        "z": "2f328ad8.26ca86",
+        "name": "",
+        "props": [
+            {
+                "p": "payload.contact",
+                "v": "true",
+                "vt": "bool"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "zigbee2mqtt/gas_zaehler",
+        "x": 250,
+        "y": 560,
+        "wires": [
+            [
+                "6238d883.2f3dd8"
+            ]
+        ]
     },
     {
         "id": "7b56cfeb.46625",
@@ -17685,10 +17806,11 @@
         "id": "e938e0ee91a24106",
         "type": "link out",
         "z": "062848eb6508a3a6",
-        "name": "link out 6",
+        "name": "haustürklingel",
         "mode": "link",
         "links": [
-            "682c2648030bca5b"
+            "682c2648030bca5b",
+            "b708cc79a53544f4"
         ],
         "x": 795,
         "y": 2580,
@@ -25679,7 +25801,8 @@
         "y": 1000,
         "wires": [
             [
-                "ced8ff353af4a0c0"
+                "ced8ff353af4a0c0",
+                "8c22bd231dad6bdb"
             ]
         ]
     },
@@ -25780,7 +25903,8 @@
         "y": 980,
         "wires": [
             [
-                "afd265e74d5e2016"
+                "afd265e74d5e2016",
+                "8c22bd231dad6bdb"
             ]
         ]
     },
@@ -25800,7 +25924,8 @@
         "y": 980,
         "wires": [
             [
-                "4df1b9f51433920e"
+                "4df1b9f51433920e",
+                "8c22bd231dad6bdb"
             ]
         ]
     },
@@ -26406,7 +26531,8 @@
         "y": 1020,
         "wires": [
             [
-                "4df1b9f51433920e"
+                "4df1b9f51433920e",
+                "8c22bd231dad6bdb"
             ]
         ]
     },
@@ -26447,7 +26573,8 @@
         "y": 1000,
         "wires": [
             [
-                "c267a86a9b913165"
+                "c267a86a9b913165",
+                "8c22bd231dad6bdb"
             ]
         ]
     },
@@ -26462,7 +26589,8 @@
         "y": 900,
         "wires": [
             [
-                "a785e5a92f4c9787"
+                "a785e5a92f4c9787",
+                "8c22bd231dad6bdb"
             ]
         ]
     },
@@ -26652,7 +26780,7 @@
         "type": "function",
         "z": "68fa2cc37e97fc23",
         "name": "initialize scenes",
-        "func": "flow.set(\"current_scene_idx\", 0)\nflow.set(\"max_scene_idx\", 4)\nflow.set(\"scenes\", [\n        {   scene_idx: 0,\n            scene_name: \"aus\",\n            devices: [\n                {   device_idx: 1,\n                    name: \"Deckenfluter Deckenlicht\",\n                    state: \"OFF\"\n                },\n                {   device_idx: 2,\n                    name: \"Deckenfluter Leselicht\",\n                    state: \"OFF\"\n                },\n                {   device_idx: 3,\n                    name: \"Tizio\",\n                    state: \"OFF\"\n                },\n            ]\n        },\n        {   scene_idx: 1,\n            scene_name: \"Hell\",\n            devices: [\n                {   device_idx: 1,\n                    name: \"Deckenfluter Deckenlicht\",\n                    brightness: 254,\n                    state: \"ON\"\n                },\n                {   device_idx: 2,\n                    name: \"Deckenfluter Leselicht\",\n                    brightness: 254,\n                    state: \"ON\"\n                },\n                {   device_idx: 3,\n                    name: \"Tizio\",\n                    state: \"ON\"\n                },\n            ]\n        },\n        {   scene_idx: 2,\n            scene_name: \"Gemütlich\",\n            devices: [\n                {   device_idx: 1,\n                    name: \"Deckenfluter Deckenlicht\",\n                    brightness: 120,\n                    state: \"OFF\"\n                },\n                {   device_idx: 2,\n                    name: \"Deckenfluter Leselicht\",\n                    brightness: 120,\n                    state: \"ON\"\n                },\n                {   device_idx: 3,\n                    name: \"Tizio\",\n                    state: \"ON\"\n                },\n            ]\n        },\n        {   scene_idx: 3,\n            scene_name: \"nur Lesen\",\n            devices: [\n                {   device_idx: 1,\n                    name: \"Deckenfluter Deckenlicht\",\n                    brightness: 120,\n                    state: \"OFF\"\n                },\n                {   device_idx: 2,\n                    name: \"Deckenfluter Leselicht\",\n                    brightness: 120,\n                    state: \"ON\"\n                },\n                {   device_idx: 3,\n                    name: \"Tizio\",\n                    state: \"OFF\"\n                },\n            ]\n        },\n        {   scene_idx: 4,\n            scene_name: \"Nur Arbeiten\",\n            devices: [\n                {   device_idx: 1,\n                    name: \"Deckenfluter Deckenlicht\",\n                    brightness: 120,\n                    state: \"OFF\"\n                },\n                {   device_idx: 2,\n                    name: \"Deckenfluter Leselicht\",\n                    brightness: 120,\n                    state: \"OFF\"\n                },\n                {   device_idx: 3,\n                    name: \"Tizio\",\n                    state: \"ON\"\n                },\n            ]\n        },\n    ]\n)\n\nreturn msg;",
+        "func": "flow.set(\"current_scene_idx\", 0)\nflow.set(\"max_scene_idx\", 5)\nflow.set(\"scenes\", [\n        {   scene_idx: 0,\n            scene_name: \"aus\",\n            devices: [\n                {   device_idx: 1,\n                    name: \"Deckenfluter Deckenlicht\",\n                    state: \"OFF\"\n                },\n                {   device_idx: 2,\n                    name: \"Deckenfluter Leselicht\",\n                    state: \"OFF\"\n                },\n                {   device_idx: 3,\n                    name: \"Tizio\",\n                    state: \"OFF\"\n                },\n                {   device_idx: 4,\n                    name: \"Qualle\",\n                    set: 0\n                },\n                {\n                    device_idx: 5,\n                    name: \"Kleien-Lampe\",\n                    state: \"off\"\n                },\n            ]\n        },\n        {   scene_idx: 1,\n            scene_name: \"Hell\",\n            devices: [\n                {   device_idx: 1,\n                    name: \"Deckenfluter Deckenlicht\",\n                    brightness: 254,\n                    state: \"ON\"\n                },\n                {   device_idx: 2,\n                    name: \"Deckenfluter Leselicht\",\n                    brightness: 254,\n                    state: \"ON\"\n                },\n                {   device_idx: 3,\n                    name: \"Tizio\",\n                    state: \"ON\"\n                },\n                {   device_idx: 4,\n                    name: \"Qualle\",\n                    set: 3\n                },\n                {\n                    device_idx: 5,\n                    name: \"Kleien-Lampe\",\n                    state: \"on\"\n                },\n            ]\n        },\n        {   scene_idx: 2,\n            scene_name: \"Gemütlich\",\n            devices: [\n                {   device_idx: 1,\n                    name: \"Deckenfluter Deckenlicht\",\n                    brightness: 120,\n                    state: \"OFF\"\n                },\n                {   device_idx: 2,\n                    name: \"Deckenfluter Leselicht\",\n                    brightness: 120,\n                    state: \"ON\"\n                },\n                {   device_idx: 3,\n                    name: \"Tizio\",\n                    state: \"ON\"\n                },\n                {   device_idx: 4,\n                    name: \"Qualle\",\n                    set: 1\n                },\n                {\n                    device_idx: 5,\n                    name: \"Kleien-Lampe\",\n                    state: \"on\"\n                },\n            ]\n        },\n        {   scene_idx: 3,\n            scene_name: \"nur Lesen\",\n            devices: [\n                {   device_idx: 1,\n                    name: \"Deckenfluter Deckenlicht\",\n                    brightness: 120,\n                    state: \"OFF\"\n                },\n                {   device_idx: 2,\n                    name: \"Deckenfluter Leselicht\",\n                    brightness: 120,\n                    state: \"ON\"\n                },\n                {   device_idx: 3,\n                    name: \"Tizio\",\n                    state: \"OFF\"\n                },\n                {   device_idx: 4,\n                    name: \"Qualle\",\n                    set: 4\n                },\n                {\n                    device_idx: 5,\n                    name: \"Kleien-Lampe\",\n                    state: \"on\"\n                },\n            ]\n        },\n        {   scene_idx: 4,\n            scene_name: \"Nur Arbeiten\",\n            devices: [\n                {   device_idx: 1,\n                    name: \"Deckenfluter Deckenlicht\",\n                    brightness: 120,\n                    state: \"OFF\"\n                },\n                {   device_idx: 2,\n                    name: \"Deckenfluter Leselicht\",\n                    brightness: 120,\n                    state: \"OFF\"\n                },\n                {   device_idx: 3,\n                    name: \"Tizio\",\n                    state: \"ON\"\n                },\n                {   device_idx: 4,\n                    name: \"Qualle\",\n                    set: 5\n                },\n                {\n                    device_idx: 5,\n                    name: \"Kleien-Lampe\",\n                    state: \"on\"\n                },\n            ]\n        },\n    {\n        scene_idx: 4,\n        scene_name: \"Nachts\",\n        devices: [\n            {\n                device_idx: 1,\n                name: \"Deckenfluter Deckenlicht\",\n                brightness: 120,\n                state: \"OFF\"\n            },\n            {\n                device_idx: 2,\n                name: \"Deckenfluter Leselicht\",\n                brightness: 120,\n                state: \"OFF\"\n            },\n            {\n                device_idx: 3,\n                name: \"Tizio\",\n                state: \"OFF\"\n            },\n            {\n                device_idx: 4,\n                name: \"Qualle\",\n                set: 0\n            },\n            {\n                device_idx: 5,\n                name: \"Kleien-Lampe\",\n                state: \"on\"\n            },\n        ]\n    },\n    ]\n)\n\nreturn msg;",
         "outputs": 1,
         "timeout": "",
         "noerr": 0,
@@ -26687,11 +26815,21 @@
                 "t": "eq",
                 "v": "3",
                 "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "4",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "5",
+                "vt": "num"
             }
         ],
         "checkall": "true",
         "repair": false,
-        "outputs": 3,
+        "outputs": 5,
         "x": 990,
         "y": 420,
         "wires": [
@@ -26703,6 +26841,12 @@
             ],
             [
                 "4c41e471a5a6ac48"
+            ],
+            [
+                "9abad8fa2c66e6c5"
+            ],
+            [
+                "0e98f3c733c9765f"
             ]
         ]
     },
@@ -26810,8 +26954,8 @@
         "payloadType": "num",
         "topic": "",
         "topicType": "str",
-        "x": 210,
-        "y": 460,
+        "x": 190,
+        "y": 480,
         "wires": [
             [
                 "d09ca347ce966974"
@@ -26838,8 +26982,8 @@
         "payloadType": "num",
         "topic": "",
         "topicType": "str",
-        "x": 210,
-        "y": 380,
+        "x": 190,
+        "y": 400,
         "wires": [
             [
                 "d09ca347ce966974"
@@ -27112,8 +27256,8 @@
         "links": [
             "56ac7a3a87b8c31f"
         ],
-        "x": 1265,
-        "y": 380,
+        "x": 1305,
+        "y": 340,
         "wires": []
     },
     {
@@ -27125,8 +27269,8 @@
         "links": [
             "3eb18411f250b4b8"
         ],
-        "x": 1265,
-        "y": 420,
+        "x": 1305,
+        "y": 380,
         "wires": []
     },
     {
@@ -27154,8 +27298,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1150,
-        "y": 380,
+        "x": 1190,
+        "y": 340,
         "wires": [
             [
                 "7d0b38a9f5e8ffc6"
@@ -27174,8 +27318,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1150,
-        "y": 420,
+        "x": 1190,
+        "y": 380,
         "wires": [
             [
                 "dc8deb2f67c65d9b"
@@ -27303,10 +27447,11 @@
         "name": "3",
         "mode": "link",
         "links": [
-            "badf689de99fa9ec"
+            "badf689de99fa9ec",
+            "8542f71fbbd8c06e"
         ],
-        "x": 1265,
-        "y": 460,
+        "x": 1305,
+        "y": 420,
         "wires": []
     },
     {
@@ -27348,8 +27493,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1150,
-        "y": 460,
+        "x": 1190,
+        "y": 420,
         "wires": [
             [
                 "d1e89d9e325d5a8d"
@@ -27376,8 +27521,8 @@
         "payloadType": "num",
         "topic": "",
         "topicType": "str",
-        "x": 200,
-        "y": 420,
+        "x": 180,
+        "y": 440,
         "wires": [
             [
                 "d09ca347ce966974"
@@ -27471,8 +27616,414 @@
         "links": [
             "74e5445a96792a54"
         ],
-        "x": 325,
-        "y": 420,
+        "x": 335,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "9446c7b02dc74012",
+        "type": "mqtt out",
+        "z": "68fa2cc37e97fc23",
+        "name": "Qualle",
+        "topic": "qualle/set",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "c349b9ff.9dc4c8",
+        "x": 990,
+        "y": 1940,
+        "wires": []
+    },
+    {
+        "id": "04c77eb913c0456f",
+        "type": "ui_dropdown",
+        "z": "68fa2cc37e97fc23",
+        "name": "Qualle",
+        "label": "",
+        "tooltip": "",
+        "place": "Select option",
+        "group": "d95aaf5fc46e435c",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "multiple": false,
+        "options": [
+            {
+                "label": "Aus",
+                "value": 0,
+                "type": "num"
+            },
+            {
+                "label": "Regenbogen",
+                "value": 1,
+                "type": "num"
+            },
+            {
+                "label": "Regentreppe",
+                "value": 2,
+                "type": "num"
+            },
+            {
+                "label": "Weiß",
+                "value": 3,
+                "type": "num"
+            },
+            {
+                "label": "Rot",
+                "value": 4,
+                "type": "num"
+            },
+            {
+                "label": "Blau",
+                "value": "5",
+                "type": "str"
+            },
+            {
+                "label": "Grün",
+                "value": "6",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "topic",
+        "topicType": "msg",
+        "className": "",
+        "x": 550,
+        "y": 1940,
+        "wires": [
+            [
+                "8b9645a48467a05d"
+            ]
+        ]
+    },
+    {
+        "id": "9abad8fa2c66e6c5",
+        "type": "function",
+        "z": "68fa2cc37e97fc23",
+        "name": "function 35",
+        "func": "return {payload: msg.payload.set};\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1190,
+        "y": 460,
+        "wires": [
+            [
+                "78bd1557f5a8a99c"
+            ]
+        ]
+    },
+    {
+        "id": "78bd1557f5a8a99c",
+        "type": "link out",
+        "z": "68fa2cc37e97fc23",
+        "name": "4",
+        "mode": "link",
+        "links": [
+            "f2f8f1587df3d9b0"
+        ],
+        "x": 1305,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "f2f8f1587df3d9b0",
+        "type": "link in",
+        "z": "68fa2cc37e97fc23",
+        "name": "Qualle",
+        "links": [
+            "78bd1557f5a8a99c"
+        ],
+        "x": 445,
+        "y": 1940,
+        "wires": [
+            [
+                "04c77eb913c0456f"
+            ]
+        ]
+    },
+    {
+        "id": "032f200a387c1a7d",
+        "type": "ui_button",
+        "z": "68fa2cc37e97fc23",
+        "name": "",
+        "group": "afa22e4e425014cf",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Nur lesen",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "3",
+        "payloadType": "num",
+        "topic": "",
+        "topicType": "str",
+        "x": 180,
+        "y": 520,
+        "wires": [
+            [
+                "d09ca347ce966974"
+            ]
+        ]
+    },
+    {
+        "id": "1c4482ac7c1a403d",
+        "type": "ui_button",
+        "z": "68fa2cc37e97fc23",
+        "name": "",
+        "group": "afa22e4e425014cf",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Nur Arbeiten",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "4",
+        "payloadType": "num",
+        "topic": "",
+        "topicType": "str",
+        "x": 170,
+        "y": 560,
+        "wires": [
+            [
+                "d09ca347ce966974"
+            ]
+        ]
+    },
+    {
+        "id": "8c22bd231dad6bdb",
+        "type": "flogger",
+        "z": "68fa2cc37e97fc23",
+        "name": "",
+        "logfile": "heizung-dg",
+        "inputchoice": "fullmsg",
+        "inputobject": "payload",
+        "inputobjectType": "msg",
+        "inputmoustache": "Recieved payload {{payload}} and topic {{topic}}",
+        "loglevel": "INFO",
+        "logconfig": "8929498a4f6d4a2d",
+        "sendpane": "",
+        "x": 1030,
+        "y": 920,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2e2540407ce02b7f",
+        "type": "mqtt out",
+        "z": "68fa2cc37e97fc23",
+        "name": "Kleine Lampe",
+        "topic": "shellies/kleine-lampe/command/switch:0",
+        "qos": "1",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "c349b9ff.9dc4c8",
+        "x": 1020,
+        "y": 2080,
+        "wires": []
+    },
+    {
+        "id": "54c7035f4b897ddf",
+        "type": "ui_switch",
+        "z": "68fa2cc37e97fc23",
+        "name": "An/Aus Kleine Lampe",
+        "label": "An/Aus",
+        "tooltip": "",
+        "group": "b317e57d8ea7312a",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": "true",
+        "topic": "",
+        "topicType": "str",
+        "style": "",
+        "onvalue": "on",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "off",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "animate": true,
+        "className": "",
+        "x": 600,
+        "y": 2060,
+        "wires": [
+            [
+                "92848bccf20355a2"
+            ]
+        ]
+    },
+    {
+        "id": "f4e5aa5abfaeaef4",
+        "type": "mqtt in",
+        "z": "68fa2cc37e97fc23",
+        "name": "Kleine Lampe",
+        "topic": "shellies/kleine-lampe/status/switch:0",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "c349b9ff.9dc4c8",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 190,
+        "y": 2060,
+        "wires": [
+            [
+                "6a16cd5cac27c619",
+                "a7974bc38195f1a7"
+            ]
+        ]
+    },
+    {
+        "id": "6a16cd5cac27c619",
+        "type": "link out",
+        "z": "68fa2cc37e97fc23",
+        "name": "Kleine Lampe",
+        "mode": "link",
+        "links": [],
+        "x": 335,
+        "y": 2100,
+        "wires": []
+    },
+    {
+        "id": "8542f71fbbd8c06e",
+        "type": "link in",
+        "z": "68fa2cc37e97fc23",
+        "name": "Kleine Lampe",
+        "links": [
+            "d1e89d9e325d5a8d",
+            "a2684cdc5691686b"
+        ],
+        "x": 865,
+        "y": 2100,
+        "wires": [
+            [
+                "2e2540407ce02b7f"
+            ]
+        ]
+    },
+    {
+        "id": "a7974bc38195f1a7",
+        "type": "function",
+        "z": "68fa2cc37e97fc23",
+        "name": "state",
+        "func": "return { payload: msg.payload.output ? 'on' : 'off'}\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 370,
+        "y": 2020,
+        "wires": [
+            [
+                "e2d220ee14d5fa6d",
+                "54c7035f4b897ddf"
+            ]
+        ]
+    },
+    {
+        "id": "e2d220ee14d5fa6d",
+        "type": "rbe",
+        "z": "68fa2cc37e97fc23",
+        "name": "",
+        "func": "rbe",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "septopics": true,
+        "property": "payload",
+        "topi": "topic",
+        "x": 370,
+        "y": 2060,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "bacc8281997548fc",
+        "type": "ui_button",
+        "z": "68fa2cc37e97fc23",
+        "name": "",
+        "group": "afa22e4e425014cf",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Nachts",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "5",
+        "payloadType": "num",
+        "topic": "",
+        "topicType": "str",
+        "x": 160,
+        "y": 600,
+        "wires": [
+            [
+                "d09ca347ce966974"
+            ]
+        ]
+    },
+    {
+        "id": "0e98f3c733c9765f",
+        "type": "function",
+        "z": "68fa2cc37e97fc23",
+        "name": "function 58",
+        "func": "return {payload: msg.payload.state};\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1190,
+        "y": 500,
+        "wires": [
+            [
+                "a2684cdc5691686b"
+            ]
+        ]
+    },
+    {
+        "id": "a2684cdc5691686b",
+        "type": "link out",
+        "z": "68fa2cc37e97fc23",
+        "name": "4",
+        "mode": "link",
+        "links": [
+            "8542f71fbbd8c06e"
+        ],
+        "x": 1305,
+        "y": 500,
         "wires": []
     },
     {
@@ -31233,6 +31784,317 @@
         "y": 280,
         "wires": [
             []
+        ]
+    },
+    {
+        "id": "1e7f722e648293c3",
+        "type": "mqtt in",
+        "z": "f146a45029860fdf",
+        "name": "",
+        "topic": "zigbee2mqtt/rad",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "c349b9ff.9dc4c8",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 180,
+        "y": 540,
+        "wires": [
+            [
+                "dcabc35cf8903381"
+            ]
+        ]
+    },
+    {
+        "id": "dcabc35cf8903381",
+        "type": "switch",
+        "z": "f146a45029860fdf",
+        "name": "",
+        "property": "payload.action",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "brightness_move_to_level",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "on",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "off",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "on_double",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "off_double",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 5,
+        "x": 350,
+        "y": 540,
+        "wires": [
+            [
+                "698be31644db720a"
+            ],
+            [
+                "fdbc394555a7303f"
+            ],
+            [
+                "3ff95c80b6c101d8"
+            ],
+            [
+                "25d25c53f02aa98e"
+            ],
+            [
+                "7d0893464486cf42"
+            ]
+        ]
+    },
+    {
+        "id": "fdbc394555a7303f",
+        "type": "sonos-universal",
+        "z": "f146a45029860fdf",
+        "confignode": "13acd62b3d700beb",
+        "command": "group.play",
+        "state": "",
+        "stateType": "str",
+        "avoidCheckPlayerAvailability": false,
+        "name": "",
+        "x": 570,
+        "y": 500,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3ff95c80b6c101d8",
+        "type": "sonos-universal",
+        "z": "f146a45029860fdf",
+        "confignode": "13acd62b3d700beb",
+        "command": "group.pause",
+        "state": "",
+        "stateType": "str",
+        "avoidCheckPlayerAvailability": false,
+        "name": "",
+        "x": 570,
+        "y": 540,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "25d25c53f02aa98e",
+        "type": "sonos-universal",
+        "z": "f146a45029860fdf",
+        "confignode": "13acd62b3d700beb",
+        "command": "group.next.track",
+        "state": "",
+        "stateType": "str",
+        "avoidCheckPlayerAvailability": false,
+        "name": "",
+        "x": 580,
+        "y": 580,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7d0893464486cf42",
+        "type": "sonos-universal",
+        "z": "f146a45029860fdf",
+        "confignode": "13acd62b3d700beb",
+        "command": "group.previous.track",
+        "state": "",
+        "stateType": "str",
+        "avoidCheckPlayerAvailability": false,
+        "name": "",
+        "x": 600,
+        "y": 620,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "698be31644db720a",
+        "type": "function",
+        "z": "f146a45029860fdf",
+        "name": "function 56",
+        "func": "const d = msg.payload.action_brightness_delta;\nconst adj = (d === null || d > 0) ? 5 : -5;\n\nreturn {payload: adj};",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 570,
+        "y": 460,
+        "wires": [
+            [
+                "9c442c9199ea22e9"
+            ]
+        ]
+    },
+    {
+        "id": "9c442c9199ea22e9",
+        "type": "sonos-universal",
+        "z": "f146a45029860fdf",
+        "confignode": "13acd62b3d700beb",
+        "command": "group.adjust.volume",
+        "state": "",
+        "stateType": "str",
+        "avoidCheckPlayerAvailability": false,
+        "name": "",
+        "x": 780,
+        "y": 460,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d23c7f49f38d137e",
+        "type": "sonos-universal",
+        "z": "f146a45029860fdf",
+        "confignode": "13acd62b3d700beb",
+        "command": "group.get.volume",
+        "state": "",
+        "stateType": "str",
+        "avoidCheckPlayerAvailability": false,
+        "name": "",
+        "x": 390,
+        "y": 740,
+        "wires": [
+            [
+                "9bae29ef67cc89e6"
+            ]
+        ]
+    },
+    {
+        "id": "ad1dbe49959c3af5",
+        "type": "sonos-universal",
+        "z": "f146a45029860fdf",
+        "confignode": "13acd62b3d700beb",
+        "command": "group.set.volume",
+        "state": "",
+        "stateType": "str",
+        "avoidCheckPlayerAvailability": false,
+        "name": "",
+        "x": 870,
+        "y": 780,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "891fd09f12daf876",
+        "type": "delay",
+        "z": "f146a45029860fdf",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "1",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 640,
+        "y": 780,
+        "wires": [
+            [
+                "1d788f49be69e544"
+            ]
+        ]
+    },
+    {
+        "id": "c192e43e1207bf17",
+        "type": "sonos-universal",
+        "z": "f146a45029860fdf",
+        "confignode": "13acd62b3d700beb",
+        "command": "group.set.volume",
+        "state": "",
+        "stateType": "str",
+        "avoidCheckPlayerAvailability": false,
+        "name": "",
+        "x": 630,
+        "y": 740,
+        "wires": [
+            [
+                "891fd09f12daf876"
+            ]
+        ]
+    },
+    {
+        "id": "9bae29ef67cc89e6",
+        "type": "function",
+        "z": "f146a45029860fdf",
+        "name": "function 36",
+        "func": "flow.set('volume', msg.payload);\nreturn {payload: 0};",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 410,
+        "y": 780,
+        "wires": [
+            [
+                "c192e43e1207bf17"
+            ]
+        ]
+    },
+    {
+        "id": "1d788f49be69e544",
+        "type": "function",
+        "z": "f146a45029860fdf",
+        "name": "function 57",
+        "func": "return {payload: flow.get('volume')};",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 850,
+        "y": 740,
+        "wires": [
+            [
+                "ad1dbe49959c3af5"
+            ]
+        ]
+    },
+    {
+        "id": "b708cc79a53544f4",
+        "type": "link in",
+        "z": "f146a45029860fdf",
+        "name": "haustürklingel",
+        "links": [
+            "e938e0ee91a24106"
+        ],
+        "x": 245,
+        "y": 740,
+        "wires": [
+            [
+                "d23c7f49f38d137e"
+            ]
         ]
     }
 ]
