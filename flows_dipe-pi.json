@@ -213,14 +213,6 @@
         "env": []
     },
     {
-        "id": "22e74c85b169af30",
-        "type": "tab",
-        "label": "Spotify",
-        "disabled": false,
-        "info": "",
-        "env": []
-    },
-    {
         "id": "f146a45029860fdf",
         "type": "tab",
         "label": "Sonos",
@@ -660,8 +652,7 @@
                 "7359385faca6d84e",
                 "fe0cab1575d624e5",
                 "0bed57233aab0d43",
-                "48f55ed2.c2f68",
-                "d47f20c8e01ce0ef"
+                "48f55ed2.c2f68"
             ]
         ]
     },
@@ -788,21 +779,6 @@
         ]
     },
     {
-        "id": "9fd19719fcf3e895",
-        "type": "junction",
-        "z": "293bb437.fa00bc",
-        "x": 620,
-        "y": 1040,
-        "wires": [
-            [
-                "49291037141d6d4a",
-                "a8aa2af4bbf15bdd",
-                "24b2ba91c79a1a15",
-                "8b48918535bcc016"
-            ]
-        ]
-    },
-    {
         "id": "86692e91e7ab5553",
         "type": "junction",
         "z": "293bb437.fa00bc",
@@ -863,6 +839,31 @@
         ]
     },
     {
+        "id": "4fb648cd6e4e5e52",
+        "type": "junction",
+        "z": "7518cde088588ebe",
+        "x": 760,
+        "y": 200,
+        "wires": [
+            [
+                "0354035ff2531b1d"
+            ]
+        ]
+    },
+    {
+        "id": "f77199eeddaf0274",
+        "type": "junction",
+        "z": "3a471104.edfbae",
+        "x": 480,
+        "y": 640,
+        "wires": [
+            [
+                "38bf3abf.87fe76",
+                "3dbd805c4b181148"
+            ]
+        ]
+    },
+    {
         "id": "c349b9ff.9dc4c8",
         "type": "mqtt-broker",
         "name": "dipe-pi",
@@ -895,7 +896,7 @@
         "type": "ui_tab",
         "name": "Wohnzimmer",
         "icon": "dashboard",
-        "order": 3,
+        "order": 2,
         "disabled": false,
         "hidden": false
     },
@@ -1031,7 +1032,7 @@
         "type": "ui_tab",
         "name": "Esszimmer/Küche",
         "icon": "dashboard",
-        "order": 4,
+        "order": 3,
         "disabled": false,
         "hidden": false
     },
@@ -1091,7 +1092,7 @@
         "type": "ui_tab",
         "name": "Waschküche",
         "icon": "dashboard",
-        "order": 8,
+        "order": 7,
         "disabled": false,
         "hidden": false
     },
@@ -1134,7 +1135,7 @@
         "type": "ui_tab",
         "name": "Außen",
         "icon": "dashboard",
-        "order": 10,
+        "order": 9,
         "disabled": false,
         "hidden": false
     },
@@ -1166,7 +1167,7 @@
         "type": "ui_tab",
         "name": "Treppenhaus",
         "icon": "dashboard",
-        "order": 6,
+        "order": 5,
         "disabled": false,
         "hidden": false
     },
@@ -1186,7 +1187,7 @@
         "type": "ui_tab",
         "name": "Lüftungsempfehlungen",
         "icon": "dashboard",
-        "order": 2,
+        "order": 1,
         "disabled": false,
         "hidden": false
     },
@@ -1242,7 +1243,7 @@
         "type": "ui_tab",
         "name": "Werkstatt",
         "icon": "dashboard",
-        "order": 9,
+        "order": 8,
         "disabled": false,
         "hidden": false
     },
@@ -1285,7 +1286,7 @@
         "type": "ui_tab",
         "name": "Fahrradkeller",
         "icon": "dashboard",
-        "order": 7,
+        "order": 6,
         "disabled": false,
         "hidden": false
     },
@@ -1402,7 +1403,7 @@
         "type": "ui_tab",
         "name": "Bad",
         "icon": "dashboard",
-        "order": 5,
+        "order": 4,
         "disabled": false,
         "hidden": false
     },
@@ -1438,21 +1439,12 @@
         "lwaClientId": "amzn1.application-oa2-client.3f1bb07133854b078261ad43f2484c18"
     },
     {
-        "id": "b8fb397bd580054b",
-        "type": "ui_tab",
-        "name": "Balkon",
-        "icon": "dashboard",
-        "order": 16,
-        "disabled": false,
-        "hidden": false
-    },
-    {
         "id": "69570255a88564b2",
         "type": "ui_group",
-        "name": "Group 1",
-        "tab": "b8fb397bd580054b",
-        "order": 1,
-        "disp": false,
+        "name": "Luftgüte",
+        "tab": "96087061.c7ebf",
+        "order": 2,
+        "disp": true,
         "width": "6",
         "collapse": false,
         "className": ""
@@ -1494,7 +1486,7 @@
         "type": "ui_tab",
         "name": "Gästezimmer",
         "icon": "dashboard",
-        "order": 17,
+        "order": 16,
         "disabled": false,
         "hidden": false
     },
@@ -1579,7 +1571,7 @@
         "type": "ui_tab",
         "name": "Kameras",
         "icon": "dashboard",
-        "order": 20,
+        "order": 19,
         "disabled": false,
         "hidden": false
     },
@@ -1629,7 +1621,7 @@
         "type": "ui_tab",
         "name": "Fernbedienung",
         "icon": "dashboard",
-        "order": 19,
+        "order": 18,
         "disabled": false,
         "hidden": false
     },
@@ -1693,7 +1685,7 @@
         "type": "ui_tab",
         "name": "Pins verwalten",
         "icon": "dashboard",
-        "order": 18,
+        "order": 17,
         "disabled": false,
         "hidden": false
     },
@@ -1749,37 +1741,6 @@
         "order": 2,
         "disp": true,
         "width": "6",
-        "collapse": false,
-        "className": ""
-    },
-    {
-        "id": "22bcfb82f1722e16",
-        "type": "ui_tab",
-        "name": "Wetter",
-        "icon": "dashboard",
-        "order": 1,
-        "disabled": false,
-        "hidden": false
-    },
-    {
-        "id": "d7dccacc0dc694bb",
-        "type": "ui_group",
-        "name": "Heute",
-        "tab": "22bcfb82f1722e16",
-        "order": 1,
-        "disp": true,
-        "width": 6,
-        "collapse": false,
-        "className": ""
-    },
-    {
-        "id": "107afad97362847e",
-        "type": "ui_group",
-        "name": "Vorhersage",
-        "tab": "22bcfb82f1722e16",
-        "order": 2,
-        "disp": true,
-        "width": 6,
         "collapse": false,
         "className": ""
     },
@@ -1907,7 +1868,7 @@
     {
         "id": "13acd62b3d700beb",
         "type": "sonos-config",
-        "name": "Sonos",
+        "name": "Sonos Five Wohnzimmer L",
         "serialnum": "",
         "ipaddress": "172.28.29.45"
     },
@@ -2198,7 +2159,7 @@
         "type": "mqtt in",
         "z": "37daec28.284ee4",
         "name": "Wandtaster1 rechts",
-        "topic": "wandschalter-wozi1/status/input:0",
+        "topic": "shellies/wandschalter-wozi1/status/input:0",
         "qos": "0",
         "datatype": "auto-detect",
         "broker": "c349b9ff.9dc4c8",
@@ -2218,7 +2179,7 @@
         "type": "mqtt in",
         "z": "37daec28.284ee4",
         "name": "Wandtaster1 links",
-        "topic": "wandschalter-wozi1/status/input:1",
+        "topic": "shellies/wandschalter-wozi1/status/input:1",
         "qos": "0",
         "datatype": "auto-detect",
         "broker": "c349b9ff.9dc4c8",
@@ -6438,11 +6399,11 @@
         "nl": false,
         "rap": false,
         "inputs": 0,
-        "x": 210,
-        "y": 640,
+        "x": 290,
+        "y": 620,
         "wires": [
             [
-                "38bf3abf.87fe76"
+                "f77199eeddaf0274"
             ]
         ]
     },
@@ -7083,7 +7044,7 @@
         "bytopic": "all",
         "topic": "topic",
         "outputs": 1,
-        "x": 670,
+        "x": 790,
         "y": 620,
         "wires": [
             [
@@ -7110,7 +7071,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 870,
+        "x": 990,
         "y": 620,
         "wires": [
             []
@@ -7196,7 +7157,7 @@
         "z": "3a471104.edfbae",
         "name": "",
         "info": "Schalte der Bewegungsmelder das Licht ein und ich drücke praktisch gleichzeitig den Taster, schalte ich das Licht nicht unabsichtlich aus.",
-        "x": 620,
+        "x": 740,
         "y": 580,
         "wires": []
     },
@@ -7877,12 +7838,11 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 460,
-        "y": 640,
+        "x": 580,
+        "y": 620,
         "wires": [
             [
-                "e18902b0a943f1fe",
-                "029adfc035a60f48"
+                "e18902b0a943f1fe"
             ]
         ]
     },
@@ -7895,9 +7855,49 @@
         "links": [
             "c4c2eff3.b70f"
         ],
-        "x": 575,
+        "x": 695,
         "y": 660,
         "wires": []
+    },
+    {
+        "id": "3dbd805c4b181148",
+        "type": "function",
+        "z": "3a471104.edfbae",
+        "name": "",
+        "func": "if (msg.payload.occupancy)\n    return { payload: \"ON\" }\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 660,
+        "wires": [
+            [
+                "029adfc035a60f48"
+            ]
+        ]
+    },
+    {
+        "id": "070fca901d339e4b",
+        "type": "mqtt in",
+        "z": "3a471104.edfbae",
+        "name": "Bewegungsmelder Treppenhaus Keller Vorratsecke",
+        "topic": "zigbee2mqtt/bewegungsmelder_treppenhaus_keller_vorratsecke",
+        "qos": "2",
+        "datatype": "json",
+        "broker": "c349b9ff.9dc4c8",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 250,
+        "y": 660,
+        "wires": [
+            [
+                "f77199eeddaf0274"
+            ]
+        ]
     },
     {
         "id": "2f8c3777.ecafb8",
@@ -8273,7 +8273,7 @@
         "type": "function",
         "z": "4d90b497.b5b2ac",
         "name": "fan controller",
-        "func": "const outside_abs_humidity = global.get(\"luftguetemesser2-absolute_humidity\");\nconst wk_temperature = global.get(\"waschkueche_luefter-temperature\");\nconst wk_humidity = global.get(\"waschkueche_luefter-humidity\");\nconst wk_abs_humidity = global.get(\"waschkueche_luefter-absolute_humidity\");\n\nconst washroom_fan_control = flow.get(\"washroom_fan_control\");\nconst last_abs_humidity_gt_outside_abs_humidity = global.get(\"washroom-last_abs_humidity_gt_outside_abs_humidity\");\n\nconst room_abs_humidity_gt_outside_abs_humidity = (last_abs_humidity_gt_outside_abs_humidity) ?\n    wk_abs_humidity > outside_abs_humidity * 1.05:\n    wk_abs_humidity > outside_abs_humidity * 1.05;\n\nglobal.set(\"washroom-last_abs_humidity_gt_outside_abs_humidity\", wk_abs_humidity > outside_abs_humidity);\n\nvar washroom_fan_on;\nif (washroom_fan_control == \"ON\") {\n    if (room_abs_humidity_gt_outside_abs_humidity) {\n        if (wk_humidity > 60 && wk_temperature > 14) {\n            washroom_fan_on = \"ON\";\n        } else {\n            washroom_fan_on = \"OFF\";\n        }\n    } else {\n        washroom_fan_on = \"OFF\";\n    }\n} else {\n    washroom_fan_on = undefined;\n}\n\nmsg = [\n    (washroom_fan_on) ? {topic: \"luefter_sw\", payload: washroom_fan_on} : undefined,\n    {topic: \"Debug\", payload: {\n            outside_abs_humidity: outside_abs_humidity,\n            wk_temperature: wk_temperature,\n            wk_humidity: wk_humidity,\n            wk_abs_humidity: wk_abs_humidity,\n            washroom_fan_on: washroom_fan_on,\n            washroom_fan_control: washroom_fan_control,\n            room_abs_humidity_gt_outside_abs_humidity: room_abs_humidity_gt_outside_abs_humidity,\n            last_abs_humidity_gt_outside_abs_humidity: last_abs_humidity_gt_outside_abs_humidity\n    }   }\n];\n\nreturn msg;",
+        "func": "// const outside_abs_humidity = global.get(\"aussen-absolute_humidity\");\nconst outside_abs_humidity = global.get(\"luftguetemesser2-absolute_humidity\");\n\nconst wk_temperature = global.get(\"waschkueche_luefter-temperature\");\nconst wk_humidity = global.get(\"waschkueche_luefter-humidity\");\nconst wk_abs_humidity = global.get(\"waschkueche_luefter-absolute_humidity\");\n\nconst washroom_fan_control = flow.get(\"washroom_fan_control\");\nconst last_abs_humidity_gt_outside_abs_humidity = global.get(\"washroom-last_abs_humidity_gt_outside_abs_humidity\");\n\nconst room_abs_humidity_gt_outside_abs_humidity = (last_abs_humidity_gt_outside_abs_humidity) ?\n    wk_abs_humidity > outside_abs_humidity * 1.05:\n    wk_abs_humidity > outside_abs_humidity * 1.05;\n\nglobal.set(\"washroom-last_abs_humidity_gt_outside_abs_humidity\", wk_abs_humidity > outside_abs_humidity);\n\nvar washroom_fan_on;\nif (washroom_fan_control == \"ON\") {\n    if (room_abs_humidity_gt_outside_abs_humidity) {\n        if (wk_humidity > 60 && wk_temperature > 14) {\n            washroom_fan_on = \"ON\";\n        } else {\n            washroom_fan_on = \"OFF\";\n        }\n    } else {\n        washroom_fan_on = \"OFF\";\n    }\n} else {\n    washroom_fan_on = undefined;\n}\n\nmsg = [\n    (washroom_fan_on) ? {topic: \"luefter_sw\", payload: washroom_fan_on} : undefined,\n    {topic: \"Debug\", payload: {\n            outside_abs_humidity: outside_abs_humidity,\n            wk_temperature: wk_temperature,\n            wk_humidity: wk_humidity,\n            wk_abs_humidity: wk_abs_humidity,\n            washroom_fan_on: washroom_fan_on,\n            washroom_fan_control: washroom_fan_control,\n            room_abs_humidity_gt_outside_abs_humidity: room_abs_humidity_gt_outside_abs_humidity,\n            last_abs_humidity_gt_outside_abs_humidity: last_abs_humidity_gt_outside_abs_humidity\n    }   }\n];\n\nreturn msg;",
         "outputs": 2,
         "timeout": "",
         "noerr": 0,
@@ -10216,7 +10216,6 @@
         "y": 1080,
         "wires": [
             [
-                "57a34c06511afbc0",
                 "2e3092c8d95b225f",
                 "2717aa257c675582"
             ]
@@ -10300,7 +10299,7 @@
         "rap": false,
         "inputs": 0,
         "x": 310,
-        "y": 1280,
+        "y": 1180,
         "wires": [
             [
                 "d0d72c3018a81a72"
@@ -10361,7 +10360,7 @@
         "fontSize": 16,
         "color": "#000000",
         "x": 880,
-        "y": 1280,
+        "y": 1180,
         "wires": []
     },
     {
@@ -10377,7 +10376,7 @@
         "finalize": "",
         "libs": [],
         "x": 640,
-        "y": 1280,
+        "y": 1180,
         "wires": [
             [
                 "40652647bd459a8c"
@@ -10455,110 +10454,6 @@
         ]
     },
     {
-        "id": "57a34c06511afbc0",
-        "type": "function",
-        "z": "293bb437.fa00bc",
-        "name": "function 20",
-        "func": "const vorhersagen = msg.payload;\n\nconst intl = global.get('intl');\nconst format = intl.NumberFormat('de-De',{style:'decimal', maximumFractionDigits: 1}).format;\nconst sprintf = global.get(\"sprintf\");\n\nreturn {\n    payload: {\n        a: {\n            uhrzeit: new Date(vorhersagen[0].dt * 1000).toLocaleTimeString('de-DE', { timeStyle: 'short' }),\n            temp: sprintf(\"%s °C\", format(vorhersagen[0].main.temp)),\n            vorhersage: vorhersagen[0].weather[0].description\n        },\n        b: {\n            uhrzeit: new Date(vorhersagen[1].dt * 1000).toLocaleTimeString('de-DE', { timeStyle: 'short' }),\n            temp: sprintf(\"%s °C\", format(vorhersagen[1].main.temp)),\n            vorhersage: vorhersagen[1].weather[0].description\n        },\n        c: {\n            uhrzeit: new Date(vorhersagen[2].dt * 1000).toLocaleTimeString('de-DE', { timeStyle: 'short' }),\n            temp: sprintf(\"%s °C\", format(vorhersagen[2].main.temp)),\n            vorhersage: vorhersagen[0].weather[0].description\n        },\n        d: {\n            uhrzeit: new Date(vorhersagen[3].dt * 1000).toLocaleTimeString('de-DE', { timeStyle: 'short' }),\n            temp: sprintf(\"%s °C\", format(vorhersagen[3].main.temp)),\n            vorhersage: vorhersagen[3].weather[0].description\n        },\n        e: {\n            uhrzeit: new Date(vorhersagen[4].dt * 1000).toLocaleTimeString('de-DE', { timeStyle: 'short' }),\n            temp: sprintf(\"%s °C\", format(vorhersagen[4].main.temp)),\n            vorhersage: vorhersagen[4].weather[0].description\n        }\n    }\n};",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 410,
-        "y": 1040,
-        "wires": [
-            [
-                "9fd19719fcf3e895"
-            ]
-        ]
-    },
-    {
-        "id": "8b48918535bcc016",
-        "type": "ui_text",
-        "z": "293bb437.fa00bc",
-        "group": "107afad97362847e",
-        "order": 1,
-        "width": 0,
-        "height": 0,
-        "name": "Vorhersage",
-        "label": "{{msg.payload.a.uhrzeit}}",
-        "format": "{{msg.payload.a.vorhersage}}, {{msg.payload.a.temp}}",
-        "layout": "row-spread",
-        "className": "",
-        "style": false,
-        "font": "",
-        "fontSize": 16,
-        "color": "#000000",
-        "x": 770,
-        "y": 980,
-        "wires": []
-    },
-    {
-        "id": "49291037141d6d4a",
-        "type": "ui_text",
-        "z": "293bb437.fa00bc",
-        "group": "107afad97362847e",
-        "order": 1,
-        "width": 0,
-        "height": 0,
-        "name": "Vorhersage",
-        "label": "{{msg.payload.b.uhrzeit}}",
-        "format": "{{msg.payload.b.vorhersage}}, {{msg.payload.b.temp}}",
-        "layout": "row-spread",
-        "className": "",
-        "style": false,
-        "font": "",
-        "fontSize": 16,
-        "color": "#000000",
-        "x": 770,
-        "y": 1020,
-        "wires": []
-    },
-    {
-        "id": "a8aa2af4bbf15bdd",
-        "type": "ui_text",
-        "z": "293bb437.fa00bc",
-        "group": "107afad97362847e",
-        "order": 1,
-        "width": 0,
-        "height": 0,
-        "name": "Vorhersage",
-        "label": "{{msg.payload.c.uhrzeit}}",
-        "format": "{{msg.payload.c.vorhersage}}, {{msg.payload.c.temp}}",
-        "layout": "row-spread",
-        "className": "",
-        "style": false,
-        "font": "",
-        "fontSize": 16,
-        "color": "#000000",
-        "x": 770,
-        "y": 1060,
-        "wires": []
-    },
-    {
-        "id": "24b2ba91c79a1a15",
-        "type": "ui_text",
-        "z": "293bb437.fa00bc",
-        "group": "107afad97362847e",
-        "order": 1,
-        "width": 0,
-        "height": 0,
-        "name": "Vorhersage",
-        "label": "{{msg.payload.d.uhrzeit}}",
-        "format": "{{msg.payload.d.vorhersage}}, {{msg.payload.d.temp}}",
-        "layout": "row-spread",
-        "className": "",
-        "style": false,
-        "font": "",
-        "fontSize": 16,
-        "color": "#000000",
-        "x": 770,
-        "y": 1100,
-        "wires": []
-    },
-    {
         "id": "fb68ae9fa3be15af",
         "type": "change",
         "z": "293bb437.fa00bc",
@@ -10593,7 +10488,7 @@
             "51925e3737510b63"
         ],
         "x": 355,
-        "y": 1120,
+        "y": 1100,
         "wires": []
     },
     {
@@ -10636,7 +10531,7 @@
         "to": "",
         "reg": false,
         "x": 470,
-        "y": 1080,
+        "y": 1060,
         "wires": [
             []
         ]
@@ -10648,8 +10543,7 @@
         "name": "wetter aktuell",
         "mode": "link",
         "links": [
-            "51925e3737510b63",
-            "7f32f882add20407"
+            "51925e3737510b63"
         ],
         "x": 355,
         "y": 960,
@@ -11059,7 +10953,8 @@
         "y": 600,
         "wires": [
             [
-                "6238d883.2f3dd8"
+                "6238d883.2f3dd8",
+                "93c2d502a162412c"
             ]
         ]
     },
@@ -11068,7 +10963,7 @@
         "type": "function",
         "z": "2f328ad8.26ca86",
         "name": "",
-        "func": "if (msg.payload.contact) {\n    const topic = msg.topic;\n    var counter = (flow.get(topic) || 0) + 0.01;\n    flow.set(topic, counter);\n    msg.payload.counter = counter;\n}\n\nreturn msg;",
+        "func": "if (msg.payload.contact) {\n    const topic = msg.topic;\n    var counter = (flow.get(topic) || 0) + 0.01;\n    flow.set(topic, counter);\n    msg.payload.counter = counter;\n    return msg;\n}\n\n",
         "outputs": 1,
         "timeout": "",
         "noerr": 0,
@@ -11081,7 +10976,7 @@
             [
                 "cdbf2a81.584de8",
                 "afb0333e.affc6",
-                "49886081852e0d9e"
+                "088bf0781001c457"
             ]
         ]
     },
@@ -11144,7 +11039,7 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "zigbee2mqtt/gas_zaehler",
-        "payload": "{\"counter\": 8515.868}",
+        "payload": "{\"counter\": 15046.479}",
         "payloadType": "json",
         "x": 260,
         "y": 640,
@@ -11171,7 +11066,7 @@
         "wires": [
             [
                 "d7eb448b.d6abd8",
-                "088bf0781001c457"
+                "49886081852e0d9e"
             ]
         ]
     },
@@ -11571,15 +11466,15 @@
         "type": "debug",
         "z": "2f328ad8.26ca86",
         "name": "debug 5",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 780,
-        "y": 580,
+        "x": 820,
+        "y": 520,
         "wires": []
     },
     {
@@ -11587,15 +11482,15 @@
         "type": "debug",
         "z": "2f328ad8.26ca86",
         "name": "debug 6",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 780,
-        "y": 540,
+        "x": 820,
+        "y": 560,
         "wires": []
     },
     {
@@ -11628,6 +11523,22 @@
         ]
     },
     {
+        "id": "93c2d502a162412c",
+        "type": "debug",
+        "z": "2f328ad8.26ca86",
+        "name": "debug 8",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 500,
+        "y": 540,
+        "wires": []
+    },
+    {
         "id": "7b56cfeb.46625",
         "type": "mqtt out",
         "z": "dac2cb3b.559138",
@@ -11658,8 +11569,8 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 210,
-        "y": 260,
+        "x": 230,
+        "y": 280,
         "wires": [
             [
                 "eaf6fe8a89747f00"
@@ -11742,27 +11653,6 @@
         "wires": [
             [
                 "12ebe76fae3f9cf7"
-            ]
-        ]
-    },
-    {
-        "id": "e91d70892415c84f",
-        "type": "mqtt in",
-        "z": "dac2cb3b.559138",
-        "name": "",
-        "topic": "zigbee2mqtt/fernbedienung_kueche",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "c349b9ff.9dc4c8",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 220,
-        "y": 300,
-        "wires": [
-            [
-                "eaf6fe8a89747f00"
             ]
         ]
     },
@@ -11872,143 +11762,6 @@
         ]
     },
     {
-        "id": "49d727fe.737a88",
-        "type": "inject",
-        "z": "4fa3b184.bc7fb",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "30",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 210,
-        "y": 340,
-        "wires": [
-            [
-                "8dbf1137ca611589"
-            ]
-        ]
-    },
-    {
-        "id": "5616c163.a87f9",
-        "type": "debug",
-        "z": "4fa3b184.bc7fb",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 570,
-        "y": 280,
-        "wires": []
-    },
-    {
-        "id": "23f6c6bd.14f54a",
-        "type": "ui_template",
-        "z": "4fa3b184.bc7fb",
-        "group": "d796a540.50d378",
-        "name": "",
-        "order": 1,
-        "width": 0,
-        "height": 0,
-        "format": "<md-card ui-card-size=\"6x2\" \n    class=\"_md nr-dashboard-text layout-align-center-center nr-dashboard-widget-text visible\" \n    style=\"background-color: {{msg.payload.color}}; color: black; left: 0px; top: 54px; width: 300px; height: 96px;\">\n    <p class=\"value\">{{msg.payload.value}}</p><p>{{msg.payload.text}}</p>\n</md-card>\n",
-        "storeOutMessages": true,
-        "fwdInMessages": true,
-        "resendOnRefresh": true,
-        "templateScope": "local",
-        "className": "",
-        "x": 580,
-        "y": 320,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "236c8c27.2d41a4",
-        "type": "ui_template",
-        "z": "4fa3b184.bc7fb",
-        "group": "d796a540.50d378",
-        "name": "",
-        "order": 2,
-        "width": 0,
-        "height": 0,
-        "format": "<md-card ui-card-size=\"6x2\" \n    class=\"_md nr-dashboard-text layout-align-center-center nr-dashboard-widget-text visible\" \n    style=\"background-color: {{msg.payload.color}}; color: black; left: 0px; top: 54px; width: 300px; height: 96px;\">\n    <p class=\"value\">{{msg.payload.value}}</p><p>{{msg.payload.text1}}<br/>{{msg.payload.text2}}<br/>{{msg.payload.text3}}</p>\n</md-card>\n",
-        "storeOutMessages": true,
-        "fwdInMessages": true,
-        "resendOnRefresh": true,
-        "templateScope": "local",
-        "className": "",
-        "x": 580,
-        "y": 360,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "d7d58dae.c7b95",
-        "type": "ui_template",
-        "z": "4fa3b184.bc7fb",
-        "group": "d796a540.50d378",
-        "name": "",
-        "order": 3,
-        "width": 0,
-        "height": 0,
-        "format": "<md-card ui-card-size=\"6x2\" \n    class=\"_md nr-dashboard-text layout-align-center-center nr-dashboard-widget-text visible\" \n    style=\"background-color: {{msg.payload.color}}; color: black; left: 0px; top: 54px; width: 300px; height: 96px;\">\n    <p class=\"value\">{{msg.payload.value}}</p><p>{{msg.payload.text}}</p>\n</md-card>\n",
-        "storeOutMessages": true,
-        "fwdInMessages": true,
-        "resendOnRefresh": true,
-        "templateScope": "local",
-        "className": "",
-        "x": 580,
-        "y": 400,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "8dbf1137ca611589",
-        "type": "function",
-        "z": "4fa3b184.bc7fb",
-        "name": "",
-        "func": "const temp = global.get(\"luftguetemesser1-temperature\");\nconst hum = global.get(\"luftguetemesser1-humidity\");\nconst abs_hum = global.get(\"luftguetemesser1-absolute_humidity\");\nconst press = global.get(\"luftguetemesser1-pressure\");\nconst iaq = global.get(\"luftguetemesser1-iaq\");\nconst co2 = global.get(\"luftguetemesser1-co2\");\nconst voc = global.get(\"luftguetemesser1-breath_voc_equivalent\");\nconst m10 = global.get(\"luftguetemesser1-particulate_matter_10m_concentration\");\nconst m25 = global.get(\"luftguetemesser1-particulate_matter_25m_concentration\");\nconst m100 = global.get(\"luftguetemesser1-particulate_matter_100m_concentration\");\nconst alert_voc = global.get(\"luftguetemesser1-alert_voc\");\nconst alert_co2 = global.get(\"luftguetemesser1-alert_co2\");\nconst alert_pm = global.get(\"luftguetemesser1-alert_pm\");\n\nvar debug = {\n    temp: temp,\n    hum: hum,\n    abs_hum: abs_hum,\n    press: press,\n    iaq: iaq,\n    co2: co2,\n    voc: voc,\n    m10: m10,\n    m25: m25,\n    m100: m100,\n    alert_voc,\n    alert_co2,\n    alert_pm\n};\n\nconst intl = global.get('intl');\nconst format = intl.NumberFormat('de-De',{style:'decimal', maximumFractionDigits: 2}).format;\nconst sprintf = global.get(\"sprintf\");\n\nfunction color(alert) {\n    return (alert == \"green\") ? \"limegreen\" : alert;\n}\n\nvar voc_status = {payload: { value: \"Flüchtige org. Verbindungen\", color: color(alert_voc), text: sprintf(\"%s mg/m³\", format(voc))}};\nvar matter_status = { payload: { value: \"Feinstaub\", color: color(alert_pm), text1: sprintf(\"1,0 µm: %s ppm\", format(m10)), text2: sprintf(\"2,5 µm: %s ppm\", format(m25)), text3: sprintf(\"10 µm: %s ppm\", format(m100))}};\nvar co2_status = { payload: { value: \"CO2\", color: color(alert_co2), text: sprintf(\"%s ppm\", format(co2)) }};\n\nreturn [debug, voc_status, matter_status, co2_status];\n",
-        "outputs": 4,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 380,
-        "y": 340,
-        "wires": [
-            [
-                "5616c163.a87f9"
-            ],
-            [
-                "23f6c6bd.14f54a"
-            ],
-            [
-                "236c8c27.2d41a4"
-            ],
-            [
-                "d7d58dae.c7b95"
-            ]
-        ]
-    },
-    {
         "id": "17f6ed83131850e6",
         "type": "ui_switch",
         "z": "4fa3b184.bc7fb",
@@ -12034,7 +11787,7 @@
         "offcolor": "",
         "animate": false,
         "className": "",
-        "x": 550,
+        "x": 570,
         "y": 480,
         "wires": [
             [
@@ -12056,7 +11809,7 @@
         "correl": "",
         "expiry": "",
         "broker": "c349b9ff.9dc4c8",
-        "x": 840,
+        "x": 860,
         "y": 480,
         "wires": []
     },
@@ -12107,7 +11860,7 @@
         "offcolor": "",
         "animate": false,
         "className": "",
-        "x": 530,
+        "x": 560,
         "y": 540,
         "wires": [
             [
@@ -12129,7 +11882,7 @@
         "correl": "",
         "expiry": "",
         "broker": "c349b9ff.9dc4c8",
-        "x": 850,
+        "x": 870,
         "y": 540,
         "wires": []
     },
@@ -12152,6 +11905,264 @@
             [
                 "47e21a73dd3c9959"
             ]
+        ]
+    },
+    {
+        "id": "dbf3e36226cb28c2",
+        "type": "inject",
+        "z": "4fa3b184.bc7fb",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "30",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 190,
+        "y": 240,
+        "wires": [
+            [
+                "e554b18ca63d9344"
+            ]
+        ]
+    },
+    {
+        "id": "bf19e816b876358d",
+        "type": "debug",
+        "z": "4fa3b184.bc7fb",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 570,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "629f275bef269f55",
+        "type": "ui_template",
+        "z": "4fa3b184.bc7fb",
+        "group": "d796a540.50d378",
+        "name": "1",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "format": "<md-card ui-card-size=\"6x2\" \n    class=\"_md nr-dashboard-text layout-align-center-center nr-dashboard-widget-text visible\" \n    style=\"background-color: {{msg.payload.color}}; color: black; left: 0px; top: 54px; width: 300px; height: 96px;\">\n    <p class=\"value\">{{msg.payload.value}}</p><p>{{msg.payload.text}}</p>\n</md-card>\n",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 570,
+        "y": 120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d6a612e6abd20a72",
+        "type": "ui_template",
+        "z": "4fa3b184.bc7fb",
+        "group": "d796a540.50d378",
+        "name": "2",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "format": "<md-card ui-card-size=\"6x2\" \n    class=\"_md nr-dashboard-text layout-align-center-center nr-dashboard-widget-text visible\" \n    style=\"background-color: {{msg.payload.color}}; color: black; left: 0px; top: 54px; width: 300px; height: 96px;\">\n    <p class=\"value\">{{msg.payload.value}}</p><p>{{msg.payload.text1}}<br/>{{msg.payload.text2}}<br/>{{msg.payload.text3}}</p>\n</md-card>\n",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 570,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e22127170ef18794",
+        "type": "ui_template",
+        "z": "4fa3b184.bc7fb",
+        "group": "d796a540.50d378",
+        "name": "3",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "format": "<md-card ui-card-size=\"6x2\" \n    class=\"_md nr-dashboard-text layout-align-center-center nr-dashboard-widget-text visible\" \n    style=\"background-color: {{msg.payload.color}}; color: black; left: 0px; top: 54px; width: 300px; height: 96px;\">\n    <p class=\"value\">{{msg.payload.value}}</p><p>{{msg.payload.text}}</p>\n</md-card>\n",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 570,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a7f8e4db3b580b34",
+        "type": "ui_template",
+        "z": "4fa3b184.bc7fb",
+        "group": "d796a540.50d378",
+        "name": "4",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "format": "<md-card ui-card-size=\"6x2\" \n    class=\"_md nr-dashboard-text layout-align-center-center nr-dashboard-widget-text visible\" \n    style=\"background-color: {{msg.payload.color}}; color: black; left: 0px; top: 54px; width: 300px; height: 96px;\">\n    <p class=\"value\">{{msg.payload.value}}</p><p>{{msg.payload.text}}</p>\n</md-card>\n",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 570,
+        "y": 240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e554b18ca63d9344",
+        "type": "function",
+        "z": "4fa3b184.bc7fb",
+        "name": "",
+        "func": "const temp = global.get(\"luftguetemesser1-temperature\");\nconst hum = global.get(\"luftguetemesser1-humidity\");\nconst abs_hum = global.get(\"luftguetemesser1-absolute_humidity\");\nconst press = global.get(\"luftguetemesser1-pressure\");\nconst iaq = global.get(\"luftguetemesser1-iaq\");\nconst co2 = global.get(\"luftguetemesser1-co2\");\nconst voc = global.get(\"luftguetemesser1-breath_voc_equivalent\");\nconst m10 = global.get(\"luftguetemesser1-particulate_matter__1_0__m_concentration\");\nconst m25 = global.get(\"luftguetemesser1-particulate_matter__2_5__m_concentration\");\nconst m100 = global.get(\"luftguetemesser1-particulate_matter__10_0__m_concentration\");\nconst formaldehyde = global.get(\"luftguetemesser1-formaldehyde\");\nconst alert_voc = global.get(\"luftguetemesser1-alert_voc\");\nconst alert_co2 = global.get(\"luftguetemesser1-alert_co2\");\nconst alert_pm = global.get(\"luftguetemesser1-alert_pm\");\nconst alert_formaldehyde = global.get(\"luftguetemesser1-alert_formaldehyde\");\n\nvar debug = {\n    temp: temp,\n    hum: hum,\n    abs_hum: abs_hum,\n    press: press,\n    iaq: iaq,\n    co2: co2,\n    voc: voc,\n    m10: m10,\n    m25: m25,\n    m100: m100,\n    formaldehyde: formaldehyde,\n    alert_voc,\n    alert_co2,\n    alert_pm,\n    alert_formaldehyde\n};\n\nconst intl = global.get('intl');\nconst format = intl.NumberFormat('de-De',{style:'decimal', maximumFractionDigits: 2}).format;\nconst sprintf = global.get(\"sprintf\");\n\nfunction color(alert) {\n    return (alert == \"green\") ? \"limegreen\" : alert;\n}\n\nvar voc_status = {payload: { value: \"Flüchtige org. Verbindungen\", color: color(alert_voc), text: sprintf(\"%s mg/m³\", format(voc))}};\nvar matter_status = { payload: { value: \"Feinstaub\", color: color(alert_pm), text1: sprintf(\"1,0 µm: %s ppm\", format(m10)), text2: sprintf(\"2,5 µm: %s ppm\", format(m25)), text3: sprintf(\"10 µm: %s ppm\", format(m100))}};\nvar co2_status = { payload: { value: \"CO2\", color: color(alert_co2), text: sprintf(\"%s ppm\", format(co2)) }};\nvar formaldehyde_status = { payload: { value: \"Formaldehyd\", color: color(alert_formaldehyde), text: sprintf(\"%s µg/m³\", format(formaldehyde)) }};\nvar temp_status = { payload: { value: \"Temperatur\", color: \"white\", text: sprintf(\"%s °C\", format(temp)) }};\nvar hum_status = { payload: { value: \"Rel. Luftfeuchtigkeit\", color: \"white\", text: sprintf(\"%s %%\", format(hum)) }};\nvar abs_hum_status = { payload: { value: \"Abs. Luftfeuchtigkeit\", color: \"white\", text: sprintf(\"%s mg/m³\", format(abs_hum)) }};\nvar press_status = { payload: { value: \"Luftdruck\", color: \"white\", text: sprintf(\"%s µg/m³\", format(press)) }};\n\nreturn [debug, voc_status, matter_status, co2_status, formaldehyde_status, temp_status, hum_status, abs_hum_status, press_status];\n",
+        "outputs": 9,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 240,
+        "wires": [
+            [
+                "bf19e816b876358d"
+            ],
+            [
+                "629f275bef269f55"
+            ],
+            [
+                "d6a612e6abd20a72"
+            ],
+            [
+                "e22127170ef18794"
+            ],
+            [
+                "a7f8e4db3b580b34"
+            ],
+            [
+                "45441b9113c2f519"
+            ],
+            [
+                "9e55fcfcb40fb6e0"
+            ],
+            [
+                "07ef50f1466c18bd"
+            ],
+            [
+                "087ba58e849a17d7"
+            ]
+        ]
+    },
+    {
+        "id": "45441b9113c2f519",
+        "type": "ui_template",
+        "z": "4fa3b184.bc7fb",
+        "group": "d796a540.50d378",
+        "name": "5",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "format": "<md-card ui-card-size=\"6x2\" \n    class=\"_md nr-dashboard-text layout-align-center-center nr-dashboard-widget-text visible\" \n    style=\"background-color: {{msg.payload.color}}; color: black; left: 0px; top: 54px; width: 300px; height: 96px;\">\n    <p class=\"value\">{{msg.payload.value}}</p><p>{{msg.payload.text}}</p>\n</md-card>\n",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 570,
+        "y": 280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9e55fcfcb40fb6e0",
+        "type": "ui_template",
+        "z": "4fa3b184.bc7fb",
+        "group": "d796a540.50d378",
+        "name": "6",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "format": "<md-card ui-card-size=\"6x2\" \n    class=\"_md nr-dashboard-text layout-align-center-center nr-dashboard-widget-text visible\" \n    style=\"background-color: {{msg.payload.color}}; color: black; left: 0px; top: 54px; width: 300px; height: 96px;\">\n    <p class=\"value\">{{msg.payload.value}}</p><p>{{msg.payload.text}}</p>\n</md-card>\n",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 570,
+        "y": 320,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "07ef50f1466c18bd",
+        "type": "ui_template",
+        "z": "4fa3b184.bc7fb",
+        "group": "d796a540.50d378",
+        "name": "7",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "format": "<md-card ui-card-size=\"6x2\" \n    class=\"_md nr-dashboard-text layout-align-center-center nr-dashboard-widget-text visible\" \n    style=\"background-color: {{msg.payload.color}}; color: black; left: 0px; top: 54px; width: 300px; height: 96px;\">\n    <p class=\"value\">{{msg.payload.value}}</p><p>{{msg.payload.text}}</p>\n</md-card>\n",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 570,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "087ba58e849a17d7",
+        "type": "ui_template",
+        "z": "4fa3b184.bc7fb",
+        "group": "d796a540.50d378",
+        "name": "8",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "format": "<md-card ui-card-size=\"6x2\" \n    class=\"_md nr-dashboard-text layout-align-center-center nr-dashboard-widget-text visible\" \n    style=\"background-color: {{msg.payload.color}}; color: black; left: 0px; top: 54px; width: 300px; height: 96px;\">\n    <p class=\"value\">{{msg.payload.value}}</p><p>{{msg.payload.text}}</p>\n</md-card>\n",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 570,
+        "y": 400,
+        "wires": [
+            []
         ]
     },
     {
@@ -12319,6 +12330,7 @@
         "id": "b30af5915352bee5",
         "type": "ui_template",
         "z": "59d7b954e676768e",
+        "d": true,
         "group": "69570255a88564b2",
         "name": "4",
         "order": 4,
@@ -12341,7 +12353,7 @@
         "type": "function",
         "z": "59d7b954e676768e",
         "name": "",
-        "func": "const temp = global.get(\"luftguetemesser2-temperature\");\nconst hum = global.get(\"luftguetemesser2-humidity\");\nconst abs_hum = global.get(\"luftguetemesser2-absolute_humidity\");\nconst press = global.get(\"luftguetemesser2-pressure\");\nconst iaq = global.get(\"luftguetemesser2-iaq\");\nconst co2 = global.get(\"luftguetemesser2-co2\");\nconst voc = global.get(\"luftguetemesser2-breath_voc_equivalent\");\nconst m10 = global.get(\"luftguetemesser2-particulate_matter_10m_concentration\");\nconst m25 = global.get(\"luftguetemesser2-particulate_matter_25m_concentration\");\nconst m100 = global.get(\"luftguetemesser2-particulate_matter_100m_concentration\");\nconst formaldehyde = global.get(\"luftguetemesser2-formaldehyde\");\nconst alert_voc = global.get(\"luftguetemesser2-alert_voc\");\nconst alert_co2 = global.get(\"luftguetemesser2-alert_co2\");\nconst alert_pm = global.get(\"luftguetemesser2-alert_pm\");\nconst alert_formaldehyde = global.get(\"luftguetemesser2-alert_formaldehyde\");\n\nvar debug = {\n    temp: temp,\n    hum: hum,\n    abs_hum: abs_hum,\n    press: press,\n    iaq: iaq,\n    co2: co2,\n    voc: voc,\n    m10: m10,\n    m25: m25,\n    m100: m100,\n    formaldehyde: formaldehyde,\n    alert_voc,\n    alert_co2,\n    alert_pm,\n    alert_formaldehyde\n};\n\nconst intl = global.get('intl');\nconst format = intl.NumberFormat('de-De',{style:'decimal', maximumFractionDigits: 2}).format;\nconst sprintf = global.get(\"sprintf\");\n\nfunction color(alert) {\n    return (alert == \"green\") ? \"limegreen\" : alert;\n}\n\nvar voc_status = {payload: { value: \"Flüchtige org. Verbindungen\", color: color(alert_voc), text: sprintf(\"%s mg/m³\", format(voc))}};\nvar matter_status = { payload: { value: \"Feinstaub\", color: color(alert_pm), text1: sprintf(\"1,0 µm: %s ppm\", format(m10)), text2: sprintf(\"2,5 µm: %s ppm\", format(m25)), text3: sprintf(\"10 µm: %s ppm\", format(m100))}};\nvar co2_status = { payload: { value: \"CO2\", color: color(alert_co2), text: sprintf(\"%s ppm\", format(co2)) }};\nvar formaldehyde_status = { payload: { value: \"Formaldehyd\", color: color(alert_formaldehyde), text: sprintf(\"%s µg/m³\", format(formaldehyde)) }};\nvar temp_status = { payload: { value: \"Temperatur\", color: \"white\", text: sprintf(\"%s °C\", format(temp)) }};\nvar hum_status = { payload: { value: \"Rel. Luftfeuchtigkeit\", color: \"white\", text: sprintf(\"%s %%\", format(hum)) }};\nvar abs_hum_status = { payload: { value: \"Abs. Luftfeuchtigkeit\", color: \"white\", text: sprintf(\"%s mg/m³\", format(abs_hum)) }};\nvar press_status = { payload: { value: \"Luftdruck\", color: \"white\", text: sprintf(\"%s µg/m³\", format(press)) }};\n\nreturn [debug, voc_status, matter_status, co2_status, formaldehyde_status, temp_status, hum_status, abs_hum_status, press_status];\n",
+        "func": "const temp = global.get(\"luftguetemesser2-temperature\");\nconst hum = global.get(\"luftguetemesser2-humidity\");\nconst abs_hum = global.get(\"luftguetemesser2-absolute_humidity\");\nconst press = global.get(\"luftguetemesser2-pressure\");\nconst iaq = global.get(\"luftguetemesser2-iaq\");\nconst co2 = global.get(\"luftguetemesser2-co2\");\nconst voc = global.get(\"luftguetemesser2-breath_voc_equivalent\");\nconst m10 = global.get(\"luftguetemesser1-particulate_matter__1_0__m_concentration\");\nconst m25 = global.get(\"luftguetemesser1-particulate_matter__2_5__m_concentration\");\nconst m100 = global.get(\"luftguetemesser1-particulate_matter__10_0__m_concentration\");\nconst formaldehyde = global.get(\"luftguetemesser2-formaldehyde\");\nconst alert_voc = global.get(\"luftguetemesser2-alert_voc\");\nconst alert_co2 = global.get(\"luftguetemesser2-alert_co2\");\nconst alert_pm = global.get(\"luftguetemesser2-alert_pm\");\nconst alert_formaldehyde = global.get(\"luftguetemesser2-alert_formaldehyde\");\n\nvar debug = {\n    temp: temp,\n    hum: hum,\n    abs_hum: abs_hum,\n    press: press,\n    iaq: iaq,\n    co2: co2,\n    voc: voc,\n    m10: m10,\n    m25: m25,\n    m100: m100,\n    formaldehyde: formaldehyde,\n    alert_voc,\n    alert_co2,\n    alert_pm,\n    alert_formaldehyde\n};\n\nconst intl = global.get('intl');\nconst format = intl.NumberFormat('de-De',{style:'decimal', maximumFractionDigits: 2}).format;\nconst sprintf = global.get(\"sprintf\");\n\nfunction color(alert) {\n    return (alert == \"green\") ? \"limegreen\" : alert;\n}\n\nvar voc_status = {payload: { value: \"Flüchtige org. Verbindungen\", color: color(alert_voc), text: sprintf(\"%s mg/m³\", format(voc))}};\nvar matter_status = { payload: { value: \"Feinstaub\", color: color(alert_pm), text1: sprintf(\"1,0 µm: %s ppm\", format(m10)), text2: sprintf(\"2,5 µm: %s ppm\", format(m25)), text3: sprintf(\"10 µm: %s ppm\", format(m100))}};\nvar co2_status = { payload: { value: \"CO2\", color: color(alert_co2), text: sprintf(\"%s ppm\", format(co2)) }};\nvar formaldehyde_status = { payload: { value: \"Formaldehyd\", color: color(alert_formaldehyde), text: sprintf(\"%s µg/m³\", format(formaldehyde)) }};\nvar temp_status = { payload: { value: \"Temperatur\", color: \"white\", text: sprintf(\"%s °C\", format(temp)) }};\nvar hum_status = { payload: { value: \"Rel. Luftfeuchtigkeit\", color: \"white\", text: sprintf(\"%s %%\", format(hum)) }};\nvar abs_hum_status = { payload: { value: \"Abs. Luftfeuchtigkeit\", color: \"white\", text: sprintf(\"%s mg/m³\", format(abs_hum)) }};\nvar press_status = { payload: { value: \"Luftdruck\", color: \"white\", text: sprintf(\"%s µg/m³\", format(press)) }};\n\nreturn [debug, voc_status, matter_status, co2_status, formaldehyde_status, temp_status, hum_status, abs_hum_status, press_status];\n",
         "outputs": 9,
         "timeout": "",
         "noerr": 0,
@@ -12510,7 +12522,7 @@
         "type": "function",
         "z": "2788b93b.8a2f56",
         "name": "Lüftungsempfehlung",
-        "func": "const name = msg.payload.name;\n\nconst temperature = global.get(name + \"-temperature\");\nconst humidity = global.get(name + \"-humidity\");\nconst abs_humidity = global.get(name + \"-absolute_humidity\");\nconst last_abs_humidity_gt_outside_abs_humidity = global.get(name + \"-last_abs_humidity_gt_outside_abs_humidity\");\n// const outside_abs_humidity = global.get(\"aussen-absolute_humidity\");\nconst outside_abs_humidity = global.get(\"luftguetemesser2-absolute_humidity\");\n\nconst room_abs_humidity_gt_outside_abs_humidity = (last_abs_humidity_gt_outside_abs_humidity) ?\n    abs_humidity > outside_abs_humidity * 1.05:\n    abs_humidity > outside_abs_humidity;\n\nglobal.set(name + \"-last_abs_humidity_gt_outside_abs_humidity\", abs_humidity > outside_abs_humidity);\n\nconst intl = global.get('intl');\nconst format = intl.NumberFormat('de-De',{style:'decimal', maximumFractionDigits: 1}).format;\nconst sprintf = global.get(\"sprintf\");\nconst text = sprintf(\"%s °C, %s %% H, %s g/m³\", format(temperature), format(humidity), format(abs_humidity))\n\nvar payload;\nif (room_abs_humidity_gt_outside_abs_humidity) {\n    if (humidity > 65) {\n        payload = {payload: {name: name, color: \"skyblue\", hint: \"Raum feucht. Lüften!\", text: text}};\n    } else {\n        payload = {payload: {name: name, color: \"limegreen\", hint: \"Raum ausreichend trocken.\", text: text}};\n    }\n} else {\n    payload = {payload: {name: name, color: \"red\", hint: \"Draußen zu feucht. Nur kurz lüften!\", text: text}};\n}\n\nconst debug = {\n    name: name,\n    temperature: temperature,\n    humidity: humidity,\n    abs_humidity: abs_humidity,\n    outside_abs_humidity: outside_abs_humidity,\n    last_abs_humidity_gt_outside_abs_humidity: last_abs_humidity_gt_outside_abs_humidity,\n    room_abs_humidity_gt_outside_abs_humidity: room_abs_humidity_gt_outside_abs_humidity,\n    text: text\n};\n\nreturn [payload, debug];\n",
+        "func": "// const outside_abs_humidity = global.get(\"aussen-absolute_humidity\");\nconst outside_abs_humidity = global.get(\"luftguetemesser2-absolute_humidity\");\n\nconst name = msg.payload.name;\n\nconst temperature = global.get(name + \"-temperature\");\nconst humidity = global.get(name + \"-humidity\");\nconst abs_humidity = global.get(name + \"-absolute_humidity\");\nconst last_abs_humidity_gt_outside_abs_humidity = global.get(name + \"-last_abs_humidity_gt_outside_abs_humidity\");\n\nconst room_abs_humidity_gt_outside_abs_humidity = (last_abs_humidity_gt_outside_abs_humidity) ?\n    abs_humidity > outside_abs_humidity * 1.05:\n    abs_humidity > outside_abs_humidity;\n\nglobal.set(name + \"-last_abs_humidity_gt_outside_abs_humidity\", abs_humidity > outside_abs_humidity);\n\nconst intl = global.get('intl');\nconst format = intl.NumberFormat('de-De',{style:'decimal', maximumFractionDigits: 1}).format;\nconst sprintf = global.get(\"sprintf\");\nconst text = sprintf(\"%s °C, %s %% H, %s g/m³\", format(temperature), format(humidity), format(abs_humidity))\n\nvar payload;\nif (room_abs_humidity_gt_outside_abs_humidity) {\n    if (humidity > 65) {\n        payload = {payload: {name: name, color: \"skyblue\", hint: \"Raum feucht. Lüften!\", text: text}};\n    } else {\n        payload = {payload: {name: name, color: \"limegreen\", hint: \"Raum ausreichend trocken.\", text: text}};\n    }\n} else {\n    payload = {payload: {name: name, color: \"red\", hint: \"Draußen zu feucht. Nur kurz lüften!\", text: text}};\n}\n\nconst debug = {\n    name: name,\n    temperature: temperature,\n    humidity: humidity,\n    abs_humidity: abs_humidity,\n    outside_abs_humidity: outside_abs_humidity,\n    last_abs_humidity_gt_outside_abs_humidity: last_abs_humidity_gt_outside_abs_humidity,\n    room_abs_humidity_gt_outside_abs_humidity: room_abs_humidity_gt_outside_abs_humidity,\n    text: text\n};\n\nreturn [payload, debug];\n",
         "outputs": 2,
         "timeout": "",
         "noerr": 0,
@@ -13651,47 +13663,6 @@
         ]
     },
     {
-        "id": "d47f20c8e01ce0ef",
-        "type": "function",
-        "z": "2788b93b.8a2f56",
-        "name": "Update aktuelle Temperatur",
-        "func": "const name = \"aussen\";\n\nconst temperature = global.get(name + \"-temperature\");\nconst weather = global.get('wetter_aktuell').detail;\n\nconst intl = global.get('intl');\nconst format = intl.NumberFormat('de-De',{style:'decimal', maximumFractionDigits: 1}).format;\nconst sprintf = global.get(\"sprintf\");\n\nconst text = sprintf(\"%s, %s °C\", weather, format(temperature));\n\nreturn {payload: {aktuell: text}};",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 520,
-        "y": 320,
-        "wires": [
-            [
-                "b8f32404a2a98fbe"
-            ]
-        ]
-    },
-    {
-        "id": "b8f32404a2a98fbe",
-        "type": "ui_text",
-        "z": "2788b93b.8a2f56",
-        "group": "d7dccacc0dc694bb",
-        "order": 1,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "Aktuell",
-        "format": "{{msg.payload.aktuell}}",
-        "layout": "row-spread",
-        "className": "",
-        "style": false,
-        "font": "",
-        "fontSize": 16,
-        "color": "#000000",
-        "x": 730,
-        "y": 320,
-        "wires": []
-    },
-    {
         "id": "f6700de22518de9d",
         "type": "ui_button",
         "z": "2788b93b.8a2f56",
@@ -13716,63 +13687,6 @@
         "wires": [
             [
                 "db7190952803093d"
-            ]
-        ]
-    },
-    {
-        "id": "7a7d7b7d4a77d269",
-        "type": "ui_text",
-        "z": "2788b93b.8a2f56",
-        "group": "d7dccacc0dc694bb",
-        "order": 1,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "Min. / Max.",
-        "format": "{{msg.payload.min}} °C / {{msg.payload.max}} °C",
-        "layout": "row-spread",
-        "className": "",
-        "style": false,
-        "font": "",
-        "fontSize": 16,
-        "color": "#000000",
-        "x": 750,
-        "y": 280,
-        "wires": []
-    },
-    {
-        "id": "e50b4ab854d18a8d",
-        "type": "function",
-        "z": "2788b93b.8a2f56",
-        "name": "format",
-        "func": "const wetter_aktuell = global.get('wetter_aktuell');\n\nconst intl = global.get('intl');\nconst format = intl.NumberFormat('de-De',{style:'decimal', maximumFractionDigits: 1}).format;\n\nreturn {payload: {min: format(wetter_aktuell.temp_minc), max: format(wetter_aktuell.temp_maxc)}};",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 450,
-        "y": 280,
-        "wires": [
-            [
-                "7a7d7b7d4a77d269"
-            ]
-        ]
-    },
-    {
-        "id": "7f32f882add20407",
-        "type": "link in",
-        "z": "2788b93b.8a2f56",
-        "name": "link in 8",
-        "links": [
-            "98e8afa091fbb61c"
-        ],
-        "x": 345,
-        "y": 280,
-        "wires": [
-            [
-                "e50b4ab854d18a8d"
             ]
         ]
     },
@@ -14111,6 +14025,7 @@
         "name": "JSON to InfluxDB",
         "func": "const tokens = msg.topic.split(\"/\");\nconst measurement = tokens[1] || tokens[0];\nmsg.measurement = measurement.replace(/ /g, '_').toLowerCase();\n\nreturn msg;",
         "outputs": 1,
+        "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
@@ -14119,7 +14034,8 @@
         "y": 520,
         "wires": [
             [
-                "faa25f7f.0777"
+                "faa25f7f.0777",
+                "22b8c415497967dc"
             ]
         ]
     },
@@ -14367,6 +14283,23 @@
         "wires": [
             []
         ]
+    },
+    {
+        "id": "22b8c415497967dc",
+        "type": "debug",
+        "z": "d0173d54.941d7",
+        "name": "debug 14",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 800,
+        "y": 520,
+        "wires": []
     },
     {
         "id": "60ffb0aba571e88d",
@@ -15821,8 +15754,7 @@
         "wires": [
             [
                 "eb8392c5c332f821",
-                "cb816aa78cf4b284",
-                "dba05e3428cb6ec1"
+                "cb816aa78cf4b284"
             ]
         ]
     },
@@ -17840,22 +17772,6 @@
         "info": "Kilngel-Relais werden direkt vom ESP32 angesteuert und gehen _nicht_ über Node-Red!\n\nSiehe esphome/pinpad-haustuer.yaml",
         "x": 190,
         "y": 2580,
-        "wires": []
-    },
-    {
-        "id": "dba05e3428cb6ec1",
-        "type": "debug",
-        "z": "062848eb6508a3a6",
-        "name": "debug 11",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 800,
-        "y": 560,
         "wires": []
     },
     {
@@ -22208,7 +22124,7 @@
         "links": [
             "1cd036385c85d54d"
         ],
-        "x": 1215,
+        "x": 1275,
         "y": 320,
         "wires": []
     },
@@ -22217,43 +22133,18 @@
         "type": "function",
         "z": "cd1e0b0c87b3c825",
         "name": "Push Notification",
-        "func": "if (msg.payload.length == 0) return;\n\nreturn {\n    notification: {\n        notification: { \n            title: \"Batterie schwach?\", \n            body: `Lange nicht gesehen: ${msg.payload.text}` \n        }, \n    }\n};\n",
+        "func": "if (msg.payload.length == 0) return;\n\nlet timestamp = new Date();\nlet time = timestamp.toLocaleTimeString('de-DE', { timeStyle: 'short' });\n\nreturn {\n    notification: {\n        notification: { \n            title: \"Batterie schwach?\", \n            body: `${time}: lange nicht gesehen: ${msg.payload.text}` \n        }, \n    }\n};\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1070,
+        "x": 850,
         "y": 320,
         "wires": [
             [
-                "b4ead89e5352c667"
-            ]
-        ]
-    },
-    {
-        "id": "ebf1be673956b32c",
-        "type": "delay",
-        "z": "cd1e0b0c87b3c825",
-        "name": "",
-        "pauseType": "queue",
-        "timeout": "5",
-        "timeoutUnits": "seconds",
-        "rate": "2",
-        "nbRateUnits": "1",
-        "rateUnits": "day",
-        "randomFirst": "1",
-        "randomLast": "5",
-        "randomUnits": "seconds",
-        "drop": true,
-        "allowrate": false,
-        "outputs": 1,
-        "x": 820,
-        "y": 320,
-        "wires": [
-            [
-                "0a2acc11d6d5097f"
+                "ebf1be673956b32c"
             ]
         ]
     },
@@ -22280,8 +22171,8 @@
         "y": 280,
         "wires": [
             [
-                "ebf1be673956b32c",
-                "7511140e9ea85182"
+                "7511140e9ea85182",
+                "0a2acc11d6d5097f"
             ]
         ]
     },
@@ -22306,11 +22197,36 @@
         ]
     },
     {
+        "id": "ebf1be673956b32c",
+        "type": "delay",
+        "z": "cd1e0b0c87b3c825",
+        "name": "",
+        "pauseType": "queue",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "day",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 1100,
+        "y": 320,
+        "wires": [
+            [
+                "b4ead89e5352c667"
+            ]
+        ]
+    },
+    {
         "id": "0354035ff2531b1d",
         "type": "mqtt out",
         "z": "7518cde088588ebe",
         "name": "",
-        "topic": "shellies/geschirrspuehler/relay/0/command",
+        "topic": "shellies/geschirrspueler/relay/0/command",
         "qos": "",
         "retain": "",
         "respTopic": "",
@@ -22319,8 +22235,8 @@
         "correl": "",
         "expiry": "",
         "broker": "c349b9ff.9dc4c8",
-        "x": 970,
-        "y": 260,
+        "x": 960,
+        "y": 240,
         "wires": []
     },
     {
@@ -22450,7 +22366,7 @@
         "type": "mqtt in",
         "z": "7518cde088588ebe",
         "name": "",
-        "topic": "shellies/geschirrspuehler/relay/0",
+        "topic": "shellies/geschirrspueler/relay/0",
         "qos": "2",
         "datatype": "auto-detect",
         "broker": "c349b9ff.9dc4c8",
@@ -22505,7 +22421,7 @@
         "fontSize": 16,
         "color": "#000000",
         "x": 680,
-        "y": 180,
+        "y": 160,
         "wires": []
     },
     {
@@ -22723,6 +22639,47 @@
         "wires": [
             [
                 "7aa8efdb215f8b4a"
+            ]
+        ]
+    },
+    {
+        "id": "e91d70892415c84f",
+        "type": "mqtt in",
+        "z": "7518cde088588ebe",
+        "name": "",
+        "topic": "zigbee2mqtt/solarstart_geschirrspueler",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "c349b9ff.9dc4c8",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 410,
+        "y": 200,
+        "wires": [
+            [
+                "982bce585e4b1bfa"
+            ]
+        ]
+    },
+    {
+        "id": "982bce585e4b1bfa",
+        "type": "function",
+        "z": "7518cde088588ebe",
+        "name": "toggle state",
+        "func": "let topic = \"solarstart_geschirrspuehler\";\nlet s = flow.get(topic);\n\nif (s === \"off\")\n    s = \"on\"\nelse\n    s = \"off\";\n\nflow.set(topic, s);\nreturn {payload: s};",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 670,
+        "y": 200,
+        "wires": [
+            [
+                "4fb648cd6e4e5e52"
             ]
         ]
     },
@@ -26780,7 +26737,7 @@
         "type": "function",
         "z": "68fa2cc37e97fc23",
         "name": "initialize scenes",
-        "func": "flow.set(\"current_scene_idx\", 0)\nflow.set(\"max_scene_idx\", 5)\nflow.set(\"scenes\", [\n        {   scene_idx: 0,\n            scene_name: \"aus\",\n            devices: [\n                {   device_idx: 1,\n                    name: \"Deckenfluter Deckenlicht\",\n                    state: \"OFF\"\n                },\n                {   device_idx: 2,\n                    name: \"Deckenfluter Leselicht\",\n                    state: \"OFF\"\n                },\n                {   device_idx: 3,\n                    name: \"Tizio\",\n                    state: \"OFF\"\n                },\n                {   device_idx: 4,\n                    name: \"Qualle\",\n                    set: 0\n                },\n                {\n                    device_idx: 5,\n                    name: \"Kleien-Lampe\",\n                    state: \"off\"\n                },\n            ]\n        },\n        {   scene_idx: 1,\n            scene_name: \"Hell\",\n            devices: [\n                {   device_idx: 1,\n                    name: \"Deckenfluter Deckenlicht\",\n                    brightness: 254,\n                    state: \"ON\"\n                },\n                {   device_idx: 2,\n                    name: \"Deckenfluter Leselicht\",\n                    brightness: 254,\n                    state: \"ON\"\n                },\n                {   device_idx: 3,\n                    name: \"Tizio\",\n                    state: \"ON\"\n                },\n                {   device_idx: 4,\n                    name: \"Qualle\",\n                    set: 3\n                },\n                {\n                    device_idx: 5,\n                    name: \"Kleien-Lampe\",\n                    state: \"on\"\n                },\n            ]\n        },\n        {   scene_idx: 2,\n            scene_name: \"Gemütlich\",\n            devices: [\n                {   device_idx: 1,\n                    name: \"Deckenfluter Deckenlicht\",\n                    brightness: 120,\n                    state: \"OFF\"\n                },\n                {   device_idx: 2,\n                    name: \"Deckenfluter Leselicht\",\n                    brightness: 120,\n                    state: \"ON\"\n                },\n                {   device_idx: 3,\n                    name: \"Tizio\",\n                    state: \"ON\"\n                },\n                {   device_idx: 4,\n                    name: \"Qualle\",\n                    set: 1\n                },\n                {\n                    device_idx: 5,\n                    name: \"Kleien-Lampe\",\n                    state: \"on\"\n                },\n            ]\n        },\n        {   scene_idx: 3,\n            scene_name: \"nur Lesen\",\n            devices: [\n                {   device_idx: 1,\n                    name: \"Deckenfluter Deckenlicht\",\n                    brightness: 120,\n                    state: \"OFF\"\n                },\n                {   device_idx: 2,\n                    name: \"Deckenfluter Leselicht\",\n                    brightness: 120,\n                    state: \"ON\"\n                },\n                {   device_idx: 3,\n                    name: \"Tizio\",\n                    state: \"OFF\"\n                },\n                {   device_idx: 4,\n                    name: \"Qualle\",\n                    set: 4\n                },\n                {\n                    device_idx: 5,\n                    name: \"Kleien-Lampe\",\n                    state: \"on\"\n                },\n            ]\n        },\n        {   scene_idx: 4,\n            scene_name: \"Nur Arbeiten\",\n            devices: [\n                {   device_idx: 1,\n                    name: \"Deckenfluter Deckenlicht\",\n                    brightness: 120,\n                    state: \"OFF\"\n                },\n                {   device_idx: 2,\n                    name: \"Deckenfluter Leselicht\",\n                    brightness: 120,\n                    state: \"OFF\"\n                },\n                {   device_idx: 3,\n                    name: \"Tizio\",\n                    state: \"ON\"\n                },\n                {   device_idx: 4,\n                    name: \"Qualle\",\n                    set: 5\n                },\n                {\n                    device_idx: 5,\n                    name: \"Kleien-Lampe\",\n                    state: \"on\"\n                },\n            ]\n        },\n    {\n        scene_idx: 4,\n        scene_name: \"Nachts\",\n        devices: [\n            {\n                device_idx: 1,\n                name: \"Deckenfluter Deckenlicht\",\n                brightness: 120,\n                state: \"OFF\"\n            },\n            {\n                device_idx: 2,\n                name: \"Deckenfluter Leselicht\",\n                brightness: 120,\n                state: \"OFF\"\n            },\n            {\n                device_idx: 3,\n                name: \"Tizio\",\n                state: \"OFF\"\n            },\n            {\n                device_idx: 4,\n                name: \"Qualle\",\n                set: 0\n            },\n            {\n                device_idx: 5,\n                name: \"Kleien-Lampe\",\n                state: \"on\"\n            },\n        ]\n    },\n    ]\n)\n\nreturn msg;",
+        "func": "flow.set(\"current_scene_idx\", 0)\nflow.set(\"max_scene_idx\", 6)\nflow.set(\"scenes\", [\n        {   scene_idx: 0,\n            scene_name: \"aus\",\n            devices: [\n                {   device_idx: 1,\n                    name: \"Deckenfluter Deckenlicht\",\n                    state: \"OFF\"\n                },\n                {   device_idx: 2,\n                    name: \"Deckenfluter Leselicht\",\n                    state: \"OFF\"\n                },\n                {   device_idx: 3,\n                    name: \"Tizio\",\n                    state: \"OFF\"\n                },\n                {   device_idx: 4,\n                    name: \"Qualle\",\n                    set: 0\n                },\n                {\n                    device_idx: 5,\n                    name: \"Kleine Lampe\",\n                    state: \"off\"\n                },\n            ]\n        },\n        {   scene_idx: 1,\n            scene_name: \"Hell\",\n            devices: [\n                {   device_idx: 1,\n                    name: \"Deckenfluter Deckenlicht\",\n                    brightness: 254,\n                    state: \"ON\"\n                },\n                {   device_idx: 2,\n                    name: \"Deckenfluter Leselicht\",\n                    brightness: 254,\n                    state: \"ON\"\n                },\n                {   device_idx: 3,\n                    name: \"Tizio\",\n                    state: \"ON\"\n                },\n                {   device_idx: 4,\n                    name: \"Qualle\",\n                    set: 3\n                },\n                {\n                    device_idx: 5,\n                    name: \"Kleine Lampe\",\n                    state: \"on\"\n                },\n            ]\n        },\n        {   scene_idx: 2,\n            scene_name: \"Gemütlich\",\n            devices: [\n                {   device_idx: 1,\n                    name: \"Deckenfluter Deckenlicht\",\n                    brightness: 120,\n                    state: \"OFF\"\n                },\n                {   device_idx: 2,\n                    name: \"Deckenfluter Leselicht\",\n                    brightness: 120,\n                    state: \"ON\"\n                },\n                {   device_idx: 3,\n                    name: \"Tizio\",\n                    state: \"ON\"\n                },\n                {   device_idx: 4,\n                    name: \"Qualle\",\n                    set: 1\n                },\n                {\n                    device_idx: 5,\n                    name: \"Kleine Lampe\",\n                    state: \"on\"\n                },\n            ]\n        },\n        {   scene_idx: 3,\n            scene_name: \"Lesen\",\n            devices: [\n                {   device_idx: 1,\n                    name: \"Deckenfluter Deckenlicht\",\n                    brightness: 120,\n                    state: \"OFF\"\n                },\n                {   device_idx: 2,\n                    name: \"Deckenfluter Leselicht\",\n                    brightness: 120,\n                    state: \"ON\"\n                },\n                {   device_idx: 3,\n                    name: \"Tizio\",\n                    state: \"OFF\"\n                },\n                {   device_idx: 4,\n                    name: \"Qualle\",\n                    set: 6\n                },\n                {\n                    device_idx: 5,\n                    name: \"Kleine Lampe\",\n                    state: \"on\"\n                },\n            ]\n        },\n        {   scene_idx: 4,\n            scene_name: \"Arbeiten\",\n            devices: [\n                {   device_idx: 1,\n                    name: \"Deckenfluter Deckenlicht\",\n                    brightness: 120,\n                    state: \"OFF\"\n                },\n                {   device_idx: 2,\n                    name: \"Deckenfluter Leselicht\",\n                    brightness: 120,\n                    state: \"OFF\"\n                },\n                {   device_idx: 3,\n                    name: \"Tizio\",\n                    state: \"ON\"\n                },\n                {   device_idx: 4,\n                    name: \"Qualle\",\n                    set: 3\n                },\n                {\n                    device_idx: 5,\n                    name: \"Kleine Lampe\",\n                    state: \"on\"\n                },\n            ]\n        },\n        {\n            scene_idx: 5,\n            scene_name: \"Fernsehen\",\n            devices: [\n                {\n                    device_idx: 1,\n                    name: \"Deckenfluter Deckenlicht\",\n                    brightness: 120,\n                    state: \"OFF\"\n                },\n                {\n                    device_idx: 2,\n                    name: \"Deckenfluter Leselicht\",\n                    brightness: 120,\n                    state: \"OFF\"\n                },\n                {\n                    device_idx: 3,\n                    name: \"Tizio\",\n                    state: \"OFF\"\n                },\n                {\n                    device_idx: 4,\n                    name: \"Qualle\",\n                    set: 5\n                },\n                {\n                    device_idx: 5,\n                    name: \"Kleine Lampe\",\n                    state: \"on\"\n                },\n            ]\n        },\n        {\n            scene_idx: 6,\n            scene_name: \"Nachts\",\n            devices: [\n                {\n                    device_idx: 1,\n                    name: \"Deckenfluter Deckenlicht\",\n                    brightness: 120,\n                    state: \"OFF\"\n                },\n                {\n                    device_idx: 2,\n                    name: \"Deckenfluter Leselicht\",\n                    brightness: 120,\n                    state: \"OFF\"\n                },\n                {\n                    device_idx: 3,\n                    name: \"Tizio\",\n                    state: \"OFF\"\n                },\n                {\n                    device_idx: 4,\n                    name: \"Qualle\",\n                    set: 4\n                },\n                {\n                    device_idx: 5,\n                    name: \"Kleine Lampe\",\n                    state: \"off\"\n                },\n            ]\n        },\n    ]\n)\n\nreturn msg;",
         "outputs": 1,
         "timeout": "",
         "noerr": 0,
@@ -26790,7 +26747,9 @@
         "x": 380,
         "y": 80,
         "wires": [
-            []
+            [
+                "6a842bf3d2820803"
+            ]
         ]
     },
     {
@@ -26940,7 +26899,7 @@
         "z": "68fa2cc37e97fc23",
         "name": "",
         "group": "afa22e4e425014cf",
-        "order": 4,
+        "order": 2,
         "width": 0,
         "height": 0,
         "passthru": false,
@@ -26954,8 +26913,8 @@
         "payloadType": "num",
         "topic": "",
         "topicType": "str",
-        "x": 190,
-        "y": 480,
+        "x": 210,
+        "y": 460,
         "wires": [
             [
                 "d09ca347ce966974"
@@ -26982,8 +26941,8 @@
         "payloadType": "num",
         "topic": "",
         "topicType": "str",
-        "x": 190,
-        "y": 400,
+        "x": 210,
+        "y": 380,
         "wires": [
             [
                 "d09ca347ce966974"
@@ -27107,7 +27066,8 @@
         "y": 720,
         "wires": [
             [
-                "f208466e6a0726f6"
+                "f208466e6a0726f6",
+                "73dde84db72377ec"
             ]
         ]
     },
@@ -27116,7 +27076,7 @@
         "type": "function",
         "z": "68fa2cc37e97fc23",
         "name": "next scene",
-        "func": "var current_scene_idx = flow.get(\"current_scene_idx\");\nvar max_scene_idx = flow.get(\"max_scene_idx\");\n\ncurrent_scene_idx++\nif (current_scene_idx > max_scene_idx) {\n    current_scene_idx = 1;\n}\n\nmsg.payload = current_scene_idx;\n\nreturn msg;",
+        "func": "var current_scene_idx = flow.get(\"current_scene_idx\");\nvar max_scene_idx = flow.get(\"max_scene_idx\");\n\ncurrent_scene_idx++\nif (current_scene_idx > max_scene_idx) {\n    current_scene_idx = 0;\n}\n\nmsg.payload = current_scene_idx;\n\nreturn msg;",
         "outputs": 1,
         "timeout": "",
         "noerr": 0,
@@ -27136,7 +27096,7 @@
         "type": "function",
         "z": "68fa2cc37e97fc23",
         "name": "previous scene",
-        "func": "var current_scene_idx = flow.get(\"current_scene_idx\");\nvar max_scene_idx = flow.get(\"max_scene_idx\");\n\ncurrent_scene_idx--\nif (current_scene_idx < 1 ) {\n    current_scene_idx = 1;\n}\n\nflow.set(\"current_scene_idx\", current_scene_idx);\n\nmsg.payload = current_scene_idx;\n\nreturn msg;",
+        "func": "var current_scene_idx = flow.get(\"current_scene_idx\");\nvar max_scene_idx = flow.get(\"max_scene_idx\");\n\ncurrent_scene_idx--\nif (current_scene_idx < 0 ) {\n    current_scene_idx = 0;\n}\n\nflow.set(\"current_scene_idx\", current_scene_idx);\n\nmsg.payload = current_scene_idx;\n\nreturn msg;",
         "outputs": 1,
         "timeout": "",
         "noerr": 0,
@@ -27237,7 +27197,8 @@
         "links": [
             "8bdc126861c837a3",
             "a4211d8c19a8f691",
-            "d09ca347ce966974"
+            "d09ca347ce966974",
+            "e72a96529589432b"
         ],
         "x": 415,
         "y": 420,
@@ -27386,7 +27347,7 @@
         "type": "mqtt in",
         "z": "68fa2cc37e97fc23",
         "name": "Lichtschalter",
-        "topic": "lichtschalter-buero-dg/status/input:0",
+        "topic": "shellies/lichtschalter-buero-dg/status/input:0",
         "qos": "0",
         "datatype": "auto-detect",
         "broker": "c349b9ff.9dc4c8",
@@ -27397,7 +27358,8 @@
         "y": 280,
         "wires": [
             [
-                "df9b239c9ccfbd8d"
+                "df9b239c9ccfbd8d",
+                "e45f3a1afc83189d"
             ]
         ]
     },
@@ -27507,7 +27469,7 @@
         "z": "68fa2cc37e97fc23",
         "name": "",
         "group": "afa22e4e425014cf",
-        "order": 4,
+        "order": 3,
         "width": 0,
         "height": 0,
         "passthru": false,
@@ -27521,8 +27483,8 @@
         "payloadType": "num",
         "topic": "",
         "topicType": "str",
-        "x": 180,
-        "y": 440,
+        "x": 200,
+        "y": 420,
         "wires": [
             [
                 "d09ca347ce966974"
@@ -27616,8 +27578,8 @@
         "links": [
             "74e5445a96792a54"
         ],
-        "x": 335,
-        "y": 500,
+        "x": 345,
+        "y": 420,
         "wires": []
     },
     {
@@ -27642,7 +27604,7 @@
         "id": "04c77eb913c0456f",
         "type": "ui_dropdown",
         "z": "68fa2cc37e97fc23",
-        "name": "Qualle",
+        "name": "Farbe/An/Aus Qualle",
         "label": "",
         "tooltip": "",
         "place": "Select option",
@@ -27693,7 +27655,7 @@
         "topic": "topic",
         "topicType": "msg",
         "className": "",
-        "x": 550,
+        "x": 600,
         "y": 1940,
         "wires": [
             [
@@ -27760,7 +27722,7 @@
         "width": 0,
         "height": 0,
         "passthru": false,
-        "label": "Nur lesen",
+        "label": "Lesen",
         "tooltip": "",
         "color": "",
         "bgcolor": "",
@@ -27770,8 +27732,8 @@
         "payloadType": "num",
         "topic": "",
         "topicType": "str",
-        "x": 180,
-        "y": 520,
+        "x": 210,
+        "y": 500,
         "wires": [
             [
                 "d09ca347ce966974"
@@ -27784,11 +27746,11 @@
         "z": "68fa2cc37e97fc23",
         "name": "",
         "group": "afa22e4e425014cf",
-        "order": 4,
+        "order": 5,
         "width": 0,
         "height": 0,
         "passthru": false,
-        "label": "Nur Arbeiten",
+        "label": "Arbeiten",
         "tooltip": "",
         "color": "",
         "bgcolor": "",
@@ -27798,8 +27760,8 @@
         "payloadType": "num",
         "topic": "",
         "topicType": "str",
-        "x": 170,
-        "y": 560,
+        "x": 200,
+        "y": 540,
         "wires": [
             [
                 "d09ca347ce966974"
@@ -27971,7 +27933,7 @@
         "z": "68fa2cc37e97fc23",
         "name": "",
         "group": "afa22e4e425014cf",
-        "order": 4,
+        "order": 7,
         "width": 0,
         "height": 0,
         "passthru": false,
@@ -27981,12 +27943,12 @@
         "bgcolor": "",
         "className": "",
         "icon": "",
-        "payload": "5",
+        "payload": "6",
         "payloadType": "num",
         "topic": "",
         "topicType": "str",
-        "x": 160,
-        "y": 600,
+        "x": 200,
+        "y": 620,
         "wires": [
             [
                 "d09ca347ce966974"
@@ -28024,6 +27986,99 @@
         ],
         "x": 1305,
         "y": 500,
+        "wires": []
+    },
+    {
+        "id": "085b09b54485dfc8",
+        "type": "ui_button",
+        "z": "68fa2cc37e97fc23",
+        "name": "",
+        "group": "afa22e4e425014cf",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Fernsehen",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "5",
+        "payloadType": "num",
+        "topic": "",
+        "topicType": "str",
+        "x": 190,
+        "y": 580,
+        "wires": [
+            [
+                "d09ca347ce966974"
+            ]
+        ]
+    },
+    {
+        "id": "e45f3a1afc83189d",
+        "type": "debug",
+        "z": "68fa2cc37e97fc23",
+        "name": "debug 11",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 400,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "73dde84db72377ec",
+        "type": "debug",
+        "z": "68fa2cc37e97fc23",
+        "name": "debug 13",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 420,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "6a842bf3d2820803",
+        "type": "function",
+        "z": "68fa2cc37e97fc23",
+        "name": "1",
+        "func": "msg.payload = 0;\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 550,
+        "y": 80,
+        "wires": [
+            [
+                "e72a96529589432b"
+            ]
+        ]
+    },
+    {
+        "id": "e72a96529589432b",
+        "type": "link out",
+        "z": "68fa2cc37e97fc23",
+        "name": "link out 6",
+        "mode": "link",
+        "links": [
+            "74e5445a96792a54"
+        ],
+        "x": 655,
+        "y": 80,
         "wires": []
     },
     {
@@ -31773,20 +31828,6 @@
         ]
     },
     {
-        "id": "01b0568c478c1c2c",
-        "type": "spotify",
-        "z": "22e74c85b169af30",
-        "d": true,
-        "name": "",
-        "auth": "",
-        "api": "addToMySavedAlbums",
-        "x": 420,
-        "y": 280,
-        "wires": [
-            []
-        ]
-    },
-    {
         "id": "1e7f722e648293c3",
         "type": "mqtt in",
         "z": "f146a45029860fdf",
@@ -31974,8 +32015,8 @@
         "stateType": "str",
         "avoidCheckPlayerAvailability": false,
         "name": "",
-        "x": 390,
-        "y": 740,
+        "x": 310,
+        "y": 160,
         "wires": [
             [
                 "9bae29ef67cc89e6"
@@ -31992,8 +32033,8 @@
         "stateType": "str",
         "avoidCheckPlayerAvailability": false,
         "name": "",
-        "x": 870,
-        "y": 780,
+        "x": 750,
+        "y": 280,
         "wires": [
             []
         ]
@@ -32015,8 +32056,8 @@
         "drop": false,
         "allowrate": false,
         "outputs": 1,
-        "x": 640,
-        "y": 780,
+        "x": 540,
+        "y": 240,
         "wires": [
             [
                 "1d788f49be69e544"
@@ -32033,8 +32074,8 @@
         "stateType": "str",
         "avoidCheckPlayerAvailability": false,
         "name": "",
-        "x": 630,
-        "y": 740,
+        "x": 530,
+        "y": 200,
         "wires": [
             [
                 "891fd09f12daf876"
@@ -32053,8 +32094,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 410,
-        "y": 780,
+        "x": 330,
+        "y": 200,
         "wires": [
             [
                 "c192e43e1207bf17"
@@ -32073,8 +32114,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 850,
-        "y": 740,
+        "x": 550,
+        "y": 280,
         "wires": [
             [
                 "ad1dbe49959c3af5"
@@ -32089,12 +32130,22 @@
         "links": [
             "e938e0ee91a24106"
         ],
-        "x": 245,
-        "y": 740,
+        "x": 165,
+        "y": 160,
         "wires": [
             [
                 "d23c7f49f38d137e"
             ]
         ]
+    },
+    {
+        "id": "f049d116a65e15c9",
+        "type": "comment",
+        "z": "f146a45029860fdf",
+        "name": "Haustürklingel",
+        "info": "",
+        "x": 230,
+        "y": 120,
+        "wires": []
     }
 ]
