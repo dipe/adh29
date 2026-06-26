@@ -12670,7 +12670,7 @@
             },
             {
                 "t": "eq",
-                "v": "th_büro_dg",
+                "v": "steckdose1",
                 "vt": "str"
             },
             {
@@ -12908,7 +12908,7 @@
         "type": "function",
         "z": "2788b93b.8a2f56",
         "name": "initialize names-rooms mapping",
-        "func": "const room = global.set(\"names_rooms\", {\n    \"luftguetemesser1\": \"Werkstatt\",\n    \"waschkueche_luefter\": \"Waschküche\",\n    \"luftguetemesser2\": \"Balkon\",\n    \"aussen\": \"Open Weather\"\n});\n",
+        "func": "const room = global.set(\"names_rooms\", {\n    \"luftguetemesser1\": \"Werkstatt\",\n    \"waschkueche_luefter\": \"Waschküche\",\n    \"luftguetemesser2\": \"Balkon\",\n    \"aussen\": \"Open Weather\",\n    \"steckdose1\": \"Büro DG\",\n});\n",
         "outputs": 1,
         "timeout": "",
         "noerr": 0,
@@ -13210,15 +13210,15 @@
         "id": "48f55ed2.c2f68",
         "type": "function",
         "z": "2788b93b.8a2f56",
-        "name": "recall Büro DG (luftfeuchtemesser1) klima",
-        "func": "const name = \"th_büro_dg\";\nreturn {\n    payload: {\n        name: name,\n        humidity: global.get(`${name}-humidity`),\n        absolute_humidity: global.get(`${name}-absolute_humidity`),\n        tempeature: global.get(`${name}-temperature`)\n    }\n};\n",
+        "name": "recall Büro DG klima",
+        "func": "const name = \"steckdose1\";\nreturn {\n    payload: {\n        name: name,\n        humidity: global.get(`${name}-humidity`),\n        absolute_humidity: global.get(`${name}-absolute_humidity`),\n        tempeature: global.get(`${name}-temperature`)\n    }\n};\n",
         "outputs": 1,
         "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 560,
+        "x": 500,
         "y": 1040,
         "wires": [
             [
@@ -27067,7 +27067,7 @@
         "wires": [
             [
                 "f208466e6a0726f6",
-                "73dde84db72377ec"
+                "3c4fefc2fab489c6"
             ]
         ]
     },
@@ -27358,8 +27358,8 @@
         "y": 280,
         "wires": [
             [
-                "df9b239c9ccfbd8d",
-                "e45f3a1afc83189d"
+                "8c695844f6c4c933",
+                "3c4fefc2fab489c6"
             ]
         ]
     },
@@ -27375,7 +27375,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 350,
+        "x": 550,
         "y": 280,
         "wires": [
             [
@@ -27398,7 +27398,8 @@
         "y": 380,
         "wires": [
             [
-                "59f4aeeb93da8584"
+                "59f4aeeb93da8584",
+                "f120a5babbc6e5bd"
             ]
         ]
     },
@@ -27565,7 +27566,7 @@
         "links": [
             "20d240a805315960"
         ],
-        "x": 455,
+        "x": 655,
         "y": 280,
         "wires": []
     },
@@ -28017,38 +28018,6 @@
         ]
     },
     {
-        "id": "e45f3a1afc83189d",
-        "type": "debug",
-        "z": "68fa2cc37e97fc23",
-        "name": "debug 11",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 400,
-        "y": 220,
-        "wires": []
-    },
-    {
-        "id": "73dde84db72377ec",
-        "type": "debug",
-        "z": "68fa2cc37e97fc23",
-        "name": "debug 13",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 420,
-        "y": 580,
-        "wires": []
-    },
-    {
         "id": "6a842bf3d2820803",
         "type": "function",
         "z": "68fa2cc37e97fc23",
@@ -28079,6 +28048,91 @@
         ],
         "x": 655,
         "y": 80,
+        "wires": []
+    },
+    {
+        "id": "8c695844f6c4c933",
+        "type": "button-events",
+        "z": "68fa2cc37e97fc23",
+        "name": "",
+        "outputs": 1,
+        "inputField": "payload.state",
+        "inputFieldType": "msg",
+        "outputField": "payload.state",
+        "outputFieldType": "msg",
+        "downValue": "true",
+        "downValueType": "bool",
+        "upValue": "false",
+        "upValueType": "bool",
+        "idleValue": "1",
+        "buttonEventsConfig": "3dbea5f7117423db",
+        "clickedInterval": null,
+        "pressedInterval": null,
+        "debounceInterval": null,
+        "events": [
+            {
+                "type": "button_changed"
+            }
+        ],
+        "x": 380,
+        "y": 280,
+        "wires": [
+            [
+                "df9b239c9ccfbd8d",
+                "3c4fefc2fab489c6"
+            ]
+        ]
+    },
+    {
+        "id": "3c4fefc2fab489c6",
+        "type": "flogger",
+        "z": "68fa2cc37e97fc23",
+        "name": "",
+        "logfile": "gaestezimmer-licht",
+        "inputchoice": "fullmsg",
+        "inputobject": "payload",
+        "inputobjectType": "msg",
+        "inputmoustache": "Recieved payload {{payload}} and topic {{topic}}",
+        "loglevel": "INFO",
+        "logconfig": "8929498a4f6d4a2d",
+        "sendpane": "",
+        "x": 430,
+        "y": 340,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f120a5babbc6e5bd",
+        "type": "function",
+        "z": "68fa2cc37e97fc23",
+        "name": "Push Notification",
+        "func": "if (msg.payload.length == 0) return;\n\nreturn {\n    notification: {\n        notification: { \n            title: \"Gäste-Zimmer Licht\", \n            body: `${msg.payload}` \n        }, \n    }\n};\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 730,
+        "y": 320,
+        "wires": [
+            [
+                "4fee11aedf7f464e"
+            ]
+        ]
+    },
+    {
+        "id": "4fee11aedf7f464e",
+        "type": "link out",
+        "z": "68fa2cc37e97fc23",
+        "name": "Person an Kellertür erkannt",
+        "mode": "link",
+        "links": [
+            "1cd036385c85d54d"
+        ],
+        "x": 865,
+        "y": 320,
         "wires": []
     },
     {
@@ -28509,14 +28563,15 @@
             "b95a7e74b62a744b",
             "797b6ddd77d5a87d",
             "00c811ab0fc5e79c",
-            "40f087710bb29d75"
+            "40f087710bb29d75",
+            "4fee11aedf7f464e"
         ],
-        "x": 595,
-        "y": 560,
+        "x": 625,
+        "y": 540,
         "wires": [
             [
-                "8b685850.ce1428",
-                "599b38aea5c2631c"
+                "599b38aea5c2631c",
+                "f73895189a68aea9"
             ]
         ]
     },
@@ -28533,9 +28588,29 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 720,
+        "x": 740,
         "y": 560,
         "wires": []
+    },
+    {
+        "id": "f73895189a68aea9",
+        "type": "function",
+        "z": "186ee9b7.78e426",
+        "name": "Add timestamp to body",
+        "func": "let timestamp = new Date();\nlet time = timestamp.toLocaleTimeString('de-DE', { timeStyle: 'short' });\n\nmsg.notification.notification.body = `${time} – ${msg.notification.notification.body}`;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 780,
+        "y": 520,
+        "wires": [
+            [
+                "8b685850.ce1428"
+            ]
+        ]
     },
     {
         "id": "7f807fd8588ea7ce",
