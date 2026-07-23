@@ -660,13 +660,14 @@
         "id": "b4ebc8ba2c9de90d",
         "type": "junction",
         "z": "4d90b497.b5b2ac",
-        "x": 660,
-        "y": 1040,
+        "x": 680,
+        "y": 1060,
         "wires": [
             [
                 "77fae94b0298ff11",
                 "e7dd41b611195f78",
-                "9062d3c200b3524c"
+                "9062d3c200b3524c",
+                "3eb3e9bf48002d03"
             ]
         ]
     },
@@ -674,11 +675,12 @@
         "id": "d82661ccd1c1b284",
         "type": "junction",
         "z": "4d90b497.b5b2ac",
-        "x": 660,
-        "y": 1120,
+        "x": 680,
+        "y": 1180,
         "wires": [
             [
-                "b0e476cf987d5a38"
+                "b0e476cf987d5a38",
+                "f593e532d2462e52"
             ]
         ]
     },
@@ -9089,10 +9091,11 @@
         "rh": 0,
         "inputs": 0,
         "x": 260,
-        "y": 1080,
+        "y": 1120,
         "wires": [
             [
-                "23467093e63e190f"
+                "23467093e63e190f",
+                "1d2e41077a9f158c"
             ]
         ]
     },
@@ -9115,7 +9118,7 @@
         "repair": false,
         "outputs": 2,
         "x": 550,
-        "y": 1080,
+        "y": 1120,
         "wires": [
             [
                 "b4ebc8ba2c9de90d"
@@ -9142,8 +9145,8 @@
         "font": "Arial Black,Arial Black,Gadget,sans-serif",
         "fontSize": "",
         "color": "#e01b24",
-        "x": 940,
-        "y": 1100,
+        "x": 980,
+        "y": 1140,
         "wires": []
     },
     {
@@ -9157,8 +9160,8 @@
         "syntax": "mustache",
         "template": "Achtung Wasser!",
         "output": "str",
-        "x": 760,
-        "y": 1080,
+        "x": 800,
+        "y": 1120,
         "wires": [
             [
                 "ce99746ee6d7dd5f"
@@ -9176,8 +9179,8 @@
         "syntax": "mustache",
         "template": "Ok, alles trocken",
         "output": "str",
-        "x": 760,
-        "y": 1120,
+        "x": 800,
+        "y": 1160,
         "wires": [
             [
                 "ce99746ee6d7dd5f"
@@ -9222,8 +9225,8 @@
         "roomname": "spaces/AAAA1mNxo1U",
         "contentproperty": "ACHTUNG! Wasserleck in der Waschküche.",
         "contenttype": "str",
-        "x": 760,
-        "y": 1040,
+        "x": 800,
+        "y": 1080,
         "wires": [
             []
         ]
@@ -9232,20 +9235,86 @@
         "id": "9062d3c200b3524c",
         "type": "template",
         "z": "4d90b497.b5b2ac",
-        "name": "OFF",
+        "name": "off",
         "field": "payload",
         "fieldType": "msg",
         "format": "handlebars",
         "syntax": "mustache",
-        "template": "OFF",
+        "template": "off",
         "output": "str",
-        "x": 750,
+        "x": 790,
         "y": 1000,
         "wires": [
             [
                 "76339dfa.1244c4"
             ]
         ]
+    },
+    {
+        "id": "3eb3e9bf48002d03",
+        "type": "change",
+        "z": "4d90b497.b5b2ac",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "waschkueche_wasserleck",
+                "pt": "global",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 890,
+        "y": 1040,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f593e532d2462e52",
+        "type": "change",
+        "z": "4d90b497.b5b2ac",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "waschkueche_wasserleck",
+                "pt": "global",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 890,
+        "y": 1200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1d2e41077a9f158c",
+        "type": "debug",
+        "z": "4d90b497.b5b2ac",
+        "name": "debug 6",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 600,
+        "y": 1240,
+        "wires": []
     },
     {
         "id": "3f614727.989a68",
@@ -10953,8 +11022,7 @@
         "y": 600,
         "wires": [
             [
-                "6238d883.2f3dd8",
-                "93c2d502a162412c"
+                "6238d883.2f3dd8"
             ]
         ]
     },
@@ -10975,8 +11043,7 @@
         "wires": [
             [
                 "cdbf2a81.584de8",
-                "afb0333e.affc6",
-                "088bf0781001c457"
+                "afb0333e.affc6"
             ]
         ]
     },
@@ -11065,8 +11132,7 @@
         "y": 620,
         "wires": [
             [
-                "d7eb448b.d6abd8",
-                "49886081852e0d9e"
+                "d7eb448b.d6abd8"
             ]
         ]
     },
@@ -11320,7 +11386,7 @@
         "type": "function",
         "z": "2f328ad8.26ca86",
         "name": "einspeisung & eigenverbrauch",
-        "func": "const solarertrag = msg.payload;\nconst stombezug = global.get(\"stombezug\");\n\nconst netzbezug = (stombezug > 0) ? stombezug : 0;\nconst einspeisung = (stombezug < 0) ? stombezug : 0; //wie so nicht - ?\nconst eigenverbrauch = solarertrag - einspeisung;\nconst stromverbrauch = netzbezug + eigenverbrauch;\n\nreturn { payload: { eigenverbrauch: eigenverbrauch, einspeisung: einspeisung, netzbezug: netzbezug, stromverbrauch: stromverbrauch}};",
+        "func": "const solarertrag = msg.payload;\nconst stombezug = global.get(\"stombezug\");\n\nconst netzbezug = (stombezug > 0) ? stombezug : 0;\nconst einspeisung = (stombezug < 0) ? stombezug : 0; // wie so nicht -strombezug ? Jetzt ist einspeisung negativ\nconst eigenverbrauch = solarertrag + einspeisung; // einspeisung ist negativ, deshalb +; geändert 2026-07-13 12:13\nconst stromverbrauch = netzbezug + eigenverbrauch;\n\nreturn { payload: { \n    eigenverbrauch: eigenverbrauch, \n    einspeisung: einspeisung, \n    netzbezug: netzbezug, \n    stromverbrauch: stromverbrauch, \n    solarertrag: solarertrag, \n    stombezug: stombezug\n}};",
         "outputs": 1,
         "timeout": "",
         "noerr": 0,
@@ -11331,7 +11397,8 @@
         "y": 460,
         "wires": [
             [
-                "4d932a70ca858354"
+                "4d932a70ca858354",
+                "e04d545ab8be8c6f"
             ]
         ]
     },
@@ -11462,38 +11529,6 @@
         "wires": []
     },
     {
-        "id": "088bf0781001c457",
-        "type": "debug",
-        "z": "2f328ad8.26ca86",
-        "name": "debug 5",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 820,
-        "y": 520,
-        "wires": []
-    },
-    {
-        "id": "49886081852e0d9e",
-        "type": "debug",
-        "z": "2f328ad8.26ca86",
-        "name": "debug 6",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 820,
-        "y": 560,
-        "wires": []
-    },
-    {
         "id": "eb1548d98a2bf66b",
         "type": "inject",
         "z": "2f328ad8.26ca86",
@@ -11523,19 +11558,19 @@
         ]
     },
     {
-        "id": "93c2d502a162412c",
+        "id": "e04d545ab8be8c6f",
         "type": "debug",
         "z": "2f328ad8.26ca86",
-        "name": "debug 8",
-        "active": true,
+        "name": "debug 5",
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 500,
-        "y": 540,
+        "x": 780,
+        "y": 520,
         "wires": []
     },
     {
@@ -17393,7 +17428,7 @@
         "id": "5ed4dede83b873c3",
         "type": "change",
         "z": "062848eb6508a3a6",
-        "name": "Prep Login Post",
+        "name": "Prep Login Post Haustuer Kamera",
         "rules": [
             {
                 "t": "set",
@@ -17415,7 +17450,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 340,
+        "x": 400,
         "y": 2440,
         "wires": [
             [
@@ -17439,7 +17474,7 @@
         "authType": "",
         "senderr": false,
         "headers": [],
-        "x": 530,
+        "x": 650,
         "y": 2440,
         "wires": [
             [
@@ -17485,7 +17520,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 720,
+        "x": 840,
         "y": 2440,
         "wires": [
             []
@@ -17709,7 +17744,7 @@
         "id": "97b6843e4897cf11",
         "type": "inject",
         "z": "062848eb6508a3a6",
-        "name": "",
+        "name": "Klingeltest",
         "props": [
             {
                 "p": "payload"
@@ -17742,7 +17777,8 @@
         "mode": "link",
         "links": [
             "682c2648030bca5b",
-            "b708cc79a53544f4"
+            "b708cc79a53544f4",
+            "5dfa61e929295bf2"
         ],
         "x": 795,
         "y": 2580,
@@ -17821,6 +17857,188 @@
         "x": 440,
         "y": 1920,
         "wires": []
+    },
+    {
+        "id": "f07ee25e2ecd8171",
+        "type": "change",
+        "z": "062848eb6508a3a6",
+        "name": "Prep AudioAlarmPlay Post",
+        "rules": [
+            {
+                "t": "set",
+                "p": "url",
+                "pt": "msg",
+                "to": "\"http://kamera-balkon/cgi-bin/api.cgi?cmd=AudioAlarmPlay&token=\" & $flowContext(\"token-balkon-kamera\")",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "[{\"cmd\":\"AudioAlarmPlay\",\"action\":0,\"param\":{\"alarm_mode\":\"times\",\"manual_switch\":0,\"times\":1,\"channel\":0}}]",
+                "tot": "json"
+            },
+            {
+                "t": "set",
+                "p": "headers",
+                "pt": "msg",
+                "to": "{\"Content-Type\":\"application/json\"}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 300,
+        "y": 2920,
+        "wires": [
+            [
+                "ed1fde1151edd85b"
+            ]
+        ]
+    },
+    {
+        "id": "ed1fde1151edd85b",
+        "type": "http request",
+        "z": "062848eb6508a3a6",
+        "name": "",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 530,
+        "y": 2920,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2f8e81148d04aaec",
+        "type": "change",
+        "z": "062848eb6508a3a6",
+        "name": "Prep Login Post Balkon Kamera",
+        "rules": [
+            {
+                "t": "set",
+                "p": "url",
+                "pt": "msg",
+                "to": "\"http://kamera-balkon/cgi-bin/api.cgi?cmd=Login\"",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "[{\"cmd\":\"Login\",\"action\":0,\"param\":{\"User\":{\"userName\":$env('username'),\"password\":$env('password')}}}]",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 390,
+        "y": 2860,
+        "wires": [
+            [
+                "0455fb5262ea47be"
+            ]
+        ]
+    },
+    {
+        "id": "0455fb5262ea47be",
+        "type": "http request",
+        "z": "062848eb6508a3a6",
+        "name": "",
+        "method": "POST",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 630,
+        "y": 2860,
+        "wires": [
+            [
+                "d3a2bb472d545aab"
+            ]
+        ]
+    },
+    {
+        "id": "8461eeb414f977b0",
+        "type": "inject",
+        "z": "062848eb6508a3a6",
+        "name": "",
+        "props": [],
+        "repeat": "3000",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "11",
+        "topic": "",
+        "x": 180,
+        "y": 2860,
+        "wires": [
+            [
+                "2f8e81148d04aaec"
+            ]
+        ]
+    },
+    {
+        "id": "d3a2bb472d545aab",
+        "type": "change",
+        "z": "062848eb6508a3a6",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "token-balkon-kamera",
+                "pt": "flow",
+                "to": "payload[0].value.Token.name",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 870,
+        "y": 2860,
+        "wires": [
+            []
+        ],
+        "icon": "font-awesome/fa-lock"
+    },
+    {
+        "id": "5dfa61e929295bf2",
+        "type": "link in",
+        "z": "062848eb6508a3a6",
+        "name": "Balkon-Kamera Ding-Dong",
+        "links": [
+            "e938e0ee91a24106"
+        ],
+        "x": 135,
+        "y": 2920,
+        "wires": [
+            [
+                "f07ee25e2ecd8171"
+            ]
+        ]
     },
     {
         "id": "3eec6b45c3f95d3f",
@@ -22323,7 +22541,7 @@
         "y": 320,
         "wires": [
             [
-                "37d188186ea7cf74"
+                "0702678c5b2554f7"
             ]
         ]
     },
@@ -22341,7 +22559,7 @@
         "correl": "",
         "expiry": "",
         "broker": "c349b9ff.9dc4c8",
-        "x": 960,
+        "x": 1100,
         "y": 340,
         "wires": []
     },
@@ -22582,7 +22800,7 @@
         "y": 360,
         "wires": [
             [
-                "37d188186ea7cf74"
+                "0702678c5b2554f7"
             ]
         ]
     },
@@ -22680,6 +22898,33 @@
         "wires": [
             [
                 "4fb648cd6e4e5e52"
+            ]
+        ]
+    },
+    {
+        "id": "0702678c5b2554f7",
+        "type": "switch",
+        "z": "7518cde088588ebe",
+        "name": "",
+        "property": "waschkueche_wasserleck",
+        "propertyType": "global",
+        "rules": [
+            {
+                "t": "true"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 850,
+        "y": 340,
+        "wires": [
+            [],
+            [
+                "37d188186ea7cf74"
             ]
         ]
     },
@@ -23863,10 +24108,10 @@
         "rules": [
             {
                 "t": "set",
-                "p": "payload.detectionState",
+                "p": "payload",
                 "pt": "msg",
-                "to": "NOT_DETECTED",
-                "tot": "str"
+                "to": "{\"detectionState\": \"NOT_DETECTED\"}",
+                "tot": "json"
             }
         ],
         "action": "",
