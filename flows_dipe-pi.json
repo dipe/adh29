@@ -1944,6 +1944,753 @@
         "enableGlobalContextStore": false
     },
     {
+        "id": "3a4cdf5aa6c1c329",
+        "type": "ha-device-config",
+        "name": "Raumklima (Node-RED)",
+        "hwVersion": "",
+        "manufacturer": "Node-RED",
+        "model": "Lüftungsempfehlung",
+        "swVersion": ""
+    },
+    {
+        "id": "ee6ea54639545c26",
+        "type": "ha-entity-config",
+        "server": "3e07f44559793d55",
+        "deviceConfig": "3a4cdf5aa6c1c329",
+        "name": "Raumklima Balkon",
+        "version": 6,
+        "entityType": "sensor",
+        "haConfig": [
+            {
+                "property": "name",
+                "value": "Raumklima Balkon"
+            },
+            {
+                "property": "icon",
+                "value": ""
+            },
+            {
+                "property": "entity_picture",
+                "value": ""
+            },
+            {
+                "property": "entity_category",
+                "value": ""
+            },
+            {
+                "property": "device_class",
+                "value": ""
+            },
+            {
+                "property": "unit_of_measurement",
+                "value": ""
+            },
+            {
+                "property": "state_class",
+                "value": ""
+            }
+        ],
+        "resend": false,
+        "debugEnabled": false
+    },
+    {
+        "id": "7a55267900b1321d",
+        "type": "ha-entity-config",
+        "server": "3e07f44559793d55",
+        "deviceConfig": "3a4cdf5aa6c1c329",
+        "name": "Raumklima Open Weather",
+        "version": 6,
+        "entityType": "sensor",
+        "haConfig": [
+            {
+                "property": "name",
+                "value": "Raumklima Open Weather"
+            },
+            {
+                "property": "icon",
+                "value": ""
+            },
+            {
+                "property": "entity_picture",
+                "value": ""
+            },
+            {
+                "property": "entity_category",
+                "value": ""
+            },
+            {
+                "property": "device_class",
+                "value": ""
+            },
+            {
+                "property": "unit_of_measurement",
+                "value": ""
+            },
+            {
+                "property": "state_class",
+                "value": ""
+            }
+        ],
+        "resend": false,
+        "debugEnabled": false
+    },
+    {
+        "id": "3ba38bc29aa83fc6",
+        "type": "ha-entity-config",
+        "server": "3e07f44559793d55",
+        "deviceConfig": "3a4cdf5aa6c1c329",
+        "name": "Raumklima Treppenhaus Keller",
+        "version": 6,
+        "entityType": "sensor",
+        "haConfig": [
+            {
+                "property": "name",
+                "value": "Raumklima Treppenhaus Keller"
+            },
+            {
+                "property": "icon",
+                "value": ""
+            },
+            {
+                "property": "entity_picture",
+                "value": ""
+            },
+            {
+                "property": "entity_category",
+                "value": ""
+            },
+            {
+                "property": "device_class",
+                "value": ""
+            },
+            {
+                "property": "unit_of_measurement",
+                "value": ""
+            },
+            {
+                "property": "state_class",
+                "value": ""
+            }
+        ],
+        "resend": false,
+        "debugEnabled": false
+    },
+    {
+        "id": "f16ed142429c07d0",
+        "type": "ha-entity-config",
+        "server": "3e07f44559793d55",
+        "deviceConfig": "3a4cdf5aa6c1c329",
+        "name": "Raumklima Fahrradkeller",
+        "version": 6,
+        "entityType": "sensor",
+        "haConfig": [
+            {
+                "property": "name",
+                "value": "Raumklima Fahrradkeller"
+            },
+            {
+                "property": "icon",
+                "value": ""
+            },
+            {
+                "property": "entity_picture",
+                "value": ""
+            },
+            {
+                "property": "entity_category",
+                "value": ""
+            },
+            {
+                "property": "device_class",
+                "value": ""
+            },
+            {
+                "property": "unit_of_measurement",
+                "value": ""
+            },
+            {
+                "property": "state_class",
+                "value": ""
+            }
+        ],
+        "resend": false,
+        "debugEnabled": false
+    },
+    {
+        "id": "16a0d343a238f7af",
+        "type": "ha-entity-config",
+        "server": "3e07f44559793d55",
+        "deviceConfig": "3a4cdf5aa6c1c329",
+        "name": "Raumklima Waschküche",
+        "version": 6,
+        "entityType": "sensor",
+        "haConfig": [
+            {
+                "property": "name",
+                "value": "Raumklima Waschküche"
+            },
+            {
+                "property": "icon",
+                "value": ""
+            },
+            {
+                "property": "entity_picture",
+                "value": ""
+            },
+            {
+                "property": "entity_category",
+                "value": ""
+            },
+            {
+                "property": "device_class",
+                "value": ""
+            },
+            {
+                "property": "unit_of_measurement",
+                "value": ""
+            },
+            {
+                "property": "state_class",
+                "value": ""
+            }
+        ],
+        "resend": false,
+        "debugEnabled": false
+    },
+    {
+        "id": "dafeca84f89b9f0e",
+        "type": "ha-entity-config",
+        "server": "3e07f44559793d55",
+        "deviceConfig": "3a4cdf5aa6c1c329",
+        "name": "Raumklima Werkstatt",
+        "version": 6,
+        "entityType": "sensor",
+        "haConfig": [
+            {
+                "property": "name",
+                "value": "Raumklima Werkstatt"
+            },
+            {
+                "property": "icon",
+                "value": ""
+            },
+            {
+                "property": "entity_picture",
+                "value": ""
+            },
+            {
+                "property": "entity_category",
+                "value": ""
+            },
+            {
+                "property": "device_class",
+                "value": ""
+            },
+            {
+                "property": "unit_of_measurement",
+                "value": ""
+            },
+            {
+                "property": "state_class",
+                "value": ""
+            }
+        ],
+        "resend": false,
+        "debugEnabled": false
+    },
+    {
+        "id": "e8f56a76d9bc16a1",
+        "type": "ha-entity-config",
+        "server": "3e07f44559793d55",
+        "deviceConfig": "3a4cdf5aa6c1c329",
+        "name": "Raumklima Küche",
+        "version": 6,
+        "entityType": "sensor",
+        "haConfig": [
+            {
+                "property": "name",
+                "value": "Raumklima Küche"
+            },
+            {
+                "property": "icon",
+                "value": ""
+            },
+            {
+                "property": "entity_picture",
+                "value": ""
+            },
+            {
+                "property": "entity_category",
+                "value": ""
+            },
+            {
+                "property": "device_class",
+                "value": ""
+            },
+            {
+                "property": "unit_of_measurement",
+                "value": ""
+            },
+            {
+                "property": "state_class",
+                "value": ""
+            }
+        ],
+        "resend": false,
+        "debugEnabled": false
+    },
+    {
+        "id": "ebd1829208a504b3",
+        "type": "ha-entity-config",
+        "server": "3e07f44559793d55",
+        "deviceConfig": "3a4cdf5aa6c1c329",
+        "name": "Raumklima Speisekammer",
+        "version": 6,
+        "entityType": "sensor",
+        "haConfig": [
+            {
+                "property": "name",
+                "value": "Raumklima Speisekammer"
+            },
+            {
+                "property": "icon",
+                "value": ""
+            },
+            {
+                "property": "entity_picture",
+                "value": ""
+            },
+            {
+                "property": "entity_category",
+                "value": ""
+            },
+            {
+                "property": "device_class",
+                "value": ""
+            },
+            {
+                "property": "unit_of_measurement",
+                "value": ""
+            },
+            {
+                "property": "state_class",
+                "value": ""
+            }
+        ],
+        "resend": false,
+        "debugEnabled": false
+    },
+    {
+        "id": "48931df730f04af8",
+        "type": "ha-entity-config",
+        "server": "3e07f44559793d55",
+        "deviceConfig": "3a4cdf5aa6c1c329",
+        "name": "Raumklima Wohnzimmer",
+        "version": 6,
+        "entityType": "sensor",
+        "haConfig": [
+            {
+                "property": "name",
+                "value": "Raumklima Wohnzimmer"
+            },
+            {
+                "property": "icon",
+                "value": ""
+            },
+            {
+                "property": "entity_picture",
+                "value": ""
+            },
+            {
+                "property": "entity_category",
+                "value": ""
+            },
+            {
+                "property": "device_class",
+                "value": ""
+            },
+            {
+                "property": "unit_of_measurement",
+                "value": ""
+            },
+            {
+                "property": "state_class",
+                "value": ""
+            }
+        ],
+        "resend": false,
+        "debugEnabled": false
+    },
+    {
+        "id": "6e31803df90e50a5",
+        "type": "ha-entity-config",
+        "server": "3e07f44559793d55",
+        "deviceConfig": "3a4cdf5aa6c1c329",
+        "name": "Raumklima Gäste WC",
+        "version": 6,
+        "entityType": "sensor",
+        "haConfig": [
+            {
+                "property": "name",
+                "value": "Raumklima Gäste WC"
+            },
+            {
+                "property": "icon",
+                "value": ""
+            },
+            {
+                "property": "entity_picture",
+                "value": ""
+            },
+            {
+                "property": "entity_category",
+                "value": ""
+            },
+            {
+                "property": "device_class",
+                "value": ""
+            },
+            {
+                "property": "unit_of_measurement",
+                "value": ""
+            },
+            {
+                "property": "state_class",
+                "value": ""
+            }
+        ],
+        "resend": false,
+        "debugEnabled": false
+    },
+    {
+        "id": "b6751bf3f7f1e3f3",
+        "type": "ha-entity-config",
+        "server": "3e07f44559793d55",
+        "deviceConfig": "3a4cdf5aa6c1c329",
+        "name": "Raumklima Bad",
+        "version": 6,
+        "entityType": "sensor",
+        "haConfig": [
+            {
+                "property": "name",
+                "value": "Raumklima Bad"
+            },
+            {
+                "property": "icon",
+                "value": ""
+            },
+            {
+                "property": "entity_picture",
+                "value": ""
+            },
+            {
+                "property": "entity_category",
+                "value": ""
+            },
+            {
+                "property": "device_class",
+                "value": ""
+            },
+            {
+                "property": "unit_of_measurement",
+                "value": ""
+            },
+            {
+                "property": "state_class",
+                "value": ""
+            }
+        ],
+        "resend": false,
+        "debugEnabled": false
+    },
+    {
+        "id": "2ef1f4512cc6c7a9",
+        "type": "ha-entity-config",
+        "server": "3e07f44559793d55",
+        "deviceConfig": "3a4cdf5aa6c1c329",
+        "name": "Raumklima Büro OG",
+        "version": 6,
+        "entityType": "sensor",
+        "haConfig": [
+            {
+                "property": "name",
+                "value": "Raumklima Büro OG"
+            },
+            {
+                "property": "icon",
+                "value": ""
+            },
+            {
+                "property": "entity_picture",
+                "value": ""
+            },
+            {
+                "property": "entity_category",
+                "value": ""
+            },
+            {
+                "property": "device_class",
+                "value": ""
+            },
+            {
+                "property": "unit_of_measurement",
+                "value": ""
+            },
+            {
+                "property": "state_class",
+                "value": ""
+            }
+        ],
+        "resend": false,
+        "debugEnabled": false
+    },
+    {
+        "id": "63ada95b70681820",
+        "type": "ha-entity-config",
+        "server": "3e07f44559793d55",
+        "deviceConfig": "3a4cdf5aa6c1c329",
+        "name": "Raumklima Schlafzimmer",
+        "version": 6,
+        "entityType": "sensor",
+        "haConfig": [
+            {
+                "property": "name",
+                "value": "Raumklima Schlafzimmer"
+            },
+            {
+                "property": "icon",
+                "value": ""
+            },
+            {
+                "property": "entity_picture",
+                "value": ""
+            },
+            {
+                "property": "entity_category",
+                "value": ""
+            },
+            {
+                "property": "device_class",
+                "value": ""
+            },
+            {
+                "property": "unit_of_measurement",
+                "value": ""
+            },
+            {
+                "property": "state_class",
+                "value": ""
+            }
+        ],
+        "resend": false,
+        "debugEnabled": false
+    },
+    {
+        "id": "8a5f73eaea809051",
+        "type": "ha-entity-config",
+        "server": "3e07f44559793d55",
+        "deviceConfig": "3a4cdf5aa6c1c329",
+        "name": "Raumklima Ankleidezimmer",
+        "version": 6,
+        "entityType": "sensor",
+        "haConfig": [
+            {
+                "property": "name",
+                "value": "Raumklima Ankleidezimmer"
+            },
+            {
+                "property": "icon",
+                "value": ""
+            },
+            {
+                "property": "entity_picture",
+                "value": ""
+            },
+            {
+                "property": "entity_category",
+                "value": ""
+            },
+            {
+                "property": "device_class",
+                "value": ""
+            },
+            {
+                "property": "unit_of_measurement",
+                "value": ""
+            },
+            {
+                "property": "state_class",
+                "value": ""
+            }
+        ],
+        "resend": false,
+        "debugEnabled": false
+    },
+    {
+        "id": "9e928def4660e3da",
+        "type": "ha-entity-config",
+        "server": "3e07f44559793d55",
+        "deviceConfig": "3a4cdf5aa6c1c329",
+        "name": "Raumklima Treppenhaus DG",
+        "version": 6,
+        "entityType": "sensor",
+        "haConfig": [
+            {
+                "property": "name",
+                "value": "Raumklima Treppenhaus DG"
+            },
+            {
+                "property": "icon",
+                "value": ""
+            },
+            {
+                "property": "entity_picture",
+                "value": ""
+            },
+            {
+                "property": "entity_category",
+                "value": ""
+            },
+            {
+                "property": "device_class",
+                "value": ""
+            },
+            {
+                "property": "unit_of_measurement",
+                "value": ""
+            },
+            {
+                "property": "state_class",
+                "value": ""
+            }
+        ],
+        "resend": false,
+        "debugEnabled": false
+    },
+    {
+        "id": "1fceea0e0618a489",
+        "type": "ha-entity-config",
+        "server": "3e07f44559793d55",
+        "deviceConfig": "3a4cdf5aa6c1c329",
+        "name": "Raumklima Bad DG",
+        "version": 6,
+        "entityType": "sensor",
+        "haConfig": [
+            {
+                "property": "name",
+                "value": "Raumklima Bad DG"
+            },
+            {
+                "property": "icon",
+                "value": ""
+            },
+            {
+                "property": "entity_picture",
+                "value": ""
+            },
+            {
+                "property": "entity_category",
+                "value": ""
+            },
+            {
+                "property": "device_class",
+                "value": ""
+            },
+            {
+                "property": "unit_of_measurement",
+                "value": ""
+            },
+            {
+                "property": "state_class",
+                "value": ""
+            }
+        ],
+        "resend": false,
+        "debugEnabled": false
+    },
+    {
+        "id": "31f0b0732cd70590",
+        "type": "ha-entity-config",
+        "server": "3e07f44559793d55",
+        "deviceConfig": "3a4cdf5aa6c1c329",
+        "name": "Raumklima Gästezimmer",
+        "version": 6,
+        "entityType": "sensor",
+        "haConfig": [
+            {
+                "property": "name",
+                "value": "Raumklima Gästezimmer"
+            },
+            {
+                "property": "icon",
+                "value": ""
+            },
+            {
+                "property": "entity_picture",
+                "value": ""
+            },
+            {
+                "property": "entity_category",
+                "value": ""
+            },
+            {
+                "property": "device_class",
+                "value": ""
+            },
+            {
+                "property": "unit_of_measurement",
+                "value": ""
+            },
+            {
+                "property": "state_class",
+                "value": ""
+            }
+        ],
+        "resend": false,
+        "debugEnabled": false
+    },
+    {
+        "id": "6d46fafd480b376b",
+        "type": "ha-entity-config",
+        "server": "3e07f44559793d55",
+        "deviceConfig": "3a4cdf5aa6c1c329",
+        "name": "Raumklima Turnhalle",
+        "version": 6,
+        "entityType": "sensor",
+        "haConfig": [
+            {
+                "property": "name",
+                "value": "Raumklima Schlafzimmer DG"
+            },
+            {
+                "property": "icon",
+                "value": ""
+            },
+            {
+                "property": "entity_picture",
+                "value": ""
+            },
+            {
+                "property": "entity_category",
+                "value": ""
+            },
+            {
+                "property": "device_class",
+                "value": ""
+            },
+            {
+                "property": "unit_of_measurement",
+                "value": ""
+            },
+            {
+                "property": "state_class",
+                "value": ""
+            }
+        ],
+        "resend": false,
+        "debugEnabled": false
+    },
+    {
         "id": "a27c201f88d5372d",
         "type": "http request",
         "z": "f5d8e11fee9a1e7c",
@@ -12595,7 +13342,7 @@
         "type": "function",
         "z": "2788b93b.8a2f56",
         "name": "Lüftungsempfehlung",
-        "func": "// const outside_abs_humidity = global.get(\"aussen-absolute_humidity\");\nconst outside_abs_humidity = global.get(\"luftguetemesser2-absolute_humidity\");\n\nconst name = msg.payload.name;\n\nconst temperature = global.get(name + \"-temperature\");\nconst humidity = global.get(name + \"-humidity\");\nconst abs_humidity = global.get(name + \"-absolute_humidity\");\nconst last_abs_humidity_gt_outside_abs_humidity = global.get(name + \"-last_abs_humidity_gt_outside_abs_humidity\");\n\nconst room_abs_humidity_gt_outside_abs_humidity = (last_abs_humidity_gt_outside_abs_humidity) ?\n    abs_humidity > outside_abs_humidity * 1.05:\n    abs_humidity > outside_abs_humidity;\n\nglobal.set(name + \"-last_abs_humidity_gt_outside_abs_humidity\", abs_humidity > outside_abs_humidity);\n\nconst intl = global.get('intl');\nconst format = intl.NumberFormat('de-De',{style:'decimal', maximumFractionDigits: 1}).format;\nconst sprintf = global.get(\"sprintf\");\nconst text = sprintf(\"%s °C, %s %% H, %s g/m³\", format(temperature), format(humidity), format(abs_humidity))\n\nvar payload;\nif (room_abs_humidity_gt_outside_abs_humidity) {\n    if (humidity > 65) {\n        payload = {payload: {name: name, color: \"skyblue\", hint: \"Raum feucht. Lüften!\", text: text}};\n    } else {\n        payload = {payload: {name: name, color: \"limegreen\", hint: \"Raum ausreichend trocken.\", text: text}};\n    }\n} else {\n    payload = {payload: {name: name, color: \"red\", hint: \"Draußen zu feucht. Nur kurz lüften!\", text: text}};\n}\n\nconst debug = {\n    name: name,\n    temperature: temperature,\n    humidity: humidity,\n    abs_humidity: abs_humidity,\n    outside_abs_humidity: outside_abs_humidity,\n    last_abs_humidity_gt_outside_abs_humidity: last_abs_humidity_gt_outside_abs_humidity,\n    room_abs_humidity_gt_outside_abs_humidity: room_abs_humidity_gt_outside_abs_humidity,\n    text: text\n};\n\nreturn [payload, debug];\n",
+        "func": "// const outside_abs_humidity = global.get(\"aussen-absolute_humidity\");\nconst outside_abs_humidity = global.get(\"luftguetemesser2-absolute_humidity\");\n\nconst name = msg.payload.name;\n\nconst temperature = global.get(name + \"-temperature\");\nconst humidity = global.get(name + \"-humidity\");\nconst abs_humidity = global.get(name + \"-absolute_humidity\");\nconst last_abs_humidity_gt_outside_abs_humidity = global.get(name + \"-last_abs_humidity_gt_outside_abs_humidity\");\n\nconst room_abs_humidity_gt_outside_abs_humidity = (last_abs_humidity_gt_outside_abs_humidity) ?\n    abs_humidity > outside_abs_humidity * 1.05:\n    abs_humidity > outside_abs_humidity;\n\nglobal.set(name + \"-last_abs_humidity_gt_outside_abs_humidity\", abs_humidity > outside_abs_humidity);\n\nconst intl = global.get('intl');\nconst format = intl.NumberFormat('de-De',{style:'decimal', maximumFractionDigits: 1}).format;\nconst sprintf = global.get(\"sprintf\");\nconst text = sprintf(\"%s °C, %s %% H, %s g/m³\", format(temperature), format(humidity), format(abs_humidity))\n\nvar payload;\nif (room_abs_humidity_gt_outside_abs_humidity) {\n    if (humidity > 65) {\n        payload = {payload: {name: name, color: \"skyblue\", hint: \"Raum feucht. Lüften!\", text: text, temperature: temperature, humidity: humidity, abs_humidity: abs_humidity}};\n    } else {\n        payload = {payload: {name: name, color: \"limegreen\", hint: \"Raum ausreichend trocken.\", text: text, temperature: temperature, humidity: humidity, abs_humidity: abs_humidity}};\n    }\n} else {\n    payload = {payload: {name: name, color: \"red\", hint: \"Draußen zu feucht. Nur kurz lüften!\", text: text, temperature: temperature, humidity: humidity, abs_humidity: abs_humidity}};\n}\n\nconst debug = {\n    name: name,\n    temperature: temperature,\n    humidity: humidity,\n    abs_humidity: abs_humidity,\n    outside_abs_humidity: outside_abs_humidity,\n    last_abs_humidity_gt_outside_abs_humidity: last_abs_humidity_gt_outside_abs_humidity,\n    room_abs_humidity_gt_outside_abs_humidity: room_abs_humidity_gt_outside_abs_humidity,\n    text: text\n};\n\nreturn [payload, debug];\n",
         "outputs": 2,
         "timeout": "",
         "noerr": 0,
@@ -12759,58 +13506,76 @@
         "y": 600,
         "wires": [
             [
-                "5221a0c4.27e25"
+                "5221a0c4.27e25",
+                "eb8d9215af4bfd8f"
             ],
             [
-                "cdd93d3e38ae622c"
+                "cdd93d3e38ae622c",
+                "a45ec0ad865a5490"
             ],
             [
-                "12ebb575.a874db"
+                "12ebb575.a874db",
+                "f0aefa5b2cadff2d"
             ],
             [
-                "89e98409.0b1d08"
+                "89e98409.0b1d08",
+                "241d874b554623fa"
             ],
             [
-                "8fc7d555.415c28"
+                "8fc7d555.415c28",
+                "c97e22a78f3f42df"
             ],
             [
-                "c91d5cbf.ecc24"
+                "c91d5cbf.ecc24",
+                "bf3de5a413407da5"
             ],
             [
-                "740dd7e9.4e3008"
+                "740dd7e9.4e3008",
+                "fe38274d5b40f74a"
             ],
             [
-                "f9ee87ab.ae2d38"
+                "f9ee87ab.ae2d38",
+                "7fb89a358c2b6164"
             ],
             [
-                "f1e82e9a.000e8"
+                "f1e82e9a.000e8",
+                "6036094df3e81945"
             ],
             [
-                "961cf428.5c8238"
+                "961cf428.5c8238",
+                "f2235cce1f4fa74f"
             ],
             [
-                "668c6b28.38a1c4"
+                "668c6b28.38a1c4",
+                "17462c418abf0c7f"
             ],
             [
-                "593cbcc1.6b4944"
+                "593cbcc1.6b4944",
+                "e9b9bc8e3096ca06"
             ],
             [
-                "4010afc2.28a54"
+                "4010afc2.28a54",
+                "46622f87013e8e63"
             ],
             [
-                "7ebcce878d52151f"
+                "7ebcce878d52151f",
+                "879f14bb365dc00f"
             ],
             [
-                "3c7c9ecf2bc53afe"
+                "3c7c9ecf2bc53afe",
+                "71358a6e42812956"
             ],
             [
-                "b4af6219f2a77569"
+                "b4af6219f2a77569",
+                "e0afcb31a078007a"
             ],
             [
-                "33b1161152456aae"
+                "33b1161152456aae",
+                "7567c4a9dc51ade3"
             ],
             [
-                "9e24a05859ccbb80"
+                "9e24a05859ccbb80",
+                "9a75b66c1fd8e6e7"
             ]
         ]
     },
@@ -12920,7 +13685,7 @@
         "type": "function",
         "z": "2788b93b.8a2f56",
         "name": "recall klima draußen",
-        "func": "const name = \"luftguetemesser2\";\n\nconst temperature = global.get(name + \"-temperature\");\nconst humidity = global.get(name + \"-humidity\");\nconst abs_humidity = global.get(name + \"-absolute_humidity\");\nconst last_abs_humidity = global.get(name + \"-last_abs_humidity\");\nglobal.set(name + \"-last_abs_humidity\", abs_humidity);\n\n//node.warn(name)\n//node.warn(temperature)\n//node.warn(humidity)\n//node.warn(abs_humidity)\n//node.warn(last_abs_humidity_gt_outside_abs_humidity)\n//node.warn(outside_abs_humidity)\n\nconst intl = global.get('intl');\nconst format = intl.NumberFormat('de-De',{style:'decimal', maximumFractionDigits: 1}).format;\nconst sprintf = global.get(\"sprintf\");\nconst text = sprintf(\"%s °C, %s %% H, %s g/m³\", format(temperature), format(humidity), format(abs_humidity));\nif        (abs_humidity >= 13) {\n    return {payload: {name: name, color: \"deepskyblue\", hint: \"Draußen ist es sehr feucht.\", text: text, abs_humidity: abs_humidity}};\n} else if (abs_humidity >= 12 && abs_humidity < 13) {\n    return {payload: {name: name, color: \"skyblue\", hint: \"Draußen ist es feucht.\", text: text, abs_humidity: abs_humidity}};\n} else if (abs_humidity >= 11 && abs_humidity < 12) {\n    return {payload: {name: name, color: \"limegreen\", hint: \"Draußen ist einigermaßen trocken.\", text: text, abs_humidity: abs_humidity}};\n} else if (abs_humidity < 11) {\n    return {payload: {name: name, color: \"YellowGreen\", hint: \"Draußen ist es trocken.\", text: text, abs_humidity: abs_humidity}};\n} else {\n    return {payload: {name: name, color: \"DarkSeaGreen\", hint: \"Draußen ist es sehr trocken.\", text: text, abs_humidity: abs_humidity}};\n}\n\n// if (last_abs_humidity >= 13 && abs_humidity >= 13 ||\n//     last_abs_humidity < 13 && abs_humidity > 13 * 1.10) {\n//     return { payload: { name: name, color: \"deepskyblue\", hint: \"Draußen ist es sehr feucht.\", text: text } };\n// } else if (last_abs_humidity > 13 && abs_humidity < 13 / 1.10 && abs_humidity > 12 ||\n//     last_abs_humidity <= 13 && last_abs_humidity >= 12 && abs_humidity <= 13 && abs_humidity >= 12 ||\n//     last_abs_humidity < 12 && abs_humidity > 12 * 1.10 && abs_humidity < 13) {\n//     return { payload: { name: name, color: \"skyblue\", hint: \"Draußen ist es feucht.\", text: text } };\n// } else if (last_abs_humidity > 12 && abs_humidity < 12 / 1.10 && abs_humidity > 11 ||\n//     last_abs_humidity <= 12 && last_abs_humidity >= 11 && abs_humidity <= 12 && abs_humidity >= 11 ||\n//     last_abs_humidity < 11 && abs_humidity > 11 * 1.10 && abs_humidity < 12) {\n//     return { payload: { name: name, color: \"limegreen\", hint: \"Draußen ist einigermaßen trocken.\", text: text } };\n// } else if (last_abs_humidity > 11 && abs_humidity < 11 / 1.10 ||\n//     last_abs_humidity <= 11 && abs_humidity <= 11) {\n//     return { payload: { name: name, color: \"YellowGreen\", hint: \"Draußen ist es trocken.\", text: text } };\n// } else {\n//     return { payload: { name: name, color: \"DarkSeaGreen\", hint: \"Draußen ist es sehr trocken.\", text: text } };\n// }\n",
+        "func": "const name = \"luftguetemesser2\";\n\nconst temperature = global.get(name + \"-temperature\");\nconst humidity = global.get(name + \"-humidity\");\nconst abs_humidity = global.get(name + \"-absolute_humidity\");\nconst last_abs_humidity = global.get(name + \"-last_abs_humidity\");\nglobal.set(name + \"-last_abs_humidity\", abs_humidity);\n\n//node.warn(name)\n//node.warn(temperature)\n//node.warn(humidity)\n//node.warn(abs_humidity)\n//node.warn(last_abs_humidity_gt_outside_abs_humidity)\n//node.warn(outside_abs_humidity)\n\nconst intl = global.get('intl');\nconst format = intl.NumberFormat('de-De',{style:'decimal', maximumFractionDigits: 1}).format;\nconst sprintf = global.get(\"sprintf\");\nconst text = sprintf(\"%s °C, %s %% H, %s g/m³\", format(temperature), format(humidity), format(abs_humidity));\nif        (abs_humidity >= 13) {\n    return {payload: {name: name, color: \"deepskyblue\", hint: \"Draußen ist es sehr feucht.\", text: text, temperature: temperature, humidity: humidity, abs_humidity: abs_humidity}};\n} else if (abs_humidity >= 12 && abs_humidity < 13) {\n    return {payload: {name: name, color: \"skyblue\", hint: \"Draußen ist es feucht.\", text: text, temperature: temperature, humidity: humidity, abs_humidity: abs_humidity}};\n} else if (abs_humidity >= 11 && abs_humidity < 12) {\n    return {payload: {name: name, color: \"limegreen\", hint: \"Draußen ist einigermaßen trocken.\", text: text, temperature: temperature, humidity: humidity, abs_humidity: abs_humidity}};\n} else if (abs_humidity < 11) {\n    return {payload: {name: name, color: \"YellowGreen\", hint: \"Draußen ist es trocken.\", text: text, temperature: temperature, humidity: humidity, abs_humidity: abs_humidity}};\n} else {\n    return {payload: {name: name, color: \"DarkSeaGreen\", hint: \"Draußen ist es sehr trocken.\", text: text, temperature: temperature, humidity: humidity, abs_humidity: abs_humidity}};\n}\n\n// if (last_abs_humidity >= 13 && abs_humidity >= 13 ||\n//     last_abs_humidity < 13 && abs_humidity > 13 * 1.10) {\n//     return { payload: { name: name, color: \"deepskyblue\", hint: \"Draußen ist es sehr feucht.\", text: text } };\n// } else if (last_abs_humidity > 13 && abs_humidity < 13 / 1.10 && abs_humidity > 12 ||\n//     last_abs_humidity <= 13 && last_abs_humidity >= 12 && abs_humidity <= 13 && abs_humidity >= 12 ||\n//     last_abs_humidity < 12 && abs_humidity > 12 * 1.10 && abs_humidity < 13) {\n//     return { payload: { name: name, color: \"skyblue\", hint: \"Draußen ist es feucht.\", text: text } };\n// } else if (last_abs_humidity > 12 && abs_humidity < 12 / 1.10 && abs_humidity > 11 ||\n//     last_abs_humidity <= 12 && last_abs_humidity >= 11 && abs_humidity <= 12 && abs_humidity >= 11 ||\n//     last_abs_humidity < 11 && abs_humidity > 11 * 1.10 && abs_humidity < 12) {\n//     return { payload: { name: name, color: \"limegreen\", hint: \"Draußen ist einigermaßen trocken.\", text: text } };\n// } else if (last_abs_humidity > 11 && abs_humidity < 11 / 1.10 ||\n//     last_abs_humidity <= 11 && abs_humidity <= 11) {\n//     return { payload: { name: name, color: \"YellowGreen\", hint: \"Draußen ist es trocken.\", text: text } };\n// } else {\n//     return { payload: { name: name, color: \"DarkSeaGreen\", hint: \"Draußen ist es sehr trocken.\", text: text } };\n// }\n",
         "outputs": 1,
         "timeout": "",
         "noerr": 0,
@@ -13526,7 +14291,7 @@
         "type": "function",
         "z": "2788b93b.8a2f56",
         "name": "recall klima aussen",
-        "func": "const name = \"aussen\";\n\nconst temperature = global.get(name + \"-temperature\");\nconst humidity = global.get(name + \"-humidity\");\nconst abs_humidity = global.get(name + \"-absolute_humidity\");\nconst last_abs_humidity = global.get(name + \"-last_abs_humidity\");\nglobal.set(name + \"-last_abs_humidity\", abs_humidity);\n\n//node.warn(name)\n//node.warn(temperature)\n//node.warn(humidity)\n//node.warn(abs_humidity)\n//node.warn(last_abs_humidity_gt_outside_abs_humidity)\n//node.warn(outside_abs_humidity)\n\nconst intl = global.get('intl');\nconst format = intl.NumberFormat('de-De',{style:'decimal', maximumFractionDigits: 1}).format;\nconst sprintf = global.get(\"sprintf\");\nconst text = sprintf(\"%s °C, %s %% H, %s g/m³\", format(temperature), format(humidity), format(abs_humidity))\n\nif        (abs_humidity >= 13) {\n    return {payload: {name: name, color: \"deepskyblue\", hint: \"Draußen ist es sehr feucht.\", text: text}};\n} else if (abs_humidity >= 12 && abs_humidity < 13) {\n    return {payload: {name: name, color: \"skyblue\", hint: \"Draußen ist es feucht.\", text: text}};\n} else if (abs_humidity >= 11 && abs_humidity < 12) {\n    return {payload: {name: name, color: \"limegreen\", hint: \"Draußen ist einigermaßen trocken.\", text: text}};\n} else if (abs_humidity < 11) {\n    return {payload: {name: name, color: \"YellowGreen\", hint: \"Draußen ist es trocken.\", text: text}};\n} else {\n    return {payload: {name: name, color: \"DarkSeaGreen\", hint: \"Draußen ist es sehr trocken.\", text: text}};\n}\n\n// if (last_abs_humidity >= 13 && abs_humidity >= 13 ||\n//     last_abs_humidity < 13 && abs_humidity > 13 * 1.10) {\n//     return { payload: { name: name, color: \"deepskyblue\", hint: \"Draußen ist es sehr feucht.\", text: text } };\n// } else if (last_abs_humidity > 13 && abs_humidity < 13 / 1.10 && abs_humidity > 12 ||\n//     last_abs_humidity <= 13 && last_abs_humidity >= 12 && abs_humidity <= 13 && abs_humidity >= 12 ||\n//     last_abs_humidity < 12 && abs_humidity > 12 * 1.10 && abs_humidity < 13) {\n//     return { payload: { name: name, color: \"skyblue\", hint: \"Draußen ist es feucht.\", text: text } };\n// } else if (last_abs_humidity > 12 && abs_humidity < 12 / 1.10 && abs_humidity > 11 ||\n//     last_abs_humidity <= 12 && last_abs_humidity >= 11 && abs_humidity <= 12 && abs_humidity >= 11 ||\n//     last_abs_humidity < 11 && abs_humidity > 11 * 1.10 && abs_humidity < 12) {\n//     return { payload: { name: name, color: \"limegreen\", hint: \"Draußen ist einigermaßen trocken.\", text: text } };\n// } else if (last_abs_humidity > 11 && abs_humidity < 11 / 1.10 ||\n//     last_abs_humidity <= 11 && abs_humidity <= 11) {\n//     return { payload: { name: name, color: \"YellowGreen\", hint: \"Draußen ist es trocken.\", text: text } };\n// } else {\n//     return { payload: { name: name, color: \"DarkSeaGreen\", hint: \"Draußen ist es sehr trocken.\", text: text } };\n// }\n",
+        "func": "const name = \"aussen\";\n\nconst temperature = global.get(name + \"-temperature\");\nconst humidity = global.get(name + \"-humidity\");\nconst abs_humidity = global.get(name + \"-absolute_humidity\");\nconst last_abs_humidity = global.get(name + \"-last_abs_humidity\");\nglobal.set(name + \"-last_abs_humidity\", abs_humidity);\n\n//node.warn(name)\n//node.warn(temperature)\n//node.warn(humidity)\n//node.warn(abs_humidity)\n//node.warn(last_abs_humidity_gt_outside_abs_humidity)\n//node.warn(outside_abs_humidity)\n\nconst intl = global.get('intl');\nconst format = intl.NumberFormat('de-De',{style:'decimal', maximumFractionDigits: 1}).format;\nconst sprintf = global.get(\"sprintf\");\nconst text = sprintf(\"%s °C, %s %% H, %s g/m³\", format(temperature), format(humidity), format(abs_humidity))\n\nif        (abs_humidity >= 13) {\n    return {payload: {name: name, color: \"deepskyblue\", hint: \"Draußen ist es sehr feucht.\", text: text, temperature: temperature, humidity: humidity, abs_humidity: abs_humidity}};\n} else if (abs_humidity >= 12 && abs_humidity < 13) {\n    return {payload: {name: name, color: \"skyblue\", hint: \"Draußen ist es feucht.\", text: text, temperature: temperature, humidity: humidity, abs_humidity: abs_humidity}};\n} else if (abs_humidity >= 11 && abs_humidity < 12) {\n    return {payload: {name: name, color: \"limegreen\", hint: \"Draußen ist einigermaßen trocken.\", text: text, temperature: temperature, humidity: humidity, abs_humidity: abs_humidity}};\n} else if (abs_humidity < 11) {\n    return {payload: {name: name, color: \"YellowGreen\", hint: \"Draußen ist es trocken.\", text: text, temperature: temperature, humidity: humidity, abs_humidity: abs_humidity}};\n} else {\n    return {payload: {name: name, color: \"DarkSeaGreen\", hint: \"Draußen ist es sehr trocken.\", text: text, temperature: temperature, humidity: humidity, abs_humidity: abs_humidity}};\n}\n\n// if (last_abs_humidity >= 13 && abs_humidity >= 13 ||\n//     last_abs_humidity < 13 && abs_humidity > 13 * 1.10) {\n//     return { payload: { name: name, color: \"deepskyblue\", hint: \"Draußen ist es sehr feucht.\", text: text } };\n// } else if (last_abs_humidity > 13 && abs_humidity < 13 / 1.10 && abs_humidity > 12 ||\n//     last_abs_humidity <= 13 && last_abs_humidity >= 12 && abs_humidity <= 13 && abs_humidity >= 12 ||\n//     last_abs_humidity < 12 && abs_humidity > 12 * 1.10 && abs_humidity < 13) {\n//     return { payload: { name: name, color: \"skyblue\", hint: \"Draußen ist es feucht.\", text: text } };\n// } else if (last_abs_humidity > 12 && abs_humidity < 12 / 1.10 && abs_humidity > 11 ||\n//     last_abs_humidity <= 12 && last_abs_humidity >= 11 && abs_humidity <= 12 && abs_humidity >= 11 ||\n//     last_abs_humidity < 11 && abs_humidity > 11 * 1.10 && abs_humidity < 12) {\n//     return { payload: { name: name, color: \"limegreen\", hint: \"Draußen ist einigermaßen trocken.\", text: text } };\n// } else if (last_abs_humidity > 11 && abs_humidity < 11 / 1.10 ||\n//     last_abs_humidity <= 11 && abs_humidity <= 11) {\n//     return { payload: { name: name, color: \"YellowGreen\", hint: \"Draußen ist es trocken.\", text: text } };\n// } else {\n//     return { payload: { name: name, color: \"DarkSeaGreen\", hint: \"Draußen ist es sehr trocken.\", text: text } };\n// }\n",
         "outputs": 1,
         "timeout": "",
         "noerr": 0,
@@ -13761,6 +14526,798 @@
             [
                 "db7190952803093d"
             ]
+        ]
+    },
+    {
+        "id": "eb8d9215af4bfd8f",
+        "type": "ha-sensor",
+        "z": "2788b93b.8a2f56",
+        "name": "Raumklima Balkon",
+        "entityConfig": "ee6ea54639545c26",
+        "version": 0,
+        "state": "payload.hint",
+        "stateType": "msg",
+        "attributes": [
+            {
+                "property": "raum",
+                "value": "payload.room",
+                "valueType": "msg"
+            },
+            {
+                "property": "status_color",
+                "value": "payload.color",
+                "valueType": "msg"
+            },
+            {
+                "property": "temperature",
+                "value": "payload.temperature",
+                "valueType": "msg"
+            },
+            {
+                "property": "humidity_rel",
+                "value": "payload.humidity",
+                "valueType": "msg"
+            },
+            {
+                "property": "humidity_abs",
+                "value": "payload.abs_humidity",
+                "valueType": "msg"
+            }
+        ],
+        "inputOverride": "allow",
+        "outputProperties": [],
+        "x": 1620,
+        "y": 260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a45ec0ad865a5490",
+        "type": "ha-sensor",
+        "z": "2788b93b.8a2f56",
+        "name": "Raumklima Open Weather",
+        "entityConfig": "7a55267900b1321d",
+        "version": 0,
+        "state": "payload.hint",
+        "stateType": "msg",
+        "attributes": [
+            {
+                "property": "raum",
+                "value": "payload.room",
+                "valueType": "msg"
+            },
+            {
+                "property": "status_color",
+                "value": "payload.color",
+                "valueType": "msg"
+            },
+            {
+                "property": "temperature",
+                "value": "payload.temperature",
+                "valueType": "msg"
+            },
+            {
+                "property": "humidity_rel",
+                "value": "payload.humidity",
+                "valueType": "msg"
+            },
+            {
+                "property": "humidity_abs",
+                "value": "payload.abs_humidity",
+                "valueType": "msg"
+            }
+        ],
+        "inputOverride": "allow",
+        "outputProperties": [],
+        "x": 1650,
+        "y": 300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f0aefa5b2cadff2d",
+        "type": "ha-sensor",
+        "z": "2788b93b.8a2f56",
+        "name": "Raumklima Treppenhaus Keller",
+        "entityConfig": "3ba38bc29aa83fc6",
+        "version": 0,
+        "state": "payload.hint",
+        "stateType": "msg",
+        "attributes": [
+            {
+                "property": "raum",
+                "value": "payload.room",
+                "valueType": "msg"
+            },
+            {
+                "property": "status_color",
+                "value": "payload.color",
+                "valueType": "msg"
+            },
+            {
+                "property": "temperature",
+                "value": "payload.temperature",
+                "valueType": "msg"
+            },
+            {
+                "property": "humidity_rel",
+                "value": "payload.humidity",
+                "valueType": "msg"
+            },
+            {
+                "property": "humidity_abs",
+                "value": "payload.abs_humidity",
+                "valueType": "msg"
+            }
+        ],
+        "inputOverride": "allow",
+        "outputProperties": [],
+        "x": 1660,
+        "y": 340,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "241d874b554623fa",
+        "type": "ha-sensor",
+        "z": "2788b93b.8a2f56",
+        "name": "Raumklima Fahrradkeller",
+        "entityConfig": "f16ed142429c07d0",
+        "version": 0,
+        "state": "payload.hint",
+        "stateType": "msg",
+        "attributes": [
+            {
+                "property": "raum",
+                "value": "payload.room",
+                "valueType": "msg"
+            },
+            {
+                "property": "status_color",
+                "value": "payload.color",
+                "valueType": "msg"
+            },
+            {
+                "property": "temperature",
+                "value": "payload.temperature",
+                "valueType": "msg"
+            },
+            {
+                "property": "humidity_rel",
+                "value": "payload.humidity",
+                "valueType": "msg"
+            },
+            {
+                "property": "humidity_abs",
+                "value": "payload.abs_humidity",
+                "valueType": "msg"
+            }
+        ],
+        "inputOverride": "allow",
+        "outputProperties": [],
+        "x": 1640,
+        "y": 380,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c97e22a78f3f42df",
+        "type": "ha-sensor",
+        "z": "2788b93b.8a2f56",
+        "name": "Raumklima Waschküche",
+        "entityConfig": "16a0d343a238f7af",
+        "version": 0,
+        "state": "payload.hint",
+        "stateType": "msg",
+        "attributes": [
+            {
+                "property": "raum",
+                "value": "payload.room",
+                "valueType": "msg"
+            },
+            {
+                "property": "status_color",
+                "value": "payload.color",
+                "valueType": "msg"
+            },
+            {
+                "property": "temperature",
+                "value": "payload.temperature",
+                "valueType": "msg"
+            },
+            {
+                "property": "humidity_rel",
+                "value": "payload.humidity",
+                "valueType": "msg"
+            },
+            {
+                "property": "humidity_abs",
+                "value": "payload.abs_humidity",
+                "valueType": "msg"
+            }
+        ],
+        "inputOverride": "allow",
+        "outputProperties": [],
+        "x": 1640,
+        "y": 420,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "bf3de5a413407da5",
+        "type": "ha-sensor",
+        "z": "2788b93b.8a2f56",
+        "name": "Raumklima Werkstatt",
+        "entityConfig": "dafeca84f89b9f0e",
+        "version": 0,
+        "state": "payload.hint",
+        "stateType": "msg",
+        "attributes": [
+            {
+                "property": "raum",
+                "value": "payload.room",
+                "valueType": "msg"
+            },
+            {
+                "property": "status_color",
+                "value": "payload.color",
+                "valueType": "msg"
+            },
+            {
+                "property": "temperature",
+                "value": "payload.temperature",
+                "valueType": "msg"
+            },
+            {
+                "property": "humidity_rel",
+                "value": "payload.humidity",
+                "valueType": "msg"
+            },
+            {
+                "property": "humidity_abs",
+                "value": "payload.abs_humidity",
+                "valueType": "msg"
+            }
+        ],
+        "inputOverride": "allow",
+        "outputProperties": [],
+        "x": 1630,
+        "y": 460,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "fe38274d5b40f74a",
+        "type": "ha-sensor",
+        "z": "2788b93b.8a2f56",
+        "name": "Raumklima Küche",
+        "entityConfig": "e8f56a76d9bc16a1",
+        "version": 0,
+        "state": "payload.hint",
+        "stateType": "msg",
+        "attributes": [
+            {
+                "property": "raum",
+                "value": "payload.room",
+                "valueType": "msg"
+            },
+            {
+                "property": "status_color",
+                "value": "payload.color",
+                "valueType": "msg"
+            },
+            {
+                "property": "temperature",
+                "value": "payload.temperature",
+                "valueType": "msg"
+            },
+            {
+                "property": "humidity_rel",
+                "value": "payload.humidity",
+                "valueType": "msg"
+            },
+            {
+                "property": "humidity_abs",
+                "value": "payload.abs_humidity",
+                "valueType": "msg"
+            }
+        ],
+        "inputOverride": "allow",
+        "outputProperties": [],
+        "x": 1620,
+        "y": 500,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7fb89a358c2b6164",
+        "type": "ha-sensor",
+        "z": "2788b93b.8a2f56",
+        "name": "Raumklima Speisekammer",
+        "entityConfig": "ebd1829208a504b3",
+        "version": 0,
+        "state": "payload.hint",
+        "stateType": "msg",
+        "attributes": [
+            {
+                "property": "raum",
+                "value": "payload.room",
+                "valueType": "msg"
+            },
+            {
+                "property": "status_color",
+                "value": "payload.color",
+                "valueType": "msg"
+            },
+            {
+                "property": "temperature",
+                "value": "payload.temperature",
+                "valueType": "msg"
+            },
+            {
+                "property": "humidity_rel",
+                "value": "payload.humidity",
+                "valueType": "msg"
+            },
+            {
+                "property": "humidity_abs",
+                "value": "payload.abs_humidity",
+                "valueType": "msg"
+            }
+        ],
+        "inputOverride": "allow",
+        "outputProperties": [],
+        "x": 1650,
+        "y": 540,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6036094df3e81945",
+        "type": "ha-sensor",
+        "z": "2788b93b.8a2f56",
+        "name": "Raumklima Wohnzimmer",
+        "entityConfig": "48931df730f04af8",
+        "version": 0,
+        "state": "payload.hint",
+        "stateType": "msg",
+        "attributes": [
+            {
+                "property": "raum",
+                "value": "payload.room",
+                "valueType": "msg"
+            },
+            {
+                "property": "status_color",
+                "value": "payload.color",
+                "valueType": "msg"
+            },
+            {
+                "property": "temperature",
+                "value": "payload.temperature",
+                "valueType": "msg"
+            },
+            {
+                "property": "humidity_rel",
+                "value": "payload.humidity",
+                "valueType": "msg"
+            },
+            {
+                "property": "humidity_abs",
+                "value": "payload.abs_humidity",
+                "valueType": "msg"
+            }
+        ],
+        "inputOverride": "allow",
+        "outputProperties": [],
+        "x": 1640,
+        "y": 580,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f2235cce1f4fa74f",
+        "type": "ha-sensor",
+        "z": "2788b93b.8a2f56",
+        "name": "Raumklima Gäste WC",
+        "entityConfig": "6e31803df90e50a5",
+        "version": 0,
+        "state": "payload.hint",
+        "stateType": "msg",
+        "attributes": [
+            {
+                "property": "raum",
+                "value": "payload.room",
+                "valueType": "msg"
+            },
+            {
+                "property": "status_color",
+                "value": "payload.color",
+                "valueType": "msg"
+            },
+            {
+                "property": "temperature",
+                "value": "payload.temperature",
+                "valueType": "msg"
+            },
+            {
+                "property": "humidity_rel",
+                "value": "payload.humidity",
+                "valueType": "msg"
+            },
+            {
+                "property": "humidity_abs",
+                "value": "payload.abs_humidity",
+                "valueType": "msg"
+            }
+        ],
+        "inputOverride": "allow",
+        "outputProperties": [],
+        "x": 1630,
+        "y": 620,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "17462c418abf0c7f",
+        "type": "ha-sensor",
+        "z": "2788b93b.8a2f56",
+        "name": "Raumklima Bad",
+        "entityConfig": "b6751bf3f7f1e3f3",
+        "version": 0,
+        "state": "payload.hint",
+        "stateType": "msg",
+        "attributes": [
+            {
+                "property": "raum",
+                "value": "payload.room",
+                "valueType": "msg"
+            },
+            {
+                "property": "status_color",
+                "value": "payload.color",
+                "valueType": "msg"
+            },
+            {
+                "property": "temperature",
+                "value": "payload.temperature",
+                "valueType": "msg"
+            },
+            {
+                "property": "humidity_rel",
+                "value": "payload.humidity",
+                "valueType": "msg"
+            },
+            {
+                "property": "humidity_abs",
+                "value": "payload.abs_humidity",
+                "valueType": "msg"
+            }
+        ],
+        "inputOverride": "allow",
+        "outputProperties": [],
+        "x": 1610,
+        "y": 660,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e9b9bc8e3096ca06",
+        "type": "ha-sensor",
+        "z": "2788b93b.8a2f56",
+        "name": "Raumklima Büro OG",
+        "entityConfig": "2ef1f4512cc6c7a9",
+        "version": 0,
+        "state": "payload.hint",
+        "stateType": "msg",
+        "attributes": [
+            {
+                "property": "raum",
+                "value": "payload.room",
+                "valueType": "msg"
+            },
+            {
+                "property": "status_color",
+                "value": "payload.color",
+                "valueType": "msg"
+            },
+            {
+                "property": "temperature",
+                "value": "payload.temperature",
+                "valueType": "msg"
+            },
+            {
+                "property": "humidity_rel",
+                "value": "payload.humidity",
+                "valueType": "msg"
+            },
+            {
+                "property": "humidity_abs",
+                "value": "payload.abs_humidity",
+                "valueType": "msg"
+            }
+        ],
+        "inputOverride": "allow",
+        "outputProperties": [],
+        "x": 1630,
+        "y": 700,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "46622f87013e8e63",
+        "type": "ha-sensor",
+        "z": "2788b93b.8a2f56",
+        "name": "Raumklima Schlafzimmer",
+        "entityConfig": "63ada95b70681820",
+        "version": 0,
+        "state": "payload.hint",
+        "stateType": "msg",
+        "attributes": [
+            {
+                "property": "raum",
+                "value": "payload.room",
+                "valueType": "msg"
+            },
+            {
+                "property": "status_color",
+                "value": "payload.color",
+                "valueType": "msg"
+            },
+            {
+                "property": "temperature",
+                "value": "payload.temperature",
+                "valueType": "msg"
+            },
+            {
+                "property": "humidity_rel",
+                "value": "payload.humidity",
+                "valueType": "msg"
+            },
+            {
+                "property": "humidity_abs",
+                "value": "payload.abs_humidity",
+                "valueType": "msg"
+            }
+        ],
+        "inputOverride": "allow",
+        "outputProperties": [],
+        "x": 1640,
+        "y": 740,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "879f14bb365dc00f",
+        "type": "ha-sensor",
+        "z": "2788b93b.8a2f56",
+        "name": "Raumklima Ankleidezimmer",
+        "entityConfig": "8a5f73eaea809051",
+        "version": 0,
+        "state": "payload.hint",
+        "stateType": "msg",
+        "attributes": [
+            {
+                "property": "raum",
+                "value": "payload.room",
+                "valueType": "msg"
+            },
+            {
+                "property": "status_color",
+                "value": "payload.color",
+                "valueType": "msg"
+            },
+            {
+                "property": "temperature",
+                "value": "payload.temperature",
+                "valueType": "msg"
+            },
+            {
+                "property": "humidity_rel",
+                "value": "payload.humidity",
+                "valueType": "msg"
+            },
+            {
+                "property": "humidity_abs",
+                "value": "payload.abs_humidity",
+                "valueType": "msg"
+            }
+        ],
+        "inputOverride": "allow",
+        "outputProperties": [],
+        "x": 1650,
+        "y": 780,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "71358a6e42812956",
+        "type": "ha-sensor",
+        "z": "2788b93b.8a2f56",
+        "name": "Raumklima Treppenhaus DG",
+        "entityConfig": "9e928def4660e3da",
+        "version": 0,
+        "state": "payload.hint",
+        "stateType": "msg",
+        "attributes": [
+            {
+                "property": "raum",
+                "value": "payload.room",
+                "valueType": "msg"
+            },
+            {
+                "property": "status_color",
+                "value": "payload.color",
+                "valueType": "msg"
+            },
+            {
+                "property": "temperature",
+                "value": "payload.temperature",
+                "valueType": "msg"
+            },
+            {
+                "property": "humidity_rel",
+                "value": "payload.humidity",
+                "valueType": "msg"
+            },
+            {
+                "property": "humidity_abs",
+                "value": "payload.abs_humidity",
+                "valueType": "msg"
+            }
+        ],
+        "inputOverride": "allow",
+        "outputProperties": [],
+        "x": 1650,
+        "y": 820,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e0afcb31a078007a",
+        "type": "ha-sensor",
+        "z": "2788b93b.8a2f56",
+        "name": "Raumklima Bad DG",
+        "entityConfig": "1fceea0e0618a489",
+        "version": 0,
+        "state": "payload.hint",
+        "stateType": "msg",
+        "attributes": [
+            {
+                "property": "raum",
+                "value": "payload.room",
+                "valueType": "msg"
+            },
+            {
+                "property": "status_color",
+                "value": "payload.color",
+                "valueType": "msg"
+            },
+            {
+                "property": "temperature",
+                "value": "payload.temperature",
+                "valueType": "msg"
+            },
+            {
+                "property": "humidity_rel",
+                "value": "payload.humidity",
+                "valueType": "msg"
+            },
+            {
+                "property": "humidity_abs",
+                "value": "payload.abs_humidity",
+                "valueType": "msg"
+            }
+        ],
+        "inputOverride": "allow",
+        "outputProperties": [],
+        "x": 1630,
+        "y": 860,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7567c4a9dc51ade3",
+        "type": "ha-sensor",
+        "z": "2788b93b.8a2f56",
+        "name": "Raumklima Gästezimmer",
+        "entityConfig": "31f0b0732cd70590",
+        "version": 0,
+        "state": "payload.hint",
+        "stateType": "msg",
+        "attributes": [
+            {
+                "property": "raum",
+                "value": "payload.room",
+                "valueType": "msg"
+            },
+            {
+                "property": "status_color",
+                "value": "payload.color",
+                "valueType": "msg"
+            },
+            {
+                "property": "temperature",
+                "value": "payload.temperature",
+                "valueType": "msg"
+            },
+            {
+                "property": "humidity_rel",
+                "value": "payload.humidity",
+                "valueType": "msg"
+            },
+            {
+                "property": "humidity_abs",
+                "value": "payload.abs_humidity",
+                "valueType": "msg"
+            }
+        ],
+        "inputOverride": "allow",
+        "outputProperties": [],
+        "x": 1640,
+        "y": 900,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9a75b66c1fd8e6e7",
+        "type": "ha-sensor",
+        "z": "2788b93b.8a2f56",
+        "name": "Raumklima Turnhalle",
+        "entityConfig": "6d46fafd480b376b",
+        "version": 0,
+        "state": "payload.hint",
+        "stateType": "msg",
+        "attributes": [
+            {
+                "property": "raum",
+                "value": "payload.room",
+                "valueType": "msg"
+            },
+            {
+                "property": "status_color",
+                "value": "payload.color",
+                "valueType": "msg"
+            },
+            {
+                "property": "temperature",
+                "value": "payload.temperature",
+                "valueType": "msg"
+            },
+            {
+                "property": "humidity_rel",
+                "value": "payload.humidity",
+                "valueType": "msg"
+            },
+            {
+                "property": "humidity_abs",
+                "value": "payload.abs_humidity",
+                "valueType": "msg"
+            }
+        ],
+        "inputOverride": "allow",
+        "outputProperties": [],
+        "x": 1630,
+        "y": 940,
+        "wires": [
+            []
         ]
     },
     {
@@ -32569,7 +34126,7 @@
         "type": "debug",
         "z": "af5e44f55de05ade",
         "name": "debug 8",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -32586,7 +34143,7 @@
         "type": "function",
         "z": "af5e44f55de05ade",
         "name": "function 59",
-        "func": "\nlet count = context.get('eventCount') || 0;\ncount++;\ncontext.set('eventCount', count);\n\nmsg.payload = {\n    count: count,\n    event: msg.payload\n};\n\nreturn msg;",
+        "func": "let count = context.get('eventCount') || 0;\nlet numericCount = context.get('numericCount') || 0;\nlet stringValues = context.get('stringValues') || {};\n\nconst state = msg.payload;\ncount++;\n\nconst isNumeric = state !== '' && state !== null && !Number.isNaN(Number(state));\n\nif (isNumeric) {\n    numericCount++;\n} else {\n    stringValues[state] = (stringValues[state] || 0) + 1;\n}\n\ncontext.set('eventCount', count);\ncontext.set('numericCount', numericCount);\ncontext.set('stringValues', stringValues);\n\nmsg.payload = {\n    count: count,\n    numericCount: numericCount,\n    stringValues: stringValues,\n    event: state\n};\n\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
