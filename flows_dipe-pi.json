@@ -56,21 +56,6 @@
         "info": ""
     },
     {
-        "id": "4fa3b184.bc7fb",
-        "type": "tab",
-        "label": "Luftgütemesser1",
-        "disabled": false,
-        "info": ""
-    },
-    {
-        "id": "59d7b954e676768e",
-        "type": "tab",
-        "label": "Luftguetemesser2",
-        "disabled": false,
-        "info": "",
-        "env": []
-    },
-    {
         "id": "2788b93b.8a2f56",
         "type": "tab",
         "label": "Lüftungsempfehlungen",
@@ -219,6 +204,21 @@
         "disabled": false,
         "info": "",
         "env": []
+    },
+    {
+        "id": "59d7b954e676768e",
+        "type": "tab",
+        "label": "Luftguetemesser2",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "4fa3b184.bc7fb",
+        "type": "tab",
+        "label": "Luftgütemesser1",
+        "disabled": false,
+        "info": ""
     },
     {
         "id": "af5e44f55de05ade",
@@ -1429,16 +1429,6 @@
         "className": ""
     },
     {
-        "id": "224aeff292ec06d7",
-        "type": "ui_spacer",
-        "z": "4fa3b184.bc7fb",
-        "name": "spacer",
-        "group": "33913a78.8716a6",
-        "order": 6,
-        "width": "0",
-        "height": "0"
-    },
-    {
         "id": "b425927fca74a6a7",
         "type": "vsh-connection",
         "name": "pe@dipe.de",
@@ -1797,16 +1787,6 @@
         "className": ""
     },
     {
-        "id": "c5e8c040d3ec3e46",
-        "type": "ui_spacer",
-        "z": "4fa3b184.bc7fb",
-        "name": "spacer",
-        "group": "4cb7d08eef74e7ad",
-        "order": 2,
-        "width": "6",
-        "height": "1"
-    },
-    {
         "id": "38d1307f947a8dfd",
         "type": "nspanel-panel",
         "name": "Panel1",
@@ -1946,7 +1926,7 @@
     {
         "id": "3a4cdf5aa6c1c329",
         "type": "ha-device-config",
-        "name": "Raumklima (Node-RED)",
+        "name": "Lüftungstipp",
         "hwVersion": "",
         "manufacturer": "Node-RED",
         "model": "Lüftungsempfehlung",
@@ -1957,13 +1937,13 @@
         "type": "ha-entity-config",
         "server": "3e07f44559793d55",
         "deviceConfig": "3a4cdf5aa6c1c329",
-        "name": "Raumklima Balkon",
+        "name": "Lüftungstipp Balkon",
         "version": 6,
         "entityType": "sensor",
         "haConfig": [
             {
                 "property": "name",
-                "value": "Raumklima Balkon"
+                "value": "Lüftungstipp Balkon"
             },
             {
                 "property": "icon",
@@ -1998,13 +1978,13 @@
         "type": "ha-entity-config",
         "server": "3e07f44559793d55",
         "deviceConfig": "3a4cdf5aa6c1c329",
-        "name": "Raumklima Open Weather",
+        "name": "Lüftungstipp Open Weather",
         "version": 6,
         "entityType": "sensor",
         "haConfig": [
             {
                 "property": "name",
-                "value": "Raumklima Open Weather"
+                "value": "Lüftungstipp Open Weather"
             },
             {
                 "property": "icon",
@@ -2039,13 +2019,13 @@
         "type": "ha-entity-config",
         "server": "3e07f44559793d55",
         "deviceConfig": "3a4cdf5aa6c1c329",
-        "name": "Raumklima Treppenhaus Keller",
+        "name": "Lüftungstipp Treppenhaus Keller",
         "version": 6,
         "entityType": "sensor",
         "haConfig": [
             {
                 "property": "name",
-                "value": "Raumklima Treppenhaus Keller"
+                "value": "Lüftungstipp Treppenhaus Keller"
             },
             {
                 "property": "icon",
@@ -2080,13 +2060,13 @@
         "type": "ha-entity-config",
         "server": "3e07f44559793d55",
         "deviceConfig": "3a4cdf5aa6c1c329",
-        "name": "Raumklima Fahrradkeller",
+        "name": "Lüftungstipp Fahrradkeller",
         "version": 6,
         "entityType": "sensor",
         "haConfig": [
             {
                 "property": "name",
-                "value": "Raumklima Fahrradkeller"
+                "value": "Lüftungstipp Fahrradkeller"
             },
             {
                 "property": "icon",
@@ -2121,13 +2101,13 @@
         "type": "ha-entity-config",
         "server": "3e07f44559793d55",
         "deviceConfig": "3a4cdf5aa6c1c329",
-        "name": "Raumklima Waschküche",
+        "name": "Lüftungstipp Waschküche",
         "version": 6,
         "entityType": "sensor",
         "haConfig": [
             {
                 "property": "name",
-                "value": "Raumklima Waschküche"
+                "value": "Lüftungstipp Waschküche"
             },
             {
                 "property": "icon",
@@ -2162,13 +2142,13 @@
         "type": "ha-entity-config",
         "server": "3e07f44559793d55",
         "deviceConfig": "3a4cdf5aa6c1c329",
-        "name": "Raumklima Werkstatt",
+        "name": "Lüftungstipp Werkstatt",
         "version": 6,
         "entityType": "sensor",
         "haConfig": [
             {
                 "property": "name",
-                "value": "Raumklima Werkstatt"
+                "value": "Lüftungstipp Werkstatt"
             },
             {
                 "property": "icon",
@@ -2203,13 +2183,13 @@
         "type": "ha-entity-config",
         "server": "3e07f44559793d55",
         "deviceConfig": "3a4cdf5aa6c1c329",
-        "name": "Raumklima Küche",
+        "name": "Lüftungstipp Küche",
         "version": 6,
         "entityType": "sensor",
         "haConfig": [
             {
                 "property": "name",
-                "value": "Raumklima Küche"
+                "value": "Lüftungstipp Küche"
             },
             {
                 "property": "icon",
@@ -2244,13 +2224,13 @@
         "type": "ha-entity-config",
         "server": "3e07f44559793d55",
         "deviceConfig": "3a4cdf5aa6c1c329",
-        "name": "Raumklima Speisekammer",
+        "name": "Lüftungstipp Speisekammer",
         "version": 6,
         "entityType": "sensor",
         "haConfig": [
             {
                 "property": "name",
-                "value": "Raumklima Speisekammer"
+                "value": "Lüftungstipp Speisekammer"
             },
             {
                 "property": "icon",
@@ -2285,13 +2265,13 @@
         "type": "ha-entity-config",
         "server": "3e07f44559793d55",
         "deviceConfig": "3a4cdf5aa6c1c329",
-        "name": "Raumklima Wohnzimmer",
+        "name": "Lüftungstipp Wohnzimmer",
         "version": 6,
         "entityType": "sensor",
         "haConfig": [
             {
                 "property": "name",
-                "value": "Raumklima Wohnzimmer"
+                "value": "Lüftungstipp Wohnzimmer"
             },
             {
                 "property": "icon",
@@ -2326,13 +2306,13 @@
         "type": "ha-entity-config",
         "server": "3e07f44559793d55",
         "deviceConfig": "3a4cdf5aa6c1c329",
-        "name": "Raumklima Gäste WC",
+        "name": "Lüftungstipp Gäste WC",
         "version": 6,
         "entityType": "sensor",
         "haConfig": [
             {
                 "property": "name",
-                "value": "Raumklima Gäste WC"
+                "value": "Lüftungstipp Gäste WC"
             },
             {
                 "property": "icon",
@@ -2367,13 +2347,13 @@
         "type": "ha-entity-config",
         "server": "3e07f44559793d55",
         "deviceConfig": "3a4cdf5aa6c1c329",
-        "name": "Raumklima Bad",
+        "name": "Lüftungstipp Bad",
         "version": 6,
         "entityType": "sensor",
         "haConfig": [
             {
                 "property": "name",
-                "value": "Raumklima Bad"
+                "value": "Lüftungstipp Bad"
             },
             {
                 "property": "icon",
@@ -2408,13 +2388,13 @@
         "type": "ha-entity-config",
         "server": "3e07f44559793d55",
         "deviceConfig": "3a4cdf5aa6c1c329",
-        "name": "Raumklima Büro OG",
+        "name": "Lüftungstipp Büro OG",
         "version": 6,
         "entityType": "sensor",
         "haConfig": [
             {
                 "property": "name",
-                "value": "Raumklima Büro OG"
+                "value": "Lüftungstipp Büro OG"
             },
             {
                 "property": "icon",
@@ -2449,13 +2429,13 @@
         "type": "ha-entity-config",
         "server": "3e07f44559793d55",
         "deviceConfig": "3a4cdf5aa6c1c329",
-        "name": "Raumklima Schlafzimmer",
+        "name": "Lüftungstipp Schlafzimmer",
         "version": 6,
         "entityType": "sensor",
         "haConfig": [
             {
                 "property": "name",
-                "value": "Raumklima Schlafzimmer"
+                "value": "Lüftungstipp Schlafzimmer"
             },
             {
                 "property": "icon",
@@ -2490,13 +2470,13 @@
         "type": "ha-entity-config",
         "server": "3e07f44559793d55",
         "deviceConfig": "3a4cdf5aa6c1c329",
-        "name": "Raumklima Ankleidezimmer",
+        "name": "Lüftungstipp Ankleidezimmer",
         "version": 6,
         "entityType": "sensor",
         "haConfig": [
             {
                 "property": "name",
-                "value": "Raumklima Ankleidezimmer"
+                "value": "Lüftungstipp Ankleidezimmer"
             },
             {
                 "property": "icon",
@@ -2531,13 +2511,13 @@
         "type": "ha-entity-config",
         "server": "3e07f44559793d55",
         "deviceConfig": "3a4cdf5aa6c1c329",
-        "name": "Raumklima Treppenhaus DG",
+        "name": "Lüftungstipp Treppenhaus DG",
         "version": 6,
         "entityType": "sensor",
         "haConfig": [
             {
                 "property": "name",
-                "value": "Raumklima Treppenhaus DG"
+                "value": "Lüftungstipp Treppenhaus DG"
             },
             {
                 "property": "icon",
@@ -2572,13 +2552,13 @@
         "type": "ha-entity-config",
         "server": "3e07f44559793d55",
         "deviceConfig": "3a4cdf5aa6c1c329",
-        "name": "Raumklima Bad DG",
+        "name": "Lüftungstipp Bad DG",
         "version": 6,
         "entityType": "sensor",
         "haConfig": [
             {
                 "property": "name",
-                "value": "Raumklima Bad DG"
+                "value": "Lüftungstipp Bad DG"
             },
             {
                 "property": "icon",
@@ -2613,13 +2593,13 @@
         "type": "ha-entity-config",
         "server": "3e07f44559793d55",
         "deviceConfig": "3a4cdf5aa6c1c329",
-        "name": "Raumklima Gästezimmer",
+        "name": "Lüftungstipp Gästezimmer",
         "version": 6,
         "entityType": "sensor",
         "haConfig": [
             {
                 "property": "name",
-                "value": "Raumklima Gästezimmer"
+                "value": "Lüftungstipp Gästezimmer"
             },
             {
                 "property": "icon",
@@ -2654,13 +2634,13 @@
         "type": "ha-entity-config",
         "server": "3e07f44559793d55",
         "deviceConfig": "3a4cdf5aa6c1c329",
-        "name": "Raumklima Turnhalle",
+        "name": "Lüftungstipp Turnhalle",
         "version": 6,
         "entityType": "sensor",
         "haConfig": [
             {
                 "property": "name",
-                "value": "Raumklima Schlafzimmer DG"
+                "value": "Lüftungstipp Turnhalle"
             },
             {
                 "property": "icon",
@@ -2689,6 +2669,26 @@
         ],
         "resend": false,
         "debugEnabled": false
+    },
+    {
+        "id": "224aeff292ec06d7",
+        "type": "ui_spacer",
+        "z": "4fa3b184.bc7fb",
+        "name": "spacer",
+        "group": "33913a78.8716a6",
+        "order": 6,
+        "width": "0",
+        "height": "0"
+    },
+    {
+        "id": "c5e8c040d3ec3e46",
+        "type": "ui_spacer",
+        "z": "4fa3b184.bc7fb",
+        "name": "spacer",
+        "group": "4cb7d08eef74e7ad",
+        "order": 2,
+        "width": "6",
+        "height": "1"
     },
     {
         "id": "a27c201f88d5372d",
@@ -12582,742 +12582,6 @@
         ]
     },
     {
-        "id": "17f6ed83131850e6",
-        "type": "ui_switch",
-        "z": "4fa3b184.bc7fb",
-        "name": "",
-        "label": "Ampel LEDs",
-        "tooltip": "",
-        "group": "d796a540.50d378",
-        "order": 5,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "decouple": "false",
-        "topic": "topic",
-        "topicType": "msg",
-        "style": "",
-        "onvalue": "ON",
-        "onvalueType": "str",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "OFF",
-        "offvalueType": "str",
-        "officon": "",
-        "offcolor": "",
-        "animate": false,
-        "className": "",
-        "x": 570,
-        "y": 480,
-        "wires": [
-            [
-                "e4310ebe0936c844"
-            ]
-        ]
-    },
-    {
-        "id": "e4310ebe0936c844",
-        "type": "mqtt out",
-        "z": "4fa3b184.bc7fb",
-        "name": "",
-        "topic": "luftguetemesser1/switch/enable_leds/command",
-        "qos": "",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "c349b9ff.9dc4c8",
-        "x": 860,
-        "y": 480,
-        "wires": []
-    },
-    {
-        "id": "da7b3e59241a1fad",
-        "type": "mqtt in",
-        "z": "4fa3b184.bc7fb",
-        "name": "",
-        "topic": "luftguetemesser1/switch/enable_leds/state",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "c349b9ff.9dc4c8",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 280,
-        "y": 480,
-        "wires": [
-            [
-                "17f6ed83131850e6"
-            ]
-        ]
-    },
-    {
-        "id": "47e21a73dd3c9959",
-        "type": "ui_switch",
-        "z": "4fa3b184.bc7fb",
-        "name": "",
-        "label": "Buzzer",
-        "tooltip": "",
-        "group": "d796a540.50d378",
-        "order": 5,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "decouple": "false",
-        "topic": "topic",
-        "topicType": "msg",
-        "style": "",
-        "onvalue": "ON",
-        "onvalueType": "str",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "OFF",
-        "offvalueType": "str",
-        "officon": "",
-        "offcolor": "",
-        "animate": false,
-        "className": "",
-        "x": 560,
-        "y": 540,
-        "wires": [
-            [
-                "5cf8bf94e1af607f"
-            ]
-        ]
-    },
-    {
-        "id": "5cf8bf94e1af607f",
-        "type": "mqtt out",
-        "z": "4fa3b184.bc7fb",
-        "name": "",
-        "topic": "luftguetemesser1/switch/enable_buzzer/command",
-        "qos": "",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "c349b9ff.9dc4c8",
-        "x": 870,
-        "y": 540,
-        "wires": []
-    },
-    {
-        "id": "653022af3e8316ed",
-        "type": "mqtt in",
-        "z": "4fa3b184.bc7fb",
-        "name": "",
-        "topic": "luftguetemesser1/switch/enable_buzzer/state",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "c349b9ff.9dc4c8",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 290,
-        "y": 540,
-        "wires": [
-            [
-                "47e21a73dd3c9959"
-            ]
-        ]
-    },
-    {
-        "id": "dbf3e36226cb28c2",
-        "type": "inject",
-        "z": "4fa3b184.bc7fb",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "30",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 190,
-        "y": 240,
-        "wires": [
-            [
-                "e554b18ca63d9344"
-            ]
-        ]
-    },
-    {
-        "id": "bf19e816b876358d",
-        "type": "debug",
-        "z": "4fa3b184.bc7fb",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 570,
-        "y": 80,
-        "wires": []
-    },
-    {
-        "id": "629f275bef269f55",
-        "type": "ui_template",
-        "z": "4fa3b184.bc7fb",
-        "group": "d796a540.50d378",
-        "name": "1",
-        "order": 1,
-        "width": 0,
-        "height": 0,
-        "format": "<md-card ui-card-size=\"6x2\" \n    class=\"_md nr-dashboard-text layout-align-center-center nr-dashboard-widget-text visible\" \n    style=\"background-color: {{msg.payload.color}}; color: black; left: 0px; top: 54px; width: 300px; height: 96px;\">\n    <p class=\"value\">{{msg.payload.value}}</p><p>{{msg.payload.text}}</p>\n</md-card>\n",
-        "storeOutMessages": true,
-        "fwdInMessages": true,
-        "resendOnRefresh": true,
-        "templateScope": "local",
-        "className": "",
-        "x": 570,
-        "y": 120,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "d6a612e6abd20a72",
-        "type": "ui_template",
-        "z": "4fa3b184.bc7fb",
-        "group": "d796a540.50d378",
-        "name": "2",
-        "order": 2,
-        "width": 0,
-        "height": 0,
-        "format": "<md-card ui-card-size=\"6x2\" \n    class=\"_md nr-dashboard-text layout-align-center-center nr-dashboard-widget-text visible\" \n    style=\"background-color: {{msg.payload.color}}; color: black; left: 0px; top: 54px; width: 300px; height: 96px;\">\n    <p class=\"value\">{{msg.payload.value}}</p><p>{{msg.payload.text1}}<br/>{{msg.payload.text2}}<br/>{{msg.payload.text3}}</p>\n</md-card>\n",
-        "storeOutMessages": true,
-        "fwdInMessages": true,
-        "resendOnRefresh": true,
-        "templateScope": "local",
-        "className": "",
-        "x": 570,
-        "y": 160,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "e22127170ef18794",
-        "type": "ui_template",
-        "z": "4fa3b184.bc7fb",
-        "group": "d796a540.50d378",
-        "name": "3",
-        "order": 3,
-        "width": 0,
-        "height": 0,
-        "format": "<md-card ui-card-size=\"6x2\" \n    class=\"_md nr-dashboard-text layout-align-center-center nr-dashboard-widget-text visible\" \n    style=\"background-color: {{msg.payload.color}}; color: black; left: 0px; top: 54px; width: 300px; height: 96px;\">\n    <p class=\"value\">{{msg.payload.value}}</p><p>{{msg.payload.text}}</p>\n</md-card>\n",
-        "storeOutMessages": true,
-        "fwdInMessages": true,
-        "resendOnRefresh": true,
-        "templateScope": "local",
-        "className": "",
-        "x": 570,
-        "y": 200,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "a7f8e4db3b580b34",
-        "type": "ui_template",
-        "z": "4fa3b184.bc7fb",
-        "group": "d796a540.50d378",
-        "name": "4",
-        "order": 4,
-        "width": 0,
-        "height": 0,
-        "format": "<md-card ui-card-size=\"6x2\" \n    class=\"_md nr-dashboard-text layout-align-center-center nr-dashboard-widget-text visible\" \n    style=\"background-color: {{msg.payload.color}}; color: black; left: 0px; top: 54px; width: 300px; height: 96px;\">\n    <p class=\"value\">{{msg.payload.value}}</p><p>{{msg.payload.text}}</p>\n</md-card>\n",
-        "storeOutMessages": true,
-        "fwdInMessages": true,
-        "resendOnRefresh": true,
-        "templateScope": "local",
-        "className": "",
-        "x": 570,
-        "y": 240,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "e554b18ca63d9344",
-        "type": "function",
-        "z": "4fa3b184.bc7fb",
-        "name": "",
-        "func": "const temp = global.get(\"luftguetemesser1-temperature\");\nconst hum = global.get(\"luftguetemesser1-humidity\");\nconst abs_hum = global.get(\"luftguetemesser1-absolute_humidity\");\nconst press = global.get(\"luftguetemesser1-pressure\");\nconst iaq = global.get(\"luftguetemesser1-iaq\");\nconst co2 = global.get(\"luftguetemesser1-co2\");\nconst voc = global.get(\"luftguetemesser1-breath_voc_equivalent\");\nconst m10 = global.get(\"luftguetemesser1-particulate_matter__1_0__m_concentration\");\nconst m25 = global.get(\"luftguetemesser1-particulate_matter__2_5__m_concentration\");\nconst m100 = global.get(\"luftguetemesser1-particulate_matter__10_0__m_concentration\");\nconst formaldehyde = global.get(\"luftguetemesser1-formaldehyde\");\nconst alert_voc = global.get(\"luftguetemesser1-alert_voc\");\nconst alert_co2 = global.get(\"luftguetemesser1-alert_co2\");\nconst alert_pm = global.get(\"luftguetemesser1-alert_pm\");\nconst alert_formaldehyde = global.get(\"luftguetemesser1-alert_formaldehyde\");\n\nvar debug = {\n    temp: temp,\n    hum: hum,\n    abs_hum: abs_hum,\n    press: press,\n    iaq: iaq,\n    co2: co2,\n    voc: voc,\n    m10: m10,\n    m25: m25,\n    m100: m100,\n    formaldehyde: formaldehyde,\n    alert_voc,\n    alert_co2,\n    alert_pm,\n    alert_formaldehyde\n};\n\nconst intl = global.get('intl');\nconst format = intl.NumberFormat('de-De',{style:'decimal', maximumFractionDigits: 2}).format;\nconst sprintf = global.get(\"sprintf\");\n\nfunction color(alert) {\n    return (alert == \"green\") ? \"limegreen\" : alert;\n}\n\nvar voc_status = {payload: { value: \"Flüchtige org. Verbindungen\", color: color(alert_voc), text: sprintf(\"%s mg/m³\", format(voc))}};\nvar matter_status = { payload: { value: \"Feinstaub\", color: color(alert_pm), text1: sprintf(\"1,0 µm: %s ppm\", format(m10)), text2: sprintf(\"2,5 µm: %s ppm\", format(m25)), text3: sprintf(\"10 µm: %s ppm\", format(m100))}};\nvar co2_status = { payload: { value: \"CO2\", color: color(alert_co2), text: sprintf(\"%s ppm\", format(co2)) }};\nvar formaldehyde_status = { payload: { value: \"Formaldehyd\", color: color(alert_formaldehyde), text: sprintf(\"%s µg/m³\", format(formaldehyde)) }};\nvar temp_status = { payload: { value: \"Temperatur\", color: \"white\", text: sprintf(\"%s °C\", format(temp)) }};\nvar hum_status = { payload: { value: \"Rel. Luftfeuchtigkeit\", color: \"white\", text: sprintf(\"%s %%\", format(hum)) }};\nvar abs_hum_status = { payload: { value: \"Abs. Luftfeuchtigkeit\", color: \"white\", text: sprintf(\"%s mg/m³\", format(abs_hum)) }};\nvar press_status = { payload: { value: \"Luftdruck\", color: \"white\", text: sprintf(\"%s µg/m³\", format(press)) }};\n\nreturn [debug, voc_status, matter_status, co2_status, formaldehyde_status, temp_status, hum_status, abs_hum_status, press_status];\n",
-        "outputs": 9,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 360,
-        "y": 240,
-        "wires": [
-            [
-                "bf19e816b876358d"
-            ],
-            [
-                "629f275bef269f55"
-            ],
-            [
-                "d6a612e6abd20a72"
-            ],
-            [
-                "e22127170ef18794"
-            ],
-            [
-                "a7f8e4db3b580b34"
-            ],
-            [
-                "45441b9113c2f519"
-            ],
-            [
-                "9e55fcfcb40fb6e0"
-            ],
-            [
-                "07ef50f1466c18bd"
-            ],
-            [
-                "087ba58e849a17d7"
-            ]
-        ]
-    },
-    {
-        "id": "45441b9113c2f519",
-        "type": "ui_template",
-        "z": "4fa3b184.bc7fb",
-        "group": "d796a540.50d378",
-        "name": "5",
-        "order": 4,
-        "width": 0,
-        "height": 0,
-        "format": "<md-card ui-card-size=\"6x2\" \n    class=\"_md nr-dashboard-text layout-align-center-center nr-dashboard-widget-text visible\" \n    style=\"background-color: {{msg.payload.color}}; color: black; left: 0px; top: 54px; width: 300px; height: 96px;\">\n    <p class=\"value\">{{msg.payload.value}}</p><p>{{msg.payload.text}}</p>\n</md-card>\n",
-        "storeOutMessages": true,
-        "fwdInMessages": true,
-        "resendOnRefresh": true,
-        "templateScope": "local",
-        "className": "",
-        "x": 570,
-        "y": 280,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "9e55fcfcb40fb6e0",
-        "type": "ui_template",
-        "z": "4fa3b184.bc7fb",
-        "group": "d796a540.50d378",
-        "name": "6",
-        "order": 4,
-        "width": 0,
-        "height": 0,
-        "format": "<md-card ui-card-size=\"6x2\" \n    class=\"_md nr-dashboard-text layout-align-center-center nr-dashboard-widget-text visible\" \n    style=\"background-color: {{msg.payload.color}}; color: black; left: 0px; top: 54px; width: 300px; height: 96px;\">\n    <p class=\"value\">{{msg.payload.value}}</p><p>{{msg.payload.text}}</p>\n</md-card>\n",
-        "storeOutMessages": true,
-        "fwdInMessages": true,
-        "resendOnRefresh": true,
-        "templateScope": "local",
-        "className": "",
-        "x": 570,
-        "y": 320,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "07ef50f1466c18bd",
-        "type": "ui_template",
-        "z": "4fa3b184.bc7fb",
-        "group": "d796a540.50d378",
-        "name": "7",
-        "order": 4,
-        "width": 0,
-        "height": 0,
-        "format": "<md-card ui-card-size=\"6x2\" \n    class=\"_md nr-dashboard-text layout-align-center-center nr-dashboard-widget-text visible\" \n    style=\"background-color: {{msg.payload.color}}; color: black; left: 0px; top: 54px; width: 300px; height: 96px;\">\n    <p class=\"value\">{{msg.payload.value}}</p><p>{{msg.payload.text}}</p>\n</md-card>\n",
-        "storeOutMessages": true,
-        "fwdInMessages": true,
-        "resendOnRefresh": true,
-        "templateScope": "local",
-        "className": "",
-        "x": 570,
-        "y": 360,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "087ba58e849a17d7",
-        "type": "ui_template",
-        "z": "4fa3b184.bc7fb",
-        "group": "d796a540.50d378",
-        "name": "8",
-        "order": 4,
-        "width": 0,
-        "height": 0,
-        "format": "<md-card ui-card-size=\"6x2\" \n    class=\"_md nr-dashboard-text layout-align-center-center nr-dashboard-widget-text visible\" \n    style=\"background-color: {{msg.payload.color}}; color: black; left: 0px; top: 54px; width: 300px; height: 96px;\">\n    <p class=\"value\">{{msg.payload.value}}</p><p>{{msg.payload.text}}</p>\n</md-card>\n",
-        "storeOutMessages": true,
-        "fwdInMessages": true,
-        "resendOnRefresh": true,
-        "templateScope": "local",
-        "className": "",
-        "x": 570,
-        "y": 400,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "23142344fbf3a2f7",
-        "type": "inject",
-        "z": "59d7b954e676768e",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "30",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 190,
-        "y": 300,
-        "wires": [
-            [
-                "00e08a79ca2ce0b4"
-            ]
-        ]
-    },
-    {
-        "id": "d99e941e4f8ab25f",
-        "type": "debug",
-        "z": "59d7b954e676768e",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 570,
-        "y": 140,
-        "wires": []
-    },
-    {
-        "id": "ca1cdd1f66d2e89b",
-        "type": "ui_template",
-        "z": "59d7b954e676768e",
-        "group": "69570255a88564b2",
-        "name": "1",
-        "order": 1,
-        "width": 0,
-        "height": 0,
-        "format": "<md-card ui-card-size=\"6x2\" \n    class=\"_md nr-dashboard-text layout-align-center-center nr-dashboard-widget-text visible\" \n    style=\"background-color: {{msg.payload.color}}; color: black; left: 0px; top: 54px; width: 300px; height: 96px;\">\n    <p class=\"value\">{{msg.payload.value}}</p><p>{{msg.payload.text}}</p>\n</md-card>\n",
-        "storeOutMessages": true,
-        "fwdInMessages": true,
-        "resendOnRefresh": true,
-        "templateScope": "local",
-        "className": "",
-        "x": 570,
-        "y": 180,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "c5510ce75591cbc3",
-        "type": "ui_template",
-        "z": "59d7b954e676768e",
-        "group": "69570255a88564b2",
-        "name": "2",
-        "order": 2,
-        "width": 0,
-        "height": 0,
-        "format": "<md-card ui-card-size=\"6x2\" \n    class=\"_md nr-dashboard-text layout-align-center-center nr-dashboard-widget-text visible\" \n    style=\"background-color: {{msg.payload.color}}; color: black; left: 0px; top: 54px; width: 300px; height: 96px;\">\n    <p class=\"value\">{{msg.payload.value}}</p><p>{{msg.payload.text1}}<br/>{{msg.payload.text2}}<br/>{{msg.payload.text3}}</p>\n</md-card>\n",
-        "storeOutMessages": true,
-        "fwdInMessages": true,
-        "resendOnRefresh": true,
-        "templateScope": "local",
-        "className": "",
-        "x": 570,
-        "y": 220,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "b2322b5222948b72",
-        "type": "ui_template",
-        "z": "59d7b954e676768e",
-        "group": "69570255a88564b2",
-        "name": "3",
-        "order": 3,
-        "width": 0,
-        "height": 0,
-        "format": "<md-card ui-card-size=\"6x2\" \n    class=\"_md nr-dashboard-text layout-align-center-center nr-dashboard-widget-text visible\" \n    style=\"background-color: {{msg.payload.color}}; color: black; left: 0px; top: 54px; width: 300px; height: 96px;\">\n    <p class=\"value\">{{msg.payload.value}}</p><p>{{msg.payload.text}}</p>\n</md-card>\n",
-        "storeOutMessages": true,
-        "fwdInMessages": true,
-        "resendOnRefresh": true,
-        "templateScope": "local",
-        "className": "",
-        "x": 570,
-        "y": 260,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "479b8a0810c021cb",
-        "type": "ui_switch",
-        "z": "59d7b954e676768e",
-        "name": "",
-        "label": "Ampel LEDs",
-        "tooltip": "",
-        "group": "69570255a88564b2",
-        "order": 5,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "decouple": "false",
-        "topic": "topic",
-        "topicType": "msg",
-        "style": "",
-        "onvalue": "ON",
-        "onvalueType": "str",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "OFF",
-        "offvalueType": "str",
-        "officon": "",
-        "offcolor": "",
-        "animate": false,
-        "className": "",
-        "x": 530,
-        "y": 540,
-        "wires": [
-            [
-                "63f21a6d5e10906e"
-            ]
-        ]
-    },
-    {
-        "id": "63f21a6d5e10906e",
-        "type": "mqtt out",
-        "z": "59d7b954e676768e",
-        "name": "",
-        "topic": "luftguetemesser2/switch/enable_leds/command",
-        "qos": "",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "c349b9ff.9dc4c8",
-        "x": 820,
-        "y": 540,
-        "wires": []
-    },
-    {
-        "id": "b30af5915352bee5",
-        "type": "ui_template",
-        "z": "59d7b954e676768e",
-        "d": true,
-        "group": "69570255a88564b2",
-        "name": "4",
-        "order": 4,
-        "width": 0,
-        "height": 0,
-        "format": "<md-card ui-card-size=\"6x2\" \n    class=\"_md nr-dashboard-text layout-align-center-center nr-dashboard-widget-text visible\" \n    style=\"background-color: {{msg.payload.color}}; color: black; left: 0px; top: 54px; width: 300px; height: 96px;\">\n    <p class=\"value\">{{msg.payload.value}}</p><p>{{msg.payload.text}}</p>\n</md-card>\n",
-        "storeOutMessages": true,
-        "fwdInMessages": true,
-        "resendOnRefresh": true,
-        "templateScope": "local",
-        "className": "",
-        "x": 570,
-        "y": 300,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "00e08a79ca2ce0b4",
-        "type": "function",
-        "z": "59d7b954e676768e",
-        "name": "",
-        "func": "const temp = global.get(\"luftguetemesser2-temperature\");\nconst hum = global.get(\"luftguetemesser2-humidity\");\nconst abs_hum = global.get(\"luftguetemesser2-absolute_humidity\");\nconst press = global.get(\"luftguetemesser2-pressure\");\nconst iaq = global.get(\"luftguetemesser2-iaq\");\nconst co2 = global.get(\"luftguetemesser2-co2\");\nconst voc = global.get(\"luftguetemesser2-breath_voc_equivalent\");\nconst m10 = global.get(\"luftguetemesser1-particulate_matter__1_0__m_concentration\");\nconst m25 = global.get(\"luftguetemesser1-particulate_matter__2_5__m_concentration\");\nconst m100 = global.get(\"luftguetemesser1-particulate_matter__10_0__m_concentration\");\nconst formaldehyde = global.get(\"luftguetemesser2-formaldehyde\");\nconst alert_voc = global.get(\"luftguetemesser2-alert_voc\");\nconst alert_co2 = global.get(\"luftguetemesser2-alert_co2\");\nconst alert_pm = global.get(\"luftguetemesser2-alert_pm\");\nconst alert_formaldehyde = global.get(\"luftguetemesser2-alert_formaldehyde\");\n\nvar debug = {\n    temp: temp,\n    hum: hum,\n    abs_hum: abs_hum,\n    press: press,\n    iaq: iaq,\n    co2: co2,\n    voc: voc,\n    m10: m10,\n    m25: m25,\n    m100: m100,\n    formaldehyde: formaldehyde,\n    alert_voc,\n    alert_co2,\n    alert_pm,\n    alert_formaldehyde\n};\n\nconst intl = global.get('intl');\nconst format = intl.NumberFormat('de-De',{style:'decimal', maximumFractionDigits: 2}).format;\nconst sprintf = global.get(\"sprintf\");\n\nfunction color(alert) {\n    return (alert == \"green\") ? \"limegreen\" : alert;\n}\n\nvar voc_status = {payload: { value: \"Flüchtige org. Verbindungen\", color: color(alert_voc), text: sprintf(\"%s mg/m³\", format(voc))}};\nvar matter_status = { payload: { value: \"Feinstaub\", color: color(alert_pm), text1: sprintf(\"1,0 µm: %s ppm\", format(m10)), text2: sprintf(\"2,5 µm: %s ppm\", format(m25)), text3: sprintf(\"10 µm: %s ppm\", format(m100))}};\nvar co2_status = { payload: { value: \"CO2\", color: color(alert_co2), text: sprintf(\"%s ppm\", format(co2)) }};\nvar formaldehyde_status = { payload: { value: \"Formaldehyd\", color: color(alert_formaldehyde), text: sprintf(\"%s µg/m³\", format(formaldehyde)) }};\nvar temp_status = { payload: { value: \"Temperatur\", color: \"white\", text: sprintf(\"%s °C\", format(temp)) }};\nvar hum_status = { payload: { value: \"Rel. Luftfeuchtigkeit\", color: \"white\", text: sprintf(\"%s %%\", format(hum)) }};\nvar abs_hum_status = { payload: { value: \"Abs. Luftfeuchtigkeit\", color: \"white\", text: sprintf(\"%s mg/m³\", format(abs_hum)) }};\nvar press_status = { payload: { value: \"Luftdruck\", color: \"white\", text: sprintf(\"%s µg/m³\", format(press)) }};\n\nreturn [debug, voc_status, matter_status, co2_status, formaldehyde_status, temp_status, hum_status, abs_hum_status, press_status];\n",
-        "outputs": 9,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 360,
-        "y": 300,
-        "wires": [
-            [
-                "d99e941e4f8ab25f"
-            ],
-            [
-                "ca1cdd1f66d2e89b"
-            ],
-            [
-                "c5510ce75591cbc3"
-            ],
-            [
-                "b2322b5222948b72"
-            ],
-            [
-                "b30af5915352bee5"
-            ],
-            [
-                "deafacdbd897b3ae"
-            ],
-            [
-                "2478f7a297b80e97"
-            ],
-            [
-                "af4c89378f93543b"
-            ],
-            [
-                "2895804f2def8399"
-            ]
-        ]
-    },
-    {
-        "id": "6d192d22f48b157a",
-        "type": "mqtt in",
-        "z": "59d7b954e676768e",
-        "name": "",
-        "topic": "luftguetemesser2/switch/enable_leds/state",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "c349b9ff.9dc4c8",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 260,
-        "y": 540,
-        "wires": [
-            [
-                "479b8a0810c021cb"
-            ]
-        ]
-    },
-    {
-        "id": "deafacdbd897b3ae",
-        "type": "ui_template",
-        "z": "59d7b954e676768e",
-        "group": "69570255a88564b2",
-        "name": "5",
-        "order": 4,
-        "width": 0,
-        "height": 0,
-        "format": "<md-card ui-card-size=\"6x2\" \n    class=\"_md nr-dashboard-text layout-align-center-center nr-dashboard-widget-text visible\" \n    style=\"background-color: {{msg.payload.color}}; color: black; left: 0px; top: 54px; width: 300px; height: 96px;\">\n    <p class=\"value\">{{msg.payload.value}}</p><p>{{msg.payload.text}}</p>\n</md-card>\n",
-        "storeOutMessages": true,
-        "fwdInMessages": true,
-        "resendOnRefresh": true,
-        "templateScope": "local",
-        "className": "",
-        "x": 570,
-        "y": 340,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "2478f7a297b80e97",
-        "type": "ui_template",
-        "z": "59d7b954e676768e",
-        "group": "69570255a88564b2",
-        "name": "6",
-        "order": 4,
-        "width": 0,
-        "height": 0,
-        "format": "<md-card ui-card-size=\"6x2\" \n    class=\"_md nr-dashboard-text layout-align-center-center nr-dashboard-widget-text visible\" \n    style=\"background-color: {{msg.payload.color}}; color: black; left: 0px; top: 54px; width: 300px; height: 96px;\">\n    <p class=\"value\">{{msg.payload.value}}</p><p>{{msg.payload.text}}</p>\n</md-card>\n",
-        "storeOutMessages": true,
-        "fwdInMessages": true,
-        "resendOnRefresh": true,
-        "templateScope": "local",
-        "className": "",
-        "x": 570,
-        "y": 380,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "af4c89378f93543b",
-        "type": "ui_template",
-        "z": "59d7b954e676768e",
-        "group": "69570255a88564b2",
-        "name": "7",
-        "order": 4,
-        "width": 0,
-        "height": 0,
-        "format": "<md-card ui-card-size=\"6x2\" \n    class=\"_md nr-dashboard-text layout-align-center-center nr-dashboard-widget-text visible\" \n    style=\"background-color: {{msg.payload.color}}; color: black; left: 0px; top: 54px; width: 300px; height: 96px;\">\n    <p class=\"value\">{{msg.payload.value}}</p><p>{{msg.payload.text}}</p>\n</md-card>\n",
-        "storeOutMessages": true,
-        "fwdInMessages": true,
-        "resendOnRefresh": true,
-        "templateScope": "local",
-        "className": "",
-        "x": 570,
-        "y": 420,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "2895804f2def8399",
-        "type": "ui_template",
-        "z": "59d7b954e676768e",
-        "group": "69570255a88564b2",
-        "name": "8",
-        "order": 4,
-        "width": 0,
-        "height": 0,
-        "format": "<md-card ui-card-size=\"6x2\" \n    class=\"_md nr-dashboard-text layout-align-center-center nr-dashboard-widget-text visible\" \n    style=\"background-color: {{msg.payload.color}}; color: black; left: 0px; top: 54px; width: 300px; height: 96px;\">\n    <p class=\"value\">{{msg.payload.value}}</p><p>{{msg.payload.text}}</p>\n</md-card>\n",
-        "storeOutMessages": true,
-        "fwdInMessages": true,
-        "resendOnRefresh": true,
-        "templateScope": "local",
-        "className": "",
-        "x": 570,
-        "y": 460,
-        "wires": [
-            []
-        ]
-    },
-    {
         "id": "12ebb575.a874db",
         "type": "ui_template",
         "z": "2788b93b.8a2f56",
@@ -14532,7 +13796,7 @@
         "id": "eb8d9215af4bfd8f",
         "type": "ha-sensor",
         "z": "2788b93b.8a2f56",
-        "name": "Raumklima Balkon",
+        "name": "Lüftungstipp Balkon",
         "entityConfig": "ee6ea54639545c26",
         "version": 0,
         "state": "payload.hint",
@@ -14576,7 +13840,7 @@
         "id": "a45ec0ad865a5490",
         "type": "ha-sensor",
         "z": "2788b93b.8a2f56",
-        "name": "Raumklima Open Weather",
+        "name": "Lüftungstipp Open Weather",
         "entityConfig": "7a55267900b1321d",
         "version": 0,
         "state": "payload.hint",
@@ -14620,7 +13884,7 @@
         "id": "f0aefa5b2cadff2d",
         "type": "ha-sensor",
         "z": "2788b93b.8a2f56",
-        "name": "Raumklima Treppenhaus Keller",
+        "name": "Lüftungstipp Treppenhaus Keller",
         "entityConfig": "3ba38bc29aa83fc6",
         "version": 0,
         "state": "payload.hint",
@@ -14664,7 +13928,7 @@
         "id": "241d874b554623fa",
         "type": "ha-sensor",
         "z": "2788b93b.8a2f56",
-        "name": "Raumklima Fahrradkeller",
+        "name": "Lüftungstipp Fahrradkeller",
         "entityConfig": "f16ed142429c07d0",
         "version": 0,
         "state": "payload.hint",
@@ -14708,7 +13972,7 @@
         "id": "c97e22a78f3f42df",
         "type": "ha-sensor",
         "z": "2788b93b.8a2f56",
-        "name": "Raumklima Waschküche",
+        "name": "Lüftungstipp Waschküche",
         "entityConfig": "16a0d343a238f7af",
         "version": 0,
         "state": "payload.hint",
@@ -14752,7 +14016,7 @@
         "id": "bf3de5a413407da5",
         "type": "ha-sensor",
         "z": "2788b93b.8a2f56",
-        "name": "Raumklima Werkstatt",
+        "name": "Lüftungstipp Werkstatt",
         "entityConfig": "dafeca84f89b9f0e",
         "version": 0,
         "state": "payload.hint",
@@ -14796,7 +14060,7 @@
         "id": "fe38274d5b40f74a",
         "type": "ha-sensor",
         "z": "2788b93b.8a2f56",
-        "name": "Raumklima Küche",
+        "name": "Lüftungstipp Küche",
         "entityConfig": "e8f56a76d9bc16a1",
         "version": 0,
         "state": "payload.hint",
@@ -14840,7 +14104,7 @@
         "id": "7fb89a358c2b6164",
         "type": "ha-sensor",
         "z": "2788b93b.8a2f56",
-        "name": "Raumklima Speisekammer",
+        "name": "Lüftungstipp Speisekammer",
         "entityConfig": "ebd1829208a504b3",
         "version": 0,
         "state": "payload.hint",
@@ -14884,7 +14148,7 @@
         "id": "6036094df3e81945",
         "type": "ha-sensor",
         "z": "2788b93b.8a2f56",
-        "name": "Raumklima Wohnzimmer",
+        "name": "Lüftungstipp Wohnzimmer",
         "entityConfig": "48931df730f04af8",
         "version": 0,
         "state": "payload.hint",
@@ -14928,7 +14192,7 @@
         "id": "f2235cce1f4fa74f",
         "type": "ha-sensor",
         "z": "2788b93b.8a2f56",
-        "name": "Raumklima Gäste WC",
+        "name": "Lüftungstipp Gäste WC",
         "entityConfig": "6e31803df90e50a5",
         "version": 0,
         "state": "payload.hint",
@@ -14972,7 +14236,7 @@
         "id": "17462c418abf0c7f",
         "type": "ha-sensor",
         "z": "2788b93b.8a2f56",
-        "name": "Raumklima Bad",
+        "name": "Lüftungstipp Bad",
         "entityConfig": "b6751bf3f7f1e3f3",
         "version": 0,
         "state": "payload.hint",
@@ -15016,7 +14280,7 @@
         "id": "e9b9bc8e3096ca06",
         "type": "ha-sensor",
         "z": "2788b93b.8a2f56",
-        "name": "Raumklima Büro OG",
+        "name": "Lüftungstipp Büro OG",
         "entityConfig": "2ef1f4512cc6c7a9",
         "version": 0,
         "state": "payload.hint",
@@ -15060,7 +14324,7 @@
         "id": "46622f87013e8e63",
         "type": "ha-sensor",
         "z": "2788b93b.8a2f56",
-        "name": "Raumklima Schlafzimmer",
+        "name": "Lüftungstipp Schlafzimmer",
         "entityConfig": "63ada95b70681820",
         "version": 0,
         "state": "payload.hint",
@@ -15104,7 +14368,7 @@
         "id": "879f14bb365dc00f",
         "type": "ha-sensor",
         "z": "2788b93b.8a2f56",
-        "name": "Raumklima Ankleidezimmer",
+        "name": "Lüftungstipp Ankleidezimmer",
         "entityConfig": "8a5f73eaea809051",
         "version": 0,
         "state": "payload.hint",
@@ -15148,7 +14412,7 @@
         "id": "71358a6e42812956",
         "type": "ha-sensor",
         "z": "2788b93b.8a2f56",
-        "name": "Raumklima Treppenhaus DG",
+        "name": "Lüftungstipp Treppenhaus DG",
         "entityConfig": "9e928def4660e3da",
         "version": 0,
         "state": "payload.hint",
@@ -15192,7 +14456,7 @@
         "id": "e0afcb31a078007a",
         "type": "ha-sensor",
         "z": "2788b93b.8a2f56",
-        "name": "Raumklima Bad DG",
+        "name": "Lüftungstipp Bad DG",
         "entityConfig": "1fceea0e0618a489",
         "version": 0,
         "state": "payload.hint",
@@ -15236,7 +14500,7 @@
         "id": "7567c4a9dc51ade3",
         "type": "ha-sensor",
         "z": "2788b93b.8a2f56",
-        "name": "Raumklima Gästezimmer",
+        "name": "Lüftungstipp Gästezimmer",
         "entityConfig": "31f0b0732cd70590",
         "version": 0,
         "state": "payload.hint",
@@ -15280,7 +14544,7 @@
         "id": "9a75b66c1fd8e6e7",
         "type": "ha-sensor",
         "z": "2788b93b.8a2f56",
-        "name": "Raumklima Turnhalle",
+        "name": "Lüftungstipp Turnhalle",
         "entityConfig": "6d46fafd480b376b",
         "version": 0,
         "state": "payload.hint",
@@ -34064,6 +33328,742 @@
         "wires": []
     },
     {
+        "id": "23142344fbf3a2f7",
+        "type": "inject",
+        "z": "59d7b954e676768e",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "30",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 190,
+        "y": 300,
+        "wires": [
+            [
+                "00e08a79ca2ce0b4"
+            ]
+        ]
+    },
+    {
+        "id": "d99e941e4f8ab25f",
+        "type": "debug",
+        "z": "59d7b954e676768e",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 570,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "ca1cdd1f66d2e89b",
+        "type": "ui_template",
+        "z": "59d7b954e676768e",
+        "group": "69570255a88564b2",
+        "name": "1",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "format": "<md-card ui-card-size=\"6x2\" \n    class=\"_md nr-dashboard-text layout-align-center-center nr-dashboard-widget-text visible\" \n    style=\"background-color: {{msg.payload.color}}; color: black; left: 0px; top: 54px; width: 300px; height: 96px;\">\n    <p class=\"value\">{{msg.payload.value}}</p><p>{{msg.payload.text}}</p>\n</md-card>\n",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 570,
+        "y": 180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c5510ce75591cbc3",
+        "type": "ui_template",
+        "z": "59d7b954e676768e",
+        "group": "69570255a88564b2",
+        "name": "2",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "format": "<md-card ui-card-size=\"6x2\" \n    class=\"_md nr-dashboard-text layout-align-center-center nr-dashboard-widget-text visible\" \n    style=\"background-color: {{msg.payload.color}}; color: black; left: 0px; top: 54px; width: 300px; height: 96px;\">\n    <p class=\"value\">{{msg.payload.value}}</p><p>{{msg.payload.text1}}<br/>{{msg.payload.text2}}<br/>{{msg.payload.text3}}</p>\n</md-card>\n",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 570,
+        "y": 220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b2322b5222948b72",
+        "type": "ui_template",
+        "z": "59d7b954e676768e",
+        "group": "69570255a88564b2",
+        "name": "3",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "format": "<md-card ui-card-size=\"6x2\" \n    class=\"_md nr-dashboard-text layout-align-center-center nr-dashboard-widget-text visible\" \n    style=\"background-color: {{msg.payload.color}}; color: black; left: 0px; top: 54px; width: 300px; height: 96px;\">\n    <p class=\"value\">{{msg.payload.value}}</p><p>{{msg.payload.text}}</p>\n</md-card>\n",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 570,
+        "y": 260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "479b8a0810c021cb",
+        "type": "ui_switch",
+        "z": "59d7b954e676768e",
+        "name": "",
+        "label": "Ampel LEDs",
+        "tooltip": "",
+        "group": "69570255a88564b2",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "ON",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "OFF",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 530,
+        "y": 540,
+        "wires": [
+            [
+                "63f21a6d5e10906e"
+            ]
+        ]
+    },
+    {
+        "id": "63f21a6d5e10906e",
+        "type": "mqtt out",
+        "z": "59d7b954e676768e",
+        "name": "",
+        "topic": "luftguetemesser2/switch/enable_leds/command",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "c349b9ff.9dc4c8",
+        "x": 820,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "b30af5915352bee5",
+        "type": "ui_template",
+        "z": "59d7b954e676768e",
+        "d": true,
+        "group": "69570255a88564b2",
+        "name": "4",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "format": "<md-card ui-card-size=\"6x2\" \n    class=\"_md nr-dashboard-text layout-align-center-center nr-dashboard-widget-text visible\" \n    style=\"background-color: {{msg.payload.color}}; color: black; left: 0px; top: 54px; width: 300px; height: 96px;\">\n    <p class=\"value\">{{msg.payload.value}}</p><p>{{msg.payload.text}}</p>\n</md-card>\n",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 570,
+        "y": 300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "00e08a79ca2ce0b4",
+        "type": "function",
+        "z": "59d7b954e676768e",
+        "name": "",
+        "func": "const temp = global.get(\"luftguetemesser2-temperature\");\nconst hum = global.get(\"luftguetemesser2-humidity\");\nconst abs_hum = global.get(\"luftguetemesser2-absolute_humidity\");\nconst press = global.get(\"luftguetemesser2-pressure\");\nconst iaq = global.get(\"luftguetemesser2-iaq\");\nconst co2 = global.get(\"luftguetemesser2-co2\");\nconst voc = global.get(\"luftguetemesser2-breath_voc_equivalent\");\nconst m10 = global.get(\"luftguetemesser1-particulate_matter__1_0__m_concentration\");\nconst m25 = global.get(\"luftguetemesser1-particulate_matter__2_5__m_concentration\");\nconst m100 = global.get(\"luftguetemesser1-particulate_matter__10_0__m_concentration\");\nconst formaldehyde = global.get(\"luftguetemesser2-formaldehyde\");\nconst alert_voc = global.get(\"luftguetemesser2-alert_voc\");\nconst alert_co2 = global.get(\"luftguetemesser2-alert_co2\");\nconst alert_pm = global.get(\"luftguetemesser2-alert_pm\");\nconst alert_formaldehyde = global.get(\"luftguetemesser2-alert_formaldehyde\");\n\nvar debug = {\n    temp: temp,\n    hum: hum,\n    abs_hum: abs_hum,\n    press: press,\n    iaq: iaq,\n    co2: co2,\n    voc: voc,\n    m10: m10,\n    m25: m25,\n    m100: m100,\n    formaldehyde: formaldehyde,\n    alert_voc,\n    alert_co2,\n    alert_pm,\n    alert_formaldehyde\n};\n\nconst intl = global.get('intl');\nconst format = intl.NumberFormat('de-De',{style:'decimal', maximumFractionDigits: 2}).format;\nconst sprintf = global.get(\"sprintf\");\n\nfunction color(alert) {\n    return (alert == \"green\") ? \"limegreen\" : alert;\n}\n\nvar voc_status = {payload: { value: \"Flüchtige org. Verbindungen\", color: color(alert_voc), text: sprintf(\"%s mg/m³\", format(voc))}};\nvar matter_status = { payload: { value: \"Feinstaub\", color: color(alert_pm), text1: sprintf(\"1,0 µm: %s ppm\", format(m10)), text2: sprintf(\"2,5 µm: %s ppm\", format(m25)), text3: sprintf(\"10 µm: %s ppm\", format(m100))}};\nvar co2_status = { payload: { value: \"CO2\", color: color(alert_co2), text: sprintf(\"%s ppm\", format(co2)) }};\nvar formaldehyde_status = { payload: { value: \"Formaldehyd\", color: color(alert_formaldehyde), text: sprintf(\"%s µg/m³\", format(formaldehyde)) }};\nvar temp_status = { payload: { value: \"Temperatur\", color: \"white\", text: sprintf(\"%s °C\", format(temp)) }};\nvar hum_status = { payload: { value: \"Rel. Luftfeuchtigkeit\", color: \"white\", text: sprintf(\"%s %%\", format(hum)) }};\nvar abs_hum_status = { payload: { value: \"Abs. Luftfeuchtigkeit\", color: \"white\", text: sprintf(\"%s mg/m³\", format(abs_hum)) }};\nvar press_status = { payload: { value: \"Luftdruck\", color: \"white\", text: sprintf(\"%s µg/m³\", format(press)) }};\n\nreturn [debug, voc_status, matter_status, co2_status, formaldehyde_status, temp_status, hum_status, abs_hum_status, press_status];\n",
+        "outputs": 9,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 300,
+        "wires": [
+            [
+                "d99e941e4f8ab25f"
+            ],
+            [
+                "ca1cdd1f66d2e89b"
+            ],
+            [
+                "c5510ce75591cbc3"
+            ],
+            [
+                "b2322b5222948b72"
+            ],
+            [
+                "b30af5915352bee5"
+            ],
+            [
+                "deafacdbd897b3ae"
+            ],
+            [
+                "2478f7a297b80e97"
+            ],
+            [
+                "af4c89378f93543b"
+            ],
+            [
+                "2895804f2def8399"
+            ]
+        ]
+    },
+    {
+        "id": "6d192d22f48b157a",
+        "type": "mqtt in",
+        "z": "59d7b954e676768e",
+        "name": "",
+        "topic": "luftguetemesser2/switch/enable_leds/state",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "c349b9ff.9dc4c8",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 260,
+        "y": 540,
+        "wires": [
+            [
+                "479b8a0810c021cb"
+            ]
+        ]
+    },
+    {
+        "id": "deafacdbd897b3ae",
+        "type": "ui_template",
+        "z": "59d7b954e676768e",
+        "group": "69570255a88564b2",
+        "name": "5",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "format": "<md-card ui-card-size=\"6x2\" \n    class=\"_md nr-dashboard-text layout-align-center-center nr-dashboard-widget-text visible\" \n    style=\"background-color: {{msg.payload.color}}; color: black; left: 0px; top: 54px; width: 300px; height: 96px;\">\n    <p class=\"value\">{{msg.payload.value}}</p><p>{{msg.payload.text}}</p>\n</md-card>\n",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 570,
+        "y": 340,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2478f7a297b80e97",
+        "type": "ui_template",
+        "z": "59d7b954e676768e",
+        "group": "69570255a88564b2",
+        "name": "6",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "format": "<md-card ui-card-size=\"6x2\" \n    class=\"_md nr-dashboard-text layout-align-center-center nr-dashboard-widget-text visible\" \n    style=\"background-color: {{msg.payload.color}}; color: black; left: 0px; top: 54px; width: 300px; height: 96px;\">\n    <p class=\"value\">{{msg.payload.value}}</p><p>{{msg.payload.text}}</p>\n</md-card>\n",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 570,
+        "y": 380,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "af4c89378f93543b",
+        "type": "ui_template",
+        "z": "59d7b954e676768e",
+        "group": "69570255a88564b2",
+        "name": "7",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "format": "<md-card ui-card-size=\"6x2\" \n    class=\"_md nr-dashboard-text layout-align-center-center nr-dashboard-widget-text visible\" \n    style=\"background-color: {{msg.payload.color}}; color: black; left: 0px; top: 54px; width: 300px; height: 96px;\">\n    <p class=\"value\">{{msg.payload.value}}</p><p>{{msg.payload.text}}</p>\n</md-card>\n",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 570,
+        "y": 420,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2895804f2def8399",
+        "type": "ui_template",
+        "z": "59d7b954e676768e",
+        "group": "69570255a88564b2",
+        "name": "8",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "format": "<md-card ui-card-size=\"6x2\" \n    class=\"_md nr-dashboard-text layout-align-center-center nr-dashboard-widget-text visible\" \n    style=\"background-color: {{msg.payload.color}}; color: black; left: 0px; top: 54px; width: 300px; height: 96px;\">\n    <p class=\"value\">{{msg.payload.value}}</p><p>{{msg.payload.text}}</p>\n</md-card>\n",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 570,
+        "y": 460,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "17f6ed83131850e6",
+        "type": "ui_switch",
+        "z": "4fa3b184.bc7fb",
+        "name": "",
+        "label": "Ampel LEDs",
+        "tooltip": "",
+        "group": "d796a540.50d378",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "ON",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "OFF",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 570,
+        "y": 480,
+        "wires": [
+            [
+                "e4310ebe0936c844"
+            ]
+        ]
+    },
+    {
+        "id": "e4310ebe0936c844",
+        "type": "mqtt out",
+        "z": "4fa3b184.bc7fb",
+        "name": "",
+        "topic": "luftguetemesser1/switch/enable_leds/command",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "c349b9ff.9dc4c8",
+        "x": 860,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "da7b3e59241a1fad",
+        "type": "mqtt in",
+        "z": "4fa3b184.bc7fb",
+        "name": "",
+        "topic": "luftguetemesser1/switch/enable_leds/state",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "c349b9ff.9dc4c8",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 280,
+        "y": 480,
+        "wires": [
+            [
+                "17f6ed83131850e6"
+            ]
+        ]
+    },
+    {
+        "id": "47e21a73dd3c9959",
+        "type": "ui_switch",
+        "z": "4fa3b184.bc7fb",
+        "name": "",
+        "label": "Buzzer",
+        "tooltip": "",
+        "group": "d796a540.50d378",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "ON",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "OFF",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 560,
+        "y": 540,
+        "wires": [
+            [
+                "5cf8bf94e1af607f"
+            ]
+        ]
+    },
+    {
+        "id": "5cf8bf94e1af607f",
+        "type": "mqtt out",
+        "z": "4fa3b184.bc7fb",
+        "name": "",
+        "topic": "luftguetemesser1/switch/enable_buzzer/command",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "c349b9ff.9dc4c8",
+        "x": 870,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "653022af3e8316ed",
+        "type": "mqtt in",
+        "z": "4fa3b184.bc7fb",
+        "name": "",
+        "topic": "luftguetemesser1/switch/enable_buzzer/state",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "c349b9ff.9dc4c8",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 290,
+        "y": 540,
+        "wires": [
+            [
+                "47e21a73dd3c9959"
+            ]
+        ]
+    },
+    {
+        "id": "dbf3e36226cb28c2",
+        "type": "inject",
+        "z": "4fa3b184.bc7fb",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "30",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 190,
+        "y": 240,
+        "wires": [
+            [
+                "e554b18ca63d9344"
+            ]
+        ]
+    },
+    {
+        "id": "bf19e816b876358d",
+        "type": "debug",
+        "z": "4fa3b184.bc7fb",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 570,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "629f275bef269f55",
+        "type": "ui_template",
+        "z": "4fa3b184.bc7fb",
+        "group": "d796a540.50d378",
+        "name": "1",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "format": "<md-card ui-card-size=\"6x2\" \n    class=\"_md nr-dashboard-text layout-align-center-center nr-dashboard-widget-text visible\" \n    style=\"background-color: {{msg.payload.color}}; color: black; left: 0px; top: 54px; width: 300px; height: 96px;\">\n    <p class=\"value\">{{msg.payload.value}}</p><p>{{msg.payload.text}}</p>\n</md-card>\n",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 570,
+        "y": 120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d6a612e6abd20a72",
+        "type": "ui_template",
+        "z": "4fa3b184.bc7fb",
+        "group": "d796a540.50d378",
+        "name": "2",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "format": "<md-card ui-card-size=\"6x2\" \n    class=\"_md nr-dashboard-text layout-align-center-center nr-dashboard-widget-text visible\" \n    style=\"background-color: {{msg.payload.color}}; color: black; left: 0px; top: 54px; width: 300px; height: 96px;\">\n    <p class=\"value\">{{msg.payload.value}}</p><p>{{msg.payload.text1}}<br/>{{msg.payload.text2}}<br/>{{msg.payload.text3}}</p>\n</md-card>\n",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 570,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e22127170ef18794",
+        "type": "ui_template",
+        "z": "4fa3b184.bc7fb",
+        "group": "d796a540.50d378",
+        "name": "3",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "format": "<md-card ui-card-size=\"6x2\" \n    class=\"_md nr-dashboard-text layout-align-center-center nr-dashboard-widget-text visible\" \n    style=\"background-color: {{msg.payload.color}}; color: black; left: 0px; top: 54px; width: 300px; height: 96px;\">\n    <p class=\"value\">{{msg.payload.value}}</p><p>{{msg.payload.text}}</p>\n</md-card>\n",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 570,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a7f8e4db3b580b34",
+        "type": "ui_template",
+        "z": "4fa3b184.bc7fb",
+        "group": "d796a540.50d378",
+        "name": "4",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "format": "<md-card ui-card-size=\"6x2\" \n    class=\"_md nr-dashboard-text layout-align-center-center nr-dashboard-widget-text visible\" \n    style=\"background-color: {{msg.payload.color}}; color: black; left: 0px; top: 54px; width: 300px; height: 96px;\">\n    <p class=\"value\">{{msg.payload.value}}</p><p>{{msg.payload.text}}</p>\n</md-card>\n",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 570,
+        "y": 240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e554b18ca63d9344",
+        "type": "function",
+        "z": "4fa3b184.bc7fb",
+        "name": "",
+        "func": "const temp = global.get(\"luftguetemesser1-temperature\");\nconst hum = global.get(\"luftguetemesser1-humidity\");\nconst abs_hum = global.get(\"luftguetemesser1-absolute_humidity\");\nconst press = global.get(\"luftguetemesser1-pressure\");\nconst iaq = global.get(\"luftguetemesser1-iaq\");\nconst co2 = global.get(\"luftguetemesser1-co2\");\nconst voc = global.get(\"luftguetemesser1-breath_voc_equivalent\");\nconst m10 = global.get(\"luftguetemesser1-particulate_matter__1_0__m_concentration\");\nconst m25 = global.get(\"luftguetemesser1-particulate_matter__2_5__m_concentration\");\nconst m100 = global.get(\"luftguetemesser1-particulate_matter__10_0__m_concentration\");\nconst formaldehyde = global.get(\"luftguetemesser1-formaldehyde\");\nconst alert_voc = global.get(\"luftguetemesser1-alert_voc\");\nconst alert_co2 = global.get(\"luftguetemesser1-alert_co2\");\nconst alert_pm = global.get(\"luftguetemesser1-alert_pm\");\nconst alert_formaldehyde = global.get(\"luftguetemesser1-alert_formaldehyde\");\n\nvar debug = {\n    temp: temp,\n    hum: hum,\n    abs_hum: abs_hum,\n    press: press,\n    iaq: iaq,\n    co2: co2,\n    voc: voc,\n    m10: m10,\n    m25: m25,\n    m100: m100,\n    formaldehyde: formaldehyde,\n    alert_voc,\n    alert_co2,\n    alert_pm,\n    alert_formaldehyde\n};\n\nconst intl = global.get('intl');\nconst format = intl.NumberFormat('de-De',{style:'decimal', maximumFractionDigits: 2}).format;\nconst sprintf = global.get(\"sprintf\");\n\nfunction color(alert) {\n    return (alert == \"green\") ? \"limegreen\" : alert;\n}\n\nvar voc_status = {payload: { value: \"Flüchtige org. Verbindungen\", color: color(alert_voc), text: sprintf(\"%s mg/m³\", format(voc))}};\nvar matter_status = { payload: { value: \"Feinstaub\", color: color(alert_pm), text1: sprintf(\"1,0 µm: %s ppm\", format(m10)), text2: sprintf(\"2,5 µm: %s ppm\", format(m25)), text3: sprintf(\"10 µm: %s ppm\", format(m100))}};\nvar co2_status = { payload: { value: \"CO2\", color: color(alert_co2), text: sprintf(\"%s ppm\", format(co2)) }};\nvar formaldehyde_status = { payload: { value: \"Formaldehyd\", color: color(alert_formaldehyde), text: sprintf(\"%s µg/m³\", format(formaldehyde)) }};\nvar temp_status = { payload: { value: \"Temperatur\", color: \"white\", text: sprintf(\"%s °C\", format(temp)) }};\nvar hum_status = { payload: { value: \"Rel. Luftfeuchtigkeit\", color: \"white\", text: sprintf(\"%s %%\", format(hum)) }};\nvar abs_hum_status = { payload: { value: \"Abs. Luftfeuchtigkeit\", color: \"white\", text: sprintf(\"%s mg/m³\", format(abs_hum)) }};\nvar press_status = { payload: { value: \"Luftdruck\", color: \"white\", text: sprintf(\"%s µg/m³\", format(press)) }};\n\nreturn [debug, voc_status, matter_status, co2_status, formaldehyde_status, temp_status, hum_status, abs_hum_status, press_status];\n",
+        "outputs": 9,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 240,
+        "wires": [
+            [
+                "bf19e816b876358d"
+            ],
+            [
+                "629f275bef269f55"
+            ],
+            [
+                "d6a612e6abd20a72"
+            ],
+            [
+                "e22127170ef18794"
+            ],
+            [
+                "a7f8e4db3b580b34"
+            ],
+            [
+                "45441b9113c2f519"
+            ],
+            [
+                "9e55fcfcb40fb6e0"
+            ],
+            [
+                "07ef50f1466c18bd"
+            ],
+            [
+                "087ba58e849a17d7"
+            ]
+        ]
+    },
+    {
+        "id": "45441b9113c2f519",
+        "type": "ui_template",
+        "z": "4fa3b184.bc7fb",
+        "group": "d796a540.50d378",
+        "name": "5",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "format": "<md-card ui-card-size=\"6x2\" \n    class=\"_md nr-dashboard-text layout-align-center-center nr-dashboard-widget-text visible\" \n    style=\"background-color: {{msg.payload.color}}; color: black; left: 0px; top: 54px; width: 300px; height: 96px;\">\n    <p class=\"value\">{{msg.payload.value}}</p><p>{{msg.payload.text}}</p>\n</md-card>\n",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 570,
+        "y": 280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9e55fcfcb40fb6e0",
+        "type": "ui_template",
+        "z": "4fa3b184.bc7fb",
+        "group": "d796a540.50d378",
+        "name": "6",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "format": "<md-card ui-card-size=\"6x2\" \n    class=\"_md nr-dashboard-text layout-align-center-center nr-dashboard-widget-text visible\" \n    style=\"background-color: {{msg.payload.color}}; color: black; left: 0px; top: 54px; width: 300px; height: 96px;\">\n    <p class=\"value\">{{msg.payload.value}}</p><p>{{msg.payload.text}}</p>\n</md-card>\n",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 570,
+        "y": 320,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "07ef50f1466c18bd",
+        "type": "ui_template",
+        "z": "4fa3b184.bc7fb",
+        "group": "d796a540.50d378",
+        "name": "7",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "format": "<md-card ui-card-size=\"6x2\" \n    class=\"_md nr-dashboard-text layout-align-center-center nr-dashboard-widget-text visible\" \n    style=\"background-color: {{msg.payload.color}}; color: black; left: 0px; top: 54px; width: 300px; height: 96px;\">\n    <p class=\"value\">{{msg.payload.value}}</p><p>{{msg.payload.text}}</p>\n</md-card>\n",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 570,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "087ba58e849a17d7",
+        "type": "ui_template",
+        "z": "4fa3b184.bc7fb",
+        "group": "d796a540.50d378",
+        "name": "8",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "format": "<md-card ui-card-size=\"6x2\" \n    class=\"_md nr-dashboard-text layout-align-center-center nr-dashboard-widget-text visible\" \n    style=\"background-color: {{msg.payload.color}}; color: black; left: 0px; top: 54px; width: 300px; height: 96px;\">\n    <p class=\"value\">{{msg.payload.value}}</p><p>{{msg.payload.text}}</p>\n</md-card>\n",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 570,
+        "y": 400,
+        "wires": [
+            []
+        ]
+    },
+    {
         "id": "75217642cc0d7a74",
         "type": "server-state-changed",
         "z": "af5e44f55de05ade",
@@ -34134,7 +34134,7 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 580,
+        "x": 660,
         "y": 400,
         "wires": []
     },
@@ -34142,15 +34142,20 @@
         "id": "8586e1e4fb88ae5a",
         "type": "function",
         "z": "af5e44f55de05ade",
-        "name": "function 59",
-        "func": "let count = context.get('eventCount') || 0;\nlet numericCount = context.get('numericCount') || 0;\nlet stringValues = context.get('stringValues') || {};\n\nconst state = msg.payload;\ncount++;\n\nconst isNumeric = state !== '' && state !== null && !Number.isNaN(Number(state));\n\nif (isNumeric) {\n    numericCount++;\n} else {\n    stringValues[state] = (stringValues[state] || 0) + 1;\n}\n\ncontext.set('eventCount', count);\ncontext.set('numericCount', numericCount);\ncontext.set('stringValues', stringValues);\n\nmsg.payload = {\n    count: count,\n    numericCount: numericCount,\n    stringValues: stringValues,\n    event: state\n};\n\nreturn msg;",
+        "name": "TimescaleDB dual-write",
+        "func": "const entityId = msg.topic;\nconst state = msg.payload;\nconst newState = msg.data && msg.data.new_state;\nconst attrs = (newState && newState.attributes) || {};\nconst domain = entityId.split('.', 1)[0];\n\nconst numeric = Number(state);\nconst stateNumeric = state !== '' && !Number.isNaN(numeric) ? numeric : null;\nconst guessedKind = stateNumeric !== null ? 'numeric' : 'string';\nconst time = (newState && newState.last_updated) || new Date().toISOString();\n\nconst pool = context.get('pool');\n\n(async () => {\n    try {\n        // value_kind is only set on first insert (from the census); later\n        // writes never overwrite it, so a rough guess here is fine.\n        await pool.query(\n            `INSERT INTO entities (entity_id, domain, value_kind, unit, device_class, friendly_name)\n             VALUES ($1, $2, $3, $4, $5, $6)\n             ON CONFLICT (entity_id) DO UPDATE SET\n                domain = EXCLUDED.domain,\n                unit = EXCLUDED.unit,\n                device_class = EXCLUDED.device_class,\n                friendly_name = EXCLUDED.friendly_name`,\n            [entityId, domain, guessedKind, attrs.unit_of_measurement || null, attrs.device_class || null, attrs.friendly_name || null]\n        );\n        await pool.query(\n            `INSERT INTO state_changes (time, entity_id, state_text, state_numeric)\n             VALUES ($1, $2, $3, $4)`,\n            [time, entityId, state, stateNumeric]\n        );\n\n        msg.payload = { entity: entityId, time, state_text: state, state_numeric: stateNumeric };\n        node.send(msg);\n    } catch (err) {\n        node.error('TimescaleDB write failed: ' + err.message, msg);\n    }\n})();\n\nreturn null;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 410,
+        "initialize": "const cfg = global.get('timescaledbConfig');\nconst pool = new pg.Pool(cfg);\npool.on('error', (err) => node.error('TimescaleDB pool error: ' + err.message));\ncontext.set('pool', pool);",
+        "finalize": "const pool = context.get('pool');\nif (pool) {\n    pool.end();\n}",
+        "libs": [
+            {
+                "var": "pg",
+                "module": "pg"
+            }
+        ],
+        "x": 450,
         "y": 400,
         "wires": [
             [
