@@ -2945,6 +2945,7 @@
         "id": "930e92a7.3f378",
         "type": "mqtt in",
         "z": "37daec28.284ee4",
+        "d": true,
         "name": "Wandtaster1 rechts",
         "topic": "shellies/wandschalter-wozi1/status/input:0",
         "qos": "0",
@@ -2965,6 +2966,7 @@
         "id": "84c90245.9e44f",
         "type": "mqtt in",
         "z": "37daec28.284ee4",
+        "d": true,
         "name": "Wandtaster1 links",
         "topic": "shellies/wandschalter-wozi1/status/input:1",
         "qos": "0",
@@ -4741,6 +4743,7 @@
         "id": "414ce1a4ab83085b",
         "type": "thingzi-timer",
         "z": "37daec28.284ee4",
+        "d": true,
         "name": "Nachts Licht aus",
         "lat": "50.882",
         "lon": "6.6949",
@@ -6123,6 +6126,7 @@
         "id": "a61433322eaa107b",
         "type": "mqtt in",
         "z": "37daec28.284ee4",
+        "d": true,
         "name": "Wandschalter2 rechts",
         "topic": "wandschalter-wozi2/binary_sensor/rechts/state",
         "qos": "0",
@@ -6143,6 +6147,7 @@
         "id": "9a05bbabfff820dc",
         "type": "mqtt in",
         "z": "37daec28.284ee4",
+        "d": true,
         "name": "Wandschalter2 links",
         "topic": "wandschalter-wozi2/binary_sensor/links/state",
         "qos": "0",
@@ -12380,6 +12385,7 @@
         "id": "5428f2e53de25092",
         "type": "mqtt in",
         "z": "dac2cb3b.559138",
+        "d": true,
         "name": "",
         "topic": "zigbee2mqtt/fernbedienung_bad",
         "qos": "2",
@@ -12401,6 +12407,7 @@
         "id": "df199e6fb3a59d4f",
         "type": "template",
         "z": "dac2cb3b.559138",
+        "d": true,
         "name": "Text \"ON\"",
         "field": "payload",
         "fieldType": "msg",
@@ -12427,8 +12434,8 @@
         "order": 1,
         "width": 0,
         "height": 0,
-        "passthru": true,
-        "decouple": "false",
+        "passthru": false,
+        "decouple": "true",
         "topic": "zirkulationspumpe_10min",
         "topicType": "str",
         "style": "",
@@ -12455,6 +12462,7 @@
         "id": "351c32062e77392a",
         "type": "trigger",
         "z": "dac2cb3b.559138",
+        "d": true,
         "name": "Treppenhausautomat 10min",
         "op1": "",
         "op2": "OFF",
@@ -12510,6 +12518,7 @@
         "id": "eaf6fe8a89747f00",
         "type": "switch",
         "z": "dac2cb3b.559138",
+        "d": true,
         "name": "",
         "property": "payload.action",
         "propertyType": "msg",
@@ -12535,6 +12544,7 @@
         "id": "102c0c6b428bff43",
         "type": "switch",
         "z": "dac2cb3b.559138",
+        "d": true,
         "name": "",
         "property": "payload",
         "propertyType": "msg",
@@ -12560,6 +12570,7 @@
         "id": "a2c060041d7a5c6c",
         "type": "inject",
         "z": "dac2cb3b.559138",
+        "d": true,
         "name": "Reset",
         "props": [
             {
@@ -12578,6 +12589,91 @@
         "wires": [
             [
                 "12ebe76fae3f9cf7"
+            ]
+        ]
+    },
+    {
+        "id": "c880a84587f79930",
+        "type": "mqtt in",
+        "z": "dac2cb3b.559138",
+        "name": "",
+        "topic": "zigbee2mqtt/zirkulationspumpe",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "c349b9ff.9dc4c8",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 170,
+        "y": 320,
+        "wires": [
+            [
+                "712d68d5ed3be0f8"
+            ]
+        ]
+    },
+    {
+        "id": "7eb7923af09925aa",
+        "type": "change",
+        "z": "dac2cb3b.559138",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.state",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 570,
+        "y": 320,
+        "wires": [
+            [
+                "12ebe76fae3f9cf7",
+                "9f1e767b0b800f45"
+            ]
+        ]
+    },
+    {
+        "id": "9f1e767b0b800f45",
+        "type": "debug",
+        "z": "dac2cb3b.559138",
+        "name": "debug 11",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 800,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "712d68d5ed3be0f8",
+        "type": "rbe",
+        "z": "dac2cb3b.559138",
+        "name": "",
+        "func": "rbe",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "septopics": true,
+        "property": "payload",
+        "topi": "topic",
+        "x": 390,
+        "y": 320,
+        "wires": [
+            [
+                "7eb7923af09925aa"
             ]
         ]
     },
@@ -23620,6 +23716,7 @@
         "id": "0e39a84b6acf3ac1",
         "type": "link out",
         "z": "7518cde088588ebe",
+        "d": true,
         "name": "Solarstart",
         "mode": "link",
         "links": [
@@ -23635,6 +23732,7 @@
         "id": "280d15e0bfbe7e4e",
         "type": "link in",
         "z": "7518cde088588ebe",
+        "d": true,
         "name": "Solarstart",
         "links": [
             "0e39a84b6acf3ac1"
@@ -23651,6 +23749,7 @@
         "id": "6246b372c18b1e2e",
         "type": "link in",
         "z": "7518cde088588ebe",
+        "d": true,
         "name": "Solarstart",
         "links": [
             "0e39a84b6acf3ac1"
@@ -23667,6 +23766,7 @@
         "id": "82ac5c9872e6a443",
         "type": "link in",
         "z": "7518cde088588ebe",
+        "d": true,
         "name": "Solarstart",
         "links": [
             "0e39a84b6acf3ac1"
@@ -23723,6 +23823,7 @@
         "id": "e91d70892415c84f",
         "type": "mqtt in",
         "z": "7518cde088588ebe",
+        "d": true,
         "name": "",
         "topic": "zigbee2mqtt/solarstart_geschirrspueler",
         "qos": "2",
@@ -23744,6 +23845,7 @@
         "id": "982bce585e4b1bfa",
         "type": "function",
         "z": "7518cde088588ebe",
+        "d": true,
         "name": "toggle state",
         "func": "let topic = \"solarstart_geschirrspuehler\";\nlet s = flow.get(topic);\n\nif (s === \"off\")\n    s = \"on\"\nelse\n    s = \"off\";\n\nflow.set(topic, s);\nreturn {payload: s};",
         "outputs": 1,
