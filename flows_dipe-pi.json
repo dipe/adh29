@@ -2691,6 +2691,340 @@
         "height": "1"
     },
     {
+        "id": "0a5189b6a72c4fab",
+        "type": "ha-device-config",
+        "name": "Kellertür Fahrradkeller",
+        "hwVersion": "",
+        "manufacturer": "Node-RED",
+        "model": "Kellertür",
+        "swVersion": ""
+    },
+    {
+        "id": "0955c550549e94f5",
+        "type": "ha-entity-config",
+        "server": "3e07f44559793d55",
+        "deviceConfig": "0a5189b6a72c4fab",
+        "name": "Status",
+        "version": 6,
+        "entityType": "sensor",
+        "haConfig": [
+            {
+                "property": "name",
+                "value": "Status"
+            },
+            {
+                "property": "icon",
+                "value": ""
+            },
+            {
+                "property": "entity_picture",
+                "value": ""
+            },
+            {
+                "property": "entity_category",
+                "value": ""
+            },
+            {
+                "property": "device_class",
+                "value": ""
+            },
+            {
+                "property": "unit_of_measurement",
+                "value": ""
+            },
+            {
+                "property": "state_class",
+                "value": ""
+            }
+        ],
+        "resend": false,
+        "debugEnabled": false
+    },
+    {
+        "id": "cf2a5120f35c5b85",
+        "type": "ha-entity-config",
+        "server": "3e07f44559793d55",
+        "deviceConfig": "0a5189b6a72c4fab",
+        "name": "Schloss",
+        "version": 6,
+        "entityType": "sensor",
+        "haConfig": [
+            {
+                "property": "name",
+                "value": "Schloss"
+            },
+            {
+                "property": "icon",
+                "value": ""
+            },
+            {
+                "property": "entity_picture",
+                "value": ""
+            },
+            {
+                "property": "entity_category",
+                "value": ""
+            },
+            {
+                "property": "device_class",
+                "value": ""
+            },
+            {
+                "property": "unit_of_measurement",
+                "value": ""
+            },
+            {
+                "property": "state_class",
+                "value": ""
+            }
+        ],
+        "resend": false,
+        "debugEnabled": false
+    },
+    {
+        "id": "495a4003dfe6e75e",
+        "type": "ha-entity-config",
+        "server": "3e07f44559793d55",
+        "deviceConfig": "0a5189b6a72c4fab",
+        "name": "Riegel",
+        "version": 6,
+        "entityType": "sensor",
+        "haConfig": [
+            {
+                "property": "name",
+                "value": "Riegel"
+            },
+            {
+                "property": "icon",
+                "value": ""
+            },
+            {
+                "property": "entity_picture",
+                "value": ""
+            },
+            {
+                "property": "entity_category",
+                "value": ""
+            },
+            {
+                "property": "device_class",
+                "value": ""
+            },
+            {
+                "property": "unit_of_measurement",
+                "value": ""
+            },
+            {
+                "property": "state_class",
+                "value": ""
+            }
+        ],
+        "resend": false,
+        "debugEnabled": false
+    },
+    {
+        "id": "464c31fb6ef86175",
+        "type": "ha-entity-config",
+        "server": "3e07f44559793d55",
+        "deviceConfig": "0a5189b6a72c4fab",
+        "name": "Log",
+        "version": 6,
+        "entityType": "sensor",
+        "haConfig": [
+            {
+                "property": "name",
+                "value": "Log"
+            },
+            {
+                "property": "icon",
+                "value": ""
+            },
+            {
+                "property": "entity_picture",
+                "value": ""
+            },
+            {
+                "property": "entity_category",
+                "value": ""
+            },
+            {
+                "property": "device_class",
+                "value": ""
+            },
+            {
+                "property": "unit_of_measurement",
+                "value": ""
+            },
+            {
+                "property": "state_class",
+                "value": ""
+            }
+        ],
+        "resend": false,
+        "debugEnabled": false
+    },
+    {
+        "id": "4c1afcae2c697c68",
+        "type": "ha-entity-config",
+        "server": "3e07f44559793d55",
+        "deviceConfig": "0a5189b6a72c4fab",
+        "name": "Nicht automatisch abschließen",
+        "version": 6,
+        "entityType": "switch",
+        "haConfig": [
+            {
+                "property": "name",
+                "value": "Nicht automatisch abschließen"
+            },
+            {
+                "property": "icon",
+                "value": ""
+            },
+            {
+                "property": "entity_picture",
+                "value": ""
+            },
+            {
+                "property": "entity_category",
+                "value": ""
+            },
+            {
+                "property": "device_class",
+                "value": ""
+            }
+        ],
+        "resend": false,
+        "debugEnabled": false
+    },
+    {
+        "id": "9a0ffd5fdba180a9",
+        "type": "ha-entity-config",
+        "server": "3e07f44559793d55",
+        "deviceConfig": "0a5189b6a72c4fab",
+        "name": "PIN",
+        "version": 6,
+        "entityType": "text",
+        "haConfig": [
+            {
+                "property": "name",
+                "value": "PIN"
+            },
+            {
+                "property": "icon",
+                "value": ""
+            },
+            {
+                "property": "entity_picture",
+                "value": ""
+            },
+            {
+                "property": "entity_category",
+                "value": ""
+            }
+        ],
+        "resend": false,
+        "debugEnabled": false
+    },
+    {
+        "id": "9967bcb0a18ec6ac",
+        "type": "ha-entity-config",
+        "server": "3e07f44559793d55",
+        "deviceConfig": "0a5189b6a72c4fab",
+        "name": "Tür öffnen",
+        "version": 6,
+        "entityType": "button",
+        "haConfig": [
+            {
+                "property": "name",
+                "value": "Tür öffnen"
+            },
+            {
+                "property": "icon",
+                "value": ""
+            },
+            {
+                "property": "entity_picture",
+                "value": ""
+            },
+            {
+                "property": "entity_category",
+                "value": ""
+            },
+            {
+                "property": "device_class",
+                "value": ""
+            }
+        ],
+        "resend": false,
+        "debugEnabled": false
+    },
+    {
+        "id": "8936a77682ae2ddd",
+        "type": "ha-entity-config",
+        "server": "3e07f44559793d55",
+        "deviceConfig": "0a5189b6a72c4fab",
+        "name": "Tür abschließen",
+        "version": 6,
+        "entityType": "button",
+        "haConfig": [
+            {
+                "property": "name",
+                "value": "Tür abschließen"
+            },
+            {
+                "property": "icon",
+                "value": ""
+            },
+            {
+                "property": "entity_picture",
+                "value": ""
+            },
+            {
+                "property": "entity_category",
+                "value": ""
+            },
+            {
+                "property": "device_class",
+                "value": ""
+            }
+        ],
+        "resend": false,
+        "debugEnabled": false
+    },
+    {
+        "id": "e3c7b8503cbaa07b",
+        "type": "ha-entity-config",
+        "server": "3e07f44559793d55",
+        "deviceConfig": "0a5189b6a72c4fab",
+        "name": "Log löschen",
+        "version": 6,
+        "entityType": "button",
+        "haConfig": [
+            {
+                "property": "name",
+                "value": "Log löschen"
+            },
+            {
+                "property": "icon",
+                "value": ""
+            },
+            {
+                "property": "entity_picture",
+                "value": ""
+            },
+            {
+                "property": "entity_category",
+                "value": ""
+            },
+            {
+                "property": "device_class",
+                "value": ""
+            }
+        ],
+        "resend": false,
+        "debugEnabled": false
+    },
+    {
         "id": "a27c201f88d5372d",
         "type": "http request",
         "z": "f5d8e11fee9a1e7c",
@@ -22175,6 +22509,337 @@
         "wires": []
     },
     {
+        "id": "5da60ea09dda6635",
+        "type": "ha-sensor",
+        "z": "caf02dc9a5b73890",
+        "name": "Status",
+        "entityConfig": "0955c550549e94f5",
+        "version": 0,
+        "state": "payload",
+        "stateType": "msg",
+        "attributes": [],
+        "inputOverride": "allow",
+        "outputProperties": [],
+        "x": 1170,
+        "y": 420,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "342766b26bd2f38e",
+        "type": "ha-sensor",
+        "z": "caf02dc9a5b73890",
+        "name": "Schloss",
+        "entityConfig": "cf2a5120f35c5b85",
+        "version": 0,
+        "state": "payload",
+        "stateType": "msg",
+        "attributes": [],
+        "inputOverride": "allow",
+        "outputProperties": [],
+        "x": 800,
+        "y": 1010,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f8c9fedb2e3df0f2",
+        "type": "ha-sensor",
+        "z": "caf02dc9a5b73890",
+        "name": "Riegel",
+        "entityConfig": "495a4003dfe6e75e",
+        "version": 0,
+        "state": "payload",
+        "stateType": "msg",
+        "attributes": [],
+        "inputOverride": "allow",
+        "outputProperties": [],
+        "x": 800,
+        "y": 1090,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "66d8a56661181552",
+        "type": "ha-sensor",
+        "z": "caf02dc9a5b73890",
+        "name": "Log",
+        "entityConfig": "464c31fb6ef86175",
+        "version": 0,
+        "state": "log",
+        "stateType": "str",
+        "attributes": [
+            {
+                "property": "text",
+                "value": "payload",
+                "valueType": "msg"
+            }
+        ],
+        "inputOverride": "allow",
+        "outputProperties": [],
+        "x": 460,
+        "y": 2320,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "14a43e6186e82c6d",
+        "type": "function",
+        "z": "caf02dc9a5b73890",
+        "name": "payload -> enable",
+        "func": "return { enable: msg.payload === true };",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 300,
+        "y": 1500,
+        "wires": [
+            [
+                "98146a12d5197a48"
+            ]
+        ]
+    },
+    {
+        "id": "98146a12d5197a48",
+        "type": "ha-switch",
+        "z": "caf02dc9a5b73890",
+        "name": "Nicht automatisch abschließen",
+        "version": 0,
+        "inputs": 0,
+        "outputs": 2,
+        "entityConfig": "4c1afcae2c697c68",
+        "enableInput": true,
+        "outputOnStateChange": true,
+        "outputProperties": [
+            {
+                "property": "outputType",
+                "propertyType": "msg",
+                "value": "state change",
+                "valueType": "str"
+            },
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entityState"
+            }
+        ],
+        "x": 460,
+        "y": 1500,
+        "wires": [
+            [
+                "e20b002227d59699"
+            ],
+            [
+                "e20b002227d59699"
+            ]
+        ]
+    },
+    {
+        "id": "e20b002227d59699",
+        "type": "function",
+        "z": "caf02dc9a5b73890",
+        "name": "normalize bool",
+        "func": "msg.payload = (msg.payload === true || msg.payload === 'on' || msg.payload === 'ON');\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 620,
+        "y": 1500,
+        "wires": [
+            [
+                "8719e047cf70a57f"
+            ]
+        ]
+    },
+    {
+        "id": "8719e047cf70a57f",
+        "type": "delay",
+        "z": "caf02dc9a5b73890",
+        "name": "rate limit",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "2",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 760,
+        "y": 1500,
+        "wires": [
+            [
+                "7e1f72994db91091"
+            ]
+        ]
+    },
+    {
+        "id": "52fb00635b332fd7",
+        "type": "ha-button",
+        "z": "caf02dc9a5b73890",
+        "name": "Tür öffnen",
+        "version": 0,
+        "outputs": 1,
+        "entityConfig": "9967bcb0a18ec6ac",
+        "outputProperties": [],
+        "x": 190,
+        "y": 2130,
+        "wires": [
+            [
+                "c54fee1876ce45b0"
+            ]
+        ]
+    },
+    {
+        "id": "f14ab3cd99d7aecf",
+        "type": "ha-button",
+        "z": "caf02dc9a5b73890",
+        "name": "Tür abschließen",
+        "version": 0,
+        "outputs": 1,
+        "entityConfig": "8936a77682ae2ddd",
+        "outputProperties": [],
+        "x": 200,
+        "y": 2170,
+        "wires": [
+            [
+                "f049ba3037415baa"
+            ]
+        ]
+    },
+    {
+        "id": "dd1dc3c99fc24675",
+        "type": "ha-button",
+        "z": "caf02dc9a5b73890",
+        "name": "Log löschen",
+        "version": 0,
+        "outputs": 1,
+        "entityConfig": "e3c7b8503cbaa07b",
+        "outputProperties": [],
+        "x": 190,
+        "y": 2300,
+        "wires": [
+            [
+                "bb54335ea9515d53"
+            ]
+        ]
+    },
+    {
+        "id": "ce86c123ae3b19b8",
+        "type": "inject",
+        "z": "caf02dc9a5b73890",
+        "name": "PIN Feld initial leeren",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "2",
+        "topic": "",
+        "payload": "",
+        "payloadType": "str",
+        "x": 700,
+        "y": 1600,
+        "wires": [
+            [
+                "fcc6d18c0876c71e"
+            ]
+        ]
+    },
+    {
+        "id": "d0fe0aefb8d3705b",
+        "type": "server-state-changed",
+        "z": "caf02dc9a5b73890",
+        "name": "PIN eingegeben",
+        "server": "3e07f44559793d55",
+        "version": 6,
+        "outputs": 1,
+        "exposeAsEntityConfig": "",
+        "entities": {
+            "entity": [
+                "text.kellertur_fahrradkeller_pin"
+            ],
+            "substring": [],
+            "regex": []
+        },
+        "outputInitially": false,
+        "stateType": "str",
+        "ifState": "",
+        "ifStateType": "str",
+        "ifStateOperator": "is",
+        "outputOnlyOnStateChange": true,
+        "for": "0",
+        "forType": "num",
+        "forUnits": "minutes",
+        "ignorePrevStateNull": false,
+        "ignorePrevStateUnknown": false,
+        "ignorePrevStateUnavailable": false,
+        "ignoreCurrentStateUnknown": true,
+        "ignoreCurrentStateUnavailable": true,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "string",
+                "valueType": "entityState"
+            }
+        ],
+        "x": 200,
+        "y": 1660,
+        "wires": [
+            [
+                "8b12bba6b189b1e5"
+            ]
+        ]
+    },
+    {
+        "id": "fcc6d18c0876c71e",
+        "type": "api-call-service",
+        "z": "caf02dc9a5b73890",
+        "name": "PIN Feld leeren",
+        "server": "3e07f44559793d55",
+        "version": 5,
+        "debugenabled": false,
+        "floorId": [],
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [
+            "text.kellertur_fahrradkeller_pin"
+        ],
+        "labelId": [],
+        "data": "{\"value\":\"\"}",
+        "dataType": "json",
+        "mergeContext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "blockInputOverrides": false,
+        "domain": "text",
+        "service": "set_value",
+        "x": 900,
+        "y": 1600,
+        "wires": [
+            []
+        ]
+    },
+    {
         "id": "affde64f7b6e2b28",
         "type": "ui_button",
         "z": "55309aa5255fcdbf",
@@ -34273,668 +34938,6 @@
             [
                 "978837c7b530f49c"
             ]
-        ]
-    },
-    {
-        "id": "0a5189b6a72c4fab",
-        "type": "ha-device-config",
-        "name": "Kellertür Fahrradkeller",
-        "hwVersion": "",
-        "manufacturer": "Node-RED",
-        "model": "Kellertür",
-        "swVersion": ""
-    },
-    {
-        "id": "0955c550549e94f5",
-        "type": "ha-entity-config",
-        "server": "3e07f44559793d55",
-        "deviceConfig": "0a5189b6a72c4fab",
-        "name": "Status",
-        "version": 6,
-        "entityType": "sensor",
-        "haConfig": [
-            {
-                "property": "name",
-                "value": "Status"
-            },
-            {
-                "property": "icon",
-                "value": ""
-            },
-            {
-                "property": "entity_picture",
-                "value": ""
-            },
-            {
-                "property": "entity_category",
-                "value": ""
-            },
-            {
-                "property": "device_class",
-                "value": ""
-            },
-            {
-                "property": "unit_of_measurement",
-                "value": ""
-            },
-            {
-                "property": "state_class",
-                "value": ""
-            }
-        ],
-        "resend": false,
-        "debugEnabled": false
-    },
-    {
-        "id": "cf2a5120f35c5b85",
-        "type": "ha-entity-config",
-        "server": "3e07f44559793d55",
-        "deviceConfig": "0a5189b6a72c4fab",
-        "name": "Schloss",
-        "version": 6,
-        "entityType": "sensor",
-        "haConfig": [
-            {
-                "property": "name",
-                "value": "Schloss"
-            },
-            {
-                "property": "icon",
-                "value": ""
-            },
-            {
-                "property": "entity_picture",
-                "value": ""
-            },
-            {
-                "property": "entity_category",
-                "value": ""
-            },
-            {
-                "property": "device_class",
-                "value": ""
-            },
-            {
-                "property": "unit_of_measurement",
-                "value": ""
-            },
-            {
-                "property": "state_class",
-                "value": ""
-            }
-        ],
-        "resend": false,
-        "debugEnabled": false
-    },
-    {
-        "id": "495a4003dfe6e75e",
-        "type": "ha-entity-config",
-        "server": "3e07f44559793d55",
-        "deviceConfig": "0a5189b6a72c4fab",
-        "name": "Riegel",
-        "version": 6,
-        "entityType": "sensor",
-        "haConfig": [
-            {
-                "property": "name",
-                "value": "Riegel"
-            },
-            {
-                "property": "icon",
-                "value": ""
-            },
-            {
-                "property": "entity_picture",
-                "value": ""
-            },
-            {
-                "property": "entity_category",
-                "value": ""
-            },
-            {
-                "property": "device_class",
-                "value": ""
-            },
-            {
-                "property": "unit_of_measurement",
-                "value": ""
-            },
-            {
-                "property": "state_class",
-                "value": ""
-            }
-        ],
-        "resend": false,
-        "debugEnabled": false
-    },
-    {
-        "id": "464c31fb6ef86175",
-        "type": "ha-entity-config",
-        "server": "3e07f44559793d55",
-        "deviceConfig": "0a5189b6a72c4fab",
-        "name": "Log",
-        "version": 6,
-        "entityType": "sensor",
-        "haConfig": [
-            {
-                "property": "name",
-                "value": "Log"
-            },
-            {
-                "property": "icon",
-                "value": ""
-            },
-            {
-                "property": "entity_picture",
-                "value": ""
-            },
-            {
-                "property": "entity_category",
-                "value": ""
-            },
-            {
-                "property": "device_class",
-                "value": ""
-            },
-            {
-                "property": "unit_of_measurement",
-                "value": ""
-            },
-            {
-                "property": "state_class",
-                "value": ""
-            }
-        ],
-        "resend": false,
-        "debugEnabled": false
-    },
-    {
-        "id": "5da60ea09dda6635",
-        "type": "ha-sensor",
-        "z": "caf02dc9a5b73890",
-        "name": "Status",
-        "entityConfig": "0955c550549e94f5",
-        "version": 0,
-        "state": "payload",
-        "stateType": "msg",
-        "attributes": [],
-        "inputOverride": "allow",
-        "outputProperties": [],
-        "x": 1170,
-        "y": 420,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "342766b26bd2f38e",
-        "type": "ha-sensor",
-        "z": "caf02dc9a5b73890",
-        "name": "Schloss",
-        "entityConfig": "cf2a5120f35c5b85",
-        "version": 0,
-        "state": "payload",
-        "stateType": "msg",
-        "attributes": [],
-        "inputOverride": "allow",
-        "outputProperties": [],
-        "x": 800,
-        "y": 1010,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "f8c9fedb2e3df0f2",
-        "type": "ha-sensor",
-        "z": "caf02dc9a5b73890",
-        "name": "Riegel",
-        "entityConfig": "495a4003dfe6e75e",
-        "version": 0,
-        "state": "payload",
-        "stateType": "msg",
-        "attributes": [],
-        "inputOverride": "allow",
-        "outputProperties": [],
-        "x": 800,
-        "y": 1090,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "66d8a56661181552",
-        "type": "ha-sensor",
-        "z": "caf02dc9a5b73890",
-        "name": "Log",
-        "entityConfig": "464c31fb6ef86175",
-        "version": 0,
-        "state": "log",
-        "stateType": "str",
-        "attributes": [
-            {
-                "property": "text",
-                "value": "payload",
-                "valueType": "msg"
-            }
-        ],
-        "inputOverride": "allow",
-        "outputProperties": [],
-        "x": 460,
-        "y": 2320,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "4c1afcae2c697c68",
-        "type": "ha-entity-config",
-        "server": "3e07f44559793d55",
-        "deviceConfig": "0a5189b6a72c4fab",
-        "name": "Nicht automatisch abschließen",
-        "version": 6,
-        "entityType": "switch",
-        "haConfig": [
-            {
-                "property": "name",
-                "value": "Nicht automatisch abschließen"
-            },
-            {
-                "property": "icon",
-                "value": ""
-            },
-            {
-                "property": "entity_picture",
-                "value": ""
-            },
-            {
-                "property": "entity_category",
-                "value": ""
-            },
-            {
-                "property": "device_class",
-                "value": ""
-            }
-        ],
-        "resend": false,
-        "debugEnabled": false
-    },
-    {
-        "id": "14a43e6186e82c6d",
-        "type": "function",
-        "z": "caf02dc9a5b73890",
-        "name": "payload -> enable",
-        "func": "return { enable: msg.payload === true };",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 300,
-        "y": 1500,
-        "wires": [
-            [
-                "98146a12d5197a48"
-            ]
-        ]
-    },
-    {
-        "id": "98146a12d5197a48",
-        "type": "ha-switch",
-        "z": "caf02dc9a5b73890",
-        "name": "Nicht automatisch abschließen",
-        "entityConfig": "4c1afcae2c697c68",
-        "version": 0,
-        "outputs": 2,
-        "outputOnStateChange": true,
-        "outputProperties": [
-            {
-                "property": "outputType",
-                "propertyType": "msg",
-                "value": "state change",
-                "valueType": "str"
-            },
-            {
-                "property": "payload",
-                "propertyType": "msg",
-                "value": "",
-                "valueType": "entityState"
-            }
-        ],
-        "enableInput": true,
-        "inputOverride": "allow",
-        "x": 460,
-        "y": 1500,
-        "wires": [
-            [
-                "e20b002227d59699"
-            ],
-            [
-                "e20b002227d59699"
-            ]
-        ]
-    },
-    {
-        "id": "e20b002227d59699",
-        "type": "function",
-        "z": "caf02dc9a5b73890",
-        "name": "normalize bool",
-        "func": "msg.payload = (msg.payload === true || msg.payload === 'on' || msg.payload === 'ON');\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 620,
-        "y": 1500,
-        "wires": [
-            [
-                "8719e047cf70a57f"
-            ]
-        ]
-    },
-    {
-        "id": "8719e047cf70a57f",
-        "type": "delay",
-        "z": "caf02dc9a5b73890",
-        "name": "rate limit",
-        "pauseType": "rate",
-        "timeout": "5",
-        "timeoutUnits": "seconds",
-        "rate": "1",
-        "nbRateUnits": "2",
-        "rateUnits": "second",
-        "randomFirst": "1",
-        "randomLast": "5",
-        "randomUnits": "seconds",
-        "drop": true,
-        "allowrate": false,
-        "outputs": 1,
-        "x": 760,
-        "y": 1500,
-        "wires": [
-            [
-                "7e1f72994db91091"
-            ]
-        ]
-    },
-    {
-        "id": "9a0ffd5fdba180a9",
-        "type": "ha-entity-config",
-        "server": "3e07f44559793d55",
-        "deviceConfig": "0a5189b6a72c4fab",
-        "name": "PIN",
-        "version": 6,
-        "entityType": "text",
-        "haConfig": [
-            {
-                "property": "name",
-                "value": "PIN"
-            },
-            {
-                "property": "icon",
-                "value": ""
-            },
-            {
-                "property": "entity_picture",
-                "value": ""
-            },
-            {
-                "property": "entity_category",
-                "value": ""
-            }
-        ],
-        "resend": false,
-        "debugEnabled": false
-    },
-    {
-        "id": "9967bcb0a18ec6ac",
-        "type": "ha-entity-config",
-        "server": "3e07f44559793d55",
-        "deviceConfig": "0a5189b6a72c4fab",
-        "name": "Tür öffnen",
-        "version": 6,
-        "entityType": "button",
-        "haConfig": [
-            {
-                "property": "name",
-                "value": "Tür öffnen"
-            },
-            {
-                "property": "icon",
-                "value": ""
-            },
-            {
-                "property": "entity_picture",
-                "value": ""
-            },
-            {
-                "property": "entity_category",
-                "value": ""
-            },
-            {
-                "property": "device_class",
-                "value": ""
-            }
-        ],
-        "resend": false,
-        "debugEnabled": false
-    },
-    {
-        "id": "8936a77682ae2ddd",
-        "type": "ha-entity-config",
-        "server": "3e07f44559793d55",
-        "deviceConfig": "0a5189b6a72c4fab",
-        "name": "Tür abschließen",
-        "version": 6,
-        "entityType": "button",
-        "haConfig": [
-            {
-                "property": "name",
-                "value": "Tür abschließen"
-            },
-            {
-                "property": "icon",
-                "value": ""
-            },
-            {
-                "property": "entity_picture",
-                "value": ""
-            },
-            {
-                "property": "entity_category",
-                "value": ""
-            },
-            {
-                "property": "device_class",
-                "value": ""
-            }
-        ],
-        "resend": false,
-        "debugEnabled": false
-    },
-    {
-        "id": "e3c7b8503cbaa07b",
-        "type": "ha-entity-config",
-        "server": "3e07f44559793d55",
-        "deviceConfig": "0a5189b6a72c4fab",
-        "name": "Log löschen",
-        "version": 6,
-        "entityType": "button",
-        "haConfig": [
-            {
-                "property": "name",
-                "value": "Log löschen"
-            },
-            {
-                "property": "icon",
-                "value": ""
-            },
-            {
-                "property": "entity_picture",
-                "value": ""
-            },
-            {
-                "property": "entity_category",
-                "value": ""
-            },
-            {
-                "property": "device_class",
-                "value": ""
-            }
-        ],
-        "resend": false,
-        "debugEnabled": false
-    },
-    {
-        "id": "52fb00635b332fd7",
-        "type": "ha-button",
-        "z": "caf02dc9a5b73890",
-        "name": "Tür öffnen",
-        "entityConfig": "9967bcb0a18ec6ac",
-        "version": 0,
-        "outputProperties": [],
-        "x": 190,
-        "y": 2130,
-        "wires": [
-            [
-                "c54fee1876ce45b0"
-            ]
-        ]
-    },
-    {
-        "id": "f14ab3cd99d7aecf",
-        "type": "ha-button",
-        "z": "caf02dc9a5b73890",
-        "name": "Tür abschließen",
-        "entityConfig": "8936a77682ae2ddd",
-        "version": 0,
-        "outputProperties": [],
-        "x": 200,
-        "y": 2170,
-        "wires": [
-            [
-                "f049ba3037415baa"
-            ]
-        ]
-    },
-    {
-        "id": "dd1dc3c99fc24675",
-        "type": "ha-button",
-        "z": "caf02dc9a5b73890",
-        "name": "Log löschen",
-        "entityConfig": "e3c7b8503cbaa07b",
-        "version": 0,
-        "outputProperties": [],
-        "x": 190,
-        "y": 2300,
-        "wires": [
-            [
-                "bb54335ea9515d53"
-            ]
-        ]
-    },
-    {
-        "id": "ce86c123ae3b19b8",
-        "type": "inject",
-        "z": "caf02dc9a5b73890",
-        "name": "PIN Feld initial leeren",
-        "props": [
-            {
-                "p": "payload"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": true,
-        "onceDelay": "2",
-        "topic": "",
-        "payload": "",
-        "payloadType": "str",
-        "x": 700,
-        "y": 1600,
-        "wires": [
-            [
-                "fcc6d18c0876c71e"
-            ]
-        ]
-    },
-    {
-        "id": "d0fe0aefb8d3705b",
-        "type": "server-state-changed",
-        "z": "caf02dc9a5b73890",
-        "name": "PIN eingegeben",
-        "server": "3e07f44559793d55",
-        "version": 6,
-        "outputs": 1,
-        "exposeAsEntityConfig": "",
-        "entities": {
-            "entity": [
-                "text.kellertur_fahrradkeller_pin"
-            ],
-            "substring": [],
-            "regex": []
-        },
-        "outputInitially": false,
-        "stateType": "str",
-        "ifState": "",
-        "ifStateType": "str",
-        "ifStateOperator": "is",
-        "outputOnlyOnStateChange": true,
-        "for": "0",
-        "forType": "num",
-        "forUnits": "minutes",
-        "ignorePrevStateNull": false,
-        "ignorePrevStateUnknown": false,
-        "ignorePrevStateUnavailable": false,
-        "ignoreCurrentStateUnknown": true,
-        "ignoreCurrentStateUnavailable": true,
-        "outputProperties": [
-            {
-                "property": "payload",
-                "propertyType": "msg",
-                "value": "string",
-                "valueType": "entityState"
-            }
-        ],
-        "x": 200,
-        "y": 1660,
-        "wires": [
-            [
-                "8b12bba6b189b1e5"
-            ]
-        ]
-    },
-    {
-        "id": "fcc6d18c0876c71e",
-        "type": "api-call-service",
-        "z": "caf02dc9a5b73890",
-        "name": "PIN Feld leeren",
-        "server": "3e07f44559793d55",
-        "version": 5,
-        "debugenabled": false,
-        "domain": "text",
-        "service": "set_value",
-        "areaId": [],
-        "deviceId": [],
-        "entityId": [
-            "text.kellertur_fahrradkeller_pin"
-        ],
-        "labelId": [],
-        "floorId": [],
-        "data": "{\"value\":\"\"}",
-        "dataType": "json",
-        "mergeContext": "",
-        "mustacheAltTags": false,
-        "outputProperties": [],
-        "queue": "none",
-        "blockInputOverrides": false,
-        "x": 900,
-        "y": 1600,
-        "wires": [
-            []
         ]
     }
 ]
