@@ -15966,7 +15966,8 @@
         "wires": [
             [
                 "652ef2c884ce6d6a",
-                "0ad338c20d4c7bab"
+                "0ad338c20d4c7bab",
+                "648259cf97142429"
             ]
         ]
     },
@@ -16626,7 +16627,8 @@
         "y": 2140,
         "wires": [
             [
-                "d997b4091550a66d"
+                "d997b4091550a66d",
+                "c3130323b8d61c19"
             ]
         ]
     },
@@ -16645,7 +16647,8 @@
         "y": 2180,
         "wires": [
             [
-                "d997b4091550a66d"
+                "d997b4091550a66d",
+                "c3130323b8d61c19"
             ]
         ]
     },
@@ -16778,7 +16781,8 @@
         "y": 1400,
         "wires": [
             [
-                "5c43c72b9d9fb6f1"
+                "5c43c72b9d9fb6f1",
+                "72d43a4748b2f9f0"
             ]
         ]
     },
@@ -17607,7 +17611,8 @@
         "y": 360,
         "wires": [
             [
-                "310327846cda7b1a"
+                "310327846cda7b1a",
+                "047fc9b8f913e763"
             ]
         ]
     },
@@ -17626,7 +17631,8 @@
         "y": 400,
         "wires": [
             [
-                "310327846cda7b1a"
+                "310327846cda7b1a",
+                "047fc9b8f913e763"
             ]
         ]
     },
@@ -17705,7 +17711,8 @@
         "y": 1220,
         "wires": [
             [
-                "700ef9303accc628"
+                "700ef9303accc628",
+                "1b40eae425cabc89"
             ]
         ]
     },
@@ -34954,6 +34961,648 @@
         "wires": [
             [
                 "978837c7b530f49c"
+            ]
+        ]
+    },
+    {
+        "id": "0bf27f112754773d",
+        "type": "ha-device-config",
+        "name": "Haustür",
+        "hwVersion": "",
+        "manufacturer": "Node-RED",
+        "model": "Haustür",
+        "swVersion": ""
+    },
+    {
+        "id": "cb6cd02c1121a1f3",
+        "type": "ha-entity-config",
+        "server": "3e07f44559793d55",
+        "deviceConfig": "0bf27f112754773d",
+        "name": "Status",
+        "version": 6,
+        "entityType": "sensor",
+        "haConfig": [
+            {
+                "property": "name",
+                "value": "Status"
+            },
+            {
+                "property": "icon",
+                "value": ""
+            },
+            {
+                "property": "entity_picture",
+                "value": ""
+            },
+            {
+                "property": "entity_category",
+                "value": ""
+            },
+            {
+                "property": "device_class",
+                "value": ""
+            },
+            {
+                "property": "unit_of_measurement",
+                "value": ""
+            },
+            {
+                "property": "state_class",
+                "value": ""
+            }
+        ],
+        "resend": false,
+        "debugEnabled": false
+    },
+    {
+        "id": "047fc9b8f913e763",
+        "type": "ha-sensor",
+        "z": "062848eb6508a3a6",
+        "name": "Status",
+        "entityConfig": "cb6cd02c1121a1f3",
+        "version": 0,
+        "state": "payload",
+        "stateType": "msg",
+        "attributes": [],
+        "inputOverride": "allow",
+        "outputProperties": [],
+        "x": 1170,
+        "y": 40,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3dd64cada379a7f1",
+        "type": "ha-entity-config",
+        "server": "3e07f44559793d55",
+        "deviceConfig": "0bf27f112754773d",
+        "name": "Schloss",
+        "version": 6,
+        "entityType": "sensor",
+        "haConfig": [
+            {
+                "property": "name",
+                "value": "Schloss"
+            },
+            {
+                "property": "icon",
+                "value": ""
+            },
+            {
+                "property": "entity_picture",
+                "value": ""
+            },
+            {
+                "property": "entity_category",
+                "value": ""
+            },
+            {
+                "property": "device_class",
+                "value": ""
+            },
+            {
+                "property": "unit_of_measurement",
+                "value": ""
+            },
+            {
+                "property": "state_class",
+                "value": ""
+            }
+        ],
+        "resend": false,
+        "debugEnabled": false
+    },
+    {
+        "id": "648259cf97142429",
+        "type": "ha-sensor",
+        "z": "062848eb6508a3a6",
+        "name": "Schloss",
+        "entityConfig": "3dd64cada379a7f1",
+        "version": 0,
+        "state": "payload",
+        "stateType": "msg",
+        "attributes": [],
+        "inputOverride": "allow",
+        "outputProperties": [],
+        "x": 1170,
+        "y": 40,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4896152629755092",
+        "type": "ha-entity-config",
+        "server": "3e07f44559793d55",
+        "deviceConfig": "0bf27f112754773d",
+        "name": "Log",
+        "version": 6,
+        "entityType": "sensor",
+        "haConfig": [
+            {
+                "property": "name",
+                "value": "Log"
+            },
+            {
+                "property": "icon",
+                "value": ""
+            },
+            {
+                "property": "entity_picture",
+                "value": ""
+            },
+            {
+                "property": "entity_category",
+                "value": ""
+            },
+            {
+                "property": "device_class",
+                "value": ""
+            },
+            {
+                "property": "unit_of_measurement",
+                "value": ""
+            },
+            {
+                "property": "state_class",
+                "value": ""
+            }
+        ],
+        "resend": false,
+        "debugEnabled": false
+    },
+    {
+        "id": "c3130323b8d61c19",
+        "type": "ha-sensor",
+        "z": "062848eb6508a3a6",
+        "name": "Log",
+        "entityConfig": "4896152629755092",
+        "version": 0,
+        "state": "log",
+        "stateType": "str",
+        "attributes": [
+            {
+                "property": "text",
+                "value": "payload",
+                "valueType": "msg"
+            }
+        ],
+        "inputOverride": "allow",
+        "outputProperties": [],
+        "x": 1170,
+        "y": 40,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e0c4f0d6456a4a59",
+        "type": "ha-entity-config",
+        "server": "3e07f44559793d55",
+        "deviceConfig": "0bf27f112754773d",
+        "name": "Nicht automatisch abschließen",
+        "version": 6,
+        "entityType": "switch",
+        "haConfig": [
+            {
+                "property": "name",
+                "value": "Nicht automatisch abschließen"
+            },
+            {
+                "property": "icon",
+                "value": ""
+            },
+            {
+                "property": "entity_picture",
+                "value": ""
+            },
+            {
+                "property": "entity_category",
+                "value": ""
+            },
+            {
+                "property": "device_class",
+                "value": ""
+            }
+        ],
+        "resend": false,
+        "debugEnabled": false
+    },
+    {
+        "id": "1b40eae425cabc89",
+        "type": "function",
+        "z": "062848eb6508a3a6",
+        "name": "payload -> enable",
+        "func": "return { enable: msg.payload === true };",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 850,
+        "y": 40,
+        "wires": [
+            [
+                "301a1236ef4d8ea6"
+            ]
+        ]
+    },
+    {
+        "id": "301a1236ef4d8ea6",
+        "type": "ha-switch",
+        "z": "062848eb6508a3a6",
+        "name": "Nicht automatisch abschließen",
+        "version": 0,
+        "inputs": 0,
+        "outputs": 2,
+        "entityConfig": "e0c4f0d6456a4a59",
+        "enableInput": true,
+        "outputOnStateChange": true,
+        "outputProperties": [
+            {
+                "property": "outputType",
+                "propertyType": "msg",
+                "value": "state change",
+                "valueType": "str"
+            },
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entityState"
+            }
+        ],
+        "x": 1050,
+        "y": 40,
+        "wires": [
+            [
+                "18ed4d85f3dfab72"
+            ],
+            [
+                "18ed4d85f3dfab72"
+            ]
+        ]
+    },
+    {
+        "id": "18ed4d85f3dfab72",
+        "type": "function",
+        "z": "062848eb6508a3a6",
+        "name": "normalize bool",
+        "func": "msg.payload = (msg.payload === true || msg.payload === 'on' || msg.payload === 'ON');\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1250,
+        "y": 40,
+        "wires": [
+            [
+                "9e8f59e48c13581d"
+            ]
+        ]
+    },
+    {
+        "id": "9e8f59e48c13581d",
+        "type": "delay",
+        "z": "062848eb6508a3a6",
+        "name": "rate limit",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "2",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 1450,
+        "y": 40,
+        "wires": [
+            [
+                "c0ad915ac416a2bb"
+            ]
+        ]
+    },
+    {
+        "id": "11d165d564fb267d",
+        "type": "ha-entity-config",
+        "server": "3e07f44559793d55",
+        "deviceConfig": "0bf27f112754773d",
+        "name": "PIN",
+        "version": 6,
+        "entityType": "text",
+        "haConfig": [
+            {
+                "property": "name",
+                "value": "PIN"
+            },
+            {
+                "property": "icon",
+                "value": "mdi:form-textbox"
+            },
+            {
+                "property": "entity_picture",
+                "value": ""
+            },
+            {
+                "property": "entity_category",
+                "value": ""
+            },
+            {
+                "property": "mode",
+                "value": "text"
+            },
+            {
+                "property": "min_length",
+                "value": 0
+            },
+            {
+                "property": "max_length",
+                "value": 100
+            },
+            {
+                "property": "pattern",
+                "value": ""
+            }
+        ],
+        "resend": false,
+        "debugEnabled": false
+    },
+    {
+        "id": "ef7da40b3e62ef97",
+        "type": "ha-text",
+        "z": "062848eb6508a3a6",
+        "name": "PIN",
+        "version": 1,
+        "inputs": 0,
+        "outputs": 1,
+        "entityConfig": "11d165d564fb267d",
+        "mode": "listen",
+        "value": "",
+        "valueType": "str",
+        "outputProperties": [],
+        "x": 850,
+        "y": 120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "01181c10cc2b749f",
+        "type": "server-state-changed",
+        "z": "062848eb6508a3a6",
+        "name": "PIN eingegeben",
+        "server": "3e07f44559793d55",
+        "version": 6,
+        "outputs": 1,
+        "exposeAsEntityConfig": "",
+        "entities": {
+            "entity": [
+                "text.haustur_pin"
+            ],
+            "substring": [],
+            "regex": []
+        },
+        "outputInitially": false,
+        "stateType": "str",
+        "ifState": "",
+        "ifStateType": "str",
+        "ifStateOperator": "is",
+        "outputOnlyOnStateChange": true,
+        "for": "0",
+        "forType": "num",
+        "forUnits": "minutes",
+        "ignorePrevStateNull": false,
+        "ignorePrevStateUnknown": false,
+        "ignorePrevStateUnavailable": false,
+        "ignoreCurrentStateUnknown": true,
+        "ignoreCurrentStateUnavailable": true,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "string",
+                "valueType": "entityState"
+            }
+        ],
+        "x": 1050,
+        "y": 120,
+        "wires": [
+            [
+                "be64234ed9852c64"
+            ]
+        ]
+    },
+    {
+        "id": "72d43a4748b2f9f0",
+        "type": "api-call-service",
+        "z": "062848eb6508a3a6",
+        "name": "PIN Feld leeren",
+        "server": "3e07f44559793d55",
+        "version": 7,
+        "debugenabled": false,
+        "action": "text.set_value",
+        "floorId": [],
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [
+            "text.haustur_pin"
+        ],
+        "labelId": [],
+        "data": "{\"value\":\"\"}",
+        "dataType": "json",
+        "mergeContext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "blockInputOverrides": false,
+        "domain": "text",
+        "service": "set_value",
+        "x": 1250,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3786b732fd105d8b",
+        "type": "inject",
+        "z": "062848eb6508a3a6",
+        "name": "PIN Feld initial leeren",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "2",
+        "topic": "",
+        "payload": "",
+        "payloadType": "str",
+        "x": 1050,
+        "y": 200,
+        "wires": [
+            [
+                "72d43a4748b2f9f0"
+            ]
+        ]
+    },
+    {
+        "id": "972372245601a773",
+        "type": "ha-entity-config",
+        "server": "3e07f44559793d55",
+        "deviceConfig": "0bf27f112754773d",
+        "name": "Tür öffnen",
+        "version": 6,
+        "entityType": "button",
+        "haConfig": [
+            {
+                "property": "name",
+                "value": "Tür öffnen"
+            },
+            {
+                "property": "icon",
+                "value": ""
+            },
+            {
+                "property": "entity_picture",
+                "value": ""
+            },
+            {
+                "property": "entity_category",
+                "value": ""
+            },
+            {
+                "property": "device_class",
+                "value": ""
+            }
+        ],
+        "resend": false,
+        "debugEnabled": false
+    },
+    {
+        "id": "ad94d5c6a01a1698",
+        "type": "ha-button",
+        "z": "062848eb6508a3a6",
+        "name": "Tür öffnen",
+        "version": 0,
+        "outputs": 1,
+        "entityConfig": "972372245601a773",
+        "outputProperties": [],
+        "x": 850,
+        "y": 260,
+        "wires": [
+            [
+                "651b1e11de589b85"
+            ]
+        ]
+    },
+    {
+        "id": "ba67027c81acef44",
+        "type": "ha-entity-config",
+        "server": "3e07f44559793d55",
+        "deviceConfig": "0bf27f112754773d",
+        "name": "Tür abschließen",
+        "version": 6,
+        "entityType": "button",
+        "haConfig": [
+            {
+                "property": "name",
+                "value": "Tür abschließen"
+            },
+            {
+                "property": "icon",
+                "value": ""
+            },
+            {
+                "property": "entity_picture",
+                "value": ""
+            },
+            {
+                "property": "entity_category",
+                "value": ""
+            },
+            {
+                "property": "device_class",
+                "value": ""
+            }
+        ],
+        "resend": false,
+        "debugEnabled": false
+    },
+    {
+        "id": "9cb96e15d2ddd8bb",
+        "type": "ha-button",
+        "z": "062848eb6508a3a6",
+        "name": "Tür abschließen",
+        "version": 0,
+        "outputs": 1,
+        "entityConfig": "ba67027c81acef44",
+        "outputProperties": [],
+        "x": 850,
+        "y": 300,
+        "wires": [
+            [
+                "44bd1ae85ba6e007"
+            ]
+        ]
+    },
+    {
+        "id": "0cdafd4c6a092780",
+        "type": "ha-entity-config",
+        "server": "3e07f44559793d55",
+        "deviceConfig": "0bf27f112754773d",
+        "name": "Log löschen",
+        "version": 6,
+        "entityType": "button",
+        "haConfig": [
+            {
+                "property": "name",
+                "value": "Log löschen"
+            },
+            {
+                "property": "icon",
+                "value": ""
+            },
+            {
+                "property": "entity_picture",
+                "value": ""
+            },
+            {
+                "property": "entity_category",
+                "value": ""
+            },
+            {
+                "property": "device_class",
+                "value": ""
+            }
+        ],
+        "resend": false,
+        "debugEnabled": false
+    },
+    {
+        "id": "70948a350a6c45c8",
+        "type": "ha-button",
+        "z": "062848eb6508a3a6",
+        "name": "Log löschen",
+        "version": 0,
+        "outputs": 1,
+        "entityConfig": "0cdafd4c6a092780",
+        "outputProperties": [],
+        "x": 850,
+        "y": 340,
+        "wires": [
+            [
+                "0e588db6de9cd341"
             ]
         ]
     }
