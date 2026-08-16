@@ -2996,51 +2996,6 @@
         "debugEnabled": false
     },
     {
-        "id": "9a0ffd5fdba180a9",
-        "type": "ha-entity-config",
-        "server": "3e07f44559793d55",
-        "deviceConfig": "0a5189b6a72c4fab",
-        "name": "PIN",
-        "version": 6,
-        "entityType": "text",
-        "haConfig": [
-            {
-                "property": "name",
-                "value": "PIN"
-            },
-            {
-                "property": "icon",
-                "value": "mdi:form-textbox"
-            },
-            {
-                "property": "entity_picture",
-                "value": ""
-            },
-            {
-                "property": "entity_category",
-                "value": ""
-            },
-            {
-                "property": "mode",
-                "value": "text"
-            },
-            {
-                "property": "min_length",
-                "value": 0
-            },
-            {
-                "property": "max_length",
-                "value": 100
-            },
-            {
-                "property": "pattern",
-                "value": ""
-            }
-        ],
-        "resend": false,
-        "debugEnabled": false
-    },
-    {
         "id": "a27c201f88d5372d",
         "type": "http request",
         "z": "f5d8e11fee9a1e7c",
@@ -22838,25 +22793,6 @@
         ]
     },
     {
-        "id": "910cac5264725ad2",
-        "type": "ha-text",
-        "z": "caf02dc9a5b73890",
-        "name": "PIN",
-        "version": 1,
-        "inputs": 0,
-        "outputs": 1,
-        "entityConfig": "9a0ffd5fdba180a9",
-        "mode": "listen",
-        "value": "",
-        "valueType": "str",
-        "outputProperties": [],
-        "x": 130,
-        "y": 1560,
-        "wires": [
-            []
-        ]
-    },
-    {
         "id": "affde64f7b6e2b28",
         "type": "ui_button",
         "z": "55309aa5255fcdbf",
@@ -34955,6 +34891,68 @@
             [
                 "978837c7b530f49c"
             ]
+        ]
+    },
+    {
+        "id": "9a0ffd5fdba180a9",
+        "type": "ha-entity-config",
+        "server": "3e07f44559793d55",
+        "deviceConfig": "0a5189b6a72c4fab",
+        "name": "PIN",
+        "version": 6,
+        "entityType": "text",
+        "haConfig": [
+            {
+                "property": "name",
+                "value": "PIN"
+            },
+            {
+                "property": "icon",
+                "value": "mdi:form-textbox"
+            },
+            {
+                "property": "entity_picture",
+                "value": ""
+            },
+            {
+                "property": "entity_category",
+                "value": ""
+            },
+            {
+                "property": "mode",
+                "value": "text"
+            },
+            {
+                "property": "min_length",
+                "value": "0"
+            },
+            {
+                "property": "max_length",
+                "value": "100"
+            },
+            {
+                "property": "pattern",
+                "value": ""
+            }
+        ],
+        "resend": false,
+        "debugEnabled": false
+    },
+    {
+        "id": "910cac5264725ad2",
+        "type": "ha-text",
+        "z": "caf02dc9a5b73890",
+        "name": "PIN",
+        "entityConfig": "9a0ffd5fdba180a9",
+        "mode": "listen",
+        "value": "",
+        "valueType": "str",
+        "version": 0,
+        "outputProperties": [],
+        "x": 130,
+        "y": 1560,
+        "wires": [
+            []
         ]
     }
 ]
