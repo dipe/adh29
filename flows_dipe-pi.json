@@ -18232,6 +18232,7 @@
         "id": "c96e7f13abcb3dea",
         "type": "function",
         "z": "062848eb6508a3a6",
+        "d": true,
         "name": "Push Notification",
         "func": "if (msg.payload.length == 0) return;\n\nreturn {\n    notification: {\n        notification: { \n            title: \"Haustür offen!\", \n            body: `Kann Haustür nicht abschließen.` \n        }, \n    }\n};\n",
         "outputs": 1,
@@ -18240,8 +18241,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 830,
-        "y": 700,
+        "x": 1190,
+        "y": 640,
         "wires": [
             [
                 "7bb975af10fb8606"
@@ -18252,13 +18253,14 @@
         "id": "7bb975af10fb8606",
         "type": "link out",
         "z": "062848eb6508a3a6",
+        "d": true,
         "name": "Person an Kellertür erkannt",
         "mode": "link",
         "links": [
             "1cd036385c85d54d"
         ],
-        "x": 965,
-        "y": 700,
+        "x": 1335,
+        "y": 640,
         "wires": []
     },
     {
@@ -18350,7 +18352,8 @@
         "y": 700,
         "wires": [
             [
-                "c96e7f13abcb3dea"
+                "c96e7f13abcb3dea",
+                "2b8ae278fdd9a5d7"
             ]
         ]
     },
@@ -19971,6 +19974,55 @@
             [
                 "5a305a61e306dde3"
             ]
+        ]
+    },
+    {
+        "id": "2b8ae278fdd9a5d7",
+        "type": "function",
+        "z": "062848eb6508a3a6",
+        "name": "HA Push Guard (Haustür offen)",
+        "func": "if (msg.payload.length == 0) return;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 870,
+        "y": 700,
+        "wires": [
+            [
+                "50166e0447aa1724"
+            ]
+        ]
+    },
+    {
+        "id": "50166e0447aa1724",
+        "type": "api-call-service",
+        "z": "062848eb6508a3a6",
+        "name": "HA Push: Haustür offen",
+        "server": "3e07f44559793d55",
+        "version": 7,
+        "debugenabled": false,
+        "action": "notify.familie",
+        "floorId": [],
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [],
+        "labelId": [],
+        "data": "{\"title\":\"Haustür offen!\",\"message\":\"Kann Haustür nicht abschließen.\"}",
+        "dataType": "json",
+        "mergeContext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "blockInputOverrides": false,
+        "domain": "notify",
+        "service": "familie",
+        "x": 1150,
+        "y": 700,
+        "wires": [
+            []
         ]
     },
     {
@@ -22376,6 +22428,7 @@
         "id": "a8273f7cfb9f5c75",
         "type": "function",
         "z": "caf02dc9a5b73890",
+        "d": true,
         "name": "Push Notification",
         "func": "if (msg.payload.length == 0) return;\n\nreturn {\n    notification: {\n        notification: { \n            title: \"Kellertür offen!\", \n            body: `Kann Kellertür nicht abschließen.` \n        }, \n    }\n};\n",
         "outputs": 1,
@@ -22384,8 +22437,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 690,
-        "y": 680,
+        "x": 1030,
+        "y": 640,
         "wires": [
             [
                 "73c3ba04e545c1fc"
@@ -22396,13 +22449,14 @@
         "id": "73c3ba04e545c1fc",
         "type": "link out",
         "z": "caf02dc9a5b73890",
+        "d": true,
         "name": "Person an Kellertür erkannt",
         "mode": "link",
         "links": [
             "1cd036385c85d54d"
         ],
-        "x": 825,
-        "y": 680,
+        "x": 1165,
+        "y": 640,
         "wires": []
     },
     {
@@ -22417,7 +22471,8 @@
         "y": 680,
         "wires": [
             [
-                "a8273f7cfb9f5c75"
+                "a8273f7cfb9f5c75",
+                "d7588aaceab6ed45"
             ]
         ]
     },
@@ -23480,6 +23535,55 @@
         "outputProperties": [],
         "x": 130,
         "y": 1560,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d7588aaceab6ed45",
+        "type": "function",
+        "z": "caf02dc9a5b73890",
+        "name": "HA Push Guard (Kellertür offen)",
+        "func": "if (msg.payload.length == 0) return;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 730,
+        "y": 680,
+        "wires": [
+            [
+                "3aa19724f3c6cbbc"
+            ]
+        ]
+    },
+    {
+        "id": "3aa19724f3c6cbbc",
+        "type": "api-call-service",
+        "z": "caf02dc9a5b73890",
+        "name": "HA Push: Kellertür offen",
+        "server": "3e07f44559793d55",
+        "version": 7,
+        "debugenabled": false,
+        "action": "notify.familie",
+        "floorId": [],
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [],
+        "labelId": [],
+        "data": "{\"title\":\"Kellertür offen!\",\"message\":\"Kann Kellertür nicht abschließen.\"}",
+        "dataType": "json",
+        "mergeContext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "blockInputOverrides": false,
+        "domain": "notify",
+        "service": "familie",
+        "x": 1010,
+        "y": 680,
         "wires": [
             []
         ]
