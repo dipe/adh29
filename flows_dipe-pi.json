@@ -6624,6 +6624,7 @@
         "id": "5cc1c863f4be5175",
         "type": "mqtt in",
         "z": "37daec28.284ee4",
+        "d": true,
         "name": "",
         "topic": "zigbee2mqtt/wippe/action",
         "qos": "2",
