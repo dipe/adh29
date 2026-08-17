@@ -3,7 +3,7 @@
         "id": "37daec28.284ee4",
         "type": "tab",
         "label": "WoZi",
-        "disabled": false,
+        "disabled": true,
         "info": ""
     },
     {
@@ -13305,12 +13305,14 @@
         "id": "9f1e767b0b800f45",
         "type": "debug",
         "z": "dac2cb3b.559138",
+        "d": true,
         "name": "debug 11",
         "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "false",
+        "complete": "payload",
+        "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
         "x": 800,
@@ -13799,11 +13801,10 @@
         "payload": "Started!",
         "payloadType": "str",
         "x": 230,
-        "y": 140,
+        "y": 120,
         "wires": [
             [
-                "40d6912.e35a67",
-                "d9379ea9abb1659e"
+                "40d6912.e35a67"
             ]
         ]
     },
@@ -14379,92 +14380,6 @@
         "x": 895,
         "y": 360,
         "wires": []
-    },
-    {
-        "id": "e63021ca9a82ab15",
-        "type": "ui_switch",
-        "z": "2788b93b.8a2f56",
-        "name": "",
-        "label": "Push-Benachrichtigungen",
-        "tooltip": "",
-        "group": "f3afb1654d596966",
-        "order": 4,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "decouple": "false",
-        "topic": "topic",
-        "topicType": "msg",
-        "style": "",
-        "onvalue": "true",
-        "onvalueType": "bool",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "false",
-        "offvalueType": "bool",
-        "officon": "",
-        "offcolor": "",
-        "animate": false,
-        "className": "",
-        "x": 650,
-        "y": 160,
-        "wires": [
-            [
-                "8a194d53e948819d"
-            ]
-        ]
-    },
-    {
-        "id": "8a194d53e948819d",
-        "type": "change",
-        "z": "2788b93b.8a2f56",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "push-benachrichtigungen",
-                "pt": "flow",
-                "to": "payload",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 940,
-        "y": 160,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "d9379ea9abb1659e",
-        "type": "change",
-        "z": "2788b93b.8a2f56",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "push-benachrichtigungen",
-                "tot": "flow"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 410,
-        "y": 160,
-        "wires": [
-            [
-                "e63021ca9a82ab15"
-            ]
-        ]
     },
     {
         "id": "ec9b4e58fb6bf176",
@@ -17321,6 +17236,7 @@
         "id": "ec42b37f34f05c92",
         "type": "mqtt in",
         "z": "062848eb6508a3a6",
+        "d": true,
         "name": "",
         "topic": "pinpad-haustuer/binary_sensor/button1/state",
         "qos": "2",
@@ -17342,6 +17258,7 @@
         "id": "d85f7bfb56fc3f13",
         "type": "mqtt in",
         "z": "062848eb6508a3a6",
+        "d": true,
         "name": "",
         "topic": "pinpad-haustuer/binary_sensor/button2/state",
         "qos": "2",
@@ -18966,6 +18883,7 @@
         "id": "6903d806f430d4b7",
         "type": "change",
         "z": "062848eb6508a3a6",
+        "d": true,
         "name": "Prep Snap Get",
         "rules": [
             {
@@ -18993,6 +18911,7 @@
         "id": "c8cbd5d2191a7909",
         "type": "http request",
         "z": "062848eb6508a3a6",
+        "d": true,
         "name": "",
         "method": "GET",
         "ret": "bin",
@@ -19017,6 +18936,7 @@
         "id": "e7c617a23d1611f4",
         "type": "function",
         "z": "062848eb6508a3a6",
+        "d": true,
         "name": "Push Notification",
         "func": "let image_url = \"https://home.dipe.de/ui/kamera-haustuer-klingel-img\";\n\nreturn {\n    notification: {\n        notification: { \n            title: \"Haustürklingel\", \n            body: \"Es hat geklingelt\" \n        }, \n        data: { \n            requireInteraction: true, \n            icon: \"https://nodered.org/about/resources/media/node-red-icon-2.png\",\n            image: image_url\n        }\n    }\n};\n",
         "outputs": 1,
@@ -19037,6 +18957,7 @@
         "id": "00c811ab0fc5e79c",
         "type": "link out",
         "z": "062848eb6508a3a6",
+        "d": true,
         "name": "Person an Kellertür erkannt",
         "mode": "link",
         "links": [
@@ -19159,9 +19080,9 @@
         "inputFieldType": "msg",
         "outputField": "payload",
         "outputFieldType": "msg",
-        "downValue": "ON",
+        "downValue": "on",
         "downValueType": "str",
-        "upValue": "OFF",
+        "upValue": "off",
         "upValueType": "str",
         "idleValue": "1",
         "buttonEventsConfig": "3dbea5f7117423db",
@@ -19217,6 +19138,7 @@
         "id": "0be175f5465114c4",
         "type": "function",
         "z": "062848eb6508a3a6",
+        "d": true,
         "name": "Person detected at",
         "func": "let timestamp = new Date();\nlet time = timestamp.toLocaleTimeString('de-DE', { timeStyle: 'short' });\nreturn [\n    {payload: time},\n    {payload: timestamp.valueOf()}\n];",
         "outputs": 2,
@@ -19240,6 +19162,7 @@
         "id": "35592cf5363351cf",
         "type": "ui_text",
         "z": "062848eb6508a3a6",
+        "d": true,
         "group": "40197d5f58592aee",
         "order": 1,
         "width": 0,
@@ -19282,6 +19205,7 @@
         "id": "6d78bf16f2775d40",
         "type": "change",
         "z": "062848eb6508a3a6",
+        "d": true,
         "name": "",
         "rules": [
             {
@@ -19484,6 +19408,7 @@
         "id": "f07ee25e2ecd8171",
         "type": "change",
         "z": "062848eb6508a3a6",
+        "d": true,
         "name": "Prep AudioAlarmPlay Post",
         "rules": [
             {
@@ -19525,6 +19450,7 @@
         "id": "ed1fde1151edd85b",
         "type": "http request",
         "z": "062848eb6508a3a6",
+        "d": true,
         "name": "",
         "method": "POST",
         "ret": "txt",
@@ -19547,6 +19473,7 @@
         "id": "2f8e81148d04aaec",
         "type": "change",
         "z": "062848eb6508a3a6",
+        "d": true,
         "name": "Prep Login Post Balkon Kamera",
         "rules": [
             {
@@ -19581,6 +19508,7 @@
         "id": "0455fb5262ea47be",
         "type": "http request",
         "z": "062848eb6508a3a6",
+        "d": true,
         "name": "",
         "method": "POST",
         "ret": "obj",
@@ -19605,6 +19533,7 @@
         "id": "8461eeb414f977b0",
         "type": "inject",
         "z": "062848eb6508a3a6",
+        "d": true,
         "name": "",
         "props": [],
         "repeat": "3000",
@@ -19624,6 +19553,7 @@
         "id": "d3a2bb472d545aab",
         "type": "change",
         "z": "062848eb6508a3a6",
+        "d": true,
         "name": "",
         "rules": [
             {
@@ -19650,6 +19580,7 @@
         "id": "5dfa61e929295bf2",
         "type": "link in",
         "z": "062848eb6508a3a6",
+        "d": true,
         "name": "Balkon-Kamera Ding-Dong",
         "links": [
             "e938e0ee91a24106"
@@ -19992,6 +19923,53 @@
         "wires": [
             [
                 "0e588db6de9cd341"
+            ]
+        ]
+    },
+    {
+        "id": "6b35ac45489f74a1",
+        "type": "server-state-changed",
+        "z": "062848eb6508a3a6",
+        "name": "Haustürklingel-Taster",
+        "server": "3e07f44559793d55",
+        "version": 6,
+        "outputs": 1,
+        "exposeAsEntityConfig": "",
+        "entities": {
+            "entity": [
+                "binary_sensor.pinpad_haustuer_button1",
+                "binary_sensor.pinpad_haustuer_button2"
+            ],
+            "substring": [],
+            "regex": []
+        },
+        "outputInitially": false,
+        "stateType": "str",
+        "ifState": "",
+        "ifStateType": "str",
+        "ifStateOperator": "is",
+        "outputOnlyOnStateChange": true,
+        "for": "0",
+        "forType": "num",
+        "forUnits": "minutes",
+        "ignorePrevStateNull": false,
+        "ignorePrevStateUnknown": false,
+        "ignorePrevStateUnavailable": false,
+        "ignoreCurrentStateUnknown": false,
+        "ignoreCurrentStateUnavailable": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "string",
+                "valueType": "entityState"
+            }
+        ],
+        "x": 360,
+        "y": 2660,
+        "wires": [
+            [
+                "5a305a61e306dde3"
             ]
         ]
     },
