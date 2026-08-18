@@ -7482,6 +7482,7 @@
         "id": "b99854b9b9143014",
         "type": "link in",
         "z": "2ba29887.9266e8",
+        "d": true,
         "name": "Esszimmertisch MQTT",
         "links": [
             "3d9defb2050f98fb",
@@ -7500,6 +7501,7 @@
         "id": "58e6b312940c0def",
         "type": "function",
         "z": "2ba29887.9266e8",
+        "d": true,
         "name": "Change Scene",
         "func": "const scene = msg.payload.state == \"ON\" ? 3 : 0;\nreturn { payload: scene };",
         "outputs": 1,
@@ -7520,6 +7522,7 @@
         "id": "fbde70a871289cb4",
         "type": "link out",
         "z": "2ba29887.9266e8",
+        "d": true,
         "name": "link out 13",
         "mode": "link",
         "links": [
