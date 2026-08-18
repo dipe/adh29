@@ -7790,6 +7790,7 @@
         "id": "e3b87d0f.108a9",
         "type": "mqtt in",
         "z": "3a471104.edfbae",
+        "d": true,
         "name": "Treppenhaus-Taster",
         "topic": "treppenhaus-gaeste-wc/binary_sensor/button1/state",
         "qos": "2",
@@ -7846,6 +7847,7 @@
         "id": "153c328e.15de1d",
         "type": "mqtt in",
         "z": "3a471104.edfbae",
+        "d": true,
         "name": "Bewegungsmelder Treppenhaus Keller",
         "topic": "zigbee2mqtt/bewegungsmelder_treppenhaus_keller",
         "qos": "2",
@@ -7927,6 +7929,7 @@
         "id": "1c86fb0b.6322c5",
         "type": "mqtt in",
         "z": "3a471104.edfbae",
+        "d": true,
         "name": "Bewegungsmelder Treppenhaus DG",
         "topic": "zigbee2mqtt/bewegungsmelder_treppenhaus_dg",
         "qos": "2",
@@ -7947,6 +7950,7 @@
         "id": "c8229850.b97058",
         "type": "mqtt in",
         "z": "3a471104.edfbae",
+        "d": true,
         "name": "Bewegungsmelder Treppenhaus EG",
         "topic": "zigbee2mqtt/bewegungsmelder_treppenhaus_eg",
         "qos": "2",
@@ -7967,6 +7971,7 @@
         "id": "cf66c5f7.71d4e8",
         "type": "mqtt in",
         "z": "3a471104.edfbae",
+        "d": true,
         "name": "Bewegungsmelder Treppenhaus OG",
         "topic": "zigbee2mqtt/bewegungsmelder_treppenhaus_og",
         "qos": "2",
@@ -7987,6 +7992,7 @@
         "id": "bb3b7629.ab9698",
         "type": "mqtt in",
         "z": "3a471104.edfbae",
+        "d": true,
         "name": "Treppenhaus Erdgeschoss",
         "topic": "treppenhaus-eg/binary_sensor/switch_1/state",
         "qos": "2",
@@ -8084,6 +8090,7 @@
         "id": "33e8db68.d3a814",
         "type": "mqtt in",
         "z": "3a471104.edfbae",
+        "d": true,
         "name": "Treppenhaus Keller",
         "topic": "treppenhaus-keller/binary_sensor/button1/state",
         "qos": "2",
@@ -8466,6 +8473,7 @@
         "id": "e2e13ddd.9151f",
         "type": "mqtt in",
         "z": "3a471104.edfbae",
+        "d": true,
         "name": "Bewegungsmelder Gäste-WC",
         "topic": "zigbee2mqtt/bewegungsmelder_gaeste_wc",
         "qos": "2",
@@ -8630,6 +8638,7 @@
         "id": "dc323f21c8079cd6",
         "type": "mqtt in",
         "z": "3a471104.edfbae",
+        "d": true,
         "name": "Treppenhaus Gardrobe",
         "topic": "treppenhaus-gardrobe/binary_sensor/button2/state",
         "qos": "2",
@@ -9338,6 +9347,7 @@
         "id": "070fca901d339e4b",
         "type": "mqtt in",
         "z": "3a471104.edfbae",
+        "d": true,
         "name": "Bewegungsmelder Treppenhaus Keller Vorratsecke",
         "topic": "zigbee2mqtt/bewegungsmelder_treppenhaus_keller_vorratsecke",
         "qos": "2",
@@ -9975,8 +9985,7 @@
         "wires": [
             [
                 "9df23e12.4321d",
-                "febc79d8.468048",
-                "7e27cddb614f807b"
+                "febc79d8.468048"
             ]
         ]
     },
@@ -10445,26 +10454,6 @@
         "wires": [
             [
                 "15f3325a.1a8f0e"
-            ]
-        ]
-    },
-    {
-        "id": "7e27cddb614f807b",
-        "type": "function",
-        "z": "4d90b497.b5b2ac",
-        "name": "",
-        "func": "return {\n    topic: \"fritzbox/waschkueche_luefterautomatik\",\n    payload: {\n        state: msg.payload\n    }\n};",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1340,
-        "y": 620,
-        "wires": [
-            [
-                "0a8c64a7ae570888"
             ]
         ]
     },
@@ -15969,6 +15958,7 @@
         "id": "ae7875fc8d01a17a",
         "type": "function",
         "z": "559aac41a5cf74c4",
+        "d": true,
         "name": "filter on",
         "func": "if (msg.payload === \"on\")\n    return {payload: \"on\"}\nelse\n    return undefined;\n",
         "outputs": 1,
@@ -15988,20 +15978,21 @@
         "id": "13d23de0dd6aedb7",
         "type": "trigger",
         "z": "559aac41a5cf74c4",
-        "name": "Treppenhausautomat 1h",
+        "d": true,
+        "name": "Treppenhausautomat 30 min",
         "op1": "",
         "op2": "off",
         "op1type": "nul",
         "op2type": "str",
-        "duration": "1",
+        "duration": "30",
         "extend": false,
         "overrideDelay": false,
-        "units": "hr",
+        "units": "min",
         "reset": "",
         "bytopic": "all",
         "topic": "topic",
         "outputs": 1,
-        "x": 910,
+        "x": 920,
         "y": 160,
         "wires": [
             [
@@ -16013,6 +16004,7 @@
         "id": "a8db2b8520cacc58",
         "type": "change",
         "z": "559aac41a5cf74c4",
+        "d": true,
         "name": "",
         "rules": [
             {
@@ -16040,6 +16032,7 @@
         "id": "6db95c48eb02d3d7",
         "type": "function",
         "z": "559aac41a5cf74c4",
+        "d": true,
         "name": "filter off",
         "func": "if (msg.payload === \"off\")\n    return {payload: \"off\"}\nelse\n    return undefined;\n",
         "outputs": 1,
@@ -34593,6 +34586,7 @@
         "id": "1e7f722e648293c3",
         "type": "mqtt in",
         "z": "f146a45029860fdf",
+        "d": true,
         "name": "",
         "topic": "zigbee2mqtt/rad",
         "qos": "2",
@@ -34888,6 +34882,7 @@
         "id": "b708cc79a53544f4",
         "type": "link in",
         "z": "f146a45029860fdf",
+        "d": true,
         "name": "haustürklingel",
         "links": [
             "e938e0ee91a24106"
