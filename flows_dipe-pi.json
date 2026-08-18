@@ -9424,6 +9424,7 @@
         "id": "c4508389.32591",
         "type": "mqtt in",
         "z": "4d90b497.b5b2ac",
+        "d": true,
         "name": "",
         "topic": "shellies/waschmaschine/temperature",
         "qos": "2",
@@ -9684,6 +9685,7 @@
         "id": "74d29041.9a5c4",
         "type": "ui_switch",
         "z": "4d90b497.b5b2ac",
+        "d": true,
         "name": "Waschküche Lüfter",
         "label": "Lüfter",
         "tooltip": "",
@@ -9722,6 +9724,7 @@
         "id": "3226d9b9.c591c6",
         "type": "fritz-thermostat",
         "z": "4d90b497.b5b2ac",
+        "d": true,
         "connection": "c2e6322e.33404",
         "name": "setTempTarget AVM 301 Waschküche",
         "action": "setTempTarget",
@@ -9749,7 +9752,7 @@
         "y": 400,
         "wires": [
             [
-                "74d29041.9a5c4"
+                "191fe839cab63c76"
             ],
             [
                 "89a86d6b3ba3dfad"
@@ -9760,6 +9763,7 @@
         "id": "fcc6366f.aa0998",
         "type": "mqtt out",
         "z": "4d90b497.b5b2ac",
+        "d": true,
         "name": "Waschküche Lüfter",
         "topic": "waschkueche-luefter/switch/switch12/command",
         "qos": "",
@@ -9773,6 +9777,7 @@
         "id": "92c6f73d.d38e98",
         "type": "mqtt out",
         "z": "4d90b497.b5b2ac",
+        "d": true,
         "name": "waschkueche-lueftungsklappe",
         "topic": "waschkueche-lueftungssteuerung/switch/servo/command",
         "qos": "",
@@ -9791,6 +9796,7 @@
         "id": "21f07479.c7da9c",
         "type": "function",
         "z": "4d90b497.b5b2ac",
+        "d": true,
         "name": "not",
         "func": "return {payload: (msg.payload != 'ON' ? 'ON' : 'OFF')};",
         "outputs": 1,
@@ -9810,6 +9816,7 @@
         "id": "c8ee7404.bf05b8",
         "type": "mqtt out",
         "z": "4d90b497.b5b2ac",
+        "d": true,
         "name": "waschkueche-lueftungssteuerung green led",
         "topic": "waschkueche-lueftungssteuerung/switch/green/command",
         "qos": "",
@@ -9828,6 +9835,7 @@
         "id": "aea42133.521d6",
         "type": "function",
         "z": "4d90b497.b5b2ac",
+        "d": true,
         "name": "",
         "func": "const lueften = msg.payload == \"LUEFTEN\";\nconst nicht_lueften = msg.payload == \"NICHT_LUEFTEN\";\nvar automatik = (msg.payload == \"AUTOMATIK\") || (flow.get(\"washroom_fan_control\") == 'ON');\n\nif (lueften || nicht_lueften) {\n    automatik = false;\n}\n\nreturn [\n    {payload: (lueften) ? 'ON' : 'OFF'},\n    {payload: (automatik) ? 'ON' : 'OFF'}\n];",
         "outputs": 2,
@@ -9851,6 +9859,7 @@
         "id": "429ff1e7.d2093",
         "type": "trigger",
         "z": "4d90b497.b5b2ac",
+        "d": true,
         "name": "Treppenhausautomat",
         "op1": "",
         "op2": "OFF",
@@ -9876,6 +9885,7 @@
         "id": "6afb2001.139fe",
         "type": "function",
         "z": "4d90b497.b5b2ac",
+        "d": true,
         "name": "",
         "func": "const luefter = msg.payload;\nconst wk_temperature = global.get(\"waschkueche_luefter-temperature\");\nconst wk_rel_humidity = global.get(\"waschkueche_luefter-humidity\");\n\nif (luefter === \"ON\") { \n    return {\n        payload: \"off\"\n    };\n} else if (wk_rel_humidity > 65 && wk_temperature < 18) {\n    return {\n        payload: 18\n    };\n} else if (wk_rel_humidity > 60  && wk_temperature < 16) {\n    return {\n        payload: 16\n    };\n} else if (wk_temperature < 14  && wk_temperature < 14) {\n    return {\n        payload: 14\n    };\n} else {\n    return {\n        payload: \"off\"\n    };\n}\n",
         "outputs": 1,
@@ -9921,6 +9931,7 @@
         "id": "341192ad.5f46be",
         "type": "mqtt out",
         "z": "4d90b497.b5b2ac",
+        "d": true,
         "name": "waschkueche-lueftungssteuerung red led",
         "topic": "waschkueche-lueftungssteuerung/switch/red/command",
         "qos": "",
@@ -9939,6 +9950,7 @@
         "id": "e141181a.c44548",
         "type": "function",
         "z": "4d90b497.b5b2ac",
+        "d": true,
         "name": "filter ON",
         "func": "if (msg.payload === \"ON\")\n    return {payload: \"ON\"}\nelse\n    return undefined;\n",
         "outputs": 1,
@@ -9958,6 +9970,7 @@
         "id": "d5fef74c.c342e8",
         "type": "ui_switch",
         "z": "4d90b497.b5b2ac",
+        "d": true,
         "name": "Waschküche Lüfterautomatik",
         "label": "Lüfterautomatik",
         "tooltip": "",
@@ -9993,6 +10006,7 @@
         "id": "10e19129.3947ef",
         "type": "function",
         "z": "4d90b497.b5b2ac",
+        "d": true,
         "name": "filter ON map to LUEFTEN",
         "func": "if (msg.payload === \"ON\")\n    return {payload: \"LUEFTEN\"}\nelse\n    return undefined;\n",
         "outputs": 1,
@@ -10012,6 +10026,7 @@
         "id": "7b34d28e.50768c",
         "type": "function",
         "z": "4d90b497.b5b2ac",
+        "d": true,
         "name": "filter ON map to AUTOMATIK",
         "func": "if (msg.payload === \"ON\")\n    return {payload: \"AUTOMATIK\"}\nelse\n    return undefined;\n",
         "outputs": 1,
@@ -10031,6 +10046,7 @@
         "id": "a77eeea8.ad77b",
         "type": "function",
         "z": "4d90b497.b5b2ac",
+        "d": true,
         "name": "filter ON map to NICHT_LUEFTEN",
         "func": "if (msg.payload === \"ON\")\n    return {payload: \"NICHT_LUEFTEN\"}\nelse\n    return undefined;\n",
         "outputs": 1,
@@ -10049,6 +10065,7 @@
         "id": "9df23e12.4321d",
         "type": "change",
         "z": "4d90b497.b5b2ac",
+        "d": true,
         "name": "",
         "rules": [
             {
@@ -10074,6 +10091,7 @@
         "id": "febc79d8.468048",
         "type": "mqtt out",
         "z": "4d90b497.b5b2ac",
+        "d": true,
         "name": "waschkueche-lueftungssteuerung yellow led",
         "topic": "waschkueche-lueftungssteuerung/switch/yellow/command",
         "qos": "",
@@ -10087,6 +10105,7 @@
         "id": "8f0a4f28.6f3c4",
         "type": "mqtt in",
         "z": "4d90b497.b5b2ac",
+        "d": true,
         "name": "waschkueche-lueftungssteuerung lueften",
         "topic": "waschkueche-lueftungssteuerung/binary_sensor/lueften/state",
         "qos": "2",
@@ -10107,6 +10126,7 @@
         "id": "8e37f3ae.8c3a1",
         "type": "mqtt in",
         "z": "4d90b497.b5b2ac",
+        "d": true,
         "name": "waschkueche-lueftungssteuerung automatik",
         "topic": "waschkueche-lueftungssteuerung/binary_sensor/automatik/state",
         "qos": "2",
@@ -10127,6 +10147,7 @@
         "id": "3389cd6e.2de5b2",
         "type": "mqtt in",
         "z": "4d90b497.b5b2ac",
+        "d": true,
         "name": "waschkueche-lueftungssteuerung nicht lueften",
         "topic": "waschkueche-lueftungssteuerung/binary_sensor/nicht_lueften/state",
         "qos": "2",
@@ -10145,6 +10166,7 @@
         "id": "6efdaf1f.06744",
         "type": "ui_dropdown",
         "z": "4d90b497.b5b2ac",
+        "d": true,
         "name": "Heizung Waschküche",
         "label": "Heizung",
         "tooltip": "",
@@ -10198,6 +10220,7 @@
         "id": "2122ea56.ebd5e6",
         "type": "function",
         "z": "4d90b497.b5b2ac",
+        "d": true,
         "name": "",
         "func": "const status = (msg.payload === \"off\") ? \"off\" : \"on\";\nconst temp = (msg.payload === \"off\" ? 0 : msg.payload);\n\nreturn {\n    topic: \"fritzbox/waschkueche_heizung\",\n    payload: {\n        status: status,\n        target_temperature: temp\n    }\n};",
         "outputs": 1,
@@ -10218,6 +10241,7 @@
         "id": "6cf66f42.81259",
         "type": "change",
         "z": "4d90b497.b5b2ac",
+        "d": true,
         "name": "set ain",
         "rules": [
             {
@@ -10489,6 +10513,7 @@
         "id": "abbb2e72f1b22143",
         "type": "ui_switch",
         "z": "4d90b497.b5b2ac",
+        "d": true,
         "name": "Waschküche Lüftungsklappe",
         "label": "Lüftungsklappe offen",
         "tooltip": "",
@@ -10523,6 +10548,7 @@
         "id": "322b18fbfd051ba3",
         "type": "mqtt in",
         "z": "4d90b497.b5b2ac",
+        "d": true,
         "name": "",
         "topic": "zigbee2mqtt/wasserleck_sensor_waschkueche",
         "qos": "2",
@@ -10662,6 +10688,7 @@
         "id": "e7dd41b611195f78",
         "type": "hangoutChatBot",
         "z": "4d90b497.b5b2ac",
+        "d": true,
         "hangoutsCertificate": "10925253.f46f4e",
         "roomid": "spaces/AAAA1mNxo1U",
         "roomname": "spaces/AAAA1mNxo1U",
@@ -10756,6 +10783,163 @@
         "statusType": "auto",
         "x": 600,
         "y": 1240,
+        "wires": []
+    },
+    {
+        "id": "191fe839cab63c76",
+        "type": "switch",
+        "z": "4d90b497.b5b2ac",
+        "name": "ON/OFF routen",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "ON",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "OFF",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1040,
+        "y": 240,
+        "wires": [
+            [
+                "60005e972e616214"
+            ],
+            [
+                "34e5ee7802a1abe6"
+            ]
+        ]
+    },
+    {
+        "id": "60005e972e616214",
+        "type": "api-call-service",
+        "z": "4d90b497.b5b2ac",
+        "name": "Lüfter an (HA)",
+        "server": "3e07f44559793d55",
+        "version": 7,
+        "debugenabled": false,
+        "action": "switch.turn_on",
+        "floorId": [],
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [
+            "switch.waschkueche_luefter_switch12"
+        ],
+        "labelId": [],
+        "data": "{}",
+        "dataType": "json",
+        "mergeContext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "blockInputOverrides": false,
+        "domain": "switch",
+        "service": "turn_on",
+        "x": 1200,
+        "y": 120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "34e5ee7802a1abe6",
+        "type": "api-call-service",
+        "z": "4d90b497.b5b2ac",
+        "name": "Lüfter aus (HA)",
+        "server": "3e07f44559793d55",
+        "version": 7,
+        "debugenabled": false,
+        "action": "switch.turn_off",
+        "floorId": [],
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [
+            "switch.waschkueche_luefter_switch12"
+        ],
+        "labelId": [],
+        "data": "{}",
+        "dataType": "json",
+        "mergeContext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "blockInputOverrides": false,
+        "domain": "switch",
+        "service": "turn_off",
+        "x": 1200,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ab120a1bc5638800",
+        "type": "server-state-changed",
+        "z": "4d90b497.b5b2ac",
+        "name": "Waschküche Automatik-Flag (HA)",
+        "server": "3e07f44559793d55",
+        "version": 6,
+        "outputs": 1,
+        "exposeAsEntityConfig": "",
+        "entities": {
+            "entity": [
+                "input_boolean.waschkueche_lueftungsautomatik"
+            ],
+            "substring": [],
+            "regex": []
+        },
+        "outputInitially": true,
+        "stateType": "str",
+        "ifState": "",
+        "ifStateType": "str",
+        "ifStateOperator": "is",
+        "outputOnlyOnStateChange": true,
+        "for": "0",
+        "forType": "num",
+        "forUnits": "minutes",
+        "ignorePrevStateNull": false,
+        "ignorePrevStateUnknown": false,
+        "ignorePrevStateUnavailable": false,
+        "ignoreCurrentStateUnknown": false,
+        "ignoreCurrentStateUnavailable": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "string",
+                "valueType": "entityState"
+            }
+        ],
+        "x": 250,
+        "y": 660,
+        "wires": [
+            [
+                "ed3ff484110e22d6"
+            ]
+        ]
+    },
+    {
+        "id": "ed3ff484110e22d6",
+        "type": "function",
+        "z": "4d90b497.b5b2ac",
+        "name": "set flow.washroom_fan_control",
+        "func": "flow.set(\"washroom_fan_control\", (msg.payload || \"\").toUpperCase());\nreturn null;",
+        "outputs": 0,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 560,
+        "y": 660,
         "wires": []
     },
     {
