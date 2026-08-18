@@ -3022,7 +3022,7 @@
             },
             {
                 "property": "mode",
-                "value": "text"
+                "value": "password"
             },
             {
                 "property": "min_length",
@@ -3232,7 +3232,7 @@
             },
             {
                 "property": "mode",
-                "value": "text"
+                "value": "password"
             },
             {
                 "property": "min_length",
@@ -23986,7 +23986,8 @@
         "y": 500,
         "wires": [
             [
-                "43ea06c6402fd32c"
+                "43ea06c6402fd32c",
+                "0d2db0fbb66b47cb"
             ]
         ]
     },
@@ -24032,7 +24033,8 @@
         "y": 200,
         "wires": [
             [
-                "f881e4e815ab74e2"
+                "f881e4e815ab74e2",
+                "850b5847b2155833"
             ]
         ]
     },
@@ -24240,7 +24242,8 @@
         "y": 660,
         "wires": [
             [
-                "aa61111808d936e3"
+                "aa61111808d936e3",
+                "469a8d0c276ed6c0"
             ]
         ]
     },
@@ -24259,7 +24262,8 @@
         "y": 700,
         "wires": [
             [
-                "aa61111808d936e3"
+                "aa61111808d936e3",
+                "469a8d0c276ed6c0"
             ]
         ]
     },
@@ -24453,7 +24457,8 @@
         "y": 280,
         "wires": [
             [
-                "9b8960836cacdb41"
+                "9b8960836cacdb41",
+                "a41c881ab70e1410"
             ]
         ]
     },
@@ -24517,7 +24522,8 @@
         "y": 420,
         "wires": [
             [
-                "40c16885dc5420d8"
+                "40c16885dc5420d8",
+                "0d2db0fbb66b47cb"
             ]
         ]
     },
@@ -35879,7 +35885,7 @@
         "y": 400,
         "wires": [
             [
-                "8586e1e4fb88ae5a"
+                "51990ddc19c4501a"
             ]
         ]
     },
@@ -35924,5 +35930,804 @@
                 "978837c7b530f49c"
             ]
         ]
+    },
+    {
+        "id": "324004ccd23f134d",
+        "type": "ha-device-config",
+        "name": "Pins verwalten",
+        "hwVersion": "",
+        "manufacturer": "Node-RED",
+        "model": "Pins verwalten",
+        "swVersion": ""
+    },
+    {
+        "id": "623c6dfee8abb7e4",
+        "type": "ha-entity-config",
+        "server": "3e07f44559793d55",
+        "deviceConfig": "324004ccd23f134d",
+        "name": "Master-PIN",
+        "version": 6,
+        "entityType": "text",
+        "haConfig": [
+            {
+                "property": "name",
+                "value": "Master-PIN"
+            },
+            {
+                "property": "icon",
+                "value": "mdi:key-alert"
+            },
+            {
+                "property": "entity_picture",
+                "value": ""
+            },
+            {
+                "property": "entity_category",
+                "value": ""
+            },
+            {
+                "property": "mode",
+                "value": "password"
+            },
+            {
+                "property": "min_length",
+                "value": 0
+            },
+            {
+                "property": "max_length",
+                "value": 20
+            },
+            {
+                "property": "pattern",
+                "value": ""
+            }
+        ],
+        "resend": false,
+        "debugEnabled": false
+    },
+    {
+        "id": "c5f31c6e6d945da2",
+        "type": "ha-entity-config",
+        "server": "3e07f44559793d55",
+        "deviceConfig": "324004ccd23f134d",
+        "name": "Name",
+        "version": 6,
+        "entityType": "text",
+        "haConfig": [
+            {
+                "property": "name",
+                "value": "Name"
+            },
+            {
+                "property": "icon",
+                "value": "mdi:account"
+            },
+            {
+                "property": "entity_picture",
+                "value": ""
+            },
+            {
+                "property": "entity_category",
+                "value": ""
+            },
+            {
+                "property": "mode",
+                "value": "text"
+            },
+            {
+                "property": "min_length",
+                "value": 0
+            },
+            {
+                "property": "max_length",
+                "value": 20
+            },
+            {
+                "property": "pattern",
+                "value": ""
+            }
+        ],
+        "resend": false,
+        "debugEnabled": false
+    },
+    {
+        "id": "35d60bab342f834a",
+        "type": "ha-entity-config",
+        "server": "3e07f44559793d55",
+        "deviceConfig": "324004ccd23f134d",
+        "name": "PIN",
+        "version": 6,
+        "entityType": "text",
+        "haConfig": [
+            {
+                "property": "name",
+                "value": "PIN"
+            },
+            {
+                "property": "icon",
+                "value": "mdi:dialpad"
+            },
+            {
+                "property": "entity_picture",
+                "value": ""
+            },
+            {
+                "property": "entity_category",
+                "value": ""
+            },
+            {
+                "property": "mode",
+                "value": "password"
+            },
+            {
+                "property": "min_length",
+                "value": 0
+            },
+            {
+                "property": "max_length",
+                "value": 20
+            },
+            {
+                "property": "pattern",
+                "value": ""
+            }
+        ],
+        "resend": false,
+        "debugEnabled": false
+    },
+    {
+        "id": "810c678a62538b57",
+        "type": "ha-entity-config",
+        "server": "3e07f44559793d55",
+        "deviceConfig": "324004ccd23f134d",
+        "name": "PIN hinzufügen",
+        "version": 6,
+        "entityType": "button",
+        "haConfig": [
+            {
+                "property": "name",
+                "value": "PIN hinzufügen"
+            },
+            {
+                "property": "icon",
+                "value": "mdi:key-plus"
+            },
+            {
+                "property": "entity_picture",
+                "value": ""
+            },
+            {
+                "property": "entity_category",
+                "value": ""
+            },
+            {
+                "property": "device_class",
+                "value": ""
+            }
+        ],
+        "resend": false,
+        "debugEnabled": false
+    },
+    {
+        "id": "ec2b03eef7eecb25",
+        "type": "ha-entity-config",
+        "server": "3e07f44559793d55",
+        "deviceConfig": "324004ccd23f134d",
+        "name": "PIN löschen",
+        "version": 6,
+        "entityType": "button",
+        "haConfig": [
+            {
+                "property": "name",
+                "value": "PIN löschen"
+            },
+            {
+                "property": "icon",
+                "value": "mdi:key-minus"
+            },
+            {
+                "property": "entity_picture",
+                "value": ""
+            },
+            {
+                "property": "entity_category",
+                "value": ""
+            },
+            {
+                "property": "device_class",
+                "value": ""
+            }
+        ],
+        "resend": false,
+        "debugEnabled": false
+    },
+    {
+        "id": "256f46bebb6a146e",
+        "type": "ha-entity-config",
+        "server": "3e07f44559793d55",
+        "deviceConfig": "324004ccd23f134d",
+        "name": "Log löschen",
+        "version": 6,
+        "entityType": "button",
+        "haConfig": [
+            {
+                "property": "name",
+                "value": "Log löschen"
+            },
+            {
+                "property": "icon",
+                "value": "mdi:notebook-remove"
+            },
+            {
+                "property": "entity_picture",
+                "value": ""
+            },
+            {
+                "property": "entity_category",
+                "value": ""
+            },
+            {
+                "property": "device_class",
+                "value": ""
+            }
+        ],
+        "resend": false,
+        "debugEnabled": false
+    },
+    {
+        "id": "58bc42e0e6274b03",
+        "type": "ha-entity-config",
+        "server": "3e07f44559793d55",
+        "deviceConfig": "324004ccd23f134d",
+        "name": "Liste der PINs",
+        "version": 6,
+        "entityType": "sensor",
+        "haConfig": [
+            {
+                "property": "name",
+                "value": "Liste der PINs"
+            },
+            {
+                "property": "icon",
+                "value": "mdi:key-chain"
+            },
+            {
+                "property": "entity_picture",
+                "value": ""
+            },
+            {
+                "property": "entity_category",
+                "value": ""
+            },
+            {
+                "property": "device_class",
+                "value": ""
+            },
+            {
+                "property": "unit_of_measurement",
+                "value": ""
+            },
+            {
+                "property": "state_class",
+                "value": ""
+            }
+        ],
+        "resend": false,
+        "debugEnabled": false
+    },
+    {
+        "id": "10c95fccaf154ba9",
+        "type": "ha-entity-config",
+        "server": "3e07f44559793d55",
+        "deviceConfig": "324004ccd23f134d",
+        "name": "Log",
+        "version": 6,
+        "entityType": "sensor",
+        "haConfig": [
+            {
+                "property": "name",
+                "value": "Log"
+            },
+            {
+                "property": "icon",
+                "value": "mdi:text-box-outline"
+            },
+            {
+                "property": "entity_picture",
+                "value": ""
+            },
+            {
+                "property": "entity_category",
+                "value": ""
+            },
+            {
+                "property": "device_class",
+                "value": ""
+            },
+            {
+                "property": "unit_of_measurement",
+                "value": ""
+            },
+            {
+                "property": "state_class",
+                "value": ""
+            }
+        ],
+        "resend": false,
+        "debugEnabled": false
+    },
+    {
+        "id": "ca4bba32495d6906",
+        "type": "ha-text",
+        "z": "55309aa5255fcdbf",
+        "name": "Master-PIN",
+        "entityConfig": "623c6dfee8abb7e4",
+        "version": 1,
+        "inputs": 0,
+        "outputs": 1,
+        "mode": "listen",
+        "value": "",
+        "valueType": "str",
+        "outputProperties": [],
+        "x": 170,
+        "y": 880,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6da44739aeeb5293",
+        "type": "ha-text",
+        "z": "55309aa5255fcdbf",
+        "name": "Name",
+        "entityConfig": "c5f31c6e6d945da2",
+        "version": 1,
+        "inputs": 0,
+        "outputs": 1,
+        "mode": "listen",
+        "value": "",
+        "valueType": "str",
+        "outputProperties": [],
+        "x": 170,
+        "y": 920,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8d84e1fdceba7807",
+        "type": "ha-text",
+        "z": "55309aa5255fcdbf",
+        "name": "PIN",
+        "entityConfig": "35d60bab342f834a",
+        "version": 1,
+        "inputs": 0,
+        "outputs": 1,
+        "mode": "listen",
+        "value": "",
+        "valueType": "str",
+        "outputProperties": [],
+        "x": 170,
+        "y": 960,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1c4f777304a2b023",
+        "type": "ha-button",
+        "z": "55309aa5255fcdbf",
+        "name": "PIN hinzufügen",
+        "entityConfig": "810c678a62538b57",
+        "version": 0,
+        "outputs": 1,
+        "outputProperties": [],
+        "x": 180,
+        "y": 1000,
+        "wires": [
+            [
+                "5deb2a7e434e6676"
+            ]
+        ]
+    },
+    {
+        "id": "3e1c9094c4e11a2a",
+        "type": "ha-button",
+        "z": "55309aa5255fcdbf",
+        "name": "PIN löschen",
+        "entityConfig": "ec2b03eef7eecb25",
+        "version": 0,
+        "outputs": 1,
+        "outputProperties": [],
+        "x": 180,
+        "y": 1040,
+        "wires": [
+            [
+                "a838261e840e74f5"
+            ]
+        ]
+    },
+    {
+        "id": "47fe9fc1944749b7",
+        "type": "ha-button",
+        "z": "55309aa5255fcdbf",
+        "name": "Log löschen",
+        "entityConfig": "256f46bebb6a146e",
+        "version": 0,
+        "outputs": 1,
+        "outputProperties": [],
+        "x": 180,
+        "y": 1080,
+        "wires": [
+            [
+                "063d96dba6bcebe6"
+            ]
+        ]
+    },
+    {
+        "id": "850b5847b2155833",
+        "type": "ha-sensor",
+        "z": "55309aa5255fcdbf",
+        "name": "Liste der PINs",
+        "entityConfig": "58bc42e0e6274b03",
+        "version": 0,
+        "state": "liste",
+        "stateType": "str",
+        "attributes": [
+            {
+                "property": "text",
+                "value": "payload",
+                "valueType": "msg"
+            }
+        ],
+        "inputOverride": "allow",
+        "outputProperties": [],
+        "x": 700,
+        "y": 1000,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "469a8d0c276ed6c0",
+        "type": "ha-sensor",
+        "z": "55309aa5255fcdbf",
+        "name": "Log",
+        "entityConfig": "10c95fccaf154ba9",
+        "version": 0,
+        "state": "log",
+        "stateType": "str",
+        "attributes": [
+            {
+                "property": "text",
+                "value": "payload",
+                "valueType": "msg"
+            }
+        ],
+        "inputOverride": "allow",
+        "outputProperties": [],
+        "x": 700,
+        "y": 1040,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6555aaf880a06c4b",
+        "type": "server-state-changed",
+        "z": "55309aa5255fcdbf",
+        "name": "Master-PIN eingegeben",
+        "server": "3e07f44559793d55",
+        "version": 6,
+        "outputs": 1,
+        "exposeAsEntityConfig": "",
+        "entities": {
+            "entity": [
+                "text.pins_verwalten_master_pin"
+            ],
+            "substring": [],
+            "regex": []
+        },
+        "outputInitially": false,
+        "stateType": "str",
+        "ifState": "",
+        "ifStateType": "str",
+        "ifStateOperator": "is",
+        "outputOnlyOnStateChange": true,
+        "for": "0",
+        "forType": "num",
+        "forUnits": "minutes",
+        "ignorePrevStateNull": false,
+        "ignorePrevStateUnknown": false,
+        "ignorePrevStateUnavailable": false,
+        "ignoreCurrentStateUnknown": true,
+        "ignoreCurrentStateUnavailable": true,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "string",
+                "valueType": "entityState"
+            }
+        ],
+        "x": 170,
+        "y": 280,
+        "wires": [
+            [
+                "935483db9977f12b"
+            ]
+        ]
+    },
+    {
+        "id": "b2a7ec0726d21a69",
+        "type": "server-state-changed",
+        "z": "55309aa5255fcdbf",
+        "name": "Name eingegeben",
+        "server": "3e07f44559793d55",
+        "version": 6,
+        "outputs": 1,
+        "exposeAsEntityConfig": "",
+        "entities": {
+            "entity": [
+                "text.pins_verwalten_name"
+            ],
+            "substring": [],
+            "regex": []
+        },
+        "outputInitially": false,
+        "stateType": "str",
+        "ifState": "",
+        "ifStateType": "str",
+        "ifStateOperator": "is",
+        "outputOnlyOnStateChange": true,
+        "for": "0",
+        "forType": "num",
+        "forUnits": "minutes",
+        "ignorePrevStateNull": false,
+        "ignorePrevStateUnknown": false,
+        "ignorePrevStateUnavailable": false,
+        "ignoreCurrentStateUnknown": true,
+        "ignoreCurrentStateUnavailable": true,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "string",
+                "valueType": "entityState"
+            }
+        ],
+        "x": 150,
+        "y": 320,
+        "wires": [
+            [
+                "aa99eb44af9f184a"
+            ]
+        ]
+    },
+    {
+        "id": "025f61dd451527a2",
+        "type": "server-state-changed",
+        "z": "55309aa5255fcdbf",
+        "name": "PIN eingegeben",
+        "server": "3e07f44559793d55",
+        "version": 6,
+        "outputs": 1,
+        "exposeAsEntityConfig": "",
+        "entities": {
+            "entity": [
+                "text.pins_verwalten_pin"
+            ],
+            "substring": [],
+            "regex": []
+        },
+        "outputInitially": false,
+        "stateType": "str",
+        "ifState": "",
+        "ifStateType": "str",
+        "ifStateOperator": "is",
+        "outputOnlyOnStateChange": true,
+        "for": "0",
+        "forType": "num",
+        "forUnits": "minutes",
+        "ignorePrevStateNull": false,
+        "ignorePrevStateUnknown": false,
+        "ignorePrevStateUnavailable": false,
+        "ignoreCurrentStateUnknown": true,
+        "ignoreCurrentStateUnavailable": true,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "string",
+                "valueType": "entityState"
+            }
+        ],
+        "x": 140,
+        "y": 360,
+        "wires": [
+            [
+                "fb35b2dae815c0ef"
+            ]
+        ]
+    },
+    {
+        "id": "765555d16b3de1c3",
+        "type": "api-call-service",
+        "z": "55309aa5255fcdbf",
+        "name": "HA-Felder leeren",
+        "server": "3e07f44559793d55",
+        "version": 7,
+        "debugenabled": false,
+        "action": "text.set_value",
+        "floorId": [],
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [
+            "text.pins_verwalten_master_pin",
+            "text.pins_verwalten_name",
+            "text.pins_verwalten_pin"
+        ],
+        "labelId": [],
+        "data": "{\"value\":\"\"}",
+        "dataType": "json",
+        "mergeContext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "blockInputOverrides": false,
+        "domain": "text",
+        "service": "set_value",
+        "x": 650,
+        "y": 240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "43be69a32ebd4d97",
+        "type": "inject",
+        "z": "55309aa5255fcdbf",
+        "name": "HA-Felder initial leeren",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "2",
+        "topic": "",
+        "payload": "",
+        "payloadType": "str",
+        "x": 430,
+        "y": 240,
+        "wires": [
+            [
+                "765555d16b3de1c3"
+            ]
+        ]
+    },
+    {
+        "id": "a41c881ab70e1410",
+        "type": "api-call-service",
+        "z": "55309aa5255fcdbf",
+        "name": "Master-PIN Feld leeren",
+        "server": "3e07f44559793d55",
+        "version": 7,
+        "debugenabled": false,
+        "action": "text.set_value",
+        "floorId": [],
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [
+            "text.pins_verwalten_master_pin"
+        ],
+        "labelId": [],
+        "data": "{\"value\":\"\"}",
+        "dataType": "json",
+        "mergeContext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "blockInputOverrides": false,
+        "domain": "text",
+        "service": "set_value",
+        "x": 1050,
+        "y": 280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "0d2db0fbb66b47cb",
+        "type": "change",
+        "z": "55309aa5255fcdbf",
+        "name": "Felder leeren (nach Aktion)",
+        "rules": [
+            {
+                "t": "set",
+                "p": "master_pin",
+                "pt": "flow",
+                "to": "",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "name_to_process",
+                "pt": "flow",
+                "to": "",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "pin_to_process",
+                "pt": "flow",
+                "to": "",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1160,
+        "y": 460,
+        "wires": [
+            [
+                "9b8960836cacdb41",
+                "30fc515c266a6fec",
+                "6c56f6ced4ea73d5",
+                "765555d16b3de1c3"
+            ]
+        ]
+    },
+    {
+        "id": "51990ddc19c4501a",
+        "type": "function",
+        "z": "af5e44f55de05ade",
+        "name": "Sensible Werte filtern",
+        "func": "const entityId = msg.topic || '';\nconst newState = msg.data && msg.data.new_state;\nconst attrs = (newState && newState.attributes) || {};\nconst sensitivePattern = /pin|passwort|password|kennwort|secret/i;\nconst isSensitive = attrs.mode === 'password'\n    || sensitivePattern.test(entityId)\n    || sensitivePattern.test(attrs.friendly_name || '');\n\nif (isSensitive) {\n    return [null, { payload: `gefiltert: ${entityId}` }];\n}\nreturn [msg, null];",
+        "outputs": 2,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 330,
+        "y": 400,
+        "wires": [
+            [
+                "8586e1e4fb88ae5a"
+            ],
+            [
+                "293cbe5892c85dc3"
+            ]
+        ]
+    },
+    {
+        "id": "293cbe5892c85dc3",
+        "type": "debug",
+        "z": "af5e44f55de05ade",
+        "name": "debug gefiltert",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 540,
+        "y": 460,
+        "wires": []
     }
 ]
