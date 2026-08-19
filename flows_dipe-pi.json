@@ -3,21 +3,21 @@
         "id": "37daec28.284ee4",
         "type": "tab",
         "label": "WoZi",
-        "disabled": false,
+        "disabled": true,
         "info": ""
     },
     {
         "id": "2ba29887.9266e8",
         "type": "tab",
         "label": "EsZi",
-        "disabled": false,
+        "disabled": true,
         "info": ""
     },
     {
         "id": "3a471104.edfbae",
         "type": "tab",
         "label": "Treppenhaus",
-        "disabled": false,
+        "disabled": true,
         "info": ""
     },
     {
@@ -31,7 +31,7 @@
         "id": "293bb437.fa00bc",
         "type": "tab",
         "label": "Außen",
-        "disabled": false,
+        "disabled": true,
         "info": ""
     },
     {
@@ -52,7 +52,7 @@
         "id": "dac2cb3b.559138",
         "type": "tab",
         "label": "Warmwasser",
-        "disabled": false,
+        "disabled": true,
         "info": ""
     },
     {
@@ -73,7 +73,7 @@
         "id": "559aac41a5cf74c4",
         "type": "tab",
         "label": "IR Heizungen",
-        "disabled": false,
+        "disabled": true,
         "info": "",
         "env": []
     },
@@ -115,7 +115,7 @@
         "id": "cd1e0b0c87b3c825",
         "type": "tab",
         "label": "Low Battery Detection",
-        "disabled": false,
+        "disabled": true,
         "info": "",
         "env": []
     },
@@ -123,7 +123,7 @@
         "id": "7518cde088588ebe",
         "type": "tab",
         "label": "Solar-Start",
-        "disabled": false,
+        "disabled": true,
         "info": "",
         "env": []
     },
@@ -131,7 +131,7 @@
         "id": "937c538bb5079218",
         "type": "tab",
         "label": "Bad",
-        "disabled": false,
+        "disabled": true,
         "info": "",
         "env": []
     },
@@ -139,7 +139,7 @@
         "id": "039a8ad4ab697fb3",
         "type": "tab",
         "label": "Alexa",
-        "disabled": false,
+        "disabled": true,
         "info": "",
         "env": []
     },
@@ -147,7 +147,7 @@
         "id": "68fa2cc37e97fc23",
         "type": "tab",
         "label": "Gästezimmer",
-        "disabled": false,
+        "disabled": true,
         "info": "",
         "env": []
     },
@@ -155,7 +155,7 @@
         "id": "186ee9b7.78e426",
         "type": "tab",
         "label": "Web Push",
-        "disabled": false,
+        "disabled": true,
         "info": ""
     },
     {
@@ -193,7 +193,7 @@
         "id": "99059cd731a2bb35",
         "type": "tab",
         "label": "NSPanel",
-        "disabled": false,
+        "disabled": true,
         "info": "",
         "env": []
     },
@@ -201,7 +201,7 @@
         "id": "f146a45029860fdf",
         "type": "tab",
         "label": "Sonos",
-        "disabled": false,
+        "disabled": true,
         "info": "",
         "env": []
     },
@@ -209,7 +209,7 @@
         "id": "59d7b954e676768e",
         "type": "tab",
         "label": "Luftguetemesser2",
-        "disabled": false,
+        "disabled": true,
         "info": "",
         "env": []
     },
@@ -217,7 +217,7 @@
         "id": "4fa3b184.bc7fb",
         "type": "tab",
         "label": "Luftgütemesser1",
-        "disabled": false,
+        "disabled": true,
         "info": ""
     },
     {
@@ -668,6 +668,7 @@
         "id": "b4ebc8ba2c9de90d",
         "type": "junction",
         "z": "4d90b497.b5b2ac",
+        "d": true,
         "x": 680,
         "y": 1060,
         "wires": [
@@ -683,6 +684,7 @@
         "id": "d82661ccd1c1b284",
         "type": "junction",
         "z": "4d90b497.b5b2ac",
+        "d": true,
         "x": 680,
         "y": 1180,
         "wires": [
@@ -744,6 +746,7 @@
         "id": "4df1b9f51433920e",
         "type": "junction",
         "z": "68fa2cc37e97fc23",
+        "d": true,
         "x": 560,
         "y": 980,
         "wires": [
@@ -3343,6 +3346,331 @@
             },
             {
                 "property": "device_class",
+                "value": ""
+            }
+        ],
+        "resend": false,
+        "debugEnabled": false
+    },
+    {
+        "id": "324004ccd23f134d",
+        "type": "ha-device-config",
+        "name": "Pins verwalten",
+        "hwVersion": "",
+        "manufacturer": "Node-RED",
+        "model": "Pins verwalten",
+        "swVersion": ""
+    },
+    {
+        "id": "623c6dfee8abb7e4",
+        "type": "ha-entity-config",
+        "server": "3e07f44559793d55",
+        "deviceConfig": "324004ccd23f134d",
+        "name": "Master-PIN",
+        "version": 6,
+        "entityType": "text",
+        "haConfig": [
+            {
+                "property": "name",
+                "value": "Master-PIN"
+            },
+            {
+                "property": "icon",
+                "value": "mdi:key-alert"
+            },
+            {
+                "property": "entity_picture",
+                "value": ""
+            },
+            {
+                "property": "entity_category",
+                "value": ""
+            },
+            {
+                "property": "mode",
+                "value": "password"
+            },
+            {
+                "property": "min_length",
+                "value": 0
+            },
+            {
+                "property": "max_length",
+                "value": 20
+            },
+            {
+                "property": "pattern",
+                "value": ""
+            }
+        ],
+        "resend": false,
+        "debugEnabled": false
+    },
+    {
+        "id": "c5f31c6e6d945da2",
+        "type": "ha-entity-config",
+        "server": "3e07f44559793d55",
+        "deviceConfig": "324004ccd23f134d",
+        "name": "Name",
+        "version": 6,
+        "entityType": "text",
+        "haConfig": [
+            {
+                "property": "name",
+                "value": "Name"
+            },
+            {
+                "property": "icon",
+                "value": "mdi:account"
+            },
+            {
+                "property": "entity_picture",
+                "value": ""
+            },
+            {
+                "property": "entity_category",
+                "value": ""
+            },
+            {
+                "property": "mode",
+                "value": "text"
+            },
+            {
+                "property": "min_length",
+                "value": 0
+            },
+            {
+                "property": "max_length",
+                "value": 20
+            },
+            {
+                "property": "pattern",
+                "value": ""
+            }
+        ],
+        "resend": false,
+        "debugEnabled": false
+    },
+    {
+        "id": "35d60bab342f834a",
+        "type": "ha-entity-config",
+        "server": "3e07f44559793d55",
+        "deviceConfig": "324004ccd23f134d",
+        "name": "PIN",
+        "version": 6,
+        "entityType": "text",
+        "haConfig": [
+            {
+                "property": "name",
+                "value": "PIN"
+            },
+            {
+                "property": "icon",
+                "value": "mdi:dialpad"
+            },
+            {
+                "property": "entity_picture",
+                "value": ""
+            },
+            {
+                "property": "entity_category",
+                "value": ""
+            },
+            {
+                "property": "mode",
+                "value": "password"
+            },
+            {
+                "property": "min_length",
+                "value": 0
+            },
+            {
+                "property": "max_length",
+                "value": 20
+            },
+            {
+                "property": "pattern",
+                "value": ""
+            }
+        ],
+        "resend": false,
+        "debugEnabled": false
+    },
+    {
+        "id": "810c678a62538b57",
+        "type": "ha-entity-config",
+        "server": "3e07f44559793d55",
+        "deviceConfig": "324004ccd23f134d",
+        "name": "PIN hinzufügen",
+        "version": 6,
+        "entityType": "button",
+        "haConfig": [
+            {
+                "property": "name",
+                "value": "PIN hinzufügen"
+            },
+            {
+                "property": "icon",
+                "value": "mdi:key-plus"
+            },
+            {
+                "property": "entity_picture",
+                "value": ""
+            },
+            {
+                "property": "entity_category",
+                "value": ""
+            },
+            {
+                "property": "device_class",
+                "value": ""
+            }
+        ],
+        "resend": false,
+        "debugEnabled": false
+    },
+    {
+        "id": "ec2b03eef7eecb25",
+        "type": "ha-entity-config",
+        "server": "3e07f44559793d55",
+        "deviceConfig": "324004ccd23f134d",
+        "name": "PIN löschen",
+        "version": 6,
+        "entityType": "button",
+        "haConfig": [
+            {
+                "property": "name",
+                "value": "PIN löschen"
+            },
+            {
+                "property": "icon",
+                "value": "mdi:key-minus"
+            },
+            {
+                "property": "entity_picture",
+                "value": ""
+            },
+            {
+                "property": "entity_category",
+                "value": ""
+            },
+            {
+                "property": "device_class",
+                "value": ""
+            }
+        ],
+        "resend": false,
+        "debugEnabled": false
+    },
+    {
+        "id": "256f46bebb6a146e",
+        "type": "ha-entity-config",
+        "server": "3e07f44559793d55",
+        "deviceConfig": "324004ccd23f134d",
+        "name": "Log löschen",
+        "version": 6,
+        "entityType": "button",
+        "haConfig": [
+            {
+                "property": "name",
+                "value": "Log löschen"
+            },
+            {
+                "property": "icon",
+                "value": "mdi:notebook-remove"
+            },
+            {
+                "property": "entity_picture",
+                "value": ""
+            },
+            {
+                "property": "entity_category",
+                "value": ""
+            },
+            {
+                "property": "device_class",
+                "value": ""
+            }
+        ],
+        "resend": false,
+        "debugEnabled": false
+    },
+    {
+        "id": "58bc42e0e6274b03",
+        "type": "ha-entity-config",
+        "server": "3e07f44559793d55",
+        "deviceConfig": "324004ccd23f134d",
+        "name": "Liste der PINs",
+        "version": 6,
+        "entityType": "sensor",
+        "haConfig": [
+            {
+                "property": "name",
+                "value": "Liste der PINs"
+            },
+            {
+                "property": "icon",
+                "value": "mdi:key-chain"
+            },
+            {
+                "property": "entity_picture",
+                "value": ""
+            },
+            {
+                "property": "entity_category",
+                "value": ""
+            },
+            {
+                "property": "device_class",
+                "value": ""
+            },
+            {
+                "property": "unit_of_measurement",
+                "value": ""
+            },
+            {
+                "property": "state_class",
+                "value": ""
+            }
+        ],
+        "resend": false,
+        "debugEnabled": false
+    },
+    {
+        "id": "10c95fccaf154ba9",
+        "type": "ha-entity-config",
+        "server": "3e07f44559793d55",
+        "deviceConfig": "324004ccd23f134d",
+        "name": "Log",
+        "version": 6,
+        "entityType": "sensor",
+        "haConfig": [
+            {
+                "property": "name",
+                "value": "Log"
+            },
+            {
+                "property": "icon",
+                "value": "mdi:text-box-outline"
+            },
+            {
+                "property": "entity_picture",
+                "value": ""
+            },
+            {
+                "property": "entity_category",
+                "value": ""
+            },
+            {
+                "property": "device_class",
+                "value": ""
+            },
+            {
+                "property": "unit_of_measurement",
+                "value": ""
+            },
+            {
+                "property": "state_class",
                 "value": ""
             }
         ],
@@ -9368,6 +9696,7 @@
         "id": "2f8c3777.ecafb8",
         "type": "mqtt in",
         "z": "4d90b497.b5b2ac",
+        "d": true,
         "name": "",
         "topic": "waschkueche-luefter/sensor/humidity/state",
         "qos": "2",
@@ -9445,6 +9774,7 @@
         "id": "7b089f13.f2142",
         "type": "hangoutChatBot",
         "z": "4d90b497.b5b2ac",
+        "d": true,
         "hangoutsCertificate": "10925253.f46f4e",
         "roomid": "spaces/AAAA1mNxo1U",
         "roomname": "spaces/AAAA1mNxo1U",
@@ -9486,6 +9816,7 @@
         "id": "c7cd3c7f.93d75",
         "type": "function",
         "z": "4d90b497.b5b2ac",
+        "d": true,
         "name": "",
         "func": "var val = parseFloat(msg.payload);\n\nvar text, status;\nif (val > 95) {\n    msg = [\n        {payload: \"Überhitzt\"},\n        {payload: \"off\"}\n    ];\n} else {\n    msg = [\n        undefined,\n        undefined\n    ];\n}\n\nreturn msg;",
         "outputs": 2,
@@ -9509,6 +9840,7 @@
         "id": "76339dfa.1244c4",
         "type": "mqtt out",
         "z": "4d90b497.b5b2ac",
+        "d": true,
         "name": "",
         "topic": "shellies/waschmaschine/relay/0/command",
         "qos": "",
@@ -9565,6 +9897,7 @@
         "id": "b56cd25f.124c9",
         "type": "ui_gauge",
         "z": "4d90b497.b5b2ac",
+        "d": true,
         "name": "",
         "group": "7e092ea0.4f2d9",
         "order": 2,
@@ -9593,6 +9926,7 @@
         "id": "f24eda7c.102788",
         "type": "function",
         "z": "4d90b497.b5b2ac",
+        "d": true,
         "name": "store global",
         "func": "var val = parseFloat(msg.payload);\nglobal.set(\"waschkueche_luefter-humidity\", val);\nreturn msg;",
         "outputs": 1,
@@ -9610,6 +9944,7 @@
         "id": "e28bca49.e88d18",
         "type": "mqtt in",
         "z": "4d90b497.b5b2ac",
+        "d": true,
         "name": "",
         "topic": "waschkueche-luefter/sensor/absolute_humidity/state",
         "qos": "2",
@@ -9630,6 +9965,7 @@
         "id": "47eed9bd.a41b08",
         "type": "function",
         "z": "4d90b497.b5b2ac",
+        "d": true,
         "name": "store global",
         "func": "var val = parseFloat(msg.payload);\nglobal.set(\"waschkueche_luefter-absolute_humidity\", val);\nreturn msg;",
         "outputs": 1,
@@ -9647,6 +9983,7 @@
         "id": "4990ce01.e26cf",
         "type": "function",
         "z": "4d90b497.b5b2ac",
+        "d": true,
         "name": "store global",
         "func": "var val = parseFloat(msg.payload);\nglobal.set(\"waschkueche_luefter-temperature\", val);\nreturn msg;",
         "outputs": 1,
@@ -9664,6 +10001,7 @@
         "id": "dd9b1b4b.d18598",
         "type": "mqtt in",
         "z": "4d90b497.b5b2ac",
+        "d": true,
         "name": "",
         "topic": "waschkueche-luefter/sensor/temperature/state",
         "qos": "2",
@@ -9740,6 +10078,7 @@
         "id": "a8931b52.026628",
         "type": "function",
         "z": "4d90b497.b5b2ac",
+        "d": true,
         "name": "fan controller",
         "func": "// const outside_abs_humidity = global.get(\"aussen-absolute_humidity\");\nconst outside_abs_humidity = global.get(\"luftguetemesser2-absolute_humidity\");\n\nconst wk_temperature = global.get(\"waschkueche_luefter-temperature\");\nconst wk_humidity = global.get(\"waschkueche_luefter-humidity\");\nconst wk_abs_humidity = global.get(\"waschkueche_luefter-absolute_humidity\");\n\nconst washroom_fan_control = flow.get(\"washroom_fan_control\");\nconst last_abs_humidity_gt_outside_abs_humidity = global.get(\"washroom-last_abs_humidity_gt_outside_abs_humidity\");\n\nconst room_abs_humidity_gt_outside_abs_humidity = (last_abs_humidity_gt_outside_abs_humidity) ?\n    wk_abs_humidity > outside_abs_humidity * 1.05:\n    wk_abs_humidity > outside_abs_humidity * 1.05;\n\nglobal.set(\"washroom-last_abs_humidity_gt_outside_abs_humidity\", wk_abs_humidity > outside_abs_humidity);\n\nvar washroom_fan_on;\nif (washroom_fan_control == \"ON\") {\n    if (room_abs_humidity_gt_outside_abs_humidity) {\n        if (wk_humidity > 60 && wk_temperature > 14) {\n            washroom_fan_on = \"ON\";\n        } else {\n            washroom_fan_on = \"OFF\";\n        }\n    } else {\n        washroom_fan_on = \"OFF\";\n    }\n} else {\n    washroom_fan_on = undefined;\n}\n\nmsg = [\n    (washroom_fan_on) ? {topic: \"luefter_sw\", payload: washroom_fan_on} : undefined,\n    {topic: \"Debug\", payload: {\n            outside_abs_humidity: outside_abs_humidity,\n            wk_temperature: wk_temperature,\n            wk_humidity: wk_humidity,\n            wk_abs_humidity: wk_abs_humidity,\n            washroom_fan_on: washroom_fan_on,\n            washroom_fan_control: washroom_fan_control,\n            room_abs_humidity_gt_outside_abs_humidity: room_abs_humidity_gt_outside_abs_humidity,\n            last_abs_humidity_gt_outside_abs_humidity: last_abs_humidity_gt_outside_abs_humidity\n    }   }\n];\n\nreturn msg;",
         "outputs": 2,
@@ -9906,6 +10245,7 @@
         "id": "1547ac.8baef854",
         "type": "inject",
         "z": "4d90b497.b5b2ac",
+        "d": true,
         "name": "every 5 minutes",
         "props": [
             {
@@ -10281,6 +10621,7 @@
         "id": "7a19f383331fe357",
         "type": "inject",
         "z": "4d90b497.b5b2ac",
+        "d": true,
         "name": "Reset",
         "props": [
             {
@@ -10306,6 +10647,7 @@
         "id": "66173e9252031097",
         "type": "change",
         "z": "4d90b497.b5b2ac",
+        "d": true,
         "name": "",
         "rules": [
             {
@@ -10333,6 +10675,7 @@
         "id": "dea653c362b0f5af",
         "type": "ui_gauge",
         "z": "4d90b497.b5b2ac",
+        "d": true,
         "name": "",
         "group": "7e092ea0.4f2d9",
         "order": 3,
@@ -10384,6 +10727,7 @@
         "id": "605faa63e383b5da",
         "type": "link out",
         "z": "4d90b497.b5b2ac",
+        "d": true,
         "name": "link out 17",
         "mode": "link",
         "links": [
@@ -10440,6 +10784,7 @@
         "id": "d8ccba5a509c6755",
         "type": "link in",
         "z": "4d90b497.b5b2ac",
+        "d": true,
         "name": "Fan Controller",
         "links": [
             "605faa63e383b5da"
@@ -10485,6 +10830,7 @@
         "id": "0a8c64a7ae570888",
         "type": "link out",
         "z": "4d90b497.b5b2ac",
+        "d": true,
         "name": "",
         "links": [
             "4708a180.a07a"
@@ -10497,6 +10843,7 @@
         "id": "89a86d6b3ba3dfad",
         "type": "debug",
         "z": "4d90b497.b5b2ac",
+        "d": true,
         "name": "debug 22",
         "active": false,
         "tosidebar": true,
@@ -10571,6 +10918,7 @@
         "id": "23467093e63e190f",
         "type": "switch",
         "z": "4d90b497.b5b2ac",
+        "d": true,
         "name": "water_leak?",
         "property": "payload.water_leak",
         "propertyType": "msg",
@@ -10600,6 +10948,7 @@
         "id": "ce99746ee6d7dd5f",
         "type": "ui_text",
         "z": "4d90b497.b5b2ac",
+        "d": true,
         "group": "7e092ea0.4f2d9",
         "order": 1,
         "width": 0,
@@ -10621,6 +10970,7 @@
         "id": "77fae94b0298ff11",
         "type": "template",
         "z": "4d90b497.b5b2ac",
+        "d": true,
         "name": "",
         "field": "payload",
         "fieldType": "msg",
@@ -10640,6 +10990,7 @@
         "id": "b0e476cf987d5a38",
         "type": "template",
         "z": "4d90b497.b5b2ac",
+        "d": true,
         "name": "",
         "field": "payload",
         "fieldType": "msg",
@@ -10659,6 +11010,7 @@
         "id": "7073ffe813bb3e63",
         "type": "inject",
         "z": "4d90b497.b5b2ac",
+        "d": true,
         "name": "",
         "props": [
             {
@@ -10704,6 +11056,7 @@
         "id": "9062d3c200b3524c",
         "type": "template",
         "z": "4d90b497.b5b2ac",
+        "d": true,
         "name": "off",
         "field": "payload",
         "fieldType": "msg",
@@ -10723,6 +11076,7 @@
         "id": "3eb3e9bf48002d03",
         "type": "change",
         "z": "4d90b497.b5b2ac",
+        "d": true,
         "name": "",
         "rules": [
             {
@@ -10748,6 +11102,7 @@
         "id": "f593e532d2462e52",
         "type": "change",
         "z": "4d90b497.b5b2ac",
+        "d": true,
         "name": "",
         "rules": [
             {
@@ -10773,6 +11128,7 @@
         "id": "1d2e41077a9f158c",
         "type": "debug",
         "z": "4d90b497.b5b2ac",
+        "d": true,
         "name": "debug 6",
         "active": true,
         "tosidebar": true,
@@ -10789,6 +11145,7 @@
         "id": "191fe839cab63c76",
         "type": "switch",
         "z": "4d90b497.b5b2ac",
+        "d": true,
         "name": "ON/OFF routen",
         "property": "payload",
         "propertyType": "msg",
@@ -10822,6 +11179,7 @@
         "id": "60005e972e616214",
         "type": "api-call-service",
         "z": "4d90b497.b5b2ac",
+        "d": true,
         "name": "Lüfter an (HA)",
         "server": "3e07f44559793d55",
         "version": 7,
@@ -10853,6 +11211,7 @@
         "id": "34e5ee7802a1abe6",
         "type": "api-call-service",
         "z": "4d90b497.b5b2ac",
+        "d": true,
         "name": "Lüfter aus (HA)",
         "server": "3e07f44559793d55",
         "version": 7,
@@ -10884,6 +11243,7 @@
         "id": "ab120a1bc5638800",
         "type": "server-state-changed",
         "z": "4d90b497.b5b2ac",
+        "d": true,
         "name": "Waschküche Automatik-Flag (HA)",
         "server": "3e07f44559793d55",
         "version": 6,
@@ -10930,6 +11290,7 @@
         "id": "ed3ff484110e22d6",
         "type": "function",
         "z": "4d90b497.b5b2ac",
+        "d": true,
         "name": "set flow.washroom_fan_control",
         "func": "flow.set(\"washroom_fan_control\", (msg.payload || \"\").toUpperCase());\nreturn null;",
         "outputs": 0,
@@ -17576,7 +17937,7 @@
         "repeat": "",
         "crontab": "",
         "once": true,
-        "onceDelay": 0.1,
+        "onceDelay": 5,
         "topic": "",
         "payload": "Started!",
         "payloadType": "str",
@@ -19175,6 +19536,7 @@
         "id": "5ed4dede83b873c3",
         "type": "change",
         "z": "062848eb6508a3a6",
+        "d": true,
         "name": "Prep Login Post Haustuer Kamera",
         "rules": [
             {
@@ -19209,6 +19571,7 @@
         "id": "93095e5cace17aad",
         "type": "http request",
         "z": "062848eb6508a3a6",
+        "d": true,
         "name": "",
         "method": "POST",
         "ret": "obj",
@@ -19233,6 +19596,7 @@
         "id": "09b1e17ee1d24d3d",
         "type": "inject",
         "z": "062848eb6508a3a6",
+        "d": true,
         "name": "",
         "props": [],
         "repeat": "3000",
@@ -19252,6 +19616,7 @@
         "id": "8fca10f690a245dc",
         "type": "change",
         "z": "062848eb6508a3a6",
+        "d": true,
         "name": "",
         "rules": [
             {
@@ -19435,6 +19800,7 @@
         "id": "184a66ccf754cfd2",
         "type": "change",
         "z": "062848eb6508a3a6",
+        "d": true,
         "name": "",
         "rules": [
             {
@@ -19462,6 +19828,7 @@
         "id": "7b4dae49b4f15122",
         "type": "http in",
         "z": "062848eb6508a3a6",
+        "d": true,
         "name": "",
         "url": "/ui/kamera-haustuer-klingel-img",
         "method": "get",
@@ -19479,6 +19846,7 @@
         "id": "6c093d6f719006bd",
         "type": "http response",
         "z": "062848eb6508a3a6",
+        "d": true,
         "name": "",
         "statusCode": "",
         "headers": {
@@ -21517,7 +21885,7 @@
         "repeat": "",
         "crontab": "",
         "once": true,
-        "onceDelay": 0.1,
+        "onceDelay": 5,
         "topic": "",
         "payload": "Started!",
         "payloadType": "str",
@@ -22695,6 +23063,7 @@
         "id": "777181a916c21b4f",
         "type": "link in",
         "z": "caf02dc9a5b73890",
+        "d": true,
         "name": "Statusänderung Gartenlicht",
         "links": [
             "86cb329b293bb1f4"
@@ -23790,6 +24159,26 @@
         ]
     },
     {
+        "id": "8a6ec893442d2ab8",
+        "type": "mqtt in",
+        "z": "caf02dc9a5b73890",
+        "name": "Kellertürschalter Außenlicht",
+        "topic": "kellertuer/switch/relay2/state",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "c349b9ff.9dc4c8",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 240,
+        "y": 200,
+        "wires": [
+            [
+                "d81794ad8b1fdfe1"
+            ]
+        ]
+    },
+    {
         "id": "affde64f7b6e2b28",
         "type": "ui_button",
         "z": "55309aa5255fcdbf",
@@ -24004,7 +24393,7 @@
         "repeat": "",
         "crontab": "",
         "once": true,
-        "onceDelay": 0.1,
+        "onceDelay": 5,
         "topic": "",
         "payload": "Started!",
         "payloadType": "str",
@@ -24672,6 +25061,440 @@
         "x": 695,
         "y": 540,
         "wires": []
+    },
+    {
+        "id": "ca4bba32495d6906",
+        "type": "ha-text",
+        "z": "55309aa5255fcdbf",
+        "name": "Master-PIN",
+        "version": 1,
+        "inputs": 0,
+        "outputs": 1,
+        "entityConfig": "623c6dfee8abb7e4",
+        "mode": "listen",
+        "value": "",
+        "valueType": "str",
+        "outputProperties": [],
+        "x": 170,
+        "y": 880,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6da44739aeeb5293",
+        "type": "ha-text",
+        "z": "55309aa5255fcdbf",
+        "name": "Name",
+        "version": 1,
+        "inputs": 0,
+        "outputs": 1,
+        "entityConfig": "c5f31c6e6d945da2",
+        "mode": "listen",
+        "value": "",
+        "valueType": "str",
+        "outputProperties": [],
+        "x": 170,
+        "y": 920,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8d84e1fdceba7807",
+        "type": "ha-text",
+        "z": "55309aa5255fcdbf",
+        "name": "PIN",
+        "version": 1,
+        "inputs": 0,
+        "outputs": 1,
+        "entityConfig": "35d60bab342f834a",
+        "mode": "listen",
+        "value": "",
+        "valueType": "str",
+        "outputProperties": [],
+        "x": 170,
+        "y": 960,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1c4f777304a2b023",
+        "type": "ha-button",
+        "z": "55309aa5255fcdbf",
+        "name": "PIN hinzufügen",
+        "version": 0,
+        "outputs": 1,
+        "entityConfig": "810c678a62538b57",
+        "outputProperties": [],
+        "x": 180,
+        "y": 1000,
+        "wires": [
+            [
+                "5deb2a7e434e6676"
+            ]
+        ]
+    },
+    {
+        "id": "3e1c9094c4e11a2a",
+        "type": "ha-button",
+        "z": "55309aa5255fcdbf",
+        "name": "PIN löschen",
+        "version": 0,
+        "outputs": 1,
+        "entityConfig": "ec2b03eef7eecb25",
+        "outputProperties": [],
+        "x": 180,
+        "y": 1040,
+        "wires": [
+            [
+                "a838261e840e74f5"
+            ]
+        ]
+    },
+    {
+        "id": "47fe9fc1944749b7",
+        "type": "ha-button",
+        "z": "55309aa5255fcdbf",
+        "name": "Log löschen",
+        "version": 0,
+        "outputs": 1,
+        "entityConfig": "256f46bebb6a146e",
+        "outputProperties": [],
+        "x": 180,
+        "y": 1080,
+        "wires": [
+            [
+                "063d96dba6bcebe6"
+            ]
+        ]
+    },
+    {
+        "id": "850b5847b2155833",
+        "type": "ha-sensor",
+        "z": "55309aa5255fcdbf",
+        "name": "Liste der PINs",
+        "entityConfig": "58bc42e0e6274b03",
+        "version": 0,
+        "state": "liste",
+        "stateType": "str",
+        "attributes": [
+            {
+                "property": "text",
+                "value": "payload",
+                "valueType": "msg"
+            }
+        ],
+        "inputOverride": "allow",
+        "outputProperties": [],
+        "x": 700,
+        "y": 1000,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "469a8d0c276ed6c0",
+        "type": "ha-sensor",
+        "z": "55309aa5255fcdbf",
+        "name": "Log",
+        "entityConfig": "10c95fccaf154ba9",
+        "version": 0,
+        "state": "log",
+        "stateType": "str",
+        "attributes": [
+            {
+                "property": "text",
+                "value": "payload",
+                "valueType": "msg"
+            }
+        ],
+        "inputOverride": "allow",
+        "outputProperties": [],
+        "x": 700,
+        "y": 1040,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6555aaf880a06c4b",
+        "type": "server-state-changed",
+        "z": "55309aa5255fcdbf",
+        "name": "Master-PIN eingegeben",
+        "server": "3e07f44559793d55",
+        "version": 6,
+        "outputs": 1,
+        "exposeAsEntityConfig": "",
+        "entities": {
+            "entity": [
+                "text.pins_verwalten_master_pin"
+            ],
+            "substring": [],
+            "regex": []
+        },
+        "outputInitially": false,
+        "stateType": "str",
+        "ifState": "",
+        "ifStateType": "str",
+        "ifStateOperator": "is",
+        "outputOnlyOnStateChange": true,
+        "for": "0",
+        "forType": "num",
+        "forUnits": "minutes",
+        "ignorePrevStateNull": false,
+        "ignorePrevStateUnknown": false,
+        "ignorePrevStateUnavailable": false,
+        "ignoreCurrentStateUnknown": true,
+        "ignoreCurrentStateUnavailable": true,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "string",
+                "valueType": "entityState"
+            }
+        ],
+        "x": 170,
+        "y": 280,
+        "wires": [
+            [
+                "935483db9977f12b"
+            ]
+        ]
+    },
+    {
+        "id": "b2a7ec0726d21a69",
+        "type": "server-state-changed",
+        "z": "55309aa5255fcdbf",
+        "name": "Name eingegeben",
+        "server": "3e07f44559793d55",
+        "version": 6,
+        "outputs": 1,
+        "exposeAsEntityConfig": "",
+        "entities": {
+            "entity": [
+                "text.pins_verwalten_name"
+            ],
+            "substring": [],
+            "regex": []
+        },
+        "outputInitially": false,
+        "stateType": "str",
+        "ifState": "",
+        "ifStateType": "str",
+        "ifStateOperator": "is",
+        "outputOnlyOnStateChange": true,
+        "for": "0",
+        "forType": "num",
+        "forUnits": "minutes",
+        "ignorePrevStateNull": false,
+        "ignorePrevStateUnknown": false,
+        "ignorePrevStateUnavailable": false,
+        "ignoreCurrentStateUnknown": true,
+        "ignoreCurrentStateUnavailable": true,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "string",
+                "valueType": "entityState"
+            }
+        ],
+        "x": 150,
+        "y": 320,
+        "wires": [
+            [
+                "aa99eb44af9f184a"
+            ]
+        ]
+    },
+    {
+        "id": "025f61dd451527a2",
+        "type": "server-state-changed",
+        "z": "55309aa5255fcdbf",
+        "name": "PIN eingegeben",
+        "server": "3e07f44559793d55",
+        "version": 6,
+        "outputs": 1,
+        "exposeAsEntityConfig": "",
+        "entities": {
+            "entity": [
+                "text.pins_verwalten_pin"
+            ],
+            "substring": [],
+            "regex": []
+        },
+        "outputInitially": false,
+        "stateType": "str",
+        "ifState": "",
+        "ifStateType": "str",
+        "ifStateOperator": "is",
+        "outputOnlyOnStateChange": true,
+        "for": "0",
+        "forType": "num",
+        "forUnits": "minutes",
+        "ignorePrevStateNull": false,
+        "ignorePrevStateUnknown": false,
+        "ignorePrevStateUnavailable": false,
+        "ignoreCurrentStateUnknown": true,
+        "ignoreCurrentStateUnavailable": true,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "string",
+                "valueType": "entityState"
+            }
+        ],
+        "x": 140,
+        "y": 360,
+        "wires": [
+            [
+                "fb35b2dae815c0ef"
+            ]
+        ]
+    },
+    {
+        "id": "765555d16b3de1c3",
+        "type": "api-call-service",
+        "z": "55309aa5255fcdbf",
+        "name": "HA-Felder leeren",
+        "server": "3e07f44559793d55",
+        "version": 7,
+        "debugenabled": false,
+        "action": "text.set_value",
+        "floorId": [],
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [
+            "text.pins_verwalten_master_pin",
+            "text.pins_verwalten_name",
+            "text.pins_verwalten_pin"
+        ],
+        "labelId": [],
+        "data": "{\"value\":\"\"}",
+        "dataType": "json",
+        "mergeContext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "blockInputOverrides": false,
+        "domain": "text",
+        "service": "set_value",
+        "x": 650,
+        "y": 240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "43be69a32ebd4d97",
+        "type": "inject",
+        "z": "55309aa5255fcdbf",
+        "name": "HA-Felder initial leeren",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "2",
+        "topic": "",
+        "payload": "",
+        "payloadType": "str",
+        "x": 430,
+        "y": 240,
+        "wires": [
+            [
+                "765555d16b3de1c3"
+            ]
+        ]
+    },
+    {
+        "id": "a41c881ab70e1410",
+        "type": "api-call-service",
+        "z": "55309aa5255fcdbf",
+        "name": "Master-PIN Feld leeren",
+        "server": "3e07f44559793d55",
+        "version": 7,
+        "debugenabled": false,
+        "action": "text.set_value",
+        "floorId": [],
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [
+            "text.pins_verwalten_master_pin"
+        ],
+        "labelId": [],
+        "data": "{\"value\":\"\"}",
+        "dataType": "json",
+        "mergeContext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "blockInputOverrides": false,
+        "domain": "text",
+        "service": "set_value",
+        "x": 1050,
+        "y": 280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "0d2db0fbb66b47cb",
+        "type": "change",
+        "z": "55309aa5255fcdbf",
+        "name": "Felder leeren (nach Aktion)",
+        "rules": [
+            {
+                "t": "set",
+                "p": "master_pin",
+                "pt": "flow",
+                "to": "",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "name_to_process",
+                "pt": "flow",
+                "to": "",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "pin_to_process",
+                "pt": "flow",
+                "to": "",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1160,
+        "y": 460,
+        "wires": [
+            [
+                "9b8960836cacdb41",
+                "30fc515c266a6fec",
+                "6c56f6ced4ea73d5",
+                "765555d16b3de1c3"
+            ]
+        ]
     },
     {
         "id": "6ee15c4384f6b44d",
@@ -28177,6 +29000,7 @@
         "id": "e58e2bf1e95d995e",
         "type": "mqtt in",
         "z": "68fa2cc37e97fc23",
+        "d": true,
         "name": "Deckenfluter Leselampe",
         "topic": "zigbee2mqtt/deckenfluter büro dg/l1",
         "qos": "2",
@@ -28360,6 +29184,7 @@
         "id": "599ee9e0a09eda0f",
         "type": "mqtt in",
         "z": "68fa2cc37e97fc23",
+        "d": true,
         "name": "Deckenfluter Deckenlicht",
         "topic": "zigbee2mqtt/deckenfluter büro dg/l2",
         "qos": "2",
@@ -28509,6 +29334,7 @@
         "id": "ced8ff353af4a0c0",
         "type": "fritz-thermostat",
         "z": "68fa2cc37e97fc23",
+        "d": true,
         "connection": "c2e6322e.33404",
         "name": "setTempTarget AVM 302 Büro DG",
         "action": "setTempTarget",
@@ -28524,6 +29350,7 @@
         "id": "a785e5a92f4c9787",
         "type": "ui_dropdown",
         "z": "68fa2cc37e97fc23",
+        "d": true,
         "name": "Thermostat",
         "label": "Thermostat",
         "tooltip": "",
@@ -28602,6 +29429,7 @@
         "id": "60a8d3a1dcdf72cc",
         "type": "change",
         "z": "68fa2cc37e97fc23",
+        "d": true,
         "name": "AIN and new Temp",
         "rules": [
             {
@@ -28637,6 +29465,7 @@
         "id": "a3c903e257f12248",
         "type": "ui_switch",
         "z": "68fa2cc37e97fc23",
+        "d": true,
         "name": "",
         "label": "Mo.",
         "tooltip": "",
@@ -28671,6 +29500,7 @@
         "id": "3b9abc6380ef3910",
         "type": "change",
         "z": "68fa2cc37e97fc23",
+        "d": true,
         "name": "",
         "rules": [
             {
@@ -28696,6 +29526,7 @@
         "id": "7c5bfbbfc70d4418",
         "type": "thingzi-timer",
         "z": "68fa2cc37e97fc23",
+        "d": true,
         "name": "10:00-20:00",
         "lat": "50.882",
         "lon": "6.6949",
@@ -28739,6 +29570,7 @@
         "id": "afd265e74d5e2016",
         "type": "function",
         "z": "68fa2cc37e97fc23",
+        "d": true,
         "name": "function 39",
         "func": "const timestamp = msg.payload;\nif (timestamp) {\n    const date = new Date(timestamp);\n    const day_of_week_number = date.getDay();\n    const weekdays = [\"Sonntag\", \"Montag\", \"Dienstag\", \"Mittwoch\", \"Donnerstag\", \"Freitag\", \"Sonnabend\"];\n    const day_of_week = weekdays[day_of_week_number];\n    const heiztag = flow.get(day_of_week);\n\n    if (heiztag) {\n        return {payload: 21};\n    }\n}\nreturn { payload: \"off\" };\n",
         "outputs": 1,
@@ -28760,6 +29592,7 @@
         "id": "a7516bd04903328e",
         "type": "ui_switch",
         "z": "68fa2cc37e97fc23",
+        "d": true,
         "name": "",
         "label": "Di.",
         "tooltip": "",
@@ -28794,6 +29627,7 @@
         "id": "d55ed9e3862c0e07",
         "type": "change",
         "z": "68fa2cc37e97fc23",
+        "d": true,
         "name": "",
         "rules": [
             {
@@ -28819,6 +29653,7 @@
         "id": "afd2f06838322fa3",
         "type": "ui_switch",
         "z": "68fa2cc37e97fc23",
+        "d": true,
         "name": "",
         "label": "Mi.",
         "tooltip": "",
@@ -28853,6 +29688,7 @@
         "id": "b86c6f0642eb4180",
         "type": "change",
         "z": "68fa2cc37e97fc23",
+        "d": true,
         "name": "",
         "rules": [
             {
@@ -28878,6 +29714,7 @@
         "id": "2829345e1ce0934a",
         "type": "ui_switch",
         "z": "68fa2cc37e97fc23",
+        "d": true,
         "name": "",
         "label": "Do.",
         "tooltip": "",
@@ -28912,6 +29749,7 @@
         "id": "8098a63741da6da9",
         "type": "change",
         "z": "68fa2cc37e97fc23",
+        "d": true,
         "name": "",
         "rules": [
             {
@@ -28937,6 +29775,7 @@
         "id": "1278ace3c7fc8b1a",
         "type": "ui_switch",
         "z": "68fa2cc37e97fc23",
+        "d": true,
         "name": "",
         "label": "Fr.",
         "tooltip": "",
@@ -28971,6 +29810,7 @@
         "id": "4b640947fefa371f",
         "type": "change",
         "z": "68fa2cc37e97fc23",
+        "d": true,
         "name": "",
         "rules": [
             {
@@ -28996,6 +29836,7 @@
         "id": "99682679d929804d",
         "type": "ui_switch",
         "z": "68fa2cc37e97fc23",
+        "d": true,
         "name": "",
         "label": "Sa.",
         "tooltip": "",
@@ -29030,6 +29871,7 @@
         "id": "506e018d06399e9f",
         "type": "change",
         "z": "68fa2cc37e97fc23",
+        "d": true,
         "name": "",
         "rules": [
             {
@@ -29055,6 +29897,7 @@
         "id": "80a864f9b65a6b05",
         "type": "ui_switch",
         "z": "68fa2cc37e97fc23",
+        "d": true,
         "name": "",
         "label": "So.",
         "tooltip": "",
@@ -29089,6 +29932,7 @@
         "id": "ad6a51ce171ac8bf",
         "type": "change",
         "z": "68fa2cc37e97fc23",
+        "d": true,
         "name": "",
         "rules": [
             {
@@ -29114,6 +29958,7 @@
         "id": "84ab5a22037b3f5d",
         "type": "inject",
         "z": "68fa2cc37e97fc23",
+        "d": true,
         "name": "Boot",
         "props": [
             {
@@ -29150,6 +29995,7 @@
         "id": "0a854737a7a864fa",
         "type": "change",
         "z": "68fa2cc37e97fc23",
+        "d": true,
         "name": "",
         "rules": [
             {
@@ -29177,6 +30023,7 @@
         "id": "b0bb85f8cfb08f5c",
         "type": "change",
         "z": "68fa2cc37e97fc23",
+        "d": true,
         "name": "",
         "rules": [
             {
@@ -29204,6 +30051,7 @@
         "id": "34a740e3943c3931",
         "type": "change",
         "z": "68fa2cc37e97fc23",
+        "d": true,
         "name": "",
         "rules": [
             {
@@ -29231,6 +30079,7 @@
         "id": "bd3c43b4230d5784",
         "type": "change",
         "z": "68fa2cc37e97fc23",
+        "d": true,
         "name": "",
         "rules": [
             {
@@ -29258,6 +30107,7 @@
         "id": "2b031eee6e0adb99",
         "type": "change",
         "z": "68fa2cc37e97fc23",
+        "d": true,
         "name": "",
         "rules": [
             {
@@ -29285,6 +30135,7 @@
         "id": "5b3107b181d72a8c",
         "type": "change",
         "z": "68fa2cc37e97fc23",
+        "d": true,
         "name": "",
         "rules": [
             {
@@ -29312,6 +30163,7 @@
         "id": "3aededb277467e1d",
         "type": "change",
         "z": "68fa2cc37e97fc23",
+        "d": true,
         "name": "",
         "rules": [
             {
@@ -29339,6 +30191,7 @@
         "id": "6538b49e7f341b28",
         "type": "change",
         "z": "68fa2cc37e97fc23",
+        "d": true,
         "name": "",
         "rules": [
             {
@@ -29367,6 +30220,7 @@
         "id": "db0969ce5a22edce",
         "type": "ui_text",
         "z": "68fa2cc37e97fc23",
+        "d": true,
         "group": "2a035fef893e8cd2",
         "order": 2,
         "width": 0,
@@ -29388,6 +30242,7 @@
         "id": "eded24bb1027f7b4",
         "type": "function",
         "z": "68fa2cc37e97fc23",
+        "d": true,
         "name": "function 54",
         "func": "const status = (msg.payload === \"off\") ? \"off\" : \"on\";\nconst temp = (msg.payload === \"off\" ? 0 : msg.payload);\n\nreturn {\n    topic: \"fritzbox/buero_dg_heizung\",\n    payload: {\n        status: status,\n        target_temperature: temp\n    }\n};",
         "outputs": 1,
@@ -29409,6 +30264,7 @@
         "id": "049e69a6ae98e094",
         "type": "fritz-thermostat",
         "z": "68fa2cc37e97fc23",
+        "d": true,
         "connection": "c2e6322e.33404",
         "name": "getTempTarget AVM 302 Büro DG",
         "action": "getTempTarget",
@@ -29425,6 +30281,7 @@
         "id": "eeeda847f25ae413",
         "type": "change",
         "z": "68fa2cc37e97fc23",
+        "d": true,
         "name": "AIN",
         "rules": [
             {
@@ -29452,6 +30309,7 @@
         "id": "c01ede2fe24c26f2",
         "type": "inject",
         "z": "68fa2cc37e97fc23",
+        "d": true,
         "name": "each 1 minute",
         "props": [
             {
@@ -29481,6 +30339,7 @@
         "id": "c267a86a9b913165",
         "type": "link out",
         "z": "68fa2cc37e97fc23",
+        "d": true,
         "name": "",
         "links": [
             "4708a180.a07a"
@@ -29545,6 +30404,7 @@
         "id": "fd79b6c0400b69fd",
         "type": "mqtt in",
         "z": "68fa2cc37e97fc23",
+        "d": true,
         "name": "Tizio",
         "topic": "steckdose1/switch/relais/state",
         "qos": "2",
@@ -29924,6 +30784,7 @@
         "id": "315249f3fddec834",
         "type": "mqtt in",
         "z": "68fa2cc37e97fc23",
+        "d": true,
         "name": "Fernbedienung",
         "topic": "zigbee2mqtt/fernbedienung_buero_dg",
         "qos": "2",
@@ -30174,6 +31035,7 @@
         "id": "611fb1ea3240f605",
         "type": "thingzi-timer",
         "z": "68fa2cc37e97fc23",
+        "d": true,
         "name": "Nachts Licht aus",
         "lat": "50.882",
         "lon": "6.6949",
@@ -30216,6 +31078,7 @@
         "id": "9cc47eecaa2c8422",
         "type": "mqtt in",
         "z": "68fa2cc37e97fc23",
+        "d": true,
         "name": "Lichtschalter",
         "topic": "shellies/lichtschalter-buero-dg/status/input:0",
         "qos": "0",
@@ -30643,6 +31506,7 @@
         "id": "8c22bd231dad6bdb",
         "type": "flogger",
         "z": "68fa2cc37e97fc23",
+        "d": true,
         "name": "",
         "logfile": "heizung-dg",
         "inputchoice": "fullmsg",
@@ -30714,6 +31578,7 @@
         "id": "f4e5aa5abfaeaef4",
         "type": "mqtt in",
         "z": "68fa2cc37e97fc23",
+        "d": true,
         "name": "Kleine Lampe",
         "topic": "shellies/kleine-lampe/status/switch:0",
         "qos": "2",
@@ -30911,6 +31776,7 @@
         "id": "e72a96529589432b",
         "type": "link out",
         "z": "68fa2cc37e97fc23",
+        "d": true,
         "name": "link out 6",
         "mode": "link",
         "links": [
@@ -35928,765 +36794,6 @@
         "wires": [
             [
                 "978837c7b530f49c"
-            ]
-        ]
-    },
-    {
-        "id": "324004ccd23f134d",
-        "type": "ha-device-config",
-        "name": "Pins verwalten",
-        "hwVersion": "",
-        "manufacturer": "Node-RED",
-        "model": "Pins verwalten",
-        "swVersion": ""
-    },
-    {
-        "id": "623c6dfee8abb7e4",
-        "type": "ha-entity-config",
-        "server": "3e07f44559793d55",
-        "deviceConfig": "324004ccd23f134d",
-        "name": "Master-PIN",
-        "version": 6,
-        "entityType": "text",
-        "haConfig": [
-            {
-                "property": "name",
-                "value": "Master-PIN"
-            },
-            {
-                "property": "icon",
-                "value": "mdi:key-alert"
-            },
-            {
-                "property": "entity_picture",
-                "value": ""
-            },
-            {
-                "property": "entity_category",
-                "value": ""
-            },
-            {
-                "property": "mode",
-                "value": "password"
-            },
-            {
-                "property": "min_length",
-                "value": 0
-            },
-            {
-                "property": "max_length",
-                "value": 20
-            },
-            {
-                "property": "pattern",
-                "value": ""
-            }
-        ],
-        "resend": false,
-        "debugEnabled": false
-    },
-    {
-        "id": "c5f31c6e6d945da2",
-        "type": "ha-entity-config",
-        "server": "3e07f44559793d55",
-        "deviceConfig": "324004ccd23f134d",
-        "name": "Name",
-        "version": 6,
-        "entityType": "text",
-        "haConfig": [
-            {
-                "property": "name",
-                "value": "Name"
-            },
-            {
-                "property": "icon",
-                "value": "mdi:account"
-            },
-            {
-                "property": "entity_picture",
-                "value": ""
-            },
-            {
-                "property": "entity_category",
-                "value": ""
-            },
-            {
-                "property": "mode",
-                "value": "text"
-            },
-            {
-                "property": "min_length",
-                "value": 0
-            },
-            {
-                "property": "max_length",
-                "value": 20
-            },
-            {
-                "property": "pattern",
-                "value": ""
-            }
-        ],
-        "resend": false,
-        "debugEnabled": false
-    },
-    {
-        "id": "35d60bab342f834a",
-        "type": "ha-entity-config",
-        "server": "3e07f44559793d55",
-        "deviceConfig": "324004ccd23f134d",
-        "name": "PIN",
-        "version": 6,
-        "entityType": "text",
-        "haConfig": [
-            {
-                "property": "name",
-                "value": "PIN"
-            },
-            {
-                "property": "icon",
-                "value": "mdi:dialpad"
-            },
-            {
-                "property": "entity_picture",
-                "value": ""
-            },
-            {
-                "property": "entity_category",
-                "value": ""
-            },
-            {
-                "property": "mode",
-                "value": "password"
-            },
-            {
-                "property": "min_length",
-                "value": 0
-            },
-            {
-                "property": "max_length",
-                "value": 20
-            },
-            {
-                "property": "pattern",
-                "value": ""
-            }
-        ],
-        "resend": false,
-        "debugEnabled": false
-    },
-    {
-        "id": "810c678a62538b57",
-        "type": "ha-entity-config",
-        "server": "3e07f44559793d55",
-        "deviceConfig": "324004ccd23f134d",
-        "name": "PIN hinzufügen",
-        "version": 6,
-        "entityType": "button",
-        "haConfig": [
-            {
-                "property": "name",
-                "value": "PIN hinzufügen"
-            },
-            {
-                "property": "icon",
-                "value": "mdi:key-plus"
-            },
-            {
-                "property": "entity_picture",
-                "value": ""
-            },
-            {
-                "property": "entity_category",
-                "value": ""
-            },
-            {
-                "property": "device_class",
-                "value": ""
-            }
-        ],
-        "resend": false,
-        "debugEnabled": false
-    },
-    {
-        "id": "ec2b03eef7eecb25",
-        "type": "ha-entity-config",
-        "server": "3e07f44559793d55",
-        "deviceConfig": "324004ccd23f134d",
-        "name": "PIN löschen",
-        "version": 6,
-        "entityType": "button",
-        "haConfig": [
-            {
-                "property": "name",
-                "value": "PIN löschen"
-            },
-            {
-                "property": "icon",
-                "value": "mdi:key-minus"
-            },
-            {
-                "property": "entity_picture",
-                "value": ""
-            },
-            {
-                "property": "entity_category",
-                "value": ""
-            },
-            {
-                "property": "device_class",
-                "value": ""
-            }
-        ],
-        "resend": false,
-        "debugEnabled": false
-    },
-    {
-        "id": "256f46bebb6a146e",
-        "type": "ha-entity-config",
-        "server": "3e07f44559793d55",
-        "deviceConfig": "324004ccd23f134d",
-        "name": "Log löschen",
-        "version": 6,
-        "entityType": "button",
-        "haConfig": [
-            {
-                "property": "name",
-                "value": "Log löschen"
-            },
-            {
-                "property": "icon",
-                "value": "mdi:notebook-remove"
-            },
-            {
-                "property": "entity_picture",
-                "value": ""
-            },
-            {
-                "property": "entity_category",
-                "value": ""
-            },
-            {
-                "property": "device_class",
-                "value": ""
-            }
-        ],
-        "resend": false,
-        "debugEnabled": false
-    },
-    {
-        "id": "58bc42e0e6274b03",
-        "type": "ha-entity-config",
-        "server": "3e07f44559793d55",
-        "deviceConfig": "324004ccd23f134d",
-        "name": "Liste der PINs",
-        "version": 6,
-        "entityType": "sensor",
-        "haConfig": [
-            {
-                "property": "name",
-                "value": "Liste der PINs"
-            },
-            {
-                "property": "icon",
-                "value": "mdi:key-chain"
-            },
-            {
-                "property": "entity_picture",
-                "value": ""
-            },
-            {
-                "property": "entity_category",
-                "value": ""
-            },
-            {
-                "property": "device_class",
-                "value": ""
-            },
-            {
-                "property": "unit_of_measurement",
-                "value": ""
-            },
-            {
-                "property": "state_class",
-                "value": ""
-            }
-        ],
-        "resend": false,
-        "debugEnabled": false
-    },
-    {
-        "id": "10c95fccaf154ba9",
-        "type": "ha-entity-config",
-        "server": "3e07f44559793d55",
-        "deviceConfig": "324004ccd23f134d",
-        "name": "Log",
-        "version": 6,
-        "entityType": "sensor",
-        "haConfig": [
-            {
-                "property": "name",
-                "value": "Log"
-            },
-            {
-                "property": "icon",
-                "value": "mdi:text-box-outline"
-            },
-            {
-                "property": "entity_picture",
-                "value": ""
-            },
-            {
-                "property": "entity_category",
-                "value": ""
-            },
-            {
-                "property": "device_class",
-                "value": ""
-            },
-            {
-                "property": "unit_of_measurement",
-                "value": ""
-            },
-            {
-                "property": "state_class",
-                "value": ""
-            }
-        ],
-        "resend": false,
-        "debugEnabled": false
-    },
-    {
-        "id": "ca4bba32495d6906",
-        "type": "ha-text",
-        "z": "55309aa5255fcdbf",
-        "name": "Master-PIN",
-        "entityConfig": "623c6dfee8abb7e4",
-        "version": 1,
-        "inputs": 0,
-        "outputs": 1,
-        "mode": "listen",
-        "value": "",
-        "valueType": "str",
-        "outputProperties": [],
-        "x": 170,
-        "y": 880,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "6da44739aeeb5293",
-        "type": "ha-text",
-        "z": "55309aa5255fcdbf",
-        "name": "Name",
-        "entityConfig": "c5f31c6e6d945da2",
-        "version": 1,
-        "inputs": 0,
-        "outputs": 1,
-        "mode": "listen",
-        "value": "",
-        "valueType": "str",
-        "outputProperties": [],
-        "x": 170,
-        "y": 920,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "8d84e1fdceba7807",
-        "type": "ha-text",
-        "z": "55309aa5255fcdbf",
-        "name": "PIN",
-        "entityConfig": "35d60bab342f834a",
-        "version": 1,
-        "inputs": 0,
-        "outputs": 1,
-        "mode": "listen",
-        "value": "",
-        "valueType": "str",
-        "outputProperties": [],
-        "x": 170,
-        "y": 960,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "1c4f777304a2b023",
-        "type": "ha-button",
-        "z": "55309aa5255fcdbf",
-        "name": "PIN hinzufügen",
-        "entityConfig": "810c678a62538b57",
-        "version": 0,
-        "outputs": 1,
-        "outputProperties": [],
-        "x": 180,
-        "y": 1000,
-        "wires": [
-            [
-                "5deb2a7e434e6676"
-            ]
-        ]
-    },
-    {
-        "id": "3e1c9094c4e11a2a",
-        "type": "ha-button",
-        "z": "55309aa5255fcdbf",
-        "name": "PIN löschen",
-        "entityConfig": "ec2b03eef7eecb25",
-        "version": 0,
-        "outputs": 1,
-        "outputProperties": [],
-        "x": 180,
-        "y": 1040,
-        "wires": [
-            [
-                "a838261e840e74f5"
-            ]
-        ]
-    },
-    {
-        "id": "47fe9fc1944749b7",
-        "type": "ha-button",
-        "z": "55309aa5255fcdbf",
-        "name": "Log löschen",
-        "entityConfig": "256f46bebb6a146e",
-        "version": 0,
-        "outputs": 1,
-        "outputProperties": [],
-        "x": 180,
-        "y": 1080,
-        "wires": [
-            [
-                "063d96dba6bcebe6"
-            ]
-        ]
-    },
-    {
-        "id": "850b5847b2155833",
-        "type": "ha-sensor",
-        "z": "55309aa5255fcdbf",
-        "name": "Liste der PINs",
-        "entityConfig": "58bc42e0e6274b03",
-        "version": 0,
-        "state": "liste",
-        "stateType": "str",
-        "attributes": [
-            {
-                "property": "text",
-                "value": "payload",
-                "valueType": "msg"
-            }
-        ],
-        "inputOverride": "allow",
-        "outputProperties": [],
-        "x": 700,
-        "y": 1000,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "469a8d0c276ed6c0",
-        "type": "ha-sensor",
-        "z": "55309aa5255fcdbf",
-        "name": "Log",
-        "entityConfig": "10c95fccaf154ba9",
-        "version": 0,
-        "state": "log",
-        "stateType": "str",
-        "attributes": [
-            {
-                "property": "text",
-                "value": "payload",
-                "valueType": "msg"
-            }
-        ],
-        "inputOverride": "allow",
-        "outputProperties": [],
-        "x": 700,
-        "y": 1040,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "6555aaf880a06c4b",
-        "type": "server-state-changed",
-        "z": "55309aa5255fcdbf",
-        "name": "Master-PIN eingegeben",
-        "server": "3e07f44559793d55",
-        "version": 6,
-        "outputs": 1,
-        "exposeAsEntityConfig": "",
-        "entities": {
-            "entity": [
-                "text.pins_verwalten_master_pin"
-            ],
-            "substring": [],
-            "regex": []
-        },
-        "outputInitially": false,
-        "stateType": "str",
-        "ifState": "",
-        "ifStateType": "str",
-        "ifStateOperator": "is",
-        "outputOnlyOnStateChange": true,
-        "for": "0",
-        "forType": "num",
-        "forUnits": "minutes",
-        "ignorePrevStateNull": false,
-        "ignorePrevStateUnknown": false,
-        "ignorePrevStateUnavailable": false,
-        "ignoreCurrentStateUnknown": true,
-        "ignoreCurrentStateUnavailable": true,
-        "outputProperties": [
-            {
-                "property": "payload",
-                "propertyType": "msg",
-                "value": "string",
-                "valueType": "entityState"
-            }
-        ],
-        "x": 170,
-        "y": 280,
-        "wires": [
-            [
-                "935483db9977f12b"
-            ]
-        ]
-    },
-    {
-        "id": "b2a7ec0726d21a69",
-        "type": "server-state-changed",
-        "z": "55309aa5255fcdbf",
-        "name": "Name eingegeben",
-        "server": "3e07f44559793d55",
-        "version": 6,
-        "outputs": 1,
-        "exposeAsEntityConfig": "",
-        "entities": {
-            "entity": [
-                "text.pins_verwalten_name"
-            ],
-            "substring": [],
-            "regex": []
-        },
-        "outputInitially": false,
-        "stateType": "str",
-        "ifState": "",
-        "ifStateType": "str",
-        "ifStateOperator": "is",
-        "outputOnlyOnStateChange": true,
-        "for": "0",
-        "forType": "num",
-        "forUnits": "minutes",
-        "ignorePrevStateNull": false,
-        "ignorePrevStateUnknown": false,
-        "ignorePrevStateUnavailable": false,
-        "ignoreCurrentStateUnknown": true,
-        "ignoreCurrentStateUnavailable": true,
-        "outputProperties": [
-            {
-                "property": "payload",
-                "propertyType": "msg",
-                "value": "string",
-                "valueType": "entityState"
-            }
-        ],
-        "x": 150,
-        "y": 320,
-        "wires": [
-            [
-                "aa99eb44af9f184a"
-            ]
-        ]
-    },
-    {
-        "id": "025f61dd451527a2",
-        "type": "server-state-changed",
-        "z": "55309aa5255fcdbf",
-        "name": "PIN eingegeben",
-        "server": "3e07f44559793d55",
-        "version": 6,
-        "outputs": 1,
-        "exposeAsEntityConfig": "",
-        "entities": {
-            "entity": [
-                "text.pins_verwalten_pin"
-            ],
-            "substring": [],
-            "regex": []
-        },
-        "outputInitially": false,
-        "stateType": "str",
-        "ifState": "",
-        "ifStateType": "str",
-        "ifStateOperator": "is",
-        "outputOnlyOnStateChange": true,
-        "for": "0",
-        "forType": "num",
-        "forUnits": "minutes",
-        "ignorePrevStateNull": false,
-        "ignorePrevStateUnknown": false,
-        "ignorePrevStateUnavailable": false,
-        "ignoreCurrentStateUnknown": true,
-        "ignoreCurrentStateUnavailable": true,
-        "outputProperties": [
-            {
-                "property": "payload",
-                "propertyType": "msg",
-                "value": "string",
-                "valueType": "entityState"
-            }
-        ],
-        "x": 140,
-        "y": 360,
-        "wires": [
-            [
-                "fb35b2dae815c0ef"
-            ]
-        ]
-    },
-    {
-        "id": "765555d16b3de1c3",
-        "type": "api-call-service",
-        "z": "55309aa5255fcdbf",
-        "name": "HA-Felder leeren",
-        "server": "3e07f44559793d55",
-        "version": 7,
-        "debugenabled": false,
-        "action": "text.set_value",
-        "floorId": [],
-        "areaId": [],
-        "deviceId": [],
-        "entityId": [
-            "text.pins_verwalten_master_pin",
-            "text.pins_verwalten_name",
-            "text.pins_verwalten_pin"
-        ],
-        "labelId": [],
-        "data": "{\"value\":\"\"}",
-        "dataType": "json",
-        "mergeContext": "",
-        "mustacheAltTags": false,
-        "outputProperties": [],
-        "queue": "none",
-        "blockInputOverrides": false,
-        "domain": "text",
-        "service": "set_value",
-        "x": 650,
-        "y": 240,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "43be69a32ebd4d97",
-        "type": "inject",
-        "z": "55309aa5255fcdbf",
-        "name": "HA-Felder initial leeren",
-        "props": [
-            {
-                "p": "payload"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": true,
-        "onceDelay": "2",
-        "topic": "",
-        "payload": "",
-        "payloadType": "str",
-        "x": 430,
-        "y": 240,
-        "wires": [
-            [
-                "765555d16b3de1c3"
-            ]
-        ]
-    },
-    {
-        "id": "a41c881ab70e1410",
-        "type": "api-call-service",
-        "z": "55309aa5255fcdbf",
-        "name": "Master-PIN Feld leeren",
-        "server": "3e07f44559793d55",
-        "version": 7,
-        "debugenabled": false,
-        "action": "text.set_value",
-        "floorId": [],
-        "areaId": [],
-        "deviceId": [],
-        "entityId": [
-            "text.pins_verwalten_master_pin"
-        ],
-        "labelId": [],
-        "data": "{\"value\":\"\"}",
-        "dataType": "json",
-        "mergeContext": "",
-        "mustacheAltTags": false,
-        "outputProperties": [],
-        "queue": "none",
-        "blockInputOverrides": false,
-        "domain": "text",
-        "service": "set_value",
-        "x": 1050,
-        "y": 280,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "0d2db0fbb66b47cb",
-        "type": "change",
-        "z": "55309aa5255fcdbf",
-        "name": "Felder leeren (nach Aktion)",
-        "rules": [
-            {
-                "t": "set",
-                "p": "master_pin",
-                "pt": "flow",
-                "to": "",
-                "tot": "str"
-            },
-            {
-                "t": "set",
-                "p": "name_to_process",
-                "pt": "flow",
-                "to": "",
-                "tot": "str"
-            },
-            {
-                "t": "set",
-                "p": "pin_to_process",
-                "pt": "flow",
-                "to": "",
-                "tot": "str"
-            },
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 1160,
-        "y": 460,
-        "wires": [
-            [
-                "9b8960836cacdb41",
-                "30fc515c266a6fec",
-                "6c56f6ced4ea73d5",
-                "765555d16b3de1c3"
             ]
         ]
     },
