@@ -14,13 +14,6 @@
         "info": ""
     },
     {
-        "id": "fc81a32b.bb6db",
-        "type": "tab",
-        "label": "Store sensor data global",
-        "disabled": false,
-        "info": ""
-    },
-    {
         "id": "2f328ad8.26ca86",
         "type": "tab",
         "label": "Verbrauch",
@@ -4251,6 +4244,194 @@
         ]
     },
     {
+        "id": "3eea7fcb7353a1eb",
+        "type": "function",
+        "z": "2788b93b.8a2f56",
+        "name": "add absolute_humidity and dew_point",
+        "func": "const temperature = msg.payload.temperature;\nconst humidity = msg.payload.humidity;\n\nconst mw = 18.01534;    // molar mass of water g/mol\nconst r = 8.31447215;   // Universal gas constant J/mol/K\n\nmsg.payload.absolute_humidity = (6.112 * Math.pow(2.718281828, (17.67 * temperature) /\n    (temperature + 243.5)) * humidity * mw) /\n    ((273.15 + temperature) * r); // in grams/m^3\n\nmsg.payload.dew_point = (243.5*(Math.log(humidity/100)+((17.67*temperature)/\n    (243.5+temperature)))/(17.67-Math.log(humidity/100)-\n    ((17.67*temperature)/(243.5+temperature))));\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 830,
+        "y": 240,
+        "wires": [
+            [
+                "9b04f1a851dda2a6"
+            ]
+        ]
+    },
+    {
+        "id": "5b03f7242f11b52e",
+        "type": "link out",
+        "z": "2788b93b.8a2f56",
+        "name": "",
+        "mode": "link",
+        "links": [
+            "4708a180.a07a"
+        ],
+        "x": 1055,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "96658651666d1768",
+        "type": "mqtt in",
+        "z": "2788b93b.8a2f56",
+        "name": "",
+        "topic": "zigbee2mqtt/+",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "c349b9ff.9dc4c8",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 190,
+        "y": 240,
+        "wires": [
+            [
+                "4fc21cd12d11d283"
+            ]
+        ]
+    },
+    {
+        "id": "4fc21cd12d11d283",
+        "type": "function",
+        "z": "2788b93b.8a2f56",
+        "name": "Filter temperature and humidity devices",
+        "func": "if (msg.topic.match(/\\/th\\_/)) {\n    return msg;\n}",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 240,
+        "wires": [
+            [
+                "3eea7fcb7353a1eb",
+                "faa8bed4f645a8b8"
+            ]
+        ]
+    },
+    {
+        "id": "4848dffc09e7472c",
+        "type": "function",
+        "z": "2788b93b.8a2f56",
+        "name": "temperature and humidity data to global store",
+        "func": "const name = msg.payload.name;\n\nglobal.set(`${name}-temperature`, msg.payload.temperature);\nglobal.set(`${name}-humidity`, msg.payload.humidity);\nglobal.set(`${name}-absolute_humidity`, msg.payload.absolute_humidity);\nglobal.set(`${name}-dew_point`, msg.payload.dew_point);\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1040,
+        "y": 320,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "faa8bed4f645a8b8",
+        "type": "debug",
+        "z": "2788b93b.8a2f56",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1130,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "7a73c369bd1a48fd",
+        "type": "mqtt in",
+        "z": "2788b93b.8a2f56",
+        "name": "",
+        "topic": "+/sensor/+/state",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "c349b9ff.9dc4c8",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 200,
+        "y": 180,
+        "wires": [
+            [
+                "d032a1a02d7b5d0d"
+            ]
+        ]
+    },
+    {
+        "id": "d032a1a02d7b5d0d",
+        "type": "function",
+        "z": "2788b93b.8a2f56",
+        "name": "ESPHome to global store",
+        "func": "const tokens = msg.topic.split(\"/\");\nconst name = tokens[0].replace(' ', '_');\nconst field = tokens[2].replace(' ', '_');\n\nconst value = (/^(\\-|\\+)?([0-9]+(\\.[0-9]+)?)$/.test(msg.payload))\n    ? Number(msg.payload) : msg.payload;\n\nglobal.set(`${name}-${field}`, value);\n\nreturn {payload: {\n    name: name,\n    field: field,\n    value: value\n}};",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 430,
+        "y": 180,
+        "wires": [
+            [
+                "6aed8153df86a57e"
+            ]
+        ]
+    },
+    {
+        "id": "6aed8153df86a57e",
+        "type": "debug",
+        "z": "2788b93b.8a2f56",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 650,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "9b04f1a851dda2a6",
+        "type": "function",
+        "z": "2788b93b.8a2f56",
+        "name": "add name",
+        "func": "msg.payload.name = msg.topic\n    .replace(/^zigbee2mqtt\\//, '');\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 920,
+        "y": 280,
+        "wires": [
+            [
+                "4848dffc09e7472c",
+                "5b03f7242f11b52e",
+                "faa8bed4f645a8b8"
+            ]
+        ]
+    },
+    {
         "id": "9c38a690.14f558",
         "type": "mqtt in",
         "z": "4d90b497.b5b2ac",
@@ -4352,241 +4533,6 @@
         "wires": [
             [
                 "15f3325a.1a8f0e"
-            ]
-        ]
-    },
-    {
-        "id": "7ae7fa74.a8aa34",
-        "type": "function",
-        "z": "fc81a32b.bb6db",
-        "name": "add absolute_humidity and dew_point",
-        "func": "const temperature = msg.payload.temperature;\nconst humidity = msg.payload.humidity;\n\nconst mw = 18.01534;    // molar mass of water g/mol\nconst r = 8.31447215;   // Universal gas constant J/mol/K\n\nmsg.payload.absolute_humidity = (6.112 * Math.pow(2.718281828, (17.67 * temperature) /\n    (temperature + 243.5)) * humidity * mw) /\n    ((273.15 + temperature) * r); // in grams/m^3\n\nmsg.payload.dew_point = (243.5*(Math.log(humidity/100)+((17.67*temperature)/\n    (243.5+temperature)))/(17.67-Math.log(humidity/100)-\n    ((17.67*temperature)/(243.5+temperature))));\n\nreturn msg;",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 770,
-        "y": 240,
-        "wires": [
-            [
-                "56169d58.a0dc04"
-            ]
-        ]
-    },
-    {
-        "id": "aa7a4964.384d28",
-        "type": "link out",
-        "z": "fc81a32b.bb6db",
-        "name": "",
-        "mode": "link",
-        "links": [
-            "4708a180.a07a"
-        ],
-        "x": 995,
-        "y": 280,
-        "wires": []
-    },
-    {
-        "id": "87c5ced2.7998f",
-        "type": "mqtt in",
-        "z": "fc81a32b.bb6db",
-        "name": "",
-        "topic": "zigbee2mqtt/+",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "c349b9ff.9dc4c8",
-        "nl": false,
-        "rap": false,
-        "inputs": 0,
-        "x": 130,
-        "y": 240,
-        "wires": [
-            [
-                "d9d02903.582fc8"
-            ]
-        ]
-    },
-    {
-        "id": "d9d02903.582fc8",
-        "type": "function",
-        "z": "fc81a32b.bb6db",
-        "name": "Filter temperature and humidity devices",
-        "func": "if (msg.topic.match(/\\/th\\_/)) {\n    return msg;\n}",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 420,
-        "y": 240,
-        "wires": [
-            [
-                "7ae7fa74.a8aa34",
-                "fb6167b0.b1aeb8"
-            ]
-        ]
-    },
-    {
-        "id": "a7ae9a7e.53fb48",
-        "type": "function",
-        "z": "fc81a32b.bb6db",
-        "name": "temperature and humidity data to global store",
-        "func": "const name = msg.payload.name;\n\nglobal.set(`${name}-temperature`, msg.payload.temperature);\nglobal.set(`${name}-humidity`, msg.payload.humidity);\nglobal.set(`${name}-absolute_humidity`, msg.payload.absolute_humidity);\nglobal.set(`${name}-dew_point`, msg.payload.dew_point);\n\nreturn msg;",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 980,
-        "y": 320,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "fb6167b0.b1aeb8",
-        "type": "debug",
-        "z": "fc81a32b.bb6db",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1070,
-        "y": 160,
-        "wires": []
-    },
-    {
-        "id": "f3d8ac5c.06b5d",
-        "type": "mqtt in",
-        "z": "fc81a32b.bb6db",
-        "name": "",
-        "topic": "+/sensor/+/state",
-        "qos": "2",
-        "datatype": "auto",
-        "broker": "c349b9ff.9dc4c8",
-        "nl": false,
-        "rap": false,
-        "inputs": 0,
-        "x": 140,
-        "y": 180,
-        "wires": [
-            [
-                "e9d35454.3632b8"
-            ]
-        ]
-    },
-    {
-        "id": "e9d35454.3632b8",
-        "type": "function",
-        "z": "fc81a32b.bb6db",
-        "name": "ESPHome to global store",
-        "func": "const tokens = msg.topic.split(\"/\");\nconst name = tokens[0].replace(' ', '_');\nconst field = tokens[2].replace(' ', '_');\n\nconst value = (/^(\\-|\\+)?([0-9]+(\\.[0-9]+)?)$/.test(msg.payload))\n    ? Number(msg.payload) : msg.payload;\n\nglobal.set(`${name}-${field}`, value);\n\nreturn {payload: {\n    name: name,\n    field: field,\n    value: value\n}};",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 370,
-        "y": 180,
-        "wires": [
-            [
-                "621bc9b5.3e4d28"
-            ]
-        ]
-    },
-    {
-        "id": "621bc9b5.3e4d28",
-        "type": "debug",
-        "z": "fc81a32b.bb6db",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 590,
-        "y": 180,
-        "wires": []
-    },
-    {
-        "id": "56169d58.a0dc04",
-        "type": "function",
-        "z": "fc81a32b.bb6db",
-        "name": "add name",
-        "func": "msg.payload.name = msg.topic\n    .replace(/^zigbee2mqtt\\//, '');\nreturn msg;",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 860,
-        "y": 280,
-        "wires": [
-            [
-                "a7ae9a7e.53fb48",
-                "aa7a4964.384d28",
-                "fb6167b0.b1aeb8"
-            ]
-        ]
-    },
-    {
-        "id": "ca4f0c870cf58d0a",
-        "type": "function",
-        "z": "fc81a32b.bb6db",
-        "name": "Delete all Global Context Vars",
-        "func": "global.keys().forEach(key => {\n    global.set(key, undefined);\n});\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 390,
-        "y": 80,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "c3bb800f2806c3f7",
-        "type": "inject",
-        "z": "fc81a32b.bb6db",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 160,
-        "y": 80,
-        "wires": [
-            [
-                "ca4f0c870cf58d0a"
             ]
         ]
     },
@@ -5169,27 +5115,6 @@
         ]
     },
     {
-        "id": "fb23ed2a.5d3d1",
-        "type": "mqtt in",
-        "z": "d0173d54.941d7",
-        "d": true,
-        "name": "",
-        "topic": "+/debug",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "c349b9ff.9dc4c8",
-        "nl": false,
-        "rap": false,
-        "inputs": 0,
-        "x": 160,
-        "y": 120,
-        "wires": [
-            [
-                "79c79c3cb1954e21"
-            ]
-        ]
-    },
-    {
         "id": "7c6e00fe.37756",
         "type": "function",
         "z": "d0173d54.941d7",
@@ -5372,7 +5297,8 @@
             "aa7a4964.384d28",
             "afb0333e.affc6",
             "c267a86a9b913165",
-            "0a8c64a7ae570888"
+            "0a8c64a7ae570888",
+            "5b03f7242f11b52e"
         ],
         "x": 275,
         "y": 520,
@@ -5607,65 +5533,6 @@
             [
                 "faa25f7f.0777"
             ]
-        ]
-    },
-    {
-        "id": "b87a0ad39793f6d1",
-        "type": "debug",
-        "z": "d0173d54.941d7",
-        "d": true,
-        "name": "debug 35",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 700,
-        "y": 100,
-        "wires": []
-    },
-    {
-        "id": "79c79c3cb1954e21",
-        "type": "function",
-        "z": "d0173d54.941d7",
-        "d": true,
-        "name": "ESPHOME Debug to log file",
-        "func": "const tokens = msg.topic.split(\"/\");\n\nlet debug_msg = msg.payload.toString();\n//    replace('[0;36m[D]','').\n//    replace('[0m','');\nlet sensor = tokens[0].replace('-', '_');\n\nmsg.measurement = \"debug_log\";\nmsg.payload = `${sensor}: ${debug_msg}`;\n\nreturn msg;",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 460,
-        "y": 120,
-        "wires": [
-            [
-                "b87a0ad39793f6d1",
-                "c3bd4c2d6042464b"
-            ]
-        ]
-    },
-    {
-        "id": "c3bd4c2d6042464b",
-        "type": "flogger",
-        "z": "d0173d54.941d7",
-        "d": true,
-        "name": "",
-        "logfile": "esphome-debug-log",
-        "inputchoice": "object",
-        "inputobject": "payload",
-        "inputobjectType": "msg",
-        "inputmoustache": "Recieved payload {{payload}} and topic {{topic}}",
-        "loglevel": "INFO",
-        "logconfig": "8929498a4f6d4a2d",
-        "sendpane": "",
-        "x": 690,
-        "y": 140,
-        "wires": [
-            []
         ]
     },
     {
