@@ -4917,8 +4917,7 @@
         "name": "Einspeisung",
         "mode": "link",
         "links": [
-            "49152127e918c9d7",
-            "8dd66c9be3547aa2"
+            "49152127e918c9d7"
         ],
         "x": 705,
         "y": 460,
@@ -5276,9 +5275,7 @@
         "type": "link in",
         "z": "d0173d54.941d7",
         "name": "openweather",
-        "links": [
-            "8a37748d46ba0dbf"
-        ],
+        "links": [],
         "x": 275,
         "y": 860,
         "wires": [
@@ -5293,11 +5290,7 @@
         "z": "d0173d54.941d7",
         "name": "JSON to InfluxDB",
         "links": [
-            "7b4ce70.b1fd818",
-            "aa7a4964.384d28",
             "afb0333e.affc6",
-            "c267a86a9b913165",
-            "0a8c64a7ae570888",
             "5b03f7242f11b52e"
         ],
         "x": 275,
@@ -5394,9 +5387,7 @@
         "type": "link in",
         "z": "d0173d54.941d7",
         "name": "AI on the edge to InfluxDB",
-        "links": [
-            "b362144e6d02d6d4"
-        ],
+        "links": [],
         "x": 275,
         "y": 560,
         "wires": [
@@ -6177,7 +6168,6 @@
             "1f554e90d03ec3db",
             "ce08ec74123677a2",
             "76f5d758dfa7a70c",
-            "139fd09546e5f4a8",
             "22d5741092bcc496"
         ],
         "x": 135,
@@ -7517,9 +7507,7 @@
         "d": true,
         "name": "Person an Kellertür erkannt",
         "mode": "link",
-        "links": [
-            "1cd036385c85d54d"
-        ],
+        "links": [],
         "x": 1335,
         "y": 640,
         "wires": []
@@ -7698,9 +7686,7 @@
         "z": "062848eb6508a3a6",
         "name": "Person an Kellertür erkannt",
         "mode": "link",
-        "links": [
-            "1cd036385c85d54d"
-        ],
+        "links": [],
         "x": 775,
         "y": 1020,
         "wires": []
@@ -10788,9 +10774,7 @@
         "d": true,
         "name": "Person an Kellertür erkannt",
         "mode": "link",
-        "links": [
-            "1cd036385c85d54d"
-        ],
+        "links": [],
         "x": 1165,
         "y": 640,
         "wires": []
@@ -10832,9 +10816,7 @@
         "z": "caf02dc9a5b73890",
         "d": true,
         "name": "Statusänderung Gartenlicht",
-        "links": [
-            "86cb329b293bb1f4"
-        ],
+        "links": [],
         "x": 135,
         "y": 160,
         "wires": [
@@ -11070,9 +11052,7 @@
         "z": "caf02dc9a5b73890",
         "name": "Person an Kellertür erkannt",
         "mode": "link",
-        "links": [
-            "1cd036385c85d54d"
-        ],
+        "links": [],
         "x": 765,
         "y": 1120,
         "wires": []
@@ -11083,9 +11063,7 @@
         "z": "caf02dc9a5b73890",
         "name": "Person an Kellertür erkannt",
         "mode": "link",
-        "links": [
-            "1cd036385c85d54d"
-        ],
+        "links": [],
         "x": 765,
         "y": 1200,
         "wires": []
@@ -13564,8 +13542,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 660,
-        "y": 400,
+        "x": 900,
+        "y": 380,
         "wires": []
     },
     {
@@ -13585,8 +13563,8 @@
                 "module": "pg"
             }
         ],
-        "x": 450,
-        "y": 400,
+        "x": 690,
+        "y": 380,
         "wires": [
             [
                 "978837c7b530f49c"
@@ -13605,7 +13583,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 330,
+        "x": 440,
         "y": 400,
         "wires": [
             [
@@ -13629,8 +13607,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 540,
-        "y": 460,
+        "x": 660,
+        "y": 420,
         "wires": []
     },
     {
