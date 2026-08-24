@@ -85,6 +85,13 @@
         "env": []
     },
     {
+        "id": "d193b8014a479527",
+        "type": "tab",
+        "label": "Außen",
+        "disabled": false,
+        "info": "Wiederhergestellt am 2026-08-24: nur der OpenWeather-Wetterdaten-Teil des am 19.8.2026 gelöschten Außen-Tabs (Garten-/Kellertürlicht-Steuerung bewusst nicht wiederhergestellt, siehe HA-Migration)."
+    },
+    {
         "id": "f5d8e11fee9a1e7c",
         "type": "subflow",
         "name": "reolink-kamera",
@@ -392,6 +399,19 @@
                 "fe0cab1575d624e5",
                 "0bed57233aab0d43",
                 "48f55ed2.c2f68"
+            ]
+        ]
+    },
+    {
+        "id": "d011ddcd9acab7b0",
+        "type": "junction",
+        "z": "d193b8014a479527",
+        "x": 300,
+        "y": 120,
+        "wires": [
+            [
+                "55164868c056772f",
+                "ebed17f443507693"
             ]
         ]
     },
@@ -4432,41 +4452,6 @@
         ]
     },
     {
-        "id": "9c38a690.14f558",
-        "type": "mqtt in",
-        "z": "4d90b497.b5b2ac",
-        "name": "",
-        "topic": "shellies/waschmaschine/relay/0/power",
-        "qos": "2",
-        "datatype": "auto",
-        "broker": "c349b9ff.9dc4c8",
-        "nl": false,
-        "rap": false,
-        "inputs": 0,
-        "x": 210,
-        "y": 200,
-        "wires": [
-            [
-                "8fd7504b.225ed"
-            ]
-        ]
-    },
-    {
-        "id": "15f3325a.1a8f0e",
-        "type": "hangoutChatBot",
-        "z": "4d90b497.b5b2ac",
-        "hangoutsCertificate": "10925253.f46f4e",
-        "roomid": "spaces/AAAA1mNxo1U",
-        "roomname": "spaces/AAAA1mNxo1U",
-        "contentproperty": "Waschmaschiene ist fertig!",
-        "contenttype": "str",
-        "x": 740,
-        "y": 160,
-        "wires": [
-            []
-        ]
-    },
-    {
         "id": "8fd7504b.225ed",
         "type": "function",
         "z": "4d90b497.b5b2ac",
@@ -4478,8 +4463,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 540,
-        "y": 200,
+        "x": 520,
+        "y": 640,
         "wires": [
             [
                 "15f3325a.1a8f0e"
@@ -4491,21 +4476,361 @@
         ]
     },
     {
-        "id": "9fbf87b9.5b6618",
-        "type": "debug",
+        "id": "2f8c3777.ecafb8",
+        "type": "mqtt in",
         "z": "4d90b497.b5b2ac",
         "name": "",
-        "active": false,
+        "topic": "waschkueche-luefter/sensor/humidity/state",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "c349b9ff.9dc4c8",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 240,
+        "y": 140,
+        "wires": [
+            [
+                "f24eda7c.102788"
+            ]
+        ]
+    },
+    {
+        "id": "f24eda7c.102788",
+        "type": "function",
+        "z": "4d90b497.b5b2ac",
+        "name": "store global",
+        "func": "var val = parseFloat(msg.payload);\nglobal.set(\"waschkueche_luefter-humidity\", val);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 570,
+        "y": 140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e28bca49.e88d18",
+        "type": "mqtt in",
+        "z": "4d90b497.b5b2ac",
+        "name": "",
+        "topic": "waschkueche-luefter/sensor/absolute_humidity/state",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "c349b9ff.9dc4c8",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 270,
+        "y": 80,
+        "wires": [
+            [
+                "47eed9bd.a41b08"
+            ]
+        ]
+    },
+    {
+        "id": "47eed9bd.a41b08",
+        "type": "function",
+        "z": "4d90b497.b5b2ac",
+        "name": "store global",
+        "func": "var val = parseFloat(msg.payload);\nglobal.set(\"waschkueche_luefter-absolute_humidity\", val);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 570,
+        "y": 80,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a8931b52.026628",
+        "type": "function",
+        "z": "4d90b497.b5b2ac",
+        "name": "fan controller",
+        "func": "// const outside_abs_humidity = global.get(\"aussen-absolute_humidity\");\nconst outside_abs_humidity = global.get(\"luftguetemesser2-absolute_humidity\");\n\nconst wk_temperature = global.get(\"waschkueche_luefter-temperature\");\nconst wk_humidity = global.get(\"waschkueche_luefter-humidity\");\nconst wk_abs_humidity = global.get(\"waschkueche_luefter-absolute_humidity\");\n\nconst washroom_fan_control = flow.get(\"washroom_fan_control\");\nconst last_abs_humidity_gt_outside_abs_humidity = global.get(\"washroom-last_abs_humidity_gt_outside_abs_humidity\");\n\nconst room_abs_humidity_gt_outside_abs_humidity = (last_abs_humidity_gt_outside_abs_humidity) ?\n    wk_abs_humidity > outside_abs_humidity * 1.05:\n    wk_abs_humidity > outside_abs_humidity * 1.05;\n\nglobal.set(\"washroom-last_abs_humidity_gt_outside_abs_humidity\", wk_abs_humidity > outside_abs_humidity);\n\nvar washroom_fan_on;\nif (washroom_fan_control == \"ON\") {\n    if (room_abs_humidity_gt_outside_abs_humidity) {\n        if (wk_humidity > 60 && wk_temperature > 14) {\n            washroom_fan_on = \"ON\";\n        } else {\n            washroom_fan_on = \"OFF\";\n        }\n    } else {\n        washroom_fan_on = \"OFF\";\n    }\n} else {\n    washroom_fan_on = undefined;\n}\n\nmsg = [\n    (washroom_fan_on) ? {topic: \"luefter_sw\", payload: washroom_fan_on} : undefined,\n    {topic: \"Debug\", payload: {\n            outside_abs_humidity: outside_abs_humidity,\n            wk_temperature: wk_temperature,\n            wk_humidity: wk_humidity,\n            wk_abs_humidity: wk_abs_humidity,\n            washroom_fan_on: washroom_fan_on,\n            washroom_fan_control: washroom_fan_control,\n            room_abs_humidity_gt_outside_abs_humidity: room_abs_humidity_gt_outside_abs_humidity,\n            last_abs_humidity_gt_outside_abs_humidity: last_abs_humidity_gt_outside_abs_humidity\n    }   }\n];\n\nreturn msg;",
+        "outputs": 2,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 760,
+        "y": 360,
+        "wires": [
+            [
+                "191fe839cab63c76"
+            ],
+            [
+                "89a86d6b3ba3dfad"
+            ]
+        ]
+    },
+    {
+        "id": "1547ac.8baef854",
+        "type": "inject",
+        "z": "4d90b497.b5b2ac",
+        "name": "every 5 minutes",
+        "props": [
+            {
+                "p": "topic",
+                "v": "",
+                "vt": "date"
+            }
+        ],
+        "repeat": "300",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 540,
+        "y": 360,
+        "wires": [
+            [
+                "a8931b52.026628"
+            ]
+        ]
+    },
+    {
+        "id": "89a86d6b3ba3dfad",
+        "type": "debug",
+        "z": "4d90b497.b5b2ac",
+        "name": "debug 22",
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
+        "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 730,
-        "y": 240,
+        "x": 750,
+        "y": 400,
         "wires": []
+    },
+    {
+        "id": "191fe839cab63c76",
+        "type": "switch",
+        "z": "4d90b497.b5b2ac",
+        "name": "ON/OFF routen",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "ON",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "OFF",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 950,
+        "y": 340,
+        "wires": [
+            [
+                "60005e972e616214"
+            ],
+            [
+                "34e5ee7802a1abe6"
+            ]
+        ]
+    },
+    {
+        "id": "60005e972e616214",
+        "type": "api-call-service",
+        "z": "4d90b497.b5b2ac",
+        "name": "Lüfter an (HA)",
+        "server": "3e07f44559793d55",
+        "version": 7,
+        "debugenabled": false,
+        "action": "switch.turn_on",
+        "floorId": [],
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [
+            "switch.waschkueche_luefter_switch12"
+        ],
+        "labelId": [],
+        "data": "{}",
+        "dataType": "json",
+        "mergeContext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "blockInputOverrides": false,
+        "domain": "switch",
+        "service": "turn_on",
+        "x": 1170,
+        "y": 300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "34e5ee7802a1abe6",
+        "type": "api-call-service",
+        "z": "4d90b497.b5b2ac",
+        "name": "Lüfter aus (HA)",
+        "server": "3e07f44559793d55",
+        "version": 7,
+        "debugenabled": false,
+        "action": "switch.turn_off",
+        "floorId": [],
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [
+            "switch.waschkueche_luefter_switch12"
+        ],
+        "labelId": [],
+        "data": "{}",
+        "dataType": "json",
+        "mergeContext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "blockInputOverrides": false,
+        "domain": "switch",
+        "service": "turn_off",
+        "x": 1170,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ab120a1bc5638800",
+        "type": "server-state-changed",
+        "z": "4d90b497.b5b2ac",
+        "name": "Waschküche Automatik-Flag (HA)",
+        "server": "3e07f44559793d55",
+        "version": 6,
+        "outputs": 1,
+        "exposeAsEntityConfig": "",
+        "entities": {
+            "entity": [
+                "input_boolean.waschkueche_lueftungsautomatik"
+            ],
+            "substring": [],
+            "regex": []
+        },
+        "outputInitially": true,
+        "stateType": "str",
+        "ifState": "",
+        "ifStateType": "str",
+        "ifStateOperator": "is",
+        "outputOnlyOnStateChange": true,
+        "for": "0",
+        "forType": "num",
+        "forUnits": "minutes",
+        "ignorePrevStateNull": false,
+        "ignorePrevStateUnknown": false,
+        "ignorePrevStateUnavailable": false,
+        "ignoreCurrentStateUnknown": false,
+        "ignoreCurrentStateUnavailable": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "string",
+                "valueType": "entityState"
+            }
+        ],
+        "x": 210,
+        "y": 440,
+        "wires": [
+            [
+                "ed3ff484110e22d6",
+                "4f4c03e34e047c59"
+            ]
+        ]
+    },
+    {
+        "id": "ed3ff484110e22d6",
+        "type": "function",
+        "z": "4d90b497.b5b2ac",
+        "name": "set flow.washroom_fan_control",
+        "func": "flow.set(\"washroom_fan_control\", (msg.payload || \"\").toUpperCase());\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 440,
+        "wires": [
+            [
+                "22b519f37dde90bf"
+            ]
+        ]
+    },
+    {
+        "id": "dd9b1b4b.d18598",
+        "type": "mqtt in",
+        "z": "4d90b497.b5b2ac",
+        "name": "",
+        "topic": "waschkueche-luefter/sensor/temperature/state",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "c349b9ff.9dc4c8",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 250,
+        "y": 200,
+        "wires": [
+            [
+                "4990ce01.e26cf"
+            ]
+        ]
+    },
+    {
+        "id": "4990ce01.e26cf",
+        "type": "function",
+        "z": "4d90b497.b5b2ac",
+        "name": "store global",
+        "func": "var val = parseFloat(msg.payload);\nglobal.set(\"waschkueche_luefter-temperature\", val);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 570,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9c38a690.14f558",
+        "type": "mqtt in",
+        "z": "4d90b497.b5b2ac",
+        "name": "",
+        "topic": "shellies/waschmaschine/relay/0/power",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "c349b9ff.9dc4c8",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 230,
+        "y": 640,
+        "wires": [
+            [
+                "8fd7504b.225ed"
+            ]
+        ]
     },
     {
         "id": "462db4ed1142440c",
@@ -4528,13 +4853,77 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 540,
-        "y": 140,
+        "x": 520,
+        "y": 580,
         "wires": [
             [
                 "15f3325a.1a8f0e"
             ]
         ]
+    },
+    {
+        "id": "9fbf87b9.5b6618",
+        "type": "debug",
+        "z": "4d90b497.b5b2ac",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 730,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "15f3325a.1a8f0e",
+        "type": "hangoutChatBot",
+        "z": "4d90b497.b5b2ac",
+        "hangoutsCertificate": "10925253.f46f4e",
+        "roomid": "spaces/AAAA1mNxo1U",
+        "roomname": "spaces/AAAA1mNxo1U",
+        "contentproperty": "Waschmaschiene ist fertig!",
+        "contenttype": "str",
+        "x": 740,
+        "y": 580,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "22b519f37dde90bf",
+        "type": "debug",
+        "z": "4d90b497.b5b2ac",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 750,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "4f4c03e34e047c59",
+        "type": "debug",
+        "z": "4d90b497.b5b2ac",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 450,
+        "y": 480,
+        "wires": []
     },
     {
         "id": "267d2e1.40785d2",
@@ -5275,7 +5664,9 @@
         "type": "link in",
         "z": "d0173d54.941d7",
         "name": "openweather",
-        "links": [],
+        "links": [
+            "329e1c6b17c5fc6c"
+        ],
         "x": 275,
         "y": 860,
         "wires": [
@@ -14833,5 +15224,138 @@
                 "f02c56da187f6d4d"
             ]
         ]
+    },
+    {
+        "id": "91149f0a5a708220",
+        "type": "openweathermap in",
+        "z": "d193b8014a479527",
+        "name": "Wetter",
+        "wtype": "current",
+        "lon": "10.01239",
+        "lat": "53.50597",
+        "city": "",
+        "country": "",
+        "language": "de",
+        "x": 170,
+        "y": 120,
+        "wires": [
+            [
+                "d011ddcd9acab7b0",
+                "67629deb347023b1"
+            ]
+        ]
+    },
+    {
+        "id": "55164868c056772f",
+        "type": "change",
+        "z": "d193b8014a479527",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "wetter_aktuell",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 460,
+        "y": 100,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ebed17f443507693",
+        "type": "function",
+        "z": "d193b8014a479527",
+        "name": "add field rain",
+        "func": "msg.payload.rain = msg.payload.rain || 0.0;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 410,
+        "y": 160,
+        "wires": [
+            [
+                "a5b864ab56c20611"
+            ]
+        ]
+    },
+    {
+        "id": "a5b864ab56c20611",
+        "type": "function",
+        "z": "d193b8014a479527",
+        "name": "add absolute_humidity and dew_point",
+        "func": "const mw = 18.01534;    // molar mass of water g/mol\nconst r = 8.31447215;   // Universal gas constant J/mol/K\n\nconst tempc = Number(msg.payload.tempc);\nconst humidity = Number(msg.payload.humidity);\n\nconst absolute_humidity = Number((6.112 * Math.exp((17.67 * tempc) /\n    (tempc + 243.5)) * humidity * mw) /\n    ((273.15 + tempc) * r));\nconst dew_point = Number((243.5 * (Math.log(humidity / 100) + ((17.67 * tempc) /\n    (243.5 + tempc))) / (17.67 - Math.log(humidity / 100) -\n        ((17.67 * tempc) / (243.5 + tempc)))));\n\nmsg.payload.absolute_humidity = absolute_humidity;\nmsg.payload.dew_point = dew_point;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 670,
+        "y": 160,
+        "wires": [
+            [
+                "dc94a0ad2986271f",
+                "329e1c6b17c5fc6c"
+            ]
+        ]
+    },
+    {
+        "id": "dc94a0ad2986271f",
+        "type": "function",
+        "z": "d193b8014a479527",
+        "name": "store global as named aussen",
+        "func": "global.set(\"aussen-temperature\", msg.payload.tempc);\nglobal.set(\"aussen-humidity\", msg.payload.humidity);\nglobal.set(\"aussen-absolute_humidity\", msg.payload.absolute_humidity);\nglobal.set(\"aussen-pressure\", msg.payload.pressure);\nglobal.set(\"aussen-dew_point\", msg.payload.dew_point);\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 990,
+        "y": 120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "329e1c6b17c5fc6c",
+        "type": "link out",
+        "z": "d193b8014a479527",
+        "name": "aussen",
+        "mode": "link",
+        "links": [
+            "9b9574d4.b3d108"
+        ],
+        "x": 875,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "67629deb347023b1",
+        "type": "debug",
+        "z": "d193b8014a479527",
+        "name": "debug 4",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 400,
+        "y": 200,
+        "wires": []
     }
 ]
