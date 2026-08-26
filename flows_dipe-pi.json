@@ -419,7 +419,7 @@
         "id": "c349b9ff.9dc4c8",
         "type": "mqtt-broker",
         "name": "dipe-pi",
-        "broker": "dipe-pi",
+        "broker": "dipe-pi.local",
         "port": "1883",
         "clientid": "",
         "autoConnect": true,
@@ -572,7 +572,7 @@
         "id": "8929498a4f6d4a2d",
         "type": "config-log",
         "logname": "node-red",
-        "logdir": "node-red-logs",
+        "logdir": "/config/node-red-logs",
         "stamp": "local",
         "logstyle": "plain",
         "logrotate": true,
@@ -583,7 +583,7 @@
     {
         "id": "bf6b9b61f49db1aa",
         "type": "influxdb",
-        "hostname": "127.0.0.1",
+        "hostname": "dipe-pi.local",
         "port": "8086",
         "protocol": "http",
         "database": "database",
@@ -591,7 +591,7 @@
         "usetls": false,
         "tls": "d50d0c9f.31e858",
         "influxdbVersion": "2.0",
-        "url": "http://localhost:8086",
+        "url": "http://dipe-pi.local:8086",
         "rejectUnauthorized": true
     },
     {
@@ -652,7 +652,7 @@
         "type": "server",
         "name": "Home Assistant",
         "version": 6,
-        "addon": false,
+        "addon": true,
         "rejectUnauthorizedCerts": true,
         "ha_boolean": [
             "y",
@@ -3510,7 +3510,7 @@
         "inputOverride": "allow",
         "outputProperties": [],
         "x": 1410,
-        "y": 240,
+        "y": 260,
         "wires": [
             []
         ]
@@ -3554,7 +3554,7 @@
         "inputOverride": "allow",
         "outputProperties": [],
         "x": 1440,
-        "y": 280,
+        "y": 300,
         "wires": [
             []
         ]
@@ -3598,7 +3598,7 @@
         "inputOverride": "allow",
         "outputProperties": [],
         "x": 1450,
-        "y": 320,
+        "y": 340,
         "wires": [
             []
         ]
@@ -3642,7 +3642,7 @@
         "inputOverride": "allow",
         "outputProperties": [],
         "x": 1430,
-        "y": 360,
+        "y": 380,
         "wires": [
             []
         ]
@@ -3686,7 +3686,7 @@
         "inputOverride": "allow",
         "outputProperties": [],
         "x": 1430,
-        "y": 400,
+        "y": 420,
         "wires": [
             []
         ]
@@ -3730,7 +3730,7 @@
         "inputOverride": "allow",
         "outputProperties": [],
         "x": 1420,
-        "y": 440,
+        "y": 460,
         "wires": [
             []
         ]
@@ -3774,7 +3774,7 @@
         "inputOverride": "allow",
         "outputProperties": [],
         "x": 1410,
-        "y": 480,
+        "y": 500,
         "wires": [
             []
         ]
@@ -3818,7 +3818,7 @@
         "inputOverride": "allow",
         "outputProperties": [],
         "x": 1440,
-        "y": 520,
+        "y": 540,
         "wires": [
             []
         ]
@@ -3862,7 +3862,7 @@
         "inputOverride": "allow",
         "outputProperties": [],
         "x": 1430,
-        "y": 560,
+        "y": 580,
         "wires": [
             []
         ]
@@ -3906,7 +3906,7 @@
         "inputOverride": "allow",
         "outputProperties": [],
         "x": 1430,
-        "y": 600,
+        "y": 620,
         "wires": [
             []
         ]
@@ -3950,7 +3950,7 @@
         "inputOverride": "allow",
         "outputProperties": [],
         "x": 1410,
-        "y": 640,
+        "y": 660,
         "wires": [
             []
         ]
@@ -3994,7 +3994,7 @@
         "inputOverride": "allow",
         "outputProperties": [],
         "x": 1420,
-        "y": 680,
+        "y": 700,
         "wires": [
             []
         ]
@@ -4038,7 +4038,7 @@
         "inputOverride": "allow",
         "outputProperties": [],
         "x": 1440,
-        "y": 720,
+        "y": 740,
         "wires": [
             []
         ]
@@ -4082,7 +4082,7 @@
         "inputOverride": "allow",
         "outputProperties": [],
         "x": 1440,
-        "y": 760,
+        "y": 780,
         "wires": [
             []
         ]
@@ -4126,7 +4126,7 @@
         "inputOverride": "allow",
         "outputProperties": [],
         "x": 1450,
-        "y": 800,
+        "y": 820,
         "wires": [
             []
         ]
@@ -4170,7 +4170,7 @@
         "inputOverride": "allow",
         "outputProperties": [],
         "x": 1420,
-        "y": 840,
+        "y": 860,
         "wires": [
             []
         ]
@@ -4214,7 +4214,7 @@
         "inputOverride": "allow",
         "outputProperties": [],
         "x": 1430,
-        "y": 880,
+        "y": 900,
         "wires": [
             []
         ]
@@ -4258,7 +4258,7 @@
         "inputOverride": "allow",
         "outputProperties": [],
         "x": 1420,
-        "y": 920,
+        "y": 940,
         "wires": [
             []
         ]
@@ -8144,10 +8144,11 @@
         "id": "5450e5e4f40730f9",
         "type": "ping",
         "z": "062848eb6508a3a6",
+        "d": true,
         "protocol": "Automatic",
         "mode": "timed",
         "name": "Ping Haustuer-Schloss",
-        "host": "haustuer-schloss",
+        "host": "haustuer-schloss.local",
         "timer": "20",
         "inputs": 0,
         "x": 220,
@@ -11599,10 +11600,11 @@
         "id": "51651aa2ea02fbec",
         "type": "ping",
         "z": "caf02dc9a5b73890",
+        "d": true,
         "protocol": "Automatic",
         "mode": "timed",
         "name": "Ping Kellertuer-Schloss",
-        "host": "kellertuer-schloss",
+        "host": "kellertuer-schloss.local",
         "timer": "20",
         "inputs": 0,
         "x": 220,
@@ -11617,10 +11619,11 @@
         "id": "98f97210e824ae29",
         "type": "ping",
         "z": "caf02dc9a5b73890",
+        "d": true,
         "protocol": "Automatic",
         "mode": "timed",
         "name": "Ping Kellertuer-Riegel",
-        "host": "kellertuer-riegel",
+        "host": "kellertuer-riegel.local",
         "timer": "20",
         "inputs": 0,
         "x": 220,
@@ -12404,7 +12407,8 @@
         "wires": [
             [
                 "43ea06c6402fd32c",
-                "0d2db0fbb66b47cb"
+                "0d2db0fbb66b47cb",
+                "pe0002savepinstodisk"
             ]
         ]
     },
@@ -12488,7 +12492,8 @@
         "y": 120,
         "wires": [
             [
-                "1fc8cd9f26766f2e"
+                "1fc8cd9f26766f2e",
+                "pe0002savepinstodisk"
             ]
         ]
     },
@@ -12838,7 +12843,8 @@
         "wires": [
             [
                 "40c16885dc5420d8",
-                "0d2db0fbb66b47cb"
+                "0d2db0fbb66b47cb",
+                "pe0002savepinstodisk"
             ]
         ]
     },
@@ -13393,6 +13399,63 @@
         ]
     },
     {
+        "id": "pe0003loadpinsinject",
+        "type": "inject",
+        "z": "55309aa5255fcdbf",
+        "name": "Load PINs on deploy",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 700,
+        "y": 60,
+        "wires": [
+            [
+                "pe0001loadpinsfromdisk"
+            ]
+        ]
+    },
+    {
+        "id": "pe0001loadpinsfromdisk",
+        "type": "function",
+        "z": "55309aa5255fcdbf",
+        "name": "load pins from disk",
+        "func": "const fs = global.get('fs');\ntry {\n    const data = fs.readFileSync('/config/pins-store.json', 'utf8');\n    global.set('list_of_hashed_pins', JSON.parse(data));\n    node.log('Loaded ' + Object.keys(JSON.parse(data)).length + ' PIN(s) from disk');\n} catch (e) {\n    node.warn('Could not load pins-store.json: ' + e.message);\n}\nreturn null;",
+        "outputs": 0,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 900,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "pe0002savepinstodisk",
+        "type": "function",
+        "z": "55309aa5255fcdbf",
+        "name": "save pins to disk",
+        "func": "const fs = global.get('fs');\ntry {\n    fs.writeFileSync('/config/pins-store.json', JSON.stringify(global.get('list_of_hashed_pins') || {}));\n} catch (e) {\n    node.warn('Could not save pins-store.json: ' + e.message);\n}\nreturn null;",
+        "outputs": 0,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 900,
+        "y": 120,
+        "wires": []
+    },
+    {
         "id": "7f807fd8588ea7ce",
         "type": "http in",
         "z": "fc93ef5a2502b341",
@@ -13665,7 +13728,7 @@
             },
             {
                 "name": "hostname",
-                "value": "kamera-haustuer",
+                "value": "kamera-haustuer.local",
                 "type": "str"
             }
         ],
@@ -13695,7 +13758,7 @@
             },
             {
                 "name": "hostname",
-                "value": "kamera-kellertuer",
+                "value": "kamera-kellertuer.local",
                 "type": "str"
             }
         ],
@@ -13725,7 +13788,7 @@
             },
             {
                 "name": "hostname",
-                "value": "kamera-balkon",
+                "value": "kamera-balkon.local",
                 "type": "str"
             }
         ],
