@@ -71,7 +71,7 @@
     {
         "id": "af5e44f55de05ade",
         "type": "tab",
-        "label": "Home-Assistant",
+        "label": "TimescaleDB",
         "disabled": false,
         "info": "",
         "env": []
@@ -2796,7 +2796,7 @@
         "type": "function",
         "z": "2788b93b.8a2f56",
         "name": "Lüftungsempfehlung",
-        "func": "// const outside_abs_humidity = global.get(\"aussen-absolute_humidity\");\nconst outside_abs_humidity = global.get(\"luftguetemesser2-absolute_humidity\");\n\nconst name = msg.payload.name;\n\nconst temperature = global.get(name + \"-temperature\");\nconst humidity = global.get(name + \"-humidity\");\nconst abs_humidity = global.get(name + \"-absolute_humidity\");\nconst last_abs_humidity_gt_outside_abs_humidity = global.get(name + \"-last_abs_humidity_gt_outside_abs_humidity\");\n\nconst room_abs_humidity_gt_outside_abs_humidity = (last_abs_humidity_gt_outside_abs_humidity) ?\n    abs_humidity > outside_abs_humidity * 1.05:\n    abs_humidity > outside_abs_humidity;\n\nglobal.set(name + \"-last_abs_humidity_gt_outside_abs_humidity\", abs_humidity > outside_abs_humidity);\n\nconst intl = global.get('intl');\nconst format = intl.NumberFormat('de-De',{style:'decimal', maximumFractionDigits: 1}).format;\nconst sprintf = global.get(\"sprintf\");\nconst text = sprintf(\"%s °C, %s %% H, %s g/m³\", format(temperature), format(humidity), format(abs_humidity))\n\nvar payload;\nif (room_abs_humidity_gt_outside_abs_humidity) {\n    if (humidity > 65) {\n        payload = {payload: {name: name, color: \"skyblue\", hint: \"Raum feucht. Lüften!\", text: text, temperature: temperature, humidity: humidity, abs_humidity: abs_humidity}};\n    } else {\n        payload = {payload: {name: name, color: \"limegreen\", hint: \"Raum ausreichend trocken.\", text: text, temperature: temperature, humidity: humidity, abs_humidity: abs_humidity}};\n    }\n} else {\n    payload = {payload: {name: name, color: \"red\", hint: \"Draußen zu feucht. Nur kurz lüften!\", text: text, temperature: temperature, humidity: humidity, abs_humidity: abs_humidity}};\n}\n\nconst debug = {\n    name: name,\n    temperature: temperature,\n    humidity: humidity,\n    abs_humidity: abs_humidity,\n    outside_abs_humidity: outside_abs_humidity,\n    last_abs_humidity_gt_outside_abs_humidity: last_abs_humidity_gt_outside_abs_humidity,\n    room_abs_humidity_gt_outside_abs_humidity: room_abs_humidity_gt_outside_abs_humidity,\n    text: text\n};\n\nreturn [payload, debug];\n",
+        "func": "// const outside_abs_humidity = global.get(\"aussen-absolute_humidity\");\nconst outside_abs_humidity = global.get(\"luftguetemesser2-absolute_humidity\");\n\nconst name = msg.payload.name;\n\nconst temperature = global.get(name + \"-temperature\");\nconst humidity = global.get(name + \"-humidity\");\nconst abs_humidity = global.get(name + \"-absolute_humidity\");\nconst last_abs_humidity_gt_outside_abs_humidity = global.get(name + \"-last_abs_humidity_gt_outside_abs_humidity\");\n\nconst room_abs_humidity_gt_outside_abs_humidity = (last_abs_humidity_gt_outside_abs_humidity) ?\n    abs_humidity > outside_abs_humidity * 1.05:\n    abs_humidity > outside_abs_humidity * 1.05;\n\nglobal.set(name + \"-last_abs_humidity_gt_outside_abs_humidity\", abs_humidity > outside_abs_humidity);\n\nconst intl = global.get('intl');\nconst format = intl.NumberFormat('de-De',{style:'decimal', maximumFractionDigits: 1}).format;\nconst sprintf = global.get(\"sprintf\");\nconst text = sprintf(\"%s °C, %s %% H, %s g/m³\", format(temperature), format(humidity), format(abs_humidity))\n\nvar payload;\nif (room_abs_humidity_gt_outside_abs_humidity) {\n    if (humidity > 65) {\n        payload = {payload: {name: name, color: \"skyblue\", hint: \"Raum feucht. Lüften!\", text: text, temperature: temperature, humidity: humidity, abs_humidity: abs_humidity}};\n    } else {\n        payload = {payload: {name: name, color: \"limegreen\", hint: \"Raum ausreichend trocken.\", text: text, temperature: temperature, humidity: humidity, abs_humidity: abs_humidity}};\n    }\n} else {\n    payload = {payload: {name: name, color: \"red\", hint: \"Draußen zu feucht. Nur kurz lüften!\", text: text, temperature: temperature, humidity: humidity, abs_humidity: abs_humidity}};\n}\n\nconst debug = {\n    name: name,\n    temperature: temperature,\n    humidity: humidity,\n    abs_humidity: abs_humidity,\n    outside_abs_humidity: outside_abs_humidity,\n    last_abs_humidity_gt_outside_abs_humidity: last_abs_humidity_gt_outside_abs_humidity,\n    room_abs_humidity_gt_outside_abs_humidity: room_abs_humidity_gt_outside_abs_humidity,\n    text: text\n};\n\nreturn [payload, debug];\n",
         "outputs": 2,
         "timeout": "",
         "noerr": 0,
@@ -4602,7 +4602,7 @@
         "type": "debug",
         "z": "4d90b497.b5b2ac",
         "name": "debug 22",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -4898,7 +4898,7 @@
         "type": "debug",
         "z": "4d90b497.b5b2ac",
         "name": "debug 1",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -4914,7 +4914,7 @@
         "type": "debug",
         "z": "4d90b497.b5b2ac",
         "name": "debug 2",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -15236,7 +15236,7 @@
         "city": "",
         "country": "",
         "language": "de",
-        "x": 170,
+        "x": 210,
         "y": 120,
         "wires": [
             [
@@ -15283,7 +15283,7 @@
         "finalize": "",
         "libs": [],
         "x": 410,
-        "y": 160,
+        "y": 140,
         "wires": [
             [
                 "a5b864ab56c20611"
@@ -15303,7 +15303,7 @@
         "finalize": "",
         "libs": [],
         "x": 670,
-        "y": 160,
+        "y": 140,
         "wires": [
             [
                 "dc94a0ad2986271f",
@@ -15339,7 +15339,7 @@
             "9b9574d4.b3d108"
         ],
         "x": 875,
-        "y": 200,
+        "y": 160,
         "wires": []
     },
     {
@@ -15347,7 +15347,7 @@
         "type": "debug",
         "z": "d193b8014a479527",
         "name": "debug 4",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -15355,7 +15355,17 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 400,
-        "y": 200,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "645598a93e5f96e8",
+        "type": "comment",
+        "z": "d193b8014a479527",
+        "name": "Kann weg, wenn influxdb weg ist",
+        "info": "DIeser Flow ist nur nich hier, damit Influxdb daten bekommt. Sobald Influxdb durch timescaledb ersetzt ist, kann der Flow weg.",
+        "x": 330,
+        "y": 40,
         "wires": []
     }
 ]
