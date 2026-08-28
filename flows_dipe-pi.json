@@ -118,6 +118,16 @@
                         "port": 0
                     }
                 ]
+            },
+            {
+                "x": 1090,
+                "y": 460,
+                "wires": [
+                    {
+                        "id": "adcad3a36db70f1e",
+                        "port": 0
+                    }
+                ]
             }
         ],
         "env": [
@@ -140,7 +150,8 @@
         "color": "#C0DEED",
         "outputLabels": [
             "person detected",
-            "snapshot"
+            "snapshot",
+            "aufnahme-info"
         ],
         "icon": "font-awesome/fa-video-camera"
     },
@@ -2787,8 +2798,71 @@
         "y": 300,
         "wires": [
             [
-                "6dfc591e4b556f70"
+                "6dfc591e4b556f70",
+                "e7bed86a25f7dd5d"
             ]
+        ]
+    },
+    {
+        "id": "e7bed86a25f7dd5d",
+        "type": "function",
+        "z": "f5d8e11fee9a1e7c",
+        "name": "Prep Search Post",
+        "func": "const now = new Date();\nconst start = new Date(now.getTime() - 3*60*1000);\nfunction timeObj(d) {\n    return { year: d.getFullYear(), mon: d.getMonth()+1, day: d.getDate(), hour: d.getHours(), min: d.getMinutes(), sec: d.getSeconds() };\n}\nmsg.url = \"http://\" + env.get('hostname') + \"/cgi-bin/api.cgi?cmd=Search&token=\" + flow.get('token');\nmsg.payload = [{\n    cmd: \"Search\",\n    action: 0,\n    param: { Search: { channel: 0, onlyStatus: 0, streamType: \"main\", StartTime: timeObj(start), EndTime: timeObj(now) } }\n}];\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 690,
+        "y": 380,
+        "wires": [
+            [
+                "0cdfeaa08eade45d"
+            ]
+        ]
+    },
+    {
+        "id": "0cdfeaa08eade45d",
+        "type": "http request",
+        "z": "f5d8e11fee9a1e7c",
+        "name": "",
+        "method": "POST",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 880,
+        "y": 380,
+        "wires": [
+            [
+                "adcad3a36db70f1e"
+            ]
+        ]
+    },
+    {
+        "id": "adcad3a36db70f1e",
+        "type": "function",
+        "z": "f5d8e11fee9a1e7c",
+        "name": "Parse Search Result",
+        "func": "const files = (msg.payload && msg.payload[0] && msg.payload[0].value && msg.payload[0].value.SearchResult && msg.payload[0].value.SearchResult.File) || [];\nif (files.length === 0) {\n    node.warn('Keine Aufnahme-Datei im Suchfenster gefunden');\n    return null;\n}\nconst last = files[files.length - 1];\nfunction pad(n) { return String(n).padStart(2, '0'); }\nfunction toId(t) { return `${t.year}${pad(t.mon)}${pad(t.day)}${pad(t.hour)}${pad(t.min)}${pad(t.sec)}`; }\nmsg.datei = last.name;\nmsg.start_time_id = toId(last.StartTime);\nmsg.end_time_id = toId(last.EndTime);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1090,
+        "y": 380,
+        "wires": [
+            []
         ]
     },
     {
@@ -5157,7 +5231,7 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "zigbee2mqtt/gas_zaehler",
-        "payload": "{\"counter\": 15046.479}",
+        "payload": "{\"counter\": 15160.378}",
         "payloadType": "json",
         "x": 260,
         "y": 640,
@@ -6140,49 +6214,6 @@
         "wires": [
             [
                 "3cc14662f3d44cba"
-            ]
-        ]
-    },
-    {
-        "id": "49f12f8d291af95b",
-        "type": "thingzi-timer",
-        "z": "062848eb6508a3a6",
-        "name": "Nachts doppelt abschließen",
-        "lat": "50.882",
-        "lon": "6.6949",
-        "timerType": "trigger",
-        "startupMessage": false,
-        "ontype": "tod",
-        "ontimesun": "dusk",
-        "ontimetod": "21:00",
-        "onpropertytype": "msg",
-        "onproperty": "payload",
-        "onvaluetype": "str",
-        "onvalue": "fulllock",
-        "onoffset": "",
-        "onrandomoffset": false,
-        "offtype": "tod",
-        "offtimesun": "dawn",
-        "offtimetod": "23:00",
-        "offpropertytype": "msg",
-        "offproperty": "payload",
-        "offvaluetype": "str",
-        "offvalue": "full lock",
-        "offoffset": "",
-        "offrandomoffset": false,
-        "mon": true,
-        "tue": true,
-        "wed": true,
-        "thu": true,
-        "fri": true,
-        "sat": true,
-        "sun": true,
-        "x": 240,
-        "y": 1140,
-        "wires": [
-            [
-                "cf9843a5f73e34d3",
-                "f6acd958aad9453a"
             ]
         ]
     },
@@ -7871,39 +7902,6 @@
         "wires": []
     },
     {
-        "id": "c96e7f13abcb3dea",
-        "type": "function",
-        "z": "062848eb6508a3a6",
-        "d": true,
-        "name": "Push Notification",
-        "func": "if (msg.payload.length == 0) return;\n\nreturn {\n    notification: {\n        notification: { \n            title: \"Haustür offen!\", \n            body: `Kann Haustür nicht abschließen.` \n        }, \n    }\n};\n",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1190,
-        "y": 640,
-        "wires": [
-            [
-                "7bb975af10fb8606"
-            ]
-        ]
-    },
-    {
-        "id": "7bb975af10fb8606",
-        "type": "link out",
-        "z": "062848eb6508a3a6",
-        "d": true,
-        "name": "Person an Kellertür erkannt",
-        "mode": "link",
-        "links": [],
-        "x": 1335,
-        "y": 640,
-        "wires": []
-    },
-    {
         "id": "3cc14662f3d44cba",
         "type": "switch",
         "z": "062848eb6508a3a6",
@@ -7992,7 +7990,6 @@
         "y": 700,
         "wires": [
             [
-                "c96e7f13abcb3dea",
                 "2b8ae278fdd9a5d7"
             ]
         ]
@@ -8831,7 +8828,7 @@
         "mergeContext": "",
         "mustacheAltTags": false,
         "outputProperties": [],
-        "queue": "none",
+        "queue": "last",
         "blockInputOverrides": false,
         "domain": "text",
         "service": "set_value",
@@ -8854,7 +8851,7 @@
         "repeat": "",
         "crontab": "",
         "once": true,
-        "onceDelay": "2",
+        "onceDelay": 8,
         "topic": "",
         "payload": "",
         "payloadType": "str",
@@ -8964,6 +8961,58 @@
         "y": 700,
         "wires": [
             []
+        ]
+    },
+    {
+        "id": "0ac38994a31530fa",
+        "type": "ha-time",
+        "z": "062848eb6508a3a6",
+        "name": "Nachts abschließen (21 Uhr)",
+        "server": "3e07f44559793d55",
+        "version": 4,
+        "exposeAsEntityConfig": "",
+        "entityId": "input_datetime.nachts_abschliessen",
+        "property": "",
+        "offset": "0",
+        "offsetType": "num",
+        "offsetUnits": "minutes",
+        "randomOffset": false,
+        "repeatDaily": true,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entityState"
+            },
+            {
+                "property": "data",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entity"
+            },
+            {
+                "property": "topic",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "triggerId"
+            }
+        ],
+        "sunday": true,
+        "monday": true,
+        "tuesday": true,
+        "wednesday": true,
+        "thursday": true,
+        "friday": true,
+        "saturday": true,
+        "ignorePastDate": true,
+        "x": 240,
+        "y": 1140,
+        "wires": [
+            [
+                "cf9843a5f73e34d3",
+                "f6acd958aad9453a"
+            ]
         ]
     },
     {
@@ -10629,49 +10678,6 @@
         "wires": []
     },
     {
-        "id": "c095407521d58d5b",
-        "type": "thingzi-timer",
-        "z": "caf02dc9a5b73890",
-        "name": "Nachts abschließen",
-        "lat": "50.882",
-        "lon": "6.6949",
-        "timerType": "trigger",
-        "startupMessage": false,
-        "ontype": "tod",
-        "ontimesun": "dusk",
-        "ontimetod": "21:00",
-        "onpropertytype": "msg",
-        "onproperty": "payload",
-        "onvaluetype": "str",
-        "onvalue": "fulllock",
-        "onoffset": "",
-        "onrandomoffset": false,
-        "offtype": "tod",
-        "offtimesun": "dawn",
-        "offtimetod": "23:00",
-        "offpropertytype": "msg",
-        "offproperty": "payload",
-        "offvaluetype": "str",
-        "offvalue": "full lock",
-        "offoffset": "",
-        "offrandomoffset": false,
-        "mon": true,
-        "tue": true,
-        "wed": true,
-        "thu": true,
-        "fri": true,
-        "sat": true,
-        "sun": true,
-        "x": 210,
-        "y": 1340,
-        "wires": [
-            [
-                "c76e0f9689ddc7ef",
-                "d9e903bf7f9f2b19"
-            ]
-        ]
-    },
-    {
         "id": "c76e0f9689ddc7ef",
         "type": "link out",
         "z": "caf02dc9a5b73890",
@@ -10680,7 +10686,7 @@
         "links": [
             "68510defdfc4e9d1"
         ],
-        "x": 355,
+        "x": 415,
         "y": 1320,
         "wires": []
     },
@@ -10813,7 +10819,7 @@
         "syntax": "mustache",
         "template": "Tür abschließen",
         "output": "str",
-        "x": 430,
+        "x": 490,
         "y": 1360,
         "wires": [
             [
@@ -10830,7 +10836,7 @@
         "links": [
             "a30ad159a4a28a4d"
         ],
-        "x": 575,
+        "x": 635,
         "y": 1360,
         "wires": []
     },
@@ -11138,39 +11144,6 @@
         ]
     },
     {
-        "id": "a8273f7cfb9f5c75",
-        "type": "function",
-        "z": "caf02dc9a5b73890",
-        "d": true,
-        "name": "Push Notification",
-        "func": "if (msg.payload.length == 0) return;\n\nreturn {\n    notification: {\n        notification: { \n            title: \"Kellertür offen!\", \n            body: `Kann Kellertür nicht abschließen.` \n        }, \n    }\n};\n",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1030,
-        "y": 640,
-        "wires": [
-            [
-                "73c3ba04e545c1fc"
-            ]
-        ]
-    },
-    {
-        "id": "73c3ba04e545c1fc",
-        "type": "link out",
-        "z": "caf02dc9a5b73890",
-        "d": true,
-        "name": "Person an Kellertür erkannt",
-        "mode": "link",
-        "links": [],
-        "x": 1165,
-        "y": 640,
-        "wires": []
-    },
-    {
         "id": "9deb515283324452",
         "type": "link in",
         "z": "caf02dc9a5b73890",
@@ -11182,7 +11155,6 @@
         "y": 680,
         "wires": [
             [
-                "a8273f7cfb9f5c75",
                 "d7588aaceab6ed45"
             ]
         ]
@@ -12137,7 +12109,7 @@
         "repeat": "",
         "crontab": "",
         "once": true,
-        "onceDelay": "2",
+        "onceDelay": 8,
         "topic": "",
         "payload": "",
         "payloadType": "str",
@@ -12216,7 +12188,7 @@
         "mergeContext": "",
         "mustacheAltTags": false,
         "outputProperties": [],
-        "queue": "none",
+        "queue": "last",
         "blockInputOverrides": false,
         "domain": "text",
         "service": "set_value",
@@ -12311,6 +12283,58 @@
         "wires": [
             [
                 "d81794ad8b1fdfe1"
+            ]
+        ]
+    },
+    {
+        "id": "ac743766a8de2762",
+        "type": "ha-time",
+        "z": "caf02dc9a5b73890",
+        "name": "Nachts abschließen (21 Uhr)",
+        "server": "3e07f44559793d55",
+        "version": 4,
+        "exposeAsEntityConfig": "",
+        "entityId": "input_datetime.nachts_abschliessen",
+        "property": "",
+        "offset": "0",
+        "offsetType": "num",
+        "offsetUnits": "minutes",
+        "randomOffset": false,
+        "repeatDaily": true,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entityState"
+            },
+            {
+                "property": "data",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entity"
+            },
+            {
+                "property": "topic",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "triggerId"
+            }
+        ],
+        "sunday": true,
+        "monday": true,
+        "tuesday": true,
+        "wednesday": true,
+        "thursday": true,
+        "friday": true,
+        "saturday": true,
+        "ignorePastDate": true,
+        "x": 240,
+        "y": 1340,
+        "wires": [
+            [
+                "c76e0f9689ddc7ef",
+                "d9e903bf7f9f2b19"
             ]
         ]
     },
@@ -13461,7 +13485,7 @@
         "method": "get",
         "upload": false,
         "swaggerDoc": "",
-        "x": 230,
+        "x": 260,
         "y": 480,
         "wires": [
             [
@@ -13479,7 +13503,7 @@
             "Content-Type": "image/jpeg",
             "Content-Disposition": "inline"
         },
-        "x": 670,
+        "x": 700,
         "y": 480,
         "wires": []
     },
@@ -13502,7 +13526,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 490,
+        "x": 520,
         "y": 480,
         "wires": [
             [
@@ -13519,7 +13543,7 @@
         "method": "get",
         "upload": false,
         "swaggerDoc": "",
-        "x": 240,
+        "x": 270,
         "y": 440,
         "wires": [
             [
@@ -13537,7 +13561,7 @@
             "Content-Type": "image/jpeg",
             "Content-Disposition": "inline"
         },
-        "x": 670,
+        "x": 700,
         "y": 440,
         "wires": []
     },
@@ -13560,7 +13584,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 490,
+        "x": 520,
         "y": 440,
         "wires": [
             [
@@ -13577,7 +13601,7 @@
         "method": "get",
         "upload": false,
         "swaggerDoc": "",
-        "x": 240,
+        "x": 270,
         "y": 400,
         "wires": [
             [
@@ -13596,7 +13620,7 @@
             "Content-Disposition": "inline",
             "Cache-Control": "no-cache"
         },
-        "x": 670,
+        "x": 700,
         "y": 400,
         "wires": []
     },
@@ -13700,7 +13724,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 490,
+        "x": 520,
         "y": 400,
         "wires": [
             [
@@ -13735,6 +13759,9 @@
             [],
             [
                 "e2f015a4de4af10b"
+            ],
+            [
+                "16e0aa3b85ca1ac1"
             ]
         ]
     },
@@ -13765,6 +13792,9 @@
             [],
             [
                 "409f37a2ef9abb46"
+            ],
+            [
+                "46e8a49f54e8d289"
             ]
         ]
     },
@@ -13795,6 +13825,9 @@
             [],
             [
                 "94f4b7425b382622"
+            ],
+            [
+                "d0adc1a365ddf2de"
             ]
         ]
     },
@@ -13803,7 +13836,7 @@
         "type": "function",
         "z": "fc93ef5a2502b341",
         "name": "ISO Zeitstempel",
-        "func": "msg.payload = new Date().toISOString();\nreturn msg;",
+        "func": "msg.payload = new Date().toISOString();\nmsg.datei = flow.get('kamera-haustuer-datei');\nmsg.start_time_id = flow.get('kamera-haustuer-start_time_id');\nmsg.end_time_id = flow.get('kamera-haustuer-end_time_id');\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -13823,7 +13856,7 @@
         "type": "function",
         "z": "fc93ef5a2502b341",
         "name": "ISO Zeitstempel",
-        "func": "msg.payload = new Date().toISOString();\nreturn msg;",
+        "func": "msg.payload = new Date().toISOString();\nmsg.datei = flow.get('kamera-kellertuer-datei');\nmsg.start_time_id = flow.get('kamera-kellertuer-start_time_id');\nmsg.end_time_id = flow.get('kamera-kellertuer-end_time_id');\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -13843,7 +13876,7 @@
         "type": "function",
         "z": "fc93ef5a2502b341",
         "name": "ISO Zeitstempel",
-        "func": "msg.payload = new Date().toISOString();\nreturn msg;",
+        "func": "msg.payload = new Date().toISOString();\nmsg.datei = flow.get('kamera-balkon-datei');\nmsg.start_time_id = flow.get('kamera-balkon-start_time_id');\nmsg.end_time_id = flow.get('kamera-balkon-end_time_id');\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -13867,7 +13900,23 @@
         "version": 0,
         "state": "payload",
         "stateType": "msg",
-        "attributes": [],
+        "attributes": [
+            {
+                "property": "datei",
+                "value": "datei",
+                "valueType": "msg"
+            },
+            {
+                "property": "start_time_id",
+                "value": "start_time_id",
+                "valueType": "msg"
+            },
+            {
+                "property": "end_time_id",
+                "value": "end_time_id",
+                "valueType": "msg"
+            }
+        ],
         "inputOverride": "allow",
         "outputProperties": [],
         "x": 900,
@@ -13885,7 +13934,23 @@
         "version": 0,
         "state": "payload",
         "stateType": "msg",
-        "attributes": [],
+        "attributes": [
+            {
+                "property": "datei",
+                "value": "datei",
+                "valueType": "msg"
+            },
+            {
+                "property": "start_time_id",
+                "value": "start_time_id",
+                "valueType": "msg"
+            },
+            {
+                "property": "end_time_id",
+                "value": "end_time_id",
+                "valueType": "msg"
+            }
+        ],
         "inputOverride": "allow",
         "outputProperties": [],
         "x": 900,
@@ -13903,7 +13968,23 @@
         "version": 0,
         "state": "payload",
         "stateType": "msg",
-        "attributes": [],
+        "attributes": [
+            {
+                "property": "datei",
+                "value": "datei",
+                "valueType": "msg"
+            },
+            {
+                "property": "start_time_id",
+                "value": "start_time_id",
+                "valueType": "msg"
+            },
+            {
+                "property": "end_time_id",
+                "value": "end_time_id",
+                "valueType": "msg"
+            }
+        ],
         "inputOverride": "allow",
         "outputProperties": [],
         "x": 890,
@@ -13921,6 +14002,123 @@
         "x": 200,
         "y": 360,
         "wires": []
+    },
+    {
+        "id": "16e0aa3b85ca1ac1",
+        "type": "change",
+        "z": "fc93ef5a2502b341",
+        "name": "merge Datei-Info Haustür",
+        "rules": [
+            {
+                "t": "set",
+                "p": "kamera-haustuer-datei",
+                "pt": "flow",
+                "to": "datei",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "kamera-haustuer-start_time_id",
+                "pt": "flow",
+                "to": "start_time_id",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "kamera-haustuer-end_time_id",
+                "pt": "flow",
+                "to": "end_time_id",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 460,
+        "y": 100,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "46e8a49f54e8d289",
+        "type": "change",
+        "z": "fc93ef5a2502b341",
+        "name": "merge Datei-Info Kellertür",
+        "rules": [
+            {
+                "t": "set",
+                "p": "kamera-kellertuer-datei",
+                "pt": "flow",
+                "to": "datei",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "kamera-kellertuer-start_time_id",
+                "pt": "flow",
+                "to": "start_time_id",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "kamera-kellertuer-end_time_id",
+                "pt": "flow",
+                "to": "end_time_id",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 460,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d0adc1a365ddf2de",
+        "type": "change",
+        "z": "fc93ef5a2502b341",
+        "name": "merge Datei-Info Balkon",
+        "rules": [
+            {
+                "t": "set",
+                "p": "kamera-balkon-datei",
+                "pt": "flow",
+                "to": "datei",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "kamera-balkon-start_time_id",
+                "pt": "flow",
+                "to": "start_time_id",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "kamera-balkon-end_time_id",
+                "pt": "flow",
+                "to": "end_time_id",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 450,
+        "y": 320,
+        "wires": [
+            []
+        ]
     },
     {
         "id": "75217642cc0d7a74",
