@@ -118,16 +118,6 @@
                         "port": 0
                     }
                 ]
-            },
-            {
-                "x": 1090,
-                "y": 460,
-                "wires": [
-                    {
-                        "id": "adcad3a36db70f1e",
-                        "port": 0
-                    }
-                ]
             }
         ],
         "env": [
@@ -150,8 +140,7 @@
         "color": "#C0DEED",
         "outputLabels": [
             "person detected",
-            "snapshot",
-            "aufnahme-info"
+            "snapshot"
         ],
         "icon": "font-awesome/fa-video-camera"
     },
@@ -2552,6 +2541,129 @@
         "debugEnabled": false
     },
     {
+        "id": "61343cee6427da70",
+        "type": "ha-entity-config",
+        "server": "3e07f44559793d55",
+        "deviceConfig": "03d0db99afca730d",
+        "name": "Verlauf Haustür",
+        "version": 6,
+        "entityType": "sensor",
+        "haConfig": [
+            {
+                "property": "name",
+                "value": "Verlauf Haustür"
+            },
+            {
+                "property": "icon",
+                "value": "mdi:image-multiple"
+            },
+            {
+                "property": "entity_picture",
+                "value": ""
+            },
+            {
+                "property": "entity_category",
+                "value": ""
+            },
+            {
+                "property": "device_class",
+                "value": "timestamp"
+            },
+            {
+                "property": "unit_of_measurement",
+                "value": ""
+            },
+            {
+                "property": "state_class",
+                "value": ""
+            }
+        ],
+        "resend": false,
+        "debugEnabled": false
+    },
+    {
+        "id": "55fb83e22b1edf42",
+        "type": "ha-entity-config",
+        "server": "3e07f44559793d55",
+        "deviceConfig": "03d0db99afca730d",
+        "name": "Verlauf Kellertür",
+        "version": 6,
+        "entityType": "sensor",
+        "haConfig": [
+            {
+                "property": "name",
+                "value": "Verlauf Kellertür"
+            },
+            {
+                "property": "icon",
+                "value": "mdi:image-multiple"
+            },
+            {
+                "property": "entity_picture",
+                "value": ""
+            },
+            {
+                "property": "entity_category",
+                "value": ""
+            },
+            {
+                "property": "device_class",
+                "value": "timestamp"
+            },
+            {
+                "property": "unit_of_measurement",
+                "value": ""
+            },
+            {
+                "property": "state_class",
+                "value": ""
+            }
+        ],
+        "resend": false,
+        "debugEnabled": false
+    },
+    {
+        "id": "4dee2e961b3634d4",
+        "type": "ha-entity-config",
+        "server": "3e07f44559793d55",
+        "deviceConfig": "03d0db99afca730d",
+        "name": "Verlauf Balkon",
+        "version": 6,
+        "entityType": "sensor",
+        "haConfig": [
+            {
+                "property": "name",
+                "value": "Verlauf Balkon"
+            },
+            {
+                "property": "icon",
+                "value": "mdi:image-multiple"
+            },
+            {
+                "property": "entity_picture",
+                "value": ""
+            },
+            {
+                "property": "entity_category",
+                "value": ""
+            },
+            {
+                "property": "device_class",
+                "value": "timestamp"
+            },
+            {
+                "property": "unit_of_measurement",
+                "value": ""
+            },
+            {
+                "property": "state_class",
+                "value": ""
+            }
+        ],
+        "resend": false,
+        "debugEnabled": false
+    },
+    {
         "id": "a27c201f88d5372d",
         "type": "http request",
         "z": "f5d8e11fee9a1e7c",
@@ -2798,71 +2910,8 @@
         "y": 300,
         "wires": [
             [
-                "6dfc591e4b556f70",
-                "e7bed86a25f7dd5d"
+                "6dfc591e4b556f70"
             ]
-        ]
-    },
-    {
-        "id": "e7bed86a25f7dd5d",
-        "type": "function",
-        "z": "f5d8e11fee9a1e7c",
-        "name": "Prep Search Post",
-        "func": "const now = new Date();\nconst start = new Date(now.getTime() - 3*60*1000);\nfunction timeObj(d) {\n    return { year: d.getFullYear(), mon: d.getMonth()+1, day: d.getDate(), hour: d.getHours(), min: d.getMinutes(), sec: d.getSeconds() };\n}\nmsg.url = \"http://\" + env.get('hostname') + \"/cgi-bin/api.cgi?cmd=Search&token=\" + flow.get('token');\nmsg.payload = [{\n    cmd: \"Search\",\n    action: 0,\n    param: { Search: { channel: 0, onlyStatus: 0, streamType: \"main\", StartTime: timeObj(start), EndTime: timeObj(now) } }\n}];\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 690,
-        "y": 380,
-        "wires": [
-            [
-                "0cdfeaa08eade45d"
-            ]
-        ]
-    },
-    {
-        "id": "0cdfeaa08eade45d",
-        "type": "http request",
-        "z": "f5d8e11fee9a1e7c",
-        "name": "",
-        "method": "POST",
-        "ret": "obj",
-        "paytoqs": "ignore",
-        "url": "",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "insecureHTTPParser": false,
-        "authType": "",
-        "senderr": false,
-        "headers": [],
-        "x": 880,
-        "y": 380,
-        "wires": [
-            [
-                "adcad3a36db70f1e"
-            ]
-        ]
-    },
-    {
-        "id": "adcad3a36db70f1e",
-        "type": "function",
-        "z": "f5d8e11fee9a1e7c",
-        "name": "Parse Search Result",
-        "func": "const files = (msg.payload && msg.payload[0] && msg.payload[0].value && msg.payload[0].value.SearchResult && msg.payload[0].value.SearchResult.File) || [];\nif (files.length === 0) {\n    node.warn('Keine Aufnahme-Datei im Suchfenster gefunden');\n    return null;\n}\nconst last = files[files.length - 1];\nfunction pad(n) { return String(n).padStart(2, '0'); }\nfunction toId(t) { return `${t.year}${pad(t.mon)}${pad(t.day)}${pad(t.hour)}${pad(t.min)}${pad(t.sec)}`; }\nmsg.datei = last.name;\nmsg.start_time_id = toId(last.StartTime);\nmsg.end_time_id = toId(last.EndTime);\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1090,
-        "y": 380,
-        "wires": [
-            []
         ]
     },
     {
@@ -13485,8 +13534,8 @@
         "method": "get",
         "upload": false,
         "swaggerDoc": "",
-        "x": 260,
-        "y": 480,
+        "x": 270,
+        "y": 520,
         "wires": [
             [
                 "97a7a986daf2b9df"
@@ -13503,8 +13552,8 @@
             "Content-Type": "image/jpeg",
             "Content-Disposition": "inline"
         },
-        "x": 700,
-        "y": 480,
+        "x": 710,
+        "y": 520,
         "wires": []
     },
     {
@@ -13526,8 +13575,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 520,
-        "y": 480,
+        "x": 530,
+        "y": 520,
         "wires": [
             [
                 "71cb69634e2af22f"
@@ -13543,8 +13592,8 @@
         "method": "get",
         "upload": false,
         "swaggerDoc": "",
-        "x": 270,
-        "y": 440,
+        "x": 280,
+        "y": 480,
         "wires": [
             [
                 "633149d23f7b2e78"
@@ -13561,8 +13610,8 @@
             "Content-Type": "image/jpeg",
             "Content-Disposition": "inline"
         },
-        "x": 700,
-        "y": 440,
+        "x": 710,
+        "y": 480,
         "wires": []
     },
     {
@@ -13584,8 +13633,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 520,
-        "y": 440,
+        "x": 530,
+        "y": 480,
         "wires": [
             [
                 "7ffee3775dd668e3"
@@ -13601,8 +13650,8 @@
         "method": "get",
         "upload": false,
         "swaggerDoc": "",
-        "x": 270,
-        "y": 400,
+        "x": 280,
+        "y": 440,
         "wires": [
             [
                 "31f96fa7073319ca"
@@ -13620,8 +13669,8 @@
             "Content-Disposition": "inline",
             "Cache-Control": "no-cache"
         },
-        "x": 700,
-        "y": 400,
+        "x": 710,
+        "y": 440,
         "wires": []
     },
     {
@@ -13644,10 +13693,11 @@
         "to": "",
         "reg": false,
         "x": 440,
-        "y": 140,
+        "y": 100,
         "wires": [
             [
-                "0b9d1b9eb5163c8a"
+                "0b9d1b9eb5163c8a",
+                "0b6b9d22a3e43ca6"
             ]
         ]
     },
@@ -13671,10 +13721,11 @@
         "to": "",
         "reg": false,
         "x": 440,
-        "y": 200,
+        "y": 180,
         "wires": [
             [
-                "b8a22ef9f46baf1f"
+                "b8a22ef9f46baf1f",
+                "c59bb5389123af99"
             ]
         ]
     },
@@ -13701,7 +13752,8 @@
         "y": 260,
         "wires": [
             [
-                "76dd2c68a310c90c"
+                "76dd2c68a310c90c",
+                "77a25ac9747503bb"
             ]
         ]
     },
@@ -13724,8 +13776,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 520,
-        "y": 400,
+        "x": 530,
+        "y": 440,
         "wires": [
             [
                 "0fb5633e535d1adb"
@@ -13754,14 +13806,11 @@
             }
         ],
         "x": 200,
-        "y": 140,
+        "y": 100,
         "wires": [
             [],
             [
                 "e2f015a4de4af10b"
-            ],
-            [
-                "16e0aa3b85ca1ac1"
             ]
         ]
     },
@@ -13787,14 +13836,11 @@
             }
         ],
         "x": 200,
-        "y": 200,
+        "y": 180,
         "wires": [
             [],
             [
                 "409f37a2ef9abb46"
-            ],
-            [
-                "46e8a49f54e8d289"
             ]
         ]
     },
@@ -13825,9 +13871,6 @@
             [],
             [
                 "94f4b7425b382622"
-            ],
-            [
-                "d0adc1a365ddf2de"
             ]
         ]
     },
@@ -13836,7 +13879,7 @@
         "type": "function",
         "z": "fc93ef5a2502b341",
         "name": "ISO Zeitstempel",
-        "func": "msg.payload = new Date().toISOString();\nmsg.datei = flow.get('kamera-haustuer-datei');\nmsg.start_time_id = flow.get('kamera-haustuer-start_time_id');\nmsg.end_time_id = flow.get('kamera-haustuer-end_time_id');\nreturn msg;",
+        "func": "msg.payload = new Date().toISOString();\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -13844,7 +13887,7 @@
         "finalize": "",
         "libs": [],
         "x": 680,
-        "y": 140,
+        "y": 120,
         "wires": [
             [
                 "12de56d03968c7f7"
@@ -13856,7 +13899,7 @@
         "type": "function",
         "z": "fc93ef5a2502b341",
         "name": "ISO Zeitstempel",
-        "func": "msg.payload = new Date().toISOString();\nmsg.datei = flow.get('kamera-kellertuer-datei');\nmsg.start_time_id = flow.get('kamera-kellertuer-start_time_id');\nmsg.end_time_id = flow.get('kamera-kellertuer-end_time_id');\nreturn msg;",
+        "func": "msg.payload = new Date().toISOString();\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -13876,7 +13919,7 @@
         "type": "function",
         "z": "fc93ef5a2502b341",
         "name": "ISO Zeitstempel",
-        "func": "msg.payload = new Date().toISOString();\nmsg.datei = flow.get('kamera-balkon-datei');\nmsg.start_time_id = flow.get('kamera-balkon-start_time_id');\nmsg.end_time_id = flow.get('kamera-balkon-end_time_id');\nreturn msg;",
+        "func": "msg.payload = new Date().toISOString();\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -13884,7 +13927,7 @@
         "finalize": "",
         "libs": [],
         "x": 680,
-        "y": 260,
+        "y": 280,
         "wires": [
             [
                 "ec459501ac480868"
@@ -13900,27 +13943,11 @@
         "version": 0,
         "state": "payload",
         "stateType": "msg",
-        "attributes": [
-            {
-                "property": "datei",
-                "value": "datei",
-                "valueType": "msg"
-            },
-            {
-                "property": "start_time_id",
-                "value": "start_time_id",
-                "valueType": "msg"
-            },
-            {
-                "property": "end_time_id",
-                "value": "end_time_id",
-                "valueType": "msg"
-            }
-        ],
+        "attributes": [],
         "inputOverride": "allow",
         "outputProperties": [],
-        "x": 900,
-        "y": 140,
+        "x": 940,
+        "y": 120,
         "wires": [
             []
         ]
@@ -13934,26 +13961,10 @@
         "version": 0,
         "state": "payload",
         "stateType": "msg",
-        "attributes": [
-            {
-                "property": "datei",
-                "value": "datei",
-                "valueType": "msg"
-            },
-            {
-                "property": "start_time_id",
-                "value": "start_time_id",
-                "valueType": "msg"
-            },
-            {
-                "property": "end_time_id",
-                "value": "end_time_id",
-                "valueType": "msg"
-            }
-        ],
+        "attributes": [],
         "inputOverride": "allow",
         "outputProperties": [],
-        "x": 900,
+        "x": 940,
         "y": 200,
         "wires": [
             []
@@ -13968,27 +13979,11 @@
         "version": 0,
         "state": "payload",
         "stateType": "msg",
-        "attributes": [
-            {
-                "property": "datei",
-                "value": "datei",
-                "valueType": "msg"
-            },
-            {
-                "property": "start_time_id",
-                "value": "start_time_id",
-                "valueType": "msg"
-            },
-            {
-                "property": "end_time_id",
-                "value": "end_time_id",
-                "valueType": "msg"
-            }
-        ],
+        "attributes": [],
         "inputOverride": "allow",
         "outputProperties": [],
-        "x": 890,
-        "y": 260,
+        "x": 930,
+        "y": 280,
         "wires": [
             []
         ]
@@ -13999,126 +13994,297 @@
         "z": "fc93ef5a2502b341",
         "name": "HTTP-Endpunkte",
         "info": "Über diese HTTP-Endpunkte holt sich HA die jeweils im Flow abgespeicherten Snapshots, nachdem die Personen-Erkennung einen neuen ISO-Timestapm gesendet hat.",
-        "x": 200,
-        "y": 360,
+        "x": 210,
+        "y": 400,
         "wires": []
     },
     {
-        "id": "16e0aa3b85ca1ac1",
-        "type": "change",
+        "id": "0b6b9d22a3e43ca6",
+        "type": "function",
         "z": "fc93ef5a2502b341",
-        "name": "merge Datei-Info Haustür",
-        "rules": [
+        "name": "Rolling-Buffer Haustür",
+        "func": "const key = 'kamera-haustuer-history';\nlet history = flow.get(key) || [];\nhistory.unshift({ timestamp: new Date().toISOString(), buffer: msg.payload });\nif (history.length > 5) { history = history.slice(0, 5); }\nflow.set(key, history);\nmsg.payload = history[0].timestamp;\nmsg.verlauf = history.map((h, i) => ({ timestamp: h.timestamp, url: 'http://a0d7b954-nodered.local.hass.io:1880/endpoint/ui/kamera-haustuer-verlauf-img/' + i }));\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 700,
+        "y": 80,
+        "wires": [
+            [
+                "fe6364ef853d6e98"
+            ]
+        ]
+    },
+    {
+        "id": "fe6364ef853d6e98",
+        "type": "ha-sensor",
+        "z": "fc93ef5a2502b341",
+        "name": "Verlauf Haustür",
+        "entityConfig": "61343cee6427da70",
+        "version": 0,
+        "state": "payload",
+        "stateType": "msg",
+        "attributes": [
             {
-                "t": "set",
-                "p": "kamera-haustuer-datei",
-                "pt": "flow",
-                "to": "datei",
-                "tot": "msg"
-            },
-            {
-                "t": "set",
-                "p": "kamera-haustuer-start_time_id",
-                "pt": "flow",
-                "to": "start_time_id",
-                "tot": "msg"
-            },
-            {
-                "t": "set",
-                "p": "kamera-haustuer-end_time_id",
-                "pt": "flow",
-                "to": "end_time_id",
-                "tot": "msg"
+                "property": "verlauf",
+                "value": "verlauf",
+                "valueType": "msg"
             }
         ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 460,
-        "y": 100,
+        "inputOverride": "allow",
+        "outputProperties": [],
+        "x": 920,
+        "y": 80,
         "wires": [
             []
         ]
     },
     {
-        "id": "46e8a49f54e8d289",
-        "type": "change",
+        "id": "e21f6f390a413c4f",
+        "type": "http in",
         "z": "fc93ef5a2502b341",
-        "name": "merge Datei-Info Kellertür",
-        "rules": [
+        "name": "",
+        "url": "/ui/kamera-haustuer-verlauf-img/:idx",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 310,
+        "y": 640,
+        "wires": [
+            [
+                "c1ef9ee311943c4a"
+            ]
+        ]
+    },
+    {
+        "id": "c1ef9ee311943c4a",
+        "type": "function",
+        "z": "fc93ef5a2502b341",
+        "name": "Verlauf-Bild nach Index",
+        "func": "const history = flow.get('kamera-haustuer-history') || [];\nconst idx = parseInt(msg.req.params.idx, 10);\nconst entry = history[idx];\nif (!entry) {\n    msg.statusCode = 404;\n    msg.payload = Buffer.from('');\n} else {\n    msg.payload = entry.buffer;\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 650,
+        "y": 640,
+        "wires": [
+            [
+                "aff795fbe0233bc8"
+            ]
+        ]
+    },
+    {
+        "id": "aff795fbe0233bc8",
+        "type": "http response",
+        "z": "fc93ef5a2502b341",
+        "name": "",
+        "statusCode": "",
+        "headers": {
+            "Content-Type": "image/jpeg",
+            "Content-Disposition": "inline",
+            "Cache-Control": "no-cache"
+        },
+        "x": 860,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "c59bb5389123af99",
+        "type": "function",
+        "z": "fc93ef5a2502b341",
+        "name": "Rolling-Buffer Kellertür",
+        "func": "const key = 'kamera-kellertuer-history';\nlet history = flow.get(key) || [];\nhistory.unshift({ timestamp: new Date().toISOString(), buffer: msg.payload });\nif (history.length > 5) { history = history.slice(0, 5); }\nflow.set(key, history);\nmsg.payload = history[0].timestamp;\nmsg.verlauf = history.map((h, i) => ({ timestamp: h.timestamp, url: 'http://a0d7b954-nodered.local.hass.io:1880/endpoint/ui/kamera-kellertuer-verlauf-img/' + i }));\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 700,
+        "y": 160,
+        "wires": [
+            [
+                "26efdf67fef2aeac"
+            ]
+        ]
+    },
+    {
+        "id": "26efdf67fef2aeac",
+        "type": "ha-sensor",
+        "z": "fc93ef5a2502b341",
+        "name": "Verlauf Kellertür",
+        "entityConfig": "55fb83e22b1edf42",
+        "version": 0,
+        "state": "payload",
+        "stateType": "msg",
+        "attributes": [
             {
-                "t": "set",
-                "p": "kamera-kellertuer-datei",
-                "pt": "flow",
-                "to": "datei",
-                "tot": "msg"
-            },
-            {
-                "t": "set",
-                "p": "kamera-kellertuer-start_time_id",
-                "pt": "flow",
-                "to": "start_time_id",
-                "tot": "msg"
-            },
-            {
-                "t": "set",
-                "p": "kamera-kellertuer-end_time_id",
-                "pt": "flow",
-                "to": "end_time_id",
-                "tot": "msg"
+                "property": "verlauf",
+                "value": "verlauf",
+                "valueType": "msg"
             }
         ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 460,
+        "inputOverride": "allow",
+        "outputProperties": [],
+        "x": 920,
         "y": 160,
         "wires": [
             []
         ]
     },
     {
-        "id": "d0adc1a365ddf2de",
-        "type": "change",
+        "id": "5de4903a07400ab0",
+        "type": "http in",
         "z": "fc93ef5a2502b341",
-        "name": "merge Datei-Info Balkon",
-        "rules": [
+        "name": "",
+        "url": "/ui/kamera-kellertuer-verlauf-img/:idx",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 310,
+        "y": 700,
+        "wires": [
+            [
+                "8163b6fbd4ea1157"
+            ]
+        ]
+    },
+    {
+        "id": "8163b6fbd4ea1157",
+        "type": "function",
+        "z": "fc93ef5a2502b341",
+        "name": "Verlauf-Bild nach Index",
+        "func": "const history = flow.get('kamera-kellertuer-history') || [];\nconst idx = parseInt(msg.req.params.idx, 10);\nconst entry = history[idx];\nif (!entry) {\n    msg.statusCode = 404;\n    msg.payload = Buffer.from('');\n} else {\n    msg.payload = entry.buffer;\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 650,
+        "y": 700,
+        "wires": [
+            [
+                "d04ddc76826dcaa4"
+            ]
+        ]
+    },
+    {
+        "id": "d04ddc76826dcaa4",
+        "type": "http response",
+        "z": "fc93ef5a2502b341",
+        "name": "",
+        "statusCode": "",
+        "headers": {
+            "Content-Type": "image/jpeg",
+            "Content-Disposition": "inline",
+            "Cache-Control": "no-cache"
+        },
+        "x": 860,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "77a25ac9747503bb",
+        "type": "function",
+        "z": "fc93ef5a2502b341",
+        "name": "Rolling-Buffer Balkon",
+        "func": "const key = 'kamera-balkon-history';\nlet history = flow.get(key) || [];\nhistory.unshift({ timestamp: new Date().toISOString(), buffer: msg.payload });\nif (history.length > 5) { history = history.slice(0, 5); }\nflow.set(key, history);\nmsg.payload = history[0].timestamp;\nmsg.verlauf = history.map((h, i) => ({ timestamp: h.timestamp, url: 'http://a0d7b954-nodered.local.hass.io:1880/endpoint/ui/kamera-balkon-verlauf-img/' + i }));\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 700,
+        "y": 240,
+        "wires": [
+            [
+                "e21d39ef48c6b034"
+            ]
+        ]
+    },
+    {
+        "id": "e21d39ef48c6b034",
+        "type": "ha-sensor",
+        "z": "fc93ef5a2502b341",
+        "name": "Verlauf Balkon",
+        "entityConfig": "4dee2e961b3634d4",
+        "version": 0,
+        "state": "payload",
+        "stateType": "msg",
+        "attributes": [
             {
-                "t": "set",
-                "p": "kamera-balkon-datei",
-                "pt": "flow",
-                "to": "datei",
-                "tot": "msg"
-            },
-            {
-                "t": "set",
-                "p": "kamera-balkon-start_time_id",
-                "pt": "flow",
-                "to": "start_time_id",
-                "tot": "msg"
-            },
-            {
-                "t": "set",
-                "p": "kamera-balkon-end_time_id",
-                "pt": "flow",
-                "to": "end_time_id",
-                "tot": "msg"
+                "property": "verlauf",
+                "value": "verlauf",
+                "valueType": "msg"
             }
         ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 450,
-        "y": 320,
+        "inputOverride": "allow",
+        "outputProperties": [],
+        "x": 920,
+        "y": 240,
         "wires": [
             []
         ]
+    },
+    {
+        "id": "11d34a8dff275ff8",
+        "type": "http in",
+        "z": "fc93ef5a2502b341",
+        "name": "",
+        "url": "/ui/kamera-balkon-verlauf-img/:idx",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 300,
+        "y": 760,
+        "wires": [
+            [
+                "7521a10d8a9f33af"
+            ]
+        ]
+    },
+    {
+        "id": "7521a10d8a9f33af",
+        "type": "function",
+        "z": "fc93ef5a2502b341",
+        "name": "Verlauf-Bild nach Index",
+        "func": "const history = flow.get('kamera-balkon-history') || [];\nconst idx = parseInt(msg.req.params.idx, 10);\nconst entry = history[idx];\nif (!entry) {\n    msg.statusCode = 404;\n    msg.payload = Buffer.from('');\n} else {\n    msg.payload = entry.buffer;\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 650,
+        "y": 760,
+        "wires": [
+            [
+                "0441a2fc9397b4a4"
+            ]
+        ]
+    },
+    {
+        "id": "0441a2fc9397b4a4",
+        "type": "http response",
+        "z": "fc93ef5a2502b341",
+        "name": "",
+        "statusCode": "",
+        "headers": {
+            "Content-Type": "image/jpeg",
+            "Content-Disposition": "inline",
+            "Cache-Control": "no-cache"
+        },
+        "x": 860,
+        "y": 760,
+        "wires": []
     },
     {
         "id": "75217642cc0d7a74",
