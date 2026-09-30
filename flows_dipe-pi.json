@@ -361,48 +361,6 @@
         ]
     },
     {
-        "id": "db7190952803093d",
-        "type": "junction",
-        "z": "2788b93b.8a2f56",
-        "x": 320,
-        "y": 580,
-        "wires": [
-            [
-                "d083875c.561678",
-                "b8d8ad110ade12f4",
-                "3fc26a03.2a8a06",
-                "19b316c1.d916e9",
-                "dc465da3.9f075",
-                "1f972c48.e2ab94",
-                "f54e3c81.4c057",
-                "ffaa1564fff185a6",
-                "febd2e38.1a2e1",
-                "f477863d.bbbe58",
-                "6604bb11.21e7b4",
-                "d97bb3fb.f95d7",
-                "800e50b3.1cd8f",
-                "0b3e08059fd963b5",
-                "7359385faca6d84e",
-                "fe0cab1575d624e5",
-                "0bed57233aab0d43",
-                "48f55ed2.c2f68"
-            ]
-        ]
-    },
-    {
-        "id": "d011ddcd9acab7b0",
-        "type": "junction",
-        "z": "2788b93b.8a2f56",
-        "x": 240,
-        "y": 1080,
-        "wires": [
-            [
-                "55164868c056772f",
-                "ebed17f443507693"
-            ]
-        ]
-    },
-    {
         "id": "c349b9ff.9dc4c8",
         "type": "mqtt-broker",
         "name": "MQTT",
@@ -3136,678 +3094,18 @@
         "type": "function",
         "z": "2788b93b.8a2f56",
         "name": "Lüftungsempfehlung",
-        "func": "// const outside_abs_humidity = global.get(\"aussen-absolute_humidity\");\nconst outside_abs_humidity = global.get(\"luftguetemesser2-absolute_humidity\");\n\nconst name = msg.payload.name;\n\nconst temperature = global.get(name + \"-temperature\");\nconst humidity = global.get(name + \"-humidity\");\nconst abs_humidity = global.get(name + \"-absolute_humidity\");\nconst last_abs_humidity_gt_outside_abs_humidity = global.get(name + \"-last_abs_humidity_gt_outside_abs_humidity\");\n\nconst room_abs_humidity_gt_outside_abs_humidity = (last_abs_humidity_gt_outside_abs_humidity) ?\n    abs_humidity > outside_abs_humidity * 1.05:\n    abs_humidity > outside_abs_humidity * 1.05;\n\nglobal.set(name + \"-last_abs_humidity_gt_outside_abs_humidity\", abs_humidity > outside_abs_humidity);\n\nconst intl = global.get('intl');\nconst format = intl.NumberFormat('de-De',{style:'decimal', maximumFractionDigits: 1}).format;\nconst sprintf = global.get(\"sprintf\");\nconst text = sprintf(\"%s °C, %s %% H, %s g/m³\", format(temperature), format(humidity), format(abs_humidity))\n\nvar payload;\nif (room_abs_humidity_gt_outside_abs_humidity) {\n    if (humidity > 65) {\n        payload = {payload: {name: name, color: \"skyblue\", hint: \"Raum feucht. Lüften!\", text: text, temperature: temperature, humidity: humidity, abs_humidity: abs_humidity}};\n    } else {\n        payload = {payload: {name: name, color: \"limegreen\", hint: \"Raum ausreichend trocken.\", text: text, temperature: temperature, humidity: humidity, abs_humidity: abs_humidity}};\n    }\n} else {\n    payload = {payload: {name: name, color: \"red\", hint: \"Draußen zu feucht. Nur kurz lüften!\", text: text, temperature: temperature, humidity: humidity, abs_humidity: abs_humidity}};\n}\n\nconst debug = {\n    name: name,\n    temperature: temperature,\n    humidity: humidity,\n    abs_humidity: abs_humidity,\n    outside_abs_humidity: outside_abs_humidity,\n    last_abs_humidity_gt_outside_abs_humidity: last_abs_humidity_gt_outside_abs_humidity,\n    room_abs_humidity_gt_outside_abs_humidity: room_abs_humidity_gt_outside_abs_humidity,\n    text: text\n};\n\nreturn [payload, debug];\n",
-        "outputs": 2,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 900,
-        "y": 560,
-        "wires": [
-            [
-                "dac326a7.c5d638"
-            ],
-            [
-                "755cd8db.bac358"
-            ]
-        ]
-    },
-    {
-        "id": "2bf53ce9.7aa234",
-        "type": "switch",
-        "z": "2788b93b.8a2f56",
-        "name": "",
-        "property": "payload.name",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "luftguetemesser2",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "aussen",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "th_treppenhaus_keller",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "th_fahrradkeller",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "waschkueche_luefter",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "luftguetemesser1",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "th_küche",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "th_speisekammer",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "th_wohnzimmer",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "th_gäste_wc",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "th_bad",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "th_büro_og",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "th_schlafzimmer",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "th_ankleidezimmer",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "th_treppenhaus_dg",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "th_bad_dg",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "steckdose1",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "th_schlafzimmer_dg",
-                "vt": "str"
-            }
-        ],
-        "checkall": "false",
-        "repair": false,
-        "outputs": 18,
-        "x": 1090,
-        "y": 520,
-        "wires": [
-            [
-                "eb8d9215af4bfd8f"
-            ],
-            [
-                "a45ec0ad865a5490"
-            ],
-            [
-                "f0aefa5b2cadff2d"
-            ],
-            [
-                "241d874b554623fa"
-            ],
-            [
-                "c97e22a78f3f42df"
-            ],
-            [
-                "bf3de5a413407da5"
-            ],
-            [
-                "fe38274d5b40f74a"
-            ],
-            [
-                "7fb89a358c2b6164"
-            ],
-            [
-                "6036094df3e81945"
-            ],
-            [
-                "f2235cce1f4fa74f"
-            ],
-            [
-                "17462c418abf0c7f"
-            ],
-            [
-                "e9b9bc8e3096ca06"
-            ],
-            [
-                "46622f87013e8e63"
-            ],
-            [
-                "879f14bb365dc00f"
-            ],
-            [
-                "71358a6e42812956"
-            ],
-            [
-                "e0afcb31a078007a"
-            ],
-            [
-                "7567c4a9dc51ade3"
-            ],
-            [
-                "9a75b66c1fd8e6e7"
-            ]
-        ]
-    },
-    {
-        "id": "d083875c.561678",
-        "type": "function",
-        "z": "2788b93b.8a2f56",
-        "name": "recall klima draußen",
-        "func": "const name = \"luftguetemesser2\";\n\nconst temperature = global.get(name + \"-temperature\");\nconst humidity = global.get(name + \"-humidity\");\nconst abs_humidity = global.get(name + \"-absolute_humidity\");\nconst last_abs_humidity = global.get(name + \"-last_abs_humidity\");\nglobal.set(name + \"-last_abs_humidity\", abs_humidity);\n\n//node.warn(name)\n//node.warn(temperature)\n//node.warn(humidity)\n//node.warn(abs_humidity)\n//node.warn(last_abs_humidity_gt_outside_abs_humidity)\n//node.warn(outside_abs_humidity)\n\nconst intl = global.get('intl');\nconst format = intl.NumberFormat('de-De',{style:'decimal', maximumFractionDigits: 1}).format;\nconst sprintf = global.get(\"sprintf\");\nconst text = sprintf(\"%s °C, %s %% H, %s g/m³\", format(temperature), format(humidity), format(abs_humidity));\nif        (abs_humidity >= 13) {\n    return {payload: {name: name, color: \"deepskyblue\", hint: \"Draußen ist es sehr feucht.\", text: text, temperature: temperature, humidity: humidity, abs_humidity: abs_humidity}};\n} else if (abs_humidity >= 12 && abs_humidity < 13) {\n    return {payload: {name: name, color: \"skyblue\", hint: \"Draußen ist es feucht.\", text: text, temperature: temperature, humidity: humidity, abs_humidity: abs_humidity}};\n} else if (abs_humidity >= 11 && abs_humidity < 12) {\n    return {payload: {name: name, color: \"limegreen\", hint: \"Draußen ist einigermaßen trocken.\", text: text, temperature: temperature, humidity: humidity, abs_humidity: abs_humidity}};\n} else if (abs_humidity < 11) {\n    return {payload: {name: name, color: \"YellowGreen\", hint: \"Draußen ist es trocken.\", text: text, temperature: temperature, humidity: humidity, abs_humidity: abs_humidity}};\n} else {\n    return {payload: {name: name, color: \"DarkSeaGreen\", hint: \"Draußen ist es sehr trocken.\", text: text, temperature: temperature, humidity: humidity, abs_humidity: abs_humidity}};\n}\n\n// if (last_abs_humidity >= 13 && abs_humidity >= 13 ||\n//     last_abs_humidity < 13 && abs_humidity > 13 * 1.10) {\n//     return { payload: { name: name, color: \"deepskyblue\", hint: \"Draußen ist es sehr feucht.\", text: text } };\n// } else if (last_abs_humidity > 13 && abs_humidity < 13 / 1.10 && abs_humidity > 12 ||\n//     last_abs_humidity <= 13 && last_abs_humidity >= 12 && abs_humidity <= 13 && abs_humidity >= 12 ||\n//     last_abs_humidity < 12 && abs_humidity > 12 * 1.10 && abs_humidity < 13) {\n//     return { payload: { name: name, color: \"skyblue\", hint: \"Draußen ist es feucht.\", text: text } };\n// } else if (last_abs_humidity > 12 && abs_humidity < 12 / 1.10 && abs_humidity > 11 ||\n//     last_abs_humidity <= 12 && last_abs_humidity >= 11 && abs_humidity <= 12 && abs_humidity >= 11 ||\n//     last_abs_humidity < 11 && abs_humidity > 11 * 1.10 && abs_humidity < 12) {\n//     return { payload: { name: name, color: \"limegreen\", hint: \"Draußen ist einigermaßen trocken.\", text: text } };\n// } else if (last_abs_humidity > 11 && abs_humidity < 11 / 1.10 ||\n//     last_abs_humidity <= 11 && abs_humidity <= 11) {\n//     return { payload: { name: name, color: \"YellowGreen\", hint: \"Draußen ist es trocken.\", text: text } };\n// } else {\n//     return { payload: { name: name, color: \"DarkSeaGreen\", hint: \"Draußen ist es sehr trocken.\", text: text } };\n// }\n",
+        "func": "const temperature = msg.payload.temperature;\nconst humidity = msg.payload.humidity;\n\nif (temperature === undefined || humidity === undefined) {\n    msg.payload = { complete: false };\n    return [msg, null];\n}\n\nconst mw = 18.01534;    // molar mass of water g/mol\nconst r = 8.31447215;   // Universal gas constant J/mol/K\nconst abs_humidity = (6.112 * Math.pow(2.718281828, (17.67 * temperature) /\n    (temperature + 243.5)) * humidity * mw) /\n    ((273.15 + temperature) * r); // in grams/m^3\n\nconst outside_abs_humidity = global.get(\"outside-absolute_humidity\");\nconst room_abs_humidity_gt_outside_abs_humidity = abs_humidity > outside_abs_humidity * 1.05;\n\nconst intl = global.get('intl');\nconst format = intl.NumberFormat('de-De',{style:'decimal', maximumFractionDigits: 1}).format;\nconst sprintf = global.get(\"sprintf\");\nconst text = sprintf(\"%s °C, %s %% H, %s g/m³\", format(temperature), format(humidity), format(abs_humidity))\n\nvar payload;\nif (room_abs_humidity_gt_outside_abs_humidity) {\n    if (humidity > 65) {\n        payload = {complete: true, color: \"skyblue\", hint: \"Raum feucht. Lüften!\", text: text, temperature: temperature, humidity: humidity, abs_humidity: abs_humidity};\n    } else {\n        payload = {complete: true, color: \"limegreen\", hint: \"Raum ausreichend trocken.\", text: text, temperature: temperature, humidity: humidity, abs_humidity: abs_humidity};\n    }\n} else {\n    payload = {complete: true, color: \"red\", hint: \"Draußen zu feucht. Nur kurz lüften!\", text: text, temperature: temperature, humidity: humidity, abs_humidity: abs_humidity};\n}\n\n// Needs setup outputs => 2\nconst debug = {\n    temperature: temperature,\n    humidity: humidity,\n    abs_humidity: abs_humidity,\n    outside_abs_humidity: outside_abs_humidity,\n    room_abs_humidity_gt_outside_abs_humidity: room_abs_humidity_gt_outside_abs_humidity,\n    text: text\n};\n\nmsg.payload = payload;\nreturn [msg, debug];\n",
         "outputs": 1,
         "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 500,
-        "y": 320,
+        "x": 720,
+        "y": 180,
         "wires": [
             [
-                "dac326a7.c5d638"
-            ]
-        ]
-    },
-    {
-        "id": "3fc26a03.2a8a06",
-        "type": "function",
-        "z": "2788b93b.8a2f56",
-        "name": "recall bad klima",
-        "func": "const name = \"th_bad\";\nreturn {\n    payload: {\n        name: name,\n        humidity: global.get(`${name}-humidity`),\n        absolute_humidity: global.get(`${name}-absolute_humidity`),\n        tempeature: global.get(`${name}-temperature`)\n    }\n};\n",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 480,
-        "y": 400,
-        "wires": [
-            [
-                "3825ae1b.6847c2"
-            ]
-        ]
-    },
-    {
-        "id": "40d6912.e35a67",
-        "type": "function",
-        "z": "2788b93b.8a2f56",
-        "name": "initialize names-rooms mapping",
-        "func": "const room = global.set(\"names_rooms\", {\n    \"luftguetemesser1\": \"Werkstatt\",\n    \"waschkueche_luefter\": \"Waschküche\",\n    \"luftguetemesser2\": \"Balkon\",\n    \"aussen\": \"Open Weather\",\n    \"steckdose1\": \"Büro DG\",\n});\n",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 450,
-        "y": 120,
-        "wires": [
-            [
-                "47b448507f3b50a1"
-            ]
-        ]
-    },
-    {
-        "id": "2fa070d.b96fb9",
-        "type": "inject",
-        "z": "2788b93b.8a2f56",
-        "name": "Reset",
-        "props": [
-            {
-                "p": "payload"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "Started!",
-        "payloadType": "str",
-        "x": 190,
-        "y": 120,
-        "wires": [
-            [
-                "40d6912.e35a67"
-            ]
-        ]
-    },
-    {
-        "id": "dac326a7.c5d638",
-        "type": "function",
-        "z": "2788b93b.8a2f56",
-        "name": "add room",
-        "func": "const name = msg.payload.name;\nconst names_rooms = global.get(\"names_rooms\");\nvar room = names_rooms[name] || name;\nroom = room\n    .replace(/^th_/, '')\n    .split('_')\n    .map(word => (word.charAt(0).toUpperCase() + word.slice(1)).replace('Dg', 'DG').replace('Og', 'OG').replace('Wc', 'WC'))\n    .join(' ');\n\nmsg.payload.room = room;\nreturn msg;",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 940,
-        "y": 520,
-        "wires": [
-            [
-                "2bf53ce9.7aa234"
-            ]
-        ]
-    },
-    {
-        "id": "19b316c1.d916e9",
-        "type": "function",
-        "z": "2788b93b.8a2f56",
-        "name": "recall gaeste_wc klima",
-        "func": "const name = \"th_gäste_wc\";\nreturn {\n    payload: {\n        name: name,\n        humidity: global.get(`${name}-humidity`),\n        absolute_humidity: global.get(`${name}-absolute_humidity`),\n        tempeature: global.get(`${name}-temperature`)\n    }\n};\n",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 500,
-        "y": 440,
-        "wires": [
-            [
-                "3825ae1b.6847c2"
-            ]
-        ]
-    },
-    {
-        "id": "dc465da3.9f075",
-        "type": "function",
-        "z": "2788b93b.8a2f56",
-        "name": "recall waschkueche_luefter klima",
-        "func": "const name = \"waschkueche_luefter\";\nreturn {\n    payload: {\n        name: name,\n        humidity: global.get(`${name}-humidity`),\n        absolute_humidity: global.get(`${name}-absolute_humidity`),\n        tempeature: global.get(`${name}-temperature`)\n    }\n};\n",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 540,
-        "y": 520,
-        "wires": [
-            [
-                "3825ae1b.6847c2"
-            ]
-        ]
-    },
-    {
-        "id": "1f972c48.e2ab94",
-        "type": "function",
-        "z": "2788b93b.8a2f56",
-        "name": "recall fahrradkeller klima",
-        "func": "const name = \"th_fahrradkeller\";\nreturn {\n    payload: {\n        name: name,\n        humidity: global.get(`${name}-humidity`),\n        absolute_humidity: global.get(`${name}-absolute_humidity`),\n        tempeature: global.get(`${name}-temperature`)\n    }\n};\n",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 510,
-        "y": 480,
-        "wires": [
-            [
-                "3825ae1b.6847c2"
-            ]
-        ]
-    },
-    {
-        "id": "f54e3c81.4c057",
-        "type": "function",
-        "z": "2788b93b.8a2f56",
-        "name": "recall treppenhaus_keller klima",
-        "func": "const name = \"th_treppenhaus_keller\";\nreturn {\n    payload: {\n        name: name,\n        humidity: global.get(`${name}-humidity`),\n        absolute_humidity: global.get(`${name}-absolute_humidity`),\n        tempeature: global.get(`${name}-temperature`)\n    }\n};\n",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 530,
-        "y": 600,
-        "wires": [
-            [
-                "3825ae1b.6847c2"
-            ]
-        ]
-    },
-    {
-        "id": "f477863d.bbbe58",
-        "type": "function",
-        "z": "2788b93b.8a2f56",
-        "name": "recall wohnzimmer klima",
-        "func": "const name = \"th_wohnzimmer\";\nreturn {\n    payload: {\n        name: name,\n        humidity: global.get(`${name}-humidity`),\n        absolute_humidity: global.get(`${name}-absolute_humidity`),\n        tempeature: global.get(`${name}-temperature`)\n    }\n};\n",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 510,
-        "y": 680,
-        "wires": [
-            [
-                "3825ae1b.6847c2"
-            ]
-        ]
-    },
-    {
-        "id": "6604bb11.21e7b4",
-        "type": "function",
-        "z": "2788b93b.8a2f56",
-        "name": "recall kueche klima",
-        "func": "const name = \"th_küche\";\nreturn {\n    payload: {\n        name: name,\n        humidity: global.get(`${name}-humidity`),\n        absolute_humidity: global.get(`${name}-absolute_humidity`),\n        tempeature: global.get(`${name}-temperature`)\n    }\n};\n",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 490,
-        "y": 760,
-        "wires": [
-            [
-                "3825ae1b.6847c2"
-            ]
-        ]
-    },
-    {
-        "id": "800e50b3.1cd8f",
-        "type": "function",
-        "z": "2788b93b.8a2f56",
-        "name": "recall schlafzimmer klima",
-        "func": "const name = \"th_schlafzimmer\";\nreturn {\n    payload: {\n        name: name,\n        humidity: global.get(`${name}-humidity`),\n        absolute_humidity: global.get(`${name}-absolute_humidity`),\n        tempeature: global.get(`${name}-temperature`)\n    }\n};\n",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 510,
-        "y": 880,
-        "wires": [
-            [
-                "3825ae1b.6847c2"
-            ]
-        ]
-    },
-    {
-        "id": "febd2e38.1a2e1",
-        "type": "function",
-        "z": "2788b93b.8a2f56",
-        "name": "recall werkstatt (luftguetemesser1) klima",
-        "func": "const name = \"luftguetemesser1\";\nreturn {\n    payload: {\n        name: name,\n        humidity: global.get(`${name}-humidity`),\n        absolute_humidity: global.get(`${name}-absolute_humidity`),\n        tempeature: global.get(`${name}-temperature`)\n    }\n};\n",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 560,
-        "y": 560,
-        "wires": [
-            [
-                "3825ae1b.6847c2"
-            ]
-        ]
-    },
-    {
-        "id": "d97bb3fb.f95d7",
-        "type": "function",
-        "z": "2788b93b.8a2f56",
-        "name": "recall speisekammer klima",
-        "func": "const name = \"th_speisekammer\";\nreturn {\n    payload: {\n        name: name,\n        humidity: global.get(`${name}-humidity`),\n        absolute_humidity: global.get(`${name}-absolute_humidity`),\n        tempeature: global.get(`${name}-temperature`)\n    }\n};\n",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 520,
-        "y": 720,
-        "wires": [
-            [
-                "3825ae1b.6847c2"
-            ]
-        ]
-    },
-    {
-        "id": "755cd8db.bac358",
-        "type": "debug",
-        "z": "2788b93b.8a2f56",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 910,
-        "y": 600,
-        "wires": []
-    },
-    {
-        "id": "48f55ed2.c2f68",
-        "type": "function",
-        "z": "2788b93b.8a2f56",
-        "name": "recall Büro DG klima",
-        "func": "const name = \"steckdose1\";\nreturn {\n    payload: {\n        name: name,\n        humidity: global.get(`${name}-humidity`),\n        absolute_humidity: global.get(`${name}-absolute_humidity`),\n        tempeature: global.get(`${name}-temperature`)\n    }\n};\n",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 500,
-        "y": 1000,
-        "wires": [
-            [
-                "3825ae1b.6847c2"
-            ]
-        ]
-    },
-    {
-        "id": "fe0cab1575d624e5",
-        "type": "function",
-        "z": "2788b93b.8a2f56",
-        "name": "recall schlafzimmer dg klima",
-        "func": "const name = \"th_schlafzimmer_dg\";\nreturn {\n    payload: {\n        name: name,\n        humidity: global.get(`${name}-humidity`),\n        absolute_humidity: global.get(`${name}-absolute_humidity`),\n        tempeature: global.get(`${name}-temperature`)\n    }\n};\n",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 520,
-        "y": 920,
-        "wires": [
-            [
-                "3825ae1b.6847c2"
-            ]
-        ]
-    },
-    {
-        "id": "0b3e08059fd963b5",
-        "type": "function",
-        "z": "2788b93b.8a2f56",
-        "name": "recall bad dg klima",
-        "func": "const name = \"th_bad_dg\";\nreturn {\n    payload: {\n        name: name,\n        humidity: global.get(`${name}-humidity`),\n        absolute_humidity: global.get(`${name}-absolute_humidity`),\n        tempeature: global.get(`${name}-temperature`)\n    }\n};\n",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 490,
-        "y": 840,
-        "wires": [
-            [
-                "3825ae1b.6847c2"
-            ]
-        ]
-    },
-    {
-        "id": "7359385faca6d84e",
-        "type": "function",
-        "z": "2788b93b.8a2f56",
-        "name": "recall büro og klima",
-        "func": "const name = \"th_büro_og\";\nreturn {\n    payload: {\n        name: name,\n        humidity: global.get(`${name}-humidity`),\n        absolute_humidity: global.get(`${name}-absolute_humidity`),\n        tempeature: global.get(`${name}-temperature`)\n    }\n};\n",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 490,
-        "y": 800,
-        "wires": [
-            [
-                "3825ae1b.6847c2"
-            ]
-        ]
-    },
-    {
-        "id": "0bed57233aab0d43",
-        "type": "function",
-        "z": "2788b93b.8a2f56",
-        "name": "recall ankleidezimmer klima",
-        "func": "const name = \"th_ankleidezimmer\";\nreturn {\n    payload: {\n        name: name,\n        humidity: global.get(`${name}-humidity`),\n        absolute_humidity: global.get(`${name}-absolute_humidity`),\n        tempeature: global.get(`${name}-temperature`)\n    }\n};\n",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 520,
-        "y": 960,
-        "wires": [
-            [
-                "3825ae1b.6847c2"
-            ]
-        ]
-    },
-    {
-        "id": "ffaa1564fff185a6",
-        "type": "function",
-        "z": "2788b93b.8a2f56",
-        "name": "recall treppenhaus_dg klima",
-        "func": "const name = \"th_treppenhaus_dg\";\nreturn {\n    payload: {\n        name: name,\n        humidity: global.get(`${name}-humidity`),\n        absolute_humidity: global.get(`${name}-absolute_humidity`),\n        tempeature: global.get(`${name}-temperature`)\n    }\n};\n",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 520,
-        "y": 640,
-        "wires": [
-            [
-                "3825ae1b.6847c2"
-            ]
-        ]
-    },
-    {
-        "id": "b8d8ad110ade12f4",
-        "type": "function",
-        "z": "2788b93b.8a2f56",
-        "name": "recall klima aussen",
-        "func": "const name = \"aussen\";\n\nconst temperature = global.get(name + \"-temperature\");\nconst humidity = global.get(name + \"-humidity\");\nconst abs_humidity = global.get(name + \"-absolute_humidity\");\nconst last_abs_humidity = global.get(name + \"-last_abs_humidity\");\nglobal.set(name + \"-last_abs_humidity\", abs_humidity);\n\n//node.warn(name)\n//node.warn(temperature)\n//node.warn(humidity)\n//node.warn(abs_humidity)\n//node.warn(last_abs_humidity_gt_outside_abs_humidity)\n//node.warn(outside_abs_humidity)\n\nconst intl = global.get('intl');\nconst format = intl.NumberFormat('de-De',{style:'decimal', maximumFractionDigits: 1}).format;\nconst sprintf = global.get(\"sprintf\");\nconst text = sprintf(\"%s °C, %s %% H, %s g/m³\", format(temperature), format(humidity), format(abs_humidity))\n\nif        (abs_humidity >= 13) {\n    return {payload: {name: name, color: \"deepskyblue\", hint: \"Draußen ist es sehr feucht.\", text: text, temperature: temperature, humidity: humidity, abs_humidity: abs_humidity}};\n} else if (abs_humidity >= 12 && abs_humidity < 13) {\n    return {payload: {name: name, color: \"skyblue\", hint: \"Draußen ist es feucht.\", text: text, temperature: temperature, humidity: humidity, abs_humidity: abs_humidity}};\n} else if (abs_humidity >= 11 && abs_humidity < 12) {\n    return {payload: {name: name, color: \"limegreen\", hint: \"Draußen ist einigermaßen trocken.\", text: text, temperature: temperature, humidity: humidity, abs_humidity: abs_humidity}};\n} else if (abs_humidity < 11) {\n    return {payload: {name: name, color: \"YellowGreen\", hint: \"Draußen ist es trocken.\", text: text, temperature: temperature, humidity: humidity, abs_humidity: abs_humidity}};\n} else {\n    return {payload: {name: name, color: \"DarkSeaGreen\", hint: \"Draußen ist es sehr trocken.\", text: text, temperature: temperature, humidity: humidity, abs_humidity: abs_humidity}};\n}\n\n// if (last_abs_humidity >= 13 && abs_humidity >= 13 ||\n//     last_abs_humidity < 13 && abs_humidity > 13 * 1.10) {\n//     return { payload: { name: name, color: \"deepskyblue\", hint: \"Draußen ist es sehr feucht.\", text: text } };\n// } else if (last_abs_humidity > 13 && abs_humidity < 13 / 1.10 && abs_humidity > 12 ||\n//     last_abs_humidity <= 13 && last_abs_humidity >= 12 && abs_humidity <= 13 && abs_humidity >= 12 ||\n//     last_abs_humidity < 12 && abs_humidity > 12 * 1.10 && abs_humidity < 13) {\n//     return { payload: { name: name, color: \"skyblue\", hint: \"Draußen ist es feucht.\", text: text } };\n// } else if (last_abs_humidity > 12 && abs_humidity < 12 / 1.10 && abs_humidity > 11 ||\n//     last_abs_humidity <= 12 && last_abs_humidity >= 11 && abs_humidity <= 12 && abs_humidity >= 11 ||\n//     last_abs_humidity < 11 && abs_humidity > 11 * 1.10 && abs_humidity < 12) {\n//     return { payload: { name: name, color: \"limegreen\", hint: \"Draußen ist einigermaßen trocken.\", text: text } };\n// } else if (last_abs_humidity > 11 && abs_humidity < 11 / 1.10 ||\n//     last_abs_humidity <= 11 && abs_humidity <= 11) {\n//     return { payload: { name: name, color: \"YellowGreen\", hint: \"Draußen ist es trocken.\", text: text } };\n// } else {\n//     return { payload: { name: name, color: \"DarkSeaGreen\", hint: \"Draußen ist es sehr trocken.\", text: text } };\n// }\n",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 490,
-        "y": 360,
-        "wires": [
-            [
-                "dac326a7.c5d638"
-            ]
-        ]
-    },
-    {
-        "id": "ec9b4e58fb6bf176",
-        "type": "inject",
-        "z": "2788b93b.8a2f56",
-        "name": "each 5 minutes",
-        "props": [
-            {
-                "p": "payload"
-            }
-        ],
-        "repeat": "300",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 190,
-        "y": 600,
-        "wires": [
-            [
-                "db7190952803093d"
-            ]
-        ]
-    },
-    {
-        "id": "47b448507f3b50a1",
-        "type": "link out",
-        "z": "2788b93b.8a2f56",
-        "name": "link out 8",
-        "mode": "link",
-        "links": [
-            "8b3760c6691dfb70"
-        ],
-        "x": 635,
-        "y": 120,
-        "wires": []
-    },
-    {
-        "id": "8b3760c6691dfb70",
-        "type": "link in",
-        "z": "2788b93b.8a2f56",
-        "name": "link in 1",
-        "links": [
-            "47b448507f3b50a1"
-        ],
-        "x": 265,
-        "y": 560,
-        "wires": [
-            [
-                "db7190952803093d"
+                "5491b01145eac291"
             ]
         ]
     },
@@ -3850,7 +3148,7 @@
         "inputOverride": "allow",
         "outputProperties": [],
         "x": 1310,
-        "y": 180,
+        "y": 420,
         "wires": [
             []
         ]
@@ -3894,7 +3192,7 @@
         "inputOverride": "allow",
         "outputProperties": [],
         "x": 1340,
-        "y": 220,
+        "y": 280,
         "wires": [
             []
         ]
@@ -3938,7 +3236,7 @@
         "inputOverride": "allow",
         "outputProperties": [],
         "x": 1350,
-        "y": 260,
+        "y": 800,
         "wires": [
             []
         ]
@@ -3982,7 +3280,7 @@
         "inputOverride": "allow",
         "outputProperties": [],
         "x": 1330,
-        "y": 300,
+        "y": 700,
         "wires": [
             []
         ]
@@ -4026,7 +3324,7 @@
         "inputOverride": "allow",
         "outputProperties": [],
         "x": 1330,
-        "y": 340,
+        "y": 1800,
         "wires": [
             []
         ]
@@ -4070,7 +3368,7 @@
         "inputOverride": "allow",
         "outputProperties": [],
         "x": 1320,
-        "y": 380,
+        "y": 1900,
         "wires": [
             []
         ]
@@ -4114,7 +3412,7 @@
         "inputOverride": "allow",
         "outputProperties": [],
         "x": 1310,
-        "y": 420,
+        "y": 1000,
         "wires": [
             []
         ]
@@ -4158,7 +3456,7 @@
         "inputOverride": "allow",
         "outputProperties": [],
         "x": 1340,
-        "y": 460,
+        "y": 1200,
         "wires": [
             []
         ]
@@ -4202,7 +3500,7 @@
         "inputOverride": "allow",
         "outputProperties": [],
         "x": 1330,
-        "y": 500,
+        "y": 900,
         "wires": [
             []
         ]
@@ -4246,7 +3544,7 @@
         "inputOverride": "allow",
         "outputProperties": [],
         "x": 1330,
-        "y": 540,
+        "y": 600,
         "wires": [
             []
         ]
@@ -4290,7 +3588,7 @@
         "inputOverride": "allow",
         "outputProperties": [],
         "x": 1310,
-        "y": 580,
+        "y": 500,
         "wires": [
             []
         ]
@@ -4334,7 +3632,7 @@
         "inputOverride": "allow",
         "outputProperties": [],
         "x": 1320,
-        "y": 620,
+        "y": 1500,
         "wires": [
             []
         ]
@@ -4378,7 +3676,7 @@
         "inputOverride": "allow",
         "outputProperties": [],
         "x": 1340,
-        "y": 660,
+        "y": 1100,
         "wires": [
             []
         ]
@@ -4422,7 +3720,7 @@
         "inputOverride": "allow",
         "outputProperties": [],
         "x": 1340,
-        "y": 700,
+        "y": 1600,
         "wires": [
             []
         ]
@@ -4466,7 +3764,7 @@
         "inputOverride": "allow",
         "outputProperties": [],
         "x": 1350,
-        "y": 740,
+        "y": 1700,
         "wires": [
             []
         ]
@@ -4510,7 +3808,7 @@
         "inputOverride": "allow",
         "outputProperties": [],
         "x": 1320,
-        "y": 780,
+        "y": 1400,
         "wires": [
             []
         ]
@@ -4554,7 +3852,7 @@
         "inputOverride": "allow",
         "outputProperties": [],
         "x": 1330,
-        "y": 820,
+        "y": 2000,
         "wires": [
             []
         ]
@@ -4598,145 +3896,9 @@
         "inputOverride": "allow",
         "outputProperties": [],
         "x": 1320,
-        "y": 860,
+        "y": 1300,
         "wires": [
             []
-        ]
-    },
-    {
-        "id": "3eea7fcb7353a1eb",
-        "type": "function",
-        "z": "2788b93b.8a2f56",
-        "name": "add absolute_humidity and dew_point",
-        "func": "const temperature = msg.payload.temperature;\nconst humidity = msg.payload.humidity;\n\nconst mw = 18.01534;    // molar mass of water g/mol\nconst r = 8.31447215;   // Universal gas constant J/mol/K\n\nmsg.payload.absolute_humidity = (6.112 * Math.pow(2.718281828, (17.67 * temperature) /\n    (temperature + 243.5)) * humidity * mw) /\n    ((273.15 + temperature) * r); // in grams/m^3\n\nmsg.payload.dew_point = (243.5*(Math.log(humidity/100)+((17.67*temperature)/\n    (243.5+temperature)))/(17.67-Math.log(humidity/100)-\n    ((17.67*temperature)/(243.5+temperature))));\n\nreturn msg;",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 830,
-        "y": 240,
-        "wires": [
-            [
-                "9b04f1a851dda2a6"
-            ]
-        ]
-    },
-    {
-        "id": "96658651666d1768",
-        "type": "mqtt in",
-        "z": "2788b93b.8a2f56",
-        "name": "",
-        "topic": "zigbee2mqtt/+",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "c349b9ff.9dc4c8",
-        "nl": false,
-        "rap": false,
-        "inputs": 0,
-        "x": 190,
-        "y": 240,
-        "wires": [
-            [
-                "4fc21cd12d11d283"
-            ]
-        ]
-    },
-    {
-        "id": "4fc21cd12d11d283",
-        "type": "function",
-        "z": "2788b93b.8a2f56",
-        "name": "Filter temperature and humidity devices",
-        "func": "if (msg.topic.match(/\\/th\\_/)) {\n    return msg;\n}",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 480,
-        "y": 240,
-        "wires": [
-            [
-                "3eea7fcb7353a1eb"
-            ]
-        ]
-    },
-    {
-        "id": "4848dffc09e7472c",
-        "type": "function",
-        "z": "2788b93b.8a2f56",
-        "name": "temperature and humidity data to global store",
-        "func": "const name = msg.payload.name;\n\nglobal.set(`${name}-temperature`, msg.payload.temperature);\nglobal.set(`${name}-humidity`, msg.payload.humidity);\nglobal.set(`${name}-absolute_humidity`, msg.payload.absolute_humidity);\nglobal.set(`${name}-dew_point`, msg.payload.dew_point);\n\nreturn msg;",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 850,
-        "y": 160,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "7a73c369bd1a48fd",
-        "type": "mqtt in",
-        "z": "2788b93b.8a2f56",
-        "name": "",
-        "topic": "+/sensor/+/state",
-        "qos": "2",
-        "datatype": "auto",
-        "broker": "c349b9ff.9dc4c8",
-        "nl": false,
-        "rap": false,
-        "inputs": 0,
-        "x": 200,
-        "y": 180,
-        "wires": [
-            [
-                "d032a1a02d7b5d0d"
-            ]
-        ]
-    },
-    {
-        "id": "d032a1a02d7b5d0d",
-        "type": "function",
-        "z": "2788b93b.8a2f56",
-        "name": "ESPHome to global store",
-        "func": "const tokens = msg.topic.split(\"/\");\nconst name = tokens[0].replace(' ', '_');\nconst field = tokens[2].replace(' ', '_');\n\nconst value = (/^(\\-|\\+)?([0-9]+(\\.[0-9]+)?)$/.test(msg.payload))\n    ? Number(msg.payload) : msg.payload;\n\nglobal.set(`${name}-${field}`, value);\n\nreturn {payload: {\n    name: name,\n    field: field,\n    value: value\n}};",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 430,
-        "y": 180,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "9b04f1a851dda2a6",
-        "type": "function",
-        "z": "2788b93b.8a2f56",
-        "name": "add name",
-        "func": "msg.payload.name = msg.topic\n    .replace(/^zigbee2mqtt\\//, '');\nreturn msg;",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 740,
-        "y": 200,
-        "wires": [
-            [
-                "4848dffc09e7472c"
-            ]
         ]
     },
     {
@@ -4746,8 +3908,8 @@
         "name": "Fehler -> Alarmierung",
         "scope": null,
         "uncaught": false,
-        "x": 150,
-        "y": 40,
+        "x": 220,
+        "y": 100,
         "wires": [
             [
                 "7248ca7a411ede0c"
@@ -4763,153 +3925,2977 @@
         "links": [
             "71a4abd15cdb30b3"
         ],
-        "x": 380,
-        "y": 40,
+        "x": 375,
+        "y": 100,
         "wires": []
     },
     {
-        "id": "91149f0a5a708220",
-        "type": "openweathermap in",
+        "id": "067d7f963a4dc942",
+        "type": "link in",
         "z": "2788b93b.8a2f56",
-        "name": "Wetter",
-        "wtype": "current",
-        "lon": "10.01239",
-        "lat": "53.50597",
-        "city": "",
-        "country": "",
-        "language": "de",
-        "x": 150,
-        "y": 1080,
+        "name": "Lüftungsempfehlung (Call)",
+        "links": [],
+        "x": 565,
+        "y": 180,
         "wires": [
             [
-                "d011ddcd9acab7b0",
-                "67629deb347023b1"
+                "3825ae1b.6847c2"
             ]
         ]
     },
     {
-        "id": "55164868c056772f",
-        "type": "change",
-        "z": "2788b93b.8a2f56",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "wetter_aktuell",
-                "pt": "global",
-                "to": "payload",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 400,
-        "y": 1060,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "ebed17f443507693",
-        "type": "function",
-        "z": "2788b93b.8a2f56",
-        "name": "add field rain",
-        "func": "msg.payload.rain = msg.payload.rain || 0.0;\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 350,
-        "y": 1100,
-        "wires": [
-            [
-                "a5b864ab56c20611"
-            ]
-        ]
-    },
-    {
-        "id": "a5b864ab56c20611",
-        "type": "function",
-        "z": "2788b93b.8a2f56",
-        "name": "add absolute_humidity and dew_point",
-        "func": "const mw = 18.01534;    // molar mass of water g/mol\nconst r = 8.31447215;   // Universal gas constant J/mol/K\n\nconst tempc = Number(msg.payload.tempc);\nconst humidity = Number(msg.payload.humidity);\n\nconst absolute_humidity = Number((6.112 * Math.exp((17.67 * tempc) /\n    (tempc + 243.5)) * humidity * mw) /\n    ((273.15 + tempc) * r));\nconst dew_point = Number((243.5 * (Math.log(humidity / 100) + ((17.67 * tempc) /\n    (243.5 + tempc))) / (17.67 - Math.log(humidity / 100) -\n        ((17.67 * tempc) / (243.5 + tempc)))));\n\nmsg.payload.absolute_humidity = absolute_humidity;\nmsg.payload.dew_point = dew_point;\n\nreturn msg;",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 610,
-        "y": 1100,
-        "wires": [
-            [
-                "dc94a0ad2986271f",
-                "329e1c6b17c5fc6c"
-            ]
-        ]
-    },
-    {
-        "id": "dc94a0ad2986271f",
-        "type": "function",
-        "z": "2788b93b.8a2f56",
-        "name": "store global as named aussen",
-        "func": "global.set(\"aussen-temperature\", msg.payload.tempc);\nglobal.set(\"aussen-humidity\", msg.payload.humidity);\nglobal.set(\"aussen-absolute_humidity\", msg.payload.absolute_humidity);\nglobal.set(\"aussen-pressure\", msg.payload.pressure);\nglobal.set(\"aussen-dew_point\", msg.payload.dew_point);\n\nreturn msg;",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 930,
-        "y": 1080,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "329e1c6b17c5fc6c",
+        "id": "5491b01145eac291",
         "type": "link out",
         "z": "2788b93b.8a2f56",
-        "name": "aussen",
-        "mode": "link",
+        "name": "Lüftungsempfehlung (Return)",
+        "mode": "return",
         "links": [],
-        "x": 815,
-        "y": 1120,
+        "x": 865,
+        "y": 180,
         "wires": []
     },
     {
-        "id": "67629deb347023b1",
-        "type": "debug",
+        "id": "ae8d0a5917a0e998",
+        "type": "server-state-changed",
         "z": "2788b93b.8a2f56",
-        "name": "debug 4",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 340,
+        "name": "Bad: Temperatur (HA)",
+        "server": "3e07f44559793d55",
+        "version": 6,
+        "outputs": 1,
+        "exposeAsEntityConfig": "",
+        "entities": {
+            "entity": [
+                "sensor.th_bad_temperature"
+            ],
+            "substring": [],
+            "regex": []
+        },
+        "outputInitially": true,
+        "stateType": "str",
+        "ifState": "",
+        "ifStateType": "str",
+        "ifStateOperator": "is",
+        "outputOnlyOnStateChange": true,
+        "for": "0",
+        "forType": "num",
+        "forUnits": "minutes",
+        "ignorePrevStateNull": false,
+        "ignorePrevStateUnknown": false,
+        "ignorePrevStateUnavailable": false,
+        "ignoreCurrentStateUnknown": true,
+        "ignoreCurrentStateUnavailable": true,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "string",
+                "valueType": "entityState"
+            },
+            {
+                "property": "field",
+                "propertyType": "msg",
+                "value": "temperature",
+                "valueType": "str"
+            }
+        ],
+        "x": 300,
+        "y": 520,
+        "wires": [
+            [
+                "54c22e2789706f3c"
+            ]
+        ]
+    },
+    {
+        "id": "ef1465225f243f79",
+        "type": "server-state-changed",
+        "z": "2788b93b.8a2f56",
+        "name": "Bad: Feuchte (HA)",
+        "server": "3e07f44559793d55",
+        "version": 6,
+        "outputs": 1,
+        "exposeAsEntityConfig": "",
+        "entities": {
+            "entity": [
+                "sensor.th_bad_humidity"
+            ],
+            "substring": [],
+            "regex": []
+        },
+        "outputInitially": true,
+        "stateType": "str",
+        "ifState": "",
+        "ifStateType": "str",
+        "ifStateOperator": "is",
+        "outputOnlyOnStateChange": true,
+        "for": "0",
+        "forType": "num",
+        "forUnits": "minutes",
+        "ignorePrevStateNull": false,
+        "ignorePrevStateUnknown": false,
+        "ignorePrevStateUnavailable": false,
+        "ignoreCurrentStateUnknown": true,
+        "ignoreCurrentStateUnavailable": true,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "string",
+                "valueType": "entityState"
+            },
+            {
+                "property": "field",
+                "propertyType": "msg",
+                "value": "humidity",
+                "valueType": "str"
+            }
+        ],
+        "x": 310,
+        "y": 560,
+        "wires": [
+            [
+                "54c22e2789706f3c"
+            ]
+        ]
+    },
+    {
+        "id": "54c22e2789706f3c",
+        "type": "function",
+        "z": "2788b93b.8a2f56",
+        "name": "Bad: Wert speichern",
+        "func": "context.set(msg.field, parseFloat(msg.payload));\nconst payload = {};\ncontext.keys().forEach(k => { payload[k] = context.get(k); });\nreturn { payload: payload };",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 540,
+        "y": 540,
+        "wires": [
+            [
+                "01ce795a909f3384"
+            ]
+        ]
+    },
+    {
+        "id": "01ce795a909f3384",
+        "type": "link call",
+        "z": "2788b93b.8a2f56",
+        "name": "Bad: Lüftungsempfehlung berechnen",
+        "links": [
+            "067d7f963a4dc942"
+        ],
+        "timeout": 30,
+        "x": 1030,
+        "y": 540,
+        "wires": [
+            [
+                "07dd6d32ff5469e6"
+            ]
+        ]
+    },
+    {
+        "id": "07dd6d32ff5469e6",
+        "type": "function",
+        "z": "2788b93b.8a2f56",
+        "name": "Bad: Raumname setzen",
+        "func": "if (!msg.payload.complete) {\n    return null;\n}\nmsg.payload.room = 'Bad';\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1070,
+        "y": 500,
+        "wires": [
+            [
+                "17462c418abf0c7f"
+            ]
+        ]
+    },
+    {
+        "id": "84a5448eb98111b4",
+        "type": "server-state-changed",
+        "z": "2788b93b.8a2f56",
+        "name": "Gäste WC: Temperatur (HA)",
+        "server": "3e07f44559793d55",
+        "version": 6,
+        "outputs": 1,
+        "exposeAsEntityConfig": "",
+        "entities": {
+            "entity": [
+                "sensor.th_gaste_wc_temperature"
+            ],
+            "substring": [],
+            "regex": []
+        },
+        "outputInitially": true,
+        "stateType": "str",
+        "ifState": "",
+        "ifStateType": "str",
+        "ifStateOperator": "is",
+        "outputOnlyOnStateChange": true,
+        "for": "0",
+        "forType": "num",
+        "forUnits": "minutes",
+        "ignorePrevStateNull": false,
+        "ignorePrevStateUnknown": false,
+        "ignorePrevStateUnavailable": false,
+        "ignoreCurrentStateUnknown": true,
+        "ignoreCurrentStateUnavailable": true,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "string",
+                "valueType": "entityState"
+            },
+            {
+                "property": "field",
+                "propertyType": "msg",
+                "value": "temperature",
+                "valueType": "str"
+            }
+        ],
+        "x": 280,
+        "y": 620,
+        "wires": [
+            [
+                "3c9711a990d472d8"
+            ]
+        ]
+    },
+    {
+        "id": "a28c0e4d4b45b178",
+        "type": "server-state-changed",
+        "z": "2788b93b.8a2f56",
+        "name": "Gäste WC: Feuchte (HA)",
+        "server": "3e07f44559793d55",
+        "version": 6,
+        "outputs": 1,
+        "exposeAsEntityConfig": "",
+        "entities": {
+            "entity": [
+                "sensor.th_gaste_wc_humidity"
+            ],
+            "substring": [],
+            "regex": []
+        },
+        "outputInitially": true,
+        "stateType": "str",
+        "ifState": "",
+        "ifStateType": "str",
+        "ifStateOperator": "is",
+        "outputOnlyOnStateChange": true,
+        "for": "0",
+        "forType": "num",
+        "forUnits": "minutes",
+        "ignorePrevStateNull": false,
+        "ignorePrevStateUnknown": false,
+        "ignorePrevStateUnavailable": false,
+        "ignoreCurrentStateUnknown": true,
+        "ignoreCurrentStateUnavailable": true,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "string",
+                "valueType": "entityState"
+            },
+            {
+                "property": "field",
+                "propertyType": "msg",
+                "value": "humidity",
+                "valueType": "str"
+            }
+        ],
+        "x": 290,
+        "y": 660,
+        "wires": [
+            [
+                "3c9711a990d472d8"
+            ]
+        ]
+    },
+    {
+        "id": "3c9711a990d472d8",
+        "type": "function",
+        "z": "2788b93b.8a2f56",
+        "name": "Gäste WC: Wert speichern",
+        "func": "context.set(msg.field, parseFloat(msg.payload));\nconst payload = {};\ncontext.keys().forEach(k => { payload[k] = context.get(k); });\nreturn { payload: payload };",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 560,
+        "y": 640,
+        "wires": [
+            [
+                "dad543c1662d47a8"
+            ]
+        ]
+    },
+    {
+        "id": "dad543c1662d47a8",
+        "type": "link call",
+        "z": "2788b93b.8a2f56",
+        "name": "Gäste WC: Lüftungsempfehlung berechnen",
+        "links": [
+            "067d7f963a4dc942"
+        ],
+        "timeout": 30,
+        "x": 1010,
+        "y": 640,
+        "wires": [
+            [
+                "e5f017e2819ad3df"
+            ]
+        ]
+    },
+    {
+        "id": "e5f017e2819ad3df",
+        "type": "function",
+        "z": "2788b93b.8a2f56",
+        "name": "Gäste WC: Raumname setzen",
+        "func": "if (!msg.payload.complete) {\n    return null;\n}\nmsg.payload.room = 'Gäste WC';\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1050,
+        "y": 600,
+        "wires": [
+            [
+                "f2235cce1f4fa74f"
+            ]
+        ]
+    },
+    {
+        "id": "eb96d7fae6eaf02d",
+        "type": "server-state-changed",
+        "z": "2788b93b.8a2f56",
+        "name": "Fahrradkeller: Temperatur (HA)",
+        "server": "3e07f44559793d55",
+        "version": 6,
+        "outputs": 1,
+        "exposeAsEntityConfig": "",
+        "entities": {
+            "entity": [
+                "sensor.th_fahrradkeller_temperature"
+            ],
+            "substring": [],
+            "regex": []
+        },
+        "outputInitially": true,
+        "stateType": "str",
+        "ifState": "",
+        "ifStateType": "str",
+        "ifStateOperator": "is",
+        "outputOnlyOnStateChange": true,
+        "for": "0",
+        "forType": "num",
+        "forUnits": "minutes",
+        "ignorePrevStateNull": false,
+        "ignorePrevStateUnknown": false,
+        "ignorePrevStateUnavailable": false,
+        "ignoreCurrentStateUnknown": true,
+        "ignoreCurrentStateUnavailable": true,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "string",
+                "valueType": "entityState"
+            },
+            {
+                "property": "field",
+                "propertyType": "msg",
+                "value": "temperature",
+                "valueType": "str"
+            }
+        ],
+        "x": 270,
+        "y": 720,
+        "wires": [
+            [
+                "ef552dd340f0c6e0"
+            ]
+        ]
+    },
+    {
+        "id": "9cd45029d8eb6ba9",
+        "type": "server-state-changed",
+        "z": "2788b93b.8a2f56",
+        "name": "Fahrradkeller: Feuchte (HA)",
+        "server": "3e07f44559793d55",
+        "version": 6,
+        "outputs": 1,
+        "exposeAsEntityConfig": "",
+        "entities": {
+            "entity": [
+                "sensor.th_fahrradkeller_humidity"
+            ],
+            "substring": [],
+            "regex": []
+        },
+        "outputInitially": true,
+        "stateType": "str",
+        "ifState": "",
+        "ifStateType": "str",
+        "ifStateOperator": "is",
+        "outputOnlyOnStateChange": true,
+        "for": "0",
+        "forType": "num",
+        "forUnits": "minutes",
+        "ignorePrevStateNull": false,
+        "ignorePrevStateUnknown": false,
+        "ignorePrevStateUnavailable": false,
+        "ignoreCurrentStateUnknown": true,
+        "ignoreCurrentStateUnavailable": true,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "string",
+                "valueType": "entityState"
+            },
+            {
+                "property": "field",
+                "propertyType": "msg",
+                "value": "humidity",
+                "valueType": "str"
+            }
+        ],
+        "x": 280,
+        "y": 760,
+        "wires": [
+            [
+                "ef552dd340f0c6e0"
+            ]
+        ]
+    },
+    {
+        "id": "ef552dd340f0c6e0",
+        "type": "function",
+        "z": "2788b93b.8a2f56",
+        "name": "Fahrradkeller: Wert speichern",
+        "func": "context.set(msg.field, parseFloat(msg.payload));\nconst payload = {};\ncontext.keys().forEach(k => { payload[k] = context.get(k); });\nreturn { payload: payload };",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 570,
+        "y": 740,
+        "wires": [
+            [
+                "6f3a507846ce1127"
+            ]
+        ]
+    },
+    {
+        "id": "6f3a507846ce1127",
+        "type": "link call",
+        "z": "2788b93b.8a2f56",
+        "name": "Fahrradkeller: Lüftungsempfehlung berechnen",
+        "links": [
+            "067d7f963a4dc942"
+        ],
+        "timeout": 30,
+        "x": 1000,
+        "y": 740,
+        "wires": [
+            [
+                "e2d5ff58d71e4a33"
+            ]
+        ]
+    },
+    {
+        "id": "e2d5ff58d71e4a33",
+        "type": "function",
+        "z": "2788b93b.8a2f56",
+        "name": "Fahrradkeller: Raumname setzen",
+        "func": "if (!msg.payload.complete) {\n    return null;\n}\nmsg.payload.room = 'Fahrradkeller';\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1040,
+        "y": 700,
+        "wires": [
+            [
+                "241d874b554623fa"
+            ]
+        ]
+    },
+    {
+        "id": "d67f97966a0321a9",
+        "type": "server-state-changed",
+        "z": "2788b93b.8a2f56",
+        "name": "Treppenhaus Keller: Temperatur (HA)",
+        "server": "3e07f44559793d55",
+        "version": 6,
+        "outputs": 1,
+        "exposeAsEntityConfig": "",
+        "entities": {
+            "entity": [
+                "sensor.th_treppenhaus_keller_temperature"
+            ],
+            "substring": [],
+            "regex": []
+        },
+        "outputInitially": true,
+        "stateType": "str",
+        "ifState": "",
+        "ifStateType": "str",
+        "ifStateOperator": "is",
+        "outputOnlyOnStateChange": true,
+        "for": "0",
+        "forType": "num",
+        "forUnits": "minutes",
+        "ignorePrevStateNull": false,
+        "ignorePrevStateUnknown": false,
+        "ignorePrevStateUnavailable": false,
+        "ignoreCurrentStateUnknown": true,
+        "ignoreCurrentStateUnavailable": true,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "string",
+                "valueType": "entityState"
+            },
+            {
+                "property": "field",
+                "propertyType": "msg",
+                "value": "temperature",
+                "valueType": "str"
+            }
+        ],
+        "x": 250,
+        "y": 820,
+        "wires": [
+            [
+                "1960f9be06ae29c1"
+            ]
+        ]
+    },
+    {
+        "id": "dde4b62d0d30537d",
+        "type": "server-state-changed",
+        "z": "2788b93b.8a2f56",
+        "name": "Treppenhaus Keller: Feuchte (HA)",
+        "server": "3e07f44559793d55",
+        "version": 6,
+        "outputs": 1,
+        "exposeAsEntityConfig": "",
+        "entities": {
+            "entity": [
+                "sensor.th_treppenhaus_keller_humidity"
+            ],
+            "substring": [],
+            "regex": []
+        },
+        "outputInitially": true,
+        "stateType": "str",
+        "ifState": "",
+        "ifStateType": "str",
+        "ifStateOperator": "is",
+        "outputOnlyOnStateChange": true,
+        "for": "0",
+        "forType": "num",
+        "forUnits": "minutes",
+        "ignorePrevStateNull": false,
+        "ignorePrevStateUnknown": false,
+        "ignorePrevStateUnavailable": false,
+        "ignoreCurrentStateUnknown": true,
+        "ignoreCurrentStateUnavailable": true,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "string",
+                "valueType": "entityState"
+            },
+            {
+                "property": "field",
+                "propertyType": "msg",
+                "value": "humidity",
+                "valueType": "str"
+            }
+        ],
+        "x": 260,
+        "y": 860,
+        "wires": [
+            [
+                "1960f9be06ae29c1"
+            ]
+        ]
+    },
+    {
+        "id": "1960f9be06ae29c1",
+        "type": "function",
+        "z": "2788b93b.8a2f56",
+        "name": "Treppenhaus Keller: Wert speichern",
+        "func": "context.set(msg.field, parseFloat(msg.payload));\nconst payload = {};\ncontext.keys().forEach(k => { payload[k] = context.get(k); });\nreturn { payload: payload };",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 840,
+        "wires": [
+            [
+                "03e10f860fb382dd"
+            ]
+        ]
+    },
+    {
+        "id": "03e10f860fb382dd",
+        "type": "link call",
+        "z": "2788b93b.8a2f56",
+        "name": "Treppenhaus Keller: Lüftungsempfehlung berechnen",
+        "links": [
+            "067d7f963a4dc942"
+        ],
+        "timeout": 30,
+        "x": 980,
+        "y": 840,
+        "wires": [
+            [
+                "8b70a2bcc1627239"
+            ]
+        ]
+    },
+    {
+        "id": "8b70a2bcc1627239",
+        "type": "function",
+        "z": "2788b93b.8a2f56",
+        "name": "Treppenhaus Keller: Raumname setzen",
+        "func": "if (!msg.payload.complete) {\n    return null;\n}\nmsg.payload.room = 'Treppenhaus Keller';\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1020,
+        "y": 800,
+        "wires": [
+            [
+                "f0aefa5b2cadff2d"
+            ]
+        ]
+    },
+    {
+        "id": "b2bff2cda45b25d0",
+        "type": "server-state-changed",
+        "z": "2788b93b.8a2f56",
+        "name": "Wohnzimmer: Temperatur (HA)",
+        "server": "3e07f44559793d55",
+        "version": 6,
+        "outputs": 1,
+        "exposeAsEntityConfig": "",
+        "entities": {
+            "entity": [
+                "sensor.th_wohnzimmer_temperature"
+            ],
+            "substring": [],
+            "regex": []
+        },
+        "outputInitially": true,
+        "stateType": "str",
+        "ifState": "",
+        "ifStateType": "str",
+        "ifStateOperator": "is",
+        "outputOnlyOnStateChange": true,
+        "for": "0",
+        "forType": "num",
+        "forUnits": "minutes",
+        "ignorePrevStateNull": false,
+        "ignorePrevStateUnknown": false,
+        "ignorePrevStateUnavailable": false,
+        "ignoreCurrentStateUnknown": true,
+        "ignoreCurrentStateUnavailable": true,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "string",
+                "valueType": "entityState"
+            },
+            {
+                "property": "field",
+                "propertyType": "msg",
+                "value": "temperature",
+                "valueType": "str"
+            }
+        ],
+        "x": 270,
+        "y": 920,
+        "wires": [
+            [
+                "e7d36b1cfd2c3c38"
+            ]
+        ]
+    },
+    {
+        "id": "f2a4c99389ab9ce2",
+        "type": "server-state-changed",
+        "z": "2788b93b.8a2f56",
+        "name": "Wohnzimmer: Feuchte (HA)",
+        "server": "3e07f44559793d55",
+        "version": 6,
+        "outputs": 1,
+        "exposeAsEntityConfig": "",
+        "entities": {
+            "entity": [
+                "sensor.th_wohnzimmer_humidity"
+            ],
+            "substring": [],
+            "regex": []
+        },
+        "outputInitially": true,
+        "stateType": "str",
+        "ifState": "",
+        "ifStateType": "str",
+        "ifStateOperator": "is",
+        "outputOnlyOnStateChange": true,
+        "for": "0",
+        "forType": "num",
+        "forUnits": "minutes",
+        "ignorePrevStateNull": false,
+        "ignorePrevStateUnknown": false,
+        "ignorePrevStateUnavailable": false,
+        "ignoreCurrentStateUnknown": true,
+        "ignoreCurrentStateUnavailable": true,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "string",
+                "valueType": "entityState"
+            },
+            {
+                "property": "field",
+                "propertyType": "msg",
+                "value": "humidity",
+                "valueType": "str"
+            }
+        ],
+        "x": 280,
+        "y": 960,
+        "wires": [
+            [
+                "e7d36b1cfd2c3c38"
+            ]
+        ]
+    },
+    {
+        "id": "e7d36b1cfd2c3c38",
+        "type": "function",
+        "z": "2788b93b.8a2f56",
+        "name": "Wohnzimmer: Wert speichern",
+        "func": "context.set(msg.field, parseFloat(msg.payload));\nconst payload = {};\ncontext.keys().forEach(k => { payload[k] = context.get(k); });\nreturn { payload: payload };",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 570,
+        "y": 940,
+        "wires": [
+            [
+                "93d9b9e9a15e63c7"
+            ]
+        ]
+    },
+    {
+        "id": "93d9b9e9a15e63c7",
+        "type": "link call",
+        "z": "2788b93b.8a2f56",
+        "name": "Wohnzimmer: Lüftungsempfehlung berechnen",
+        "links": [
+            "067d7f963a4dc942"
+        ],
+        "timeout": 30,
+        "x": 1000,
+        "y": 940,
+        "wires": [
+            [
+                "bd92dca5f8f7b931"
+            ]
+        ]
+    },
+    {
+        "id": "bd92dca5f8f7b931",
+        "type": "function",
+        "z": "2788b93b.8a2f56",
+        "name": "Wohnzimmer: Raumname setzen",
+        "func": "if (!msg.payload.complete) {\n    return null;\n}\nmsg.payload.room = 'Wohnzimmer';\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1040,
+        "y": 900,
+        "wires": [
+            [
+                "6036094df3e81945"
+            ]
+        ]
+    },
+    {
+        "id": "888ddccb4accd1ee",
+        "type": "server-state-changed",
+        "z": "2788b93b.8a2f56",
+        "name": "Küche: Temperatur (HA)",
+        "server": "3e07f44559793d55",
+        "version": 6,
+        "outputs": 1,
+        "exposeAsEntityConfig": "",
+        "entities": {
+            "entity": [
+                "sensor.th_kuche_temperature"
+            ],
+            "substring": [],
+            "regex": []
+        },
+        "outputInitially": true,
+        "stateType": "str",
+        "ifState": "",
+        "ifStateType": "str",
+        "ifStateOperator": "is",
+        "outputOnlyOnStateChange": true,
+        "for": "0",
+        "forType": "num",
+        "forUnits": "minutes",
+        "ignorePrevStateNull": false,
+        "ignorePrevStateUnknown": false,
+        "ignorePrevStateUnavailable": false,
+        "ignoreCurrentStateUnknown": true,
+        "ignoreCurrentStateUnavailable": true,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "string",
+                "valueType": "entityState"
+            },
+            {
+                "property": "field",
+                "propertyType": "msg",
+                "value": "temperature",
+                "valueType": "str"
+            }
+        ],
+        "x": 290,
+        "y": 1020,
+        "wires": [
+            [
+                "e0fadb04d8fc327d"
+            ]
+        ]
+    },
+    {
+        "id": "084e907340e1c406",
+        "type": "server-state-changed",
+        "z": "2788b93b.8a2f56",
+        "name": "Küche: Feuchte (HA)",
+        "server": "3e07f44559793d55",
+        "version": 6,
+        "outputs": 1,
+        "exposeAsEntityConfig": "",
+        "entities": {
+            "entity": [
+                "sensor.th_kuche_humidity"
+            ],
+            "substring": [],
+            "regex": []
+        },
+        "outputInitially": true,
+        "stateType": "str",
+        "ifState": "",
+        "ifStateType": "str",
+        "ifStateOperator": "is",
+        "outputOnlyOnStateChange": true,
+        "for": "0",
+        "forType": "num",
+        "forUnits": "minutes",
+        "ignorePrevStateNull": false,
+        "ignorePrevStateUnknown": false,
+        "ignorePrevStateUnavailable": false,
+        "ignoreCurrentStateUnknown": true,
+        "ignoreCurrentStateUnavailable": true,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "string",
+                "valueType": "entityState"
+            },
+            {
+                "property": "field",
+                "propertyType": "msg",
+                "value": "humidity",
+                "valueType": "str"
+            }
+        ],
+        "x": 300,
+        "y": 1060,
+        "wires": [
+            [
+                "e0fadb04d8fc327d"
+            ]
+        ]
+    },
+    {
+        "id": "e0fadb04d8fc327d",
+        "type": "function",
+        "z": "2788b93b.8a2f56",
+        "name": "Küche: Wert speichern",
+        "func": "context.set(msg.field, parseFloat(msg.payload));\nconst payload = {};\ncontext.keys().forEach(k => { payload[k] = context.get(k); });\nreturn { payload: payload };",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 540,
+        "y": 1040,
+        "wires": [
+            [
+                "8160d2e9d9e7f8cb"
+            ]
+        ]
+    },
+    {
+        "id": "8160d2e9d9e7f8cb",
+        "type": "link call",
+        "z": "2788b93b.8a2f56",
+        "name": "Küche: Lüftungsempfehlung berechnen",
+        "links": [
+            "067d7f963a4dc942"
+        ],
+        "timeout": 30,
+        "x": 1020,
+        "y": 1040,
+        "wires": [
+            [
+                "29f81cf2d02712b9"
+            ]
+        ]
+    },
+    {
+        "id": "29f81cf2d02712b9",
+        "type": "function",
+        "z": "2788b93b.8a2f56",
+        "name": "Küche: Raumname setzen",
+        "func": "if (!msg.payload.complete) {\n    return null;\n}\nmsg.payload.room = 'Küche';\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1060,
+        "y": 1000,
+        "wires": [
+            [
+                "fe38274d5b40f74a"
+            ]
+        ]
+    },
+    {
+        "id": "4298f6f86c4ea922",
+        "type": "server-state-changed",
+        "z": "2788b93b.8a2f56",
+        "name": "Schlafzimmer: Temperatur (HA)",
+        "server": "3e07f44559793d55",
+        "version": 6,
+        "outputs": 1,
+        "exposeAsEntityConfig": "",
+        "entities": {
+            "entity": [
+                "sensor.th_schlafzimmer_temperature"
+            ],
+            "substring": [],
+            "regex": []
+        },
+        "outputInitially": true,
+        "stateType": "str",
+        "ifState": "",
+        "ifStateType": "str",
+        "ifStateOperator": "is",
+        "outputOnlyOnStateChange": true,
+        "for": "0",
+        "forType": "num",
+        "forUnits": "minutes",
+        "ignorePrevStateNull": false,
+        "ignorePrevStateUnknown": false,
+        "ignorePrevStateUnavailable": false,
+        "ignoreCurrentStateUnknown": true,
+        "ignoreCurrentStateUnavailable": true,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "string",
+                "valueType": "entityState"
+            },
+            {
+                "property": "field",
+                "propertyType": "msg",
+                "value": "temperature",
+                "valueType": "str"
+            }
+        ],
+        "x": 270,
+        "y": 1120,
+        "wires": [
+            [
+                "6c8923af58e8be70"
+            ]
+        ]
+    },
+    {
+        "id": "3032b25ddd6023b4",
+        "type": "server-state-changed",
+        "z": "2788b93b.8a2f56",
+        "name": "Schlafzimmer: Feuchte (HA)",
+        "server": "3e07f44559793d55",
+        "version": 6,
+        "outputs": 1,
+        "exposeAsEntityConfig": "",
+        "entities": {
+            "entity": [
+                "sensor.th_schlafzimmer_humidity"
+            ],
+            "substring": [],
+            "regex": []
+        },
+        "outputInitially": true,
+        "stateType": "str",
+        "ifState": "",
+        "ifStateType": "str",
+        "ifStateOperator": "is",
+        "outputOnlyOnStateChange": true,
+        "for": "0",
+        "forType": "num",
+        "forUnits": "minutes",
+        "ignorePrevStateNull": false,
+        "ignorePrevStateUnknown": false,
+        "ignorePrevStateUnavailable": false,
+        "ignoreCurrentStateUnknown": true,
+        "ignoreCurrentStateUnavailable": true,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "string",
+                "valueType": "entityState"
+            },
+            {
+                "property": "field",
+                "propertyType": "msg",
+                "value": "humidity",
+                "valueType": "str"
+            }
+        ],
+        "x": 280,
+        "y": 1160,
+        "wires": [
+            [
+                "6c8923af58e8be70"
+            ]
+        ]
+    },
+    {
+        "id": "6c8923af58e8be70",
+        "type": "function",
+        "z": "2788b93b.8a2f56",
+        "name": "Schlafzimmer: Wert speichern",
+        "func": "context.set(msg.field, parseFloat(msg.payload));\nconst payload = {};\ncontext.keys().forEach(k => { payload[k] = context.get(k); });\nreturn { payload: payload };",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 570,
         "y": 1140,
-        "wires": []
+        "wires": [
+            [
+                "4739e100f45c8d31"
+            ]
+        ]
+    },
+    {
+        "id": "4739e100f45c8d31",
+        "type": "link call",
+        "z": "2788b93b.8a2f56",
+        "name": "Schlafzimmer: Lüftungsempfehlung berechnen",
+        "links": [
+            "067d7f963a4dc942"
+        ],
+        "timeout": 30,
+        "x": 1000,
+        "y": 1140,
+        "wires": [
+            [
+                "c80f3a0a693f9485"
+            ]
+        ]
+    },
+    {
+        "id": "c80f3a0a693f9485",
+        "type": "function",
+        "z": "2788b93b.8a2f56",
+        "name": "Schlafzimmer: Raumname setzen",
+        "func": "if (!msg.payload.complete) {\n    return null;\n}\nmsg.payload.room = 'Schlafzimmer';\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1040,
+        "y": 1100,
+        "wires": [
+            [
+                "46622f87013e8e63"
+            ]
+        ]
+    },
+    {
+        "id": "4b0247a5e550dedf",
+        "type": "server-state-changed",
+        "z": "2788b93b.8a2f56",
+        "name": "Speisekammer: Temperatur (HA)",
+        "server": "3e07f44559793d55",
+        "version": 6,
+        "outputs": 1,
+        "exposeAsEntityConfig": "",
+        "entities": {
+            "entity": [
+                "sensor.th_speisekammer_temperature"
+            ],
+            "substring": [],
+            "regex": []
+        },
+        "outputInitially": true,
+        "stateType": "str",
+        "ifState": "",
+        "ifStateType": "str",
+        "ifStateOperator": "is",
+        "outputOnlyOnStateChange": true,
+        "for": "0",
+        "forType": "num",
+        "forUnits": "minutes",
+        "ignorePrevStateNull": false,
+        "ignorePrevStateUnknown": false,
+        "ignorePrevStateUnavailable": false,
+        "ignoreCurrentStateUnknown": true,
+        "ignoreCurrentStateUnavailable": true,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "string",
+                "valueType": "entityState"
+            },
+            {
+                "property": "field",
+                "propertyType": "msg",
+                "value": "temperature",
+                "valueType": "str"
+            }
+        ],
+        "x": 270,
+        "y": 1220,
+        "wires": [
+            [
+                "1ba1102c2bac9910"
+            ]
+        ]
+    },
+    {
+        "id": "27a00750dc168e02",
+        "type": "server-state-changed",
+        "z": "2788b93b.8a2f56",
+        "name": "Speisekammer: Feuchte (HA)",
+        "server": "3e07f44559793d55",
+        "version": 6,
+        "outputs": 1,
+        "exposeAsEntityConfig": "",
+        "entities": {
+            "entity": [
+                "sensor.th_speisekammer_humidity"
+            ],
+            "substring": [],
+            "regex": []
+        },
+        "outputInitially": true,
+        "stateType": "str",
+        "ifState": "",
+        "ifStateType": "str",
+        "ifStateOperator": "is",
+        "outputOnlyOnStateChange": true,
+        "for": "0",
+        "forType": "num",
+        "forUnits": "minutes",
+        "ignorePrevStateNull": false,
+        "ignorePrevStateUnknown": false,
+        "ignorePrevStateUnavailable": false,
+        "ignoreCurrentStateUnknown": true,
+        "ignoreCurrentStateUnavailable": true,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "string",
+                "valueType": "entityState"
+            },
+            {
+                "property": "field",
+                "propertyType": "msg",
+                "value": "humidity",
+                "valueType": "str"
+            }
+        ],
+        "x": 280,
+        "y": 1260,
+        "wires": [
+            [
+                "1ba1102c2bac9910"
+            ]
+        ]
+    },
+    {
+        "id": "1ba1102c2bac9910",
+        "type": "function",
+        "z": "2788b93b.8a2f56",
+        "name": "Speisekammer: Wert speichern",
+        "func": "context.set(msg.field, parseFloat(msg.payload));\nconst payload = {};\ncontext.keys().forEach(k => { payload[k] = context.get(k); });\nreturn { payload: payload };",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 570,
+        "y": 1240,
+        "wires": [
+            [
+                "cc459d171818afab"
+            ]
+        ]
+    },
+    {
+        "id": "cc459d171818afab",
+        "type": "link call",
+        "z": "2788b93b.8a2f56",
+        "name": "Speisekammer: Lüftungsempfehlung berechnen",
+        "links": [
+            "067d7f963a4dc942"
+        ],
+        "timeout": 30,
+        "x": 1000,
+        "y": 1240,
+        "wires": [
+            [
+                "f43a290feb082de8"
+            ]
+        ]
+    },
+    {
+        "id": "f43a290feb082de8",
+        "type": "function",
+        "z": "2788b93b.8a2f56",
+        "name": "Speisekammer: Raumname setzen",
+        "func": "if (!msg.payload.complete) {\n    return null;\n}\nmsg.payload.room = 'Speisekammer';\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1040,
+        "y": 1200,
+        "wires": [
+            [
+                "7fb89a358c2b6164"
+            ]
+        ]
+    },
+    {
+        "id": "91e2a833e222a08e",
+        "type": "server-state-changed",
+        "z": "2788b93b.8a2f56",
+        "name": "Schlafzimmer DG: Temperatur (HA)",
+        "server": "3e07f44559793d55",
+        "version": 6,
+        "outputs": 1,
+        "exposeAsEntityConfig": "",
+        "entities": {
+            "entity": [
+                "sensor.th_schlafzimmer_dg_temperature"
+            ],
+            "substring": [],
+            "regex": []
+        },
+        "outputInitially": true,
+        "stateType": "str",
+        "ifState": "",
+        "ifStateType": "str",
+        "ifStateOperator": "is",
+        "outputOnlyOnStateChange": true,
+        "for": "0",
+        "forType": "num",
+        "forUnits": "minutes",
+        "ignorePrevStateNull": false,
+        "ignorePrevStateUnknown": false,
+        "ignorePrevStateUnavailable": false,
+        "ignoreCurrentStateUnknown": true,
+        "ignoreCurrentStateUnavailable": true,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "string",
+                "valueType": "entityState"
+            },
+            {
+                "property": "field",
+                "propertyType": "msg",
+                "value": "temperature",
+                "valueType": "str"
+            }
+        ],
+        "x": 260,
+        "y": 1320,
+        "wires": [
+            [
+                "289dfc49ce17e2de"
+            ]
+        ]
+    },
+    {
+        "id": "474c49dea6d37c1a",
+        "type": "server-state-changed",
+        "z": "2788b93b.8a2f56",
+        "name": "Schlafzimmer DG: Feuchte (HA)",
+        "server": "3e07f44559793d55",
+        "version": 6,
+        "outputs": 1,
+        "exposeAsEntityConfig": "",
+        "entities": {
+            "entity": [
+                "sensor.th_schlafzimmer_dg_humidity"
+            ],
+            "substring": [],
+            "regex": []
+        },
+        "outputInitially": true,
+        "stateType": "str",
+        "ifState": "",
+        "ifStateType": "str",
+        "ifStateOperator": "is",
+        "outputOnlyOnStateChange": true,
+        "for": "0",
+        "forType": "num",
+        "forUnits": "minutes",
+        "ignorePrevStateNull": false,
+        "ignorePrevStateUnknown": false,
+        "ignorePrevStateUnavailable": false,
+        "ignoreCurrentStateUnknown": true,
+        "ignoreCurrentStateUnavailable": true,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "string",
+                "valueType": "entityState"
+            },
+            {
+                "property": "field",
+                "propertyType": "msg",
+                "value": "humidity",
+                "valueType": "str"
+            }
+        ],
+        "x": 270,
+        "y": 1360,
+        "wires": [
+            [
+                "289dfc49ce17e2de"
+            ]
+        ]
+    },
+    {
+        "id": "289dfc49ce17e2de",
+        "type": "function",
+        "z": "2788b93b.8a2f56",
+        "name": "Schlafzimmer DG: Wert speichern",
+        "func": "context.set(msg.field, parseFloat(msg.payload));\nconst payload = {};\ncontext.keys().forEach(k => { payload[k] = context.get(k); });\nreturn { payload: payload };",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 1340,
+        "wires": [
+            [
+                "5d795266876b222e"
+            ]
+        ]
+    },
+    {
+        "id": "5d795266876b222e",
+        "type": "link call",
+        "z": "2788b93b.8a2f56",
+        "name": "Schlafzimmer DG: Lüftungsempfehlung berechnen",
+        "links": [
+            "067d7f963a4dc942"
+        ],
+        "timeout": 30,
+        "x": 990,
+        "y": 1340,
+        "wires": [
+            [
+                "f20b43c813b9573c"
+            ]
+        ]
+    },
+    {
+        "id": "f20b43c813b9573c",
+        "type": "function",
+        "z": "2788b93b.8a2f56",
+        "name": "Schlafzimmer DG: Raumname setzen",
+        "func": "if (!msg.payload.complete) {\n    return null;\n}\nmsg.payload.room = 'Schlafzimmer DG';\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1030,
+        "y": 1300,
+        "wires": [
+            [
+                "9a75b66c1fd8e6e7"
+            ]
+        ]
+    },
+    {
+        "id": "defb98dd1eb22b3b",
+        "type": "server-state-changed",
+        "z": "2788b93b.8a2f56",
+        "name": "Bad DG: Temperatur (HA)",
+        "server": "3e07f44559793d55",
+        "version": 6,
+        "outputs": 1,
+        "exposeAsEntityConfig": "",
+        "entities": {
+            "entity": [
+                "sensor.th_bad_dg_temperature"
+            ],
+            "substring": [],
+            "regex": []
+        },
+        "outputInitially": true,
+        "stateType": "str",
+        "ifState": "",
+        "ifStateType": "str",
+        "ifStateOperator": "is",
+        "outputOnlyOnStateChange": true,
+        "for": "0",
+        "forType": "num",
+        "forUnits": "minutes",
+        "ignorePrevStateNull": false,
+        "ignorePrevStateUnknown": false,
+        "ignorePrevStateUnavailable": false,
+        "ignoreCurrentStateUnknown": true,
+        "ignoreCurrentStateUnavailable": true,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "string",
+                "valueType": "entityState"
+            },
+            {
+                "property": "field",
+                "propertyType": "msg",
+                "value": "temperature",
+                "valueType": "str"
+            }
+        ],
+        "x": 290,
+        "y": 1420,
+        "wires": [
+            [
+                "1754a746b76fdf93"
+            ]
+        ]
+    },
+    {
+        "id": "fd404b21cc7e5a72",
+        "type": "server-state-changed",
+        "z": "2788b93b.8a2f56",
+        "name": "Bad DG: Feuchte (HA)",
+        "server": "3e07f44559793d55",
+        "version": 6,
+        "outputs": 1,
+        "exposeAsEntityConfig": "",
+        "entities": {
+            "entity": [
+                "sensor.th_bad_dg_humidity"
+            ],
+            "substring": [],
+            "regex": []
+        },
+        "outputInitially": true,
+        "stateType": "str",
+        "ifState": "",
+        "ifStateType": "str",
+        "ifStateOperator": "is",
+        "outputOnlyOnStateChange": true,
+        "for": "0",
+        "forType": "num",
+        "forUnits": "minutes",
+        "ignorePrevStateNull": false,
+        "ignorePrevStateUnknown": false,
+        "ignorePrevStateUnavailable": false,
+        "ignoreCurrentStateUnknown": true,
+        "ignoreCurrentStateUnavailable": true,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "string",
+                "valueType": "entityState"
+            },
+            {
+                "property": "field",
+                "propertyType": "msg",
+                "value": "humidity",
+                "valueType": "str"
+            }
+        ],
+        "x": 300,
+        "y": 1460,
+        "wires": [
+            [
+                "1754a746b76fdf93"
+            ]
+        ]
+    },
+    {
+        "id": "1754a746b76fdf93",
+        "type": "function",
+        "z": "2788b93b.8a2f56",
+        "name": "Bad DG: Wert speichern",
+        "func": "context.set(msg.field, parseFloat(msg.payload));\nconst payload = {};\ncontext.keys().forEach(k => { payload[k] = context.get(k); });\nreturn { payload: payload };",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 550,
+        "y": 1440,
+        "wires": [
+            [
+                "c2c6b03937445605"
+            ]
+        ]
+    },
+    {
+        "id": "c2c6b03937445605",
+        "type": "link call",
+        "z": "2788b93b.8a2f56",
+        "name": "Bad DG: Lüftungsempfehlung berechnen",
+        "links": [
+            "067d7f963a4dc942"
+        ],
+        "timeout": 30,
+        "x": 1020,
+        "y": 1440,
+        "wires": [
+            [
+                "0537c42a858b378b"
+            ]
+        ]
+    },
+    {
+        "id": "0537c42a858b378b",
+        "type": "function",
+        "z": "2788b93b.8a2f56",
+        "name": "Bad DG: Raumname setzen",
+        "func": "if (!msg.payload.complete) {\n    return null;\n}\nmsg.payload.room = 'Bad DG';\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1060,
+        "y": 1400,
+        "wires": [
+            [
+                "e0afcb31a078007a"
+            ]
+        ]
+    },
+    {
+        "id": "15cf08a5261d770b",
+        "type": "server-state-changed",
+        "z": "2788b93b.8a2f56",
+        "name": "Büro OG: Temperatur (HA)",
+        "server": "3e07f44559793d55",
+        "version": 6,
+        "outputs": 1,
+        "exposeAsEntityConfig": "",
+        "entities": {
+            "entity": [
+                "sensor.th_buro_og_temperature"
+            ],
+            "substring": [],
+            "regex": []
+        },
+        "outputInitially": true,
+        "stateType": "str",
+        "ifState": "",
+        "ifStateType": "str",
+        "ifStateOperator": "is",
+        "outputOnlyOnStateChange": true,
+        "for": "0",
+        "forType": "num",
+        "forUnits": "minutes",
+        "ignorePrevStateNull": false,
+        "ignorePrevStateUnknown": false,
+        "ignorePrevStateUnavailable": false,
+        "ignoreCurrentStateUnknown": true,
+        "ignoreCurrentStateUnavailable": true,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "string",
+                "valueType": "entityState"
+            },
+            {
+                "property": "field",
+                "propertyType": "msg",
+                "value": "temperature",
+                "valueType": "str"
+            }
+        ],
+        "x": 290,
+        "y": 1520,
+        "wires": [
+            [
+                "e57992455edb3fb2"
+            ]
+        ]
+    },
+    {
+        "id": "9bfea850d13a6f90",
+        "type": "server-state-changed",
+        "z": "2788b93b.8a2f56",
+        "name": "Büro OG: Feuchte (HA)",
+        "server": "3e07f44559793d55",
+        "version": 6,
+        "outputs": 1,
+        "exposeAsEntityConfig": "",
+        "entities": {
+            "entity": [
+                "sensor.th_buro_og_humidity"
+            ],
+            "substring": [],
+            "regex": []
+        },
+        "outputInitially": true,
+        "stateType": "str",
+        "ifState": "",
+        "ifStateType": "str",
+        "ifStateOperator": "is",
+        "outputOnlyOnStateChange": true,
+        "for": "0",
+        "forType": "num",
+        "forUnits": "minutes",
+        "ignorePrevStateNull": false,
+        "ignorePrevStateUnknown": false,
+        "ignorePrevStateUnavailable": false,
+        "ignoreCurrentStateUnknown": true,
+        "ignoreCurrentStateUnavailable": true,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "string",
+                "valueType": "entityState"
+            },
+            {
+                "property": "field",
+                "propertyType": "msg",
+                "value": "humidity",
+                "valueType": "str"
+            }
+        ],
+        "x": 300,
+        "y": 1560,
+        "wires": [
+            [
+                "e57992455edb3fb2"
+            ]
+        ]
+    },
+    {
+        "id": "e57992455edb3fb2",
+        "type": "function",
+        "z": "2788b93b.8a2f56",
+        "name": "Büro OG: Wert speichern",
+        "func": "context.set(msg.field, parseFloat(msg.payload));\nconst payload = {};\ncontext.keys().forEach(k => { payload[k] = context.get(k); });\nreturn { payload: payload };",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 550,
+        "y": 1540,
+        "wires": [
+            [
+                "9481b641ab6cb8a8"
+            ]
+        ]
+    },
+    {
+        "id": "9481b641ab6cb8a8",
+        "type": "link call",
+        "z": "2788b93b.8a2f56",
+        "name": "Büro OG: Lüftungsempfehlung berechnen",
+        "links": [
+            "067d7f963a4dc942"
+        ],
+        "timeout": 30,
+        "x": 1020,
+        "y": 1540,
+        "wires": [
+            [
+                "103939dfeeec68c6"
+            ]
+        ]
+    },
+    {
+        "id": "103939dfeeec68c6",
+        "type": "function",
+        "z": "2788b93b.8a2f56",
+        "name": "Büro OG: Raumname setzen",
+        "func": "if (!msg.payload.complete) {\n    return null;\n}\nmsg.payload.room = 'Büro OG';\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1060,
+        "y": 1500,
+        "wires": [
+            [
+                "e9b9bc8e3096ca06"
+            ]
+        ]
+    },
+    {
+        "id": "d85cb4cacd98123b",
+        "type": "server-state-changed",
+        "z": "2788b93b.8a2f56",
+        "name": "Ankleidezimmer: Temperatur (HA)",
+        "server": "3e07f44559793d55",
+        "version": 6,
+        "outputs": 1,
+        "exposeAsEntityConfig": "",
+        "entities": {
+            "entity": [
+                "sensor.th_ankleidezimmer_temperature"
+            ],
+            "substring": [],
+            "regex": []
+        },
+        "outputInitially": true,
+        "stateType": "str",
+        "ifState": "",
+        "ifStateType": "str",
+        "ifStateOperator": "is",
+        "outputOnlyOnStateChange": true,
+        "for": "0",
+        "forType": "num",
+        "forUnits": "minutes",
+        "ignorePrevStateNull": false,
+        "ignorePrevStateUnknown": false,
+        "ignorePrevStateUnavailable": false,
+        "ignoreCurrentStateUnknown": true,
+        "ignoreCurrentStateUnavailable": true,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "string",
+                "valueType": "entityState"
+            },
+            {
+                "property": "field",
+                "propertyType": "msg",
+                "value": "temperature",
+                "valueType": "str"
+            }
+        ],
+        "x": 260,
+        "y": 1620,
+        "wires": [
+            [
+                "0fa7c015d758cb03"
+            ]
+        ]
+    },
+    {
+        "id": "66a6eec56e23e241",
+        "type": "server-state-changed",
+        "z": "2788b93b.8a2f56",
+        "name": "Ankleidezimmer: Feuchte (HA)",
+        "server": "3e07f44559793d55",
+        "version": 6,
+        "outputs": 1,
+        "exposeAsEntityConfig": "",
+        "entities": {
+            "entity": [
+                "sensor.th_ankleidezimmer_humidity"
+            ],
+            "substring": [],
+            "regex": []
+        },
+        "outputInitially": true,
+        "stateType": "str",
+        "ifState": "",
+        "ifStateType": "str",
+        "ifStateOperator": "is",
+        "outputOnlyOnStateChange": true,
+        "for": "0",
+        "forType": "num",
+        "forUnits": "minutes",
+        "ignorePrevStateNull": false,
+        "ignorePrevStateUnknown": false,
+        "ignorePrevStateUnavailable": false,
+        "ignoreCurrentStateUnknown": true,
+        "ignoreCurrentStateUnavailable": true,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "string",
+                "valueType": "entityState"
+            },
+            {
+                "property": "field",
+                "propertyType": "msg",
+                "value": "humidity",
+                "valueType": "str"
+            }
+        ],
+        "x": 270,
+        "y": 1660,
+        "wires": [
+            [
+                "0fa7c015d758cb03"
+            ]
+        ]
+    },
+    {
+        "id": "0fa7c015d758cb03",
+        "type": "function",
+        "z": "2788b93b.8a2f56",
+        "name": "Ankleidezimmer: Wert speichern",
+        "func": "context.set(msg.field, parseFloat(msg.payload));\nconst payload = {};\ncontext.keys().forEach(k => { payload[k] = context.get(k); });\nreturn { payload: payload };",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 570,
+        "y": 1640,
+        "wires": [
+            [
+                "29e08f297b1040d0"
+            ]
+        ]
+    },
+    {
+        "id": "29e08f297b1040d0",
+        "type": "link call",
+        "z": "2788b93b.8a2f56",
+        "name": "Ankleidezimmer: Lüftungsempfehlung berechnen",
+        "links": [
+            "067d7f963a4dc942"
+        ],
+        "timeout": 30,
+        "x": 990,
+        "y": 1640,
+        "wires": [
+            [
+                "745811278f5b2a97"
+            ]
+        ]
+    },
+    {
+        "id": "745811278f5b2a97",
+        "type": "function",
+        "z": "2788b93b.8a2f56",
+        "name": "Ankleidezimmer: Raumname setzen",
+        "func": "if (!msg.payload.complete) {\n    return null;\n}\nmsg.payload.room = 'Ankleidezimmer';\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1030,
+        "y": 1600,
+        "wires": [
+            [
+                "879f14bb365dc00f"
+            ]
+        ]
+    },
+    {
+        "id": "eea49aaf641f69a4",
+        "type": "server-state-changed",
+        "z": "2788b93b.8a2f56",
+        "name": "Treppenhaus DG: Temperatur (HA)",
+        "server": "3e07f44559793d55",
+        "version": 6,
+        "outputs": 1,
+        "exposeAsEntityConfig": "",
+        "entities": {
+            "entity": [
+                "sensor.th_treppenhaus_dg_temperature"
+            ],
+            "substring": [],
+            "regex": []
+        },
+        "outputInitially": true,
+        "stateType": "str",
+        "ifState": "",
+        "ifStateType": "str",
+        "ifStateOperator": "is",
+        "outputOnlyOnStateChange": true,
+        "for": "0",
+        "forType": "num",
+        "forUnits": "minutes",
+        "ignorePrevStateNull": false,
+        "ignorePrevStateUnknown": false,
+        "ignorePrevStateUnavailable": false,
+        "ignoreCurrentStateUnknown": true,
+        "ignoreCurrentStateUnavailable": true,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "string",
+                "valueType": "entityState"
+            },
+            {
+                "property": "field",
+                "propertyType": "msg",
+                "value": "temperature",
+                "valueType": "str"
+            }
+        ],
+        "x": 260,
+        "y": 1720,
+        "wires": [
+            [
+                "1782bb853a8bc96e"
+            ]
+        ]
+    },
+    {
+        "id": "8bdb203f51f9bc24",
+        "type": "server-state-changed",
+        "z": "2788b93b.8a2f56",
+        "name": "Treppenhaus DG: Feuchte (HA)",
+        "server": "3e07f44559793d55",
+        "version": 6,
+        "outputs": 1,
+        "exposeAsEntityConfig": "",
+        "entities": {
+            "entity": [
+                "sensor.th_treppenhaus_dg_humidity"
+            ],
+            "substring": [],
+            "regex": []
+        },
+        "outputInitially": true,
+        "stateType": "str",
+        "ifState": "",
+        "ifStateType": "str",
+        "ifStateOperator": "is",
+        "outputOnlyOnStateChange": true,
+        "for": "0",
+        "forType": "num",
+        "forUnits": "minutes",
+        "ignorePrevStateNull": false,
+        "ignorePrevStateUnknown": false,
+        "ignorePrevStateUnavailable": false,
+        "ignoreCurrentStateUnknown": true,
+        "ignoreCurrentStateUnavailable": true,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "string",
+                "valueType": "entityState"
+            },
+            {
+                "property": "field",
+                "propertyType": "msg",
+                "value": "humidity",
+                "valueType": "str"
+            }
+        ],
+        "x": 270,
+        "y": 1760,
+        "wires": [
+            [
+                "1782bb853a8bc96e"
+            ]
+        ]
+    },
+    {
+        "id": "1782bb853a8bc96e",
+        "type": "function",
+        "z": "2788b93b.8a2f56",
+        "name": "Treppenhaus DG: Wert speichern",
+        "func": "context.set(msg.field, parseFloat(msg.payload));\nconst payload = {};\ncontext.keys().forEach(k => { payload[k] = context.get(k); });\nreturn { payload: payload };",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 1740,
+        "wires": [
+            [
+                "2a3a13e1fe7800ac"
+            ]
+        ]
+    },
+    {
+        "id": "2a3a13e1fe7800ac",
+        "type": "link call",
+        "z": "2788b93b.8a2f56",
+        "name": "Treppenhaus DG: Lüftungsempfehlung berechnen",
+        "links": [
+            "067d7f963a4dc942"
+        ],
+        "timeout": 30,
+        "x": 990,
+        "y": 1740,
+        "wires": [
+            [
+                "2b0a4515b9b4cbce"
+            ]
+        ]
+    },
+    {
+        "id": "2b0a4515b9b4cbce",
+        "type": "function",
+        "z": "2788b93b.8a2f56",
+        "name": "Treppenhaus DG: Raumname setzen",
+        "func": "if (!msg.payload.complete) {\n    return null;\n}\nmsg.payload.room = 'Treppenhaus DG';\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1030,
+        "y": 1700,
+        "wires": [
+            [
+                "71358a6e42812956"
+            ]
+        ]
+    },
+    {
+        "id": "04453103b30dad15",
+        "type": "server-state-changed",
+        "z": "2788b93b.8a2f56",
+        "name": "Waschküche: Temperatur (HA)",
+        "server": "3e07f44559793d55",
+        "version": 6,
+        "outputs": 1,
+        "exposeAsEntityConfig": "",
+        "entities": {
+            "entity": [
+                "sensor.waschkueche_luefter_temperature"
+            ],
+            "substring": [],
+            "regex": []
+        },
+        "outputInitially": true,
+        "stateType": "str",
+        "ifState": "",
+        "ifStateType": "str",
+        "ifStateOperator": "is",
+        "outputOnlyOnStateChange": true,
+        "for": "0",
+        "forType": "num",
+        "forUnits": "minutes",
+        "ignorePrevStateNull": false,
+        "ignorePrevStateUnknown": false,
+        "ignorePrevStateUnavailable": false,
+        "ignoreCurrentStateUnknown": true,
+        "ignoreCurrentStateUnavailable": true,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "string",
+                "valueType": "entityState"
+            },
+            {
+                "property": "field",
+                "propertyType": "msg",
+                "value": "temperature",
+                "valueType": "str"
+            }
+        ],
+        "x": 270,
+        "y": 1820,
+        "wires": [
+            [
+                "f8f831f4385476ec"
+            ]
+        ]
+    },
+    {
+        "id": "e46187216a48c872",
+        "type": "server-state-changed",
+        "z": "2788b93b.8a2f56",
+        "name": "Waschküche: Feuchte (HA)",
+        "server": "3e07f44559793d55",
+        "version": 6,
+        "outputs": 1,
+        "exposeAsEntityConfig": "",
+        "entities": {
+            "entity": [
+                "sensor.waschkueche_luefter_humidity"
+            ],
+            "substring": [],
+            "regex": []
+        },
+        "outputInitially": true,
+        "stateType": "str",
+        "ifState": "",
+        "ifStateType": "str",
+        "ifStateOperator": "is",
+        "outputOnlyOnStateChange": true,
+        "for": "0",
+        "forType": "num",
+        "forUnits": "minutes",
+        "ignorePrevStateNull": false,
+        "ignorePrevStateUnknown": false,
+        "ignorePrevStateUnavailable": false,
+        "ignoreCurrentStateUnknown": true,
+        "ignoreCurrentStateUnavailable": true,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "string",
+                "valueType": "entityState"
+            },
+            {
+                "property": "field",
+                "propertyType": "msg",
+                "value": "humidity",
+                "valueType": "str"
+            }
+        ],
+        "x": 280,
+        "y": 1860,
+        "wires": [
+            [
+                "f8f831f4385476ec"
+            ]
+        ]
+    },
+    {
+        "id": "f8f831f4385476ec",
+        "type": "function",
+        "z": "2788b93b.8a2f56",
+        "name": "Waschküche: Wert speichern",
+        "func": "context.set(msg.field, parseFloat(msg.payload));\nconst payload = {};\ncontext.keys().forEach(k => { payload[k] = context.get(k); });\nreturn { payload: payload };",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 560,
+        "y": 1840,
+        "wires": [
+            [
+                "b74c4066e6a9b66c"
+            ]
+        ]
+    },
+    {
+        "id": "b74c4066e6a9b66c",
+        "type": "link call",
+        "z": "2788b93b.8a2f56",
+        "name": "Waschküche: Lüftungsempfehlung berechnen",
+        "links": [
+            "067d7f963a4dc942"
+        ],
+        "timeout": 30,
+        "x": 1000,
+        "y": 1840,
+        "wires": [
+            [
+                "6593e5da3e28d028"
+            ]
+        ]
+    },
+    {
+        "id": "6593e5da3e28d028",
+        "type": "function",
+        "z": "2788b93b.8a2f56",
+        "name": "Waschküche: Raumname setzen",
+        "func": "if (!msg.payload.complete) {\n    return null;\n}\nmsg.payload.room = 'Waschküche';\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1040,
+        "y": 1800,
+        "wires": [
+            [
+                "c97e22a78f3f42df"
+            ]
+        ]
+    },
+    {
+        "id": "e258bdf6ebae9346",
+        "type": "server-state-changed",
+        "z": "2788b93b.8a2f56",
+        "name": "Werkstatt: Temperatur (HA)",
+        "server": "3e07f44559793d55",
+        "version": 6,
+        "outputs": 1,
+        "exposeAsEntityConfig": "",
+        "entities": {
+            "entity": [
+                "sensor.luftguetemesser1_temperature"
+            ],
+            "substring": [],
+            "regex": []
+        },
+        "outputInitially": true,
+        "stateType": "str",
+        "ifState": "",
+        "ifStateType": "str",
+        "ifStateOperator": "is",
+        "outputOnlyOnStateChange": true,
+        "for": "0",
+        "forType": "num",
+        "forUnits": "minutes",
+        "ignorePrevStateNull": false,
+        "ignorePrevStateUnknown": false,
+        "ignorePrevStateUnavailable": false,
+        "ignoreCurrentStateUnknown": true,
+        "ignoreCurrentStateUnavailable": true,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "string",
+                "valueType": "entityState"
+            },
+            {
+                "property": "field",
+                "propertyType": "msg",
+                "value": "temperature",
+                "valueType": "str"
+            }
+        ],
+        "x": 290,
+        "y": 1920,
+        "wires": [
+            [
+                "e5927204b7122db2"
+            ]
+        ]
+    },
+    {
+        "id": "f554b32fb952ba6b",
+        "type": "server-state-changed",
+        "z": "2788b93b.8a2f56",
+        "name": "Werkstatt: Feuchte (HA)",
+        "server": "3e07f44559793d55",
+        "version": 6,
+        "outputs": 1,
+        "exposeAsEntityConfig": "",
+        "entities": {
+            "entity": [
+                "sensor.luftguetemesser1_humidity"
+            ],
+            "substring": [],
+            "regex": []
+        },
+        "outputInitially": true,
+        "stateType": "str",
+        "ifState": "",
+        "ifStateType": "str",
+        "ifStateOperator": "is",
+        "outputOnlyOnStateChange": true,
+        "for": "0",
+        "forType": "num",
+        "forUnits": "minutes",
+        "ignorePrevStateNull": false,
+        "ignorePrevStateUnknown": false,
+        "ignorePrevStateUnavailable": false,
+        "ignoreCurrentStateUnknown": true,
+        "ignoreCurrentStateUnavailable": true,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "string",
+                "valueType": "entityState"
+            },
+            {
+                "property": "field",
+                "propertyType": "msg",
+                "value": "humidity",
+                "valueType": "str"
+            }
+        ],
+        "x": 300,
+        "y": 1960,
+        "wires": [
+            [
+                "e5927204b7122db2"
+            ]
+        ]
+    },
+    {
+        "id": "e5927204b7122db2",
+        "type": "function",
+        "z": "2788b93b.8a2f56",
+        "name": "Werkstatt: Wert speichern",
+        "func": "context.set(msg.field, parseFloat(msg.payload));\nconst payload = {};\ncontext.keys().forEach(k => { payload[k] = context.get(k); });\nreturn { payload: payload };",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 550,
+        "y": 1940,
+        "wires": [
+            [
+                "9445f7012a965190"
+            ]
+        ]
+    },
+    {
+        "id": "9445f7012a965190",
+        "type": "link call",
+        "z": "2788b93b.8a2f56",
+        "name": "Werkstatt: Lüftungsempfehlung berechnen",
+        "links": [
+            "067d7f963a4dc942"
+        ],
+        "timeout": 30,
+        "x": 1020,
+        "y": 1940,
+        "wires": [
+            [
+                "a1f61f3bda23878b"
+            ]
+        ]
+    },
+    {
+        "id": "a1f61f3bda23878b",
+        "type": "function",
+        "z": "2788b93b.8a2f56",
+        "name": "Werkstatt: Raumname setzen",
+        "func": "if (!msg.payload.complete) {\n    return null;\n}\nmsg.payload.room = 'Werkstatt';\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1050,
+        "y": 1900,
+        "wires": [
+            [
+                "bf3de5a413407da5"
+            ]
+        ]
+    },
+    {
+        "id": "db30fd39e5aa3a6b",
+        "type": "server-state-changed",
+        "z": "2788b93b.8a2f56",
+        "name": "Gästezimmer: Temperatur (HA)",
+        "server": "3e07f44559793d55",
+        "version": 6,
+        "outputs": 1,
+        "exposeAsEntityConfig": "",
+        "entities": {
+            "entity": [
+                "sensor.steckdose1_temperature"
+            ],
+            "substring": [],
+            "regex": []
+        },
+        "outputInitially": true,
+        "stateType": "str",
+        "ifState": "",
+        "ifStateType": "str",
+        "ifStateOperator": "is",
+        "outputOnlyOnStateChange": true,
+        "for": "0",
+        "forType": "num",
+        "forUnits": "minutes",
+        "ignorePrevStateNull": false,
+        "ignorePrevStateUnknown": false,
+        "ignorePrevStateUnavailable": false,
+        "ignoreCurrentStateUnknown": true,
+        "ignoreCurrentStateUnavailable": true,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "string",
+                "valueType": "entityState"
+            },
+            {
+                "property": "field",
+                "propertyType": "msg",
+                "value": "temperature",
+                "valueType": "str"
+            }
+        ],
+        "x": 270,
+        "y": 2020,
+        "wires": [
+            [
+                "3e93656ee9d02463"
+            ]
+        ]
+    },
+    {
+        "id": "219687ad8fe114d3",
+        "type": "server-state-changed",
+        "z": "2788b93b.8a2f56",
+        "name": "Gästezimmer: Feuchte (HA)",
+        "server": "3e07f44559793d55",
+        "version": 6,
+        "outputs": 1,
+        "exposeAsEntityConfig": "",
+        "entities": {
+            "entity": [
+                "sensor.steckdose1_humidity"
+            ],
+            "substring": [],
+            "regex": []
+        },
+        "outputInitially": true,
+        "stateType": "str",
+        "ifState": "",
+        "ifStateType": "str",
+        "ifStateOperator": "is",
+        "outputOnlyOnStateChange": true,
+        "for": "0",
+        "forType": "num",
+        "forUnits": "minutes",
+        "ignorePrevStateNull": false,
+        "ignorePrevStateUnknown": false,
+        "ignorePrevStateUnavailable": false,
+        "ignoreCurrentStateUnknown": true,
+        "ignoreCurrentStateUnavailable": true,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "string",
+                "valueType": "entityState"
+            },
+            {
+                "property": "field",
+                "propertyType": "msg",
+                "value": "humidity",
+                "valueType": "str"
+            }
+        ],
+        "x": 280,
+        "y": 2060,
+        "wires": [
+            [
+                "3e93656ee9d02463"
+            ]
+        ]
+    },
+    {
+        "id": "3e93656ee9d02463",
+        "type": "function",
+        "z": "2788b93b.8a2f56",
+        "name": "Gästezimmer: Wert speichern",
+        "func": "context.set(msg.field, parseFloat(msg.payload));\nconst payload = {};\ncontext.keys().forEach(k => { payload[k] = context.get(k); });\nreturn { payload: payload };",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 570,
+        "y": 2040,
+        "wires": [
+            [
+                "da8290af539e0a24"
+            ]
+        ]
+    },
+    {
+        "id": "da8290af539e0a24",
+        "type": "link call",
+        "z": "2788b93b.8a2f56",
+        "name": "Gästezimmer: Lüftungsempfehlung berechnen",
+        "links": [
+            "067d7f963a4dc942"
+        ],
+        "linkType": "static",
+        "timeout": 30,
+        "x": 1000,
+        "y": 2040,
+        "wires": [
+            [
+                "c4ac3a99c40cbb6a"
+            ]
+        ]
+    },
+    {
+        "id": "c4ac3a99c40cbb6a",
+        "type": "function",
+        "z": "2788b93b.8a2f56",
+        "name": "Gästezimmer: Raumname setzen",
+        "func": "if (!msg.payload.complete) {\n    return null;\n}\nmsg.payload.room = 'Gästezimmer';\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1040,
+        "y": 2000,
+        "wires": [
+            [
+                "7567c4a9dc51ade3"
+            ]
+        ]
+    },
+    {
+        "id": "08d18888338398bf",
+        "type": "server-state-changed",
+        "z": "2788b93b.8a2f56",
+        "name": "Außen: Temperatur (HA)",
+        "server": "3e07f44559793d55",
+        "version": 6,
+        "outputs": 1,
+        "exposeAsEntityConfig": "",
+        "entities": {
+            "entity": [
+                "sensor.luftguetemesser2_temperatur"
+            ],
+            "substring": [],
+            "regex": []
+        },
+        "outputInitially": true,
+        "stateType": "str",
+        "ifState": "",
+        "ifStateType": "str",
+        "ifStateOperator": "is",
+        "outputOnlyOnStateChange": true,
+        "for": "0",
+        "forType": "num",
+        "forUnits": "minutes",
+        "ignorePrevStateNull": false,
+        "ignorePrevStateUnknown": false,
+        "ignorePrevStateUnavailable": false,
+        "ignoreCurrentStateUnknown": true,
+        "ignoreCurrentStateUnavailable": true,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "string",
+                "valueType": "entityState"
+            },
+            {
+                "property": "field",
+                "propertyType": "msg",
+                "value": "temperature",
+                "valueType": "str"
+            }
+        ],
+        "x": 290,
+        "y": 380,
+        "wires": [
+            [
+                "15b8819e313f0783"
+            ]
+        ]
+    },
+    {
+        "id": "796862a46ec22084",
+        "type": "server-state-changed",
+        "z": "2788b93b.8a2f56",
+        "name": "Außen: Feuchte (HA)",
+        "server": "3e07f44559793d55",
+        "version": 6,
+        "outputs": 1,
+        "exposeAsEntityConfig": "",
+        "entities": {
+            "entity": [
+                "sensor.luftguetemesser2_relative_luftfeuchte"
+            ],
+            "substring": [],
+            "regex": []
+        },
+        "outputInitially": true,
+        "stateType": "str",
+        "ifState": "",
+        "ifStateType": "str",
+        "ifStateOperator": "is",
+        "outputOnlyOnStateChange": true,
+        "for": "0",
+        "forType": "num",
+        "forUnits": "minutes",
+        "ignorePrevStateNull": false,
+        "ignorePrevStateUnknown": false,
+        "ignorePrevStateUnavailable": false,
+        "ignoreCurrentStateUnknown": true,
+        "ignoreCurrentStateUnavailable": true,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "string",
+                "valueType": "entityState"
+            },
+            {
+                "property": "field",
+                "propertyType": "msg",
+                "value": "humidity",
+                "valueType": "str"
+            }
+        ],
+        "x": 300,
+        "y": 420,
+        "wires": [
+            [
+                "15b8819e313f0783"
+            ]
+        ]
+    },
+    {
+        "id": "147c57b57157e177",
+        "type": "server-state-changed",
+        "z": "2788b93b.8a2f56",
+        "name": "Außen: Abs. Feuchte (HA)",
+        "server": "3e07f44559793d55",
+        "version": 6,
+        "outputs": 1,
+        "exposeAsEntityConfig": "",
+        "entities": {
+            "entity": [
+                "sensor.luftguetemesser2_absolute_luftfeuchte"
+            ],
+            "substring": [],
+            "regex": []
+        },
+        "outputInitially": true,
+        "stateType": "str",
+        "ifState": "",
+        "ifStateType": "str",
+        "ifStateOperator": "is",
+        "outputOnlyOnStateChange": true,
+        "for": "0",
+        "forType": "num",
+        "forUnits": "minutes",
+        "ignorePrevStateNull": false,
+        "ignorePrevStateUnknown": false,
+        "ignorePrevStateUnavailable": false,
+        "ignoreCurrentStateUnknown": true,
+        "ignoreCurrentStateUnavailable": true,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "string",
+                "valueType": "entityState"
+            },
+            {
+                "property": "field",
+                "propertyType": "msg",
+                "value": "absolute_humidity",
+                "valueType": "str"
+            }
+        ],
+        "x": 290,
+        "y": 460,
+        "wires": [
+            [
+                "15b8819e313f0783"
+            ]
+        ]
+    },
+    {
+        "id": "15b8819e313f0783",
+        "type": "function",
+        "z": "2788b93b.8a2f56",
+        "name": "Außen: Wert speichern + einordnen",
+        "func": "if (msg.field === 'absolute_humidity') {\n    // shared across every room's Lüftungsempfehlung call as the outdoor reference - must stay in\n    // global, this is the one value that is genuinely cross-room state, not room-local.\n    global.set('putside-absolute_humidity', parseFloat(msg.payload));\n} else {\n    context.set(msg.field, parseFloat(msg.payload));\n}\n\nconst temperature = context.get('temperature');\nconst humidity = context.get('humidity');\nconst abs_humidity = global.get('outside-absolute_humidity');\nif (temperature === undefined || humidity === undefined || abs_humidity === undefined) {\n    return null;\n}\n\nconst intl = global.get('intl');\nconst format = intl.NumberFormat('de-De',{style:'decimal', maximumFractionDigits: 1}).format;\nconst sprintf = global.get('sprintf');\nconst text = sprintf(\"%s °C, %s %% H, %s g/m³\", format(temperature), format(humidity), format(abs_humidity));\n\nvar payload;\nif (abs_humidity >= 13) {\n    payload = {room: 'Außen', color: \"deepskyblue\", hint: \"Draußen ist es sehr feucht.\", text: text, temperature: temperature, humidity: humidity, abs_humidity: abs_humidity};\n} else if (abs_humidity >= 12) {\n    payload = {room: 'Außen', color: \"skyblue\", hint: \"Draußen ist es feucht.\", text: text, temperature: temperature, humidity: humidity, abs_humidity: abs_humidity};\n} else if (abs_humidity >= 11) {\n    payload = {room: 'Außen', color: \"limegreen\", hint: \"Draußen ist einigermaßen trocken.\", text: text, temperature: temperature, humidity: humidity, abs_humidity: abs_humidity};\n} else {\n    payload = {room: 'Außen', color: \"YellowGreen\", hint: \"Draußen ist es trocken.\", text: text, temperature: temperature, humidity: humidity, abs_humidity: abs_humidity};\n}\nreturn {payload: payload};",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 420,
+        "wires": [
+            [
+                "eb8d9215af4bfd8f"
+            ]
+        ]
+    },
+    {
+        "id": "ow-temp-node-01",
+        "type": "server-state-changed",
+        "z": "2788b93b.8a2f56",
+        "name": "Open Weather: Temperatur (HA)",
+        "server": "3e07f44559793d55",
+        "version": 6,
+        "outputs": 1,
+        "exposeAsEntityConfig": "",
+        "entities": {
+            "entity": [
+                "sensor.openweathermap_temperatur"
+            ],
+            "substring": [],
+            "regex": []
+        },
+        "outputInitially": true,
+        "stateType": "str",
+        "ifState": "",
+        "ifStateType": "str",
+        "ifStateOperator": "is",
+        "outputOnlyOnStateChange": true,
+        "for": "0",
+        "forType": "num",
+        "forUnits": "minutes",
+        "ignorePrevStateNull": false,
+        "ignorePrevStateUnknown": false,
+        "ignorePrevStateUnavailable": false,
+        "ignoreCurrentStateUnknown": true,
+        "ignoreCurrentStateUnavailable": true,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "string",
+                "valueType": "entityState"
+            },
+            {
+                "property": "field",
+                "propertyType": "msg",
+                "value": "temperature",
+                "valueType": "str"
+            }
+        ],
+        "x": 270,
+        "y": 240,
+        "wires": [
+            [
+                "23881cebbece203a"
+            ]
+        ]
+    },
+    {
+        "id": "ow-hum-node-01",
+        "type": "server-state-changed",
+        "z": "2788b93b.8a2f56",
+        "name": "Open Weather: Feuchte (HA)",
+        "server": "3e07f44559793d55",
+        "version": 6,
+        "outputs": 1,
+        "exposeAsEntityConfig": "",
+        "entities": {
+            "entity": [
+                "sensor.openweathermap_luftfeuchtigkeit"
+            ],
+            "substring": [],
+            "regex": []
+        },
+        "outputInitially": true,
+        "stateType": "str",
+        "ifState": "",
+        "ifStateType": "str",
+        "ifStateOperator": "is",
+        "outputOnlyOnStateChange": true,
+        "for": "0",
+        "forType": "num",
+        "forUnits": "minutes",
+        "ignorePrevStateNull": false,
+        "ignorePrevStateUnknown": false,
+        "ignorePrevStateUnavailable": false,
+        "ignoreCurrentStateUnknown": true,
+        "ignoreCurrentStateUnavailable": true,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "string",
+                "valueType": "entityState"
+            },
+            {
+                "property": "field",
+                "propertyType": "msg",
+                "value": "humidity",
+                "valueType": "str"
+            }
+        ],
+        "x": 280,
+        "y": 320,
+        "wires": [
+            [
+                "23881cebbece203a"
+            ]
+        ]
+    },
+    {
+        "id": "ow-abs-node-01",
+        "type": "server-state-changed",
+        "z": "2788b93b.8a2f56",
+        "name": "Open Weather: Abs. Feuchte (HA)",
+        "server": "3e07f44559793d55",
+        "version": 6,
+        "outputs": 1,
+        "exposeAsEntityConfig": "",
+        "entities": {
+            "entity": [
+                "sensor.openweathermap_absolute_luftfeuchte"
+            ],
+            "substring": [],
+            "regex": []
+        },
+        "outputInitially": true,
+        "stateType": "str",
+        "ifState": "",
+        "ifStateType": "str",
+        "ifStateOperator": "is",
+        "outputOnlyOnStateChange": true,
+        "for": "0",
+        "forType": "num",
+        "forUnits": "minutes",
+        "ignorePrevStateNull": false,
+        "ignorePrevStateUnknown": false,
+        "ignorePrevStateUnavailable": false,
+        "ignoreCurrentStateUnknown": true,
+        "ignoreCurrentStateUnavailable": true,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "string",
+                "valueType": "entityState"
+            },
+            {
+                "property": "field",
+                "propertyType": "msg",
+                "value": "absolute_humidity",
+                "valueType": "str"
+            }
+        ],
+        "x": 260,
+        "y": 280,
+        "wires": [
+            [
+                "23881cebbece203a"
+            ]
+        ]
+    },
+    {
+        "id": "23881cebbece203a",
+        "type": "function",
+        "z": "2788b93b.8a2f56",
+        "name": "Open Weather: einordnen",
+        "func": "context.set(msg.field, parseFloat(msg.payload));\n\nconst temperature = context.get(\"temperature\");\nconst humidity = context.get(\"humidity\");\nconst abs_humidity = context.get(\"absolute_humidity\");\nif (temperature === undefined || humidity === undefined || abs_humidity === undefined) {\n    return null;\n}\n\nconst intl = global.get(\"intl\");\nconst format = intl.NumberFormat(\"de-De\",{style:\"decimal\", maximumFractionDigits: 1}).format;\nconst sprintf = global.get(\"sprintf\");\nconst text = sprintf(\"%s °C, %s %% H, %s g/m³\", format(temperature), format(humidity), format(abs_humidity));\n\nvar payload;\nif (abs_humidity >= 13) {\n    payload = {room: \"Open Weather\", color: \"deepskyblue\", hint: \"Draußen ist es sehr feucht.\", text: text, temperature: temperature, humidity: humidity, abs_humidity: abs_humidity};\n} else if (abs_humidity >= 12) {\n    payload = {room: \"Open Weather\", color: \"skyblue\", hint: \"Draußen ist es feucht.\", text: text, temperature: temperature, humidity: humidity, abs_humidity: abs_humidity};\n} else if (abs_humidity >= 11) {\n    payload = {room: \"Open Weather\", color: \"limegreen\", hint: \"Draußen ist einigermaßen trocken.\", text: text, temperature: temperature, humidity: humidity, abs_humidity: abs_humidity};\n} else {\n    payload = {room: \"Open Weather\", color: \"YellowGreen\", hint: \"Draußen ist es trocken.\", text: text, temperature: temperature, humidity: humidity, abs_humidity: abs_humidity};\n}\nreturn {payload: payload};",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 550,
+        "y": 280,
+        "wires": [
+            [
+                "a45ec0ad865a5490"
+            ]
+        ]
     },
     {
         "id": "f24eda7c.102788",
         "type": "function",
         "z": "4d90b497.b5b2ac",
-        "name": "store global",
-        "func": "var val = parseFloat(msg.payload);\nglobal.set(\"waschkueche_luefter-humidity\", val);\nreturn msg;",
+        "name": "store flow",
+        "func": "var val = parseFloat(msg.payload);\nflow.set(\"waschkueche_luefter-humidity\", val);\nreturn msg;",
         "outputs": 1,
+        "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 590,
+        "x": 580,
         "y": 220,
         "wires": [
             []
@@ -4919,14 +6905,15 @@
         "id": "47eed9bd.a41b08",
         "type": "function",
         "z": "4d90b497.b5b2ac",
-        "name": "store global",
-        "func": "var val = parseFloat(msg.payload);\nglobal.set(\"waschkueche_luefter-absolute_humidity\", val);\nreturn msg;",
+        "name": "store flow",
+        "func": "var val = parseFloat(msg.payload);\nflow.set(\"waschkueche_luefter-absolute_humidity\", val);\nreturn msg;",
         "outputs": 1,
+        "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 590,
+        "x": 580,
         "y": 160,
         "wires": [
             []
@@ -4937,7 +6924,7 @@
         "type": "function",
         "z": "4d90b497.b5b2ac",
         "name": "fan controller",
-        "func": "// const outside_abs_humidity = global.get(\"aussen-absolute_humidity\");\nconst outside_abs_humidity = global.get(\"luftguetemesser2-absolute_humidity\");\n\nconst wk_temperature = global.get(\"waschkueche_luefter-temperature\");\nconst wk_humidity = global.get(\"waschkueche_luefter-humidity\");\nconst wk_abs_humidity = global.get(\"waschkueche_luefter-absolute_humidity\");\n\nconst washroom_fan_control = flow.get(\"washroom_fan_control\");\nconst last_abs_humidity_gt_outside_abs_humidity = global.get(\"washroom-last_abs_humidity_gt_outside_abs_humidity\");\n\nconst room_abs_humidity_gt_outside_abs_humidity = (last_abs_humidity_gt_outside_abs_humidity) ?\n    wk_abs_humidity > outside_abs_humidity * 1.05:\n    wk_abs_humidity > outside_abs_humidity * 1.05;\n\nglobal.set(\"washroom-last_abs_humidity_gt_outside_abs_humidity\", wk_abs_humidity > outside_abs_humidity);\n\nvar washroom_fan_on;\nif (washroom_fan_control == \"ON\") {\n    if (room_abs_humidity_gt_outside_abs_humidity) {\n        if (wk_humidity > 60 && wk_temperature > 14) {\n            washroom_fan_on = \"ON\";\n        } else {\n            washroom_fan_on = \"OFF\";\n        }\n    } else {\n        washroom_fan_on = \"OFF\";\n    }\n} else {\n    washroom_fan_on = undefined;\n}\n\nmsg = [\n    (washroom_fan_on) ? {topic: \"luefter_sw\", payload: washroom_fan_on} : undefined,\n    {topic: \"Debug\", payload: {\n            outside_abs_humidity: outside_abs_humidity,\n            wk_temperature: wk_temperature,\n            wk_humidity: wk_humidity,\n            wk_abs_humidity: wk_abs_humidity,\n            washroom_fan_on: washroom_fan_on,\n            washroom_fan_control: washroom_fan_control,\n            room_abs_humidity_gt_outside_abs_humidity: room_abs_humidity_gt_outside_abs_humidity,\n            last_abs_humidity_gt_outside_abs_humidity: last_abs_humidity_gt_outside_abs_humidity\n    }   }\n];\n\nreturn msg;",
+        "func": "const outside_abs_humidity = global.get(\"outside-absolute_humidity\");\nconst wk_temperature = flow.get(\"waschkueche_luefter-temperature\");\nconst wk_humidity = flow.get(\"waschkueche_luefter-humidity\");\nconst wk_abs_humidity = flow.get(\"waschkueche_luefter-absolute_humidity\");\nconst washroom_fan_control = flow.get(\"washroom_fan_control\");\n\nconst room_abs_humidity_gt_outside_abs_humidity = wk_abs_humidity > outside_abs_humidity * 1.05;\n\nvar washroom_fan_on;\nif (washroom_fan_control == \"ON\") {\n    if (room_abs_humidity_gt_outside_abs_humidity) {\n        if (wk_humidity > 60 && wk_temperature > 14) {\n            washroom_fan_on = \"ON\";\n        } else {\n            washroom_fan_on = \"OFF\";\n        }\n    } else {\n        washroom_fan_on = \"OFF\";\n    }\n} else {\n    washroom_fan_on = undefined;\n}\n\nmsg = [\n    (washroom_fan_on) ? {topic: \"luefter_sw\", payload: washroom_fan_on} : undefined,\n    {topic: \"Debug\", payload: {\n            outside_abs_humidity: outside_abs_humidity,\n            wk_temperature: wk_temperature,\n            wk_humidity: wk_humidity,\n            wk_abs_humidity: wk_abs_humidity,\n            washroom_fan_on: washroom_fan_on,\n            washroom_fan_control: washroom_fan_control,\n            room_abs_humidity_gt_outside_abs_humidity: room_abs_humidity_gt_outside_abs_humidity,\n    }   }\n];\n\nreturn msg;",
         "outputs": 2,
         "timeout": "",
         "noerr": 0,
@@ -5143,14 +7130,15 @@
         "id": "4990ce01.e26cf",
         "type": "function",
         "z": "4d90b497.b5b2ac",
-        "name": "store global",
-        "func": "var val = parseFloat(msg.payload);\nglobal.set(\"waschkueche_luefter-temperature\", val);\nreturn msg;",
+        "name": "store flow",
+        "func": "var val = parseFloat(msg.payload);\nflow.set(\"waschkueche_luefter-temperature\", val);\nreturn msg;",
         "outputs": 1,
+        "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 590,
+        "x": 580,
         "y": 280,
         "wires": [
             []
