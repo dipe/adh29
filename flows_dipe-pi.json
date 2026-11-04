@@ -10740,7 +10740,8 @@
             [
                 "ca859f08d83d0787",
                 "ed95c413c6a5e0a9",
-                "8a9f9371d9d1ebbf"
+                "8a9f9371d9d1ebbf",
+                "e4b3dbc5749faaac"
             ]
         ]
     },
@@ -11067,7 +11068,8 @@
         "y": 1040,
         "wires": [
             [
-                "90dd6edb647f3b50"
+                "90dd6edb647f3b50",
+                "b642ccfd7a3e3f67"
             ]
         ]
     },
@@ -18094,6 +18096,125 @@
         "outputProperties": [],
         "x": 870,
         "y": 1000,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2ec21463d7437a65",
+        "type": "ha-entity-config",
+        "server": "3e07f44559793d55",
+        "deviceConfig": "0a5189b6a72c4fab",
+        "name": "Kellertür verriegelt",
+        "version": 6,
+        "entityType": "binary_sensor",
+        "haConfig": [
+            {
+                "property": "name",
+                "value": "Kellertür verriegelt"
+            },
+            {
+                "property": "icon",
+                "value": ""
+            },
+            {
+                "property": "entity_picture",
+                "value": ""
+            },
+            {
+                "property": "entity_category",
+                "value": ""
+            },
+            {
+                "property": "device_class",
+                "value": "lock"
+            },
+            {
+                "property": "unit_of_measurement",
+                "value": ""
+            },
+            {
+                "property": "state_class",
+                "value": ""
+            }
+        ],
+        "resend": false,
+        "debugEnabled": false
+    },
+    {
+        "id": "e4b3dbc5749faaac",
+        "type": "function",
+        "z": "caf02dc9a5b73890",
+        "name": "Schloss-Code merken",
+        "func": "flow.set('kellertur_schloss_code', msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 630,
+        "y": 1120,
+        "wires": [
+            [
+                "6efeca838ed6645c"
+            ]
+        ]
+    },
+    {
+        "id": "b642ccfd7a3e3f67",
+        "type": "function",
+        "z": "caf02dc9a5b73890",
+        "name": "Riegel-Code merken",
+        "func": "flow.set('kellertur_riegel_code', msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 630,
+        "y": 1180,
+        "wires": [
+            [
+                "6efeca838ed6645c"
+            ]
+        ]
+    },
+    {
+        "id": "6efeca838ed6645c",
+        "type": "function",
+        "z": "caf02dc9a5b73890",
+        "name": "Kellertür verriegelt? (kombiniert)",
+        "func": "const schloss = flow.get('kellertur_schloss_code');\nconst riegel = flow.get('kellertur_riegel_code');\nif (schloss === undefined || riegel === undefined) return null; // noch nicht beide bekannt\nconst locked = (schloss === 1) && (riegel === 1);\nreturn { payload: locked ? \"off\" : \"on\" };",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 880,
+        "y": 1150,
+        "wires": [
+            [
+                "4b95f7a765ef91ad"
+            ]
+        ]
+    },
+    {
+        "id": "4b95f7a765ef91ad",
+        "type": "ha-binary-sensor",
+        "z": "caf02dc9a5b73890",
+        "name": "Kellertür verriegelt",
+        "entityConfig": "2ec21463d7437a65",
+        "version": 0,
+        "state": "payload",
+        "stateType": "msg",
+        "attributes": [],
+        "inputOverride": "allow",
+        "outputProperties": [],
+        "x": 1130,
+        "y": 1150,
         "wires": [
             []
         ]
