@@ -8132,7 +8132,8 @@
             [
                 "d121e0d80d05297e",
                 "4bd37ec91573856c",
-                "38252e61060e0a59"
+                "38252e61060e0a59",
+                "3ec57544a3ea4052"
             ]
         ]
     },
@@ -18016,6 +18017,85 @@
             [
                 "5edd186ce27e855d"
             ]
+        ]
+    },
+    {
+        "id": "fe8f4aff08e01ba4",
+        "type": "ha-entity-config",
+        "server": "3e07f44559793d55",
+        "deviceConfig": "0bf27f112754773d",
+        "name": "Schloss verriegelt",
+        "version": 6,
+        "entityType": "binary_sensor",
+        "haConfig": [
+            {
+                "property": "name",
+                "value": "Schloss verriegelt"
+            },
+            {
+                "property": "icon",
+                "value": ""
+            },
+            {
+                "property": "entity_picture",
+                "value": ""
+            },
+            {
+                "property": "entity_category",
+                "value": ""
+            },
+            {
+                "property": "device_class",
+                "value": "lock"
+            },
+            {
+                "property": "unit_of_measurement",
+                "value": ""
+            },
+            {
+                "property": "state_class",
+                "value": ""
+            }
+        ],
+        "resend": false,
+        "debugEnabled": false
+    },
+    {
+        "id": "3ec57544a3ea4052",
+        "type": "function",
+        "z": "062848eb6508a3a6",
+        "name": "Schloss verriegelt? (binary)",
+        "func": "// HA binary_sensor device_class \"lock\": on = unlocked, off = locked.\n// Nuki state code 1 = abgeschlossen (locked); everything else counts as not-locked.\nreturn { payload: (msg.payload === 1 || msg.payload === \"1\") ? \"off\" : \"on\" };",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 630,
+        "y": 1000,
+        "wires": [
+            [
+                "cb2339547f5364aa"
+            ]
+        ]
+    },
+    {
+        "id": "cb2339547f5364aa",
+        "type": "ha-binary-sensor",
+        "z": "062848eb6508a3a6",
+        "name": "Schloss verriegelt",
+        "entityConfig": "fe8f4aff08e01ba4",
+        "version": 0,
+        "state": "payload",
+        "stateType": "msg",
+        "attributes": [],
+        "inputOverride": "allow",
+        "outputProperties": [],
+        "x": 870,
+        "y": 1000,
+        "wires": [
+            []
         ]
     }
 ]
