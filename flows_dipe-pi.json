@@ -2944,7 +2944,7 @@
                 "t": "set",
                 "p": "url",
                 "pt": "msg",
-                "to": "\"http://\" & $env('hostname') & \"/cgi-bin/api.cgi?cmd=Snap&channel=0&token=\" & $flowContext(\"token\")",
+                "to": "\"http://\" & $env('hostname') & \"/cgi-bin/api.cgi?cmd=Snap&channel=0&token=\" & $flowContext(\"token\") & \"&width=640&height=360\"",
                 "tot": "jsonata"
             }
         ],
@@ -3018,7 +3018,7 @@
                 "t": "set",
                 "p": "url",
                 "pt": "msg",
-                "to": "\"http://\" & $env('hostname') & \"/cgi-bin/api.cgi?cmd=Snap&channel=0&token=\" & $flowContext(\"token\")",
+                "to": "\"http://\" & $env('hostname') & \"/cgi-bin/api.cgi?cmd=Snap&channel=0&token=\" & $flowContext(\"token\") & \"&width=640&height=360\"",
                 "tot": "jsonata"
             }
         ],
@@ -15846,7 +15846,7 @@
         "type": "function",
         "z": "fc93ef5a2502b341",
         "name": "Prep Snap Get (Klingel)",
-        "func": "const cfg = global.get('kameraHaustuerKlingelConfig');\nconst token = flow.get('klingelToken');\nmsg.url = 'http://' + cfg.hostname + '/cgi-bin/api.cgi?cmd=Snap&channel=0&token=' + token;\nreturn msg;",
+        "func": "const cfg = global.get('kameraHaustuerKlingelConfig');\nconst token = flow.get('klingelToken');\nmsg.url = 'http://' + cfg.hostname + '/cgi-bin/api.cgi?cmd=Snap&channel=0&token=' + token + '&width=640&height=360';\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
