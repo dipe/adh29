@@ -88,7 +88,7 @@
         "out": [
             {
                 "x": 940,
-                "y": 160,
+                "y": 180,
                 "wires": [
                     {
                         "id": "36171ea14a65a252",
@@ -98,7 +98,7 @@
             },
             {
                 "x": 940,
-                "y": 320,
+                "y": 420,
                 "wires": [
                     {
                         "id": "9dc19698f6d5dd8b",
@@ -2699,6 +2699,88 @@
         "debugEnabled": false
     },
     {
+        "id": "fe8f4aff08e01ba4",
+        "type": "ha-entity-config",
+        "server": "3e07f44559793d55",
+        "deviceConfig": "0bf27f112754773d",
+        "name": "Schloss verriegelt",
+        "version": 6,
+        "entityType": "binary_sensor",
+        "haConfig": [
+            {
+                "property": "name",
+                "value": "Schloss verriegelt"
+            },
+            {
+                "property": "icon",
+                "value": ""
+            },
+            {
+                "property": "entity_picture",
+                "value": ""
+            },
+            {
+                "property": "entity_category",
+                "value": ""
+            },
+            {
+                "property": "device_class",
+                "value": "lock"
+            },
+            {
+                "property": "unit_of_measurement",
+                "value": ""
+            },
+            {
+                "property": "state_class",
+                "value": ""
+            }
+        ],
+        "resend": false,
+        "debugEnabled": false
+    },
+    {
+        "id": "2ec21463d7437a65",
+        "type": "ha-entity-config",
+        "server": "3e07f44559793d55",
+        "deviceConfig": "0a5189b6a72c4fab",
+        "name": "Kellertür verriegelt",
+        "version": 6,
+        "entityType": "binary_sensor",
+        "haConfig": [
+            {
+                "property": "name",
+                "value": "Kellertür verriegelt"
+            },
+            {
+                "property": "icon",
+                "value": ""
+            },
+            {
+                "property": "entity_picture",
+                "value": ""
+            },
+            {
+                "property": "entity_category",
+                "value": ""
+            },
+            {
+                "property": "device_class",
+                "value": "lock"
+            },
+            {
+                "property": "unit_of_measurement",
+                "value": ""
+            },
+            {
+                "property": "state_class",
+                "value": ""
+            }
+        ],
+        "resend": false,
+        "debugEnabled": false
+    },
+    {
         "id": "a27c201f88d5372d",
         "type": "http request",
         "z": "f5d8e11fee9a1e7c",
@@ -2714,37 +2796,13 @@
         "authType": "",
         "senderr": false,
         "headers": [],
-        "x": 310,
-        "y": 240,
+        "x": 530,
+        "y": 300,
         "wires": [
             [
                 "863fd88d382543f9",
-                "9c6c9221ea11e562"
-            ]
-        ]
-    },
-    {
-        "id": "e9c24f7de0b9dc42",
-        "type": "inject",
-        "z": "f5d8e11fee9a1e7c",
-        "name": "",
-        "props": [
-            {
-                "p": "url",
-                "v": "\"http://\" & $env('hostname') & \"/cgi-bin/api.cgi?cmd=GetAiState&token=\" & $flowContext(\"token\")",
-                "vt": "jsonata"
-            }
-        ],
-        "repeat": "1",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "x": 150,
-        "y": 240,
-        "wires": [
-            [
-                "a27c201f88d5372d"
+                "9c6c9221ea11e562",
+                "8ed7f7ee915cba7a"
             ]
         ]
     },
@@ -2766,7 +2824,7 @@
         "repair": false,
         "outputs": 1,
         "x": 620,
-        "y": 200,
+        "y": 220,
         "wires": [
             [
                 "87f2bc99fbc24ef7"
@@ -2800,7 +2858,7 @@
         "to": "",
         "reg": false,
         "x": 320,
-        "y": 80,
+        "y": 100,
         "wires": [
             [
                 "741722e4a7ad9cdb"
@@ -2824,7 +2882,7 @@
         "senderr": false,
         "headers": [],
         "x": 510,
-        "y": 80,
+        "y": 100,
         "wires": [
             [
                 "79f15d4a0714d7d8"
@@ -2843,7 +2901,7 @@
         "onceDelay": "11",
         "topic": "",
         "x": 140,
-        "y": 80,
+        "y": 100,
         "wires": [
             [
                 "bc2389e7080a4308"
@@ -2870,7 +2928,7 @@
         "to": "",
         "reg": false,
         "x": 700,
-        "y": 80,
+        "y": 100,
         "wires": [
             []
         ],
@@ -2896,7 +2954,7 @@
         "to": "",
         "reg": false,
         "x": 560,
-        "y": 160,
+        "y": 180,
         "wires": [
             [
                 "36171ea14a65a252"
@@ -2920,7 +2978,7 @@
         "senderr": false,
         "headers": [],
         "x": 750,
-        "y": 160,
+        "y": 180,
         "wires": [
             []
         ]
@@ -2943,7 +3001,7 @@
         "repair": false,
         "outputs": 1,
         "x": 610,
-        "y": 280,
+        "y": 380,
         "wires": [
             [
                 "14a4f4d8e1704ea5"
@@ -2970,7 +3028,7 @@
         "to": "",
         "reg": false,
         "x": 560,
-        "y": 320,
+        "y": 420,
         "wires": [
             [
                 "9dc19698f6d5dd8b"
@@ -2994,7 +3052,7 @@
         "senderr": false,
         "headers": [],
         "x": 750,
-        "y": 320,
+        "y": 420,
         "wires": [
             []
         ]
@@ -3017,7 +3075,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 340,
-        "y": 320,
+        "y": 420,
         "wires": [
             [
                 "8f034f3ca80a5c0b"
@@ -3037,7 +3095,7 @@
         "property": "payload[0].value.people.alarm_state",
         "topi": "topic",
         "x": 380,
-        "y": 200,
+        "y": 220,
         "wires": [
             [
                 "8406ac3401f66db6"
@@ -3062,7 +3120,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 340,
-        "y": 160,
+        "y": 180,
         "wires": [
             [
                 "6dfc591e4b556f70"
@@ -3082,10 +3140,91 @@
         "property": "payload[0].value.dog_cat.alarm_state",
         "topi": "topic",
         "x": 380,
-        "y": 280,
+        "y": 380,
         "wires": [
             [
                 "20cdecc31b2f1719"
+            ]
+        ]
+    },
+    {
+        "id": "1abcf7d25e790265",
+        "type": "change",
+        "z": "f5d8e11fee9a1e7c",
+        "name": "Prep AI State Get",
+        "rules": [
+            {
+                "t": "set",
+                "p": "url",
+                "pt": "msg",
+                "to": "\"http://\" & $env('hostname') & \"/cgi-bin/api.cgi?cmd=GetAiState&token=\" & $flowContext(\"token\")",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 330,
+        "y": 300,
+        "wires": [
+            [
+                "a27c201f88d5372d"
+            ]
+        ]
+    },
+    {
+        "id": "8ed7f7ee915cba7a",
+        "type": "delay",
+        "z": "f5d8e11fee9a1e7c",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "2",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 720,
+        "y": 300,
+        "wires": [
+            [
+                "1abcf7d25e790265"
+            ]
+        ]
+    },
+    {
+        "id": "0f3969d7466d05ae",
+        "type": "inject",
+        "z": "f5d8e11fee9a1e7c",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "14",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 300,
+        "wires": [
+            [
+                "1abcf7d25e790265"
             ]
         ]
     },
@@ -10340,6 +10479,44 @@
         "wires": []
     },
     {
+        "id": "3ec57544a3ea4052",
+        "type": "function",
+        "z": "062848eb6508a3a6",
+        "name": "Schloss verriegelt? (binary)",
+        "func": "// HA binary_sensor device_class \"lock\": on = unlocked, off = locked.\n// Nuki state code 1 = abgeschlossen (locked); everything else counts as not-locked.\nreturn { payload: (msg.payload === 1 || msg.payload === \"1\") ? \"off\" : \"on\" };",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 630,
+        "y": 1000,
+        "wires": [
+            [
+                "cb2339547f5364aa"
+            ]
+        ]
+    },
+    {
+        "id": "cb2339547f5364aa",
+        "type": "ha-binary-sensor",
+        "z": "062848eb6508a3a6",
+        "name": "Schloss verriegelt",
+        "entityConfig": "fe8f4aff08e01ba4",
+        "version": 0,
+        "state": "payload",
+        "stateType": "msg",
+        "attributes": [],
+        "inputOverride": "allow",
+        "outputProperties": [],
+        "x": 870,
+        "y": 1000,
+        "wires": [
+            []
+        ]
+    },
+    {
         "id": "68510defdfc4e9d1",
         "type": "link in",
         "z": "caf02dc9a5b73890",
@@ -13691,6 +13868,84 @@
         "x": 380,
         "y": 40,
         "wires": []
+    },
+    {
+        "id": "e4b3dbc5749faaac",
+        "type": "function",
+        "z": "caf02dc9a5b73890",
+        "name": "Schloss-Code merken",
+        "func": "flow.set('kellertur_schloss_code', msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 630,
+        "y": 1120,
+        "wires": [
+            [
+                "6efeca838ed6645c"
+            ]
+        ]
+    },
+    {
+        "id": "b642ccfd7a3e3f67",
+        "type": "function",
+        "z": "caf02dc9a5b73890",
+        "name": "Riegel-Code merken",
+        "func": "flow.set('kellertur_riegel_code', msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 630,
+        "y": 1180,
+        "wires": [
+            [
+                "6efeca838ed6645c"
+            ]
+        ]
+    },
+    {
+        "id": "6efeca838ed6645c",
+        "type": "function",
+        "z": "caf02dc9a5b73890",
+        "name": "Kellertür verriegelt? (kombiniert)",
+        "func": "const schloss = flow.get('kellertur_schloss_code');\nconst riegel = flow.get('kellertur_riegel_code');\nif (schloss === undefined || riegel === undefined) return null; // noch nicht beide bekannt\nconst locked = (schloss === 1) && (riegel === 1);\nreturn { payload: locked ? \"off\" : \"on\" };",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 880,
+        "y": 1150,
+        "wires": [
+            [
+                "4b95f7a765ef91ad"
+            ]
+        ]
+    },
+    {
+        "id": "4b95f7a765ef91ad",
+        "type": "ha-binary-sensor",
+        "z": "caf02dc9a5b73890",
+        "name": "Kellertür verriegelt",
+        "entityConfig": "2ec21463d7437a65",
+        "version": 0,
+        "state": "payload",
+        "stateType": "msg",
+        "attributes": [],
+        "inputOverride": "allow",
+        "outputProperties": [],
+        "x": 1130,
+        "y": 1150,
+        "wires": [
+            []
+        ]
     },
     {
         "id": "aa99eb44af9f184a",
@@ -18019,204 +18274,6 @@
             [
                 "5edd186ce27e855d"
             ]
-        ]
-    },
-    {
-        "id": "fe8f4aff08e01ba4",
-        "type": "ha-entity-config",
-        "server": "3e07f44559793d55",
-        "deviceConfig": "0bf27f112754773d",
-        "name": "Schloss verriegelt",
-        "version": 6,
-        "entityType": "binary_sensor",
-        "haConfig": [
-            {
-                "property": "name",
-                "value": "Schloss verriegelt"
-            },
-            {
-                "property": "icon",
-                "value": ""
-            },
-            {
-                "property": "entity_picture",
-                "value": ""
-            },
-            {
-                "property": "entity_category",
-                "value": ""
-            },
-            {
-                "property": "device_class",
-                "value": "lock"
-            },
-            {
-                "property": "unit_of_measurement",
-                "value": ""
-            },
-            {
-                "property": "state_class",
-                "value": ""
-            }
-        ],
-        "resend": false,
-        "debugEnabled": false
-    },
-    {
-        "id": "3ec57544a3ea4052",
-        "type": "function",
-        "z": "062848eb6508a3a6",
-        "name": "Schloss verriegelt? (binary)",
-        "func": "// HA binary_sensor device_class \"lock\": on = unlocked, off = locked.\n// Nuki state code 1 = abgeschlossen (locked); everything else counts as not-locked.\nreturn { payload: (msg.payload === 1 || msg.payload === \"1\") ? \"off\" : \"on\" };",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 630,
-        "y": 1000,
-        "wires": [
-            [
-                "cb2339547f5364aa"
-            ]
-        ]
-    },
-    {
-        "id": "cb2339547f5364aa",
-        "type": "ha-binary-sensor",
-        "z": "062848eb6508a3a6",
-        "name": "Schloss verriegelt",
-        "entityConfig": "fe8f4aff08e01ba4",
-        "version": 0,
-        "state": "payload",
-        "stateType": "msg",
-        "attributes": [],
-        "inputOverride": "allow",
-        "outputProperties": [],
-        "x": 870,
-        "y": 1000,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "2ec21463d7437a65",
-        "type": "ha-entity-config",
-        "server": "3e07f44559793d55",
-        "deviceConfig": "0a5189b6a72c4fab",
-        "name": "Kellertür verriegelt",
-        "version": 6,
-        "entityType": "binary_sensor",
-        "haConfig": [
-            {
-                "property": "name",
-                "value": "Kellertür verriegelt"
-            },
-            {
-                "property": "icon",
-                "value": ""
-            },
-            {
-                "property": "entity_picture",
-                "value": ""
-            },
-            {
-                "property": "entity_category",
-                "value": ""
-            },
-            {
-                "property": "device_class",
-                "value": "lock"
-            },
-            {
-                "property": "unit_of_measurement",
-                "value": ""
-            },
-            {
-                "property": "state_class",
-                "value": ""
-            }
-        ],
-        "resend": false,
-        "debugEnabled": false
-    },
-    {
-        "id": "e4b3dbc5749faaac",
-        "type": "function",
-        "z": "caf02dc9a5b73890",
-        "name": "Schloss-Code merken",
-        "func": "flow.set('kellertur_schloss_code', msg.payload);\nreturn msg;",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 630,
-        "y": 1120,
-        "wires": [
-            [
-                "6efeca838ed6645c"
-            ]
-        ]
-    },
-    {
-        "id": "b642ccfd7a3e3f67",
-        "type": "function",
-        "z": "caf02dc9a5b73890",
-        "name": "Riegel-Code merken",
-        "func": "flow.set('kellertur_riegel_code', msg.payload);\nreturn msg;",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 630,
-        "y": 1180,
-        "wires": [
-            [
-                "6efeca838ed6645c"
-            ]
-        ]
-    },
-    {
-        "id": "6efeca838ed6645c",
-        "type": "function",
-        "z": "caf02dc9a5b73890",
-        "name": "Kellertür verriegelt? (kombiniert)",
-        "func": "const schloss = flow.get('kellertur_schloss_code');\nconst riegel = flow.get('kellertur_riegel_code');\nif (schloss === undefined || riegel === undefined) return null; // noch nicht beide bekannt\nconst locked = (schloss === 1) && (riegel === 1);\nreturn { payload: locked ? \"off\" : \"on\" };",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 880,
-        "y": 1150,
-        "wires": [
-            [
-                "4b95f7a765ef91ad"
-            ]
-        ]
-    },
-    {
-        "id": "4b95f7a765ef91ad",
-        "type": "ha-binary-sensor",
-        "z": "caf02dc9a5b73890",
-        "name": "Kellertür verriegelt",
-        "entityConfig": "2ec21463d7437a65",
-        "version": 0,
-        "state": "payload",
-        "stateType": "msg",
-        "attributes": [],
-        "inputOverride": "allow",
-        "outputProperties": [],
-        "x": 1130,
-        "y": 1150,
-        "wires": [
-            []
         ]
     }
 ]
