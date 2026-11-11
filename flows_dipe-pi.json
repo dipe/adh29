@@ -3233,7 +3233,7 @@
         "type": "function",
         "z": "2788b93b.8a2f56",
         "name": "Lüftungsempfehlung",
-        "func": "const temperature = msg.payload.temperature;\nconst humidity = msg.payload.humidity;\n\nif (temperature === undefined || humidity === undefined) {\n    msg.payload = { complete: false };\n    return [msg, null];\n}\n\nconst mw = 18.01534;    // molar mass of water g/mol\nconst r = 8.31447215;   // Universal gas constant J/mol/K\nconst satPressure = T => 6.112 * Math.pow(2.718281828, (17.67 * T) / (T + 243.5)); // Es(T) in hPa\nconst abs_humidity = (satPressure(temperature) * humidity * mw) /\n    ((273.15 + temperature) * r); // in grams/m^3\n\nconst outside_abs_humidity = global.get(\"outside-absolute_humidity\");\nconst outside_temperature = global.get(\"outside-temperature\");\nconst room_abs_humidity_gt_outside_abs_humidity = abs_humidity > outside_abs_humidity * 1.05;\n\n// vapor pressure back from absolute humidity - /100 because abs_humidity above uses raw\n// percent humidity, not humidity/100\nconst vaporPressure = (ah, T) => ah * r * (273.15 + T) / (100 * mw);\nconst vpd = (T, ah) => satPressure(T) - vaporPressure(ah, T);\n\nconst vpd_now = vpd(temperature, abs_humidity);\nconst vpd_if_vent = vpd(temperature, outside_abs_humidity);\n\nconst HEIZSAISON_OUTSIDE_TEMP = 15; // Grad C - unterhalb davon ist die Heizung ueberhaupt an\nconst heizsaison = outside_temperature < HEIZSAISON_OUTSIDE_TEMP;\n\n// Einzelner Vergleich: 1 Grad mehr heizen (ab jetzt) vs. lueften. Kein Vorausschauen ueber\n// mehrere Grad - wird das naechste Mal, wenn der Sensor neu auswertet, von der dann schon\n// (hoffentlich) hoeheren Raumtemperatur aus erneut mit +1 Grad geprueft.\nconst heating_one_degree_more_helps = heizsaison && (vpd(temperature + 1, abs_humidity) > vpd_if_vent);\n\nconst intl = global.get('intl');\nconst format = intl.NumberFormat('de-De',{style:'decimal', maximumFractionDigits: 1}).format;\nconst sprintf = global.get(\"sprintf\");\nconst text = sprintf(\"%s °C, %s %% H, %s g/m³\", format(temperature), format(humidity), format(abs_humidity))\n\nvar payload;\nif (humidity <= 65) {\n    payload = {complete: true, color: \"limegreen\", hint: \"Raum ausreichend trocken.\", text: text, temperature: temperature, humidity: humidity, abs_humidity: abs_humidity};\n} else if (heating_one_degree_more_helps) {\n    payload = {complete: true, color: \"goldenrod\", hint: \"Raum etwas mehr heizen.\", text: text, temperature: temperature, humidity: humidity, abs_humidity: abs_humidity};\n} else if (room_abs_humidity_gt_outside_abs_humidity) {\n    payload = {complete: true, color: \"skyblue\", hint: \"Raum feucht. Lüften!\", text: text, temperature: temperature, humidity: humidity, abs_humidity: abs_humidity};\n} else {\n    payload = {complete: true, color: \"red\", hint: \"Draußen zu feucht. Nur kurz lüften!\", text: text, temperature: temperature, humidity: humidity, abs_humidity: abs_humidity};\n}\n\n// Needs setup outputs => 2\nconst debug = {\n    temperature: temperature,\n    humidity: humidity,\n    abs_humidity: abs_humidity,\n    outside_abs_humidity: outside_abs_humidity,\n    outside_temperature: outside_temperature,\n    heizsaison: heizsaison,\n    room_abs_humidity_gt_outside_abs_humidity: room_abs_humidity_gt_outside_abs_humidity,\n    vpd_now: vpd_now,\n    vpd_if_vent: vpd_if_vent,\n    heating_one_degree_more_helps: heating_one_degree_more_helps,\n    text: text\n};\n\nmsg.payload = payload;\nreturn [msg, debug];",
+        "func": "const temperature = msg.payload.temperature;\nconst humidity = msg.payload.humidity;\n\nif (temperature === undefined || humidity === undefined) {\n    msg.payload = { complete: false };\n    return [msg, null];\n}\n\nconst mw = 18.01534;    // molar mass of water g/mol\nconst r = 8.31447215;   // Universal gas constant J/mol/K\nconst satPressure = T => 6.112 * Math.pow(2.718281828, (17.67 * T) / (T + 243.5)); // Es(T) in hPa\nconst abs_humidity = (satPressure(temperature) * humidity * mw) /\n    ((273.15 + temperature) * r); // in grams/m^3\n\nconst outside_abs_humidity = global.get(\"outside-absolute_humidity\");\nconst outside_temperature = global.get(\"outside-temperature\");\nconst room_abs_humidity_gt_outside_abs_humidity = abs_humidity > outside_abs_humidity * 1.05;\n\n// vapor pressure back from absolute humidity - /100 because abs_humidity above uses raw\n// percent humidity, not humidity/100\nconst vaporPressure = (ah, T) => ah * r * (273.15 + T) / (100 * mw);\nconst vpd = (T, ah) => satPressure(T) - vaporPressure(ah, T);\n\nconst vpd_now = vpd(temperature, abs_humidity);\nconst vpd_if_vent = vpd(temperature, outside_abs_humidity);\n\nconst HEIZSAISON_OUTSIDE_TEMP = 15; // Grad C - unterhalb davon ist die Heizung ueberhaupt an\nconst heizsaison = outside_temperature < HEIZSAISON_OUTSIDE_TEMP;\n\n// Einzelner Vergleich: 2 Grad mehr heizen (ab jetzt) vs. lueften. \nconst heating_one_degree_more_helps = heizsaison && (vpd(temperature + 2, abs_humidity) > vpd_if_vent);\n\nconst intl = global.get('intl');\nconst format = intl.NumberFormat('de-De',{style:'decimal', maximumFractionDigits: 1}).format;\nconst sprintf = global.get(\"sprintf\");\nconst text = sprintf(\"%s °C, %s %% H, %s g/m³\", format(temperature), format(humidity), format(abs_humidity))\n\nvar payload;\nif (humidity <= 65) {\n    payload = {complete: true, color: \"limegreen\", hint: \"Raum ausreichend trocken.\", text: text, temperature: temperature, humidity: humidity, abs_humidity: abs_humidity};\n} else if (heating_one_degree_more_helps) {\n    payload = {complete: true, color: \"goldenrod\", hint: \"Raum etwas mehr heizen.\", text: text, temperature: temperature, humidity: humidity, abs_humidity: abs_humidity};\n} else if (room_abs_humidity_gt_outside_abs_humidity) {\n    payload = {complete: true, color: \"skyblue\", hint: \"Raum feucht. Lüften!\", text: text, temperature: temperature, humidity: humidity, abs_humidity: abs_humidity};\n} else {\n    payload = {complete: true, color: \"red\", hint: \"Draußen zu feucht. Nur kurz lüften!\", text: text, temperature: temperature, humidity: humidity, abs_humidity: abs_humidity};\n}\n\n// Needs setup outputs => 2\nconst debug = {\n    temperature: temperature,\n    humidity: humidity,\n    abs_humidity: abs_humidity,\n    outside_abs_humidity: outside_abs_humidity,\n    outside_temperature: outside_temperature,\n    heizsaison: heizsaison,\n    room_abs_humidity_gt_outside_abs_humidity: room_abs_humidity_gt_outside_abs_humidity,\n    vpd_now: vpd_now,\n    vpd_if_vent: vpd_if_vent,\n    heating_one_degree_more_helps: heating_one_degree_more_helps,\n    text: text\n};\n\nmsg.payload = payload;\nreturn [msg, debug];",
         "outputs": 1,
         "timeout": "",
         "noerr": 0,
@@ -4089,7 +4089,7 @@
         "name": "Lüftungsempfehlung (Return)",
         "mode": "return",
         "links": [],
-        "x": 865,
+        "x": 875,
         "y": 180,
         "wires": []
     },
@@ -7319,7 +7319,7 @@
         "type": "debug",
         "z": "4d90b497.b5b2ac",
         "name": "debug 1",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -7476,6 +7476,91 @@
             [
                 "4990ce01.e26cf"
             ]
+        ]
+    },
+    {
+        "id": "f1a1wk0thermocmd1",
+        "type": "function",
+        "z": "4d90b497.b5b2ac",
+        "name": "Thermostat Befehle",
+        "func": "const cmd = msg.payload;\nreturn [\n    {payload: cmd.hvac_mode},\n    (cmd.hvac_mode === \"heat\") ? {payload: cmd.temperature} : null\n];",
+        "outputs": 2,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 630,
+        "y": 520,
+        "wires": [
+            [
+                "f1a1wk0thermomode"
+            ],
+            [
+                "f1a1wk0thermotemp"
+            ]
+        ]
+    },
+    {
+        "id": "f1a1wk0thermomode",
+        "type": "api-call-service",
+        "z": "4d90b497.b5b2ac",
+        "name": "Thermostat Modus setzen (HA)",
+        "server": "3e07f44559793d55",
+        "version": 7,
+        "debugenabled": false,
+        "action": "climate.set_hvac_mode",
+        "floorId": [],
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [
+            "climate.fritz_smart_thermo_301_1"
+        ],
+        "labelId": [],
+        "data": "{\"hvac_mode\": \"{{payload}}\"}",
+        "dataType": "json",
+        "mergeContext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "blockInputOverrides": false,
+        "domain": "climate",
+        "service": "set_hvac_mode",
+        "x": 890,
+        "y": 500,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f1a1wk0thermotemp",
+        "type": "api-call-service",
+        "z": "4d90b497.b5b2ac",
+        "name": "Thermostat Temperatur setzen (HA)",
+        "server": "3e07f44559793d55",
+        "version": 7,
+        "debugenabled": false,
+        "action": "climate.set_temperature",
+        "floorId": [],
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [
+            "climate.fritz_smart_thermo_301_1"
+        ],
+        "labelId": [],
+        "data": "{\"temperature\": {{payload}}}",
+        "dataType": "json",
+        "mergeContext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "blockInputOverrides": false,
+        "domain": "climate",
+        "service": "set_temperature",
+        "x": 900,
+        "y": 560,
+        "wires": [
+            []
         ]
     },
     {
@@ -15418,39 +15503,6 @@
         ]
     },
     {
-        "id": "9ff914a13475df69",
-        "type": "subflow:f5d8e11fee9a1e7c",
-        "z": "fc93ef5a2502b341",
-        "name": "Kamera Balkon",
-        "env": [
-            {
-                "name": "username",
-                "value": "admin",
-                "type": "str"
-            },
-            {
-                "name": "password",
-                "type": "cred"
-            },
-            {
-                "name": "hostname",
-                "value": "kamera-balkon.fritz.box",
-                "type": "str"
-            }
-        ],
-        "x": 220,
-        "y": 1180,
-        "wires": [
-            [
-                "76dd2c68a310c90c",
-                "77a25ac9747503bb"
-            ],
-            [
-                "dddf2e1e47cdde11"
-            ]
-        ]
-    },
-    {
         "id": "0b9d1b9eb5163c8a",
         "type": "function",
         "z": "fc93ef5a2502b341",
@@ -18497,88 +18549,208 @@
         ]
     },
     {
-        "id": "f1a1wk0thermocmd1",
-        "type": "function",
-        "z": "4d90b497.b5b2ac",
-        "name": "Thermostat Befehle",
-        "func": "const cmd = msg.payload;\nreturn [\n    {payload: cmd.hvac_mode},\n    (cmd.hvac_mode === \"heat\") ? {payload: cmd.temperature} : null\n];",
-        "outputs": 2,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 650,
-        "y": 500,
+        "id": "f1a1balkon0ssc001",
+        "type": "server-state-changed",
+        "z": "fc93ef5a2502b341",
+        "name": "Balkon balkon_person (HA)",
+        "server": "3e07f44559793d55",
+        "version": 6,
+        "outputs": 1,
+        "exposeAsEntityConfig": "",
+        "entities": {
+            "entity": [
+                "binary_sensor.balkon_person"
+            ],
+            "substring": [],
+            "regex": []
+        },
+        "outputInitially": false,
+        "stateType": "str",
+        "ifState": "on",
+        "ifStateType": "str",
+        "ifStateOperator": "is",
+        "outputOnlyOnStateChange": true,
+        "for": "0",
+        "forType": "num",
+        "forUnits": "minutes",
+        "ignorePrevStateNull": false,
+        "ignorePrevStateUnknown": false,
+        "ignorePrevStateUnavailable": false,
+        "ignoreCurrentStateUnknown": true,
+        "ignoreCurrentStateUnavailable": true,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "string",
+                "valueType": "entityState"
+            }
+        ],
+        "x": 300,
+        "y": 1300,
         "wires": [
             [
-                "f1a1wk0thermomode"
-            ],
-            [
-                "f1a1wk0thermotemp"
+                "f1a1balkon0delay1"
             ]
         ]
     },
     {
-        "id": "f1a1wk0thermomode",
-        "type": "api-call-service",
-        "z": "4d90b497.b5b2ac",
-        "name": "Thermostat Modus setzen (HA)",
-        "server": "3e07f44559793d55",
-        "version": 7,
-        "debugenabled": false,
-        "action": "climate.set_hvac_mode",
-        "floorId": [],
-        "areaId": [],
-        "deviceId": [],
-        "entityId": [
-            "climate.fritz_smart_thermo_301_1"
-        ],
-        "labelId": [],
-        "data": "{\"hvac_mode\": \"{{payload}}\"}",
-        "dataType": "json",
-        "mergeContext": "",
-        "mustacheAltTags": false,
-        "outputProperties": [],
-        "queue": "none",
-        "blockInputOverrides": false,
-        "domain": "climate",
-        "service": "set_hvac_mode",
-        "x": 900,
-        "y": 480,
+        "id": "f1a1balkon0delay1",
+        "type": "delay",
+        "z": "fc93ef5a2502b341",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "5",
+        "rateUnits": "minute",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 500,
+        "y": 1300,
         "wires": [
-            []
+            [
+                "f1a1balkon0http01"
+            ]
         ]
     },
     {
-        "id": "f1a1wk0thermotemp",
-        "type": "api-call-service",
-        "z": "4d90b497.b5b2ac",
-        "name": "Thermostat Temperatur setzen (HA)",
-        "server": "3e07f44559793d55",
-        "version": 7,
-        "debugenabled": false,
-        "action": "climate.set_temperature",
-        "floorId": [],
-        "areaId": [],
-        "deviceId": [],
-        "entityId": [
-            "climate.fritz_smart_thermo_301_1"
+        "id": "f1a1balkon0http01",
+        "type": "http request",
+        "z": "fc93ef5a2502b341",
+        "name": "Snap via camera_proxy (HA)",
+        "method": "GET",
+        "ret": "bin",
+        "paytoqs": "ignore",
+        "url": "http://homeassistant:8123/api/camera_proxy/camera.balkon_standardauflosung_objektiv_0",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [
+            {
+                "keyType": "other",
+                "keyValue": "Authorization",
+                "valueType": "other",
+                "valueValue": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJjYTcwOWU5NGY1MTI0ZWExOGNmNjU3NmU2ZWIzMzRmMSIsImlhdCI6MTc4NjQ2OTQ5NCwiZXhwIjoyMTAxODI5NDk0fQ.lPhh2jNy1dvzHViBCb_hiNJbgB9k7QSUe_KUf7ECcfU"
+            }
         ],
-        "labelId": [],
-        "data": "{\"temperature\": {{payload}}}",
-        "dataType": "json",
-        "mergeContext": "",
-        "mustacheAltTags": false,
-        "outputProperties": [],
-        "queue": "none",
-        "blockInputOverrides": false,
-        "domain": "climate",
-        "service": "set_temperature",
-        "x": 900,
-        "y": 520,
+        "x": 700,
+        "y": 1300,
         "wires": [
-            []
+            [
+                "76dd2c68a310c90c",
+                "77a25ac9747503bb"
+            ]
+        ]
+    },
+    {
+        "id": "f1a1balkon0ssc002",
+        "type": "server-state-changed",
+        "z": "fc93ef5a2502b341",
+        "name": "Balkon balkon_tier (HA)",
+        "server": "3e07f44559793d55",
+        "version": 6,
+        "outputs": 1,
+        "exposeAsEntityConfig": "",
+        "entities": {
+            "entity": [
+                "binary_sensor.balkon_tier"
+            ],
+            "substring": [],
+            "regex": []
+        },
+        "outputInitially": false,
+        "stateType": "str",
+        "ifState": "on",
+        "ifStateType": "str",
+        "ifStateOperator": "is",
+        "outputOnlyOnStateChange": true,
+        "for": "0",
+        "forType": "num",
+        "forUnits": "minutes",
+        "ignorePrevStateNull": false,
+        "ignorePrevStateUnknown": false,
+        "ignorePrevStateUnavailable": false,
+        "ignoreCurrentStateUnknown": true,
+        "ignoreCurrentStateUnavailable": true,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "string",
+                "valueType": "entityState"
+            }
+        ],
+        "x": 300,
+        "y": 1380,
+        "wires": [
+            [
+                "f1a1balkon0delay2"
+            ]
+        ]
+    },
+    {
+        "id": "f1a1balkon0delay2",
+        "type": "delay",
+        "z": "fc93ef5a2502b341",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "5",
+        "rateUnits": "minute",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 500,
+        "y": 1380,
+        "wires": [
+            [
+                "f1a1balkon0http02"
+            ]
+        ]
+    },
+    {
+        "id": "f1a1balkon0http02",
+        "type": "http request",
+        "z": "fc93ef5a2502b341",
+        "name": "Snap via camera_proxy (HA)",
+        "method": "GET",
+        "ret": "bin",
+        "paytoqs": "ignore",
+        "url": "http://homeassistant:8123/api/camera_proxy/camera.balkon_standardauflosung_objektiv_0",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [
+            {
+                "keyType": "other",
+                "keyValue": "Authorization",
+                "valueType": "other",
+                "valueValue": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJjYTcwOWU5NGY1MTI0ZWExOGNmNjU3NmU2ZWIzMzRmMSIsImlhdCI6MTc4NjQ2OTQ5NCwiZXhwIjoyMTAxODI5NDk0fQ.lPhh2jNy1dvzHViBCb_hiNJbgB9k7QSUe_KUf7ECcfU"
+            }
+        ],
+        "x": 700,
+        "y": 1380,
+        "wires": [
+            [
+                "dddf2e1e47cdde11"
+            ]
         ]
     }
 ]
