@@ -2326,13 +2326,13 @@
         "type": "ha-entity-config",
         "server": "3e07f44559793d55",
         "deviceConfig": "03d0db99afca730d",
-        "name": "Haustür",
+        "name": "Letzte Personenerkennung Haustür",
         "version": 6,
         "entityType": "sensor",
         "haConfig": [
             {
                 "property": "name",
-                "value": "Haustür"
+                "value": "Letzte Personenerkennung Haustür"
             },
             {
                 "property": "icon",
@@ -2367,13 +2367,13 @@
         "type": "ha-entity-config",
         "server": "3e07f44559793d55",
         "deviceConfig": "03d0db99afca730d",
-        "name": "Kellertür",
+        "name": "Letzte Personenerkennung Kellertür",
         "version": 6,
         "entityType": "sensor",
         "haConfig": [
             {
                 "property": "name",
-                "value": "Kellertür"
+                "value": "Letzte Personenerkennung Kellertür"
             },
             {
                 "property": "icon",
@@ -2408,13 +2408,13 @@
         "type": "ha-entity-config",
         "server": "3e07f44559793d55",
         "deviceConfig": "03d0db99afca730d",
-        "name": "Balkon",
+        "name": "Letzte Personenerkennung Balkon",
         "version": 6,
         "entityType": "sensor",
         "haConfig": [
             {
                 "property": "name",
-                "value": "Balkon"
+                "value": "Letzte Personenerkennung Balkon"
             },
             {
                 "property": "icon",
@@ -2449,13 +2449,13 @@
         "type": "ha-entity-config",
         "server": "3e07f44559793d55",
         "deviceConfig": "03d0db99afca730d",
-        "name": "Verlauf Haustür",
+        "name": "Verlauf Personenerkennung Haustür",
         "version": 6,
         "entityType": "sensor",
         "haConfig": [
             {
                 "property": "name",
-                "value": "Verlauf Haustür"
+                "value": "Verlauf Personenerkennung Haustür"
             },
             {
                 "property": "icon",
@@ -2490,13 +2490,13 @@
         "type": "ha-entity-config",
         "server": "3e07f44559793d55",
         "deviceConfig": "03d0db99afca730d",
-        "name": "Verlauf Kellertür",
+        "name": "Verlauf Personenerkennung Kellertür",
         "version": 6,
         "entityType": "sensor",
         "haConfig": [
             {
                 "property": "name",
-                "value": "Verlauf Kellertür"
+                "value": "Verlauf Personenerkennung Kellertür"
             },
             {
                 "property": "icon",
@@ -2531,13 +2531,13 @@
         "type": "ha-entity-config",
         "server": "3e07f44559793d55",
         "deviceConfig": "03d0db99afca730d",
-        "name": "Verlauf Balkon",
+        "name": "Verlauf Personenerkennung Balkon",
         "version": 6,
         "entityType": "sensor",
         "haConfig": [
             {
                 "property": "name",
-                "value": "Verlauf Balkon"
+                "value": "Verlauf Personenerkennung Balkon"
             },
             {
                 "property": "icon",
@@ -15437,72 +15437,6 @@
         ]
     },
     {
-        "id": "652ddcc9a8144c81",
-        "type": "subflow:f5d8e11fee9a1e7c",
-        "z": "fc93ef5a2502b341",
-        "name": "Kamera Haustür",
-        "env": [
-            {
-                "name": "username",
-                "value": "admin",
-                "type": "str"
-            },
-            {
-                "name": "password",
-                "type": "cred"
-            },
-            {
-                "name": "hostname",
-                "value": "kamera-haustuer.fritz.box",
-                "type": "str"
-            }
-        ],
-        "x": 220,
-        "y": 540,
-        "wires": [
-            [
-                "0b9d1b9eb5163c8a",
-                "a8f7a7f1f308e515"
-            ],
-            [
-                "68764d63fc83edcb"
-            ]
-        ]
-    },
-    {
-        "id": "281f8d4326a675f1",
-        "type": "subflow:f5d8e11fee9a1e7c",
-        "z": "fc93ef5a2502b341",
-        "name": "Kamera Kellertür",
-        "env": [
-            {
-                "name": "username",
-                "value": "admin",
-                "type": "str"
-            },
-            {
-                "name": "password",
-                "type": "cred"
-            },
-            {
-                "name": "hostname",
-                "value": "kamera-kellertuer.fritz.box",
-                "type": "str"
-            }
-        ],
-        "x": 220,
-        "y": 860,
-        "wires": [
-            [
-                "b8a22ef9f46baf1f",
-                "c59bb5389123af99"
-            ],
-            [
-                "6b827338ed1567c4"
-            ]
-        ]
-    },
-    {
         "id": "0b9d1b9eb5163c8a",
         "type": "function",
         "z": "fc93ef5a2502b341",
@@ -15554,8 +15488,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 440,
-        "y": 1180,
+        "x": 780,
+        "y": 1080,
         "wires": [
             [
                 "ec459501ac480868"
@@ -15610,8 +15544,8 @@
         "attributes": [],
         "inputOverride": "allow",
         "outputProperties": [],
-        "x": 970,
-        "y": 1180,
+        "x": 1030,
+        "y": 1080,
         "wires": [
             []
         ]
@@ -15622,8 +15556,8 @@
         "z": "fc93ef5a2502b341",
         "name": "HTTP-Endpunkte",
         "info": "Über diese HTTP-Endpunkte holt sich HA die jeweils im Flow abgespeicherten Snapshots, nachdem die Personen-Erkennung einen neuen ISO-Timestapm gesendet hat.",
-        "x": 220,
-        "y": 1360,
+        "x": 240,
+        "y": 1420,
         "wires": []
     },
     {
@@ -15679,8 +15613,8 @@
         "method": "get",
         "upload": false,
         "swaggerDoc": "",
-        "x": 330,
-        "y": 1420,
+        "x": 350,
+        "y": 1460,
         "wires": [
             [
                 "c1ef9ee311943c4a"
@@ -15699,8 +15633,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 670,
-        "y": 1420,
+        "x": 690,
+        "y": 1460,
         "wires": [
             [
                 "aff795fbe0233bc8"
@@ -15718,8 +15652,8 @@
             "Content-Disposition": "inline",
             "Cache-Control": "no-cache"
         },
-        "x": 880,
-        "y": 1420,
+        "x": 900,
+        "y": 1460,
         "wires": []
     },
     {
@@ -15775,8 +15709,8 @@
         "method": "get",
         "upload": false,
         "swaggerDoc": "",
-        "x": 330,
-        "y": 1460,
+        "x": 350,
+        "y": 1500,
         "wires": [
             [
                 "8163b6fbd4ea1157"
@@ -15795,8 +15729,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 670,
-        "y": 1460,
+        "x": 690,
+        "y": 1500,
         "wires": [
             [
                 "d04ddc76826dcaa4"
@@ -15814,8 +15748,8 @@
             "Content-Disposition": "inline",
             "Cache-Control": "no-cache"
         },
-        "x": 880,
-        "y": 1460,
+        "x": 900,
+        "y": 1500,
         "wires": []
     },
     {
@@ -15830,8 +15764,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 460,
-        "y": 1140,
+        "x": 800,
+        "y": 1120,
         "wires": [
             [
                 "e21d39ef48c6b034"
@@ -15856,7 +15790,7 @@
         ],
         "inputOverride": "allow",
         "outputProperties": [],
-        "x": 960,
+        "x": 1020,
         "y": 1140,
         "wires": [
             []
@@ -15871,8 +15805,8 @@
         "method": "get",
         "upload": false,
         "swaggerDoc": "",
-        "x": 320,
-        "y": 1500,
+        "x": 340,
+        "y": 1540,
         "wires": [
             [
                 "7521a10d8a9f33af"
@@ -15891,8 +15825,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 670,
-        "y": 1500,
+        "x": 690,
+        "y": 1540,
         "wires": [
             [
                 "0441a2fc9397b4a4"
@@ -15910,8 +15844,8 @@
             "Content-Disposition": "inline",
             "Cache-Control": "no-cache"
         },
-        "x": 880,
-        "y": 1500,
+        "x": 900,
+        "y": 1540,
         "wires": []
     },
     {
@@ -16390,8 +16324,8 @@
         "method": "get",
         "upload": false,
         "swaggerDoc": "",
-        "x": 340,
-        "y": 1580,
+        "x": 360,
+        "y": 1620,
         "wires": [
             [
                 "1bee9ff572ec5867"
@@ -16410,8 +16344,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 700,
-        "y": 1580,
+        "x": 720,
+        "y": 1620,
         "wires": [
             [
                 "86333b4b3ad79870"
@@ -16429,8 +16363,8 @@
             "Content-Disposition": "inline",
             "Cache-Control": "no-cache"
         },
-        "x": 910,
-        "y": 1580,
+        "x": 930,
+        "y": 1620,
         "wires": []
     },
     {
@@ -16486,8 +16420,8 @@
         "method": "get",
         "upload": false,
         "swaggerDoc": "",
-        "x": 340,
-        "y": 1620,
+        "x": 360,
+        "y": 1660,
         "wires": [
             [
                 "41a40c5e3776687a"
@@ -16506,8 +16440,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 700,
-        "y": 1620,
+        "x": 720,
+        "y": 1660,
         "wires": [
             [
                 "b40b7d2f47a8c9b2"
@@ -16525,8 +16459,8 @@
             "Content-Disposition": "inline",
             "Cache-Control": "no-cache"
         },
-        "x": 910,
-        "y": 1620,
+        "x": 930,
+        "y": 1660,
         "wires": []
     },
     {
@@ -16541,8 +16475,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 470,
-        "y": 1220,
+        "x": 790,
+        "y": 1280,
         "wires": [
             [
                 "b8eab1d987c7f736"
@@ -16567,8 +16501,8 @@
         ],
         "inputOverride": "allow",
         "outputProperties": [],
-        "x": 970,
-        "y": 1220,
+        "x": 1030,
+        "y": 1300,
         "wires": [
             []
         ]
@@ -16582,8 +16516,8 @@
         "method": "get",
         "upload": false,
         "swaggerDoc": "",
-        "x": 330,
-        "y": 1660,
+        "x": 350,
+        "y": 1700,
         "wires": [
             [
                 "63e7d233c1c1acb2"
@@ -16602,8 +16536,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 700,
-        "y": 1660,
+        "x": 720,
+        "y": 1700,
         "wires": [
             [
                 "550c75276f9d9114"
@@ -16621,8 +16555,8 @@
             "Content-Disposition": "inline",
             "Cache-Control": "no-cache"
         },
-        "x": 910,
-        "y": 1660,
+        "x": 930,
+        "y": 1700,
         "wires": []
     },
     {
@@ -16714,8 +16648,8 @@
         "once": true,
         "onceDelay": 12,
         "topic": "",
-        "x": 720,
-        "y": 1060,
+        "x": 240,
+        "y": 1160,
         "wires": [
             [
                 "6f16014cf447a574"
@@ -16734,8 +16668,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 710,
-        "y": 1100,
+        "x": 770,
+        "y": 1160,
         "wires": [
             [
                 "e21d39ef48c6b034"
@@ -16831,8 +16765,8 @@
         "once": true,
         "onceDelay": 15,
         "topic": "",
-        "x": 700,
-        "y": 1300,
+        "x": 260,
+        "y": 1320,
         "wires": [
             [
                 "652f958a533f86d0"
@@ -16851,11 +16785,216 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 700,
-        "y": 1260,
+        "x": 760,
+        "y": 1320,
         "wires": [
             [
                 "b8eab1d987c7f736"
+            ]
+        ]
+    },
+    {
+        "id": "f1a1balkon0ssc001",
+        "type": "server-state-changed",
+        "z": "fc93ef5a2502b341",
+        "name": "Balkon balkon_person (HA)",
+        "server": "3e07f44559793d55",
+        "version": 6,
+        "outputs": 1,
+        "exposeAsEntityConfig": "",
+        "entities": {
+            "entity": [
+                "binary_sensor.balkon_person"
+            ],
+            "substring": [],
+            "regex": []
+        },
+        "outputInitially": false,
+        "stateType": "str",
+        "ifState": "on",
+        "ifStateType": "str",
+        "ifStateOperator": "is",
+        "outputOnlyOnStateChange": true,
+        "for": "0",
+        "forType": "num",
+        "forUnits": "minutes",
+        "ignorePrevStateNull": false,
+        "ignorePrevStateUnknown": false,
+        "ignorePrevStateUnavailable": false,
+        "ignoreCurrentStateUnknown": true,
+        "ignoreCurrentStateUnavailable": true,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "string",
+                "valueType": "entityState"
+            }
+        ],
+        "x": 260,
+        "y": 1060,
+        "wires": [
+            [
+                "f1a1balkon0delay1"
+            ]
+        ]
+    },
+    {
+        "id": "f1a1balkon0delay1",
+        "type": "delay",
+        "z": "fc93ef5a2502b341",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "5",
+        "rateUnits": "minute",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 280,
+        "y": 1100,
+        "wires": [
+            [
+                "f1a1balkon0http01"
+            ]
+        ]
+    },
+    {
+        "id": "f1a1balkon0http01",
+        "type": "http request",
+        "z": "fc93ef5a2502b341",
+        "name": "Snap via camera_proxy (HA)",
+        "method": "GET",
+        "ret": "bin",
+        "paytoqs": "ignore",
+        "url": "http://homeassistant:8123/api/camera_proxy/camera.balkon_standardauflosung_objektiv_0",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [
+            {
+                "keyType": "other",
+                "keyValue": "Authorization",
+                "valueType": "other",
+                "valueValue": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJjYTcwOWU5NGY1MTI0ZWExOGNmNjU3NmU2ZWIzMzRmMSIsImlhdCI6MTc4NjQ2OTQ5NCwiZXhwIjoyMTAxODI5NDk0fQ.lPhh2jNy1dvzHViBCb_hiNJbgB9k7QSUe_KUf7ECcfU"
+            }
+        ],
+        "x": 540,
+        "y": 1100,
+        "wires": [
+            [
+                "76dd2c68a310c90c",
+                "77a25ac9747503bb"
+            ]
+        ]
+    },
+    {
+        "id": "f1a1balkon0ssc002",
+        "type": "server-state-changed",
+        "z": "fc93ef5a2502b341",
+        "name": "Balkon balkon_tier (HA)",
+        "server": "3e07f44559793d55",
+        "version": 6,
+        "outputs": 1,
+        "exposeAsEntityConfig": "",
+        "entities": {
+            "entity": [
+                "binary_sensor.balkon_tier"
+            ],
+            "substring": [],
+            "regex": []
+        },
+        "outputInitially": false,
+        "stateType": "str",
+        "ifState": "on",
+        "ifStateType": "str",
+        "ifStateOperator": "is",
+        "outputOnlyOnStateChange": true,
+        "for": "0",
+        "forType": "num",
+        "forUnits": "minutes",
+        "ignorePrevStateNull": false,
+        "ignorePrevStateUnknown": false,
+        "ignorePrevStateUnavailable": false,
+        "ignoreCurrentStateUnknown": true,
+        "ignoreCurrentStateUnavailable": true,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "string",
+                "valueType": "entityState"
+            }
+        ],
+        "x": 240,
+        "y": 1240,
+        "wires": [
+            [
+                "f1a1balkon0delay2"
+            ]
+        ]
+    },
+    {
+        "id": "f1a1balkon0delay2",
+        "type": "delay",
+        "z": "fc93ef5a2502b341",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "5",
+        "rateUnits": "minute",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 260,
+        "y": 1280,
+        "wires": [
+            [
+                "f1a1balkon0http02"
+            ]
+        ]
+    },
+    {
+        "id": "f1a1balkon0http02",
+        "type": "http request",
+        "z": "fc93ef5a2502b341",
+        "name": "Snap via camera_proxy (HA)",
+        "method": "GET",
+        "ret": "bin",
+        "paytoqs": "ignore",
+        "url": "http://homeassistant:8123/api/camera_proxy/camera.balkon_standardauflosung_objektiv_0",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [
+            {
+                "keyType": "other",
+                "keyValue": "Authorization",
+                "valueType": "other",
+                "valueValue": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJjYTcwOWU5NGY1MTI0ZWExOGNmNjU3NmU2ZWIzMzRmMSIsImlhdCI6MTc4NjQ2OTQ5NCwiZXhwIjoyMTAxODI5NDk0fQ.lPhh2jNy1dvzHViBCb_hiNJbgB9k7QSUe_KUf7ECcfU"
+            }
+        ],
+        "x": 520,
+        "y": 1280,
+        "wires": [
+            [
+                "dddf2e1e47cdde11"
             ]
         ]
     },
@@ -18549,17 +18688,17 @@
         ]
     },
     {
-        "id": "f1a1balkon0ssc001",
+        "id": "f1a1ht0pssc",
         "type": "server-state-changed",
         "z": "fc93ef5a2502b341",
-        "name": "Balkon balkon_person (HA)",
+        "name": "Haustuer haustuer_person (HA)",
         "server": "3e07f44559793d55",
         "version": 6,
         "outputs": 1,
         "exposeAsEntityConfig": "",
         "entities": {
             "entity": [
-                "binary_sensor.balkon_person"
+                "binary_sensor.haustuer_person"
             ],
             "substring": [],
             "regex": []
@@ -18587,15 +18726,15 @@
             }
         ],
         "x": 300,
-        "y": 1300,
+        "y": 1500,
         "wires": [
             [
-                "f1a1balkon0delay1"
+                "f1a1ht0pdly"
             ]
         ]
     },
     {
-        "id": "f1a1balkon0delay1",
+        "id": "f1a1ht0pdly",
         "type": "delay",
         "z": "fc93ef5a2502b341",
         "name": "",
@@ -18612,22 +18751,22 @@
         "allowrate": false,
         "outputs": 1,
         "x": 500,
-        "y": 1300,
+        "y": 1500,
         "wires": [
             [
-                "f1a1balkon0http01"
+                "f1a1ht0phttp"
             ]
         ]
     },
     {
-        "id": "f1a1balkon0http01",
+        "id": "f1a1ht0phttp",
         "type": "http request",
         "z": "fc93ef5a2502b341",
         "name": "Snap via camera_proxy (HA)",
         "method": "GET",
         "ret": "bin",
         "paytoqs": "ignore",
-        "url": "http://homeassistant:8123/api/camera_proxy/camera.balkon_standardauflosung_objektiv_0",
+        "url": "http://homeassistant:8123/api/camera_proxy/camera.haustuer_standardauflosung_objektiv_0",
         "tls": "",
         "persist": false,
         "proxy": "",
@@ -18643,26 +18782,26 @@
             }
         ],
         "x": 700,
-        "y": 1300,
+        "y": 1500,
         "wires": [
             [
-                "76dd2c68a310c90c",
-                "77a25ac9747503bb"
+                "0b9d1b9eb5163c8a",
+                "a8f7a7f1f308e515"
             ]
         ]
     },
     {
-        "id": "f1a1balkon0ssc002",
+        "id": "f1a1ht0tssc",
         "type": "server-state-changed",
         "z": "fc93ef5a2502b341",
-        "name": "Balkon balkon_tier (HA)",
+        "name": "Haustuer haustuer_haustier (HA)",
         "server": "3e07f44559793d55",
         "version": 6,
         "outputs": 1,
         "exposeAsEntityConfig": "",
         "entities": {
             "entity": [
-                "binary_sensor.balkon_tier"
+                "binary_sensor.haustuer_haustier"
             ],
             "substring": [],
             "regex": []
@@ -18690,15 +18829,15 @@
             }
         ],
         "x": 300,
-        "y": 1380,
+        "y": 1580,
         "wires": [
             [
-                "f1a1balkon0delay2"
+                "f1a1ht0tdly"
             ]
         ]
     },
     {
-        "id": "f1a1balkon0delay2",
+        "id": "f1a1ht0tdly",
         "type": "delay",
         "z": "fc93ef5a2502b341",
         "name": "",
@@ -18715,22 +18854,22 @@
         "allowrate": false,
         "outputs": 1,
         "x": 500,
-        "y": 1380,
+        "y": 1580,
         "wires": [
             [
-                "f1a1balkon0http02"
+                "f1a1ht0thttp"
             ]
         ]
     },
     {
-        "id": "f1a1balkon0http02",
+        "id": "f1a1ht0thttp",
         "type": "http request",
         "z": "fc93ef5a2502b341",
         "name": "Snap via camera_proxy (HA)",
         "method": "GET",
         "ret": "bin",
         "paytoqs": "ignore",
-        "url": "http://homeassistant:8123/api/camera_proxy/camera.balkon_standardauflosung_objektiv_0",
+        "url": "http://homeassistant:8123/api/camera_proxy/camera.haustuer_standardauflosung_objektiv_0",
         "tls": "",
         "persist": false,
         "proxy": "",
@@ -18746,10 +18885,215 @@
             }
         ],
         "x": 700,
-        "y": 1380,
+        "y": 1580,
         "wires": [
             [
-                "dddf2e1e47cdde11"
+                "68764d63fc83edcb"
+            ]
+        ]
+    },
+    {
+        "id": "f1a1kt0pssc",
+        "type": "server-state-changed",
+        "z": "fc93ef5a2502b341",
+        "name": "Kellertuer kellertuer_person (HA)",
+        "server": "3e07f44559793d55",
+        "version": 6,
+        "outputs": 1,
+        "exposeAsEntityConfig": "",
+        "entities": {
+            "entity": [
+                "binary_sensor.kellertuer_person"
+            ],
+            "substring": [],
+            "regex": []
+        },
+        "outputInitially": false,
+        "stateType": "str",
+        "ifState": "on",
+        "ifStateType": "str",
+        "ifStateOperator": "is",
+        "outputOnlyOnStateChange": true,
+        "for": "0",
+        "forType": "num",
+        "forUnits": "minutes",
+        "ignorePrevStateNull": false,
+        "ignorePrevStateUnknown": false,
+        "ignorePrevStateUnavailable": false,
+        "ignoreCurrentStateUnknown": true,
+        "ignoreCurrentStateUnavailable": true,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "string",
+                "valueType": "entityState"
+            }
+        ],
+        "x": 300,
+        "y": 1660,
+        "wires": [
+            [
+                "f1a1kt0pdly"
+            ]
+        ]
+    },
+    {
+        "id": "f1a1kt0pdly",
+        "type": "delay",
+        "z": "fc93ef5a2502b341",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "5",
+        "rateUnits": "minute",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 500,
+        "y": 1660,
+        "wires": [
+            [
+                "f1a1kt0phttp"
+            ]
+        ]
+    },
+    {
+        "id": "f1a1kt0phttp",
+        "type": "http request",
+        "z": "fc93ef5a2502b341",
+        "name": "Snap via camera_proxy (HA)",
+        "method": "GET",
+        "ret": "bin",
+        "paytoqs": "ignore",
+        "url": "http://homeassistant:8123/api/camera_proxy/camera.kellertuer_standardauflosung",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [
+            {
+                "keyType": "other",
+                "keyValue": "Authorization",
+                "valueType": "other",
+                "valueValue": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJjYTcwOWU5NGY1MTI0ZWExOGNmNjU3NmU2ZWIzMzRmMSIsImlhdCI6MTc4NjQ2OTQ5NCwiZXhwIjoyMTAxODI5NDk0fQ.lPhh2jNy1dvzHViBCb_hiNJbgB9k7QSUe_KUf7ECcfU"
+            }
+        ],
+        "x": 700,
+        "y": 1660,
+        "wires": [
+            [
+                "b8a22ef9f46baf1f",
+                "c59bb5389123af99"
+            ]
+        ]
+    },
+    {
+        "id": "f1a1kt0tssc",
+        "type": "server-state-changed",
+        "z": "fc93ef5a2502b341",
+        "name": "Kellertuer kellertuer_tier (HA)",
+        "server": "3e07f44559793d55",
+        "version": 6,
+        "outputs": 1,
+        "exposeAsEntityConfig": "",
+        "entities": {
+            "entity": [
+                "binary_sensor.kellertuer_tier"
+            ],
+            "substring": [],
+            "regex": []
+        },
+        "outputInitially": false,
+        "stateType": "str",
+        "ifState": "on",
+        "ifStateType": "str",
+        "ifStateOperator": "is",
+        "outputOnlyOnStateChange": true,
+        "for": "0",
+        "forType": "num",
+        "forUnits": "minutes",
+        "ignorePrevStateNull": false,
+        "ignorePrevStateUnknown": false,
+        "ignorePrevStateUnavailable": false,
+        "ignoreCurrentStateUnknown": true,
+        "ignoreCurrentStateUnavailable": true,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "string",
+                "valueType": "entityState"
+            }
+        ],
+        "x": 300,
+        "y": 1740,
+        "wires": [
+            [
+                "f1a1kt0tdly"
+            ]
+        ]
+    },
+    {
+        "id": "f1a1kt0tdly",
+        "type": "delay",
+        "z": "fc93ef5a2502b341",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "5",
+        "rateUnits": "minute",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 500,
+        "y": 1740,
+        "wires": [
+            [
+                "f1a1kt0thttp"
+            ]
+        ]
+    },
+    {
+        "id": "f1a1kt0thttp",
+        "type": "http request",
+        "z": "fc93ef5a2502b341",
+        "name": "Snap via camera_proxy (HA)",
+        "method": "GET",
+        "ret": "bin",
+        "paytoqs": "ignore",
+        "url": "http://homeassistant:8123/api/camera_proxy/camera.kellertuer_standardauflosung",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [
+            {
+                "keyType": "other",
+                "keyValue": "Authorization",
+                "valueType": "other",
+                "valueValue": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJjYTcwOWU5NGY1MTI0ZWExOGNmNjU3NmU2ZWIzMzRmMSIsImlhdCI6MTc4NjQ2OTQ5NCwiZXhwIjoyMTAxODI5NDk0fQ.lPhh2jNy1dvzHViBCb_hiNJbgB9k7QSUe_KUf7ECcfU"
+            }
+        ],
+        "x": 700,
+        "y": 1740,
+        "wires": [
+            [
+                "6b827338ed1567c4"
             ]
         ]
     }
