@@ -11386,24 +11386,6 @@
         ]
     },
     {
-        "id": "7b33dbde8b47c8c3",
-        "type": "mqtt out",
-        "z": "caf02dc9a5b73890",
-        "name": "Kellertür-Riegel LockAction",
-        "topic": "nuki/33B5C9E4/lockAction",
-        "qos": "",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "c349b9ff.9dc4c8",
-        "x": 720,
-        "y": 640,
-        "wires": []
-    },
-    {
         "id": "c0ca94de26dbe973",
         "type": "function",
         "z": "caf02dc9a5b73890",
@@ -11442,24 +11424,6 @@
                 "28eb111ab18e19cf"
             ]
         ]
-    },
-    {
-        "id": "f1392a64d0781bc6",
-        "type": "mqtt out",
-        "z": "caf02dc9a5b73890",
-        "name": "Kellertür-Schloss LockAction",
-        "topic": "nuki/32AE09F4/lockAction",
-        "qos": "",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "c349b9ff.9dc4c8",
-        "x": 720,
-        "y": 560,
-        "wires": []
     },
     {
         "id": "129cafcfd2f9e56b",
@@ -11840,7 +11804,7 @@
         "y": 640,
         "wires": [
             [
-                "7b33dbde8b47c8c3"
+                "f1a1nukikt0rroute"
             ]
         ]
     },
@@ -11858,7 +11822,7 @@
         "y": 560,
         "wires": [
             [
-                "f1392a64d0781bc6"
+                "f1a1nukikt0sroute"
             ]
         ]
     },
@@ -18883,7 +18847,7 @@
         "mergeContext": "",
         "mustacheAltTags": false,
         "outputProperties": [],
-        "queue": "none",
+        "queue": "last",
         "blockInputOverrides": false,
         "domain": "esphome",
         "service": "pinpad_kellertuer_send_beep",
@@ -18912,7 +18876,7 @@
         "mergeContext": "",
         "mustacheAltTags": false,
         "outputProperties": [],
-        "queue": "none",
+        "queue": "last",
         "blockInputOverrides": false,
         "domain": "esphome",
         "service": "pinpad_kellertuer_send_beep",
@@ -18921,5 +18885,234 @@
         "wires": [
             []
         ]
+    },
+    {
+        "id": "f1a1nukikt0sunlock",
+        "type": "api-call-service",
+        "z": "caf02dc9a5b73890",
+        "name": "Nuki Schloss aufschließen (HA)",
+        "server": "3e07f44559793d55",
+        "version": 7,
+        "debugenabled": false,
+        "action": "lock.unlock",
+        "floorId": [],
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [
+            "lock.kellertur_schloss"
+        ],
+        "labelId": [],
+        "data": "{}",
+        "dataType": "json",
+        "mergeContext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "last",
+        "blockInputOverrides": false,
+        "domain": "lock",
+        "service": "unlock",
+        "x": 900,
+        "y": 760,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f1a1nukikt0slock01",
+        "type": "api-call-service",
+        "z": "caf02dc9a5b73890",
+        "name": "Nuki Schloss verriegeln (HA)",
+        "server": "3e07f44559793d55",
+        "version": 7,
+        "debugenabled": false,
+        "action": "lock.lock",
+        "floorId": [],
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [
+            "lock.kellertur_schloss"
+        ],
+        "labelId": [],
+        "data": "{}",
+        "dataType": "json",
+        "mergeContext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "last",
+        "blockInputOverrides": false,
+        "domain": "lock",
+        "service": "lock",
+        "x": 900,
+        "y": 800,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f1a1nukikt0sopen01",
+        "type": "api-call-service",
+        "z": "caf02dc9a5b73890",
+        "name": "Nuki Schloss öffnen (HA)",
+        "server": "3e07f44559793d55",
+        "version": 7,
+        "debugenabled": false,
+        "action": "lock.open",
+        "floorId": [],
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [
+            "lock.kellertur_schloss"
+        ],
+        "labelId": [],
+        "data": "{}",
+        "dataType": "json",
+        "mergeContext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "last",
+        "blockInputOverrides": false,
+        "domain": "lock",
+        "service": "open",
+        "x": 900,
+        "y": 840,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f1a1nukikt0sroute",
+        "type": "switch",
+        "z": "caf02dc9a5b73890",
+        "name": "Nuki Schloss Aktion routen",
+        "property": "payload",
+        "propertyType": "msg",
+        "checkall": "true",
+        "repair": false,
+        "rules": [
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "2",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "3",
+                "vt": "num"
+            }
+        ],
+        "outputs": 3,
+        "wires": [
+            [
+                "f1a1nukikt0sunlock"
+            ],
+            [
+                "f1a1nukikt0slock01"
+            ],
+            [
+                "f1a1nukikt0sopen01"
+            ]
+        ],
+        "x": 700,
+        "y": 800
+    },
+    {
+        "id": "f1a1nukikt0runlock",
+        "type": "api-call-service",
+        "z": "caf02dc9a5b73890",
+        "name": "Nuki Riegel aufschließen (HA)",
+        "server": "3e07f44559793d55",
+        "version": 7,
+        "debugenabled": false,
+        "action": "lock.unlock",
+        "floorId": [],
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [
+            "lock.kellertuer_riegel"
+        ],
+        "labelId": [],
+        "data": "{}",
+        "dataType": "json",
+        "mergeContext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "last",
+        "blockInputOverrides": false,
+        "domain": "lock",
+        "service": "unlock",
+        "x": 900,
+        "y": 900,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f1a1nukikt0rlock01",
+        "type": "api-call-service",
+        "z": "caf02dc9a5b73890",
+        "name": "Nuki Riegel verriegeln (HA)",
+        "server": "3e07f44559793d55",
+        "version": 7,
+        "debugenabled": false,
+        "action": "lock.lock",
+        "floorId": [],
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [
+            "lock.kellertuer_riegel"
+        ],
+        "labelId": [],
+        "data": "{}",
+        "dataType": "json",
+        "mergeContext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "last",
+        "blockInputOverrides": false,
+        "domain": "lock",
+        "service": "lock",
+        "x": 900,
+        "y": 940,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f1a1nukikt0rroute",
+        "type": "switch",
+        "z": "caf02dc9a5b73890",
+        "name": "Nuki Riegel Aktion routen",
+        "property": "payload",
+        "propertyType": "msg",
+        "checkall": "true",
+        "repair": false,
+        "rules": [
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "2",
+                "vt": "num"
+            }
+        ],
+        "outputs": 2,
+        "wires": [
+            [
+                "f1a1nukikt0runlock"
+            ],
+            [
+                "f1a1nukikt0rlock01"
+            ]
+        ],
+        "x": 700,
+        "y": 920
     }
 ]
