@@ -12542,7 +12542,7 @@
         "y": 920,
         "wires": [
             [
-                "f1a1pinpadkt0beeep1"
+                "f1a1nukikt0bkuo1"
             ]
         ]
     },
@@ -18700,8 +18700,8 @@
         "blockInputOverrides": false,
         "domain": "esphome",
         "service": "pinpad_kellertuer_send_beep",
-        "x": 760,
-        "y": 900,
+        "x": 780,
+        "y": 2280,
         "wires": [
             []
         ]
@@ -19212,6 +19212,35 @@
         "wires": [
             [
                 "f1a1nukikt0runav"
+            ]
+        ]
+    },
+    {
+        "id": "f1a1nukikt0bkuo1",
+        "type": "link out",
+        "z": "caf02dc9a5b73890",
+        "name": "link out 130",
+        "mode": "link",
+        "links": [
+            "f1a1nukikt0bkin1"
+        ],
+        "x": 725,
+        "y": 920,
+        "wires": []
+    },
+    {
+        "id": "f1a1nukikt0bkin1",
+        "type": "link in",
+        "z": "caf02dc9a5b73890",
+        "name": "Beep kurz",
+        "links": [
+            "f1a1nukikt0bkuo1"
+        ],
+        "x": 625,
+        "y": 2280,
+        "wires": [
+            [
+                "f1a1pinpadkt0beeep1"
             ]
         ]
     }
