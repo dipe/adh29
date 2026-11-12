@@ -11037,7 +11037,7 @@
     {
         "id": "7e4f29adf12f0a96",
         "type": "server-state-changed",
-        "z": "062848eb6508a3a6",
+        "z": "caf02dc9a5b73890",
         "name": "Pinpad Kellertür PIN (HA)",
         "server": "3e07f44559793d55",
         "version": 6,
@@ -18867,7 +18867,7 @@
     {
         "id": "f1a1pinpadkt0beeeep",
         "type": "api-call-service",
-        "z": "062848eb6508a3a6",
+        "z": "caf02dc9a5b73890",
         "name": "Pinpad Kellertür Beep lang (HA)",
         "server": "3e07f44559793d55",
         "version": 7,
@@ -18896,7 +18896,7 @@
     {
         "id": "f1a1pinpadkt0beeep1",
         "type": "api-call-service",
-        "z": "062848eb6508a3a6",
+        "z": "caf02dc9a5b73890",
         "name": "Pinpad Kellertür Beep kurz (HA)",
         "server": "3e07f44559793d55",
         "version": 7,
