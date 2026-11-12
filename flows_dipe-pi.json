@@ -135,8 +135,8 @@
         "id": "01754ad54aa8234a",
         "type": "junction",
         "z": "062848eb6508a3a6",
-        "x": 500,
-        "y": 820,
+        "x": 560,
+        "y": 880,
         "wires": [
             [
                 "097f9401300c4cfd"
@@ -147,8 +147,8 @@
         "id": "50056ddfb9a03fd5",
         "type": "junction",
         "z": "062848eb6508a3a6",
-        "x": 500,
-        "y": 620,
+        "x": 560,
+        "y": 680,
         "wires": [
             [
                 "097f9401300c4cfd"
@@ -159,8 +159,8 @@
         "id": "4fec33dacfe9fca9",
         "type": "junction",
         "z": "caf02dc9a5b73890",
-        "x": 560,
-        "y": 880,
+        "x": 660,
+        "y": 1060,
         "wires": [
             []
         ]
@@ -169,8 +169,8 @@
         "id": "b69516bb46cf60c5",
         "type": "junction",
         "z": "062848eb6508a3a6",
-        "x": 1160,
-        "y": 480,
+        "x": 1220,
+        "y": 540,
         "wires": [
             [
                 "c0a0c508bd460b46"
@@ -181,8 +181,8 @@
         "id": "daefdaedb954414b",
         "type": "junction",
         "z": "caf02dc9a5b73890",
-        "x": 1140,
-        "y": 500,
+        "x": 1160,
+        "y": 540,
         "wires": [
             [
                 "3be2e6461295d268"
@@ -193,8 +193,8 @@
         "id": "15be34ecbdc7c561",
         "type": "junction",
         "z": "caf02dc9a5b73890",
-        "x": 760,
-        "y": 1920,
+        "x": 840,
+        "y": 2160,
         "wires": [
             [
                 "7bd3ca144480b4ca",
@@ -207,8 +207,8 @@
         "id": "e71c98eb5364b1ef",
         "type": "junction",
         "z": "062848eb6508a3a6",
-        "x": 720,
-        "y": 1920,
+        "x": 780,
+        "y": 1980,
         "wires": [
             [
                 "fd57ea1907744996",
@@ -221,8 +221,8 @@
         "id": "a28cad934acbdd9a",
         "type": "junction",
         "z": "062848eb6508a3a6",
-        "x": 720,
-        "y": 1760,
+        "x": 780,
+        "y": 1820,
         "wires": [
             [
                 "37f14ede9971b8a7",
@@ -235,8 +235,8 @@
         "id": "259dc9eb01af2411",
         "type": "junction",
         "z": "062848eb6508a3a6",
-        "x": 720,
-        "y": 1840,
+        "x": 780,
+        "y": 1900,
         "wires": [
             [
                 "f667a1bcc4c42df7",
@@ -248,8 +248,8 @@
         "id": "f2ed96fc1377fc6f",
         "type": "junction",
         "z": "062848eb6508a3a6",
-        "x": 880,
-        "y": 500,
+        "x": 940,
+        "y": 560,
         "wires": [
             [
                 "95ed239b8fad0903",
@@ -261,8 +261,8 @@
         "id": "b2914865f7e2e4c9",
         "type": "junction",
         "z": "caf02dc9a5b73890",
-        "x": 860,
-        "y": 480,
+        "x": 880,
+        "y": 560,
         "wires": [
             [
                 "4e3368b1ed4f84e8",
@@ -274,8 +274,8 @@
         "id": "8f1401ab03366a02",
         "type": "junction",
         "z": "caf02dc9a5b73890",
-        "x": 620,
-        "y": 240,
+        "x": 1000,
+        "y": 340,
         "wires": [
             [
                 "cbad21addb0a6337",
@@ -287,8 +287,8 @@
         "id": "ced05b2e68bba4d4",
         "type": "junction",
         "z": "062848eb6508a3a6",
-        "x": 1060,
-        "y": 1440,
+        "x": 1120,
+        "y": 1500,
         "wires": [
             [
                 "7a2f1cfe3485085d",
@@ -300,8 +300,8 @@
         "id": "0f972eac96c0aaf5",
         "type": "junction",
         "z": "062848eb6508a3a6",
-        "x": 720,
-        "y": 1640,
+        "x": 780,
+        "y": 1700,
         "wires": [
             [
                 "abdb84779478e550"
@@ -312,8 +312,8 @@
         "id": "b5d9fe343f814c39",
         "type": "junction",
         "z": "caf02dc9a5b73890",
-        "x": 760,
-        "y": 1840,
+        "x": 840,
+        "y": 2080,
         "wires": [
             [
                 "883a8df24a8289eb",
@@ -325,8 +325,8 @@
         "id": "a2747f153a516662",
         "type": "junction",
         "z": "caf02dc9a5b73890",
-        "x": 900,
-        "y": 1480,
+        "x": 960,
+        "y": 1740,
         "wires": [
             [
                 "d1571ccca64776b5",
@@ -338,8 +338,8 @@
         "id": "6a581e427fc920fe",
         "type": "junction",
         "z": "062848eb6508a3a6",
-        "x": 720,
-        "y": 1680,
+        "x": 780,
+        "y": 1740,
         "wires": [
             [
                 "672d53d933615bd7",
@@ -351,8 +351,8 @@
         "id": "4567b39c81f033d0",
         "type": "junction",
         "z": "062848eb6508a3a6",
-        "x": 900,
-        "y": 2120,
+        "x": 960,
+        "y": 2180,
         "wires": [
             [
                 "57980e35b2edeb34",
@@ -364,8 +364,8 @@
         "id": "3be86bb23dfdb7b1",
         "type": "junction",
         "z": "062848eb6508a3a6",
-        "x": 900,
-        "y": 2040,
+        "x": 960,
+        "y": 2100,
         "wires": [
             [
                 "bf6820b1163f0e66"
@@ -7613,8 +7613,8 @@
                 "valueType": "entityState"
             }
         ],
-        "x": 160,
-        "y": 1000,
+        "x": 220,
+        "y": 1060,
         "wires": [
             [
                 "c62a2523e7890790"
@@ -7659,8 +7659,8 @@
                 "valueType": "entityState"
             }
         ],
-        "x": 140,
-        "y": 500,
+        "x": 200,
+        "y": 560,
         "wires": [
             [
                 "de98ccd1624d690c"
@@ -7686,8 +7686,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 420,
-        "y": 460,
+        "x": 480,
+        "y": 520,
         "wires": [
             [
                 "4b6748b04ea10729"
@@ -7706,8 +7706,8 @@
         "septopics": true,
         "property": "payload",
         "topi": "topic",
-        "x": 350,
-        "y": 420,
+        "x": 410,
+        "y": 480,
         "wires": [
             [
                 "312879a91c07799a"
@@ -7726,8 +7726,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 610,
-        "y": 1060,
+        "x": 670,
+        "y": 1120,
         "wires": [
             [
                 "0ad338c20d4c7bab",
@@ -7747,8 +7747,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 270,
-        "y": 660,
+        "x": 330,
+        "y": 720,
         "wires": [
             [
                 "097f9401300c4cfd"
@@ -7767,8 +7767,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 310,
-        "y": 820,
+        "x": 370,
+        "y": 880,
         "wires": [
             [
                 "01754ad54aa8234a"
@@ -7787,8 +7787,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 350,
-        "y": 740,
+        "x": 410,
+        "y": 800,
         "wires": [
             [
                 "097f9401300c4cfd"
@@ -7807,8 +7807,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 290,
-        "y": 620,
+        "x": 350,
+        "y": 680,
         "wires": [
             [
                 "50056ddfb9a03fd5"
@@ -7826,8 +7826,8 @@
             "5809f3ba02185b44",
             "37f14ede9971b8a7"
         ],
-        "x": 135,
-        "y": 700,
+        "x": 195,
+        "y": 760,
         "wires": [
             [
                 "3cc14662f3d44cba"
@@ -7851,8 +7851,8 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "x": 190,
-        "y": 420,
+        "x": 250,
+        "y": 480,
         "wires": [
             [
                 "de98ccd1624d690c"
@@ -7876,8 +7876,8 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "x": 190,
-        "y": 460,
+        "x": 250,
+        "y": 520,
         "wires": [
             [
                 "de98ccd1624d690c"
@@ -7905,8 +7905,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 210,
-        "y": 180,
+        "x": 270,
+        "y": 240,
         "wires": [
             [
                 "7db73223e8adca5f"
@@ -7934,8 +7934,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 190,
-        "y": 220,
+        "x": 250,
+        "y": 280,
         "wires": [
             [
                 "4302ce92e4985b06"
@@ -7963,8 +7963,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 210,
-        "y": 260,
+        "x": 270,
+        "y": 320,
         "wires": [
             [
                 "544c077ecd16519e"
@@ -7992,8 +7992,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 230,
-        "y": 300,
+        "x": 290,
+        "y": 360,
         "wires": [
             [
                 "376c57b149afbccc"
@@ -8008,8 +8008,8 @@
         "links": [
             "7db73223e8adca5f"
         ],
-        "x": 135,
-        "y": 620,
+        "x": 195,
+        "y": 680,
         "wires": [
             [
                 "7bcf60c7730ed56e"
@@ -8025,8 +8025,8 @@
             "4302ce92e4985b06",
             "bf6820b1163f0e66"
         ],
-        "x": 135,
-        "y": 660,
+        "x": 195,
+        "y": 720,
         "wires": [
             [
                 "0e5fa16938990d9d"
@@ -8044,8 +8044,8 @@
             "cf9843a5f73e34d3",
             "fd57ea1907744996"
         ],
-        "x": 135,
-        "y": 780,
+        "x": 195,
+        "y": 840,
         "wires": [
             [
                 "2cc88335d3847740"
@@ -8061,8 +8061,8 @@
         "links": [
             "576bc4593d875946"
         ],
-        "x": 255,
-        "y": 2120,
+        "x": 315,
+        "y": 2180,
         "wires": []
     },
     {
@@ -8074,8 +8074,8 @@
         "links": [
             "576bc4593d875946"
         ],
-        "x": 335,
-        "y": 1260,
+        "x": 395,
+        "y": 1320,
         "wires": []
     },
     {
@@ -8087,8 +8087,8 @@
         "links": [
             "96ddcf96bd0f01a9"
         ],
-        "x": 375,
-        "y": 180,
+        "x": 435,
+        "y": 240,
         "wires": []
     },
     {
@@ -8100,8 +8100,8 @@
         "links": [
             "986cc7c62e4fcf8c"
         ],
-        "x": 375,
-        "y": 220,
+        "x": 435,
+        "y": 280,
         "wires": []
     },
     {
@@ -8113,8 +8113,8 @@
         "links": [
             "39cc2025cd461843"
         ],
-        "x": 375,
-        "y": 260,
+        "x": 435,
+        "y": 320,
         "wires": []
     },
     {
@@ -8126,8 +8126,8 @@
         "links": [
             "576bc4593d875946"
         ],
-        "x": 375,
-        "y": 300,
+        "x": 435,
+        "y": 360,
         "wires": []
     },
     {
@@ -8168,8 +8168,8 @@
                 "valueType": "entityState"
             }
         ],
-        "x": 150,
-        "y": 1760,
+        "x": 210,
+        "y": 1820,
         "wires": [
             [
                 "15e93c1ed910ea48"
@@ -8188,8 +8188,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 760,
-        "y": 2080,
+        "x": 820,
+        "y": 2140,
         "wires": [
             [
                 "3be86bb23dfdb7b1"
@@ -8209,8 +8209,8 @@
         "links": [
             "986cc7c62e4fcf8c"
         ],
-        "x": 955,
-        "y": 2040,
+        "x": 1015,
+        "y": 2100,
         "wires": []
     },
     {
@@ -8229,11 +8229,10 @@
             "249ae48919a778cc",
             "1f554e90d03ec3db",
             "ce08ec74123677a2",
-            "76f5d758dfa7a70c",
-            "22d5741092bcc496"
+            "76f5d758dfa7a70c"
         ],
-        "x": 125,
-        "y": 2240,
+        "x": 185,
+        "y": 2300,
         "wires": [
             [
                 "75f4e5455d83d356",
@@ -8250,8 +8249,8 @@
         "links": [
             "e03c33a6dcae1a6c"
         ],
-        "x": 955,
-        "y": 2140,
+        "x": 1015,
+        "y": 2200,
         "wires": []
     },
     {
@@ -8266,8 +8265,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 260,
-        "y": 2260,
+        "x": 320,
+        "y": 2320,
         "wires": [
             [
                 "c3130323b8d61c19"
@@ -8285,8 +8284,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 280,
-        "y": 2300,
+        "x": 340,
+        "y": 2360,
         "wires": [
             [
                 "c3130323b8d61c19"
@@ -8302,8 +8301,8 @@
         "links": [
             "e03c33a6dcae1a6c"
         ],
-        "x": 775,
-        "y": 1100,
+        "x": 835,
+        "y": 1160,
         "wires": []
     },
     {
@@ -8317,8 +8316,8 @@
         "syntax": "mustache",
         "template": "Tür doppelt abschließen",
         "output": "str",
-        "x": 440,
-        "y": 1300,
+        "x": 500,
+        "y": 1360,
         "wires": [
             [
                 "fcce69e721063c17"
@@ -8334,8 +8333,8 @@
         "links": [
             "e03c33a6dcae1a6c"
         ],
-        "x": 615,
-        "y": 1300,
+        "x": 675,
+        "y": 1360,
         "wires": []
     },
     {
@@ -8357,8 +8356,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 290,
-        "y": 2080,
+        "x": 350,
+        "y": 2140,
         "wires": [
             [
                 "0d082e7ff2ce770c"
@@ -8384,8 +8383,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 320,
-        "y": 1500,
+        "x": 380,
+        "y": 1560,
         "wires": [
             [
                 "654805311e11f7b0"
@@ -8418,8 +8417,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 690,
-        "y": 1500,
+        "x": 750,
+        "y": 1560,
         "wires": [
             [
                 "72d43a4748b2f9f0"
@@ -8438,8 +8437,8 @@
         "septopics": true,
         "property": "payload",
         "topi": "topic",
-        "x": 410,
-        "y": 1000,
+        "x": 470,
+        "y": 1060,
         "wires": [
             [
                 "d121e0d80d05297e",
@@ -8466,8 +8465,8 @@
         "bytopic": "all",
         "topic": "topic",
         "outputs": 1,
-        "x": 510,
-        "y": 1500,
+        "x": 570,
+        "y": 1560,
         "wires": [
             [
                 "e9d4aee5b8d0b1d3"
@@ -8491,8 +8490,8 @@
         "bytopic": "all",
         "topic": "topic",
         "outputs": 1,
-        "x": 1010,
-        "y": 2100,
+        "x": 1070,
+        "y": 2160,
         "wires": [
             [
                 "aef4f9b3fb3740da"
@@ -8518,8 +8517,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1210,
-        "y": 2100,
+        "x": 1270,
+        "y": 2160,
         "wires": [
             []
         ]
@@ -8537,8 +8536,8 @@
         "loglevel": "INFO",
         "logconfig": "8929498a4f6d4a2d",
         "sendpane": "",
-        "x": 240,
-        "y": 2220,
+        "x": 300,
+        "y": 2280,
         "wires": [
             []
         ]
@@ -8560,8 +8559,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 620,
-        "y": 940,
+        "x": 680,
+        "y": 1000,
         "wires": [
             [
                 "f1a1pinpad0beeeep",
@@ -8586,8 +8585,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 600,
-        "y": 1020,
+        "x": 660,
+        "y": 1080,
         "wires": [
             [
                 "2f2ba3c5862c8bba"
@@ -8608,8 +8607,8 @@
         "correl": "",
         "expiry": "",
         "broker": "c349b9ff.9dc4c8",
-        "x": 1170,
-        "y": 680,
+        "x": 1230,
+        "y": 740,
         "wires": []
     },
     {
@@ -8624,8 +8623,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 560,
-        "y": 2080,
+        "x": 620,
+        "y": 2140,
         "wires": [
             [
                 "493b45377f6017c2"
@@ -8649,8 +8648,8 @@
         "topic": "",
         "payload": "Started!",
         "payloadType": "str",
-        "x": 190,
-        "y": 100,
+        "x": 250,
+        "y": 160,
         "wires": [
             [
                 "fca81ff96bb08249",
@@ -8677,8 +8676,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 370,
-        "y": 80,
+        "x": 430,
+        "y": 140,
         "wires": [
             []
         ]
@@ -8715,8 +8714,8 @@
         "checkall": "false",
         "repair": false,
         "outputs": 4,
-        "x": 370,
-        "y": 1760,
+        "x": 430,
+        "y": 1820,
         "wires": [
             [
                 "55ef7dc599dc0c36"
@@ -8745,8 +8744,8 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 190,
-        "y": 1100,
+        "x": 250,
+        "y": 1160,
         "wires": [
             [
                 "d44ff0599bf197fe"
@@ -8765,8 +8764,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 610,
-        "y": 1100,
+        "x": 670,
+        "y": 1160,
         "wires": [
             [
                 "0ad338c20d4c7bab"
@@ -8799,8 +8798,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 880,
-        "y": 1640,
+        "x": 940,
+        "y": 1700,
         "wires": [
             [
                 "b0d5c4d6b83346e7",
@@ -8835,8 +8834,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1150,
-        "y": 880,
+        "x": 1210,
+        "y": 940,
         "wires": [
             [
                 "cb913f1d17659e78",
@@ -8855,8 +8854,8 @@
         "syntax": "plain",
         "template": "\"Nicht abschließen\" ist aktiviert",
         "output": "str",
-        "x": 1150,
-        "y": 1680,
+        "x": 1210,
+        "y": 1740,
         "wires": [
             [
                 "b40c7360eb8b53a3"
@@ -8872,8 +8871,8 @@
         "links": [
             "e03c33a6dcae1a6c"
         ],
-        "x": 1315,
-        "y": 1680,
+        "x": 1375,
+        "y": 1740,
         "wires": []
     },
     {
@@ -8895,8 +8894,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 440,
-        "y": 380,
+        "x": 500,
+        "y": 440,
         "wires": [
             [
                 "63e92f47f6fbf63f"
@@ -8923,8 +8922,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 600,
-        "y": 1660,
+        "x": 660,
+        "y": 1720,
         "wires": [
             [
                 "0f972eac96c0aaf5"
@@ -8943,8 +8942,8 @@
         "syntax": "plain",
         "template": "Tür doppelt abschließen",
         "output": "str",
-        "x": 880,
-        "y": 1960,
+        "x": 940,
+        "y": 2020,
         "wires": [
             [
                 "8051754bbc4b8778"
@@ -8960,8 +8959,8 @@
         "links": [
             "e03c33a6dcae1a6c"
         ],
-        "x": 1055,
-        "y": 1960,
+        "x": 1115,
+        "y": 2020,
         "wires": []
     },
     {
@@ -8973,8 +8972,8 @@
         "links": [
             "576bc4593d875946"
         ],
-        "x": 775,
-        "y": 1920,
+        "x": 835,
+        "y": 1980,
         "wires": []
     },
     {
@@ -8986,8 +8985,8 @@
         "links": [
             "39cc2025cd461843"
         ],
-        "x": 935,
-        "y": 520,
+        "x": 995,
+        "y": 580,
         "wires": []
     },
     {
@@ -9010,8 +9009,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 730,
-        "y": 460,
+        "x": 790,
+        "y": 520,
         "wires": [
             [
                 "2419604c1483caa0"
@@ -9032,8 +9031,8 @@
         "syntax": "plain",
         "template": "geschlossen, \"Nicht abschließen\" aktiv",
         "output": "str",
-        "x": 1040,
-        "y": 440,
+        "x": 1100,
+        "y": 500,
         "wires": [
             [
                 "c0a0c508bd460b46"
@@ -9060,8 +9059,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 760,
-        "y": 380,
+        "x": 820,
+        "y": 440,
         "wires": [
             [
                 "4f47ddabe7cb6b13"
@@ -9083,8 +9082,8 @@
         "syntax": "plain",
         "template": "offen",
         "output": "str",
-        "x": 990,
-        "y": 360,
+        "x": 1050,
+        "y": 420,
         "wires": [
             [
                 "047fc9b8f913e763"
@@ -9102,8 +9101,8 @@
         "syntax": "plain",
         "template": "geschlossen",
         "output": "str",
-        "x": 1010,
-        "y": 400,
+        "x": 1070,
+        "y": 460,
         "wires": [
             [
                 "047fc9b8f913e763"
@@ -9119,8 +9118,8 @@
         "links": [
             "e03c33a6dcae1a6c"
         ],
-        "x": 1235,
-        "y": 460,
+        "x": 1295,
+        "y": 520,
         "wires": []
     },
     {
@@ -9132,8 +9131,8 @@
         "links": [
             "b17af34ef87d87b6"
         ],
-        "x": 1055,
-        "y": 1600,
+        "x": 1115,
+        "y": 1660,
         "wires": []
     },
     {
@@ -9146,8 +9145,8 @@
             "cb913f1d17659e78",
             "d14618fd547f7af7"
         ],
-        "x": 115,
-        "y": 1360,
+        "x": 175,
+        "y": 1420,
         "wires": [
             [
                 "1b40eae425cabc89"
@@ -9162,8 +9161,8 @@
         "links": [
             "6ff01b0f5688c37e"
         ],
-        "x": 665,
-        "y": 1620,
+        "x": 725,
+        "y": 1680,
         "wires": [
             [
                 "0f972eac96c0aaf5"
@@ -9190,8 +9189,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 970,
-        "y": 1400,
+        "x": 1030,
+        "y": 1460,
         "wires": [
             [
                 "6ff01b0f5688c37e"
@@ -9210,8 +9209,8 @@
         "links": [
             "39cc2025cd461843"
         ],
-        "x": 1315,
-        "y": 1480,
+        "x": 1375,
+        "y": 1540,
         "wires": []
     },
     {
@@ -9223,8 +9222,8 @@
         "links": [
             "730146c183eb7928"
         ],
-        "x": 1115,
-        "y": 1380,
+        "x": 1175,
+        "y": 1440,
         "wires": []
     },
     {
@@ -9237,8 +9236,8 @@
             "f667a1bcc4c42df7",
             "672d53d933615bd7"
         ],
-        "x": 965,
-        "y": 860,
+        "x": 1025,
+        "y": 920,
         "wires": [
             [
                 "4ce22eeaaac3757a"
@@ -9254,8 +9253,8 @@
         "links": [
             "b17af34ef87d87b6"
         ],
-        "x": 1345,
-        "y": 880,
+        "x": 1405,
+        "y": 940,
         "wires": []
     },
     {
@@ -9284,8 +9283,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 410,
-        "y": 120,
+        "x": 470,
+        "y": 180,
         "wires": [
             [
                 "d14618fd547f7af7"
@@ -9303,8 +9302,8 @@
         "syntax": "plain",
         "template": "\"Nicht abschließen\" deaktiviert",
         "output": "str",
-        "x": 1160,
-        "y": 920,
+        "x": 1220,
+        "y": 980,
         "wires": [
             [
                 "c8935dcf43e3113f"
@@ -9320,8 +9319,8 @@
         "links": [
             "e03c33a6dcae1a6c"
         ],
-        "x": 1345,
-        "y": 920,
+        "x": 1405,
+        "y": 980,
         "wires": []
     },
     {
@@ -9344,8 +9343,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 870,
-        "y": 900,
+        "x": 930,
+        "y": 960,
         "wires": [
             [
                 "4ce22eeaaac3757a"
@@ -9373,8 +9372,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 1180,
-        "y": 1460,
+        "x": 1240,
+        "y": 1520,
         "wires": [
             [],
             [
@@ -9402,8 +9401,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 600,
-        "y": 1880,
+        "x": 660,
+        "y": 1940,
         "wires": [
             [
                 "259dc9eb01af2411"
@@ -9422,8 +9421,8 @@
         "links": [
             "4afc39f714a89983"
         ],
-        "x": 1115,
-        "y": 1420,
+        "x": 1175,
+        "y": 1480,
         "wires": []
     },
     {
@@ -9435,8 +9434,8 @@
         "links": [
             "b17af34ef87d87b6"
         ],
-        "x": 595,
-        "y": 120,
+        "x": 655,
+        "y": 180,
         "wires": []
     },
     {
@@ -9459,8 +9458,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 280,
-        "y": 700,
+        "x": 340,
+        "y": 760,
         "wires": [
             [
                 "aeaccf9fa1d9d266"
@@ -9490,8 +9489,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 280,
-        "y": 780,
+        "x": 340,
+        "y": 840,
         "wires": [
             [
                 "43d1e108ece7d1e4"
@@ -9511,8 +9510,8 @@
             "e408d478825d7007",
             "d6400a666430b78a"
         ],
-        "x": 415,
-        "y": 700,
+        "x": 475,
+        "y": 760,
         "wires": []
     },
     {
@@ -9524,8 +9523,8 @@
             "aeaccf9fa1d9d266",
             "43d1e108ece7d1e4"
         ],
-        "x": 705,
-        "y": 740,
+        "x": 765,
+        "y": 800,
         "wires": [
             [
                 "2b8ae278fdd9a5d7"
@@ -9542,8 +9541,8 @@
             "e408d478825d7007",
             "d6400a666430b78a"
         ],
-        "x": 415,
-        "y": 780,
+        "x": 475,
+        "y": 840,
         "wires": []
     },
     {
@@ -9557,8 +9556,8 @@
         "syntax": "plain",
         "template": "Tür geschlossen. Abschließen!",
         "output": "str",
-        "x": 1010,
-        "y": 480,
+        "x": 1070,
+        "y": 540,
         "wires": [
             [
                 "b69516bb46cf60c5"
@@ -9603,8 +9602,8 @@
                 "valueType": "entityState"
             }
         ],
-        "x": 170,
-        "y": 1160,
+        "x": 230,
+        "y": 1220,
         "wires": [
             [
                 "3c2e374fdb6d918d"
@@ -9623,8 +9622,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 630,
-        "y": 1140,
+        "x": 690,
+        "y": 1200,
         "wires": [
             [
                 "797b6ddd77d5a87d"
@@ -9638,8 +9637,8 @@
         "name": "Person an Kellertür erkannt",
         "mode": "link",
         "links": [],
-        "x": 775,
-        "y": 1140,
+        "x": 835,
+        "y": 1200,
         "wires": []
     },
     {
@@ -9653,8 +9652,8 @@
         "syntax": "plain",
         "template": "Nuki Haustür-Schloss nicht mit MQTT verbunden!",
         "output": "str",
-        "x": 750,
-        "y": 1180,
+        "x": 810,
+        "y": 1240,
         "wires": [
             [
                 "249ae48919a778cc"
@@ -9670,8 +9669,8 @@
         "links": [
             "e03c33a6dcae1a6c"
         ],
-        "x": 1015,
-        "y": 1180,
+        "x": 1075,
+        "y": 1240,
         "wires": []
     },
     {
@@ -9691,8 +9690,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 410,
-        "y": 1160,
+        "x": 470,
+        "y": 1220,
         "wires": [
             [
                 "63cf52529ecd26c6",
@@ -9710,8 +9709,8 @@
         "host": "haustuer-schloss.fritz.box",
         "timer": "20",
         "inputs": 0,
-        "x": 140,
-        "y": 2440,
+        "x": 200,
+        "y": 2500,
         "wires": [
             [
                 "7c08f6e68fbbf979"
@@ -9727,8 +9726,8 @@
         "links": [
             "e03c33a6dcae1a6c"
         ],
-        "x": 675,
-        "y": 2440,
+        "x": 735,
+        "y": 2500,
         "wires": []
     },
     {
@@ -9748,8 +9747,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 330,
-        "y": 2440,
+        "x": 390,
+        "y": 2500,
         "wires": [
             [
                 "69ed83ac72e130c8"
@@ -9767,8 +9766,8 @@
         "syntax": "mustache",
         "template": "{{topic}} reagiert nicht auf Ping!",
         "output": "str",
-        "x": 520,
-        "y": 2440,
+        "x": 580,
+        "y": 2500,
         "wires": [
             [
                 "1f554e90d03ec3db"
@@ -9781,8 +9780,8 @@
         "z": "062848eb6508a3a6",
         "name": "Nuk Wifi-Verbindung wackelt?",
         "info": "Nukis müssen anscheinend Internetverbindung haben, um sich nicht zu verhaspeln\nAußerdem muss anscheinend bei Netzteilbetrieb Batterietyp auf alkalisch gesetzt sein und\nPerformace auf Automatisch.",
-        "x": 160,
-        "y": 2400,
+        "x": 220,
+        "y": 2460,
         "wires": []
     },
     {
@@ -9796,8 +9795,8 @@
         "syntax": "plain",
         "template": "Tür abschließen",
         "output": "str",
-        "x": 850,
-        "y": 1760,
+        "x": 910,
+        "y": 1820,
         "wires": [
             [
                 "ce08ec74123677a2"
@@ -9813,8 +9812,8 @@
         "links": [
             "e03c33a6dcae1a6c"
         ],
-        "x": 1015,
-        "y": 1760,
+        "x": 1075,
+        "y": 1820,
         "wires": []
     },
     {
@@ -9826,8 +9825,8 @@
         "links": [
             "39cc2025cd461843"
         ],
-        "x": 775,
-        "y": 1800,
+        "x": 835,
+        "y": 1860,
         "wires": []
     },
     {
@@ -9850,8 +9849,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 600,
-        "y": 1720,
+        "x": 660,
+        "y": 1780,
         "wires": [
             [
                 "6a581e427fc920fe"
@@ -9867,8 +9866,8 @@
         "z": "062848eb6508a3a6",
         "time": "2000",
         "name": "",
-        "x": 680,
-        "y": 420,
+        "x": 740,
+        "y": 480,
         "wires": [
             [
                 "8b962cd30a4b673a"
@@ -9884,8 +9883,8 @@
         "links": [
             "4afc39f714a89983"
         ],
-        "x": 775,
-        "y": 1840,
+        "x": 835,
+        "y": 1900,
         "wires": []
     },
     {
@@ -9905,8 +9904,8 @@
         "drop": false,
         "allowrate": false,
         "outputs": 1,
-        "x": 1140,
-        "y": 1640,
+        "x": 1200,
+        "y": 1700,
         "wires": [
             [
                 "77df5b5b22a17a6d"
@@ -9930,8 +9929,8 @@
         "drop": false,
         "allowrate": false,
         "outputs": 1,
-        "x": 860,
-        "y": 1720,
+        "x": 920,
+        "y": 1780,
         "wires": [
             [
                 "78994d1480e92257"
@@ -9955,8 +9954,8 @@
         "drop": false,
         "allowrate": false,
         "outputs": 1,
-        "x": 860,
-        "y": 1880,
+        "x": 920,
+        "y": 1940,
         "wires": [
             [
                 "32874beced6a7f01"
@@ -9974,8 +9973,8 @@
         "syntax": "plain",
         "template": "Tür offen, kann nicht abschließen!",
         "output": "str",
-        "x": 920,
-        "y": 780,
+        "x": 980,
+        "y": 840,
         "wires": [
             [
                 "76f5d758dfa7a70c"
@@ -9991,8 +9990,8 @@
             "aeaccf9fa1d9d266",
             "43d1e108ece7d1e4"
         ],
-        "x": 705,
-        "y": 780,
+        "x": 765,
+        "y": 840,
         "wires": [
             [
                 "e862f28339fce4f6"
@@ -10008,8 +10007,8 @@
         "links": [
             "e03c33a6dcae1a6c"
         ],
-        "x": 1135,
-        "y": 780,
+        "x": 1195,
+        "y": 840,
         "wires": []
     },
     {
@@ -10021,8 +10020,8 @@
         "links": [
             "4afc39f714a89983"
         ],
-        "x": 775,
-        "y": 1680,
+        "x": 835,
+        "y": 1740,
         "wires": []
     },
     {
@@ -10037,8 +10036,8 @@
         "attributes": [],
         "inputOverride": "allow",
         "outputProperties": [],
-        "x": 1190,
-        "y": 380,
+        "x": 1250,
+        "y": 440,
         "wires": [
             []
         ]
@@ -10055,8 +10054,8 @@
         "attributes": [],
         "inputOverride": "allow",
         "outputProperties": [],
-        "x": 820,
-        "y": 1060,
+        "x": 880,
+        "y": 1120,
         "wires": [
             []
         ]
@@ -10079,8 +10078,8 @@
         ],
         "inputOverride": "allow",
         "outputProperties": [],
-        "x": 430,
-        "y": 2280,
+        "x": 490,
+        "y": 2340,
         "wires": [
             []
         ]
@@ -10097,8 +10096,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 270,
-        "y": 1360,
+        "x": 330,
+        "y": 1420,
         "wires": [
             [
                 "301a1236ef4d8ea6"
@@ -10130,8 +10129,8 @@
                 "valueType": "entityState"
             }
         ],
-        "x": 530,
-        "y": 1360,
+        "x": 590,
+        "y": 1420,
         "wires": [
             [
                 "18ed4d85f3dfab72"
@@ -10153,8 +10152,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 780,
-        "y": 1360,
+        "x": 840,
+        "y": 1420,
         "wires": [
             [
                 "9e8f59e48c13581d"
@@ -10178,8 +10177,8 @@
         "drop": true,
         "allowrate": false,
         "outputs": 1,
-        "x": 960,
-        "y": 1360,
+        "x": 1020,
+        "y": 1420,
         "wires": [
             [
                 "c0ad915ac416a2bb"
@@ -10199,8 +10198,8 @@
         "value": "",
         "valueType": "str",
         "outputProperties": [],
-        "x": 90,
-        "y": 1540,
+        "x": 150,
+        "y": 1600,
         "wires": [
             []
         ]
@@ -10243,8 +10242,8 @@
                 "valueType": "entityState"
             }
         ],
-        "x": 120,
-        "y": 1500,
+        "x": 180,
+        "y": 1560,
         "wires": [
             [
                 "be64234ed9852c64"
@@ -10276,8 +10275,8 @@
         "blockInputOverrides": false,
         "domain": "text",
         "service": "set_value",
-        "x": 880,
-        "y": 1520,
+        "x": 940,
+        "y": 1580,
         "wires": [
             []
         ]
@@ -10299,8 +10298,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "str",
-        "x": 660,
-        "y": 1540,
+        "x": 720,
+        "y": 1600,
         "wires": [
             [
                 "72d43a4748b2f9f0"
@@ -10316,8 +10315,8 @@
         "outputs": 1,
         "entityConfig": "972372245601a773",
         "outputProperties": [],
-        "x": 100,
-        "y": 2080,
+        "x": 160,
+        "y": 2140,
         "wires": [
             [
                 "651b1e11de589b85"
@@ -10333,8 +10332,8 @@
         "outputs": 1,
         "entityConfig": "ba67027c81acef44",
         "outputProperties": [],
-        "x": 120,
-        "y": 2120,
+        "x": 180,
+        "y": 2180,
         "wires": [
             [
                 "44bd1ae85ba6e007"
@@ -10350,8 +10349,8 @@
         "outputs": 1,
         "entityConfig": "0cdafd4c6a092780",
         "outputProperties": [],
-        "x": 110,
-        "y": 2300,
+        "x": 170,
+        "y": 2360,
         "wires": [
             [
                 "0e588db6de9cd341"
@@ -10370,8 +10369,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 890,
-        "y": 740,
+        "x": 950,
+        "y": 800,
         "wires": [
             [
                 "50166e0447aa1724"
@@ -10401,8 +10400,8 @@
         "blockInputOverrides": false,
         "domain": "notify",
         "service": "familie",
-        "x": 1170,
-        "y": 740,
+        "x": 1230,
+        "y": 800,
         "wires": [
             []
         ]
@@ -10450,8 +10449,8 @@
         "friday": true,
         "saturday": true,
         "ignorePastDate": true,
-        "x": 160,
-        "y": 1280,
+        "x": 220,
+        "y": 1340,
         "wires": [
             [
                 "cf9843a5f73e34d3",
@@ -10466,8 +10465,8 @@
         "name": "Fehler -> Alarmierung",
         "scope": null,
         "uncaught": false,
-        "x": 150,
-        "y": 40,
+        "x": 200,
+        "y": 60,
         "wires": [
             [
                 "b0de5f575624c273"
@@ -10483,8 +10482,8 @@
         "links": [
             "71a4abd15cdb30b3"
         ],
-        "x": 380,
-        "y": 40,
+        "x": 365,
+        "y": 60,
         "wires": []
     },
     {
@@ -10499,8 +10498,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 660,
-        "y": 980,
+        "x": 720,
+        "y": 1040,
         "wires": [
             [
                 "cb2339547f5364aa"
@@ -10519,8 +10518,8 @@
         "attributes": [],
         "inputOverride": "allow",
         "outputProperties": [],
-        "x": 910,
-        "y": 980,
+        "x": 970,
+        "y": 1040,
         "wires": [
             []
         ]
@@ -10557,8 +10556,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 4,
-        "x": 850,
-        "y": 620,
+        "x": 910,
+        "y": 680,
         "wires": [
             [
                 "f1a1nuki0unlock1"
@@ -10599,8 +10598,8 @@
         "blockInputOverrides": false,
         "domain": "lock",
         "service": "unlock",
-        "x": 1170,
-        "y": 560,
+        "x": 1230,
+        "y": 620,
         "wires": [
             []
         ]
@@ -10630,8 +10629,8 @@
         "blockInputOverrides": false,
         "domain": "lock",
         "service": "lock",
-        "x": 1160,
-        "y": 600,
+        "x": 1220,
+        "y": 660,
         "wires": [
             []
         ]
@@ -10661,8 +10660,8 @@
         "blockInputOverrides": false,
         "domain": "lock",
         "service": "open",
-        "x": 1140,
-        "y": 640,
+        "x": 1200,
+        "y": 700,
         "wires": [
             []
         ]
@@ -10690,8 +10689,8 @@
         "blockInputOverrides": false,
         "domain": "esphome",
         "service": "pinpad_haustuer_send_beep",
-        "x": 860,
-        "y": 940,
+        "x": 920,
+        "y": 1000,
         "wires": [
             []
         ]
@@ -10719,8 +10718,8 @@
         "blockInputOverrides": false,
         "domain": "esphome",
         "service": "pinpad_haustuer_send_beep",
-        "x": 780,
-        "y": 2280,
+        "x": 840,
+        "y": 2340,
         "wires": [
             []
         ]
@@ -10737,8 +10736,8 @@
             "8be6e56baa8b1559",
             "2f2ba3c5862c8bba"
         ],
-        "x": 625,
-        "y": 2280,
+        "x": 685,
+        "y": 2340,
         "wires": [
             [
                 "f1a1pinpad0beeep1"
@@ -10754,8 +10753,8 @@
         "links": [
             "47a940568818553c"
         ],
-        "x": 1135,
-        "y": 1880,
+        "x": 1195,
+        "y": 1940,
         "wires": []
     },
     {
@@ -10767,8 +10766,8 @@
         "links": [
             "47a940568818553c"
         ],
-        "x": 1015,
-        "y": 1720,
+        "x": 1075,
+        "y": 1780,
         "wires": []
     },
     {
@@ -10780,8 +10779,8 @@
         "links": [
             "47a940568818553c"
         ],
-        "x": 1315,
-        "y": 1640,
+        "x": 1375,
+        "y": 1700,
         "wires": []
     },
     {
@@ -10793,8 +10792,8 @@
         "links": [
             "47a940568818553c"
         ],
-        "x": 775,
-        "y": 680,
+        "x": 835,
+        "y": 740,
         "wires": []
     },
     {
@@ -10806,8 +10805,8 @@
         "links": [
             "47a940568818553c"
         ],
-        "x": 715,
-        "y": 1020,
+        "x": 775,
+        "y": 1080,
         "wires": []
     },
     {
@@ -10819,8 +10818,8 @@
         "links": [
             "c1af54b5dcf743af"
         ],
-        "x": 605,
-        "y": 660,
+        "x": 665,
+        "y": 720,
         "wires": []
     },
     {
@@ -10831,8 +10830,8 @@
         "links": [
             "097f9401300c4cfd"
         ],
-        "x": 695,
-        "y": 660,
+        "x": 755,
+        "y": 720,
         "wires": [
             [
                 "f1a1nuki0route01",
@@ -10853,8 +10852,8 @@
             "d8d51fd93db8d168",
             "c76e0f9689ddc7ef"
         ],
-        "x": 135,
-        "y": 680,
+        "x": 195,
+        "y": 800,
         "wires": [
             [
                 "754ba85bfcabbafa"
@@ -10882,8 +10881,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 210,
-        "y": 820,
+        "x": 270,
+        "y": 280,
         "wires": [
             [
                 "3515d84560dda4f0"
@@ -10911,8 +10910,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 190,
-        "y": 780,
+        "x": 250,
+        "y": 240,
         "wires": [
             [
                 "2c598c5ad99362f6"
@@ -10940,8 +10939,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 210,
-        "y": 860,
+        "x": 270,
+        "y": 320,
         "wires": [
             [
                 "10adf74a0abed3f5"
@@ -10958,8 +10957,8 @@
             "10adf74a0abed3f5",
             "120f99bd59cc83e3"
         ],
-        "x": 135,
-        "y": 680,
+        "x": 195,
+        "y": 800,
         "wires": [
             []
         ]
@@ -10973,8 +10972,8 @@
             "2c598c5ad99362f6",
             "6b5343740447d15e"
         ],
-        "x": 135,
-        "y": 580,
+        "x": 195,
+        "y": 700,
         "wires": [
             [
                 "5a6c9f073ce41181",
@@ -10991,8 +10990,8 @@
         "links": [
             "68510defdfc4e9d1"
         ],
-        "x": 335,
-        "y": 2100,
+        "x": 375,
+        "y": 2340,
         "wires": []
     },
     {
@@ -11004,8 +11003,8 @@
         "links": [
             "cbcb4fd8b28af431"
         ],
-        "x": 335,
-        "y": 820,
+        "x": 395,
+        "y": 280,
         "wires": []
     },
     {
@@ -11017,8 +11016,8 @@
         "links": [
             "276c3158b7e4acb2"
         ],
-        "x": 335,
-        "y": 780,
+        "x": 395,
+        "y": 240,
         "wires": []
     },
     {
@@ -11030,8 +11029,8 @@
         "links": [
             "7ee0934261f999ea"
         ],
-        "x": 335,
-        "y": 860,
+        "x": 395,
+        "y": 320,
         "wires": []
     },
     {
@@ -11072,8 +11071,8 @@
                 "valueType": "entityState"
             }
         ],
-        "x": 230,
-        "y": 760,
+        "x": 270,
+        "y": 2120,
         "wires": [
             [
                 "db41c8100b656c43"
@@ -11089,8 +11088,8 @@
         "links": [
             "276c3158b7e4acb2"
         ],
-        "x": 975,
-        "y": 2020,
+        "x": 1055,
+        "y": 2260,
         "wires": []
     },
     {
@@ -11113,8 +11112,8 @@
             "e6f9343995adbf1a",
             "5d08ca0b4ff31332"
         ],
-        "x": 135,
-        "y": 2220,
+        "x": 175,
+        "y": 2460,
         "wires": [
             [
                 "6d6d8f5320b56143",
@@ -11131,8 +11130,8 @@
         "links": [
             "a30ad159a4a28a4d"
         ],
-        "x": 975,
-        "y": 2140,
+        "x": 1055,
+        "y": 2380,
         "wires": []
     },
     {
@@ -11147,8 +11146,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 270,
-        "y": 2220,
+        "x": 310,
+        "y": 2460,
         "wires": [
             [
                 "66d8a56661181552"
@@ -11166,8 +11165,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 360,
-        "y": 2260,
+        "x": 400,
+        "y": 2500,
         "wires": [
             [
                 "66d8a56661181552"
@@ -11183,8 +11182,8 @@
         "links": [
             "a30ad159a4a28a4d"
         ],
-        "x": 955,
-        "y": 1000,
+        "x": 1055,
+        "y": 1220,
         "wires": []
     },
     {
@@ -11206,8 +11205,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 400,
-        "y": 1600,
+        "x": 460,
+        "y": 1860,
         "wires": [
             [
                 "cbbc12229200dfa5"
@@ -11240,8 +11239,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 770,
-        "y": 1600,
+        "x": 830,
+        "y": 1860,
         "wires": [
             [
                 "fcc6d18c0876c71e"
@@ -11265,8 +11264,8 @@
         "bytopic": "all",
         "topic": "topic",
         "outputs": 1,
-        "x": 590,
-        "y": 1600,
+        "x": 650,
+        "y": 1860,
         "wires": [
             [
                 "a92929c03edfceca"
@@ -11290,8 +11289,8 @@
         "bytopic": "all",
         "topic": "topic",
         "outputs": 1,
-        "x": 1030,
-        "y": 2100,
+        "x": 1110,
+        "y": 2340,
         "wires": [
             [
                 "bd1acc71ea636bad"
@@ -11317,8 +11316,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1230,
-        "y": 2100,
+        "x": 1310,
+        "y": 2340,
         "wires": [
             []
         ]
@@ -11336,8 +11335,8 @@
         "loglevel": "INFO",
         "logconfig": "8929498a4f6d4a2d",
         "sendpane": "",
-        "x": 250,
-        "y": 2180,
+        "x": 290,
+        "y": 2420,
         "wires": [
             []
         ]
@@ -11354,8 +11353,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 250,
-        "y": 560,
+        "x": 310,
+        "y": 680,
         "wires": [
             [
                 "190f3045331170ed"
@@ -11374,8 +11373,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 270,
-        "y": 720,
+        "x": 330,
+        "y": 840,
         "wires": [
             [
                 "85559714c22240e3"
@@ -11394,8 +11393,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 270,
-        "y": 640,
+        "x": 330,
+        "y": 760,
         "wires": [
             [
                 "28eb111ab18e19cf"
@@ -11414,8 +11413,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 610,
-        "y": 1040,
+        "x": 710,
+        "y": 1320,
         "wires": [
             [
                 "05658fe0f6ada402",
@@ -11435,8 +11434,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 610,
-        "y": 960,
+        "x": 710,
+        "y": 1180,
         "wires": [
             [
                 "d8317f48eacb7f70",
@@ -11456,8 +11455,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 820,
-        "y": 1000,
+        "x": 920,
+        "y": 1220,
         "wires": [
             [
                 "43cf8e0a43dafb50"
@@ -11476,8 +11475,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 810,
-        "y": 1080,
+        "x": 910,
+        "y": 1360,
         "wires": [
             [
                 "0942f0c2ca6f6725"
@@ -11493,30 +11492,9 @@
         "links": [
             "a30ad159a4a28a4d"
         ],
-        "x": 935,
-        "y": 1080,
+        "x": 1035,
+        "y": 1360,
         "wires": []
-    },
-    {
-        "id": "ee4bb2cfd9251d56",
-        "type": "mqtt in",
-        "z": "caf02dc9a5b73890",
-        "name": "Kellertür-Sensor",
-        "topic": "zigbee2mqtt/kellertuer_sensor",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "c349b9ff.9dc4c8",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 200,
-        "y": 440,
-        "wires": [
-            [
-                "4a3c18e8f33b1bc4"
-            ]
-        ]
     },
     {
         "id": "120f99bd59cc83e3",
@@ -11528,8 +11506,8 @@
             "68510defdfc4e9d1",
             "7ee0934261f999ea"
         ],
-        "x": 915,
-        "y": 460,
+        "x": 935,
+        "y": 580,
         "wires": []
     },
     {
@@ -11551,8 +11529,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 480,
-        "y": 360,
+        "x": 500,
+        "y": 440,
         "wires": [
             [
                 "7834494a996426dd"
@@ -11571,38 +11549,11 @@
         "septopics": true,
         "property": "payload",
         "topi": "topic",
-        "x": 390,
-        "y": 400,
+        "x": 410,
+        "y": 480,
         "wires": [
             [
                 "f363c52e189b610f"
-            ]
-        ]
-    },
-    {
-        "id": "4a3c18e8f33b1bc4",
-        "type": "change",
-        "z": "caf02dc9a5b73890",
-        "name": "contact",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "payload.contact",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 400,
-        "y": 440,
-        "wires": [
-            [
-                "fb53dbf77d799ec7"
             ]
         ]
     },
@@ -11623,8 +11574,8 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "x": 190,
-        "y": 360,
+        "x": 250,
+        "y": 480,
         "wires": [
             [
                 "4a3c18e8f33b1bc4"
@@ -11648,8 +11599,8 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "x": 190,
-        "y": 400,
+        "x": 250,
+        "y": 520,
         "wires": [
             [
                 "4a3c18e8f33b1bc4"
@@ -11666,8 +11617,8 @@
             "130df60a6948104d",
             "d0011fbcfa0d2091"
         ],
-        "x": 415,
-        "y": 560,
+        "x": 475,
+        "y": 680,
         "wires": []
     },
     {
@@ -11681,28 +11632,9 @@
             "840229b3f390bf76",
             "130df60a6948104d"
         ],
-        "x": 415,
-        "y": 720,
+        "x": 475,
+        "y": 840,
         "wires": []
-    },
-    {
-        "id": "d0011fbcfa0d2091",
-        "type": "link in",
-        "z": "caf02dc9a5b73890",
-        "name": "link in 16",
-        "links": [
-            "85559714c22240e3",
-            "190f3045331170ed",
-            "42cc6eaba0587836",
-            "28eb111ab18e19cf"
-        ],
-        "x": 555,
-        "y": 600,
-        "wires": [
-            [
-                "f1a1pinpadkt0beeep1"
-            ]
-        ]
     },
     {
         "id": "840229b3f390bf76",
@@ -11714,8 +11646,8 @@
             "28eb111ab18e19cf",
             "42cc6eaba0587836"
         ],
-        "x": 555,
-        "y": 640,
+        "x": 615,
+        "y": 780,
         "wires": [
             [
                 "f1a1nukikt0rroute"
@@ -11732,11 +11664,12 @@
             "28eb111ab18e19cf",
             "85559714c22240e3"
         ],
-        "x": 555,
-        "y": 560,
+        "x": 615,
+        "y": 700,
         "wires": [
             [
-                "f1a1nukikt0sroute"
+                "f1a1nukikt0sroute",
+                "d796c658493a23d4"
             ]
         ]
     },
@@ -11752,8 +11685,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 270,
-        "y": 600,
+        "x": 330,
+        "y": 720,
         "wires": [
             [
                 "42cc6eaba0587836"
@@ -11777,8 +11710,8 @@
         "topic": "",
         "payload": "Started!",
         "payloadType": "str",
-        "x": 190,
-        "y": 60,
+        "x": 250,
+        "y": 160,
         "wires": [
             [
                 "50d2aa6a32977f2a",
@@ -11805,8 +11738,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 370,
-        "y": 40,
+        "x": 430,
+        "y": 140,
         "wires": [
             []
         ]
@@ -11830,8 +11763,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 370,
-        "y": 2060,
+        "x": 410,
+        "y": 2300,
         "wires": [
             [
                 "15c5d4f3da2cd043"
@@ -11850,8 +11783,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 620,
-        "y": 2060,
+        "x": 700,
+        "y": 2300,
         "wires": [
             [
                 "acba45d1aedd617a"
@@ -11870,8 +11803,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 800,
-        "y": 2060,
+        "x": 880,
+        "y": 2300,
         "wires": [
             [
                 "6b5343740447d15e"
@@ -11893,8 +11826,8 @@
             "d0011fbcfa0d2091",
             "840229b3f390bf76"
         ],
-        "x": 415,
-        "y": 600,
+        "x": 475,
+        "y": 720,
         "wires": []
     },
     {
@@ -11908,8 +11841,8 @@
             "840229b3f390bf76",
             "130df60a6948104d"
         ],
-        "x": 415,
-        "y": 640,
+        "x": 475,
+        "y": 760,
         "wires": []
     },
     {
@@ -11925,8 +11858,8 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 270,
-        "y": 1000,
+        "x": 330,
+        "y": 1220,
         "wires": [
             [
                 "8077d51c2ec57138"
@@ -11946,8 +11879,8 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 260,
-        "y": 1080,
+        "x": 320,
+        "y": 1360,
         "wires": [
             [
                 "3c7bf0584c0ad780"
@@ -11966,8 +11899,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 610,
-        "y": 1080,
+        "x": 710,
+        "y": 1360,
         "wires": [
             [
                 "05658fe0f6ada402"
@@ -11994,8 +11927,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 710,
-        "y": 440,
+        "x": 730,
+        "y": 520,
         "wires": [
             [
                 "8052806fa12c526b"
@@ -12016,8 +11949,8 @@
         "syntax": "plain",
         "template": "geschlossen, \"Nicht abschließen\" aktiv",
         "output": "str",
-        "x": 1020,
-        "y": 420,
+        "x": 1040,
+        "y": 500,
         "wires": [
             [
                 "3be2e6461295d268"
@@ -12056,8 +11989,8 @@
         "checkall": "false",
         "repair": false,
         "outputs": 4,
-        "x": 410,
-        "y": 1880,
+        "x": 490,
+        "y": 2120,
         "wires": [
             [
                 "43f4eab279f65153"
@@ -12093,8 +12026,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 640,
-        "y": 1780,
+        "x": 720,
+        "y": 2020,
         "wires": [
             [
                 "daa6714b079e750f"
@@ -12113,8 +12046,8 @@
         "syntax": "plain",
         "template": "abschließen",
         "output": "str",
-        "x": 890,
-        "y": 1960,
+        "x": 970,
+        "y": 2200,
         "wires": [
             [
                 "fdfba466c688d903"
@@ -12130,8 +12063,8 @@
         "links": [
             "68510defdfc4e9d1"
         ],
-        "x": 815,
-        "y": 1920,
+        "x": 895,
+        "y": 2160,
         "wires": []
     },
     {
@@ -12160,8 +12093,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 880,
-        "y": 1760,
+        "x": 960,
+        "y": 2000,
         "wires": [
             [
                 "3c99219cb116ef07",
@@ -12181,8 +12114,8 @@
         "syntax": "plain",
         "template": "\"Nicht abschließen\" ist aktiviert",
         "output": "str",
-        "x": 1170,
-        "y": 1800,
+        "x": 1250,
+        "y": 2040,
         "wires": [
             [
                 "5ae2f11599e6d537"
@@ -12198,8 +12131,8 @@
         "links": [
             "a30ad159a4a28a4d"
         ],
-        "x": 1355,
-        "y": 1800,
+        "x": 1435,
+        "y": 2040,
         "wires": []
     },
     {
@@ -12211,8 +12144,8 @@
         "links": [
             "a30ad159a4a28a4d"
         ],
-        "x": 1035,
-        "y": 1960,
+        "x": 1115,
+        "y": 2200,
         "wires": []
     },
     {
@@ -12235,8 +12168,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 740,
-        "y": 360,
+        "x": 760,
+        "y": 440,
         "wires": [
             [
                 "8604fe30c579f341"
@@ -12258,8 +12191,8 @@
         "syntax": "plain",
         "template": "offen",
         "output": "str",
-        "x": 970,
-        "y": 340,
+        "x": 990,
+        "y": 420,
         "wires": [
             [
                 "5da60ea09dda6635"
@@ -12277,8 +12210,8 @@
         "syntax": "plain",
         "template": "geschlossen",
         "output": "str",
-        "x": 990,
-        "y": 380,
+        "x": 1010,
+        "y": 460,
         "wires": [
             [
                 "5da60ea09dda6635"
@@ -12311,8 +12244,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 410,
-        "y": 80,
+        "x": 470,
+        "y": 180,
         "wires": [
             [
                 "fe297a428bb3195c"
@@ -12328,8 +12261,8 @@
         "links": [
             "1b6a6fac2dcdf14d"
         ],
-        "x": 595,
-        "y": 80,
+        "x": 655,
+        "y": 180,
         "wires": []
     },
     {
@@ -12341,8 +12274,8 @@
         "links": [
             "68510defdfc4e9d1"
         ],
-        "x": 415,
-        "y": 1320,
+        "x": 475,
+        "y": 1580,
         "wires": []
     },
     {
@@ -12355,8 +12288,8 @@
             "8c6643557eab182e",
             "900c95f52fe88a72"
         ],
-        "x": 135,
-        "y": 1480,
+        "x": 195,
+        "y": 1740,
         "wires": [
             [
                 "14a43e6186e82c6d"
@@ -12383,8 +12316,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 810,
-        "y": 1440,
+        "x": 870,
+        "y": 1700,
         "wires": [
             [
                 "6d826065b5abde55"
@@ -12404,8 +12337,8 @@
             "68510defdfc4e9d1",
             "7ee0934261f999ea"
         ],
-        "x": 1155,
-        "y": 1520,
+        "x": 1215,
+        "y": 1780,
         "wires": []
     },
     {
@@ -12417,8 +12350,8 @@
         "links": [
             "2b45ab7b5a5f9fe2"
         ],
-        "x": 955,
-        "y": 1420,
+        "x": 1015,
+        "y": 1680,
         "wires": []
     },
     {
@@ -12441,8 +12374,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 1020,
-        "y": 1500,
+        "x": 1080,
+        "y": 1760,
         "wires": [
             [],
             [
@@ -12459,8 +12392,8 @@
         "links": [
             "74b60de5ac2484a2"
         ],
-        "x": 955,
-        "y": 1460,
+        "x": 1015,
+        "y": 1720,
         "wires": []
     },
     {
@@ -12474,8 +12407,8 @@
         "syntax": "mustache",
         "template": "Tür abschließen",
         "output": "str",
-        "x": 490,
-        "y": 1360,
+        "x": 550,
+        "y": 1620,
         "wires": [
             [
                 "e6f9343995adbf1a"
@@ -12491,8 +12424,8 @@
         "links": [
             "a30ad159a4a28a4d"
         ],
-        "x": 635,
-        "y": 1360,
+        "x": 695,
+        "y": 1620,
         "wires": []
     },
     {
@@ -12512,8 +12445,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 620,
-        "y": 880,
+        "x": 720,
+        "y": 1060,
         "wires": [
             [
                 "c43ee4e37e3fd8fb",
@@ -12538,8 +12471,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 610,
-        "y": 920,
+        "x": 710,
+        "y": 1100,
         "wires": [
             [
                 "f1a1nukikt0bkuo1"
@@ -12566,8 +12499,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 850,
-        "y": 840,
+        "x": 950,
+        "y": 1020,
         "wires": [
             [
                 "1a0fed98ba8bb954"
@@ -12585,8 +12518,8 @@
             "b88f4927c9871b58",
             "883a8df24a8289eb"
         ],
-        "x": 945,
-        "y": 800,
+        "x": 1045,
+        "y": 980,
         "wires": [
             [
                 "1a0fed98ba8bb954"
@@ -12619,8 +12552,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1130,
-        "y": 820,
+        "x": 1230,
+        "y": 1000,
         "wires": [
             [
                 "8c6643557eab182e",
@@ -12639,8 +12572,8 @@
         "syntax": "plain",
         "template": "\"Nicht abschließen\" deaktiviert",
         "output": "str",
-        "x": 1140,
-        "y": 860,
+        "x": 1240,
+        "y": 1040,
         "wires": [
             [
                 "86e02f81dd616814"
@@ -12656,8 +12589,8 @@
         "links": [
             "1b6a6fac2dcdf14d"
         ],
-        "x": 1325,
-        "y": 820,
+        "x": 1425,
+        "y": 1000,
         "wires": []
     },
     {
@@ -12669,8 +12602,8 @@
         "links": [
             "a30ad159a4a28a4d"
         ],
-        "x": 1325,
-        "y": 860,
+        "x": 1425,
+        "y": 1040,
         "wires": []
     },
     {
@@ -12693,8 +12626,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 640,
-        "y": 1880,
+        "x": 720,
+        "y": 2120,
         "wires": [
             [
                 "b5d9fe343f814c39"
@@ -12713,8 +12646,8 @@
             "6d826065b5abde55",
             "634086b0220e510a"
         ],
-        "x": 705,
-        "y": 1740,
+        "x": 785,
+        "y": 1980,
         "wires": [
             [
                 "daa6714b079e750f"
@@ -12730,8 +12663,8 @@
         "links": [
             "a30ad159a4a28a4d"
         ],
-        "x": 1195,
-        "y": 460,
+        "x": 1215,
+        "y": 540,
         "wires": []
     },
     {
@@ -12743,8 +12676,8 @@
         "links": [
             "1b6a6fac2dcdf14d"
         ],
-        "x": 1055,
-        "y": 1720,
+        "x": 1135,
+        "y": 1960,
         "wires": []
     },
     {
@@ -12759,8 +12692,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 610,
-        "y": 1000,
+        "x": 710,
+        "y": 1220,
         "wires": [
             [
                 "d8317f48eacb7f70"
@@ -12787,8 +12720,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 260,
-        "y": 680,
+        "x": 320,
+        "y": 800,
         "wires": [
             [
                 "1b37115ecaa32fd3"
@@ -12806,8 +12739,8 @@
         "links": [
             "1b37115ecaa32fd3"
         ],
-        "x": 555,
-        "y": 680,
+        "x": 615,
+        "y": 840,
         "wires": [
             [
                 "d7588aaceab6ed45"
@@ -12824,8 +12757,8 @@
             "9deb515283324452",
             "ff06e91fea054607"
         ],
-        "x": 415,
-        "y": 680,
+        "x": 475,
+        "y": 800,
         "wires": []
     },
     {
@@ -12835,8 +12768,8 @@
         "d": true,
         "name": "Statusänderung Gartenlicht",
         "links": [],
-        "x": 135,
-        "y": 160,
+        "x": 505,
+        "y": 260,
         "wires": [
             [
                 "d81794ad8b1fdfe1"
@@ -12854,8 +12787,8 @@
         "syntax": "mustache",
         "template": "Gartenlicht aus. Kellertür abschließen.",
         "output": "str",
-        "x": 830,
-        "y": 260,
+        "x": 1210,
+        "y": 320,
         "wires": [
             [
                 "fb7fa1e099c86eec"
@@ -12871,8 +12804,8 @@
         "links": [
             "a30ad159a4a28a4d"
         ],
-        "x": 1045,
-        "y": 260,
+        "x": 1435,
+        "y": 320,
         "wires": []
     },
     {
@@ -12894,8 +12827,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 280,
-        "y": 160,
+        "x": 660,
+        "y": 260,
         "wires": [
             [
                 "70c46ef976f67c04"
@@ -12922,8 +12855,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 500,
-        "y": 200,
+        "x": 880,
+        "y": 300,
         "wires": [
             [],
             [
@@ -12941,7 +12874,7 @@
         "rules": [
             {
                 "t": "eq",
-                "v": "ON",
+                "v": "on",
                 "vt": "str"
             },
             {
@@ -12951,8 +12884,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 500,
-        "y": 160,
+        "x": 880,
+        "y": 260,
         "wires": [
             [
                 "634086b0220e510a"
@@ -12972,8 +12905,8 @@
         "links": [
             "68510defdfc4e9d1"
         ],
-        "x": 675,
-        "y": 220,
+        "x": 1055,
+        "y": 360,
         "wires": []
     },
     {
@@ -12985,8 +12918,8 @@
         "links": [
             "2b45ab7b5a5f9fe2"
         ],
-        "x": 675,
-        "y": 140,
+        "x": 1055,
+        "y": 240,
         "wires": []
     },
     {
@@ -12998,8 +12931,8 @@
         "links": [
             "74b60de5ac2484a2"
         ],
-        "x": 675,
-        "y": 180,
+        "x": 1055,
+        "y": 280,
         "wires": []
     },
     {
@@ -13014,8 +12947,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 630,
-        "y": 1120,
+        "x": 730,
+        "y": 1400,
         "wires": [
             [
                 "db754ef789a18c99"
@@ -13029,8 +12962,8 @@
         "name": "Person an Kellertür erkannt",
         "mode": "link",
         "links": [],
-        "x": 765,
-        "y": 1120,
+        "x": 865,
+        "y": 1400,
         "wires": []
     },
     {
@@ -13040,8 +12973,8 @@
         "name": "Person an Kellertür erkannt",
         "mode": "link",
         "links": [],
-        "x": 765,
-        "y": 1200,
+        "x": 865,
+        "y": 1480,
         "wires": []
     },
     {
@@ -13056,8 +12989,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 630,
-        "y": 1200,
+        "x": 730,
+        "y": 1480,
         "wires": [
             [
                 "b95a7e74b62a744b"
@@ -13073,8 +13006,8 @@
         "links": [
             "a30ad159a4a28a4d"
         ],
-        "x": 1015,
-        "y": 1160,
+        "x": 1115,
+        "y": 1440,
         "wires": []
     },
     {
@@ -13088,8 +13021,8 @@
         "syntax": "plain",
         "template": "Nuki Kellertür-Schloss nicht mit MQTT verbunden!",
         "output": "str",
-        "x": 750,
-        "y": 1160,
+        "x": 850,
+        "y": 1440,
         "wires": [
             [
                 "b5dbc5c6f9d3c2e0"
@@ -13105,8 +13038,8 @@
         "links": [
             "a30ad159a4a28a4d"
         ],
-        "x": 1015,
-        "y": 1240,
+        "x": 1115,
+        "y": 1520,
         "wires": []
     },
     {
@@ -13120,8 +13053,8 @@
         "syntax": "plain",
         "template": "Nuki Kellertür-Riegel nicht mit MQTT verbunden!",
         "output": "str",
-        "x": 740,
-        "y": 1240,
+        "x": 840,
+        "y": 1520,
         "wires": [
             [
                 "5f125001e0185385"
@@ -13138,8 +13071,8 @@
         "host": "kellertuer-schloss.fritz.box",
         "timer": "20",
         "inputs": 0,
-        "x": 220,
-        "y": 2400,
+        "x": 260,
+        "y": 2640,
         "wires": [
             [
                 "6cde9011fb120382"
@@ -13156,8 +13089,8 @@
         "host": "kellertuer-riegel.fritz.box",
         "timer": "20",
         "inputs": 0,
-        "x": 220,
-        "y": 2440,
+        "x": 260,
+        "y": 2680,
         "wires": [
             [
                 "6cde9011fb120382"
@@ -13175,8 +13108,8 @@
         "syntax": "mustache",
         "template": "{{topic}} reagiert nicht auf Ping!",
         "output": "str",
-        "x": 600,
-        "y": 2420,
+        "x": 640,
+        "y": 2660,
         "wires": [
             [
                 "5a1186600cb056de"
@@ -13192,8 +13125,8 @@
         "links": [
             "a30ad159a4a28a4d"
         ],
-        "x": 755,
-        "y": 2420,
+        "x": 795,
+        "y": 2660,
         "wires": []
     },
     {
@@ -13213,8 +13146,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 410,
-        "y": 2420,
+        "x": 450,
+        "y": 2660,
         "wires": [
             [
                 "3e04932be772face"
@@ -13227,8 +13160,8 @@
         "z": "caf02dc9a5b73890",
         "name": "Nuk Wifi-Verbindung wackelt?",
         "info": "Nukis müssen anscheinend Internetverbindung haben, um sich nicht zu verhaspeln\nAußerdem muss anscheinend bei Netzteilbetrieb Batterietyp auf alkalisch gesetzt sein und\nPerformace auf Automatisch.",
-        "x": 240,
-        "y": 2360,
+        "x": 280,
+        "y": 2600,
         "wires": []
     },
     {
@@ -13239,8 +13172,8 @@
         "links": [
             "3515d84560dda4f0"
         ],
-        "x": 135,
-        "y": 640,
+        "x": 195,
+        "y": 760,
         "wires": [
             [
                 "4a8ea6e9d9760630"
@@ -13253,8 +13186,8 @@
         "z": "caf02dc9a5b73890",
         "time": "2000",
         "name": "",
-        "x": 660,
-        "y": 400,
+        "x": 680,
+        "y": 480,
         "wires": [
             [
                 "91b649eecd27b110"
@@ -13272,8 +13205,8 @@
         "syntax": "plain",
         "template": "Tür geschlossen. Abschließen!",
         "output": "str",
-        "x": 990,
-        "y": 500,
+        "x": 1010,
+        "y": 540,
         "wires": [
             [
                 "daefdaedb954414b"
@@ -13289,8 +13222,8 @@
         "links": [
             "74b60de5ac2484a2"
         ],
-        "x": 815,
-        "y": 1840,
+        "x": 895,
+        "y": 2080,
         "wires": []
     },
     {
@@ -13310,11 +13243,11 @@
         "drop": false,
         "allowrate": false,
         "outputs": 1,
-        "x": 1140,
-        "y": 1760,
+        "x": 1220,
+        "y": 2000,
         "wires": [
             [
-                "f1a1pinpadkt0beeep1"
+                "22ee13e81ba6cd7b"
             ]
         ]
     },
@@ -13335,11 +13268,11 @@
         "drop": false,
         "allowrate": false,
         "outputs": 1,
-        "x": 900,
-        "y": 1880,
+        "x": 980,
+        "y": 2120,
         "wires": [
             [
-                "f1a1pinpadkt0beeep1"
+                "43e1d0b3133032da"
             ]
         ]
     },
@@ -13354,8 +13287,8 @@
         "syntax": "plain",
         "template": "Tür offen, kann nicht abschließen!",
         "output": "str",
-        "x": 760,
-        "y": 720,
+        "x": 820,
+        "y": 880,
         "wires": [
             [
                 "5d08ca0b4ff31332"
@@ -13371,8 +13304,8 @@
         "links": [
             "a30ad159a4a28a4d"
         ],
-        "x": 975,
-        "y": 720,
+        "x": 1035,
+        "y": 880,
         "wires": []
     },
     {
@@ -13383,8 +13316,8 @@
         "links": [
             "1b37115ecaa32fd3"
         ],
-        "x": 555,
-        "y": 720,
+        "x": 615,
+        "y": 880,
         "wires": [
             [
                 "13d8f1d4af5bbe66"
@@ -13403,8 +13336,8 @@
         "attributes": [],
         "inputOverride": "allow",
         "outputProperties": [],
-        "x": 1170,
-        "y": 360,
+        "x": 1190,
+        "y": 440,
         "wires": [
             []
         ]
@@ -13421,8 +13354,8 @@
         "attributes": [],
         "inputOverride": "allow",
         "outputProperties": [],
-        "x": 800,
-        "y": 960,
+        "x": 900,
+        "y": 1180,
         "wires": [
             []
         ]
@@ -13439,8 +13372,8 @@
         "attributes": [],
         "inputOverride": "allow",
         "outputProperties": [],
-        "x": 790,
-        "y": 1040,
+        "x": 890,
+        "y": 1320,
         "wires": [
             []
         ]
@@ -13463,8 +13396,8 @@
         ],
         "inputOverride": "allow",
         "outputProperties": [],
-        "x": 510,
-        "y": 2220,
+        "x": 590,
+        "y": 2460,
         "wires": [
             []
         ]
@@ -13481,8 +13414,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 270,
-        "y": 1480,
+        "x": 330,
+        "y": 1740,
         "wires": [
             [
                 "98146a12d5197a48"
@@ -13514,8 +13447,8 @@
                 "valueType": "entityState"
             }
         ],
-        "x": 250,
-        "y": 1440,
+        "x": 310,
+        "y": 1700,
         "wires": [
             [
                 "e20b002227d59699"
@@ -13537,8 +13470,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 500,
-        "y": 1440,
+        "x": 560,
+        "y": 1700,
         "wires": [
             [
                 "8719e047cf70a57f"
@@ -13562,8 +13495,8 @@
         "drop": true,
         "allowrate": false,
         "outputs": 1,
-        "x": 660,
-        "y": 1440,
+        "x": 720,
+        "y": 1700,
         "wires": [
             [
                 "7e1f72994db91091"
@@ -13579,8 +13512,8 @@
         "outputs": 1,
         "entityConfig": "9967bcb0a18ec6ac",
         "outputProperties": [],
-        "x": 180,
-        "y": 2060,
+        "x": 220,
+        "y": 2300,
         "wires": [
             [
                 "c54fee1876ce45b0"
@@ -13596,8 +13529,8 @@
         "outputs": 1,
         "entityConfig": "8936a77682ae2ddd",
         "outputProperties": [],
-        "x": 200,
-        "y": 2100,
+        "x": 240,
+        "y": 2340,
         "wires": [
             [
                 "f049ba3037415baa"
@@ -13613,8 +13546,8 @@
         "outputs": 1,
         "entityConfig": "e3c7b8503cbaa07b",
         "outputProperties": [],
-        "x": 190,
-        "y": 2260,
+        "x": 230,
+        "y": 2500,
         "wires": [
             [
                 "bb54335ea9515d53"
@@ -13638,8 +13571,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "str",
-        "x": 740,
-        "y": 1640,
+        "x": 800,
+        "y": 1900,
         "wires": [
             [
                 "fcc6d18c0876c71e"
@@ -13684,8 +13617,8 @@
                 "valueType": "entityState"
             }
         ],
-        "x": 200,
-        "y": 1600,
+        "x": 260,
+        "y": 1860,
         "wires": [
             [
                 "8b12bba6b189b1e5"
@@ -13717,8 +13650,8 @@
         "blockInputOverrides": false,
         "domain": "text",
         "service": "set_value",
-        "x": 960,
-        "y": 1620,
+        "x": 1020,
+        "y": 1880,
         "wires": [
             []
         ]
@@ -13736,8 +13669,8 @@
         "value": "",
         "valueType": "str",
         "outputProperties": [],
-        "x": 170,
-        "y": 1560,
+        "x": 230,
+        "y": 1820,
         "wires": [
             []
         ]
@@ -13754,8 +13687,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 730,
-        "y": 680,
+        "x": 790,
+        "y": 840,
         "wires": [
             [
                 "3aa19724f3c6cbbc"
@@ -13785,30 +13718,10 @@
         "blockInputOverrides": false,
         "domain": "notify",
         "service": "familie",
-        "x": 1010,
-        "y": 680,
+        "x": 1090,
+        "y": 840,
         "wires": [
             []
-        ]
-    },
-    {
-        "id": "8a6ec893442d2ab8",
-        "type": "mqtt in",
-        "z": "caf02dc9a5b73890",
-        "name": "Kellertürschalter Außenlicht",
-        "topic": "kellertuer/switch/relay2/state",
-        "qos": "2",
-        "datatype": "auto",
-        "broker": "c349b9ff.9dc4c8",
-        "nl": false,
-        "rap": false,
-        "inputs": 0,
-        "x": 240,
-        "y": 200,
-        "wires": [
-            [
-                "d81794ad8b1fdfe1"
-            ]
         ]
     },
     {
@@ -13854,8 +13767,8 @@
         "friday": true,
         "saturday": true,
         "ignorePastDate": true,
-        "x": 240,
-        "y": 1340,
+        "x": 300,
+        "y": 1600,
         "wires": [
             [
                 "c76e0f9689ddc7ef",
@@ -13870,8 +13783,8 @@
         "name": "Fehler -> Alarmierung",
         "scope": null,
         "uncaught": false,
-        "x": 150,
-        "y": 40,
+        "x": 200,
+        "y": 60,
         "wires": [
             [
                 "7f461f9f0073d654"
@@ -13887,8 +13800,8 @@
         "links": [
             "71a4abd15cdb30b3"
         ],
-        "x": 380,
-        "y": 40,
+        "x": 365,
+        "y": 60,
         "wires": []
     },
     {
@@ -13903,11 +13816,11 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 630,
-        "y": 1120,
+        "x": 740,
+        "y": 1140,
         "wires": [
             [
-                "6efeca838ed6645c"
+                "c709460dc809d0a6"
             ]
         ]
     },
@@ -13923,11 +13836,11 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 630,
-        "y": 1180,
+        "x": 740,
+        "y": 1280,
         "wires": [
             [
-                "6efeca838ed6645c"
+                "b89ed458d9d7c19b"
             ]
         ]
     },
@@ -13943,8 +13856,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 880,
-        "y": 1150,
+        "x": 1350,
+        "y": 1220,
         "wires": [
             [
                 "4b95f7a765ef91ad"
@@ -13963,11 +13876,692 @@
         "attributes": [],
         "inputOverride": "allow",
         "outputProperties": [],
-        "x": 1130,
-        "y": 1150,
+        "x": 1310,
+        "y": 1260,
         "wires": [
             []
         ]
+    },
+    {
+        "id": "f1a1pinpadkt0beeeep",
+        "type": "api-call-service",
+        "z": "caf02dc9a5b73890",
+        "name": "Pinpad  Beep lang (HA)",
+        "server": "3e07f44559793d55",
+        "version": 7,
+        "debugenabled": false,
+        "action": "esphome.pinpad_kellertuer_send_beep",
+        "floorId": [],
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [],
+        "labelId": [],
+        "data": "{\"type\": \"beeeep\"}",
+        "dataType": "json",
+        "mergeContext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "last",
+        "blockInputOverrides": false,
+        "domain": "esphome",
+        "service": "pinpad_kellertuer_send_beep",
+        "x": 940,
+        "y": 1060,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f1a1pinpadkt0beeep1",
+        "type": "api-call-service",
+        "z": "caf02dc9a5b73890",
+        "name": "Pinpad Kellertür Beep kurz (HA)",
+        "server": "3e07f44559793d55",
+        "version": 7,
+        "debugenabled": false,
+        "action": "esphome.pinpad_kellertuer_send_beep",
+        "floorId": [],
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [],
+        "labelId": [],
+        "data": "{\"type\": \"beeep\"}",
+        "dataType": "json",
+        "mergeContext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "last",
+        "blockInputOverrides": false,
+        "domain": "esphome",
+        "service": "pinpad_kellertuer_send_beep",
+        "x": 990,
+        "y": 2460,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f1a1nukikt0sunlock",
+        "type": "api-call-service",
+        "z": "caf02dc9a5b73890",
+        "name": "Nuki Schloss aufschließen (HA)",
+        "server": "3e07f44559793d55",
+        "version": 7,
+        "debugenabled": false,
+        "action": "lock.unlock",
+        "floorId": [],
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [
+            "lock.kellertur_schloss"
+        ],
+        "labelId": [],
+        "data": "{}",
+        "dataType": "json",
+        "mergeContext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "last",
+        "blockInputOverrides": false,
+        "domain": "lock",
+        "service": "unlock",
+        "x": 1110,
+        "y": 640,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f1a1nukikt0slock01",
+        "type": "api-call-service",
+        "z": "caf02dc9a5b73890",
+        "name": "Nuki Schloss verriegeln (HA)",
+        "server": "3e07f44559793d55",
+        "version": 7,
+        "debugenabled": false,
+        "action": "lock.lock",
+        "floorId": [],
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [
+            "lock.kellertur_schloss"
+        ],
+        "labelId": [],
+        "data": "{}",
+        "dataType": "json",
+        "mergeContext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "last",
+        "blockInputOverrides": false,
+        "domain": "lock",
+        "service": "lock",
+        "x": 1100,
+        "y": 680,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f1a1nukikt0sopen01",
+        "type": "api-call-service",
+        "z": "caf02dc9a5b73890",
+        "name": "Nuki Schloss öffnen (HA)",
+        "server": "3e07f44559793d55",
+        "version": 7,
+        "debugenabled": false,
+        "action": "lock.open",
+        "floorId": [],
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [
+            "lock.kellertur_schloss"
+        ],
+        "labelId": [],
+        "data": "{}",
+        "dataType": "json",
+        "mergeContext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "last",
+        "blockInputOverrides": false,
+        "domain": "lock",
+        "service": "open",
+        "x": 1090,
+        "y": 720,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f1a1nukikt0sroute",
+        "type": "switch",
+        "z": "caf02dc9a5b73890",
+        "name": "Nuki Schloss Aktion routen",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "2",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "3",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 3,
+        "x": 800,
+        "y": 680,
+        "wires": [
+            [
+                "f1a1nukikt0sunlock"
+            ],
+            [
+                "f1a1nukikt0slock01"
+            ],
+            [
+                "f1a1nukikt0sopen01"
+            ]
+        ]
+    },
+    {
+        "id": "f1a1nukikt0runlock",
+        "type": "api-call-service",
+        "z": "caf02dc9a5b73890",
+        "name": "Nuki Riegel aufschließen (HA)",
+        "server": "3e07f44559793d55",
+        "version": 7,
+        "debugenabled": false,
+        "action": "lock.unlock",
+        "floorId": [],
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [
+            "lock.kellertuer_riegel"
+        ],
+        "labelId": [],
+        "data": "{}",
+        "dataType": "json",
+        "mergeContext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "last",
+        "blockInputOverrides": false,
+        "domain": "lock",
+        "service": "unlock",
+        "x": 1110,
+        "y": 760,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f1a1nukikt0rlock01",
+        "type": "api-call-service",
+        "z": "caf02dc9a5b73890",
+        "name": "Nuki Riegel verriegeln (HA)",
+        "server": "3e07f44559793d55",
+        "version": 7,
+        "debugenabled": false,
+        "action": "lock.lock",
+        "floorId": [],
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [
+            "lock.kellertuer_riegel"
+        ],
+        "labelId": [],
+        "data": "{}",
+        "dataType": "json",
+        "mergeContext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "last",
+        "blockInputOverrides": false,
+        "domain": "lock",
+        "service": "lock",
+        "x": 1100,
+        "y": 800,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f1a1nukikt0rroute",
+        "type": "switch",
+        "z": "caf02dc9a5b73890",
+        "name": "Nuki Riegel Aktion routen",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "2",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 790,
+        "y": 780,
+        "wires": [
+            [
+                "f1a1nukikt0runlock"
+            ],
+            [
+                "f1a1nukikt0rlock01"
+            ]
+        ]
+    },
+    {
+        "id": "f1a1nukikt0sstrbe",
+        "type": "rbe",
+        "z": "caf02dc9a5b73890",
+        "name": "",
+        "func": "rbei",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "septopics": true,
+        "property": "payload",
+        "topi": "topic",
+        "x": 510,
+        "y": 1120,
+        "wires": [
+            [
+                "ca859f08d83d0787",
+                "ed95c413c6a5e0a9",
+                "8a9f9371d9d1ebbf",
+                "e4b3dbc5749faaac"
+            ]
+        ]
+    },
+    {
+        "id": "f1a1nukikt0sstate",
+        "type": "server-state-changed",
+        "z": "caf02dc9a5b73890",
+        "name": "Kellertür-Schloss-State (HA)",
+        "server": "3e07f44559793d55",
+        "version": 6,
+        "outputs": 1,
+        "exposeAsEntityConfig": "",
+        "entities": {
+            "entity": [
+                "lock.kellertur_schloss"
+            ],
+            "substring": [],
+            "regex": []
+        },
+        "outputInitially": true,
+        "stateType": "str",
+        "ifState": "",
+        "ifStateType": "str",
+        "ifStateOperator": "is",
+        "outputOnlyOnStateChange": true,
+        "for": "0",
+        "forType": "num",
+        "forUnits": "minutes",
+        "ignorePrevStateNull": false,
+        "ignorePrevStateUnknown": false,
+        "ignorePrevStateUnavailable": false,
+        "ignoreCurrentStateUnknown": true,
+        "ignoreCurrentStateUnavailable": true,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "string",
+                "valueType": "entityState"
+            }
+        ],
+        "x": 300,
+        "y": 1120,
+        "wires": [
+            [
+                "f1a1nukikt0sstrbe"
+            ]
+        ]
+    },
+    {
+        "id": "f1a1nukikt0rstrbe",
+        "type": "rbe",
+        "z": "caf02dc9a5b73890",
+        "name": "",
+        "func": "rbei",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "septopics": true,
+        "property": "payload",
+        "topi": "topic",
+        "x": 550,
+        "y": 1300,
+        "wires": [
+            [
+                "90dd6edb647f3b50",
+                "b642ccfd7a3e3f67"
+            ]
+        ]
+    },
+    {
+        "id": "f1a1nukikt0rstate",
+        "type": "server-state-changed",
+        "z": "caf02dc9a5b73890",
+        "name": "Kellertür-Riegel-State (HA)",
+        "server": "3e07f44559793d55",
+        "version": 6,
+        "outputs": 1,
+        "exposeAsEntityConfig": "",
+        "entities": {
+            "entity": [
+                "lock.kellertuer_riegel"
+            ],
+            "substring": [],
+            "regex": []
+        },
+        "outputInitially": true,
+        "stateType": "str",
+        "ifState": "",
+        "ifStateType": "str",
+        "ifStateOperator": "is",
+        "outputOnlyOnStateChange": true,
+        "for": "0",
+        "forType": "num",
+        "forUnits": "minutes",
+        "ignorePrevStateNull": false,
+        "ignorePrevStateUnknown": false,
+        "ignorePrevStateUnavailable": false,
+        "ignoreCurrentStateUnknown": true,
+        "ignoreCurrentStateUnavailable": true,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "string",
+                "valueType": "entityState"
+            }
+        ],
+        "x": 290,
+        "y": 1300,
+        "wires": [
+            [
+                "f1a1nukikt0rstrbe"
+            ]
+        ]
+    },
+    {
+        "id": "f1a1nukikt0sunav",
+        "type": "switch",
+        "z": "caf02dc9a5b73890",
+        "name": "unavailable?",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "unavailable",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 550,
+        "y": 1420,
+        "wires": [
+            [
+                "92d99604fdb43064",
+                "20c36d80ab1a4a25"
+            ]
+        ]
+    },
+    {
+        "id": "f1a1nukikt0sconn",
+        "type": "server-state-changed",
+        "z": "caf02dc9a5b73890",
+        "name": "Kellertür-Schloss Connected (HA)",
+        "server": "3e07f44559793d55",
+        "version": 6,
+        "outputs": 1,
+        "exposeAsEntityConfig": "",
+        "entities": {
+            "entity": [
+                "lock.kellertur_schloss"
+            ],
+            "substring": [],
+            "regex": []
+        },
+        "outputInitially": false,
+        "stateType": "str",
+        "ifState": "",
+        "ifStateType": "str",
+        "ifStateOperator": "is",
+        "outputOnlyOnStateChange": true,
+        "for": "0",
+        "forType": "num",
+        "forUnits": "minutes",
+        "ignorePrevStateNull": false,
+        "ignorePrevStateUnknown": false,
+        "ignorePrevStateUnavailable": false,
+        "ignoreCurrentStateUnknown": false,
+        "ignoreCurrentStateUnavailable": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "string",
+                "valueType": "entityState"
+            }
+        ],
+        "x": 310,
+        "y": 1420,
+        "wires": [
+            [
+                "f1a1nukikt0sunav"
+            ]
+        ]
+    },
+    {
+        "id": "f1a1nukikt0runav",
+        "type": "switch",
+        "z": "caf02dc9a5b73890",
+        "name": "unavailable?",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "unavailable",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 550,
+        "y": 1500,
+        "wires": [
+            [
+                "593bfd943b6288c7",
+                "849812f1d8613a71"
+            ]
+        ]
+    },
+    {
+        "id": "f1a1nukikt0rconn",
+        "type": "server-state-changed",
+        "z": "caf02dc9a5b73890",
+        "name": "Kellertür-Riegel Connected (HA)",
+        "server": "3e07f44559793d55",
+        "version": 6,
+        "outputs": 1,
+        "exposeAsEntityConfig": "",
+        "entities": {
+            "entity": [
+                "lock.kellertuer_riegel"
+            ],
+            "substring": [],
+            "regex": []
+        },
+        "outputInitially": false,
+        "stateType": "str",
+        "ifState": "",
+        "ifStateType": "str",
+        "ifStateOperator": "is",
+        "outputOnlyOnStateChange": true,
+        "for": "0",
+        "forType": "num",
+        "forUnits": "minutes",
+        "ignorePrevStateNull": false,
+        "ignorePrevStateUnknown": false,
+        "ignorePrevStateUnavailable": false,
+        "ignoreCurrentStateUnknown": false,
+        "ignoreCurrentStateUnavailable": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "string",
+                "valueType": "entityState"
+            }
+        ],
+        "x": 310,
+        "y": 1500,
+        "wires": [
+            [
+                "f1a1nukikt0runav"
+            ]
+        ]
+    },
+    {
+        "id": "f1a1nukikt0bkuo1",
+        "type": "link out",
+        "z": "caf02dc9a5b73890",
+        "name": "link out 130",
+        "mode": "link",
+        "links": [
+            "f1a1nukikt0bkin1"
+        ],
+        "x": 855,
+        "y": 1100,
+        "wires": []
+    },
+    {
+        "id": "f1a1nukikt0bkin1",
+        "type": "link in",
+        "z": "caf02dc9a5b73890",
+        "name": "Beep kurz",
+        "links": [
+            "f1a1nukikt0bkuo1",
+            "d796c658493a23d4",
+            "43e1d0b3133032da",
+            "22ee13e81ba6cd7b"
+        ],
+        "x": 765,
+        "y": 2460,
+        "wires": [
+            [
+                "f1a1pinpadkt0beeep1"
+            ]
+        ]
+    },
+    {
+        "id": "d796c658493a23d4",
+        "type": "link out",
+        "z": "caf02dc9a5b73890",
+        "name": "link out 7",
+        "mode": "link",
+        "links": [
+            "f1a1nukikt0bkin1"
+        ],
+        "x": 695,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "43e1d0b3133032da",
+        "type": "link out",
+        "z": "caf02dc9a5b73890",
+        "name": "link out 8",
+        "mode": "link",
+        "links": [
+            "f1a1nukikt0bkin1"
+        ],
+        "x": 1145,
+        "y": 2120,
+        "wires": []
+    },
+    {
+        "id": "22ee13e81ba6cd7b",
+        "type": "link out",
+        "z": "caf02dc9a5b73890",
+        "name": "link out 9",
+        "mode": "link",
+        "links": [
+            "f1a1nukikt0bkin1"
+        ],
+        "x": 1395,
+        "y": 2000,
+        "wires": []
+    },
+    {
+        "id": "d6f4f2d3a4df38f4",
+        "type": "link in",
+        "z": "caf02dc9a5b73890",
+        "name": "link in 1",
+        "links": [
+            "b89ed458d9d7c19b",
+            "c709460dc809d0a6"
+        ],
+        "x": 1165,
+        "y": 1220,
+        "wires": [
+            [
+                "6efeca838ed6645c"
+            ]
+        ]
+    },
+    {
+        "id": "b89ed458d9d7c19b",
+        "type": "link out",
+        "z": "caf02dc9a5b73890",
+        "name": "link out 10",
+        "mode": "link",
+        "links": [
+            "d6f4f2d3a4df38f4"
+        ],
+        "x": 895,
+        "y": 1280,
+        "wires": []
+    },
+    {
+        "id": "c709460dc809d0a6",
+        "type": "link out",
+        "z": "caf02dc9a5b73890",
+        "name": "link out 11",
+        "mode": "link",
+        "links": [
+            "d6f4f2d3a4df38f4"
+        ],
+        "x": 895,
+        "y": 1140,
+        "wires": []
     },
     {
         "id": "aa99eb44af9f184a",
@@ -18649,327 +19243,44 @@
         ]
     },
     {
-        "id": "f1a1pinpadkt0beeeep",
-        "type": "api-call-service",
+        "id": "f1a1ktsensor0inv1",
+        "type": "change",
         "z": "caf02dc9a5b73890",
-        "name": "Pinpad Kellertür Beep lang (HA)",
-        "server": "3e07f44559793d55",
-        "version": 7,
-        "debugenabled": false,
-        "action": "esphome.pinpad_kellertuer_send_beep",
-        "floorId": [],
-        "areaId": [],
-        "deviceId": [],
-        "entityId": [],
-        "labelId": [],
-        "data": "{\"type\": \"beeeep\"}",
-        "dataType": "json",
-        "mergeContext": "",
-        "mustacheAltTags": false,
-        "outputProperties": [],
-        "queue": "last",
-        "blockInputOverrides": false,
-        "domain": "esphome",
-        "service": "pinpad_kellertuer_send_beep",
-        "x": 760,
-        "y": 860,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "f1a1pinpadkt0beeep1",
-        "type": "api-call-service",
-        "z": "caf02dc9a5b73890",
-        "name": "Pinpad Kellertür Beep kurz (HA)",
-        "server": "3e07f44559793d55",
-        "version": 7,
-        "debugenabled": false,
-        "action": "esphome.pinpad_kellertuer_send_beep",
-        "floorId": [],
-        "areaId": [],
-        "deviceId": [],
-        "entityId": [],
-        "labelId": [],
-        "data": "{\"type\": \"beeep\"}",
-        "dataType": "json",
-        "mergeContext": "",
-        "mustacheAltTags": false,
-        "outputProperties": [],
-        "queue": "last",
-        "blockInputOverrides": false,
-        "domain": "esphome",
-        "service": "pinpad_kellertuer_send_beep",
-        "x": 780,
-        "y": 2280,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "f1a1nukikt0sunlock",
-        "type": "api-call-service",
-        "z": "caf02dc9a5b73890",
-        "name": "Nuki Schloss aufschließen (HA)",
-        "server": "3e07f44559793d55",
-        "version": 7,
-        "debugenabled": false,
-        "action": "lock.unlock",
-        "floorId": [],
-        "areaId": [],
-        "deviceId": [],
-        "entityId": [
-            "lock.kellertur_schloss"
-        ],
-        "labelId": [],
-        "data": "{}",
-        "dataType": "json",
-        "mergeContext": "",
-        "mustacheAltTags": false,
-        "outputProperties": [],
-        "queue": "last",
-        "blockInputOverrides": false,
-        "domain": "lock",
-        "service": "unlock",
-        "x": 900,
-        "y": 760,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "f1a1nukikt0slock01",
-        "type": "api-call-service",
-        "z": "caf02dc9a5b73890",
-        "name": "Nuki Schloss verriegeln (HA)",
-        "server": "3e07f44559793d55",
-        "version": 7,
-        "debugenabled": false,
-        "action": "lock.lock",
-        "floorId": [],
-        "areaId": [],
-        "deviceId": [],
-        "entityId": [
-            "lock.kellertur_schloss"
-        ],
-        "labelId": [],
-        "data": "{}",
-        "dataType": "json",
-        "mergeContext": "",
-        "mustacheAltTags": false,
-        "outputProperties": [],
-        "queue": "last",
-        "blockInputOverrides": false,
-        "domain": "lock",
-        "service": "lock",
-        "x": 900,
-        "y": 800,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "f1a1nukikt0sopen01",
-        "type": "api-call-service",
-        "z": "caf02dc9a5b73890",
-        "name": "Nuki Schloss öffnen (HA)",
-        "server": "3e07f44559793d55",
-        "version": 7,
-        "debugenabled": false,
-        "action": "lock.open",
-        "floorId": [],
-        "areaId": [],
-        "deviceId": [],
-        "entityId": [
-            "lock.kellertur_schloss"
-        ],
-        "labelId": [],
-        "data": "{}",
-        "dataType": "json",
-        "mergeContext": "",
-        "mustacheAltTags": false,
-        "outputProperties": [],
-        "queue": "last",
-        "blockInputOverrides": false,
-        "domain": "lock",
-        "service": "open",
-        "x": 900,
-        "y": 840,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "f1a1nukikt0sroute",
-        "type": "switch",
-        "z": "caf02dc9a5b73890",
-        "name": "Nuki Schloss Aktion routen",
-        "property": "payload",
-        "propertyType": "msg",
-        "checkall": "true",
-        "repair": false,
+        "name": "contact (HA on/off invertiert)",
         "rules": [
             {
-                "t": "eq",
-                "v": "1",
-                "vt": "num"
-            },
-            {
-                "t": "eq",
-                "v": "2",
-                "vt": "num"
-            },
-            {
-                "t": "eq",
-                "v": "3",
-                "vt": "num"
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload = \"off\"",
+                "tot": "jsonata"
             }
         ],
-        "outputs": 3,
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 400,
+        "y": 440,
         "wires": [
             [
-                "f1a1nukikt0sunlock"
-            ],
-            [
-                "f1a1nukikt0slock01"
-            ],
-            [
-                "f1a1nukikt0sopen01"
-            ]
-        ],
-        "x": 700,
-        "y": 800
-    },
-    {
-        "id": "f1a1nukikt0runlock",
-        "type": "api-call-service",
-        "z": "caf02dc9a5b73890",
-        "name": "Nuki Riegel aufschließen (HA)",
-        "server": "3e07f44559793d55",
-        "version": 7,
-        "debugenabled": false,
-        "action": "lock.unlock",
-        "floorId": [],
-        "areaId": [],
-        "deviceId": [],
-        "entityId": [
-            "lock.kellertuer_riegel"
-        ],
-        "labelId": [],
-        "data": "{}",
-        "dataType": "json",
-        "mergeContext": "",
-        "mustacheAltTags": false,
-        "outputProperties": [],
-        "queue": "last",
-        "blockInputOverrides": false,
-        "domain": "lock",
-        "service": "unlock",
-        "x": 900,
-        "y": 900,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "f1a1nukikt0rlock01",
-        "type": "api-call-service",
-        "z": "caf02dc9a5b73890",
-        "name": "Nuki Riegel verriegeln (HA)",
-        "server": "3e07f44559793d55",
-        "version": 7,
-        "debugenabled": false,
-        "action": "lock.lock",
-        "floorId": [],
-        "areaId": [],
-        "deviceId": [],
-        "entityId": [
-            "lock.kellertuer_riegel"
-        ],
-        "labelId": [],
-        "data": "{}",
-        "dataType": "json",
-        "mergeContext": "",
-        "mustacheAltTags": false,
-        "outputProperties": [],
-        "queue": "last",
-        "blockInputOverrides": false,
-        "domain": "lock",
-        "service": "lock",
-        "x": 900,
-        "y": 940,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "f1a1nukikt0rroute",
-        "type": "switch",
-        "z": "caf02dc9a5b73890",
-        "name": "Nuki Riegel Aktion routen",
-        "property": "payload",
-        "propertyType": "msg",
-        "checkall": "true",
-        "repair": false,
-        "rules": [
-            {
-                "t": "eq",
-                "v": "1",
-                "vt": "num"
-            },
-            {
-                "t": "eq",
-                "v": "2",
-                "vt": "num"
-            }
-        ],
-        "outputs": 2,
-        "wires": [
-            [
-                "f1a1nukikt0runlock"
-            ],
-            [
-                "f1a1nukikt0rlock01"
-            ]
-        ],
-        "x": 700,
-        "y": 920
-    },
-    {
-        "id": "f1a1nukikt0sstrbe",
-        "type": "rbe",
-        "z": "caf02dc9a5b73890",
-        "name": "",
-        "func": "rbei",
-        "gap": "",
-        "start": "",
-        "inout": "out",
-        "septopics": true,
-        "property": "payload",
-        "topi": "topic",
-        "x": 450,
-        "y": 920,
-        "wires": [
-            [
-                "ca859f08d83d0787",
-                "ed95c413c6a5e0a9",
-                "8a9f9371d9d1ebbf",
-                "e4b3dbc5749faaac"
+                "fb53dbf77d799ec7"
             ]
         ]
     },
     {
-        "id": "f1a1nukikt0sstate",
+        "id": "f1a1ktsensor0state",
         "type": "server-state-changed",
         "z": "caf02dc9a5b73890",
-        "name": "Kellertür-Schloss-State (HA)",
+        "name": "Kellertür-Sensor (HA)",
         "server": "3e07f44559793d55",
         "version": 6,
         "outputs": 1,
         "exposeAsEntityConfig": "",
         "entities": {
             "entity": [
-                "lock.kellertur_schloss"
+                "binary_sensor.kellertuer_sensor_contact"
             ],
             "substring": [],
             "regex": []
@@ -18996,47 +19307,26 @@
                 "valueType": "entityState"
             }
         ],
-        "x": 230,
-        "y": 920,
+        "x": 200,
+        "y": 440,
         "wires": [
             [
-                "f1a1nukikt0sstrbe"
+                "f1a1ktsensor0inv1"
             ]
         ]
     },
     {
-        "id": "f1a1nukikt0rstrbe",
-        "type": "rbe",
-        "z": "caf02dc9a5b73890",
-        "name": "",
-        "func": "rbei",
-        "gap": "",
-        "start": "",
-        "inout": "out",
-        "septopics": true,
-        "property": "payload",
-        "topi": "topic",
-        "x": 450,
-        "y": 1040,
-        "wires": [
-            [
-                "90dd6edb647f3b50",
-                "b642ccfd7a3e3f67"
-            ]
-        ]
-    },
-    {
-        "id": "f1a1nukikt0rstate",
+        "id": "f1a1ktrelay20state",
         "type": "server-state-changed",
         "z": "caf02dc9a5b73890",
-        "name": "Kellertür-Riegel-State (HA)",
+        "name": "Kellertürschalter Außenlicht (HA)",
         "server": "3e07f44559793d55",
         "version": 6,
         "outputs": 1,
         "exposeAsEntityConfig": "",
         "entities": {
             "entity": [
-                "lock.kellertuer_riegel"
+                "switch.kellertuer_relay2"
             ],
             "substring": [],
             "regex": []
@@ -19063,184 +19353,11 @@
                 "valueType": "entityState"
             }
         ],
-        "x": 230,
-        "y": 1040,
+        "x": 200,
+        "y": 160,
         "wires": [
             [
-                "f1a1nukikt0rstrbe"
-            ]
-        ]
-    },
-    {
-        "id": "f1a1nukikt0sunav",
-        "type": "switch",
-        "z": "caf02dc9a5b73890",
-        "name": "unavailable?",
-        "property": "payload",
-        "propertyType": "msg",
-        "checkall": "true",
-        "repair": false,
-        "rules": [
-            {
-                "t": "eq",
-                "v": "unavailable",
-                "vt": "str"
-            }
-        ],
-        "outputs": 1,
-        "x": 450,
-        "y": 1140,
-        "wires": [
-            [
-                "92d99604fdb43064",
-                "20c36d80ab1a4a25"
-            ]
-        ]
-    },
-    {
-        "id": "f1a1nukikt0sconn",
-        "type": "server-state-changed",
-        "z": "caf02dc9a5b73890",
-        "name": "Kellertür-Schloss Connected (HA)",
-        "server": "3e07f44559793d55",
-        "version": 6,
-        "outputs": 1,
-        "exposeAsEntityConfig": "",
-        "entities": {
-            "entity": [
-                "lock.kellertur_schloss"
-            ],
-            "substring": [],
-            "regex": []
-        },
-        "outputInitially": false,
-        "stateType": "str",
-        "ifState": "",
-        "ifStateType": "str",
-        "ifStateOperator": "is",
-        "outputOnlyOnStateChange": true,
-        "for": "0",
-        "forType": "num",
-        "forUnits": "minutes",
-        "ignorePrevStateNull": false,
-        "ignorePrevStateUnknown": false,
-        "ignorePrevStateUnavailable": false,
-        "ignoreCurrentStateUnknown": false,
-        "ignoreCurrentStateUnavailable": false,
-        "outputProperties": [
-            {
-                "property": "payload",
-                "propertyType": "msg",
-                "value": "string",
-                "valueType": "entityState"
-            }
-        ],
-        "x": 230,
-        "y": 1140,
-        "wires": [
-            [
-                "f1a1nukikt0sunav"
-            ]
-        ]
-    },
-    {
-        "id": "f1a1nukikt0runav",
-        "type": "switch",
-        "z": "caf02dc9a5b73890",
-        "name": "unavailable?",
-        "property": "payload",
-        "propertyType": "msg",
-        "checkall": "true",
-        "repair": false,
-        "rules": [
-            {
-                "t": "eq",
-                "v": "unavailable",
-                "vt": "str"
-            }
-        ],
-        "outputs": 1,
-        "x": 450,
-        "y": 1220,
-        "wires": [
-            [
-                "593bfd943b6288c7",
-                "849812f1d8613a71"
-            ]
-        ]
-    },
-    {
-        "id": "f1a1nukikt0rconn",
-        "type": "server-state-changed",
-        "z": "caf02dc9a5b73890",
-        "name": "Kellertür-Riegel Connected (HA)",
-        "server": "3e07f44559793d55",
-        "version": 6,
-        "outputs": 1,
-        "exposeAsEntityConfig": "",
-        "entities": {
-            "entity": [
-                "lock.kellertuer_riegel"
-            ],
-            "substring": [],
-            "regex": []
-        },
-        "outputInitially": false,
-        "stateType": "str",
-        "ifState": "",
-        "ifStateType": "str",
-        "ifStateOperator": "is",
-        "outputOnlyOnStateChange": true,
-        "for": "0",
-        "forType": "num",
-        "forUnits": "minutes",
-        "ignorePrevStateNull": false,
-        "ignorePrevStateUnknown": false,
-        "ignorePrevStateUnavailable": false,
-        "ignoreCurrentStateUnknown": false,
-        "ignoreCurrentStateUnavailable": false,
-        "outputProperties": [
-            {
-                "property": "payload",
-                "propertyType": "msg",
-                "value": "string",
-                "valueType": "entityState"
-            }
-        ],
-        "x": 230,
-        "y": 1220,
-        "wires": [
-            [
-                "f1a1nukikt0runav"
-            ]
-        ]
-    },
-    {
-        "id": "f1a1nukikt0bkuo1",
-        "type": "link out",
-        "z": "caf02dc9a5b73890",
-        "name": "link out 130",
-        "mode": "link",
-        "links": [
-            "f1a1nukikt0bkin1"
-        ],
-        "x": 725,
-        "y": 920,
-        "wires": []
-    },
-    {
-        "id": "f1a1nukikt0bkin1",
-        "type": "link in",
-        "z": "caf02dc9a5b73890",
-        "name": "Beep kurz",
-        "links": [
-            "f1a1nukikt0bkuo1"
-        ],
-        "x": 625,
-        "y": 2280,
-        "wires": [
-            [
-                "f1a1pinpadkt0beeep1"
+                "d81794ad8b1fdfe1"
             ]
         ]
     }
