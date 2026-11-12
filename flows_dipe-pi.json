@@ -11249,29 +11249,6 @@
         ]
     },
     {
-        "id": "49ec7a126061c939",
-        "type": "rbe",
-        "z": "caf02dc9a5b73890",
-        "name": "",
-        "func": "rbei",
-        "gap": "",
-        "start": "",
-        "inout": "out",
-        "septopics": true,
-        "property": "payload",
-        "topi": "topic",
-        "x": 450,
-        "y": 920,
-        "wires": [
-            [
-                "ca859f08d83d0787",
-                "ed95c413c6a5e0a9",
-                "8a9f9371d9d1ebbf",
-                "e4b3dbc5749faaac"
-            ]
-        ]
-    },
-    {
         "id": "cbbc12229200dfa5",
         "type": "trigger",
         "z": "caf02dc9a5b73890",
@@ -11426,53 +11403,11 @@
         ]
     },
     {
-        "id": "129cafcfd2f9e56b",
-        "type": "mqtt in",
-        "z": "caf02dc9a5b73890",
-        "name": "Kellertür-Schloss State",
-        "topic": "nuki/32AE09F4/state",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "c349b9ff.9dc4c8",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 220,
-        "y": 920,
-        "wires": [
-            [
-                "49ec7a126061c939"
-            ]
-        ]
-    },
-    {
-        "id": "7e807761389aca3d",
-        "type": "mqtt in",
-        "z": "caf02dc9a5b73890",
-        "name": "Kellertür-Riegel State",
-        "topic": "nuki/33B5C9E4/state",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "c349b9ff.9dc4c8",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 220,
-        "y": 1040,
-        "wires": [
-            [
-                "7f163ebdf37fa291"
-            ]
-        ]
-    },
-    {
         "id": "90dd6edb647f3b50",
         "type": "function",
         "z": "caf02dc9a5b73890",
         "name": "Status-Text",
-        "func": "const state_name_de = {\n    0: \"unkalibriert\",\n    1: \"abgeschlossen\",\n    2: \"aufschließen\",\n    3: \"aufgeschlossen\",\n    4: \"abschließen\",\n    5: \"geöffnet\",\n    6: \"entriegelt und gehen\",\n    7: \"öffnen\",\n    254: \"Motor blockiert\",\n    255: \"undefiniert\"\n}[msg.payload];\n\nreturn ({payload: state_name_de || msg.payload});",
+        "func": "const state_name_de = {\n    \"locked\": \"abgeschlossen\",\n    \"unlocking\": \"aufschließen\",\n    \"unlocked\": \"aufgeschlossen\",\n    \"locking\": \"abschließen\",\n    \"open\": \"geöffnet\",\n    \"opening\": \"öffnen\",\n    \"jammed\": \"Motor blockiert\",\n    \"unavailable\": \"undefiniert\"\n}[msg.payload];\n\nreturn ({payload: state_name_de || msg.payload});",
         "outputs": 1,
         "timeout": "",
         "noerr": 0,
@@ -11489,32 +11424,11 @@
         ]
     },
     {
-        "id": "7f163ebdf37fa291",
-        "type": "rbe",
-        "z": "caf02dc9a5b73890",
-        "name": "",
-        "func": "rbe",
-        "gap": "",
-        "start": "",
-        "inout": "out",
-        "septopics": true,
-        "property": "payload",
-        "topi": "topic",
-        "x": 450,
-        "y": 1040,
-        "wires": [
-            [
-                "90dd6edb647f3b50",
-                "b642ccfd7a3e3f67"
-            ]
-        ]
-    },
-    {
         "id": "ca859f08d83d0787",
         "type": "function",
         "z": "caf02dc9a5b73890",
         "name": "Status-Text",
-        "func": "const state_name_de = {\n    0: \"unkalibriert\",\n    1: \"abgeschlossen\",\n    2: \"aufschließen\",\n    3: \"aufgeschlossen\",\n    4: \"abschließen\",\n    5: \"geöffnet\",\n    6: \"entriegelt und gehen\",\n    7: \"öffnen\",\n    254: \"Motor blockiert\",\n    255: \"undefiniert\"\n}[msg.payload];\n\nreturn ({payload: state_name_de || msg.payload});",
+        "func": "const state_name_de = {\n    \"locked\": \"abgeschlossen\",\n    \"unlocking\": \"aufschließen\",\n    \"unlocked\": \"aufgeschlossen\",\n    \"locking\": \"abschließen\",\n    \"open\": \"geöffnet\",\n    \"opening\": \"öffnen\",\n    \"jammed\": \"Motor blockiert\",\n    \"unavailable\": \"undefiniert\"\n}[msg.payload];\n\nreturn ({payload: state_name_de || msg.payload});",
         "outputs": 1,
         "timeout": "",
         "noerr": 0,
@@ -12591,8 +12505,8 @@
         "rules": [
             {
                 "t": "eq",
-                "v": "1",
-                "vt": "num"
+                "v": "locked",
+                "vt": "str"
             }
         ],
         "checkall": "true",
@@ -12617,8 +12531,8 @@
         "rules": [
             {
                 "t": "eq",
-                "v": "5",
-                "vt": "num"
+                "v": "open",
+                "vt": "str"
             }
         ],
         "checkall": "true",
@@ -13089,48 +13003,6 @@
         "wires": []
     },
     {
-        "id": "a632a8c0562ccca0",
-        "type": "mqtt in",
-        "z": "caf02dc9a5b73890",
-        "name": "Kellertür-Schloss Connected",
-        "topic": "nuki/32AE09F4/connected",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "c349b9ff.9dc4c8",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 240,
-        "y": 1140,
-        "wires": [
-            [
-                "a5b20ac0194b7d7c"
-            ]
-        ]
-    },
-    {
-        "id": "96b33015b690a96b",
-        "type": "mqtt in",
-        "z": "caf02dc9a5b73890",
-        "name": "Kellertür-Riegel Connected",
-        "topic": "nuki/33B5C9E4/connected",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "c349b9ff.9dc4c8",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 230,
-        "y": 1220,
-        "wires": [
-            [
-                "a858b01040bbc933"
-            ]
-        ]
-    },
-    {
         "id": "92d99604fdb43064",
         "type": "function",
         "z": "caf02dc9a5b73890",
@@ -13253,58 +13125,6 @@
         "wires": [
             [
                 "5f125001e0185385"
-            ]
-        ]
-    },
-    {
-        "id": "a5b20ac0194b7d7c",
-        "type": "switch",
-        "z": "caf02dc9a5b73890",
-        "name": "false?",
-        "property": "payload",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "false",
-                "vt": "jsonata"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 450,
-        "y": 1140,
-        "wires": [
-            [
-                "92d99604fdb43064",
-                "20c36d80ab1a4a25"
-            ]
-        ]
-    },
-    {
-        "id": "a858b01040bbc933",
-        "type": "switch",
-        "z": "caf02dc9a5b73890",
-        "name": "false?",
-        "property": "payload",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "false",
-                "vt": "jsonata"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 450,
-        "y": 1220,
-        "wires": [
-            [
-                "593bfd943b6288c7",
-                "849812f1d8613a71"
             ]
         ]
     },
@@ -14116,7 +13936,7 @@
         "type": "function",
         "z": "caf02dc9a5b73890",
         "name": "Kellertür verriegelt? (kombiniert)",
-        "func": "const schloss = flow.get('kellertur_schloss_code');\nconst riegel = flow.get('kellertur_riegel_code');\nif (schloss === undefined || riegel === undefined) return null; // noch nicht beide bekannt\nconst locked = (schloss === 1) && (riegel === 1);\nreturn { payload: locked ? \"off\" : \"on\" };",
+        "func": "const schloss = flow.get('kellertur_schloss_code');\nconst riegel = flow.get('kellertur_riegel_code');\nif (schloss === undefined || riegel === undefined) return null; // noch nicht beide bekannt\nconst locked = (schloss === \"locked\") && (riegel === \"locked\");\nreturn { payload: locked ? \"off\" : \"on\" };",
         "outputs": 1,
         "timeout": "",
         "noerr": 0,
@@ -19114,5 +18934,285 @@
         ],
         "x": 700,
         "y": 920
+    },
+    {
+        "id": "f1a1nukikt0sstrbe",
+        "type": "rbe",
+        "z": "caf02dc9a5b73890",
+        "name": "",
+        "func": "rbei",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "septopics": true,
+        "property": "payload",
+        "topi": "topic",
+        "x": 450,
+        "y": 920,
+        "wires": [
+            [
+                "ca859f08d83d0787",
+                "ed95c413c6a5e0a9",
+                "8a9f9371d9d1ebbf",
+                "e4b3dbc5749faaac"
+            ]
+        ]
+    },
+    {
+        "id": "f1a1nukikt0sstate",
+        "type": "server-state-changed",
+        "z": "caf02dc9a5b73890",
+        "name": "Kellertür-Schloss-State (HA)",
+        "server": "3e07f44559793d55",
+        "version": 6,
+        "outputs": 1,
+        "exposeAsEntityConfig": "",
+        "entities": {
+            "entity": [
+                "lock.kellertur_schloss"
+            ],
+            "substring": [],
+            "regex": []
+        },
+        "outputInitially": true,
+        "stateType": "str",
+        "ifState": "",
+        "ifStateType": "str",
+        "ifStateOperator": "is",
+        "outputOnlyOnStateChange": true,
+        "for": "0",
+        "forType": "num",
+        "forUnits": "minutes",
+        "ignorePrevStateNull": false,
+        "ignorePrevStateUnknown": false,
+        "ignorePrevStateUnavailable": false,
+        "ignoreCurrentStateUnknown": true,
+        "ignoreCurrentStateUnavailable": true,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "string",
+                "valueType": "entityState"
+            }
+        ],
+        "x": 230,
+        "y": 920,
+        "wires": [
+            [
+                "f1a1nukikt0sstrbe"
+            ]
+        ]
+    },
+    {
+        "id": "f1a1nukikt0rstrbe",
+        "type": "rbe",
+        "z": "caf02dc9a5b73890",
+        "name": "",
+        "func": "rbei",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "septopics": true,
+        "property": "payload",
+        "topi": "topic",
+        "x": 450,
+        "y": 1040,
+        "wires": [
+            [
+                "90dd6edb647f3b50",
+                "b642ccfd7a3e3f67"
+            ]
+        ]
+    },
+    {
+        "id": "f1a1nukikt0rstate",
+        "type": "server-state-changed",
+        "z": "caf02dc9a5b73890",
+        "name": "Kellertür-Riegel-State (HA)",
+        "server": "3e07f44559793d55",
+        "version": 6,
+        "outputs": 1,
+        "exposeAsEntityConfig": "",
+        "entities": {
+            "entity": [
+                "lock.kellertuer_riegel"
+            ],
+            "substring": [],
+            "regex": []
+        },
+        "outputInitially": true,
+        "stateType": "str",
+        "ifState": "",
+        "ifStateType": "str",
+        "ifStateOperator": "is",
+        "outputOnlyOnStateChange": true,
+        "for": "0",
+        "forType": "num",
+        "forUnits": "minutes",
+        "ignorePrevStateNull": false,
+        "ignorePrevStateUnknown": false,
+        "ignorePrevStateUnavailable": false,
+        "ignoreCurrentStateUnknown": true,
+        "ignoreCurrentStateUnavailable": true,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "string",
+                "valueType": "entityState"
+            }
+        ],
+        "x": 230,
+        "y": 1040,
+        "wires": [
+            [
+                "f1a1nukikt0rstrbe"
+            ]
+        ]
+    },
+    {
+        "id": "f1a1nukikt0sunav",
+        "type": "switch",
+        "z": "caf02dc9a5b73890",
+        "name": "unavailable?",
+        "property": "payload",
+        "propertyType": "msg",
+        "checkall": "true",
+        "repair": false,
+        "rules": [
+            {
+                "t": "eq",
+                "v": "unavailable",
+                "vt": "str"
+            }
+        ],
+        "outputs": 1,
+        "x": 450,
+        "y": 1140,
+        "wires": [
+            [
+                "92d99604fdb43064",
+                "20c36d80ab1a4a25"
+            ]
+        ]
+    },
+    {
+        "id": "f1a1nukikt0sconn",
+        "type": "server-state-changed",
+        "z": "caf02dc9a5b73890",
+        "name": "Kellertür-Schloss Connected (HA)",
+        "server": "3e07f44559793d55",
+        "version": 6,
+        "outputs": 1,
+        "exposeAsEntityConfig": "",
+        "entities": {
+            "entity": [
+                "lock.kellertur_schloss"
+            ],
+            "substring": [],
+            "regex": []
+        },
+        "outputInitially": false,
+        "stateType": "str",
+        "ifState": "",
+        "ifStateType": "str",
+        "ifStateOperator": "is",
+        "outputOnlyOnStateChange": true,
+        "for": "0",
+        "forType": "num",
+        "forUnits": "minutes",
+        "ignorePrevStateNull": false,
+        "ignorePrevStateUnknown": false,
+        "ignorePrevStateUnavailable": false,
+        "ignoreCurrentStateUnknown": false,
+        "ignoreCurrentStateUnavailable": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "string",
+                "valueType": "entityState"
+            }
+        ],
+        "x": 230,
+        "y": 1140,
+        "wires": [
+            [
+                "f1a1nukikt0sunav"
+            ]
+        ]
+    },
+    {
+        "id": "f1a1nukikt0runav",
+        "type": "switch",
+        "z": "caf02dc9a5b73890",
+        "name": "unavailable?",
+        "property": "payload",
+        "propertyType": "msg",
+        "checkall": "true",
+        "repair": false,
+        "rules": [
+            {
+                "t": "eq",
+                "v": "unavailable",
+                "vt": "str"
+            }
+        ],
+        "outputs": 1,
+        "x": 450,
+        "y": 1220,
+        "wires": [
+            [
+                "593bfd943b6288c7",
+                "849812f1d8613a71"
+            ]
+        ]
+    },
+    {
+        "id": "f1a1nukikt0rconn",
+        "type": "server-state-changed",
+        "z": "caf02dc9a5b73890",
+        "name": "Kellertür-Riegel Connected (HA)",
+        "server": "3e07f44559793d55",
+        "version": 6,
+        "outputs": 1,
+        "exposeAsEntityConfig": "",
+        "entities": {
+            "entity": [
+                "lock.kellertuer_riegel"
+            ],
+            "substring": [],
+            "regex": []
+        },
+        "outputInitially": false,
+        "stateType": "str",
+        "ifState": "",
+        "ifStateType": "str",
+        "ifStateOperator": "is",
+        "outputOnlyOnStateChange": true,
+        "for": "0",
+        "forType": "num",
+        "forUnits": "minutes",
+        "ignorePrevStateNull": false,
+        "ignorePrevStateUnknown": false,
+        "ignorePrevStateUnavailable": false,
+        "ignoreCurrentStateUnknown": false,
+        "ignoreCurrentStateUnavailable": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "string",
+                "valueType": "entityState"
+            }
+        ],
+        "x": 230,
+        "y": 1220,
+        "wires": [
+            [
+                "f1a1nukikt0runav"
+            ]
+        ]
     }
 ]
