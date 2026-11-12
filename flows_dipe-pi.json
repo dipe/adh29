@@ -8120,19 +8120,44 @@
     },
     {
         "id": "64a5b05c05d56e87",
-        "type": "mqtt in",
+        "type": "server-state-changed",
         "z": "062848eb6508a3a6",
-        "name": "",
-        "topic": "pinpad-haustuer/pin",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "c349b9ff.9dc4c8",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 210,
-        "y": 1640,
+        "name": "Pinpad Haustür PIN (HA)",
+        "server": "3e07f44559793d55",
+        "version": 6,
+        "outputs": 1,
+        "exposeAsEntityConfig": "",
+        "entities": {
+            "entity": [
+                "sensor.treppenhaus_eg_pinpad_haustuer_pincode"
+            ],
+            "substring": [],
+            "regex": []
+        },
+        "outputInitially": false,
+        "stateType": "str",
+        "ifState": "",
+        "ifStateType": "str",
+        "ifStateOperator": "is",
+        "outputOnlyOnStateChange": true,
+        "for": "0",
+        "forType": "num",
+        "forUnits": "minutes",
+        "ignorePrevStateNull": false,
+        "ignorePrevStateUnknown": true,
+        "ignorePrevStateUnavailable": true,
+        "ignoreCurrentStateUnknown": true,
+        "ignoreCurrentStateUnavailable": true,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "string",
+                "valueType": "entityState"
+            }
+        ],
+        "x": 230,
+        "y": 760,
         "wires": [
             [
                 "15e93c1ed910ea48"
@@ -8157,9 +8182,7 @@
             [
                 "bf6820b1163f0e66"
             ],
-            [
-                "21d74c775c0dae39"
-            ],
+            [],
             [
                 "4567b39c81f033d0"
             ]
@@ -8490,24 +8513,6 @@
         ]
     },
     {
-        "id": "21d74c775c0dae39",
-        "type": "mqtt out",
-        "z": "062848eb6508a3a6",
-        "name": "",
-        "topic": "pinpad-haustuer/pin",
-        "qos": "",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "c349b9ff.9dc4c8",
-        "x": 1100,
-        "y": 1980,
-        "wires": []
-    },
-    {
         "id": "1115534ca85e31f3",
         "type": "flogger",
         "z": "062848eb6508a3a6",
@@ -8547,28 +8552,10 @@
         "y": 860,
         "wires": [
             [
-                "95140f2733bded5b",
+                "f1a1pinpad0beeeep",
                 "c0b9ffd95cb92ba3"
             ]
         ]
-    },
-    {
-        "id": "95140f2733bded5b",
-        "type": "mqtt out",
-        "z": "062848eb6508a3a6",
-        "name": "",
-        "topic": "pinpad-haustuer/beeeep",
-        "qos": "",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "c349b9ff.9dc4c8",
-        "x": 870,
-        "y": 860,
-        "wires": []
     },
     {
         "id": "38252e61060e0a59",
@@ -8591,45 +8578,9 @@
         "y": 900,
         "wires": [
             [
-                "cc5a227a5358cf14"
+                "f1a1pinpad0beeep1"
             ]
         ]
-    },
-    {
-        "id": "cc5a227a5358cf14",
-        "type": "mqtt out",
-        "z": "062848eb6508a3a6",
-        "name": "",
-        "topic": "pinpad-haustuer/beeep",
-        "qos": "",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "c349b9ff.9dc4c8",
-        "x": 870,
-        "y": 900,
-        "wires": []
-    },
-    {
-        "id": "eb8392c5c332f821",
-        "type": "mqtt out",
-        "z": "062848eb6508a3a6",
-        "name": "",
-        "topic": "pinpad-haustuer/beeep",
-        "qos": "",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "c349b9ff.9dc4c8",
-        "x": 850,
-        "y": 640,
-        "wires": []
     },
     {
         "id": "cb816aa78cf4b284",
@@ -8661,7 +8612,7 @@
         "y": 620,
         "wires": [
             [
-                "eb8392c5c332f821",
+                "f1a1pinpad0beeep1",
                 "f1a1nuki0route01"
             ]
         ]
@@ -9854,42 +9805,6 @@
         "wires": []
     },
     {
-        "id": "7f9908d6b186db84",
-        "type": "mqtt out",
-        "z": "062848eb6508a3a6",
-        "name": "",
-        "topic": "pinpad-haustuer/beeep",
-        "qos": "",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "c349b9ff.9dc4c8",
-        "x": 1470,
-        "y": 1520,
-        "wires": []
-    },
-    {
-        "id": "1ac04bc0a98ecfdd",
-        "type": "mqtt out",
-        "z": "062848eb6508a3a6",
-        "name": "",
-        "topic": "pinpad-haustuer/beeep",
-        "qos": "",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "c349b9ff.9dc4c8",
-        "x": 1190,
-        "y": 1780,
-        "wires": []
-    },
-    {
         "id": "f43d202b4ad924ed",
         "type": "template",
         "z": "062848eb6508a3a6",
@@ -9966,24 +9881,6 @@
         ]
     },
     {
-        "id": "6e72ca2876405541",
-        "type": "mqtt out",
-        "z": "062848eb6508a3a6",
-        "name": "",
-        "topic": "pinpad-haustuer/beeep",
-        "qos": "",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "c349b9ff.9dc4c8",
-        "x": 1190,
-        "y": 1600,
-        "wires": []
-    },
-    {
         "id": "93c033630b6b3907",
         "type": "debounce",
         "z": "062848eb6508a3a6",
@@ -10031,7 +9928,7 @@
         "y": 1520,
         "wires": [
             [
-                "7f9908d6b186db84"
+                "f1a1pinpad0beeep1"
             ]
         ]
     },
@@ -10056,7 +9953,7 @@
         "y": 1600,
         "wires": [
             [
-                "6e72ca2876405541"
+                "f1a1pinpad0beeep1"
             ]
         ]
     },
@@ -10081,7 +9978,7 @@
         "y": 1780,
         "wires": [
             [
-                "1ac04bc0a98ecfdd"
+                "f1a1pinpad0beeep1"
             ]
         ]
     },
@@ -18929,6 +18826,64 @@
             [
                 "5edd186ce27e855d"
             ]
+        ]
+    },
+    {
+        "id": "f1a1pinpad0beeeep",
+        "type": "api-call-service",
+        "z": "062848eb6508a3a6",
+        "name": "Pinpad Beep lang (HA)",
+        "server": "3e07f44559793d55",
+        "version": 7,
+        "debugenabled": false,
+        "action": "esphome.pinpad_haustuer_send_beep",
+        "floorId": [],
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [],
+        "labelId": [],
+        "data": "{\"type\": \"beeeep\"}",
+        "dataType": "json",
+        "mergeContext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "blockInputOverrides": false,
+        "domain": "esphome",
+        "service": "pinpad_haustuer_send_beep",
+        "x": 760,
+        "y": 860,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f1a1pinpad0beeep1",
+        "type": "api-call-service",
+        "z": "062848eb6508a3a6",
+        "name": "Pinpad Beep kurz (HA)",
+        "server": "3e07f44559793d55",
+        "version": 7,
+        "debugenabled": false,
+        "action": "esphome.pinpad_haustuer_send_beep",
+        "floorId": [],
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [],
+        "labelId": [],
+        "data": "{\"type\": \"beeep\"}",
+        "dataType": "json",
+        "mergeContext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "blockInputOverrides": false,
+        "domain": "esphome",
+        "service": "pinpad_haustuer_send_beep",
+        "x": 760,
+        "y": 900,
+        "wires": [
+            []
         ]
     }
 ]
