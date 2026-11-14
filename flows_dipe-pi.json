@@ -74,7 +74,7 @@
         "id": "2864a3ad124f74a0",
         "type": "tab",
         "label": "Fehler-Alarmierung",
-        "disabled": false,
+        "disabled": true,
         "info": "Fängt Fehler aus allen aktiven Tabs ab, filtert das bekannte kosmetische ha-sensor-NoConnectionError-Rauschen beim Deploy/Neustart (erste 15s), und pusht den Rest via notify.peter_only.",
         "env": []
     },
