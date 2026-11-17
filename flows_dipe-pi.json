@@ -8172,7 +8172,7 @@
         "y": 1820,
         "wires": [
             [
-                "15e93c1ed910ea48"
+                "f1a1pinpadht0strip"
             ]
         ]
     },
@@ -11075,7 +11075,7 @@
         "y": 2220,
         "wires": [
             [
-                "db41c8100b656c43"
+                "f1a1pinpadkt0strip"
             ]
         ]
     },
@@ -19339,6 +19339,60 @@
         "wires": [
             [
                 "5edd186ce27e855d"
+            ]
+        ]
+    },
+    {
+        "id": "f1a1pinpadkt0strip",
+        "type": "change",
+        "z": "caf02dc9a5b73890",
+        "name": "Zähler-Suffix entfernen",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "$split(payload, \"#\")[0]",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 300,
+        "y": 2220,
+        "wires": [
+            [
+                "db41c8100b656c43"
+            ]
+        ]
+    },
+    {
+        "id": "f1a1pinpadht0strip",
+        "type": "change",
+        "z": "062848eb6508a3a6",
+        "name": "Zähler-Suffix entfernen",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "$split(payload, \"#\")[0]",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 300,
+        "y": 1820,
+        "wires": [
+            [
+                "15e93c1ed910ea48"
             ]
         ]
     }
