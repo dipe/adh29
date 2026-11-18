@@ -8131,52 +8131,6 @@
         "wires": []
     },
     {
-        "id": "64a5b05c05d56e87",
-        "type": "server-state-changed",
-        "z": "062848eb6508a3a6",
-        "name": "Pinpad Haustür PIN (HA)",
-        "server": "3e07f44559793d55",
-        "version": 6,
-        "outputs": 1,
-        "exposeAsEntityConfig": "",
-        "entities": {
-            "entity": [
-                "sensor.treppenhaus_eg_pinpad_haustuer_pincode"
-            ],
-            "substring": [],
-            "regex": []
-        },
-        "outputInitially": false,
-        "stateType": "str",
-        "ifState": "",
-        "ifStateType": "str",
-        "ifStateOperator": "is",
-        "outputOnlyOnStateChange": false,
-        "for": "0",
-        "forType": "num",
-        "forUnits": "minutes",
-        "ignorePrevStateNull": false,
-        "ignorePrevStateUnknown": false,
-        "ignorePrevStateUnavailable": true,
-        "ignoreCurrentStateUnknown": true,
-        "ignoreCurrentStateUnavailable": true,
-        "outputProperties": [
-            {
-                "property": "payload",
-                "propertyType": "msg",
-                "value": "string",
-                "valueType": "entityState"
-            }
-        ],
-        "x": 210,
-        "y": 1820,
-        "wires": [
-            [
-                "15e93c1ed910ea48"
-            ]
-        ]
-    },
-    {
         "id": "493b45377f6017c2",
         "type": "function",
         "z": "062848eb6508a3a6",
@@ -19359,6 +19313,72 @@
         "wires": [
             [
                 "5edd186ce27e855d"
+            ]
+        ]
+    },
+    {
+        "id": "f1a1pinev0extract_ht",
+        "type": "change",
+        "z": "062848eb6508a3a6",
+        "name": "PIN extrahieren",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "$substring(payload.event.pin, 1)",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 230,
+        "y": 1860,
+        "wires": [
+            [
+                "15e93c1ed910ea48"
+            ]
+        ]
+    },
+    {
+        "id": "f1a1pinev0events_ht",
+        "type": "server-events",
+        "z": "062848eb6508a3a6",
+        "name": "Pin Event",
+        "server": "3e07f44559793d55",
+        "version": 3,
+        "exposeAsEntityConfig": "",
+        "eventType": "esphome.pinpad_haustuer_pin_eingegeben",
+        "eventData": "",
+        "waitForRunning": true,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "eventData"
+            },
+            {
+                "property": "topic",
+                "propertyType": "msg",
+                "value": "$outputData(\"eventData\").event_type",
+                "valueType": "jsonata"
+            },
+            {
+                "property": "event_type",
+                "propertyType": "msg",
+                "value": "$outputData(\"eventData\").event_type",
+                "valueType": "jsonata"
+            }
+        ],
+        "x": 170,
+        "y": 1820,
+        "wires": [
+            [
+                "f1a1pinev0extract_ht"
             ]
         ]
     }
