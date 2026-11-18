@@ -8151,7 +8151,7 @@
         "ifState": "",
         "ifStateType": "str",
         "ifStateOperator": "is",
-        "outputOnlyOnStateChange": true,
+        "outputOnlyOnStateChange": false,
         "for": "0",
         "forType": "num",
         "forUnits": "minutes",
@@ -8172,7 +8172,7 @@
         "y": 1820,
         "wires": [
             [
-                "f1a1pinpadht0strip"
+                "15e93c1ed910ea48"
             ]
         ]
     },
@@ -10990,7 +10990,7 @@
         "links": [
             "68510defdfc4e9d1"
         ],
-        "x": 295,
+        "x": 315,
         "y": 2440,
         "wires": []
     },
@@ -11034,52 +11034,6 @@
         "wires": []
     },
     {
-        "id": "7e4f29adf12f0a96",
-        "type": "server-state-changed",
-        "z": "caf02dc9a5b73890",
-        "name": "Pinpad Kellertür PIN (HA)",
-        "server": "3e07f44559793d55",
-        "version": 6,
-        "outputs": 1,
-        "exposeAsEntityConfig": "",
-        "entities": {
-            "entity": [
-                "sensor.waschkuche_pinpad_kellertuer_pincode"
-            ],
-            "substring": [],
-            "regex": []
-        },
-        "outputInitially": false,
-        "stateType": "str",
-        "ifState": "",
-        "ifStateType": "str",
-        "ifStateOperator": "is",
-        "outputOnlyOnStateChange": true,
-        "for": "0",
-        "forType": "num",
-        "forUnits": "minutes",
-        "ignorePrevStateNull": false,
-        "ignorePrevStateUnknown": false,
-        "ignorePrevStateUnavailable": true,
-        "ignoreCurrentStateUnknown": true,
-        "ignoreCurrentStateUnavailable": true,
-        "outputProperties": [
-            {
-                "property": "payload",
-                "propertyType": "msg",
-                "value": "string",
-                "valueType": "entityState"
-            }
-        ],
-        "x": 190,
-        "y": 2220,
-        "wires": [
-            [
-                "f1a1pinpadkt0strip"
-            ]
-        ]
-    },
-    {
         "id": "6b5343740447d15e",
         "type": "link out",
         "z": "caf02dc9a5b73890",
@@ -11088,7 +11042,7 @@
         "links": [
             "276c3158b7e4acb2"
         ],
-        "x": 975,
+        "x": 995,
         "y": 2360,
         "wires": []
     },
@@ -11112,7 +11066,7 @@
             "e6f9343995adbf1a",
             "5d08ca0b4ff31332"
         ],
-        "x": 95,
+        "x": 115,
         "y": 2560,
         "wires": [
             [
@@ -11130,7 +11084,7 @@
         "links": [
             "a30ad159a4a28a4d"
         ],
-        "x": 975,
+        "x": 995,
         "y": 2480,
         "wires": []
     },
@@ -11146,7 +11100,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 230,
+        "x": 250,
         "y": 2560,
         "wires": [
             [
@@ -11165,7 +11119,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 320,
+        "x": 340,
         "y": 2600,
         "wires": [
             [
@@ -11289,7 +11243,7 @@
         "bytopic": "all",
         "topic": "topic",
         "outputs": 1,
-        "x": 1030,
+        "x": 1050,
         "y": 2440,
         "wires": [
             [
@@ -11316,7 +11270,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1230,
+        "x": 1250,
         "y": 2440,
         "wires": [
             []
@@ -11335,7 +11289,7 @@
         "loglevel": "INFO",
         "logconfig": "8929498a4f6d4a2d",
         "sendpane": "",
-        "x": 210,
+        "x": 230,
         "y": 2520,
         "wires": [
             []
@@ -11711,7 +11665,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 330,
+        "x": 350,
         "y": 2400,
         "wires": [
             [
@@ -11731,7 +11685,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 620,
+        "x": 640,
         "y": 2400,
         "wires": [
             [
@@ -11751,7 +11705,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 800,
+        "x": 820,
         "y": 2400,
         "wires": [
             [
@@ -13002,7 +12956,7 @@
         "host": "kellertuer-schloss.fritz.box",
         "timer": "20",
         "inputs": 0,
-        "x": 180,
+        "x": 200,
         "y": 2740,
         "wires": [
             [
@@ -13020,7 +12974,7 @@
         "host": "kellertuer-riegel.fritz.box",
         "timer": "20",
         "inputs": 0,
-        "x": 180,
+        "x": 200,
         "y": 2780,
         "wires": [
             [
@@ -13039,7 +12993,7 @@
         "syntax": "mustache",
         "template": "{{topic}} reagiert nicht auf Ping!",
         "output": "str",
-        "x": 560,
+        "x": 580,
         "y": 2760,
         "wires": [
             [
@@ -13056,7 +13010,7 @@
         "links": [
             "a30ad159a4a28a4d"
         ],
-        "x": 715,
+        "x": 735,
         "y": 2760,
         "wires": []
     },
@@ -13077,7 +13031,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 370,
+        "x": 390,
         "y": 2760,
         "wires": [
             [
@@ -13091,7 +13045,7 @@
         "z": "caf02dc9a5b73890",
         "name": "Nuk Wifi-Verbindung wackelt?",
         "info": "Nukis müssen anscheinend Internetverbindung haben, um sich nicht zu verhaspeln\nAußerdem muss anscheinend bei Netzteilbetrieb Batterietyp auf alkalisch gesetzt sein und\nPerformace auf Automatisch.",
-        "x": 200,
+        "x": 220,
         "y": 2700,
         "wires": []
     },
@@ -13327,7 +13281,7 @@
         ],
         "inputOverride": "allow",
         "outputProperties": [],
-        "x": 510,
+        "x": 530,
         "y": 2560,
         "wires": [
             []
@@ -13443,7 +13397,7 @@
         "outputs": 1,
         "entityConfig": "9967bcb0a18ec6ac",
         "outputProperties": [],
-        "x": 140,
+        "x": 160,
         "y": 2400,
         "wires": [
             [
@@ -13460,7 +13414,7 @@
         "outputs": 1,
         "entityConfig": "8936a77682ae2ddd",
         "outputProperties": [],
-        "x": 160,
+        "x": 180,
         "y": 2440,
         "wires": [
             [
@@ -13477,7 +13431,7 @@
         "outputs": 1,
         "entityConfig": "e3c7b8503cbaa07b",
         "outputProperties": [],
-        "x": 150,
+        "x": 170,
         "y": 2600,
         "wires": [
             [
@@ -13865,7 +13819,7 @@
         "blockInputOverrides": false,
         "domain": "esphome",
         "service": "pinpad_kellertuer_send_beep",
-        "x": 910,
+        "x": 930,
         "y": 2560,
         "wires": [
             []
@@ -14404,7 +14358,7 @@
             "43e1d0b3133032da",
             "22ee13e81ba6cd7b"
         ],
-        "x": 685,
+        "x": 705,
         "y": 2560,
         "wires": [
             [
@@ -14660,6 +14614,72 @@
         "wires": [
             [
                 "f1a1ktsensor0inv1"
+            ]
+        ]
+    },
+    {
+        "id": "f1a1pinev0extract",
+        "type": "change",
+        "z": "caf02dc9a5b73890",
+        "name": "PIN extrahieren",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "$substring(payload.event.pin, 1)",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 220,
+        "y": 2220,
+        "wires": [
+            [
+                "db41c8100b656c43"
+            ]
+        ]
+    },
+    {
+        "id": "f1a1pinev0events",
+        "type": "server-events",
+        "z": "caf02dc9a5b73890",
+        "name": "Pin Event",
+        "server": "3e07f44559793d55",
+        "version": 3,
+        "exposeAsEntityConfig": "",
+        "eventType": "esphome.pinpad_kellertuer_pin_eingegeben",
+        "eventData": "",
+        "waitForRunning": true,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "eventData"
+            },
+            {
+                "property": "topic",
+                "propertyType": "msg",
+                "value": "$outputData(\"eventData\").event_type",
+                "valueType": "jsonata"
+            },
+            {
+                "property": "event_type",
+                "propertyType": "msg",
+                "value": "$outputData(\"eventData\").event_type",
+                "valueType": "jsonata"
+            }
+        ],
+        "x": 160,
+        "y": 2180,
+        "wires": [
+            [
+                "f1a1pinev0extract"
             ]
         ]
     },
@@ -19339,60 +19359,6 @@
         "wires": [
             [
                 "5edd186ce27e855d"
-            ]
-        ]
-    },
-    {
-        "id": "f1a1pinpadkt0strip",
-        "type": "change",
-        "z": "caf02dc9a5b73890",
-        "name": "Zähler-Suffix entfernen",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "$split(payload, \"#\")[0]",
-                "tot": "jsonata"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 300,
-        "y": 2220,
-        "wires": [
-            [
-                "db41c8100b656c43"
-            ]
-        ]
-    },
-    {
-        "id": "f1a1pinpadht0strip",
-        "type": "change",
-        "z": "062848eb6508a3a6",
-        "name": "Zähler-Suffix entfernen",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "$split(payload, \"#\")[0]",
-                "tot": "jsonata"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 300,
-        "y": 1820,
-        "wires": [
-            [
-                "15e93c1ed910ea48"
             ]
         ]
     }
